@@ -164,7 +164,7 @@ G2 offsets by build, keyed by binary, not by version:
 | 8.5.10 | 0x14c1b60 | 0x14c6160 | ET_EXEC | live G2, marker created |
 | 8.4.25 | 0xe01180 | 0xe03a60 | ET_EXEC | static derivation, no live run |
 | 8.1.34 | 0xe01140 | 0xe02fb0 | ET_EXEC | static derivation, no live run |
-| 7.4.33 | 0xe010a0 | 0xe02df0 | ET_EXEC | static derivation, writeport 4/4 |
+| 7.4.33 | 0xe010a0 | 0xe02df0 | ET_EXEC | static derivation; the write shape was reproduced 4/4, G2 not run live |
 
 The fix does not remove the write primitive; it removes the stale global that
 lets the attacker choose P and B0. `ps_serializers` and `ps_globals` are build
