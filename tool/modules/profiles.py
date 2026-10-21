@@ -110,7 +110,10 @@ TARGETS = {
         "status": "run (producer wired, dry default; arm receipt "
             "run_20261021T155303Z_armoom; leak_offset 0x2188 measured "
             "build-specific on libphp md5 92f76e84a77bf8b56c45c3868fa29a6c; "
-            "modphp chain unproven)",
+            "pDestructor superglobal teardown lane CLOSED: fast_shutdown=1 "
+            "skips zend_hash_graceful_reverse_destroy(EG(symbol_table)), so "
+            "POST rc stays 1 and no auto global table is destroyed; FPM "
+            "serializer lane (G2) is the open path)",
     },
 }
 
