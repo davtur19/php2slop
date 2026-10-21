@@ -1,0 +1,44 @@
+ wedge receipts battery B3 (mm, preloaded full frozen profile), php 5.6.40, 2026-10-21
+# wedged worker pid=3874777, /proc receipts first, then gdb -p batch bt (no sudo, own process)
+
+/proc/3874777/status: State: S (sleeping)
+/proc/3874777/wchan: locks_lock_inode_wait
+/proc/3874777/syscall: 73 0x6 0x2 0x0 0x180 0x0 0x0 0x7ffe5d029ed8 0x7f2a0810bec7
+   (syscall 73 = flock, fd=0x6, op=0x2 = LOCK_EX blocking)
+
+run1 (identical arm): 0-byte close, EOF=true, worker survived, no log line for the arm itself;
+   OOM text attached to the NEXT probe's log line (cli-server log attribution quirk)
+run2 (identical arm): 0-byte close, EOF=FALSE (30s client deadline, no close), post-probe "(none)"
+
+gdb -p 3874777 -batch -ex 'bt 25':
+
+#0  0x00007f2a0810bec7 in flock () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00005593ff760d36 in ps_files_open (data=0x7f2a079d41c8, key=<optimized out>) at ext/session/mod_files.c:171
+#2  0x00005593ff760ff3 in ps_read_files (mod_data=<optimized out>, key=<optimized out>, val=0x7f2a06027ec0, vallen=0x7f2a06027eb0) at ext/session/mod_files.c:369
+#3  0x00005593ff75bd63 in php_session_initialize () at ext/session/session.c:507
+#4  0x00005593ff75c05d in php_session_rfc1867_update (progress=..., force_update=0) at ext/session/session.c:2645
+#5  0x00005593ff75e868 in php_session_rfc1867_callback (event=..., event_data=...) at ext/session/session.c:2782
+#6  0x00005593ff929149 in rfc1867_post_handler (...) at main/rfc1867.c:981
+#7  0x00005593ff920b2c in sapi_handle_post (arg=...) at main/SAPI.c:185
+#8  0x00005593ff931336 in php_default_treat_data (...) at main/php_variables.c:411
+#9  0x00005593ff92d9e4 in php_auto_globals_create_post (...) at main/php_variables.c:753
+#10 zend_auto_global_init Zend/zend_compile.c:6894
+#11 zend_hash_apply Zend/zend_hash.c:641
+#12 zend_activate_auto_globals Zend/zend_compile.c:6904
+#13 php_hash_environment main/php_variables.c:714
+#14 php_request_startup main/main.c:1685
+#15 php_cli_server_request_startup sapi/cli/php_cli_server.c:2129
+#16 php_cli_server_dispatch sapi/cli/php_cli_server.c:2199
+#17 php_cli_server_recv_event_read_request sapi/cli/php_cli_server.c:2401
+#18 php_cli_server_do_event_for_each_fd_callback sapi/cli/php_cli_server.c:2492
+#19 php_cli_server_poller_iter_on_active sapi/cli/php_cli_server.c:964
+#20 php_cli_server_do_event_for_each_fd sapi/cli/php_cli_server.c:2513
+#21 php_cli_server_do_event_loop sapi/cli/php_cli_server.c:2523
+#22 do_cli_server sapi/cli/php_cli_server.c:2624
+#23 main sapi/cli/php_cli.c:1385
+
+meaning: run2's request was still in php_request_startup ($_POST auto-global materialization)
+when it deadlock-waited in flock(LOCK_EX) on sess_abcdefgh (mod_files.c:171) —
+the flock owner is a file fd leaked by run1's memory-limit bailout (same process;
+flock is not owner-affine across fds, so the process blocks itself forever).
+run3 was never served: the single-request worker is permanently wedged.

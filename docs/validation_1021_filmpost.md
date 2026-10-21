@@ -33,3 +33,10 @@ Artifacts: harnesses/runs/{diag3_arm_oom.py,diag4_repeat_arm.py,diag5_asan.py,di
 - diag5's divergence (459→313) + SEGV replay: caused by the on-disk state LEFTOVER — the alloc_malloc run (memory_limit inert) had completed a full machinery record flush to /tmp; the alloc_mm run re-READ that file (ps_srlzr_decode_php) → different serialization trajectory → SEGV. It is disk-session-state poisoning, NOT a pure-OOM BG-context UAF.
 - Realapps/stock fpm worker: survives all repeats (diag4), no reuse.
 ⇒ corrected-article mechanism needs an ATTACKER-CONTROLLED session record on disk, not only the OOM arm. The poisoned-record family (fuzz seed receipt at session.c:3155) is the operative substrate.
+
+## PHP 5.6.40 parity (php5lab ASAN, builtin :28844)
+- Guard parity via MACRO level-sharing: PHP_VAR_SERIALIZE_INIT (php_var.h:55/73) shares var_hash while level>0 & unlocked; no php_var_serialize_init fn; php_var_serialize itself has NO re-entry lock; Z_TRY_ADDREF absent (record via ZEND_SET_SYMBOL_WITH_LENGTH refcount=2, session.c:2649).
+- USE_ZEND_ALLOC=0 disables memory_limit in 5.6 (control-tested) — ASAN/malloc batteries inert to the arm.
+- Deterministic wedge battery (record 4,984,736B on disk, same arm x3): run1 OOM inside machinery in php_request_startup, leaked flock-locked session fd; run2 self-deadlocks flock(LOCK_EX) ps_files_open:171 <- ps_read_files:369 <- php_session_initialize:507 <- rfc1867_update:2645 <- ... php_request_startup:1685; run3 unserviced. Worker permanently wedged, sess file byte-identical. Reproduced ×3 (gdb-resolved receipt).
+- Empty-baseline battery C: deterministic per-request OOM death 327B cap, no poison.
+⇒ cross-version: family fences differ by SAPI/allocator but disk-session-record state + arm machinery OOM/bail leak produces deterministic cross-request wedging on 5.6; on 8.5 the analogous window is the decode-path state (diag5/6)... the planted-record substrate is the card to play for RCE.
