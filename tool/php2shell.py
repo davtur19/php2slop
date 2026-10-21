@@ -20,6 +20,7 @@ sys.path.insert(0, str(HERE.parent))  # allow script-mode package imports
 
 from tool.modules import profiles  # noqa: E402  (after HERE bootstrap)
 from tool.modules import producer_fpmwiki as producer_stage  # noqa: E402
+from tool.modules import producer_modphp as modphp_producer_stage  # noqa: E402
 from tool.stages import probe as probe_stage  # noqa: E402
 
 
@@ -79,16 +80,53 @@ def run_producer_step(
     output: Path,
     live: bool,
     timeout: float,
+    target_name: str | None = None,
+    path: str | None = None,
+    memory_limit: str | None = None,
+    sid: str | None = None,
 ) -> tuple[dict, Path]:
-    """Producer stage entrypoint: dry byte-build by default, --live to fire."""
-    if live:
-        summary = producer_stage.fire(host, port, body_bytes, output, timeout=timeout)
+    """Producer stage entrypoint, routed by the target's registered stage.
+
+    dry byte-build by default, --live to fire. Targets without a registered
+    producer stage fall back to producer_fpmwiki (the only receipt-laddered
+    stage at registration time).
+    """
+    stage_name = (profiles.TARGETS.get(target_name) or {}).get(
+        "producer_stage", "producer_fpmwiki")
+    if stage_name == "producer_modphp":
+        knob = memory_limit or (profiles.TARGETS.get(target_name) or {}).get(
+            "memory_limit_knob")
+        if live:
+            if sid is None:
+                raise ValueError(
+                    "--live modphp producer requires --sid (32 hex chars, "
+                    "Cookie: PHPSESSID transport)"
+                )
+            summary = modphp_producer_stage.fire(
+                host, port, body_bytes, output, knob, sid,
+                timeout=timeout, path=path or modphp_producer_stage.PATH,
+            )
+        else:
+            sid_bytes = sid.encode("ascii") if sid else modphp_producer_stage.DEFAULT_SID
+            summary = modphp_producer_stage.dry(
+                host_header, body_bytes, output, knob, sid=sid_bytes)
     else:
-        summary = producer_stage.dry(host_header, body_bytes, output)
+        summary = producer_fpmwiki_fire_or_dry(
+            host, port, host_header, body_bytes, output, live, timeout)
     summary["step"] = "producer"
     rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     (output / "result.json").write_text(rendered)
     return summary, output / "result.json"
+
+
+def producer_fpmwiki_fire_or_dry(
+    host: str, port: int, host_header: str, body_bytes: int, output: Path,
+    live: bool, timeout: float,
+) -> dict:
+    """Existing fpmwiki producer lane (offline file: producer_fpmwiki.py)."""
+    if live:
+        return producer_stage.fire(host, port, body_bytes, output, timeout=timeout)
+    return producer_stage.dry(host_header, body_bytes, output)
 
 
 def parse_url(value: str) -> tuple[str, int, str, str]:
@@ -473,6 +511,18 @@ def main() -> int:
     )
     live_group.add_argument("--dry-run", action="store_true", help="default, accepted explicitly")
     live_group.add_argument("--build-only", action="store_true", help="alias of --dry-run")
+    parser.add_argument(
+        "--memory-limit",
+        default=None,
+        help="producer (modphp): server-side php memory_limit knob value "
+        "(overrides the TARGETS record; absence/128M is a pre-flight failure)",
+    )
+    parser.add_argument(
+        "--sid",
+        default=None,
+        help="producer (modphp): dry sid override (receipt: labprobe123) or "
+        "32-hex sid for --live (Cookie: PHPSESSID transport)",
+    )
 
 
     parser.add_argument(
@@ -502,18 +552,22 @@ def main() -> int:
         )
 
     profile_name = args.profile
-    if profile_name is None:
-        try:
-            profile_name = profiles.profile_for(target_name, url_target=(target_name is None))
-        except ValueError as error:
-            parser.error(str(error))
+    if args.step != "producer":
+        # the producer step is a byte-build stage: no binary-profile constants
+        # are needed (modphp has an address json but no measured profile yet).
+        if profile_name is None:
+            try:
+                profile_name = profiles.profile_for(target_name, url_target=(target_name is None))
+            except ValueError as error:
+                parser.error(str(error))
 
     try:
         host, port, path, host_header = parse_url(url)
     except ValueError as error:
         parser.error(str(error))
 
-    if PROFILE["name"] != profile_name:
+    if profile_name and PROFILE["name"] != profile_name:
+        # profile_name is None only on the --step producer byte-build path
         PROFILE.clear()
         PROFILE.update(BINARY_PROFILES[profile_name])
 
@@ -525,8 +579,15 @@ def main() -> int:
         parser.error("lport must be between 1 and 65535")
 
     if args.step == "producer":
+        producer_stage_name = (profiles.TARGETS.get(target_name) or {}).get(
+            "producer_stage", "producer_fpmwiki")
+        producer_stage_module = (
+            modphp_producer_stage
+            if producer_stage_name == "producer_modphp"
+            else producer_stage
+        )
         try:
-            producer_stage.validate_body_bytes(args.body_bytes)
+            producer_stage_module.validate_body_bytes(args.body_bytes)
         except (TypeError, ValueError) as error:
             parser.error(f"--body-bytes: {error}")
 
@@ -558,6 +619,8 @@ def main() -> int:
             summary, _receipt = run_producer_step(
                 host, port, host_header, args.body_bytes, args.output,
                 live=args.live, timeout=args.timeout,
+                target_name=target_name, path=path,
+                memory_limit=args.memory_limit, sid=args.sid,
             )
         except (ConnectionError, OSError, TimeoutError, ValueError) as error:
             summary = {
@@ -569,6 +632,7 @@ def main() -> int:
                 "error": f"{type(error).__name__}: {error}",
             }
             rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+            args.output.mkdir(parents=True, exist_ok=True)
             (args.output / "result.json").write_text(rendered)
             print(rendered, end="")
             return 2
