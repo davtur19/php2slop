@@ -1,0 +1,13 @@
+{"ts": "2026-10-21T21:59:08", "event": "start", "listen": 29003, "upstream": 29006, "max_inspect": 0}
+{"ts": "2026-10-21T21:59:09", "req": "GET /probe.php HTTP/1.1", "body_len": 0, "max_inspect": 0, "match": false, "match_offset": null, "decision": "forward"}
+{"ts": "2026-10-21T22:02:41", "req": "POST /index.php HTTP/1.1", "body_len": 4983500, "max_inspect": 0, "match": true, "match_offset": 145, "decision": 403}
+{"ts": "2026-10-21T22:02:41", "req": "POST /index.php HTTP/1.1", "body_len": 338, "max_inspect": 0, "match": true, "match_offset": 152, "decision": 403}
+{"ts": "2026-10-21T22:02:41", "req": "POST /upload.php HTTP/1.1", "body_len": 1435, "max_inspect": 0, "match": false, "match_offset": null, "decision": "forward"}
+{"ts": "2026-10-21T22:02:42", "req": "POST /upload.php HTTP/1.1", "body_len": 1463, "max_inspect": 0, "match": true, "match_offset": 76, "decision": 403}
+{"ts": "2026-10-21T22:02:42", "req": "POST /index.php HTTP/1.1", "body_len": 4983404, "max_inspect": 0, "match": false, "match_offset": null, "decision": "forward"}
+{"ts": "2026-10-21T22:02:42", "req": "POST /tokrename/index.php HTTP/1.1", "body_len": 4983500, "max_inspect": 0, "match": true, "match_offset": 145, "decision": 403}
+{"ts": "2026-10-21T22:02:42", "req": "POST /tokrename/index.php HTTP/1.1", "body_len": 4983477, "max_inspect": 0, "match": false, "match_offset": null, "decision": "forward"}
+{"ts": "2026-10-21T22:02:42", "req": "POST /index.php HTTP/1.1", "body_len": 4983500, "max_inspect": 0, "match": true, "match_offset": 4983440, "decision": 403}
+{"ts": "2026-10-21T22:02:43", "req": "POST /index.php HTTP/1.1", "body_len": 4983502, "max_inspect": 0, "match": false, "match_offset": null, "decision": "forward"}
+{"ts": "2026-10-21T22:03:44", "req": "POST /index.php HTTP/1.1", "body_len": 4983500, "max_inspect": 0, "match": true, "match_offset": 145, "decision": 403}
+{"ts": "2026-10-21T22:03:44", "req": "POST /index.php HTTP/1.1", "body_len": 337, "max_inspect": 0, "match": true, "match_offset": 151, "decision": 403}

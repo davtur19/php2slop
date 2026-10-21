@@ -1,0 +1,39 @@
+[21-Oct-2026 19:57:56 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 266240 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21-Oct-2026 20:00:20 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 266240 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21-Oct-2026 20:00:20 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 266240 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21-Oct-2026 20:00:20 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 1314816 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21-Oct-2026 20:00:20 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 1122304 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21-Oct-2026 20:00:54 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 1314816 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21-Oct-2026 20:00:54 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 1314816 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21-Oct-2026 20:00:55 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 1314816 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21-Oct-2026 20:02:33 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 266240 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21-Oct-2026 20:02:34 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 266240 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21-Oct-2026 20:02:34 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 1314816 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21-Oct-2026 20:02:34 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 1122304 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21-Oct-2026 20:03:44 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 266240 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}

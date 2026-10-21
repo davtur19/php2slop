@@ -1,0 +1,9 @@
+2026/10/21 21:56:57 [info] 1054999#0: *3 client 127.0.0.1 closed keepalive connection
+2026/10/21 22:02:34 [error] 1057068#0: *697 client intended to send too large body: 4983500 bytes, client: 127.0.0.1, server: n1, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:29001"
+2026/10/21 22:02:34 [warn] 1057068#0: *698 a client request body is buffered to a temporary file /tmp/opencode/nginx_mitigation_1021/run/client_body/0000000340, client: 127.0.0.1, server: n1, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:29001"
+2026/10/21 22:02:34 [error] 1057068#0: *698 client intended to send too large chunked body: 2097152+65536 bytes, client: 127.0.0.1, server: n1, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:29001"
+2026/10/21 22:02:35 [warn] 1057068#0: *699 a client request body is buffered to a temporary file /tmp/opencode/nginx_mitigation_1021/run/client_body/0000000341, client: 127.0.0.1, server: n1, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:29001"
+2026/10/21 22:02:35 [warn] 1057068#0: *701 a client request body is buffered to a temporary file /tmp/opencode/nginx_mitigation_1021/run/client_body/0000000342, client: 127.0.0.1, server: n1, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:29001"
+2026/10/21 22:03:44 [error] 1057068#0: *802 client intended to send too large body: 4983500 bytes, client: 127.0.0.1, server: n1, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:29001"
+2026/10/21 22:03:44 [warn] 1057068#0: *805 a client request body is buffered to a temporary file /tmp/opencode/nginx_mitigation_1021/run/client_body/0000000365, client: 127.0.0.1, server: n1, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:29001"
+2026/10/21 22:04:30 [error] 1057068#0: *835 client intended to send too large body: 4983508 bytes, client: 127.0.0.1, server: n1, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:29001"

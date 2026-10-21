@@ -1,0 +1,24 @@
+HTTP/1.1 200 OK
+Server: nginx/1.30.1
+Date: Wed, 21 Oct 2026 20:03:44 GMT
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+X-Powered-By: PHP/8.5.10
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+
+e3
+S:count=0
+sid=capcore0000000001
+post_keys=PHPSESSID,PHP_SESSION_UPLOAD_PROGRESS
+files_keys=f
+mem_limit=8M
+post_max=8M
+upg_enabled=1
+upg_name=PHP_SESSION_UPLOAD_PROGRESS
+save_path=/tmp/opencode/nginx_mitigation_1021/sessions/n3
+
+0
+

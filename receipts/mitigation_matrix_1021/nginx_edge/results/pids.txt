@@ -1,0 +1,9 @@
+Measurement services (loopback only), recorded 2026-10-21T22:08:37+02:00
+
+nginx master        : 1054998   (pid file run/nginx.pid)
+nginx worker        : 1057068
+php-fpm master      : 1057044   (pid file run/php-fpm.pid)
+reference shim 29003: 1055991   (bin/shim.py --listen 29003 --upstream-port 29006)
+reference shim 29008: 1055993   (bin/shim.py --listen 29008 --max-inspect 8192)
+
+Now stopping all of them.

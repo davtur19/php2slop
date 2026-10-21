@@ -1,0 +1,6 @@
+{
+  "lane": "N4",
+  "port": 29004,
+  "burst_index": 7,
+  "expect": "429 limit_req_status after burst=5 at rate=10r/m"
+}

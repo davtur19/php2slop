@@ -1,0 +1,6 @@
+{
+  "lane": "N3-refshim",
+  "port": 29003,
+  "body_len": 337,
+  "expect": "403 even for a tiny body: rule is content-only"
+}

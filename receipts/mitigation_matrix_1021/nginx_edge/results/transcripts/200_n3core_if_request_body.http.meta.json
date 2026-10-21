@@ -1,0 +1,6 @@
+{
+  "lane": "N3-core-approx",
+  "port": 29007,
+  "body_len": 337,
+  "expect": "200: if($request_body ~ TOKEN) never fires (body not read at rewrite phase)"
+}

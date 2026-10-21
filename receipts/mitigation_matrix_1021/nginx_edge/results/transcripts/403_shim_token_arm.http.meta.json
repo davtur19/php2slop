@@ -1,0 +1,6 @@
+{
+  "lane": "N3-refshim",
+  "port": 29003,
+  "body_len": 4983500,
+  "expect": "403 from reference token rule; PHP never reached"
+}

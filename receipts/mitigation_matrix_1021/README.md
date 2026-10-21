@@ -13,6 +13,11 @@ Loopback only (127.0.0.1), ports 28980–28995, all files under `/tmp/opencode/m
 No change was made to `/tmp/opencode/realapps`, the `:28850` mod_php lab conf, or any
 php2slop checkout. Details and evidence chains are in `findings.md`; this README is the map.
 
+A second, complementary evidence set — the **nginx edge lanes N0–N4** (ports 29000–29011,
+nginx 1.30.1 with only the ssl module) — is curated under `nginx_edge/` with its own
+`findings.md`. It is a distinct run (different ports/dir) and is not part of the M1–M3 lane
+numbering above. The unified decision document is `docs/mitigation_matrix_1021.md`.
+
 ## Stacks / lanes
 
 | lane | listener (front) | stack | key settings | purpose |
@@ -82,6 +87,13 @@ shapes are unverified — see `findings.md` §7.
 - `results/cgi/*.json`, `results/cgi/cgi_fingerprint/*_meta.json` — bisection + CGI data.
 - `logs/<lane>/` — access log (pid-prefixed / `%P`), fpm/err log, php_err.log, stdout.
 - `logs/nginx/` — front-end access/error log.
+- `nginx_edge/` — curated nginx edge run (N0 control, N1 cap+headroom, N2 cap only,
+  N3 token rule, N4 rate/conn): `conf/` (nginx + FPM + php.ini), `docroot/` (incl. the
+  `.user.ini` rename bypass), `bin/` (arm, battery, headroom, shim, capture, table drivers),
+  `results/` (`table.md`, `lanes.jsonl`, `headroom*.json`, 413/429/403/200 transcripts),
+  selected `logs/` and small session records, and the run's own `findings.md`. The
+  5.4 MB FPM master log and the 1.8–4.98 MB session records are not copied; path+sha256
+  pins are in `inventory.sha256.txt` (`OMITTED` lines).
 
 Not copied: the multi-MB request/response bodies under scratch `steps/` (~5–20 MB each);
 their sizes and sha256 are in `results.jsonl`, and the HTTP-level facts are reproducible with

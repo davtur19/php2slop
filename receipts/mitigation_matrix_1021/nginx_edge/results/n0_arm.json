@@ -1,0 +1,29 @@
+{
+  "mode": "arm",
+  "ts": "2026-10-21T21:57:56",
+  "expected_len": 4983500,
+  "port": 29000,
+  "path": "/index.php",
+  "body_len": 4983500,
+  "chunked": false,
+  "bytes_sent": 4983500,
+  "send_error": null,
+  "http_status": 200,
+  "resp_headers": {
+    "server": "nginx/1.30.1",
+    "date": "Wed, 21 Oct 2026 19:57:56 GMT",
+    "content-type": "text/html; charset=UTF-8",
+    "transfer-encoding": "chunked",
+    "connection": "close",
+    "x-powered-by": "PHP/8.5.10"
+  },
+  "resp_len": 196,
+  "resp_body_head": "0\r\n\r\n",
+  "resp_body_sha256": "a2d4db44cea4414c67798d8875583543d71bc2a89a0881089f3c17a818508dfc",
+  "duration_s": 0.018,
+  "resp_oom": null,
+  "resp_oom_limit": null,
+  "resp_oom_tried": null,
+  "resp_fatal": null,
+  "exact_len_ok": true
+}
