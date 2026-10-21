@@ -76,18 +76,34 @@ TARGETS = {
     "modphp": {
         "name": "modphp",
         "binary_profile": None,
-        "host": None,
-        "port": None,
-        "path": None,
-        "session_save_path": None,
-        "ini": {},
-        "workers": None,
-        "producer_modules": (),
-        # TODO (missing module): no measured per-build constants and no
-        # producer wired for a mod_php SAPI target. Fill in after the
-        # per-binary profile run creates the needed addresses/ entry
-        # (see universal/profile_builder.py and addresses/generated/).
-        "status": "TODO (missing module: no producer, no addresses)",
+        "address_profile": "addresses/apache_libphp.json",
+        "host": "127.0.0.1",
+        "port": 28850,
+        "path": "/mem.php",
+        "session_save_path": "/tmp/opencode/modphp_lab/sessions",
+        "memory_limit_knob": "2M",  # php_value in the vhost conf; absent -> producer pre-flight failure
+        "ini": {
+            # receipts: modphp_lab/runs/run_20261021T155303Z_armoom (read-only
+            # provenance) + /info.php phase A vs C:
+            "memory_limit": "2M (php_value, receipt knob ON; knob OFF -> 128M "
+                "build default, no OOM) — the producer refuses absent/128M",
+            "post_max_size": "8M (info.php receipt)",
+            "upload_max_filesize": "2M (info.php receipt)",
+            "max_file_uploads": "20 (info.php receipt; arms already at cap)",
+            "session.upload_progress.enabled": "1 (receipt)",
+            "session.upload_progress.cleanup": "1 (post-arm receipt: sess_labprobe123 cleaned-up)",
+            "session.use_only_cookies": "1 (sid via Cookie header only; form-field sid inert)",
+        },
+        "workers": "httpd 2.4.66 + libphp.so PHP 8.5.10 NTS (mod_php): prefork "
+            "children round-robin, ALL survive the machinery OOM; fatal shows as "
+            "200 + transcript body (not 500)",
+        "producer_stage": "producer_modphp",
+        "producer_modules": ("producer_modphp",),
+        # receipt ladder (file part count fixed at 20 = max_file_uploads cap):
+        # N=262144 -> body 4983500, alloc 266240; 330000 -> 6272764, alloc 331776;
+        # 400000 -> 7602764, alloc 401408 (= producer_modphp.RECEIPT_LADDER)
+        "status": "run (producer wired, dry default; arm receipt "
+            "run_20261021T155303Z_armoom; chain/leak TBD_measure_live_probe)",
     },
 }
 
