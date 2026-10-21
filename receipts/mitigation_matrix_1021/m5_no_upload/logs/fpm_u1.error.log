@@ -1,0 +1,1 @@
+[21-Oct-2026 20:28:46 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent (sent from /tmp/opencode/no_upload_mitigation_1021/docroot/ini_session.php on line 2) in /tmp/opencode/no_upload_mitigation_1021/docroot/ini_session.php on line 3

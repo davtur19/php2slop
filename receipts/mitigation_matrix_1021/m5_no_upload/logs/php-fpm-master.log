@@ -1,0 +1,9 @@
+[21-Oct-2026 22:27:46] NOTICE: configuration file conf/php-fpm.conf test is successful
+[21-Oct-2026 22:27:50] NOTICE: fpm is running, pid 1068056
+[21-Oct-2026 22:27:50] NOTICE: ready to handle connections
+[21-Oct-2026 22:27:57] WARNING: [pool u0] child 1068058 exited with code 70 after 7.077900 seconds from start
+[21-Oct-2026 22:27:57] NOTICE: [pool u0] child 1068130 started
+[21-Oct-2026 22:31:42] WARNING: [pool u6] child 1068087 exited with code 70 after 231.650487 seconds from start
+[21-Oct-2026 22:31:42] NOTICE: [pool u6] child 1068858 started
+[21-Oct-2026 22:37:38] NOTICE: Finishing ...
+[21-Oct-2026 22:37:38] NOTICE: exiting, bye-bye!

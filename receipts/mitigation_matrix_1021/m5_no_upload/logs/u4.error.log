@@ -1,0 +1,4 @@
+2026/10/21 22:31:40 [error] 1068092#0: *139 client intended to send too large body: 4983500 bytes, client: 127.0.0.1, server: u4, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:29064"
+2026/10/21 22:32:05 [error] 1068092#0: *162 client intended to send too large body: 140000 bytes, client: 127.0.0.1, server: u4, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:29064"
+2026/10/21 22:32:56 [info] 1068092#0: *183 client 127.0.0.1 closed keepalive connection
+2026/10/21 22:34:58 [info] 1068092#0: *239 client 127.0.0.1 closed keepalive connection

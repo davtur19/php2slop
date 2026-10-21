@@ -1,0 +1,8 @@
+2026-10-21T22:28:15+02:00 port=29062 127.0.0.1 "GET /probe.php" status=200 sent=932 req_len=121 upst=200 ct=0.000 cl=0 ua="no-upload-battery/1"
+2026-10-21T22:28:15+02:00 port=29062 127.0.0.1 "POST /index.php" status=200 sent=292 req_len=4983722 upst=200 ct=0.005 cl=4983500 ua="no-upload-battery/1"
+2026-10-21T22:28:15+02:00 port=29062 127.0.0.1 "POST /post.php" status=200 sent=122 req_len=177 upst=200 ct=0.001 cl=7 ua="no-upload-battery/1"
+2026-10-21T22:28:16+02:00 port=29062 127.0.0.1 "POST /index.php" status=200 sent=294 req_len=1554 upst=200 ct=0.001 cl=1333 ua="no-upload-battery/1"
+2026-10-21T22:32:23+02:00 port=29062 127.0.0.1 "POST /rawpost.php" status=200 sent=64 req_len=180 upst=200 ct=0.000 cl=7 ua="no-upload-battery/1"
+2026-10-21T22:32:45+02:00 port=29062 127.0.0.1 "POST /upload.php" status=200 sent=109 req_len=1624 upst=200 ct=0.000 cl=1435 ua="no-upload-battery/1"
+2026-10-21T22:34:02+02:00 port=29062 127.0.0.1 "GET /dynprobe.php" status=200 sent=286 req_len=91 upst=200 ct=0.000 cl=- ua="curl/8.14.1"
+2026-10-21T22:34:58+02:00 port=29062 127.0.0.1 "GET /probe_U2.php" status=200 sent=932 req_len=91 upst=200 ct=0.001 cl=- ua="curl/8.14.1"

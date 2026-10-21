@@ -1,6 +1,6 @@
-# receipt — mitigation_matrix_1021 (config mitigations M1–M4 + nginx edge, PHP 8.5.10)
+# receipt — mitigation_matrix_1021 (config mitigations M1–M4 + nginx edge + M5 no-upload, PHP 8.5.10)
 
-Curated 2026-10-21 from four private loopback runs (volatile scratch dirs; every copied
+Curated 2026-10-21 from five private loopback runs (volatile scratch dirs; every copied
 file is hashed in `inventory.sha256.txt`, large sources deliberately not copied are
 pinned as `OMITTED`):
 
@@ -9,6 +9,7 @@ pinned as `OMITTED`):
 | M1–M3 INI lanes on FPM + mod_php | this dir (`findings.md`, `configs/`, `results/`, `logs/`) | `/tmp/opencode/mitigation_1021/` | 28980–28995 |
 | nginx edge lanes N0–N4 | `nginx_edge/` | `/tmp/opencode/nginx_mitigation_1021/` | 29000–29011 |
 | M4 callback pin lanes l0–l6 | `m4_unserialize_callback/` | `/tmp/opencode/m4_test_1021/` | 29030–29036 |
+| M5 no-upload app lanes U0–U6 | `m5_no_upload/` | `/tmp/opencode/no_upload_mitigation_1021/` | 29060–29068 (php-cgi 29074) |
 | PHP 8.5.12 patch reports (source runs) | `patch_8512/` | `/tmp/opencode/vulntest8512_2127/`, `/tmp/opencode/fpmtest8512_2140/` | CGI + 28961–28968 |
 
 The M1–M3 block replays the known multipart / upload-progress OOM arm against real
@@ -98,6 +99,32 @@ a 2 MiB cap → 16 MiB recommended, 12 MiB measured minimum; an 8 MiB cap → 64
 extrapolated). With 8M memory the cap must be ≤1m. A pre-RINIT fatal is HTTP 200 + empty
 body, so status codes are not a detection signal.
 
+## M5 — no-upload application lane (`m5_no_upload/`)
+
+Question: does "block file uploads entirely" mitigate the arm, and at what cost? One
+private FPM master (8 pools) + nginx 1.30.1 + a php-cgi listener, byte-exact
+4,983,500 B arm, `memory_limit=8M`.
+
+| lane | control | 4,983,500 B arm | cost |
+|---|---|---|---|
+| U0 | control | 200 + empty, fatal `8388608/266240`, worker exit 70 | baseline broken |
+| U1 | `file_uploads=0` (FPM + php-cgi) | **200, script output, no fatal**; `$_FILES` empty, fields parse | all uploads dropped **silently**; body still read (peak emalloc **1,148,224 B** vs **453,288 B** for a tiny request) |
+| U2 | `enable_post_data_reading=0` | 200, no fatal | `$_POST`/`$_FILES` empty even for urlencoded; `php://input` still readable |
+| U3 | edge `415` on any `multipart/form-data` | **415 before PHP**: `req_len=222`, 0 FPM log bytes, no session | one false positive (bodyless GET carrying the header) |
+| U3b | edge `415` only `POST/PUT/PATCH` multipart | **415 before PHP**, GET + multipart header 200 | uploads rejected by design |
+| U4 | `client_max_body_size 128k` only | **413 before PHP**, no FPM line/session | size cap, not an upload block; >128 KiB uploads broken |
+| U5 | `max_file_uploads=0` | 200, no fatal, **pre-script warning** | `session_start()`/`header()` fail (no sid, no session file) |
+| U6 | `post_max_size=0` | **identical fatal** to U0, worker exit 70 | **trap: 0 = unlimited** |
+
+Measured boundary for U4: `128k` = 131,072 B; 128,328 B and 131,072 B → 200,
+140,000 B → 413; a 118,713 B filename-dense body parses safely at 8M (128k ≪ 8M/6.5).
+The recommended no-upload recipe is **method-scoped edge 415 map +
+`client_max_body_size 128k` + `file_uploads=Off` +
+`session.upload_progress.enabled=0`**; urlencoded POST and GET stay 200. This applies
+only to apps that never accept uploads — `file_uploads=0`, `max_file_uploads=0` and the
+415 rule all break them. 46 measured rows in `results/lanes.jsonl`; see the block's
+`findings.md` §14 for two stale row labels in the raw `table.md`.
+
 ## PHP 8.5.12 patch reports (`patch_8512/`)
 
 `cgi_8512_findings.md` and `fpm_8512_findings.md` are the measured 8.5.12 runs copied from
@@ -122,6 +149,10 @@ not a fix for the availability OOM at an undersized `memory_limit`.
   gadgets and the multipart OOM untouched.
 - **Edge** prevents reaching PHP when the cap is correctly sized against `memory_limit`
   (N1) or raises cost (N4); cap-without-headroom (N2) and token rules (N3) do not work.
+- **M5** is a no-upload-app lane, not a general fix: `file_uploads=0` still reads the
+  whole body and discards uploads silently, `max_file_uploads=0` emits a pre-script
+  warning that breaks sessions/headers, and `post_max_size=0` means unlimited and is
+  worse than the default.
 - Direct FastCGI exposure without nginx normalization, concurrency and non-ASAN/other SAPI
   shapes are unverified — see the per-block `findings.md` gaps sections.
 
@@ -159,6 +190,14 @@ not a fix for the availability OOM at an undersized `memory_limit`.
   (22 rows), `m4_summary.md`, `effective_ini.txt`, `binary_env.txt`, `m4_oom_arm.json`,
   raw `transcripts/`, `logs/`, and `findings.md`. `sessions/sess_m4oom6` (1,049,838 B) is
   not copied; its sha256 is pinned in the inventory.
+- `m5_no_upload/` — no-upload lane: `conf/{nginx,php-fpm}.conf`, `lanes/php.ini`,
+  `docroot/` (probe + upload targets), `bin/{narm,measure,make_table}.py`,
+  `results/` (`lanes.jsonl` 46 rows, `table.md`, `arm_summary.json`,
+  `ini/*_fresh.txt` + reused-worker dumps), selected `logs/` and small cited session
+  records, and the block's `findings.md`. Its `inventory.sha256.txt` hashes every
+  copied file and pins the 49 non-copied files (`OMITTED`: pycache, the two 1,280/12 B
+  stored uploads, the 118,965/128,352 B U4 session records, zero-byte session files).
+  The configs keep the measured scratch prefix; see the block findings §13 to retarget.
 - `patch_8512/` — the two measured 8.5.12 reports (CGI and FPM same-worker lanes).
 
 Not copied: the multi-MB request/response bodies under the M1–M3 scratch `steps/`
@@ -199,12 +238,22 @@ python3 bin/run_m4.py
 python3 bin/make_summary.py
 python3 bin/run_oom_arm.py
 kill $(cat run/fpm.pid)
+
+# M5 no-upload
+cd /tmp/opencode/no_upload_mitigation_1021
+/home/davide/ailocal/php/zerodays_1020/install_plain/sbin/php-fpm \
+    -y conf/php-fpm.conf -c lanes/php.ini -D
+/opt/nginx-1.30.1/sbin/nginx -p $PWD -c conf/nginx.conf
+python3 bin/measure.py baseline u1 u1cgi u2 u3 u3b u4 u5 u6
+python3 bin/make_table.py
 ```
 
 All services were stopped after each run: M1–M3 FPM masters A 1051782, B 1051024, C
 1051057, B2 1051136, B3 1051170, B4 1052960; httpd masters D 1052091, D0 1052101; nginx
 master 1049956 (worker 1052954); edge master/PIDs in `nginx_edge/results/pids.txt`; M4
-master 1066095, workers l0–l5 1066096–1066101, l6 1066102 (exit 70) → replacement 1066166
-(all stopped). No listeners remained on 28980–28995, 29000–29011 or 29030–29036.
+master 1066095, workers l0–l5 1066096–1066101, l6 1066102 (exit 70) → replacement 1066166;
+M5 FPM master 1068056 (workers 1068057–1068090, respawns 1068130/1068858), nginx
+1068091/1068092, php-cgi 1068094/1068096 (all stopped). No listeners remained on
+28980–28995, 29000–29011, 29030–29036 or 29060–29079.
 Unrelated concurrent processes under `/tmp/opencode/realapps`, `/tmp/opencode/research`,
 the `:28850` mod_php lab and other tasks' dirs were not touched.

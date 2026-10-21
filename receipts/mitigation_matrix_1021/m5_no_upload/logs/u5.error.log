@@ -1,0 +1,5 @@
+2026/10/21 22:31:41 [warn] 1068092#0: *150 a client request body is buffered to a temporary file /tmp/opencode/no_upload_mitigation_1021/run/client_body/0000000006, client: 127.0.0.1, server: u5, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:29065"
+2026/10/21 22:34:02 [info] 1068092#0: *199 client 127.0.0.1 closed keepalive connection
+2026/10/21 22:34:30 [info] 1068092#0: *203 client 127.0.0.1 closed keepalive connection
+2026/10/21 22:34:37 [info] 1068092#0: *223 client 127.0.0.1 closed keepalive connection
+2026/10/21 22:34:58 [info] 1068092#0: *241 client 127.0.0.1 closed keepalive connection

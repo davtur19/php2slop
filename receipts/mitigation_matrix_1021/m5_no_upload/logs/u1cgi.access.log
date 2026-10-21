@@ -1,0 +1,6 @@
+2026-10-21T22:28:15+02:00 port=29067 127.0.0.1 "GET /probe.php" status=200 sent=935 req_len=121 upst=200 ct=0.011 cl=0 ua="no-upload-battery/1"
+2026-10-21T22:28:15+02:00 port=29067 127.0.0.1 "POST /index.php" status=200 sent=332 req_len=4983722 upst=200 ct=0.012 cl=4983500 ua="no-upload-battery/1"
+2026-10-21T22:30:27+02:00 port=29067 127.0.0.1 "POST /index.php" status=200 sent=316 req_len=423 upst=200 ct=0.001 cl=221 ua="curl/8.14.1"
+2026-10-21T22:34:58+02:00 port=29067 127.0.0.1 "GET /probe_U1cgi.php" status=200 sent=935 req_len=94 upst=200 ct=0.000 cl=- ua="curl/8.14.1"
+2026-10-21T22:35:14+02:00 port=29067 127.0.0.1 "POST /index.php" status=200 sent=334 req_len=553 upst=200 ct=0.001 cl=333 ua="no-upload-battery/1"
+2026-10-21T22:35:14+02:00 port=29067 127.0.0.1 "POST /upload.php" status=200 sent=109 req_len=1624 upst=200 ct=0.001 cl=1435 ua="no-upload-battery/1"

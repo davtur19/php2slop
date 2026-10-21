@@ -1,0 +1,8 @@
+[21-Oct-2026 20:31:41 UTC] PHP Warning:  PHP Request Startup: Maximum number of allowable file uploads has been exceeded in Unknown on line 0
+[21-Oct-2026 20:31:41 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /tmp/opencode/no_upload_mitigation_1021/docroot/index.php on line 4
+[21-Oct-2026 20:31:41 UTC] PHP Warning:  Cannot modify header information - headers already sent in /tmp/opencode/no_upload_mitigation_1021/docroot/index.php on line 5
+[21-Oct-2026 20:31:42 UTC] PHP Warning:  PHP Request Startup: Maximum number of allowable file uploads has been exceeded in Unknown on line 0
+[21-Oct-2026 20:31:42 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent in /tmp/opencode/no_upload_mitigation_1021/docroot/index.php on line 4
+[21-Oct-2026 20:31:42 UTC] PHP Warning:  Cannot modify header information - headers already sent in /tmp/opencode/no_upload_mitigation_1021/docroot/index.php on line 5
+[21-Oct-2026 20:32:45 UTC] PHP Warning:  PHP Request Startup: Maximum number of allowable file uploads has been exceeded in Unknown on line 0
+[21-Oct-2026 20:32:45 UTC] PHP Warning:  Cannot modify header information - headers already sent in /tmp/opencode/no_upload_mitigation_1021/docroot/upload.php on line 3
