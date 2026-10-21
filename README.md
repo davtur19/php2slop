@@ -32,7 +32,8 @@ Stage sources: `receipts/diag3_10_runs/`, `docs/validation_1021_filmpost.md`.
 | `tool/modules/producer_618.py` / `producer_619.py` | CVE-109618 / CVE-109619 staged producer shapes (inert forge default) |
 | `tool/modules/producer.py` | 618/619 shape facade (not driver-wired); mod_php producer TODO |
 | `tool/modules/producer_fpmwiki.py` | fpmwiki producer stage (`--step producer`): anon-edit OOM, int N (5.7M receipt); offline byte-build default, `--live` gates the send |
-| `tool/modules/write_stage.py` | stub; live path = `php2shell.py:attempt()` → `COMPACT.probe_body(...)` |
+| `tool/modules/write_stage.py` | write stage — wired, dry-only (`--step write_stage`) |
+| `tool/modules/producer_modphp.py` | modphp producer stage (`--step producer`); STOCK-arm byte parity, int N ladder, knob gate, dry default |
 | `tool/modules/profiles.py` | `BINARY_PROFILES` + `TARGETS` registry |
 | `tool/stages/probe.py` | pre-flight fingerprint (GET, status/headers) |
 | `addresses/` | per-binary offsets (`realapps_fpm.json`, `realapps_np_fpm.json`, CGI flavors, `generated/`) |
@@ -54,7 +55,9 @@ python3 ≥ 3.10, stdlib only. Loopback target you own. `gdb`/`nm`/`readelf` opt
 python3 -m tool --target wiki --step recon          # same via package entry
 ./tool/php2shell.py --target wp --step chain        # blocker hold + rearm + forged staged multipart
 ./tool/php2shell.py --target wiki --step chain --command id
-./tool/php2shell.py --target wiki --step producer --body-bytes 5700000   # producer stage: request byte-build recorded, no send
+./tool/php2shell.py --target wiki --step producer --body-bytes 5700000   # byte-build only, no send
+./tool/php2shell.py --target modphp --step producer --body-bytes 262144  # byte-build only, no send
+./tool/php2shell.py --target wiki --step write_stage --main-chunk 0x7f8875a00000   # byte-build only, no send
 ./tool/php2shell.py --url http://127.0.0.1:28840/index.php --profile realapps-pie --step recon
 ```
 
@@ -62,8 +65,7 @@ Not implemented:
 
 | stage | path |
 |---|---|
-| modphp target (addresses + producer) | `tool/modules/profiles.py:TARGETS["modphp"]` |
-| write_stage extraction | `tool/modules/write_stage.py` |
+| modphp measured chain constants | `tool/modules/profiles.py:TARGETS["modphp"]` |
 
 Parameterized producer/step plan: `/tmp/opencode/realapps/side/php2shell/runs/UNIVERSAL_PLAN.md`.
 
@@ -71,15 +73,15 @@ Parameterized producer/step plan: `/tmp/opencode/realapps/side/php2shell/runs/UN
 
 | attribute | wiki | wp | modphp |
 |---|---|---|---|
-| binary profile | `realapps-pie` | `realapps-pie` | — |
-| endpoint | 127.0.0.1:28840 `/index.php` | 127.0.0.1:28841 `/index.php` | — |
-| `memory_limit` | 8M (`php_admin_value`) | 8M | — |
+| binary profile | `realapps-pie` | `realapps-pie` | `addresses/apache_libphp.json` (new; constants TBD) |
+| endpoint | 127.0.0.1:28840 `/index.php` | 127.0.0.1:28841 `/index.php` | 127.0.0.1:28850 `/mem.php` |
+| `memory_limit` | 8M (`php_admin_value`) | 8M | 2M (`php_value` knob) |
 | pm / max_children | static / 1 | static / 1 | — |
 | `session.save_path` | `/tmp/opencode/realapps/sessions/wiki` | `/tmp/opencode/realapps/sessions/wp` | — |
 | `session.upload_progress.enabled` | 1 (compiled default) | 1 | — |
 | `session.upload_progress.cleanup` | 1 at runtime (diag labs override 0) | 1 | — |
-| producers | `producer_fpmwiki`, `producer_618`, `producer_619` | `producer_618`, `producer_619` | — |
-| status | run (producer wired) | run | TODO |
+| producers | `producer_fpmwiki`, `producer_618`, `producer_619` | `producer_618`, `producer_619` | `producer_modphp` |
+| status | run (producer wired) | run | producer wired (chain TBD) |
 
 Values as-found on the lab stack (verify per run). Add a target: new dict in
 `tool/modules/profiles.py:TARGETS` + constants in `BINARY_PROFILES` (generate via
