@@ -1,0 +1,21 @@
+{
+  "analysis": {
+    "body_bytes": 36377,
+    "body_sha256": "ea61b6f34ec7ba517b1091c4d4c73e49de002de185dcd497e4e8f56f2d422ccb",
+    "candidate": false,
+    "canonical": false,
+    "chunk_offset": "0x4213c",
+    "main_chunk": "0x505954434f400000",
+    "pointer": "0x505954434f44213c",
+    "pointer_bytes_in_requests": false,
+    "prefix_hex": "3c21444f43545950452068746d6c"
+  },
+  "connection": "keep-alive",
+  "sha256": {
+    "body-2.bin": "ea61b6f34ec7ba517b1091c4d4c73e49de002de185dcd497e4e8f56f2d422ccb",
+    "request-2.bin": "547e9f13e61a5d6b565f3c92766a07b25b129f24f233e259839d5653ac7a4c07",
+    "response-2.bin": "66efe2cc1d49b97f29338c1a45fe136a494ae5f3812942779586c7bd06730f03"
+  },
+  "stage": "probe",
+  "status": 200
+}

@@ -1,0 +1,2 @@
+<br />
+<b>Fatal error</b>:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 8000032 bytes) in <b>/tmp/opencode/realapps/serve/mediawiki-1.46.2/includes/EditPage/EditPage.php</b> on line <b>1232</b><br />
