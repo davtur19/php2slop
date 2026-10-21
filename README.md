@@ -1,19 +1,5 @@
 # php2slop — php 8.5 session.upload_progress machinery chain (CVE-2026-109618 / CVE-2026-109619)
 
-## Name
-
-`php2slop` is the repository's working name and is a deliberate, self-aware
-joke about its origin. The work started from the officially published
-advisory material of 2026-10-21 (CVE texts, GHSA technical pages, the writeup)
-— before a fixed php release (8.5.12) was available to test against — and the
-full exploit chain was reconstructed AI-assisted within that window. The name
-acknowledges that fact without dressing it up; the technical claims in this
-README are backed by the receipts, not by the name. Upstream's writeup uses
-the alias `php2shell` (<https://calif.io/php2shell/>, <http://php2shell.com>);
-driver file names and external citations keep that alias unchanged, and any
-clone URL should point at `https://github.com/davtur19/php2slop` (MIT).
-
-
 ## Overview
 
 Research toolkit for the php-src 8.5.x pre-auth cross-request use-after-free
