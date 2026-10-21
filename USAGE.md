@@ -60,7 +60,7 @@ Install, layout and run one-liners: see `README.md`. This file is the lane matri
 |---|---|---|
 | `--step recon` | GET the path, record status, server, connection, content type and body bytes | exit 0 alive, exit 2 not alive |
 | disclosure gate | 14 B frozen profile disclosure at LEAK_OFFSET inside a main chunk | LEAK_OFFSET 0x57030, main chunk 0x200000 |
-| `--step leak` | dry calibration plan, request shapes plus algorithm, no transport | 10 exchanges per stage, 3 stable triples, 4096 B Set-Cookie cap, 98 encoded pointers |
+| `--step leak` | dry calibration plan, request shapes plus algorithm, no transport | 10 exchanges per stage, 3 stable triples, 4096 B Set-Cookie cap, approx 98 encoded pointers |
 | address profile | `addresses/apache_libphp.json`, per binary offsets and lane | 40492240 B, md5 `92f76e84a77bf8b56c45c3868fa29a6c`, p_align 0x1000 |
 | five resolved symbols | `zif_system` 0x40cc80, `zif_passthru` 0x40cc90, `zend_call_function` 0x540500, `zend_llist_remove_tail` 0x5d39a0, `zval_ptr_dtor` 0x5f0980 | deltas 0xb0480 and 0x1c6d10 |
 | engine symbols | `php_url_encode` 0x460d70, `ps_globals` 0xa3b020, `basic_globals` 0xa3bdc0, `php_apache_sapi_ub_write` 0x5f7ee0, `zend_rc_dtor_func` 0x96f760 | PS(id) offset 16, PS(http_session_vars) offset 360 |
