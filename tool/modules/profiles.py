@@ -108,7 +108,9 @@ TARGETS = {
         # N=262144 -> body 4983500, alloc 266240; 330000 -> 6272764, alloc 331776;
         # 400000 -> 7602764, alloc 401408 (= producer_modphp.RECEIPT_LADDER)
         "status": "run (producer wired, dry default; arm receipt "
-            "run_20261021T155303Z_armoom; chain/leak TBD_measure_live_probe)",
+            "run_20261021T155303Z_armoom; leak_offset 0x2188 measured "
+            "build-specific on libphp md5 92f76e84a77bf8b56c45c3868fa29a6c; "
+            "modphp chain unproven)",
     },
 }
 
