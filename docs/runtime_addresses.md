@@ -154,6 +154,115 @@ symtab addresses in all 5 profile binaries).
 - delta `zval_ptr_dtor − zend_call_function` = **0xb736b**
 - delta `zend_llist_remove_tail − zif_passthru` = **0x202ae9**
 
+### 2.6 plainpie_fpm — `/home/davide/ailocal/php/zerodays_1020/install_plainpie/sbin/php-fpm`
+
+| field | value |
+|---|---|
+| ELF type | EXEC (non-PIE) |
+| image base (first LOAD p_vaddr) | 0x400000 |
+| p_align | 0x200000 |
+| md5 | 825470df6b9fa7d0178a1a9bcf4ce6dc (≡ `build_plainpie/sapi/fpm/php-fpm`) |
+
+| symbol | binding | vaddr | offset from base (vaddr − 0x400000) |
+|---|---|---|---|
+| zif_system | local t | 0x88f6a7 | 0x48f6a7 |
+| zif_passthru | local t | 0x88f6b7 | 0x48f6b7 |
+| zend_call_function | global T (+dynsym) | 0x9cfdff | 0x5cfdff |
+| zend_llist_remove_tail | global T (+dynsym) | 0xa6d768 | 0x66d768 |
+| zval_ptr_dtor | global T (+dynsym) | 0xa8906e | 0x68906e |
+
+- delta `zval_ptr_dtor − zend_call_function` = **0xb926f**
+- delta `zend_llist_remove_tail − zif_passthru` = **0x1de0b1**
+
+### 2.7 plain_fpm — `/home/davide/ailocal/php/zerodays_1020/install_plain/sbin/php-fpm`
+
+| field | value |
+|---|---|
+| ELF type | DYN (PIE) |
+| image base (first LOAD p_vaddr) | 0x0 — runtime base randomized per exec |
+| p_align | 0x200000 |
+| md5 | 34882858984acfcaa66386fbac7556bd |
+
+| symbol | binding | vaddr (= offset from base, file-relative) |
+|---|---|---|
+| zif_system | local t | 0x496d85 |
+| zif_passthru | local t | 0x496d95 |
+| zend_call_function | global T (+dynsym) | 0x5db6e6 |
+| zend_llist_remove_tail | global T (+dynsym) | 0x67a828 |
+| zval_ptr_dtor | global T (+dynsym) | 0x696665 |
+
+- delta `zval_ptr_dtor − zend_call_function` = **0xbaf7f**
+- delta `zend_llist_remove_tail − zif_passthru` = **0x1e3a93**
+
+Note (2026-10-21 late): the in-tree duplicate `build_plain/sapi/fpm/php-fpm` was
+removed by a rebuild of that tree started later the same day (the freshly
+relinked `build_plain/sapi/cli/php` measures delta dtor−call = 0xb0550, so the
+rebuild no longer matches this installed build). The installed copy profiled
+here is unchanged and matches the table above; `dup ≡ in-tree` in section 1 no
+longer holds for the plain flavor after that rebuild.
+
+### 2.8 asan_fpm — `/home/davide/ailocal/php/zerodays_1020/install_asan/sbin/php-fpm`
+
+| field | value |
+|---|---|
+| ELF type | DYN (PIE) |
+| image base (first LOAD p_vaddr) | 0x0 — runtime base randomized per exec |
+| p_align | 0x200000 |
+| md5 | 6880b8c36a0a746e4db436bd32cac9ab (≡ `build_asan/sapi/fpm/php-fpm`) |
+
+| symbol | binding | vaddr (= offset from base, file-relative) |
+|---|---|---|
+| zif_system | local t | 0xae79d7 |
+| zif_passthru | local t | 0xae79e7 |
+| zend_call_function | global T (+dynsym) | 0xeafeba |
+| zend_llist_remove_tail | global T (+dynsym) | 0x111f227 |
+| zval_ptr_dtor | global T (+dynsym) | 0x1173e03 |
+
+- delta `zval_ptr_dtor − zend_call_function` = **0x2c3f49**
+- delta `zend_llist_remove_tail − zif_passthru` = **0x637840**
+
+### 2.9 O0_fpm — `/home/davide/ailocal/php/zerodays_1020/install_O0/sbin/php-fpm`
+
+| field | value |
+|---|---|
+| ELF type | DYN (PIE) |
+| image base (first LOAD p_vaddr) | 0x0 — runtime base randomized per exec |
+| p_align | 0x200000 |
+| md5 | cd8141f5e02502777a9307a89f522563 (≡ `build_O0/sapi/fpm/php-fpm`) |
+
+| symbol | binding | vaddr (= offset from base, file-relative) |
+|---|---|---|
+| zif_system | local t | 0x6b5ad5 |
+| zif_passthru | local t | 0x6b5b00 |
+| zend_call_function | global T (+dynsym) | 0x995cd8 |
+| zend_llist_remove_tail | global T (+dynsym) | 0xb5ac6a |
+| zval_ptr_dtor | global T (+dynsym) | 0xb97adb |
+
+- delta `zval_ptr_dtor − zend_call_function` = **0x201e03**
+- delta `zend_llist_remove_tail − zif_passthru` = **0x4a516a**
+
+### 2.10 default_debug_fpm — `/home/davide/ailocal/php/zerodays_1020/install/sbin/php-fpm`
+
+Flavor "default+debug" of section 1 (the default lab install tree).
+
+| field | value |
+|---|---|
+| ELF type | DYN (PIE) |
+| image base (first LOAD p_vaddr) | 0x0 — runtime base randomized per exec |
+| p_align | 0x200000 |
+| md5 | 3d4c9795fac5041f5f293d7cf41bf419 (≡ `build/php-8.5.10/sapi/fpm/php-fpm`) |
+
+| symbol | binding | vaddr (= offset from base, file-relative) |
+|---|---|---|
+| zif_system | local t | 0x47e016b |
+| zif_passthru | local t | 0x47e017b |
+| zend_call_function | global T (+dynsym) | 0x505fb09 |
+| zend_llist_remove_tail | global T (+dynsym) | 0x5666440 |
+| zval_ptr_dtor | global T (+dynsym) | 0x572e084 |
+
+- delta `zval_ptr_dtor − zend_call_function` = **0x6ce57b**
+- delta `zend_llist_remove_tail − zif_passthru` = **0xe862c5**
+
 ## 3. Cross-build delta summary
 
 Both deltas are exactly constant per build and were measured identical across all three
@@ -169,9 +278,12 @@ SAPI variants (php-fpm / php-cgi / cli) of the same link. All 21 unique binaries
 | O0 (fpm + cgi + cli) | 0x201e03 | 0x4a516a | DYN |
 | default+debug (fpm + cgi + cli) | 0x6ce57b | 0xe862c5 | DYN |
 
-(Profile builds in the JSON artifacts above: realapps_np_fpm, plainpie_cgi, plain_cgi,
-asan_cgi, realapps_fpm — deltas quoted from their fpm/cgi member; other SAPI members carry
-the same delta, see appendix.)
+(All seven flavors now carry a JSON artifact for their profile member: realapps_np_fpm,
+plainpie_cgi, plainpie_fpm, plain_cgi, plain_fpm, asan_cgi, asan_fpm, O0_fpm,
+default_debug_fpm, realapps_fpm — deltas quoted from their fpm/cgi member; other SAPI
+members carry the same delta, see appendix. Plainpie/asan/O0/default_debug fpm and the
+plain fpm profiles were derived on 2026-10-21 with universal/profile_builder.py from the
+installed copies; see section 6.)
 
 ## 4. Full symbol vaddrs, all unique binaries (appendix)
 
@@ -230,5 +342,13 @@ observed):
 
 ## 6. Artifacts
 
-- This file: `/tmp/opencode/realapps/side/runtime_addresses.md`
-- JSON per profile build: `/tmp/opencode/realapps/side/addresses/{realapps_np_fpm, plainpie_cgi, plain_cgi, asan_cgi, realapps_fpm}.json`
+- This file: `docs/runtime_addresses.md` (repo copy; originally
+  `/tmp/opencode/realapps/side/runtime_addresses.md`)
+- JSON per profile build (curated schema, hand-ordered):
+  `addresses/{realapps_np_fpm, plainpie_cgi, plain_cgi, asan_cgi, realapps_fpm,
+  plainpie_fpm, plain_fpm, asan_fpm, O0_fpm, default_debug_fpm}.json`
+- Full batch tool output, one file per unique binary, collision-safe names:
+  `addresses/generated/*.json` (+ `batch.log` from the pre-fix run, `batch_fixed.log`
+  from the collision-fixed re-run)
+- Profile tool: `universal/profile_builder.py` (readelf/nm only; refuses to overwrite an
+  existing output whose md5 differs unless `--force`)

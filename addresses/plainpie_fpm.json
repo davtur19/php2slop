@@ -1,0 +1,26 @@
+{
+  "binary": "/home/davide/ailocal/php/zerodays_1020/install_plainpie/sbin/php-fpm",
+  "duplicate_of": "/home/davide/ailocal/php/zerodays_1020/build_plainpie/sapi/fpm/php-fpm",
+  "md5": "825470df6b9fa7d0178a1a9bcf4ce6dc",
+  "size_bytes": 42900672,
+  "elf_type": "EXEC",
+  "image_base": "0x400000",
+  "p_align": "0x200000",
+  "symbols": {
+    "zend_call_function": "0x9cfdff",
+    "zend_llist_remove_tail": "0xa6d768",
+    "zif_passthru": "0x88f6b7",
+    "zif_system": "0x88f6a7",
+    "zval_ptr_dtor": "0xa8906e"
+  },
+  "offsets_from_base": {
+    "zend_call_function": "0x5cfdff",
+    "zend_llist_remove_tail": "0x66d768",
+    "zif_passthru": "0x48f6b7",
+    "zif_system": "0x48f6a7",
+    "zval_ptr_dtor": "0x68906e"
+  },
+  "delta_dtor_call": "0xb926f",
+  "delta_llist_passthru": "0x1de0b1",
+  "dynsym_exported": ["zend_call_function", "zend_llist_remove_tail", "zval_ptr_dtor"]
+}
