@@ -27,3 +27,9 @@ Artifacts: harnesses/runs/{diag3_arm_oom.py,diag4_repeat_arm.py,diag5_asan.py,di
 - Source guard parity: php_var_serialize_init reuse guard var.c:1139-1158 (same shape as 8.5.10:1346); Z_TRY_ADDREF progress->data at session.c:3151 (8.5.10:3154).
 - Behavior: arm + memory_limit=8M → silent close ×3 (no fatal body, no ASAN crash), dispatcher wedged (post-check EMPTY). Same arm at 64M → 200 OK ×3 clean. OOM trigger = arm body machinery traffic, not filename length.
 - Contrast 8.5.10: R1 fatal body → R2 diverged body → R3 process death (SEGV var_unserializer decode).
+
+## gdb ground truth (diag9/diag10, 8.5.10 ASAN php -S, breakpoints var.c:1352/1359/1367)
+- Clean save_path, arm x3: ALWAYS exactly one FRESH + one DESTROY per request, same d address, zero REUSE, bodies identical (313B fatal), no crash even when the on-disk session file exists after R1.
+- diag5's divergence (459→313) + SEGV replay: caused by the on-disk state LEFTOVER — the alloc_malloc run (memory_limit inert) had completed a full machinery record flush to /tmp; the alloc_mm run re-READ that file (ps_srlzr_decode_php) → different serialization trajectory → SEGV. It is disk-session-state poisoning, NOT a pure-OOM BG-context UAF.
+- Realapps/stock fpm worker: survives all repeats (diag4), no reuse.
+⇒ corrected-article mechanism needs an ATTACKER-CONTROLLED session record on disk, not only the OOM arm. The poisoned-record family (fuzz seed receipt at session.c:3155) is the operative substrate.
