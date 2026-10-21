@@ -6,3 +6,15 @@ sess/
 gh_session
 nohup.out
 *.pyc
+
+# public-repo hygiene: lab noise stays local
+runs/
+receipts/
+*.log
+*.i64
+*.id0
+*.id1
+*.id2
+*.nam
+*.til/
+
