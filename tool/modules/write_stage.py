@@ -5,10 +5,10 @@ documented live call path into a --step dry receipt but contains NO
 exploitation logic beyond the existing placeholder:
 
 - the byte recipe is built by the documented live builder
-  tool/modules/compact-stock-tail.py:COMPACT.probe_body(15 args) — the exact
+  tool/modules/compact-stock-tail.py:COMPACT.probe_body(15 args), the exact
   call tool/php2shell.py:attempt() already performs; nothing new here;
 - ``stage_body()`` (the negative-``used_slots`` math extraction) remains an
-  unimplemented placeholder by design — see its docstring;
+  unimplemented placeholder by design (see its docstring);
 - nothing is ever sent: the module has no send path at all. Byte templates are
   recorded for the receipt, addresses slots come from the operator-supplied
   --main-chunk (the live leak is a separate stage; no network side effects).
@@ -33,7 +33,7 @@ def _load_compact():
 
 
 def stage_body(*args, **kwargs):
-    """Raised NotImplementedError by design — see module docstring."""
+    """Raised NotImplementedError by design, see module docstring."""
 
 
     raise NotImplementedError(

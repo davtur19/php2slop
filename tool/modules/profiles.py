@@ -86,7 +86,7 @@ TARGETS = {
             # receipts: modphp_lab/runs/run_20261021T155303Z_armoom (read-only
             # provenance) + /info.php phase A vs C:
             "memory_limit": "2M (php_value, receipt knob ON; knob OFF -> 128M "
-                "build default, no OOM) — the producer refuses absent/128M",
+                "build default, no OOM), the producer refuses absent/128M",
             "post_max_size": "8M (info.php receipt)",
             "upload_max_filesize": "2M (info.php receipt)",
             "max_file_uploads": "20 (info.php receipt; arms already at cap)",
