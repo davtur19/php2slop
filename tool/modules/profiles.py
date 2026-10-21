@@ -50,8 +50,8 @@ TARGETS = {
                 "the ASAN diag receipts override it to 0 - lab-only)",
         },
         "workers": "php-fpm pool [wiki], pm=static, single worker",
-        "producer_modules": ("producer_618", "producer_619"),
-        "status": "available (probe + chain)",
+        "producer_modules": ("producer_618", "producer_619", "producer_fpmwiki"),
+        "status": "available (probe + chain + producer step)",
     },
     "wp": {
         "name": "wp",
