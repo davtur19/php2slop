@@ -40,7 +40,10 @@ Stage sources: `receipts/diag3_10_runs/`, `docs/validation_1021_filmpost.md`.
 | `universal/` | `profile_builder.py` (read-only `nm`/`readelf`), freeze battery, wiki/wp run captures |
 | `fuzzing/` | CGI fuzz harness, deterministic ASAN heap-UAF crashes, `fuzz_findings.md` |
 | `receipts/` | curated named runs: `diag3_10_runs/`, `php5lab/`, `php7lab/`, `advisory_1400/` (index + rule: `receipts/README.md`) |
-| `docs/` | `validation_1021_filmpost.md`, `reports_realapps_validation_1021.md`, `runtime_addresses.md`, `README_2026-10-21_research_version.md` |
+| `receipts/mitigation_matrix_1021/` | M1–M4, nginx edge N0–N4, M5 no-upload U0–U6, PHP 8.5.12 patch runs: per-lane `findings.md`, `results/`, `logs/`, `inventory.sha256.txt` |
+| `docs/` | `validation_1021_filmpost.md`, `reports_realapps_validation_1021.md`, `runtime_addresses.md` |
+| `docs/mitigation_matrix_1021.md` | measured control matrix M1–M5f / E1–E3 / P with per-control decision and evidence links |
+| `USAGE.md` | lane matrix, prerequisites, failure diagnosis |
 | `LICENSE` | MIT |
 
 ## Requirements
@@ -104,7 +107,9 @@ records), `session.upload_progress.*` (gates the consumer; `cleanup` timing).
 | chain | blockers count, per-candidate result, `uid=` line on success |
 
 Runtime output dir is git-ignored. Curated evidence: `receipts/<name>/` with a README
-(`receipts/README.md`). Raw logs/binaries not tracked.
+(`receipts/README.md`). Raw one-off logs/binaries stay git-ignored; curated `receipts/**`
+is force-included (`.gitignore: !receipts/**`), as are the frozen `universal/` captures
+and `fuzzing/crashes/` artifacts.
 
 ## References
 
