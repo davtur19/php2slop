@@ -1,0 +1,17 @@
+# lane D0_modphp_control port 28986 (mod_php/httpd)
+# HTTP 200 fetched 2026-10-21T21:52:54+0200
+session.upload_progress.enabled='1' access=4
+session.upload_progress.cleanup='0' access=4
+memory_limit='8M' access=4
+post_max_size='8M' access=4
+display_errors='1' access=4
+fatal_error_backtraces='1' access=4
+log_errors='1' access=4
+error_log='/tmp/opencode/mitigation_1021/lanes/D0_modphp_control/logs/php_err.log' access=4
+session.save_path='/tmp/opencode/mitigation_1021/lanes/D0_modphp_control/sessions' access=4
+max_file_uploads='20' access=6
+ini_set:session.upload_progress.enabled=false
+ini_set:memory_limit=false
+ini_set:display_errors=false
+ini_set:fatal_error_backtraces=false
+PHP_VERSION=8.5.10 SAPI=apache2handler

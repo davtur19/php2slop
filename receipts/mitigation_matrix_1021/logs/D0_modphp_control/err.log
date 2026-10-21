@@ -1,0 +1,4 @@
+[Wed Oct 21 21:52:53.951885 2026] [mpm_prefork:notice] [pid 1052101:tid 1052101] AH00163: Apache/2.4.66 (Unix) PHP/8.5.10 configured -- resuming normal operations
+[Wed Oct 21 21:52:53.951914 2026] [core:notice] [pid 1052101:tid 1052101] AH00094: Command line: '/tmp/opencode/apache/bin/httpd -f /tmp/opencode/mitigation_1021/lanes/D0_modphp_control/mitmD.conf'
+[Wed Oct 21 21:52:54.086409 2026] [mpm_prefork:error] [pid 1052101:tid 1052101] AH00161: server reached MaxRequestWorkers setting, consider raising the MaxRequestWorkers setting
+[Wed Oct 21 21:52:54.102950 2026] [mpm_prefork:notice] [pid 1052101:tid 1052101] AH00169: caught SIGTERM, shutting down

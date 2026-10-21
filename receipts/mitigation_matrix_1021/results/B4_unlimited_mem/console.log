@@ -1,0 +1,20 @@
+[21:53:52] === lane B4: FPM 8.5.10 + M1+M3 and memory_limit=-1 (Tenable stopgap)
+[21:53:52] B4_unlimited_mem: FPM master 1052960 listening=True
+[21:53:52] B4_unlimited_mem/effective_ini: http=200 resp_len=618 sha=2cd03f40111dffff oom=None fatal=False
+[21:53:52] B4_unlimited_mem: effective_ini -> /tmp/opencode/mitigation_1021/results/B4_unlimited_mem/effective_ini.txt
+[21:53:52] B4_unlimited_mem/arm_1: http=200 resp_len=3 sha=41208e228a3f0377 oom=None fatal=False
+[21:53:52] B4_unlimited_mem/arm_2: http=200 resp_len=3 sha=41208e228a3f0377 oom=None fatal=False
+[21:53:52] B4_unlimited_mem/consumer_after: http=200 resp_len=3 sha=41208e228a3f0377 oom=None fatal=False
+[21:53:52] B4_unlimited_mem/oversize_beyond_post_max: http=200 resp_len=3 sha=41208e228a3f0377 oom=None fatal=False
+[21:53:52] B4_unlimited_mem: session[after_arms] sess_b4sid size=0 sha=e3b0c44298fc1c14
+[21:53:52] B4: access log:
+1052961|0.001|21/Oct/2026:21:53:52 +0200|GET|200|0
+1052961|0.027|21/Oct/2026:21:53:52 +0200|POST|200|4983494
+1052961|0.025|21/Oct/2026:21:53:52 +0200|POST|200|4983494
+1052961|0.000|21/Oct/2026:21:53:52 +0200|GET|200|0
+1052961|0.000|21/Oct/2026:21:53:52 +0200|POST|200|19925702
+[21:53:52] B4: worker exits:
+
+[21:53:52] B4: php_err tail:
+[21-Oct-2026 19:53:52 UTC] PHP Warning:  PHP Request Startup: POST Content-Length of 19925702 bytes exceeds the limit of 8388608 bytes in Unknown on line 0
+[21:53:57] B4_unlimited_mem: FPM master 1052960 stopped

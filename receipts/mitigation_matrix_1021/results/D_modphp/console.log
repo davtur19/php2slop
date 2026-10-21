@@ -1,0 +1,24 @@
+[21:52:53] === lane D: httpd 2.4.66 + mod_php 8.5.10, admin-scope M1+M2+M3
+[21:52:53] D_modphp: httpd master 1052091 listening=True
+[21:52:53] D_modphp/effective_ini: http=200 resp_len=610 sha=b9bffc2cefd44e3e oom=None fatal=False
+[21:52:53] D_modphp: effective_ini -> /tmp/opencode/mitigation_1021/results/D_modphp/effective_ini.txt
+[21:52:53] D_modphp: planted /tmp/opencode/vulntest8512_2127/records/8512asan_nomm_seed.sess -> /tmp/opencode/mitigation_1021/lanes/D_modphp/sessions/sess_modphpD (4986076 B ca3be92f12e7b58e)
+[21:52:53] D_modphp: session[planted] sess_modphpD size=4986076 sha=ca3be92f12e7b58e
+[21:52:53] D_modphp/baseline_consumer_stored: http=200 resp_len=3 sha=de34ad408f982bb1 oom=None fatal=False
+[21:52:53] D_modphp/arm_1: http=200 resp_len=3 sha=de34ad408f982bb1 oom=None fatal=False
+[21:52:53] D_modphp/arm_2: http=200 resp_len=3 sha=de34ad408f982bb1 oom=None fatal=False
+[21:52:53] D_modphp/arm_3: http=200 resp_len=3 sha=de34ad408f982bb1 oom=None fatal=False
+[21:52:53] D_modphp/consumer_after_1: http=200 resp_len=3 sha=de34ad408f982bb1 oom=None fatal=False
+[21:52:53] D_modphp/consumer_after_2: http=200 resp_len=3 sha=de34ad408f982bb1 oom=None fatal=False
+[21:52:53] D_modphp: session[after_arms] sess_modphpD size=4986076 sha=ca3be92f12e7b58e
+[21:52:53] D: access log:
+127.0.0.1 - - [21/Oct/2026:21:52:53 +0200] "GET /probe.php HTTP/1.1" 200 610 806 1052092
+127.0.0.1 - - [21/Oct/2026:21:52:53 +0200] "GET /index.php HTTP/1.1" 200 3 6117 1052092
+127.0.0.1 - - [21/Oct/2026:21:52:53 +0200] "POST /index.php HTTP/1.1" 200 3 16961 1052092
+127.0.0.1 - - [21/Oct/2026:21:52:53 +0200] "POST /index.php HTTP/1.1" 200 3 14141 1052092
+127.0.0.1 - - [21/Oct/2026:21:52:53 +0200] "POST /index.php HTTP/1.1" 200 3 15318 1052092
+127.0.0.1 - - [21/Oct/2026:21:52:53 +0200] "GET /index.php HTTP/1.1" 200 3 6328 1052092
+127.0.0.1 - - [21/Oct/2026:21:52:53 +0200] "GET /index.php HTTP/1.1" 200 3 6089 1052092
+[21:52:53] D: php_err tail:
+(missing /tmp/opencode/mitigation_1021/lanes/D_modphp/logs/php_err.log)
+[21:52:53] D_modphp: httpd stop issued (master 1052091)

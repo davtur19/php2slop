@@ -1,0 +1,40 @@
+{
+ "asan": false,
+ "asan_lines": [],
+ "binary": "/home/davide/ailocal/php/zerodays_1020/build_asan/sapi/cgi/php-cgi",
+ "body_len": 4983495,
+ "body_only_len": 149,
+ "body_only_sha256": "561043a1e978c6563cea92ea0aa5d4ef9cf90c6c9fe0ae7f428afea29d6bef6a",
+ "body_sha256": "6b98ba09461da37c68d1a55b2a6bed484c9a6c54227f0b10a693d1acad3ceb57",
+ "cleanup": "0",
+ "display": "stdout",
+ "duration_s": 0.03,
+ "enabled": "0",
+ "fatal_lines": [],
+ "label": "cgi8510_en0",
+ "limit": "8M",
+ "mode": "encode",
+ "oom": {
+  "limit": "8388608",
+  "tried": "266240"
+ },
+ "rc": 255,
+ "session_files": [
+  {
+   "head_hex": "75706c6f61645f70726f67726573735f4d4d4d7c613a353a7b733a31303a2273746172745f74696d65223b693a313739323631323332363b733a31343a22636f6e74656e745f6c656e677468223b693a343938333439353b733a31353a2262797465735f70726f636573736564223b693a353239353b733a343a22646f6e65223b623a303b733a353a2266696c6573223b613a313a7b693a303b613a373a7b73",
+   "head_repr": "b'upload_progress_MMM|a:5:{s:10:\"start_time\";i:1792612326;s:14:\"content_length\";i:4983495;s:15:\"bytes_processed\";i:5295;s:4:\"done\";b:0;s:5:\"files\";a:1:{i:0;a:7:{s'",
+   "name": "sess_cgisid",
+   "sha256": "d6c9903e1ba0c2fcf897d3e6579150863c807456c1ec4ff511d4284153fc2eb5",
+   "size": 330
+  }
+ ],
+ "sid": "cgisid",
+ "stderr_len": 0,
+ "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+ "stderr_text_head": "",
+ "stdout_len": 217,
+ "stdout_sha256": "59118bebab5b6ef725c750a7e91a8be4799fd6cac9bb1924510addfb19d7f635",
+ "stdout_text_head": "X-Powered-By: PHP/8.5.10\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 266240 bytes) in <b>Unknown</b> on line <b>0</b><br />\n",
+ "timed_out": false,
+ "zend_alloc": "1"
+}

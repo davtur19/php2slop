@@ -1,0 +1,16 @@
+[21:52:53] === lane D0: httpd 2.4.66 + mod_php 8.5.10 UNMITIGATED (8M, upload_progress=1)
+[21:52:54] D0_modphp_control: httpd master 1052101 listening=True
+[21:52:54] D0_modphp_control/effective_ini: http=200 resp_len=626 sha=ff24097d7afa9b56 oom=None fatal=False
+[21:52:54] D0_modphp_control: effective_ini -> /tmp/opencode/mitigation_1021/results/D0_modphp_control/effective_ini.txt
+[21:52:54] D0_modphp_control/arm_unmitigated: http=200 resp_len=149 sha=561043a1e978c656 oom={'limit': '8388608', 'tried': '266240'} fatal=True
+[21:52:54] D0_modphp_control/consumer_after: http=200 resp_len=3 sha=de34ad408f982bb1 oom=None fatal=False
+[21:52:54] D0_modphp_control: session[after_arm] sess_modphpCtl size=330 sha=15d82752d8d22c21
+[21:52:54] D0: access log:
+127.0.0.1 - - [21/Oct/2026:21:52:54 +0200] "GET /probe.php HTTP/1.1" 200 626 929 1052102
+127.0.0.1 - - [21/Oct/2026:21:52:54 +0200] "POST /index.php HTTP/1.1" 200 149 6515 1052102
+127.0.0.1 - - [21/Oct/2026:21:52:54 +0200] "GET /index.php HTTP/1.1" 200 3 267 1052102
+[21:52:54] D0: php_err tail:
+[21-Oct-2026 19:52:54 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 266240 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21:52:54] D0_modphp_control: httpd stop issued (master 1052101)

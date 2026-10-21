@@ -1,0 +1,15 @@
+[21:50:31] === lane B2_oversize_12M: FPM 8.5.10 oversize probe port 28984 front 28993
+[21:50:31] B2_oversize_12M: FPM master 1051136 listening=True
+[21:50:31] B2_oversize_12M/effective_ini: http=200 resp_len=618 sha=f86b1f67dc328f99 oom=None fatal=False
+[21:50:31] B2_oversize_12M: effective_ini -> /tmp/opencode/mitigation_1021/results/B2_oversize_12M/effective_ini.txt
+[21:50:32] B2_oversize_12M/oversize_arm: http=200 resp_len=0 sha=e3b0c44298fc1c14 oom=None fatal=False
+[21:50:32] B2_oversize_12M: session[after_oversize] sess_oversizeSid size=331 sha=df2c89437ad11fee
+[21:50:32] B2_oversize_12M: access log:
+1051137|0.002|21/Oct/2026:21:50:31 +0200|GET|200|0
+[21:50:32] B2_oversize_12M: worker exits:
+[21-Oct-2026 21:50:32] WARNING: [pool b2] child 1051137 exited with code 70 after 0.179890 seconds from start
+[21:50:32] B2_oversize_12M: php_err tail:
+[21-Oct-2026 19:50:32 UTC] PHP Fatal error:  Allowed memory size of 12582912 bytes exhausted (tried to allocate 790528 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21:50:37] B2_oversize_12M: FPM master 1051136 stopped

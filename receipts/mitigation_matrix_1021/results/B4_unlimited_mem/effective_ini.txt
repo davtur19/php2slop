@@ -1,0 +1,17 @@
+# lane B4_unlimited_mem port 28995 (php-fpm 28987)
+# HTTP 200 fetched 2026-10-21T21:53:52+0200
+session.upload_progress.enabled='0' access=4
+session.upload_progress.cleanup='0' access=4
+memory_limit='-1' access=4
+post_max_size='8M' access=4
+display_errors='0' access=4
+fatal_error_backtraces='0' access=4
+log_errors='1' access=4
+error_log='/tmp/opencode/mitigation_1021/lanes/B4_unlimited_mem/logs/php_err.log' access=4
+session.save_path='/tmp/opencode/mitigation_1021/lanes/B4_unlimited_mem/sessions' access=4
+max_file_uploads='20' access=6
+ini_set:session.upload_progress.enabled=false
+ini_set:memory_limit=false
+ini_set:display_errors=false
+ini_set:fatal_error_backtraces=false
+PHP_VERSION=8.5.10 SAPI=fpm-fcgi

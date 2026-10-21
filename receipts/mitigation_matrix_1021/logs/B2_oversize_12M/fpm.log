@@ -1,0 +1,8 @@
+[21-Oct-2026 21:50:31] NOTICE: [pool b2] 'user' directive is ignored when FPM is not running as root
+[21-Oct-2026 21:50:31] NOTICE: [pool b2] 'group' directive is ignored when FPM is not running as root
+[21-Oct-2026 21:50:31] NOTICE: fpm is running, pid 1051136
+[21-Oct-2026 21:50:31] NOTICE: ready to handle connections
+[21-Oct-2026 21:50:32] WARNING: [pool b2] child 1051137 exited with code 70 after 0.179890 seconds from start
+[21-Oct-2026 21:50:32] NOTICE: [pool b2] child 1051138 started
+[21-Oct-2026 21:50:32] NOTICE: Terminating ...
+[21-Oct-2026 21:50:32] NOTICE: exiting, bye-bye!

@@ -1,0 +1,14 @@
+[21:50:37] === lane B3_oversize_128M: FPM 8.5.10 oversize probe port 28985 front 28994
+[21:50:37] B3_oversize_128M: FPM master 1051170 listening=True
+[21:50:37] B3_oversize_128M/effective_ini: http=200 resp_len=621 sha=45a7c300b771f304 oom=None fatal=False
+[21:50:37] B3_oversize_128M: effective_ini -> /tmp/opencode/mitigation_1021/results/B3_oversize_128M/effective_ini.txt
+[21:50:37] B3_oversize_128M/oversize_arm: http=200 resp_len=3 sha=de34ad408f982bb1 oom=None fatal=False
+[21:50:38] B3_oversize_128M: session[after_oversize] sess_oversizeSid size=14947510 sha=d3c072df44a3ea95
+[21:50:38] B3_oversize_128M: access log:
+1051171|0.001|21/Oct/2026:21:50:37 +0200|GET|200|0
+1051171|0.117|21/Oct/2026:21:50:37 +0200|POST|200|14944972
+[21:50:38] B3_oversize_128M: worker exits:
+
+[21:50:38] B3_oversize_128M: php_err tail:
+(missing /tmp/opencode/mitigation_1021/lanes/B3_oversize_128M/logs/php_err.log)
+[21:50:43] B3_oversize_128M: FPM master 1051170 stopped

@@ -1,0 +1,8 @@
+{
+ "access_log": [
+  "127.0.0.1 - - [21/Oct/2026:21:52:54 +0200] \"GET /probe.php HTTP/1.1\" 200 626 929 1052102",
+  "127.0.0.1 - - [21/Oct/2026:21:52:54 +0200] \"POST /index.php HTTP/1.1\" 200 149 6515 1052102",
+  "127.0.0.1 - - [21/Oct/2026:21:52:54 +0200] \"GET /index.php HTTP/1.1\" 200 3 267 1052102"
+ ],
+ "php_err": "[21-Oct-2026 19:52:54 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 266240 bytes) in Unknown on line 0\nStack trace:\n#0 {main}"
+}

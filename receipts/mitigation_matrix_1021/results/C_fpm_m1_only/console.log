@@ -1,0 +1,25 @@
+[21:50:14] === lane C: FPM 8.5.10 + M1 only (8M, upload_progress=0)
+[21:50:14] C_fpm_m1_only: FPM master 1051057 listening=True
+[21:50:14] C_fpm_m1_only/effective_ini: http=200 resp_len=612 sha=053704131ccd9e3c oom=None fatal=False
+[21:50:14] C_fpm_m1_only: effective_ini -> /tmp/opencode/mitigation_1021/results/C_fpm_m1_only/effective_ini.txt
+[21:50:14] C_fpm_m1_only/arm_1: http=200 resp_len=0 sha=e3b0c44298fc1c14 oom=None fatal=False
+[21:50:15] C_fpm_m1_only/arm_2: http=200 resp_len=0 sha=e3b0c44298fc1c14 oom=None fatal=False
+[21:50:15] C_fpm_m1_only/arm_3: http=200 resp_len=0 sha=e3b0c44298fc1c14 oom=None fatal=False
+[21:50:15] C_fpm_m1_only: session[after_arms] (empty)
+[21:50:15] C: access log:
+1051058|0.002|21/Oct/2026:21:50:14 +0200|GET|200|0
+[21:50:15] C: worker exits:
+[21-Oct-2026 21:50:14] WARNING: [pool c] child 1051058 exited with code 70 after 0.105551 seconds from start
+[21-Oct-2026 21:50:15] WARNING: [pool c] child 1051059 exited with code 70 after 0.235225 seconds from start
+[21-Oct-2026 21:50:15] WARNING: [pool c] child 1051060 exited with code 70 after 0.236948 seconds from start
+[21:50:15] C: php_err tail:
+[21-Oct-2026 19:50:14 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 266240 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21-Oct-2026 19:50:15 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 266240 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21-Oct-2026 19:50:15 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 266240 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21:50:20] C_fpm_m1_only: FPM master 1051057 stopped

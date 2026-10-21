@@ -1,0 +1,10 @@
+{
+ "access_log": [
+  "1051058|0.002|21/Oct/2026:21:50:14 +0200|GET|200|0"
+ ],
+ "fpm_exits": [
+  "[21-Oct-2026 21:50:14] WARNING: [pool c] child 1051058 exited with code 70 after 0.105551 seconds from start",
+  "[21-Oct-2026 21:50:15] WARNING: [pool c] child 1051059 exited with code 70 after 0.235225 seconds from start",
+  "[21-Oct-2026 21:50:15] WARNING: [pool c] child 1051060 exited with code 70 after 0.236948 seconds from start"
+ ]
+}

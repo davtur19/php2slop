@@ -1,0 +1,16 @@
+{
+ "planted": {
+  "name": "sess_controlsidA",
+  "size": 4986076,
+  "sha256": "ca3be92f12e7b58edb097a4fc4002cfadb34c97baa6e1d7db312eeafd275b543"
+ },
+ "access_log": [
+  "1051783|0.002|21/Oct/2026:21:52:15 +0200|GET|200|0",
+  "1051783|0.004|21/Oct/2026:21:52:15 +0200|GET|200|0",
+  "1051784|0.001|21/Oct/2026:21:52:15 +0200|GET|200|0",
+  "1051784|0.000|21/Oct/2026:21:52:15 +0200|GET|200|0"
+ ],
+ "fpm_exits": [
+  "[21-Oct-2026 21:52:15] WARNING: [pool a] child 1051783 exited with code 70 after 0.111707 seconds from start"
+ ]
+}

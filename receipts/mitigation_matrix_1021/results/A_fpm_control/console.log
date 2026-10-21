@@ -1,0 +1,29 @@
+[21:52:15] === lane A: FPM 8.5.10 control, 8M, upload_progress=1, cleanup=0
+[21:52:15] A_fpm_control: FPM master 1051782 listening=True
+[21:52:15] A_fpm_control/effective_ini: http=200 resp_len=612 sha=1ea3b05811a44ee3 oom=None fatal=False
+[21:52:15] A_fpm_control: effective_ini -> /tmp/opencode/mitigation_1021/results/A_fpm_control/effective_ini.txt
+[21:52:15] A_fpm_control: planted /tmp/opencode/vulntest8512_2127/records/8512asan_nomm_seed.sess -> /tmp/opencode/mitigation_1021/lanes/A_fpm_control/sessions/sess_controlsidA (4986076 B ca3be92f12e7b58e)
+[21:52:15] A_fpm_control: session[planted] sess_controlsidA size=4986076 sha=ca3be92f12e7b58e
+[21:52:15] A: pre-attack worker pids in access log: []
+[21:52:15] A_fpm_control/baseline_consumer_stored: http=200 resp_len=322 sha=f02f5c8e53ce61ef oom={'limit': '8388608', 'tried': '266240'} fatal=True
+[21:52:15] A_fpm_control/producer_arm: http=200 resp_len=0 sha=e3b0c44298fc1c14 oom=None fatal=False
+[21:52:15] A_fpm_control: session[after_producer] sess_controlsidA size=330 sha=713fb73e6b3711cc
+[21:52:15] A_fpm_control/consumer_after: http=200 resp_len=3 sha=de34ad408f982bb1 oom=None fatal=False
+[21:52:15] A_fpm_control/consumer_after_2: http=200 resp_len=3 sha=de34ad408f982bb1 oom=None fatal=False
+[21:52:15] A: access log:
+1051783|0.002|21/Oct/2026:21:52:15 +0200|GET|200|0
+1051783|0.004|21/Oct/2026:21:52:15 +0200|GET|200|0
+1051784|0.001|21/Oct/2026:21:52:15 +0200|GET|200|0
+1051784|0.000|21/Oct/2026:21:52:15 +0200|GET|200|0
+[21:52:15] A: worker exits:
+[21-Oct-2026 21:52:15] WARNING: [pool a] child 1051783 exited with code 70 after 0.111707 seconds from start
+[21:52:15] A: php_err tail:
+[21-Oct-2026 19:52:15 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 266240 bytes) in /tmp/opencode/mitigation_1021/htdocs/index.php on line 2
+Stack trace:
+#0 /tmp/opencode/mitigation_1021/htdocs/index.php(2): session_start()
+#1 {main}
+[21-Oct-2026 19:52:15 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[21-Oct-2026 19:52:15 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 266240 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21:52:20] A_fpm_control: FPM master 1051782 stopped
