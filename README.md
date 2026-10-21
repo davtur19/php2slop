@@ -30,7 +30,8 @@ Stage sources: `receipts/diag3_10_runs/`, `docs/validation_1021_filmpost.md`.
 | `tool/modules/native-output-leak-stock-arm.py` | STOCK arm body (author-provided reconstruction) |
 | `tool/modules/compact-stock-tail.py` | COMPACT rearm + final forged multipart (author-provided reconstruction) |
 | `tool/modules/producer_618.py` / `producer_619.py` | CVE-109618 / CVE-109619 staged producer shapes (inert forge default) |
-| `tool/modules/producer.py` | producers facade — not wired into driver steps; mod_php producer TODO |
+| `tool/modules/producer.py` | 618/619 shape facade (not driver-wired); mod_php producer TODO |
+| `tool/modules/producer_fpmwiki.py` | fpmwiki producer stage (`--step producer`): anon-edit OOM, int N (5.7M receipt); offline byte-build default, `--live` gates the send |
 | `tool/modules/write_stage.py` | stub; live path = `php2shell.py:attempt()` → `COMPACT.probe_body(...)` |
 | `tool/modules/profiles.py` | `BINARY_PROFILES` + `TARGETS` registry |
 | `tool/stages/probe.py` | pre-flight fingerprint (GET, status/headers) |
@@ -53,6 +54,7 @@ python3 ≥ 3.10, stdlib only. Loopback target you own. `gdb`/`nm`/`readelf` opt
 python3 -m tool --target wiki --step recon          # same via package entry
 ./tool/php2shell.py --target wp --step chain        # blocker hold + rearm + forged staged multipart
 ./tool/php2shell.py --target wiki --step chain --command id
+./tool/php2shell.py --target wiki --step producer --body-bytes 5700000   # producer stage: request byte-build recorded, no send
 ./tool/php2shell.py --url http://127.0.0.1:28840/index.php --profile realapps-pie --step recon
 ```
 
@@ -60,7 +62,6 @@ Not implemented:
 
 | stage | path |
 |---|---|
-| producer wiring (CLI step) | `tool/modules/producer.py` |
 | modphp target (addresses + producer) | `tool/modules/profiles.py:TARGETS["modphp"]` |
 | write_stage extraction | `tool/modules/write_stage.py` |
 
@@ -77,8 +78,8 @@ Parameterized producer/step plan: `/tmp/opencode/realapps/side/php2shell/runs/UN
 | `session.save_path` | `/tmp/opencode/realapps/sessions/wiki` | `/tmp/opencode/realapps/sessions/wp` | — |
 | `session.upload_progress.enabled` | 1 (compiled default) | 1 | — |
 | `session.upload_progress.cleanup` | 1 at runtime (diag labs override 0) | 1 | — |
-| producers | `producer_618`, `producer_619` | same | — |
-| status | run | run | TODO |
+| producers | `producer_fpmwiki`, `producer_618`, `producer_619` | `producer_618`, `producer_619` | — |
+| status | run (producer wired) | run | TODO |
 
 Values as-found on the lab stack (verify per run). Add a target: new dict in
 `tool/modules/profiles.py:TARGETS` + constants in `BINARY_PROFILES` (generate via
