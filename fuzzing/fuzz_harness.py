@@ -22,9 +22,9 @@ import random
 
 PHP_CGI = os.environ.get(
     "PHP_CGI",
-    "/home/davide/ailocal/php/zerodays_1020/build_asan/sapi/cgi/php-cgi")
+    os.environ["ZERODAYS_ROOT"] + "/build_asan/sapi/cgi/php-cgi")
 if not os.path.exists(PHP_CGI):
-    PHP_CGI = "/home/davide/ailocal/php/zerodays_1020/install_asan/bin/php-cgi"
+    PHP_CGI = os.environ["ZERODAYS_ROOT"] + "/install_asan/bin/php-cgi"
 
 HUNT = "/tmp/opencode/realapps/side/hunt"
 CRASHES = os.path.join(HUNT, "crashes")

@@ -7,14 +7,20 @@ gh_session
 nohup.out
 *.pyc
 
-# public-repo hygiene: lab noise stays local
+# public-repo hygiene: lab noise stays local (raw logs/binaries/outcome files)
 runs/
-receipts/
+receipts/raw/
+*.out
+*.err
 *.log
-*.i64
-*.id0
-*.id1
-*.id2
-*.nam
-*.til/
+*.bin
+maps_*
+body_*
+asan_*
+ov25_*
+ctrl_out*
+__pycache__/
+*.pyc
+# curated receipts (named runs with their own README) are tracked on purpose
+!receipts/**
 
