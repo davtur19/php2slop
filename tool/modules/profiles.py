@@ -50,6 +50,8 @@ TARGETS = {
                 "the ASAN diag receipts override it to 0 - lab-only)",
         },
         "workers": "php-fpm pool [wiki], pm=static, single worker",
+        # stock stack has no unserialize endpoint: producer_unser is NOT wired
+        # to this target (no app path hands a request body to unserialize()).
         "producer_modules": ("producer_618", "producer_619", "producer_fpmwiki"),
         "status": "available (probe + chain + producer step)",
     },
@@ -98,7 +100,10 @@ TARGETS = {
             "children round-robin, ALL survive the machinery OOM; fatal shows as "
             "200 + transcript body (not 500)",
         "producer_stage": "producer_modphp",
-        "producer_modules": ("producer_modphp",),
+        # second producer (--producer unser): offline unserialize OOM class
+        # ladder; needs a lab unser.php endpoint (not in the stock stack) and
+        # --live takes an explicit --unser-url. producer_modphp stays first.
+        "producer_modules": ("producer_modphp", "producer_unser"),
         # receipt ladder (file part count fixed at 20 = max_file_uploads cap):
         # N=262144 -> body 4983500, alloc 266240; 330000 -> 6272764, alloc 331776;
         # 400000 -> 7602764, alloc 401408 (= producer_modphp.RECEIPT_LADDER)
@@ -131,3 +136,41 @@ def url_for(target_name: str) -> str | None:
     if not entry or entry.get("host") is None:
         return None
     return f"http://{entry['host']}:{entry['port']}{entry['path']}"
+
+
+def producers_for(target_name: str | None) -> tuple[str, ...]:
+    """Registered producer modules for a target; default is the fpmwiki stage."""
+    entry = TARGETS.get(target_name) or {}
+    modules = entry.get("producer_modules")
+    return tuple(modules) if modules else ("producer_fpmwiki",)
+
+
+def known_producers() -> tuple[str, ...]:
+    """Every producer module registered by any target (for ad-hoc URL overrides)."""
+    names = {
+        module
+        for entry in TARGETS.values()
+        for module in entry.get("producer_modules", ())
+    }
+    names.update(("producer_fpmwiki", "producer_modphp", "producer_unser"))
+    return tuple(sorted(names))
+
+
+def resolve_producer(target_name: str | None, requested: str | None = None) -> str:
+    """Producer stage module: TARGETS producer_stage by default, --producer overrides.
+
+    Keys are module names as in TARGETS (producer_<name>); a bare name is
+    prefixed. Registered targets accept only their producer_modules; an ad-hoc
+    URL accepts any known producer module.
+    """
+    entry = TARGETS.get(target_name) or {}
+    if requested:
+        name = requested if requested.startswith("producer_") else f"producer_{requested}"
+        allowed = producers_for(target_name) if target_name else known_producers()
+        if name not in allowed:
+            raise ValueError(
+                f"producer {requested!r} is not available for "
+                f"{target_name or 'an ad-hoc URL'}: registered " + ", ".join(allowed)
+            )
+        return name
+    return entry.get("producer_stage") or producers_for(target_name)[0]
