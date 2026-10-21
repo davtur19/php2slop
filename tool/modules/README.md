@@ -10,5 +10,5 @@
 | `producer_modphp.py` | modphp producer stage (`--target modphp --step producer`): STOCK-arm body delegation (byte parity with the run_20261021T155303Z_armoom receipts, sha256-gated), int N = filename length ladder (262144/330000/400000 → alloc 266240/331776/401408), Cookie-transport sid (use_only_cookies=1), memory_limit knob pre-flight gate (absent/128M → refusal), dry default / `--live` gated. |
 | `producer_618.py` | CVE-2026-109618 staged multipart producer (heavy POST, OOM/stale machinery shape; inert forge default). Moved from `staged_618.py`. |
 | `producer_619.py` | CVE-2026-109619 producer shape (149 x `t[]` reclaim records first → stale decoder state). Moved from `build_p1.py`. |
-| `write_stage.py` | documented stub — not implemented (chain stage write_stage); the live call path is `COMPACT.probe_body(...)` inside `tool/php2shell.py:attempt()`. |
+| `write_stage.py` | write stage — wired, dry-only (`--step write_stage`): builds the exact `attempt()`-shaped final multipart bytes via the documented `COMPACT.probe_body(...)` call and records them; no transport; the negative-`used_slots` math extraction (`stage_body()`) stays a NotImplementedError placeholder. |
 | `profiles.py` | target + binary-profile registry: `BINARY_PROFILES` (per-build offsets) and `TARGETS` (wiki / wp live, modphp TODO missing module). |
