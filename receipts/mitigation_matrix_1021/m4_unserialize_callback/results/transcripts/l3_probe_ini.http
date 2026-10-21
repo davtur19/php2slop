@@ -1,0 +1,16 @@
+X-Powered-By: PHP/8.5.10
+Content-type: text/plain;charset=UTF-8
+
+PHP_VERSION=8.5.10
+SAPI=fpm-fcgi
+unserialize_callback_func='' access=4
+include_path='.' access=4
+session.auto_start='0' access=2
+session.upload_progress.enabled='1' access=4
+session.save_path='/tmp/opencode/m4_test_1021/sessions/l3' access=4
+user_ini.filename='.user.ini' access=4
+ini_set(unserialize_callback_func,strlen)=false
+after=''
+DOCUMENT_ROOT='/tmp/opencode/m4_test_1021/www/plain'
+
+--- STDERR ---

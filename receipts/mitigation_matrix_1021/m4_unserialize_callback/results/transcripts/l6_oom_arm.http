@@ -1,0 +1,9 @@
+X-Powered-By: PHP/8.5.10
+Content-type: text/html; charset=UTF-8
+
+
+Fatal error: Allowed memory size of 8388608 bytes exhausted (tried to allocate 1052672 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+
+--- STDERR ---

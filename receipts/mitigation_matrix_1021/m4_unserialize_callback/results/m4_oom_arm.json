@@ -1,0 +1,12 @@
+{
+  "step": "oom_arm_8M_with_callback_pinned_empty",
+  "port": 29036,
+  "body_len_sent": 4983495,
+  "fastcgi_error": null,
+  "status_line": "X-Powered-By: PHP/8.5.10",
+  "response_body_len": 139,
+  "response_body_sha256": "b5e7074e0e774ad4a713ee2b3413151059b40c8ac874bed0752d2c0637d7ea2b",
+  "response_body": "\nFatal error: Allowed memory size of 8388608 bytes exhausted (tried to allocate 1052672 bytes) in Unknown on line 0\nStack trace:\n#0 {main}\n",
+  "stderr": "",
+  "duration_s": 0.0127
+}

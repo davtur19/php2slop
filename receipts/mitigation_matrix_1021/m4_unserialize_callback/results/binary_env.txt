@@ -1,0 +1,18 @@
+# M4 stack binary / environment
+
+binary: /home/davide/ailocal/php/zerodays_1020/install/sbin/php-fpm
+sha256: 27f32ef946b9ca1f24a0c6f9b6c26528abe8cf9e1ff666e8592c39fe5b5d7fc1
+bytes: 226199856
+
+PHP 8.5.10 (fpm-fcgi) (built: Oct 21 2026 01:40:53) (NTS)
+Copyright (c) The PHP Group
+Zend Engine v4.5.10, Copyright (c) Zend Technologies
+    with Zend OPcache v8.5.10, Copyright (c), by Zend Technologies
+
+ASAN link:
+	libasan.so.8 => /lib/x86_64-linux-gnu/libasan.so.8 (0x00007f2a5f200000)
+
+start env: ASAN_OPTIONS=detect_leaks=0:abort_on_error=1:allocator_may_return_null=1 USE_ZEND_ALLOC=1
+command: php-fpm -n -y /tmp/opencode/m4_test_1021/conf/fpm.conf -D
+
+nginx not used in M4; FastCGI direct over loopback (bin/fcgi.py).

@@ -1,0 +1,12 @@
+X-Powered-By: PHP/8.5.10
+Set-Cookie: PHPSESSID=e17f05e9a3606de5dea7e41c9f47d4b6; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-type: text/plain;charset=UTF-8
+
+class_before=false
+result_class=__PHP_Incomplete_Class
+class_after=false
+
+--- STDERR ---

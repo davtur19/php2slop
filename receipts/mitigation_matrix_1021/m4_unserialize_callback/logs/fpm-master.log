@@ -1,0 +1,18 @@
+[21-Oct-2026 22:18:00] NOTICE: [pool l0] 'user' directive is ignored when FPM is not running as root
+[21-Oct-2026 22:18:00] NOTICE: [pool l0] 'group' directive is ignored when FPM is not running as root
+[21-Oct-2026 22:18:00] NOTICE: [pool l1] 'user' directive is ignored when FPM is not running as root
+[21-Oct-2026 22:18:00] NOTICE: [pool l1] 'group' directive is ignored when FPM is not running as root
+[21-Oct-2026 22:18:00] NOTICE: [pool l2] 'user' directive is ignored when FPM is not running as root
+[21-Oct-2026 22:18:00] NOTICE: [pool l2] 'group' directive is ignored when FPM is not running as root
+[21-Oct-2026 22:18:00] NOTICE: [pool l3] 'user' directive is ignored when FPM is not running as root
+[21-Oct-2026 22:18:00] NOTICE: [pool l3] 'group' directive is ignored when FPM is not running as root
+[21-Oct-2026 22:18:00] NOTICE: [pool l4] 'user' directive is ignored when FPM is not running as root
+[21-Oct-2026 22:18:00] NOTICE: [pool l4] 'group' directive is ignored when FPM is not running as root
+[21-Oct-2026 22:18:00] NOTICE: [pool l5] 'user' directive is ignored when FPM is not running as root
+[21-Oct-2026 22:18:00] NOTICE: [pool l5] 'group' directive is ignored when FPM is not running as root
+[21-Oct-2026 22:18:00] NOTICE: [pool l6] 'user' directive is ignored when FPM is not running as root
+[21-Oct-2026 22:18:00] NOTICE: [pool l6] 'group' directive is ignored when FPM is not running as root
+[21-Oct-2026 22:18:00] NOTICE: fpm is running, pid 1066095
+[21-Oct-2026 22:18:00] NOTICE: ready to handle connections
+[21-Oct-2026 22:18:10] WARNING: [pool l6] child 1066102 exited with code 70 after 10.335758 seconds from start
+[21-Oct-2026 22:18:10] NOTICE: [pool l6] child 1066166 started

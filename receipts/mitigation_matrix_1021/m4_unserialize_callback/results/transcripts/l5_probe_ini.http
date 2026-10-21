@@ -1,0 +1,20 @@
+X-Powered-By: PHP/8.5.10
+Set-Cookie: PHPSESSID=d98a4d3d13a795dbc47bce3ef6ff6980; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-type: text/plain;charset=UTF-8
+
+PHP_VERSION=8.5.10
+SAPI=fpm-fcgi
+unserialize_callback_func='' access=4
+include_path='/tmp/opencode/m4_test_1021/autoload_auto' access=7
+session.auto_start='1' access=2
+session.upload_progress.enabled='1' access=4
+session.save_path='/tmp/opencode/m4_test_1021/sessions/l5' access=4
+user_ini.filename='.user.ini' access=4
+ini_set(unserialize_callback_func,strlen)=false
+after=''
+DOCUMENT_ROOT='/tmp/opencode/m4_test_1021/www/auto'
+
+--- STDERR ---

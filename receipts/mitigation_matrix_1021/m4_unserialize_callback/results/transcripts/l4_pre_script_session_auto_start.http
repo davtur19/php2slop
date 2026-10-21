@@ -1,0 +1,12 @@
+X-Powered-By: PHP/8.5.10
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-type: text/plain;charset=UTF-8
+
+SCRIPT_RAN
+class_D2_at_script=true
+session_status=2
+session_keys=m4key
+
+--- STDERR ---
