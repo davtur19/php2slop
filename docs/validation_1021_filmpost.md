@@ -40,3 +40,8 @@ Artifacts: harnesses/runs/{diag3_arm_oom.py,diag4_repeat_arm.py,diag5_asan.py,di
 - Deterministic wedge battery (record 4,984,736B on disk, same arm x3): run1 OOM inside machinery in php_request_startup, leaked flock-locked session fd; run2 self-deadlocks flock(LOCK_EX) ps_files_open:171 <- ps_read_files:369 <- php_session_initialize:507 <- rfc1867_update:2645 <- ... php_request_startup:1685; run3 unserviced. Worker permanently wedged, sess file byte-identical. Reproduced ×3 (gdb-resolved receipt).
 - Empty-baseline battery C: deterministic per-request OOM death 327B cap, no poison.
 ⇒ cross-version: family fences differ by SAPI/allocator but disk-session-record state + arm machinery OOM/bail leak produces deterministic cross-request wedging on 5.6; on 8.5 the analogous window is the decode-path state (diag5/6)... the planted-record substrate is the card to play for RCE.
+
+## Harness pointers (gdb ground truth)
+- diag6_gdb.cmd/diag9_gdb.cmd: breakpoints var.c:1352 (FRESH) / 1359 (REUSE) / 1367 (DESTROY), macro-free (bg DWARF has no macros).
+- diag10_run.sh: clean-start replay (rm /tmp/sess_abcdefgh) + arm x3 — result: 3x FRESH/DESTROY balanced, zero REUSE, deterministic 313B body.
+- diag9_gdb.log_filtered / diag10_gdb.log_filtered: full event traces.
