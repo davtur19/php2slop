@@ -118,8 +118,8 @@
     "note": "lab glibc build only; system is not imported by php-fpm, so a libc base leak is required; popen takes a second argument the decode call site does not control"
   },
   "heap_leak": {
-    "status": "F14 pending",
-    "note": "no ASLR capable heap leak; the G2 plan needs operator supplied X, P and B0"
+    "status": "F14 attempted-negative",
+    "note": "no ASLR capable heap leak demonstrated; the static session file route is attempted-negative (save path control and static serving proven, M11 overread failed, no pointer or B0); the G2 plan needs operator supplied X, P and B0"
   },
   "prerequisites": [
     "md5 locked: the target binary must match this profile md5",

@@ -146,9 +146,21 @@
     "lab_base": "0x7ffff7c9c000"
   },
   "heap_leak": {
-    "status": "F14 pending",
+    "status": "F14 attempted-negative",
     "measured_relation": "B0 = K_dest1 - 0x9000 on the fpmboot body with ASLR off; K_dest1 is a fixed body layout constant, so this is not an ASLR capable leak",
-    "note": "a heap leak from a static session file that works under ASLR is not solved; the G2 plan needs operator supplied X, P and B0"
+    "staticleak": {
+      "receipt": "/tmp/opencode/research/staticleak_20261021T214538Z",
+      "verdict": "save path control and static serving proven; M11 encode overread failed; no heap pointer or B0 recovered",
+      "controls": "21 exchanges against a bound of 20 and 3 of 3 restarts; formal no-save-path, file-not-present and different-sid controls not executed",
+      "scope": "real-target requirements only; no WordPress, MediaWiki or generic upload target was attacked"
+    },
+    "boot2_candidate": {
+      "sapi": "mod_php",
+      "receipt": "/tmp/opencode/research/boot2_20261021T214428Z",
+      "relation": "K_dest at sidhex[8:16]; B0 = K_dest - 0x1000",
+      "status": "lab only; not promoted; no single-process run takes B0 only from HTTP and then sends stage 2"
+    },
+    "note": "no ASLR capable heap leak demonstrated; the static session file route is attempted-negative and the boot2 HTTP leak is a lab-only candidate; the G2 plan needs operator supplied X, P and B0"
   },
   "prerequisites": [
     "md5 locked: the target binary must match this profile md5",
@@ -167,7 +179,9 @@
     "F11": "/tmp/opencode/research/fpmsurvive_20261021T211316Z",
     "F5": "/tmp/opencode/research/fpmwrite_20261021T201018Z",
     "G3": "/tmp/opencode/research/htdtor_20261021T214428Z",
-    "F14": "/tmp/opencode/research/fpmboot_20261021T214637Z"
+    "F14": "/tmp/opencode/research/fpmboot_20261021T214637Z",
+    "F14_staticleak": "/tmp/opencode/research/staticleak_20261021T214538Z",
+    "F14_boot2_candidate": "/tmp/opencode/research/boot2_20261021T214428Z"
   },
   "caveats": [
     "measured with setarch x86_64 -R; with ASLR on X, P, B0 and the libc base move",

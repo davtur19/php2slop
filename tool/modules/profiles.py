@@ -113,7 +113,7 @@ TARGETS = {
             "pDestructor superglobal teardown lane CLOSED: fast_shutdown=1 "
             "skips zend_hash_graceful_reverse_destroy(EG(symbol_table)), so "
             "POST rc stays 1 and no auto global table is destroyed; FPM "
-            "serializer lane (G2) is the open path)",
+            "serializer lane (G2) is the viable decode path)",
     },
 }
 
