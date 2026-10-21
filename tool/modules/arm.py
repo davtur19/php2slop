@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+"""arm — multipart PHP_SESSION_UPLOAD_PROGRESS request builder.
+
+Consolidated from the pre-restructure native-output-leak.py (git history kept):
+same functions, same standalone CLI. Components:
+  - multipart part builders (field / file_part) and arm/probe bodies
+  - raw HTTP/1.1 request framing (request_bytes)
+  - response reader (read_response, chunked + content-length + no-framing)
+  - 14-byte frozen-profile disclosure analyzer (analyze)
+"""
 
 import argparse
 import base64

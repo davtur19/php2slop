@@ -1,0 +1,3 @@
+#!/bin/sh
+# tool entry wrapper: ./tool/run --target wiki --step recon
+exec "${PYTHON:-python3}" "$(dirname "$0")/php2shell.py" "$@"
