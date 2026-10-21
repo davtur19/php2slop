@@ -448,14 +448,33 @@ def main() -> int:
 
     if args.memory_limit is None:
         parser.error("--memory-limit is required for a build (receipted: 2M / 8M / 128M)")
-    if args.live:
-        if args.url is None:
-            parser.error(
-                "--live requires --url: the module does not assume an unserialize "
-                "endpoint path (lab unser.php is a separate build)")
-        summary = fire(args.url, args.memory_limit, args.output, timeout=args.timeout)
-    else:
-        summary = dry(args.memory_limit, args.output)
+    try:
+        if args.live:
+            if args.url is None:
+                parser.error(
+                    "--live requires --url: the module does not assume an unserialize "
+                    "endpoint path (lab unser.php is a separate build)")
+            summary = fire(args.url, args.memory_limit, args.output, timeout=args.timeout)
+        else:
+            summary = dry(args.memory_limit, args.output)
+    except (ConnectionError, OSError, TimeoutError, TypeError, ValueError,
+            NotImplementedError) as error:
+        summary = {
+            "stage": "producer",
+            "producer_stage": "producer_unser",
+            "dry_run": not args.live,
+            "sent": False,
+            "memory_limit": args.memory_limit,
+            "error": f"{type(error).__name__}: {error}",
+        }
+        if args.url is not None:
+            summary["url"] = args.url
+        if args.output is not None:
+            args.output.mkdir(parents=True, exist_ok=True)
+            (args.output / "result.json").write_text(
+                json.dumps(summary, indent=2, sort_keys=True) + "\n")
+        print(json.dumps(summary, indent=2, sort_keys=True))
+        return 2
     if args.output is not None:
         args.output.mkdir(parents=True, exist_ok=True)
         (args.output / "result.json").write_text(
