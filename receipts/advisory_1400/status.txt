@@ -1,2 +1,45 @@
 [2026-10-21T11:22:58Z] BEFORE_EMBARGO now=2026-10-21T11:22:58Z < 2026-10-21T14:00:00Z; nothing fetched, exiting 0
 [2026-10-21T11:22:58Z] BEFORE_EMBARGO now=2026-10-21T11:22:58Z < 2026-10-21T14:00:00Z; nothing fetched, exiting 0
+[2026-10-21T17:42:56Z] RUN pid=4040712 post-embargo one-shot fetch starting (outdir=/home/davide/ailocal/php2slop_wt_receipts/receipts/advisory_1400)
+[2026-10-21T17:42:56Z] FETCH_FAIL https://www.php.net/releases/8.5.11.php -> /home/davide/ailocal/php2slop_wt_receipts/receipts/advisory_1400/release_8.5.11.html (wget failed or empty body; partial file removed)
+[2026-10-21T17:42:56Z] OK https://www.php.net/ChangeLog-8.php -> /home/davide/ailocal/php2slop_wt_receipts/receipts/advisory_1400/changelog8.html (752126 B)
+[2026-10-21T17:42:56Z] OK api https://api.github.com/repos/php/php-src/commits?path=ext/session/session.c&per_page=15 -> /home/davide/ailocal/php2slop_wt_receipts/receipts/advisory_1400/commits_session_c.json (66978 B)
+[2026-10-21T17:42:57Z] OK api https://api.github.com/repos/php/php-src/commits?sha=PHP-8.5&path=ext/session/session.c&per_page=15 -> /home/davide/ailocal/php2slop_wt_receipts/receipts/advisory_1400/commits_session_c_85.json (65732 B)
+[2026-10-21T17:42:57Z] OK api https://api.github.com/repos/php/php-src/tags?per_page=10 -> /home/davide/ailocal/php2slop_wt_receipts/receipts/advisory_1400/tags.json (4332 B)
+[2026-10-21T17:42:57Z] OK tarball_urls.txt written (location record; tarball not downloaded)
+[2026-10-21T17:42:58Z] OK diff 9705fda1bbb4 -> diff_9705fda1bbb4.patch (715304 B)
+[2026-10-21T17:42:58Z] OK diff d6373dfe150a -> diff_d6373dfe150a.patch (716408 B)
+[2026-10-21T17:42:59Z] OK diff c7273b9ba89c -> diff_c7273b9ba89c.patch (718433 B)
+[2026-10-21T17:42:59Z] skipped diff c7273b9ba89c (already present)
+[2026-10-21T17:43:00Z] OK diff 8a94bb3822b9 -> diff_8a94bb3822b9.patch (685677 B)
+[2026-10-21T17:43:00Z] skipped diff 8a94bb3822b9 (already present)
+[2026-10-21T17:43:01Z] OK diff c1a5f468d09f -> diff_c1a5f468d09f.patch (665029 B)
+[2026-10-21T17:43:01Z] skipped diff c1a5f468d09f (already present)
+total 4356
+drwxr-xr-x 2 davide davide   4096 Oct 21 19:43 .
+drwxr-xr-x 6 davide davide   4096 Oct 21 19:40 ..
+-rw-r--r-- 1 davide davide   4049 Oct 21 19:40 analyze_advisory.py
+-rw-r--r-- 1 davide davide 752126 Oct 21 15:33 changelog8.html
+-rw-r--r-- 1 davide davide  65732 Oct 21 19:42 commits_session_c_85.json
+-rw-r--r-- 1 davide davide  66978 Oct 21 19:42 commits_session_c.json
+-rw-r--r-- 1 davide davide    963 Oct 21 19:43 commits_summary.txt
+-rw-r--r-- 1 davide davide 685677 Oct 21 19:43 diff_8a94bb3822b9.patch
+-rw-r--r-- 1 davide davide 715304 Oct 21 19:42 diff_9705fda1bbb4.patch
+-rw-r--r-- 1 davide davide 665029 Oct 21 19:43 diff_c1a5f468d09f.patch
+-rw-r--r-- 1 davide davide 718433 Oct 21 19:42 diff_c7273b9ba89c.patch
+-rw-r--r-- 1 davide davide 716408 Oct 21 19:42 diff_d6373dfe150a.patch
+-rwxr-xr-x 1 davide davide   7233 Oct 21 19:40 fetch_advisory_1400.sh
+-rw-r--r-- 1 davide davide   6146 Oct 21 19:40 HANDOFF.md
+-rw-r--r-- 1 davide davide     54 Oct 21 19:40 launcher.log
+-rw-r--r-- 1 davide davide    789 Oct 21 19:43 manifest.sha256
+-rw-r--r-- 1 davide davide   2079 Oct 21 19:43 status.txt
+-rw-r--r-- 1 davide davide   4332 Oct 21 19:42 tags.json
+-rw-r--r-- 1 davide davide    104 Oct 21 19:42 tarball_urls.txt
+[2026-10-21T17:43:01Z] FETCH_DONE one-shot complete; rerun is safe (idempotent)
+[MANUAL-curation 2026-10-21T19:52Z] probe https://www.php.net/releases/8.5.11.php -> HTTP 302 location=search.php?show=404quickref&lang=en&pattern=releases/8.5.11.php (page does not exist; FETCH_FAIL above was a wrong stale target, not a network outage)
+[MANUAL-curation 2026-10-21T19:52Z] probe https://www.php.net/releases/8.5.12.php -> HTTP 302 to same 404quickref search (no announcement page; official record = changelog8.html + archive_2026.html)
+[MANUAL-curation 2026-10-21T19:53Z] OK analyze_advisory.py --base <this dir>: 10 post-cutoff session.c commits, added diff_3584a98bda0f.patch (661854 B, root fix "Avoid state corruption via bailout", names both CVEs); re-fetched the 5 merge diffs byte-identically (sha256sum -c passed after)
+[MANUAL-curation 2026-10-21T19:53Z] OK api github compare php-8.5.10...php-8.5.12 -> compare_8510_8512.json (1794730 B; fix in tag = 31c0ea7d7ff1 2026-10-18 + NEWS 3d37ab3b8ee6 + version bump 136e049ac10b)
+[MANUAL-curation 2026-10-21T19:54Z] OK fetched commit_3584a98bda0f.json (655592 B), commit_31c0ea7d7ff1.json (667966 B), diff_31c0ea7d7ff1.patch (715852 B)
+[MANUAL-curation 2026-10-21T19:55Z] OK fetched https://www.php.net/archive/2026.php -> archive_2026.html (99388 B; official announcement: 8.5.12/8.4.27/8.3.36/8.2.35 fix two critical unauthenticated-RCE vulns)
+[MANUAL-curation 2026-10-21T19:55Z] manifest.sha256 extended below with curation-added artifacts (see attribution_8510_8512.md)

@@ -1,0 +1,14 @@
+commits_session_c.json: 15 entries
+  2026-10-21T14:34:56Z 9705fda1bbb4 Merge branch 'PHP-8.6' into master
+  2026-10-21T14:33:23Z d6373dfe150a Merge branch 'PHP-8.5' into PHP-8.6
+  2026-10-21T14:30:04Z c7273b9ba89c Merge branch 'PHP-8.4' into PHP-8.5
+  2026-10-21T14:27:03Z 8a94bb3822b9 Merge branch 'PHP-8.3' into PHP-8.4
+  2026-10-21T14:12:35Z c1a5f468d09f Merge branch 'PHP-8.2' into PHP-8.3
+  2026-10-21T14:06:22Z 3584a98bda0f Avoid state corruption via bailout
+commits_session_c_85.json: 15 entries
+  2026-10-21T14:30:04Z c7273b9ba89c Merge branch 'PHP-8.4' into PHP-8.5
+  2026-10-21T14:27:03Z 8a94bb3822b9 Merge branch 'PHP-8.3' into PHP-8.4
+  2026-10-21T14:12:35Z c1a5f468d09f Merge branch 'PHP-8.2' into PHP-8.3
+  2026-10-21T14:06:22Z 3584a98bda0f Avoid state corruption via bailout
+  2026-10-13T18:33:23Z f2a7cb81a693 Merge branch 'PHP-8.4' into PHP-8.5
+  2026-10-13T18:31:07Z 751190d8e042 ext/session: do not reuse session state a save handler tore down
