@@ -1,0 +1,30 @@
+{
+  "analysis": {
+    "body_bytes": 36377,
+    "body_sha256": "393b84be003b54c10eb6f31b84dff77671a9f85d917506fd498eca57452a88a3",
+    "candidate": false,
+    "canonical": false,
+    "chunk_offset": "0x4213c",
+    "main_chunk": "0x505954434f400000",
+    "pointer": "0x505954434f44213c",
+    "pointer_bytes_in_requests": false,
+    "prefix_hex": "3c21444f43545950452068746d6c"
+  },
+  "arm_body_bytes": 36377,
+  "arm_connection_closed": true,
+  "arm_status": 200,
+  "host": "127.0.0.1",
+  "path": "/index.php",
+  "port": 28840,
+  "probe_connection": "keep-alive",
+  "probe_status": 200,
+  "same_connection": false,
+  "sha256": {
+    "body-1.bin": "4529c6382792730578af058bf2eecfec1f27d18a75823a60f3bb13074998768c",
+    "body-2.bin": "393b84be003b54c10eb6f31b84dff77671a9f85d917506fd498eca57452a88a3",
+    "request-1.bin": "f96f5713156618da7353252042c40945667ef311b3c3cb13ff405196ad5e07b3",
+    "request-2.bin": "03400116ce2b580069b7812ac1460d9d143d776b665f4e0a45944516b60330fd",
+    "response-1.bin": "b801e2ba8d31ef69e9851ea93e9f3085ea7001a30d71c5c27f3ea4be83767caa",
+    "response-2.bin": "4026659897c11e55a4348e7a24bb2f17cbff140011726c139f4fea3d41d17865"
+  }
+}

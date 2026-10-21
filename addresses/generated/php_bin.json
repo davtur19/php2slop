@@ -1,0 +1,37 @@
+{
+  "binary": "/tmp/opencode/realapps/install_realapps_np/bin/php",
+  "delta_dtor_minus_call": "0xb59fb",
+  "delta_llist_minus_passthru": "0x1fca77",
+  "dynsym_exported_count": 3,
+  "elf_type": "EXEC",
+  "image_base": "0x400000",
+  "lane": "noleak_abs_addr",
+  "leak_offset": "TBD_measure_live_probe",
+  "md5": "7b54c3280879fe0a3f9fbda76e97fa57",
+  "missing_symbols": [],
+  "offsets_from_base": {
+    "zend_call_function": "0x79e16a",
+    "zend_llist_remove_tail": "0x8389eb",
+    "zif_passthru": "0x63bf74",
+    "zif_system": "0x63bf61",
+    "zval_ptr_dtor": "0x853b65"
+  },
+  "p_align": "0x200000",
+  "pie": false,
+  "size_bytes": 66898984,
+  "symbol_binding": {
+    "zend_call_function": "T",
+    "zend_llist_remove_tail": "T",
+    "zif_passthru": "t",
+    "zif_system": "t",
+    "zval_ptr_dtor": "T"
+  },
+  "symbols": {
+    "zend_call_function": "0x0000000000b9e16a",
+    "zend_llist_remove_tail": "0x0000000000c389eb",
+    "zif_passthru": "0x0000000000a3bf74",
+    "zif_system": "0x0000000000a3bf61",
+    "zval_ptr_dtor": "0x0000000000c53b65"
+  },
+  "target_offset": "0x63bf74"
+}

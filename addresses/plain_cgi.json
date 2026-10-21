@@ -1,0 +1,26 @@
+{
+  "binary": "/home/davide/ailocal/php/zerodays_1020/install_plain/bin/php-cgi",
+  "duplicate_of": "/home/davide/ailocal/php/zerodays_1020/build_plain/sapi/cgi/php-cgi",
+  "md5": "efb420366054f7421b6bee6ede272ce3",
+  "size_bytes": 42494608,
+  "elf_type": "DYN",
+  "image_base": "0x0",
+  "p_align": "0x200000",
+  "symbols": {
+    "zif_passthru": "0x496cd5",
+    "zif_system": "0x496cc5",
+    "zend_call_function": "0x5db626",
+    "zend_llist_remove_tail": "0x67a768",
+    "zval_ptr_dtor": "0x6965a5"
+  },
+  "offsets_from_base": {
+    "zif_passthru": "0x496cd5",
+    "zif_system": "0x496cc5",
+    "zend_call_function": "0x5db626",
+    "zend_llist_remove_tail": "0x67a768",
+    "zval_ptr_dtor": "0x6965a5"
+  },
+  "delta_dtor_call": "0xbaf7f",
+  "delta_llist_passthru": "0x1e3a93",
+  "dynsym_exported": ["zend_call_function", "zend_llist_remove_tail", "zval_ptr_dtor"]
+}

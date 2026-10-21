@@ -1,0 +1,79 @@
+Breakpoint 1 at 0x4478ca: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 3155.
+Breakpoint 2 at 0x447daa: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 3256.
+Breakpoint 3 at 0x447df9: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 3268.
+Breakpoint 4 at 0x447ed3: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 3282.
+Breakpoint 5 at 0x447f3b: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 3295.
+Breakpoint 6 at 0x447f4a: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 3296.
+Breakpoint 7 at 0x447fcf: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 3315.
+Breakpoint 8 at 0x44800d: session.c:3328. (2 locations)
+Breakpoint 9 at 0x448035: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 3330.
+Breakpoint 10 at 0x44805c: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 3340.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+A3256 datatbl=0x7ffff7a57150 data_rc=1 postp=(nil) arData=0x7ffff7a632c0
+H3268 curf=UNDEF
+B3282 curftbl=0x7ffff7a571c0 curf_rc=1 curfbp=(nil) curf_arData=0x7ffff7a63400
+U3155 sess=0x7ffff7a57268 sess_rc=1 datatbl=0x7ffff7a57150 data_rc=2
+C3295 curfbp=0x7ffff7a634c0 curftbl=0x7ffff7a571c0 curf_arData=0x7ffff7a63400 off=0 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a634c0 curftbl=0x7ffff7a571c0 curf_arData=0x7ffff7a63400 off=5119 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a634c0 curftbl=0x7ffff7a571c0 curf_arData=0x7ffff7a63400 off=10238 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a634c0 curftbl=0x7ffff7a571c0 curf_arData=0x7ffff7a63400 off=15357 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a634c0 curftbl=0x7ffff7a571c0 curf_arData=0x7ffff7a63400 off=20476 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a634c0 curftbl=0x7ffff7a571c0 curf_arData=0x7ffff7a63400 off=25595 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a634c0 curftbl=0x7ffff7a571c0 curf_arData=0x7ffff7a63400 off=30714 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a634c0 curftbl=0x7ffff7a571c0 curf_arData=0x7ffff7a63400 off=35833 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a634c0 curftbl=0x7ffff7a571c0 curf_arData=0x7ffff7a63400 off=40952 len=8
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+E3315 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+H3268 PRIOR_curf=0x7ffff7a571c0 prior_rc=1
+B3282 curftbl=0x7ffff7a57380 curf_rc=1 curfbp=0x7ffff7a634c0 curf_arData=0x7ffff7a63b80
+C3295 curfbp=0x7ffff7a63c40 curftbl=0x7ffff7a57380 curf_arData=0x7ffff7a63b80 off=0 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a63c40 curftbl=0x7ffff7a57380 curf_arData=0x7ffff7a63b80 off=5119 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a63c40 curftbl=0x7ffff7a57380 curf_arData=0x7ffff7a63b80 off=10238 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a63c40 curftbl=0x7ffff7a57380 curf_arData=0x7ffff7a63b80 off=15357 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a63c40 curftbl=0x7ffff7a57380 curf_arData=0x7ffff7a63b80 off=20476 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a63c40 curftbl=0x7ffff7a57380 curf_arData=0x7ffff7a63b80 off=25595 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a63c40 curftbl=0x7ffff7a57380 curf_arData=0x7ffff7a63b80 off=30714 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a63c40 curftbl=0x7ffff7a57380 curf_arData=0x7ffff7a63b80 off=35833 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a63c40 curftbl=0x7ffff7a57380 curf_arData=0x7ffff7a63b80 off=40952 len=8
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+E3315 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+H3268 PRIOR_curf=0x7ffff7a57380 prior_rc=1
+B3282 curftbl=0x7ffff7a57498 curf_rc=1 curfbp=0x7ffff7a63c40 curf_arData=0x7ffff7a63e00
+C3295 curfbp=0x7ffff7a63ec0 curftbl=0x7ffff7a57498 curf_arData=0x7ffff7a63e00 off=0 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a63ec0 curftbl=0x7ffff7a57498 curf_arData=0x7ffff7a63e00 off=5119 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a63ec0 curftbl=0x7ffff7a57498 curf_arData=0x7ffff7a63e00 off=10238 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a63ec0 curftbl=0x7ffff7a57498 curf_arData=0x7ffff7a63e00 off=15357 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a63ec0 curftbl=0x7ffff7a57498 curf_arData=0x7ffff7a63e00 off=20476 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a63ec0 curftbl=0x7ffff7a57498 curf_arData=0x7ffff7a63e00 off=25595 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a63ec0 curftbl=0x7ffff7a57498 curf_arData=0x7ffff7a63e00 off=30714 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a63ec0 curftbl=0x7ffff7a57498 curf_arData=0x7ffff7a63e00 off=35833 len=5119
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+C3295 curfbp=0x7ffff7a63ec0 curftbl=0x7ffff7a57498 curf_arData=0x7ffff7a63e00 off=40952 len=8
+D3296 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+E3315 postp=0x7ffff7a63300 datatbl=0x7ffff7a57150 data_arData=0x7ffff7a632c0 data_rc=2
+X3340 postEND datatbl_ptr_field=0x7ffff7a57150
+[Inferior 1 (process 3355196) exited normally]

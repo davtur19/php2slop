@@ -1,0 +1,110 @@
+=================================================================
+==3811703==ERROR: AddressSanitizer: heap-use-after-free on address 0x504000035150 at pc 0x55a7d0d344b2 bp 0x7fff2dbfc050 sp 0x7fff2dbfc048
+READ of size 4 at 0x504000035150 thread T0
+    #0 0x55a7d0d344b1 in zend_gc_delref /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_types.h:1383
+    #1 0x55a7d0d344b1 in zend_objects_store_del /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_objects_API.c:182
+    #2 0x55a7d0d73bab in rc_dtor_func /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_variables.c:57
+    #3 0x55a7d0d73e6b in i_zval_ptr_dtor /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_variables.h:45
+    #4 0x55a7d0d73e6b in zval_ptr_dtor /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_variables.c:84
+    #5 0x55a7d0c91435 in _zend_hash_add_or_update_i /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_hash.c:872
+    #6 0x55a7d0c91435 in zend_hash_update /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_hash.c:1005
+    #7 0x55a7d05eb0ad in php_session_rfc1867_update /home/davide/ailocal/php/zerodays_1020/build_asan/ext/session/session.c:3155
+    #8 0x55a7d05ec137 in php_session_rfc1867_callback /home/davide/ailocal/php/zerodays_1020/build_asan/ext/session/session.c:3285
+    #9 0x55a7d08997f6 in rfc1867_post_handler /home/davide/ailocal/php/zerodays_1020/build_asan/main/rfc1867.c:973
+    #10 0x55a7d089a4d6 in sapi_handle_post /home/davide/ailocal/php/zerodays_1020/build_asan/main/SAPI.c:164
+    #11 0x55a7d0890e0b in php_default_treat_data /home/davide/ailocal/php/zerodays_1020/build_asan/main/php_variables.c:498
+    #12 0x55a7d088d801 in php_auto_globals_create_post /home/davide/ailocal/php/zerodays_1020/build_asan/main/php_variables.c:821
+    #13 0x55a7d0a56807 in zend_activate_auto_globals /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_compile.c:2025
+    #14 0x55a7d08938a5 in php_hash_environment /home/davide/ailocal/php/zerodays_1020/build_asan/main/php_variables.c:794
+    #15 0x55a7d08710de in php_request_startup /home/davide/ailocal/php/zerodays_1020/build_asan/main/main.c:1942
+    #16 0x55a7d0d97cba in main /home/davide/ailocal/php/zerodays_1020/build_asan/sapi/cgi/cgi_main.c:2460
+    #17 0x7fc5c1035ca7  (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: 5e5b51f4c39af9ac589408c1dc432ba390a273cc)
+    #18 0x7fc5c1035d64 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x29d64) (BuildId: 5e5b51f4c39af9ac589408c1dc432ba390a273cc)
+    #19 0x55a7d002e0f0 in _start (/home/davide/ailocal/php/zerodays_1020/build_asan/sapi/cgi/php-cgi+0x42e0f0) (BuildId: 4faafbf895495b2b849cac788c7510d37de2f6bb)
+
+0x504000035150 is located 0 bytes inside of 40-byte region [0x504000035150,0x504000035178)
+freed by thread T0 here:
+    #0 0x7fc5c12f38f8 in free ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:52
+    #1 0x55a7d09c4a20 in __zend_free /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_alloc.c:3571
+    #2 0x55a7d09d140f in _efree /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_alloc.c:2790
+    #3 0x55a7d0d3437a in zend_objects_store_del /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_objects_API.c:200
+    #4 0x55a7d0d35500 in zend_object_release /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_objects_API.h:77
+    #5 0x55a7d0d35500 in zend_objects_destroy_object /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_objects.c:185
+    #6 0x55a7d0d34471 in zend_objects_store_del /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_objects_API.c:181
+    #7 0x55a7d0d73bab in rc_dtor_func /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_variables.c:57
+    #8 0x55a7d0d73e6b in i_zval_ptr_dtor /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_variables.h:45
+    #9 0x55a7d0d73e6b in zval_ptr_dtor /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_variables.c:84
+    #10 0x55a7d0c91435 in _zend_hash_add_or_update_i /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_hash.c:872
+    #11 0x55a7d0c91435 in zend_hash_update /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_hash.c:1005
+    #12 0x55a7d05eb0ad in php_session_rfc1867_update /home/davide/ailocal/php/zerodays_1020/build_asan/ext/session/session.c:3155
+    #13 0x55a7d05ec137 in php_session_rfc1867_callback /home/davide/ailocal/php/zerodays_1020/build_asan/ext/session/session.c:3285
+    #14 0x55a7d08997f6 in rfc1867_post_handler /home/davide/ailocal/php/zerodays_1020/build_asan/main/rfc1867.c:973
+    #15 0x55a7d089a4d6 in sapi_handle_post /home/davide/ailocal/php/zerodays_1020/build_asan/main/SAPI.c:164
+    #16 0x55a7d0890e0b in php_default_treat_data /home/davide/ailocal/php/zerodays_1020/build_asan/main/php_variables.c:498
+    #17 0x55a7d088d801 in php_auto_globals_create_post /home/davide/ailocal/php/zerodays_1020/build_asan/main/php_variables.c:821
+    #18 0x55a7d0a56807 in zend_activate_auto_globals /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_compile.c:2025
+    #19 0x55a7d08938a5 in php_hash_environment /home/davide/ailocal/php/zerodays_1020/build_asan/main/php_variables.c:794
+    #20 0x55a7d08710de in php_request_startup /home/davide/ailocal/php/zerodays_1020/build_asan/main/main.c:1942
+    #21 0x55a7d0d97cba in main /home/davide/ailocal/php/zerodays_1020/build_asan/sapi/cgi/cgi_main.c:2460
+    #22 0x7fc5c1035ca7  (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: 5e5b51f4c39af9ac589408c1dc432ba390a273cc)
+
+previously allocated by thread T0 here:
+    #0 0x7fc5c12f4c57 in malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:69
+    #1 0x55a7d09c4ca9 in __zend_malloc /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_alloc.c:3543
+    #2 0x55a7d09d102a in _emalloc /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_alloc.c:2780
+    #3 0x55a7d0d355e9 in zend_objects_new /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_objects.c:191
+    #4 0x55a7d09de9be in _object_and_properties_init /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_API.c:1853
+    #5 0x55a7d09de9be in object_init_ex /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_API.c:1876
+    #6 0x55a7d0b51fbf in ZEND_NEW_SPEC_CONST_UNUSED_HANDLER /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_vm_execute.h:11297
+    #7 0x55a7d0c49f4d in execute_ex /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_vm_execute.h:117635
+    #8 0x55a7d0ab21fe in zend_call_function /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_execute_API.c:1010
+    #9 0x55a7d07edfd6 in var_destroy /home/davide/ailocal/php/zerodays_1020/build_asan/ext/standard/var_unserializer.c:279
+    #10 0x55a7d07ee958 in php_var_unserialize_destroy /home/davide/ailocal/php/zerodays_1020/build_asan/ext/standard/var_unserializer.c:88
+    #11 0x55a7d05e1f20 in ps_srlzr_decode_php /home/davide/ailocal/php/zerodays_1020/build_asan/ext/session/session.c:1139
+    #12 0x55a7d05e0155 in php_session_decode /home/davide/ailocal/php/zerodays_1020/build_asan/ext/session/session.c:294
+    #13 0x55a7d05e769b in php_session_initialize /home/davide/ailocal/php/zerodays_1020/build_asan/ext/session/session.c:514
+    #14 0x55a7d05eacdb in php_session_rfc1867_update /home/davide/ailocal/php/zerodays_1020/build_asan/ext/session/session.c:3147
+    #15 0x55a7d05ec137 in php_session_rfc1867_callback /home/davide/ailocal/php/zerodays_1020/build_asan/ext/session/session.c:3285
+    #16 0x55a7d08997f6 in rfc1867_post_handler /home/davide/ailocal/php/zerodays_1020/build_asan/main/rfc1867.c:973
+    #17 0x55a7d089a4d6 in sapi_handle_post /home/davide/ailocal/php/zerodays_1020/build_asan/main/SAPI.c:164
+    #18 0x55a7d0890e0b in php_default_treat_data /home/davide/ailocal/php/zerodays_1020/build_asan/main/php_variables.c:498
+    #19 0x55a7d088d801 in php_auto_globals_create_post /home/davide/ailocal/php/zerodays_1020/build_asan/main/php_variables.c:821
+    #20 0x55a7d0a56807 in zend_activate_auto_globals /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_compile.c:2025
+    #21 0x55a7d08938a5 in php_hash_environment /home/davide/ailocal/php/zerodays_1020/build_asan/main/php_variables.c:794
+    #22 0x55a7d08710de in php_request_startup /home/davide/ailocal/php/zerodays_1020/build_asan/main/main.c:1942
+    #23 0x55a7d0d97cba in main /home/davide/ailocal/php/zerodays_1020/build_asan/sapi/cgi/cgi_main.c:2460
+    #24 0x7fc5c1035ca7  (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: 5e5b51f4c39af9ac589408c1dc432ba390a273cc)
+
+SUMMARY: AddressSanitizer: heap-use-after-free /home/davide/ailocal/php/zerodays_1020/build_asan/Zend/zend_types.h:1383 in zend_gc_delref
+Shadow bytes around the buggy address:
+  0x504000034e80: fa fa fd fd fd fd fd fa fa fa fd fd fd fd fd fd
+  0x504000034f00: fa fa fd fd fd fd fd fa fa fa fd fd fd fd fd fd
+  0x504000034f80: fa fa fd fd fd fd fd fd fa fa fd fd fd fd fd fa
+  0x504000035000: fa fa 00 00 00 00 04 fa fa fa fd fd fd fd fd fa
+  0x504000035080: fa fa fd fd fd fd fd fd fa fa fd fd fd fd fd fd
+=>0x504000035100: fa fa fd fd fd fd fd fd fa fa[fd]fd fd fd fd fa
+  0x504000035180: fa fa fd fd fd fd fd fa fa fa fd fd fd fd fd fd
+  0x504000035200: fa fa fd fd fd fd fd fd fa fa fd fd fd fd fd fd
+  0x504000035280: fa fa fd fd fd fd fd fd fa fa fd fd fd fd fd fd
+  0x504000035300: fa fa fd fd fd fd fd fa fa fa fd fd fd fd fd fd
+  0x504000035380: fa fa fd fd fd fd fd fd fa fa fd fd fd fd fd fd
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+==3811703==ABORTING

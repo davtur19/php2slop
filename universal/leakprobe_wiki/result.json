@@ -1,0 +1,24 @@
+{
+  "analysis": {
+    "body_bytes": 0,
+    "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "candidate": false
+  },
+  "arm_body_bytes": 36377,
+  "arm_connection_closed": true,
+  "arm_status": 200,
+  "host": "127.0.0.1",
+  "path": "/index.php",
+  "port": 28840,
+  "probe_connection": "",
+  "probe_status": 0,
+  "same_connection": false,
+  "sha256": {
+    "body-1.bin": "f1b4a3c8330adc894c54a28e926a29296e37386b53ee2d90066996cf662f7676",
+    "body-2.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "request-1.bin": "a8b8a845941a1d83d4cea13971b06e17d62997c3e2be3e00f38e39b9006b6e23",
+    "request-2.bin": "03400116ce2b580069b7812ac1460d9d143d776b665f4e0a45944516b60330fd",
+    "response-1.bin": "37ef0c836b82bcac0aa97b5206dfdbc1488536400a94af9f725a8189c98e3cb3",
+    "response-2.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

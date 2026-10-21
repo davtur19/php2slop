@@ -1,0 +1,37 @@
+{
+  "binary": "/tmp/opencode/realapps/phpb/sapi/cli/php",
+  "delta_dtor_minus_call": "0xb736b",
+  "delta_llist_minus_passthru": "0x202ae9",
+  "dynsym_exported_count": 3,
+  "elf_type": "DYN",
+  "image_base": "0x0",
+  "lane": "leak_required_aslr",
+  "leak_offset": "TBD_measure_live_probe",
+  "md5": "82eb7a130784a8fae5d2f5efec67089d",
+  "missing_symbols": [],
+  "offsets_from_base": {
+    "zend_call_function": "0x7b0331",
+    "zend_llist_remove_tail": "0x84c0eb",
+    "zif_passthru": "0x649602",
+    "zif_system": "0x6495ef",
+    "zval_ptr_dtor": "0x86769c"
+  },
+  "p_align": "0x200000",
+  "pie": true,
+  "size_bytes": 66913760,
+  "symbol_binding": {
+    "zend_call_function": "T",
+    "zend_llist_remove_tail": "T",
+    "zif_passthru": "t",
+    "zif_system": "t",
+    "zval_ptr_dtor": "T"
+  },
+  "symbols": {
+    "zend_call_function": "0x00000000007b0331",
+    "zend_llist_remove_tail": "0x000000000084c0eb",
+    "zif_passthru": "0x0000000000649602",
+    "zif_system": "0x00000000006495ef",
+    "zval_ptr_dtor": "0x000000000086769c"
+  },
+  "target_offset": "TBD_from_leak_chunk_anchor"
+}

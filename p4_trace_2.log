@@ -1,0 +1,9 @@
+Breakpoint 1 at 0x447daa: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 3256.
+Breakpoint 2 at 0x447ed3: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 3282.
+Breakpoint 3 at 0x447f3b: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 3295.
+Breakpoint 4 at 0x447fcf: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 3315.
+Breakpoint 5 at 0x44800d: session.c:3328. (2 locations)
+Breakpoint 6 at 0x44805c: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 3340.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[Inferior 1 (process 3352784) exited with code 0377]

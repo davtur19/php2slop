@@ -1,0 +1,26 @@
+{
+  "binary": "/tmp/opencode/realapps/install_realapps/sbin/php-fpm",
+  "duplicate_of": "/tmp/opencode/realapps/phpb/sapi/fpm/php-fpm",
+  "md5": "26e4c7c37b8ec17659035052457694d2",
+  "size_bytes": 67190272,
+  "elf_type": "DYN",
+  "image_base": "0x0",
+  "p_align": "0x200000",
+  "symbols": {
+    "zif_passthru": "0x6496c2",
+    "zif_system": "0x6496af",
+    "zend_call_function": "0x7b03f1",
+    "zend_llist_remove_tail": "0x84c1ab",
+    "zval_ptr_dtor": "0x86775c"
+  },
+  "offsets_from_base": {
+    "zif_passthru": "0x6496c2",
+    "zif_system": "0x6496af",
+    "zend_call_function": "0x7b03f1",
+    "zend_llist_remove_tail": "0x84c1ab",
+    "zval_ptr_dtor": "0x86775c"
+  },
+  "delta_dtor_call": "0xb736b",
+  "delta_llist_passthru": "0x202ae9",
+  "dynsym_exported": ["zend_call_function", "zend_llist_remove_tail", "zval_ptr_dtor"]
+}
