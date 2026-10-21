@@ -1,4 +1,4 @@
-# Runtime Address Book — php 8.5.10 bench builds
+# Runtime Address Book: php 8.5.10 bench builds
 
 Measured 2026-10-21 with `readelf -h/-lW` and `nm -n` only. No binary was executed; all
 numbers are static ELF facts from the files on disk.
@@ -42,10 +42,10 @@ The three expected extras beyond the two named targets were all found: plain lab
 (PIE), ASAN php-cgi (PIE), and the PIE realapps-class php-fpm. Everything not EXEC is PIE.
 
 Sanity-check pass (required values): **all matched on first measurement**
-— realapps_np fpm: EXEC, base 0x400000, `zval_ptr_dtor` 0xc53c65, `zend_call_function` 0xb9e26a;
+realapps_np fpm: EXEC, base 0x400000, `zval_ptr_dtor` 0xc53c65, `zend_call_function` 0xb9e26a;
   plainpie cgi: `zval_ptr_dtor` 0xa88fae, `zend_call_function` 0x9cfd3f.
 
-## 2. Profile builds — full detail
+## 2. Profile builds, full detail
 
 Symbols requested for the profile: `zif_passthru`, `zif_system` (added for completeness, it
 is the sibling of `zif_passthru` in main.c), `zend_call_function`, `zend_llist_remove_tail`,
@@ -54,7 +54,7 @@ Binding in `.symtab`: `zif_*` are local (`t`), the three `zend_*` are global (`T
 only ones of the five also exported in `.dynsym` (`nm -D` verified; dynsym addresses equal
 symtab addresses in all 5 profile binaries).
 
-### 2.1 realapps_np_fpm — `/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm`
+### 2.1 realapps_np_fpm: `/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm`
 
 | field | value |
 |---|---|
@@ -74,7 +74,7 @@ symtab addresses in all 5 profile binaries).
 - delta `zval_ptr_dtor − zend_call_function` = **0xb59fb**
 - delta `zend_llist_remove_tail − zif_passthru` = **0x1fca77**
 
-### 2.2 plainpie_cgi — `/home/davide/ailocal/php/zerodays_1020/install_plainpie/bin/php-cgi`
+### 2.2 plainpie_cgi: `/home/davide/ailocal/php/zerodays_1020/install_plainpie/bin/php-cgi`
 
 | field | value |
 |---|---|
@@ -94,12 +94,12 @@ symtab addresses in all 5 profile binaries).
 - delta `zval_ptr_dtor − zend_call_function` = **0xb926f**
 - delta `zend_llist_remove_tail − zif_passthru` = **0x1de0b1**
 
-### 2.3 plain_cgi — `/home/davide/ailocal/php/zerodays_1020/install_plain/bin/php-cgi`
+### 2.3 plain_cgi: `/home/davide/ailocal/php/zerodays_1020/install_plain/bin/php-cgi`
 
 | field | value |
 |---|---|
 | ELF type | DYN (PIE) |
-| image base (first LOAD p_vaddr) | 0x0 — runtime base randomized per exec |
+| image base (first LOAD p_vaddr) | 0x0 (runtime base randomized per exec) |
 | p_align | 0x200000 |
 | md5 | efb420366054f7421b6bee6ede272ce3 (≡ `build_plain/sapi/cgi/php-cgi`) |
 
@@ -114,12 +114,12 @@ symtab addresses in all 5 profile binaries).
 - delta `zval_ptr_dtor − zend_call_function` = **0xbaf7f**
 - delta `zend_llist_remove_tail − zif_passthru` = **0x1e3a93**
 
-### 2.4 asan_cgi — `/home/davide/ailocal/php/zerodays_1020/install_asan/bin/php-cgi`
+### 2.4 asan_cgi: `/home/davide/ailocal/php/zerodays_1020/install_asan/bin/php-cgi`
 
 | field | value |
 |---|---|
 | ELF type | DYN (PIE) |
-| image base (first LOAD p_vaddr) | 0x0 — runtime base randomized per exec |
+| image base (first LOAD p_vaddr) | 0x0 (runtime base randomized per exec) |
 | p_align | 0x200000 |
 | md5 | c5bd84e2129fcdb96d7ebcaf7fbc82f7 (≡ `build_asan/sapi/cgi/php-cgi`) |
 
@@ -134,12 +134,12 @@ symtab addresses in all 5 profile binaries).
 - delta `zval_ptr_dtor − zend_call_function` = **0x2c3f49**
 - delta `zend_llist_remove_tail − zif_passthru` = **0x637840**
 
-### 2.5 realapps_fpm — `/tmp/opencode/realapps/install_realapps/sbin/php-fpm` (PIE, realapps-class)
+### 2.5 realapps_fpm: `/tmp/opencode/realapps/install_realapps/sbin/php-fpm` (PIE, realapps-class)
 
 | field | value |
 |---|---|
 | ELF type | DYN (PIE) |
-| image base (first LOAD p_vaddr) | 0x0 — runtime base randomized per exec |
+| image base (first LOAD p_vaddr) | 0x0 (runtime base randomized per exec) |
 | p_align | 0x200000 |
 | md5 | 26e4c7c37b8ec17659035052457694d2 (≡ `phpb/sapi/fpm/php-fpm`) |
 
@@ -170,7 +170,7 @@ SAPI variants (php-fpm / php-cgi / cli) of the same link. All 21 unique binaries
 | default+debug (fpm + cgi + cli) | 0x6ce57b | 0xe862c5 | DYN |
 
 (Profile builds in the JSON artifacts above: realapps_np_fpm, plainpie_cgi, plain_cgi,
-asan_cgi, realapps_fpm — deltas quoted from their fpm/cgi member; other SAPI members carry
+asan_cgi, realapps_fpm: deltas quoted from their fpm/cgi member; other SAPI members carry
 the same delta, see appendix.)
 
 ## 4. Full symbol vaddrs, all unique binaries (appendix)
@@ -203,19 +203,19 @@ the same delta, see appendix.)
 
 Factual, derived strictly from the measurements above:
 
-- **EXEC (non-PIE) builds — realapps_np (all 3 SAPIs), plainpie (all 3 SAPIs).** The first
+- **EXEC (non-PIE) builds, realapps_np (all 3 SAPIs), plainpie (all 3 SAPIs).** The first
   LOAD segment carries `p_vaddr = 0x400000` with `p_align = 0x200000`; the ELF type is
   EXEC, so the kernel maps this single image at the fixed link address on every exec. For
   these builds, static vaddrs are runtime addresses; a profile (symbol list + deltas) can
   be applied without any attacker-visible address disclosure. The same applies whether a
-  symbol is `.dynsym`-exported (`zend_*`) or `.symtab`-local (`zif_*`) — both classes sit
+  symbol is `.dynsym`-exported (`zend_*`) or `.symtab`-local (`zif_*`): both classes sit
   inside the fixed image, so their runtime addresses are equally constant.
-- **DYN (PIE) builds — realapps, plain, default+debug, O0, asan.** First LOAD `p_vaddr = 0x0`;
+- **DYN (PIE) builds, realapps, plain, default+debug, O0, asan.** First LOAD `p_vaddr = 0x0`;
   runtime address = load base (randomized per exec) + file vaddr. A static vaddr is only a
   relative offset; converting it to a usable runtime address requires observing one
   runtime address of the target image.
 - **Deltas.** `zval_ptr_dtor − zend_call_function` and `zend_llist_remove_tail − zif_passthru`
-  are per-build constants (identical across SAPI variants of the same build, and — measured —
+  are per-build constants (identical across SAPI variants of the same build, and (measured)
   different across build flavors: dtor−call ranges from 0xb59fb (realapps_np) to 0x6ce57b
   (default+debug)).
 

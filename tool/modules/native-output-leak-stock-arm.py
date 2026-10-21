@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Module "STOCK" — native-output-leak arm body, stock shape.
+"""Module "STOCK": native-output-leak arm body, stock shape.
 
 RECONSTRUCTED from zer061 shape docs + LEAK module spec; NOT the author's original;
 per-build semantics marked VERIFIED (mined docs) / INFERRED.
@@ -11,7 +11,7 @@ Purpose
     reference docs expect the arm exchange to be answered with HTTP 500.
     php2shell.py:185 calls it as STOCK.arm_body(b"abcdefgh", COMPACT.ARM_FILENAME_LENGTH)
     and frames the result with LEAK.request_bytes(..., None, 23, False)
-    (no Cookie header, Connection: close, Basic auth user of length 23) — so the
+    (no Cookie header, Connection: close, Basic auth user of length 23), so the
     sid travels as the PHPSESSID form field, not in a cookie.
 
 Per-semantics provenance
@@ -33,10 +33,10 @@ VERIFIED (mined from the driver + LEAK module + zer061 bundle):
     every later part uses large_filename_length (native-output-leak.py:41-42).
   - Closing terminator --B-- CRLF (native-output-leak.py:43).
   - The 14-byte frozen-profile disclosure of the follow-up probe is checked at
-    LEAK_OFFSET 0x57030 inside a 0x200000 main chunk (LEAK.analyze) — the arm
+    LEAK_OFFSET 0x57030 inside a 0x200000 main chunk (LEAK.analyze): the arm
     record that must survive is the profile feeding that probe.
   - Size budget (measured, freeze_battery): post_max_size is 8M on this lab
-    stack and a body > 8M aborts pre-machinery — the machinery never engages.
+    stack and a body > 8M aborts pre-machinery; the machinery never engages.
     Budget: 20 * (filename_len + ~140 framing bytes) < 8 * 1024 * 1024.
     With COMPACT.ARM_FILENAME_LENGTH = 262144 the body is ~5.25 MB (< 8M).
 INFERRED (no doc statement found; documented for A/B against a real target):

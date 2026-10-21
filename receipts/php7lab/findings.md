@@ -22,8 +22,8 @@ LABCOMPLETE
 
 ###### BISECT (fresh server per case):
 [fl128-mem8M]  R1-R3: silent close len=0, no fatal, no ASAN; post=EMPTY (dispatcher wedged)
-[fl262144-mem64M] R1-R3: 200 OK len=173 (normal index response); post=200 — arm shape is VALID, request survives when no OOM
+[fl262144-mem64M] R1-R3: 200 OK len=173 (normal index response); post=200, arm shape is VALID, request survives when no OOM
 [fl262144-mem8M] R1-R3: silent close len=0; post=EMPTY
 [fl32768-mem8M] R1-R3: silent close len=0; post=EMPTY
-⇒ php7.4.33 built-in server: machinery OOM pre-RINIT =沉默 silent close + WEDGE (no crash, no asan) — different from 8.5.10 (R1 fatal body, R2 diverged len, R3 SEGV)
+⇒ php7.4.33 built-in server: machinery OOM pre-RINIT = silent close + WEDGE (no crash, no asan), different from 8.5.10 (R1 fatal body, R2 diverged len, R3 SEGV)
 ⇒ OOM trigger is the arm BODY machinery traffic (20×262144 chunks), not filename length

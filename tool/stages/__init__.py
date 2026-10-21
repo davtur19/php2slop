@@ -1,4 +1,4 @@
-"""tool.stages — per-step stage helpers used by the driver.
+"""tool.stages: per-step stage helpers used by the driver.
 
 Stage list (tool/php2shell.py:STAGES, in receipt-ladder order):
 - recon  -> stages/probe.py (pre-flight fingerprint)

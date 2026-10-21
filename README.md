@@ -1,10 +1,10 @@
 # php2slop
 
 php 8.5 session.upload_progress machinery tooling.
-CVE-2026-109618 / CVE-2026-109619 — pre-auth cross-request UAF family
-(`ext/session/session.c` machinery + ZendMM OOM interruption, window 3129–3338 on 8.5.10).
+CVE-2026-109618 / CVE-2026-109619: pre-auth cross-request UAF family
+(`ext/session/session.c` machinery + ZendMM OOM interruption, window 3129-3338 on 8.5.10).
 Fixed 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35 (2026-10-21). Upstream affected range ≥ 5.4.0.
-SAPIs: mod_php — no app cooperation needed. FPM — needs an app-reachable fatal after
+SAPIs: mod_php, no app cooperation needed. FPM, needs an app-reachable fatal after
 successful startup, then the upload-progress consumer on the surviving worker (GHSA-6wmf-4rv5-p3rp).
 
 ## Chain
@@ -32,7 +32,7 @@ Stage sources: `receipts/diag3_10_runs/`, `docs/validation_1021_filmpost.md`.
 | `tool/modules/producer_618.py` / `producer_619.py` | CVE-109618 / CVE-109619 staged producer shapes (inert forge default) |
 | `tool/modules/producer.py` | 618/619 shape facade (not driver-wired); mod_php producer TODO |
 | `tool/modules/producer_fpmwiki.py` | fpmwiki producer stage (`--step producer`): anon-edit OOM, int N (5.7M receipt); offline byte-build default, `--live` gates the send |
-| `tool/modules/write_stage.py` | write stage — wired, dry-only (`--step write_stage`) |
+| `tool/modules/write_stage.py` | write stage, wired, dry-only (`--step write_stage`) |
 | `tool/modules/producer_modphp.py` | modphp producer stage (`--step producer`); STOCK-arm byte parity, int N ladder, knob gate, dry default |
 | `tool/modules/profiles.py` | `BINARY_PROFILES` + `TARGETS` registry |
 | `tool/stages/probe.py` | pre-flight fingerprint (GET, status/headers) |
@@ -76,10 +76,10 @@ Parameterized producer/step plan: `/tmp/opencode/realapps/side/php2shell/runs/UN
 | binary profile | `realapps-pie` | `realapps-pie` | `addresses/apache_libphp.json` (new; constants TBD) |
 | endpoint | 127.0.0.1:28840 `/index.php` | 127.0.0.1:28841 `/index.php` | 127.0.0.1:28850 `/mem.php` |
 | `memory_limit` | 8M (`php_admin_value`) | 8M | 2M (`php_value` knob) |
-| pm / max_children | static / 1 | static / 1 | — |
-| `session.save_path` | `/tmp/opencode/realapps/sessions/wiki` | `/tmp/opencode/realapps/sessions/wp` | — |
-| `session.upload_progress.enabled` | 1 (compiled default) | 1 | — |
-| `session.upload_progress.cleanup` | 1 at runtime (diag labs override 0) | 1 | — |
+| pm / max_children | static / 1 | static / 1 | n/a |
+| `session.save_path` | `/tmp/opencode/realapps/sessions/wiki` | `/tmp/opencode/realapps/sessions/wp` | n/a |
+| `session.upload_progress.enabled` | 1 (compiled default) | 1 | n/a |
+| `session.upload_progress.cleanup` | 1 at runtime (diag labs override 0) | 1 | n/a |
 | producers | `producer_fpmwiki`, `producer_618`, `producer_619` | `producer_618`, `producer_619` | `producer_modphp` |
 | status | run (producer wired) | run | producer wired (chain TBD) |
 
@@ -110,7 +110,7 @@ Runtime output dir is git-ignored. Curated evidence: `receipts/<name>/` with a R
 - CVE-2026-109618: https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w
 - CVE-2026-109619: https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp
 - Fix release 2026-10-21: https://www.php.net/archive/2026.php#2026-10-21-5
-- Writeup (upstream, alias `php2shell`): https://calif.io/php2shell/ — http://php2shell.com
+- Writeup (upstream, alias `php2shell`): https://calif.io/php2shell/ and http://php2shell.com
 - Internal: `docs/` (validation log, master report), `receipts/` (named runs)
 
 Loopback-only, operator-owned targets. Use against third-party systems is out of scope and

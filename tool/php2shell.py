@@ -230,7 +230,7 @@ def scan_disclosure(body: bytes, submitted: list[bytes]) -> dict | None:
     frozen-profile disclosure inline instead of being the 14-byte frame. The
     pointer semantics are NOT re-implemented here: LEAK.analyze is CALLed per
     candidate window and stays the sole arbiter of the candidate gate. A cheap
-    canonical prefilter (byte5 high nibble == 7, bytes 6-7 == 0 — exactly
+    canonical prefilter (byte5 high nibble == 7, bytes 6-7 == 0, exactly
     analyze's 0x700000000000..0x7FFFFFFFFFFF range shape) skips windows that
     cannot match it, keeping the big-request membership scans sparse.
     """
@@ -250,9 +250,9 @@ def scan_disclosure(body: bytes, submitted: list[bytes]) -> dict | None:
 def derive(body: bytes, submitted: list[bytes], strict: bool = False) -> dict:
     """Address derivation from the leak-probe response body.
 
-    exact mode (--strict-derive): the historical hard gate — the body must BE
+    exact mode (--strict-derive): the historical hard gate; the body must BE
     the 14-byte frozen-profile disclosure, else ValueError (verbatim message).
-    default (2026-10-21 plan flip): best-effort —
+    default (2026-10-21 plan flip), best-effort:
       1. scan fallback: sliding 8-byte window over the body, LEAK.analyze keeps
          the candidate decision (scan_disclosure above);
       2. plain-response acceptance: with no disclosure anywhere in the body,
@@ -341,7 +341,7 @@ def attempt(
         address = derive(probe_result[1], [native_arm_request, probe_request], strict)
         if address.get("mode") == "plain":
             # plain-response acceptance: the attempt stage already computed
-            # (main, target, stage_delta, dso) for a previous ordinal — pass
+            # (main, target, stage_delta, dso) for a previous ordinal, pass
             # them forward instead of recomputing the derivation.
             if prior is None:
                 raise ValueError(

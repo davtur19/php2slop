@@ -1,4 +1,4 @@
-"""python -m tool — php2shell chain driver entry point."""
+"""python -m tool: php2shell chain driver entry point."""
 import sys
 
 from tool import php2shell

