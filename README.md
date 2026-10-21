@@ -40,3 +40,6 @@ stock-build php 8.5.10 fpm/cgi).
 
 Lab security research. Targets are operator-owned, tests are loopback-only.
 Excludes third-party bundles (`zer061`, `jpack`) by design.
+
+## 2026-10-21 — independent verification of community corrected-findings (jackalsyn page)
+Treated as lead, not truth. Fact-check on our 8.5.10 tree: var.c:756 / basic_functions.c:391-393 / var.c:1346 level-guard / session.c:3154 addref — all verbatim. Reproduced ourselves (diag3-5, see docs/validation_1021_filmpost.md): arm OOM pre-RINIT on stock fpm (remains alive, contradicting page matrix), and on ASAN built-in server: R1 OOM -> R2 diverged body -> R3 death with SEGV in var_unserializer via session decode at php_hash_environment → php_request_startup. No RCE claim yet — primitive family only.
