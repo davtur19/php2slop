@@ -1,30 +1,5 @@
-"""Target and binary-profile registry.
+"""profiles.py - BINARY_PROFILES (per-build offsets) + TARGETS registry; modphp TODO."""
 
-BINARY_PROFILES holds the per-build machine-code offsets consumed by the
-``--step chain`` exchange sequence. Both entries were measured against the
-operator's own lab builds (moved verbatim from the pre-restructure
-php2shell/php2shell.py driver; comments kept).
-
-TARGETS registers the loopback lab targets used by the driver --target flag:
-
-  binary_profile     key into BINARY_PROFILES; per-build constants for the
-                     leak/chain math (see tool/php2shell.py)
-  host / port / path loopback endpoints (source: universal/freeze_battery.py
-                     TARGETS dict, measured on the operator stack)
-  session_save_path  where the fpm worker writes sess_* records
-                     (source: universal/freeze_battery.py)
-  ini                knobs expected on the target stack; taken from the run
-                     receipts (memory_limit=8M arm receipts diag3,
-                     8M post_max_size budget measured in the freeze battery).
-                     VERIFY per target before a chain run; these are
-                     preconditions, not driver-controlled settings.
-  producer_modules   producer shape builders applicable to the target
-                     (tool/modules/producer_618.py / producer_619.py)
-
-Not implemented (chain stage targets): the modphp target carries no measured
-addresses yet and no producer is wired for it; TARGETS["modphp"] is a stub on
-purpose. See also tool/modules/producer.py (mod_php producer TODO).
-"""
 
 BINARY_PROFILES = {
     "ubuntu85-1.3-compact": {
