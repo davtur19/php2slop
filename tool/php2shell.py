@@ -279,6 +279,7 @@ def run_g2_step(args) -> int:
         return 2
 
     try:
+        profile, profile_path = g2_chain_module.load_profile(args.g2_profile)
         emitted = g2_chain_module.plan(
             x=g2_chain_module.hex_int(args.g2_x, "--g2-x"),
             p=g2_chain_module.hex_int(args.g2_p, "--g2-p"),
@@ -292,6 +293,8 @@ def run_g2_step(args) -> int:
             target=(
                 g2_chain_module.hex_int(args.g2_target, "--g2-target")
                 if args.g2_target is not None else None),
+            profile=profile,
+            profile_path=profile_path,
         )
     except (OSError, TypeError, ValueError) as error:
         summary = {
@@ -775,6 +778,12 @@ def main() -> int:
         help="--step g2: stale var_dtor_entries B0 (hex)",
     )
     parser.add_argument(
+        "--g2-profile",
+        default=None,
+        help="--step g2: profile version (8.5.10, 8.4.25, 8.1.34, 7.4.33), "
+             "binary md5, or .json path (default 8.5.10); offsets are md5 locked",
+    )
+    parser.add_argument(
         "--g2-total",
         type=int,
         default=None,
@@ -783,8 +792,8 @@ def main() -> int:
     parser.add_argument(
         "--g2-target",
         default=None,
-        help="--step g2: 16-byte aligned write target (default: "
-             "ps_serializers[2].decode 0x14c1b60)",
+        help="--step g2: 16-byte aligned write target (default: the profile "
+             "ps_serializers[2].decode slot)",
     )
     parser.add_argument(
         "--g2-value",
