@@ -1,0 +1,45 @@
+{
+  "binary": "/home/davide/ailocal/php/zerodays_1020/build_asan/sapi/cli/php",
+  "delta_dtor_minus_call": "0x2c3f49",
+  "delta_llist_minus_passthru": "0x637840",
+  "duplicate_of": "/home/davide/ailocal/php/zerodays_1020/install_asan/bin/php",
+  "dynsym_exported": [
+    "zend_call_function",
+    "zend_llist_remove_tail",
+    "zval_ptr_dtor"
+  ],
+  "dynsym_exported_count": 3,
+  "elf_type": "DYN",
+  "flavor": "asan",
+  "image_base": "0x0",
+  "lane": "leak_required_aslr",
+  "leak_offset": "TBD_measure_live_probe",
+  "md5": "36d3bd8ec430e5538eb9a201c154e2eb",
+  "missing_symbols": [],
+  "name": "asan_cli.json",
+  "offsets_from_base": {
+    "zend_call_function": "0xeafdba",
+    "zend_llist_remove_tail": "0x111f127",
+    "zif_passthru": "0xae78e7",
+    "zif_system": "0xae78d7",
+    "zval_ptr_dtor": "0x1173d03"
+  },
+  "p_align": "0x200000",
+  "pie": true,
+  "size_bytes": 68720328,
+  "symbol_binding": {
+    "zend_call_function": "T",
+    "zend_llist_remove_tail": "T",
+    "zif_passthru": "t",
+    "zif_system": "t",
+    "zval_ptr_dtor": "T"
+  },
+  "symbols": {
+    "zend_call_function": "0xeafdba",
+    "zend_llist_remove_tail": "0x111f127",
+    "zif_passthru": "0xae78e7",
+    "zif_system": "0xae78d7",
+    "zval_ptr_dtor": "0x1173d03"
+  },
+  "target_offset": "TBD_from_leak_chunk_anchor"
+}

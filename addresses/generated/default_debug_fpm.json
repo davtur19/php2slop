@@ -1,0 +1,45 @@
+{
+  "binary": "/home/davide/ailocal/php/zerodays_1020/install/sbin/php-fpm",
+  "delta_dtor_minus_call": "0x6ce57b",
+  "delta_llist_minus_passthru": "0xe862c5",
+  "duplicate_of": "/home/davide/ailocal/php/zerodays_1020/build/php-8.5.10/sapi/fpm/php-fpm",
+  "dynsym_exported": [
+    "zend_call_function",
+    "zend_llist_remove_tail",
+    "zval_ptr_dtor"
+  ],
+  "dynsym_exported_count": 3,
+  "elf_type": "DYN",
+  "flavor": "default_debug",
+  "image_base": "0x0",
+  "lane": "leak_required_aslr",
+  "leak_offset": "TBD_measure_live_probe",
+  "md5": "3d4c9795fac5041f5f293d7cf41bf419",
+  "missing_symbols": [],
+  "name": "default_debug_fpm.json",
+  "offsets_from_base": {
+    "zend_call_function": "0x505fb09",
+    "zend_llist_remove_tail": "0x5666440",
+    "zif_passthru": "0x47e017b",
+    "zif_system": "0x47e016b",
+    "zval_ptr_dtor": "0x572e084"
+  },
+  "p_align": "0x200000",
+  "pie": true,
+  "size_bytes": 226199856,
+  "symbol_binding": {
+    "zend_call_function": "T",
+    "zend_llist_remove_tail": "T",
+    "zif_passthru": "t",
+    "zif_system": "t",
+    "zval_ptr_dtor": "T"
+  },
+  "symbols": {
+    "zend_call_function": "0x505fb09",
+    "zend_llist_remove_tail": "0x5666440",
+    "zif_passthru": "0x47e017b",
+    "zif_system": "0x47e016b",
+    "zval_ptr_dtor": "0x572e084"
+  },
+  "target_offset": "TBD_from_leak_chunk_anchor"
+}
