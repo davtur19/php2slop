@@ -1,0 +1,93 @@
+# sha256 | source-relative path | bytes | (optional) inline location in this receipt
+# complete inventory of /tmp/opencode/modphp_redo_1021/ (scratch, volatile tmpfs)
+# curated 2026-10-21 ~20:1x UTC; hashes pinned at curation instant — stack B
+# (httpd :28850) was STILL RUNNING, so access.log / logs/err.log / logs/php_err.log /
+# sessions/* are append-only live files at their hash-as-of-curation state.
+# __pycache__/ (modphp_arm.cpython-313.pyc, 27510 B) excluded entirely, byte count
+# noted here instead of a hash line; convention per
+#  receipts/fpmwiki_produce_consum_1021/inventory.sha256.txt
+150fd2399a6284b141cd7eaa3b76c53b100fdde2b478766d7f27aad3e800ae21  access.log  10629  [INLINE -> logs/access_log_pctP.log]
+d1494ad1608eef5b72978d3aaf22cd34a199af8d6874792bda0b28cbba9a5085  conf_httpd_min.conf  2546  [INLINE -> conf/conf_httpd_min.conf]
+21a9341b29a719ff39230bb11bd6b4b149fd16d2955ee5049c04c7bec0134a31  findings.md  15151
+e02341a86374db59d5ebdec540fa61b90ef52475e852014ed5e5545e23aa363b  htdocs/index.php  96  [INLINE -> htdocs/index.php]
+bc222d300e72de2cc8e5c2276f75d3b87eb6ebed94d58a04b24d500c4406530d  htdocs/info.php  235  [INLINE -> htdocs/info.php]
+bb954c9221874a1282ccdc16f02ddb943b5260155a749cb33592a0ef8408f36a  htdocs/mem.php  319  [INLINE -> htdocs/mem.php]
+4f725df7ccca8c845d493ed83669362dd0539359a715759ef3611aa6b45f29fc  htdocs/sess.php  398  [INLINE -> htdocs/sess.php]
+4a20f108c7d48f103c82bc36a472bdf010a3c8b69aec5a2bcda08e54486df13c  httpd.pid  8
+7563ff112ce23f1c0705a4e33c58ab4dde4763ead9556853ca9f3b8154d8d946  logs/err.log  824  [INLINE -> logs/httpd_err.log]
+4ac0edaafaeface450b0b6fdd7f941fb0c0e8f04d4d9a6ef49784f438ea49597  logs/php_err.log  6048  [INLINE -> logs/php_err.log]
+a8e1bf9b45658885c62fb184529cad5751199c06169dac734c8905d20088a51b  modphp_arm.py  17785  [INLINE -> scripts/modphp_arm.py]
+39aae0e0b7f09a0574719f993e391fad90297c6b94c0045a5ca29b7bfcbb390d  runs/control_baseline/matrix.jsonl  3620  [INLINE -> results/matrix_control_baseline.jsonl]
+391430ca7c4a3e77ece74a058c03959dcf567b05ff5b23c8e2cd2d9052942327  runs/control_baseline/summary.json  3392  [INLINE -> results/control_baseline_summary.json]
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/control_baseline/transcripts/r01_control_sess.php_consumer_probe_1.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/control_baseline/transcripts/r01_control_sess.php_consumer_probe_2.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/control_baseline/transcripts/r01_control_sess.php_consumer_probe_3.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/control_baseline/transcripts/r02_control_sess.php_consumer_probe_1.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/control_baseline/transcripts/r02_control_sess.php_consumer_probe_2.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/control_baseline/transcripts/r02_control_sess.php_consumer_probe_3.body  17
+ed2861d1c7fe40ce1c56263783996b52bcad431d690c5d54eaff1a99747047f3  runs/ini_diag_manual.log  1473  [INLINE -> logs/ini_diag_manual.log]
+0d1805a3edf01468fe7e852f2192afaa4eca750b24e6a8dbe2524992eb184d35  runs/oompair_A/matrix.jsonl  9861  [INLINE -> results/matrix_oompair_A.jsonl]
+556ab54d6b1f3a7ad1d1d65b94858dcbfcdd66505b6ecea603571c70284bc1c7  runs/oompair_A/summary.json  7486  [INLINE -> results/oompair_A_summary.json]
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_A/transcripts/r01_oompair_sess.php_conn_baseline_probe.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_A/transcripts/r01_oompair_sess.php_consumer_probe_1.body  17  [INLINE -> probes/oompair_A_r01_consumer_probe_1.body]
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_A/transcripts/r01_oompair_sess.php_consumer_probe_2.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_A/transcripts/r01_oompair_sess.php_consumer_probe_3.body  17
+561043a1e978c6563cea92ea0aa5d4ef9cf90c6c9fe0ae7f428afea29d6bef6a  runs/oompair_A/transcripts/r01_oompair_sess.php_producer_oom_arm.body  149  [INLINE -> probes/oompair_A_r01_producer_oom_arm.body]
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_A/transcripts/r02_oompair_sess.php_conn_baseline_probe.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_A/transcripts/r02_oompair_sess.php_consumer_probe_1.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_A/transcripts/r02_oompair_sess.php_consumer_probe_2.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_A/transcripts/r02_oompair_sess.php_consumer_probe_3.body  17
+561043a1e978c6563cea92ea0aa5d4ef9cf90c6c9fe0ae7f428afea29d6bef6a  runs/oompair_A/transcripts/r02_oompair_sess.php_producer_oom_arm.body  149
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_A/transcripts/r03_oompair_sess.php_conn_baseline_probe.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_A/transcripts/r03_oompair_sess.php_consumer_probe_1.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_A/transcripts/r03_oompair_sess.php_consumer_probe_2.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_A/transcripts/r03_oompair_sess.php_consumer_probe_3.body  17
+561043a1e978c6563cea92ea0aa5d4ef9cf90c6c9fe0ae7f428afea29d6bef6a  runs/oompair_A/transcripts/r03_oompair_sess.php_producer_oom_arm.body  149
+8b59c3c12913e3954999e34bc036d5191f900c41e023c09ae97ee1c0748e7fd2  runs/oompair_A_console.log  4004  [INLINE -> logs/oompair_A_console.log]
+a93bb1bd1e3e0973379807829a0c4486c2b96ee1a803a60b83157e4402c9a7e0  runs/oompair_B_console.log  6505  [INLINE -> logs/oompair_B_console.log]
+8ab3fdc47914feeeb5b7d9e018f4b42ace38cb6531c38817647061cda7e90169  runs/oompair_B_stored/matrix.jsonl  16435  [INLINE -> results/matrix_oompair_B_stored.jsonl]
+d66dfc4d4fe26ab03f0e5487aa66d5457ebee0ffa739bc90190451d731a2645d  runs/oompair_B_stored/summary.json  12194  [INLINE -> results/oompair_B_stored_summary.json]
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r01_oompair_sess.php_conn_baseline_probe.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r01_oompair_sess.php_consumer_probe_1.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r01_oompair_sess.php_consumer_probe_2.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r01_oompair_sess.php_consumer_probe_3.body  17
+561043a1e978c6563cea92ea0aa5d4ef9cf90c6c9fe0ae7f428afea29d6bef6a  runs/oompair_B_stored/transcripts/r01_oompair_sess.php_producer_oom_arm.body  149
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r02_oompair_sess.php_conn_baseline_probe.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r02_oompair_sess.php_consumer_probe_1.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r02_oompair_sess.php_consumer_probe_2.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r02_oompair_sess.php_consumer_probe_3.body  17
+561043a1e978c6563cea92ea0aa5d4ef9cf90c6c9fe0ae7f428afea29d6bef6a  runs/oompair_B_stored/transcripts/r02_oompair_sess.php_producer_oom_arm.body  149
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r03_oompair_sess.php_conn_baseline_probe.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r03_oompair_sess.php_consumer_probe_1.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r03_oompair_sess.php_consumer_probe_2.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r03_oompair_sess.php_consumer_probe_3.body  17
+561043a1e978c6563cea92ea0aa5d4ef9cf90c6c9fe0ae7f428afea29d6bef6a  runs/oompair_B_stored/transcripts/r03_oompair_sess.php_producer_oom_arm.body  149
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r04_oompair_sess.php_conn_baseline_probe.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r04_oompair_sess.php_consumer_probe_1.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r04_oompair_sess.php_consumer_probe_2.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r04_oompair_sess.php_consumer_probe_3.body  17
+561043a1e978c6563cea92ea0aa5d4ef9cf90c6c9fe0ae7f428afea29d6bef6a  runs/oompair_B_stored/transcripts/r04_oompair_sess.php_producer_oom_arm.body  149
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r05_oompair_sess.php_conn_baseline_probe.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r05_oompair_sess.php_consumer_probe_1.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r05_oompair_sess.php_consumer_probe_2.body  17
+964e4b4f21cab9d66376d5946c0a776f93166bb7cf46a24aefcbf40f4dc5efb8  runs/oompair_B_stored/transcripts/r05_oompair_sess.php_consumer_probe_3.body  17
+561043a1e978c6563cea92ea0aa5d4ef9cf90c6c9fe0ae7f428afea29d6bef6a  runs/oompair_B_stored/transcripts/r05_oompair_sess.php_producer_oom_arm.body  149
+44fef28fcf21a31abdd0e7f8441ba523b4f68bb3b2e5954ac27e64e17e9ec69f  runs/oompair_C_index/matrix.jsonl  6950  [INLINE -> results/matrix_oompair_C_index.jsonl]
+680b3e98d863924bb933559a421ae07dee2427074c7a2e87a00566d07d48596a  runs/oompair_C_index/summary.json  5133  [INLINE -> results/oompair_C_index_summary.json]
+385b0361b92629e6b366367f4946efb38413ee0fa83418d25a8c3323ec712617  runs/oompair_C_index/transcripts/r01_oompair_index.php_conn_baseline_probe.body  42
+385b0361b92629e6b366367f4946efb38413ee0fa83418d25a8c3323ec712617  runs/oompair_C_index/transcripts/r01_oompair_index.php_consumer_probe_1.body  42
+385b0361b92629e6b366367f4946efb38413ee0fa83418d25a8c3323ec712617  runs/oompair_C_index/transcripts/r01_oompair_index.php_consumer_probe_2.body  42
+385b0361b92629e6b366367f4946efb38413ee0fa83418d25a8c3323ec712617  runs/oompair_C_index/transcripts/r01_oompair_index.php_consumer_probe_3.body  42
+561043a1e978c6563cea92ea0aa5d4ef9cf90c6c9fe0ae7f428afea29d6bef6a  runs/oompair_C_index/transcripts/r01_oompair_index.php_producer_oom_arm.body  149  [INLINE -> probes/oompair_C_r01_producer_oom_arm.body]
+385b0361b92629e6b366367f4946efb38413ee0fa83418d25a8c3323ec712617  runs/oompair_C_index/transcripts/r02_oompair_index.php_conn_baseline_probe.body  42
+385b0361b92629e6b366367f4946efb38413ee0fa83418d25a8c3323ec712617  runs/oompair_C_index/transcripts/r02_oompair_index.php_consumer_probe_1.body  42
+385b0361b92629e6b366367f4946efb38413ee0fa83418d25a8c3323ec712617  runs/oompair_C_index/transcripts/r02_oompair_index.php_consumer_probe_2.body  42
+385b0361b92629e6b366367f4946efb38413ee0fa83418d25a8c3323ec712617  runs/oompair_C_index/transcripts/r02_oompair_index.php_consumer_probe_3.body  42
+561043a1e978c6563cea92ea0aa5d4ef9cf90c6c9fe0ae7f428afea29d6bef6a  runs/oompair_C_index/transcripts/r02_oompair_index.php_producer_oom_arm.body  149
+a50510d691ed7196b3d4cf0e6d390784e30140891fbc6bc5b2de145ffee22dce  runs/record_oom_console.log  965  [INLINE -> logs/record_oom_console.log]
+3e52667233625be39386d533aeefe93bf47cc66b1d3e626a7fafe156df6b55f8  runs/record_tune_console.log  1023  [INLINE -> logs/record_tune_console.log]
+82e61c97a7c8cc3d16beff0883d535a50ecd8760125d6634ef32d0da23b1d8c3  runs/same_worker_repeat_console.log  564  [INLINE -> logs/same_worker_repeat_console.log]
+ef259aa1f5b455457ddfb14cd5282842c18d781cee21dee73e1c159c1d896976  sessions/sess_abcdefgh  885  [INLINE -> probes/sess_abcdefgh.bin (+ probes/sess_abcdefgh.hexdump)]
+50fcb8c98ef6587bb4ab2f071db29a9d499cbc8da40edfbe4320b6cc2d43b0e8  sessions/sess_big24mnbl  341
+117da0b8034b3601d0f15f7002e9af20a613ed4fbea2675d7bcda0ffc34d45f1  sessions/sess_big3mnbl  341
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  sessions/sess_smoke1  0

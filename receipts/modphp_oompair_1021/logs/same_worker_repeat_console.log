@@ -1,0 +1,8 @@
+producer_1 st=200 len=149 sha=561043a1e978c656 oom=8388608 transport=None
+producer_2 st=200 len=149 sha=561043a1e978c656 oom=8388608 transport=None
+producer_3 st=200 len=149 sha=561043a1e978c656 oom=8388608 transport=None
+producer_4 st=200 len=149 sha=561043a1e978c656 oom=8388608 transport=None
+producer_5 st=200 len=149 sha=561043a1e978c656 oom=8388608 transport=None
+consumer_after5 st=200 len=17 sha=964e4b4f21cab9d6 head='abcdefgh | files=1 | '
+postcheck st=200 head=b'modphp-lab 8.5.10 Linux phpversion=8.5.1' socket_closed=False
+all httpd procs alive: True

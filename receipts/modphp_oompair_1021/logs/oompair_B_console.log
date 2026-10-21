@@ -1,0 +1,127 @@
+--- run 1 (oompair_sess.php) children=[4041485, 4043228, 4043229, 4043230, 4043231, 4043232]
+  conn_baseline_probe        status=200 len=17 sha=964e4b4f21cab9d6 pid=4043230 alive=True keep_alive=True oom=None/None t=3ms 
+  producer_oom_arm           status=200 len=149 sha=561043a1e978c656 pid=4043230 alive=True keep_alive=True oom=8388608/None t=6ms 
+  consumer_probe_1           status=200 len=17 sha=964e4b4f21cab9d6 pid=4043230 alive=True keep_alive=True oom=None/None t=11ms 
+  consumer_probe_2           status=200 len=17 sha=964e4b4f21cab9d6 pid=4043230 alive=True keep_alive=True oom=None/None t=1ms 
+  consumer_probe_3           status=200 len=17 sha=964e4b4f21cab9d6 pid=4043230 alive=True keep_alive=True oom=None/None t=1ms 
+  post_check wedge=ok children_before=[4041485, 4043228, 4043229, 4043230, 4043231, 4043232] children_after=[4041485, 4043228, 4043229, 4043230, 4043231, 4043232, 4043778]
+--- run 2 (oompair_sess.php) children=[4041485, 4043228, 4043229, 4043230, 4043231, 4043232, 4043778]
+  conn_baseline_probe        status=200 len=17 sha=964e4b4f21cab9d6 pid=4043232 alive=True keep_alive=True oom=None/None t=1ms 
+  producer_oom_arm           status=200 len=149 sha=561043a1e978c656 pid=4043232 alive=True keep_alive=True oom=8388608/None t=13ms 
+  consumer_probe_1           status=200 len=17 sha=964e4b4f21cab9d6 pid=4043232 alive=True keep_alive=True oom=None/None t=11ms 
+  consumer_probe_2           status=200 len=17 sha=964e4b4f21cab9d6 pid=4043232 alive=True keep_alive=True oom=None/None t=1ms 
+  consumer_probe_3           status=200 len=17 sha=964e4b4f21cab9d6 pid=4043232 alive=True keep_alive=True oom=None/None t=1ms 
+  post_check wedge=ok children_before=[4041485, 4043228, 4043229, 4043230, 4043231, 4043232, 4043778] children_after=[4041485, 4043228, 4043229, 4043230, 4043231, 4043232, 4043778]
+--- run 3 (oompair_sess.php) children=[4041485, 4043228, 4043229, 4043230, 4043231, 4043232, 4043778]
+  conn_baseline_probe        status=200 len=17 sha=964e4b4f21cab9d6 pid=4043229 alive=True keep_alive=True oom=None/None t=11ms 
+  producer_oom_arm           status=200 len=149 sha=561043a1e978c656 pid=4043229 alive=True keep_alive=True oom=8388608/None t=3ms 
+  consumer_probe_1           status=200 len=17 sha=964e4b4f21cab9d6 pid=4043229 alive=True keep_alive=True oom=None/None t=1ms 
+  consumer_probe_2           status=200 len=17 sha=964e4b4f21cab9d6 pid=4043229 alive=True keep_alive=True oom=None/None t=1ms 
+  consumer_probe_3           status=200 len=17 sha=964e4b4f21cab9d6 pid=4043229 alive=True keep_alive=True oom=None/None t=2ms 
+  post_check wedge=ok children_before=[4041485, 4043228, 4043229, 4043230, 4043231, 4043232, 4043778] children_after=[4041485, 4043228, 4043229, 4043230, 4043231, 4043232, 4043778]
+--- run 4 (oompair_sess.php) children=[4041485, 4043228, 4043229, 4043230, 4043231, 4043232, 4043778]
+  conn_baseline_probe        status=200 len=17 sha=964e4b4f21cab9d6 pid=4043230 alive=True keep_alive=True oom=None/None t=1ms 
+  producer_oom_arm           status=200 len=149 sha=561043a1e978c656 pid=4043230 alive=True keep_alive=True oom=8388608/None t=3ms 
+  consumer_probe_1           status=200 len=17 sha=964e4b4f21cab9d6 pid=4043230 alive=True keep_alive=True oom=None/None t=2ms 
+  consumer_probe_2           status=200 len=17 sha=964e4b4f21cab9d6 pid=4043230 alive=True keep_alive=True oom=None/None t=11ms 
+  consumer_probe_3           status=200 len=17 sha=964e4b4f21cab9d6 pid=4043230 alive=True keep_alive=True oom=None/None t=1ms 
+  post_check wedge=ok children_before=[4041485, 4043228, 4043229, 4043230, 4043231, 4043232, 4043778] children_after=[4041485, 4043228, 4043229, 4043230, 4043231, 4043232, 4043778]
+--- run 5 (oompair_sess.php) children=[4041485, 4043228, 4043229, 4043230, 4043231, 4043232, 4043778]
+  conn_baseline_probe        status=200 len=17 sha=964e4b4f21cab9d6 pid=4043228 alive=True keep_alive=True oom=None/None t=1ms 
+  producer_oom_arm           status=200 len=149 sha=561043a1e978c656 pid=4043228 alive=True keep_alive=True oom=8388608/None t=6ms 
+  consumer_probe_1           status=200 len=17 sha=964e4b4f21cab9d6 pid=4043228 alive=True keep_alive=True oom=None/None t=1ms 
+  consumer_probe_2           status=200 len=17 sha=964e4b4f21cab9d6 pid=4043228 alive=True keep_alive=True oom=None/None t=1ms 
+  consumer_probe_3           status=200 len=17 sha=964e4b4f21cab9d6 pid=4043228 alive=True keep_alive=True oom=None/None t=1ms 
+  post_check wedge=ok children_before=[4041485, 4043228, 4043229, 4043230, 4043231, 4043232, 4043778] children_after=[4041485, 4043228, 4043229, 4043230, 4043231, 4043232, 4043778]
+{
+ "outdir": "runs/oompair_B_stored",
+ "children": {
+  "4041485": true,
+  "4043228": true,
+  "4043229": true,
+  "4043230": true,
+  "4043231": true,
+  "4043232": true,
+  "4043778": true
+ },
+ "wedge": "ok",
+ "producer": [
+  {
+   "run": 1,
+   "step": "producer_oom_arm",
+   "status": 200,
+   "body_len": 149,
+   "body_sha256": "561043a1e978c656",
+   "oom_alloc": "8388608",
+   "oom_try": null,
+   "pid_from_accesslog": 4043230,
+   "worker_alive_after": true
+  },
+  {
+   "run": 2,
+   "step": "producer_oom_arm",
+   "status": 200,
+   "body_len": 149,
+   "body_sha256": "561043a1e978c656",
+   "oom_alloc": "8388608",
+   "oom_try": null,
+   "pid_from_accesslog": 4043232,
+   "worker_alive_after": true
+  },
+  {
+   "run": 3,
+   "step": "producer_oom_arm",
+   "status": 200,
+   "body_len": 149,
+   "body_sha256": "561043a1e978c656",
+   "oom_alloc": "8388608",
+   "oom_try": null,
+   "pid_from_accesslog": 4043229,
+   "worker_alive_after": true
+  },
+  {
+   "run": 4,
+   "step": "producer_oom_arm",
+   "status": 200,
+   "body_len": 149,
+   "body_sha256": "561043a1e978c656",
+   "oom_alloc": "8388608",
+   "oom_try": null,
+   "pid_from_accesslog": 4043230,
+   "worker_alive_after": true
+  },
+  {
+   "run": 5,
+   "step": "producer_oom_arm",
+   "status": 200,
+   "body_len": 149,
+   "body_sha256": "561043a1e978c656",
+   "oom_alloc": "8388608",
+   "oom_try": null,
+   "pid_from_accesslog": 4043228,
+   "worker_alive_after": true
+  }
+ ],
+ "consumers": [
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6"
+ ]
+}

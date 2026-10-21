@@ -1,0 +1,136 @@
+{
+  "children": {},
+  "consumer_steps": [
+    {
+      "body_len": 17,
+      "body_sha256": "964e4b4f21cab9d6",
+      "markers": {
+        "Allowed memory": false,
+        "Fatal error": false,
+        "Session ID is too long": false,
+        "Warning": false,
+        "cannot be changed": false,
+        "dangling": false,
+        "failed to open": false,
+        "upload": false
+      },
+      "oom_alloc": null,
+      "pid_from_accesslog": 4041491,
+      "run": 1,
+      "status": 200,
+      "step": "consumer_probe_1",
+      "worker_alive_after": true
+    },
+    {
+      "body_len": 17,
+      "body_sha256": "964e4b4f21cab9d6",
+      "markers": {
+        "Allowed memory": false,
+        "Fatal error": false,
+        "Session ID is too long": false,
+        "Warning": false,
+        "cannot be changed": false,
+        "dangling": false,
+        "failed to open": false,
+        "upload": false
+      },
+      "oom_alloc": null,
+      "pid_from_accesslog": 4041491,
+      "run": 1,
+      "status": 200,
+      "step": "consumer_probe_2",
+      "worker_alive_after": true
+    },
+    {
+      "body_len": 17,
+      "body_sha256": "964e4b4f21cab9d6",
+      "markers": {
+        "Allowed memory": false,
+        "Fatal error": false,
+        "Session ID is too long": false,
+        "Warning": false,
+        "cannot be changed": false,
+        "dangling": false,
+        "failed to open": false,
+        "upload": false
+      },
+      "oom_alloc": null,
+      "pid_from_accesslog": 4041491,
+      "run": 1,
+      "status": 200,
+      "step": "consumer_probe_3",
+      "worker_alive_after": true
+    },
+    {
+      "body_len": 17,
+      "body_sha256": "964e4b4f21cab9d6",
+      "markers": {
+        "Allowed memory": false,
+        "Fatal error": false,
+        "Session ID is too long": false,
+        "Warning": false,
+        "cannot be changed": false,
+        "dangling": false,
+        "failed to open": false,
+        "upload": false
+      },
+      "oom_alloc": null,
+      "pid_from_accesslog": 4041487,
+      "run": 2,
+      "status": 200,
+      "step": "consumer_probe_1",
+      "worker_alive_after": true
+    },
+    {
+      "body_len": 17,
+      "body_sha256": "964e4b4f21cab9d6",
+      "markers": {
+        "Allowed memory": false,
+        "Fatal error": false,
+        "Session ID is too long": false,
+        "Warning": false,
+        "cannot be changed": false,
+        "dangling": false,
+        "failed to open": false,
+        "upload": false
+      },
+      "oom_alloc": null,
+      "pid_from_accesslog": 4041487,
+      "run": 2,
+      "status": 200,
+      "step": "consumer_probe_2",
+      "worker_alive_after": true
+    },
+    {
+      "body_len": 17,
+      "body_sha256": "964e4b4f21cab9d6",
+      "markers": {
+        "Allowed memory": false,
+        "Fatal error": false,
+        "Session ID is too long": false,
+        "Warning": false,
+        "cannot be changed": false,
+        "dangling": false,
+        "failed to open": false,
+        "upload": false
+      },
+      "oom_alloc": null,
+      "pid_from_accesslog": 4041487,
+      "run": 2,
+      "status": 200,
+      "step": "consumer_probe_3",
+      "worker_alive_after": true
+    }
+  ],
+  "filename_length": 262144,
+  "host": "127.0.0.1",
+  "mode": "control",
+  "parts": 20,
+  "port": 28850,
+  "producer_steps": [],
+  "repeat": 2,
+  "sid": "abcdefgh",
+  "steps": 6,
+  "target": "/sess.php",
+  "wedge_last": null
+}

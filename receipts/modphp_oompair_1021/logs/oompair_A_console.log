@@ -1,0 +1,83 @@
+--- run 1 (oompair_sess.php) children=[4041485, 4041487, 4041488, 4041489, 4041490, 4041491, 4042093]
+  conn_baseline_probe        status=200 len=17 sha=964e4b4f21cab9d6 pid=4041488 alive=True keep_alive=True oom=None/None t=1ms 
+  producer_oom_arm           status=200 len=149 sha=561043a1e978c656 pid=4041488 alive=True keep_alive=True oom=8388608/None t=3ms 
+  consumer_probe_1           status=200 len=17 sha=964e4b4f21cab9d6 pid=4041488 alive=True keep_alive=True oom=None/None t=11ms 
+  consumer_probe_2           status=200 len=17 sha=964e4b4f21cab9d6 pid=4041488 alive=True keep_alive=True oom=None/None t=1ms 
+  consumer_probe_3           status=200 len=17 sha=964e4b4f21cab9d6 pid=4041488 alive=True keep_alive=True oom=None/None t=1ms 
+  post_check wedge=ok children_before=[4041485, 4041487, 4041488, 4041489, 4041490, 4041491, 4042093] children_after=[4041485, 4041487, 4041488, 4041489, 4041490, 4041491, 4042093]
+--- run 2 (oompair_sess.php) children=[4041485, 4041487, 4041488, 4041489, 4041490, 4041491, 4042093]
+  conn_baseline_probe        status=200 len=17 sha=964e4b4f21cab9d6 pid=4041490 alive=True keep_alive=True oom=None/None t=1ms 
+  producer_oom_arm           status=200 len=149 sha=561043a1e978c656 pid=4041490 alive=True keep_alive=True oom=8388608/None t=4ms 
+  consumer_probe_1           status=200 len=17 sha=964e4b4f21cab9d6 pid=4041490 alive=True keep_alive=True oom=None/None t=11ms 
+  consumer_probe_2           status=200 len=17 sha=964e4b4f21cab9d6 pid=4041490 alive=True keep_alive=True oom=None/None t=1ms 
+  consumer_probe_3           status=200 len=17 sha=964e4b4f21cab9d6 pid=4041490 alive=True keep_alive=True oom=None/None t=1ms 
+  post_check wedge=ok children_before=[4041485, 4041487, 4041488, 4041489, 4041490, 4041491, 4042093] children_after=[4041485, 4041487, 4041488, 4041489, 4041490, 4041491, 4042093]
+--- run 3 (oompair_sess.php) children=[4041485, 4041487, 4041488, 4041489, 4041490, 4041491, 4042093]
+  conn_baseline_probe        status=200 len=17 sha=964e4b4f21cab9d6 pid=4041491 alive=True keep_alive=True oom=None/None t=1ms 
+  producer_oom_arm           status=200 len=149 sha=561043a1e978c656 pid=4041491 alive=True keep_alive=True oom=8388608/None t=26ms 
+  consumer_probe_1           status=200 len=17 sha=964e4b4f21cab9d6 pid=4041491 alive=True keep_alive=True oom=None/None t=1ms 
+  consumer_probe_2           status=200 len=17 sha=964e4b4f21cab9d6 pid=4041491 alive=True keep_alive=True oom=None/None t=1ms 
+  consumer_probe_3           status=200 len=17 sha=964e4b4f21cab9d6 pid=4041491 alive=True keep_alive=True oom=None/None t=1ms 
+  post_check wedge=ok children_before=[4041485, 4041487, 4041488, 4041489, 4041490, 4041491, 4042093] children_after=[4041485, 4041487, 4041488, 4041489, 4041490, 4041491, 4042093]
+{
+ "outdir": "runs/oompair_A",
+ "children": {
+  "4041485": true,
+  "4041487": true,
+  "4041488": true,
+  "4041489": true,
+  "4041490": true,
+  "4041491": true,
+  "4042093": true
+ },
+ "wedge": "ok",
+ "producer": [
+  {
+   "run": 1,
+   "step": "producer_oom_arm",
+   "status": 200,
+   "body_len": 149,
+   "body_sha256": "561043a1e978c656",
+   "oom_alloc": "8388608",
+   "oom_try": null,
+   "pid_from_accesslog": 4041488,
+   "worker_alive_after": true
+  },
+  {
+   "run": 2,
+   "step": "producer_oom_arm",
+   "status": 200,
+   "body_len": 149,
+   "body_sha256": "561043a1e978c656",
+   "oom_alloc": "8388608",
+   "oom_try": null,
+   "pid_from_accesslog": 4041490,
+   "worker_alive_after": true
+  },
+  {
+   "run": 3,
+   "step": "producer_oom_arm",
+   "status": 200,
+   "body_len": 149,
+   "body_sha256": "561043a1e978c656",
+   "oom_alloc": "8388608",
+   "oom_try": null,
+   "pid_from_accesslog": 4041491,
+   "worker_alive_after": true
+  }
+ ],
+ "consumers": [
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6",
+  "964e4b4f21cab9d6"
+ ]
+}

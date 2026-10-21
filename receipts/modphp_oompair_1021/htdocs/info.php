@@ -1,0 +1,1 @@
+<?php foreach (["memory_limit","session.upload_progress.enabled","session.upload_progress.cleanup","session.use_only_cookies","max_file_uploads","post_max_size","display_errors","log_errors"] as $k) echo $k, "=", ini_get($k), "\n"; ?>

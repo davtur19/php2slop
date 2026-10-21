@@ -1,0 +1,5 @@
+[Wed Oct 21 19:44:25.693901 2026] [mpm_prefork:notice] [pid 4041485:tid 4041485] AH00163: Apache/2.4.66 (Unix) PHP/8.5.10 configured -- resuming normal operations
+[Wed Oct 21 19:44:25.693931 2026] [core:notice] [pid 4041485:tid 4041485] AH00094: Command line: '/tmp/opencode/apache/bin/httpd -f /tmp/opencode/modphp_redo_1021/conf_httpd_min.conf'
+[Wed Oct 21 19:50:49.332573 2026] [mpm_prefork:notice] [pid 4041485:tid 4041485] AH00173: SIGHUP received.  Attempting to restart
+[Wed Oct 21 19:50:49.337884 2026] [mpm_prefork:notice] [pid 4041485:tid 4041485] AH00163: Apache/2.4.66 (Unix) PHP/8.5.10 configured -- resuming normal operations
+[Wed Oct 21 19:50:49.337896 2026] [core:notice] [pid 4041485:tid 4041485] AH00094: Command line: '/tmp/opencode/apache/bin/httpd -f /tmp/opencode/modphp_redo_1021/conf_httpd_min.conf'

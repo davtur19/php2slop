@@ -1,0 +1,7 @@
+plain_longsid300             {"status": 200, "body_len": 1447, "body_sha256": "4e19cc6deab8f59d", "body_head": "<br /> | <b>Warning</b>:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot
+plain_longupgname200         {"status": 200, "body_len": 17, "body_sha256": "964e4b4f21cab9d6", "body_head": "abcdefgh | files=1 | ", "oom_alloc": null, "keep_alive": true, "transport": null}
+producer_oom_arm             {"status": 200, "body_len": 149, "body_sha256": "561043a1e978c656", "body_head": "<br /> | <b>Fatal error</b>:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 266240 bytes) in <b>Unknown</b> on line <b>0</b><br /> | ", "o
+postoom_longsid300           {"status": 200, "body_len": 1447, "body_sha256": "4e19cc6deab8f59d", "body_head": "<br /> | <b>Warning</b>:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot
+postoom_longupgname200       {"status": 200, "body_len": 17, "body_sha256": "964e4b4f21cab9d6", "body_head": "abcdefgh | files=1 | ", "oom_alloc": null, "keep_alive": true, "transport": null}
+postoom_consumer_plain       {"status": 200, "body_len": 17, "body_sha256": "964e4b4f21cab9d6", "body_head": "abcdefgh | files=1 | ", "oom_alloc": null, "keep_alive": true, "transport": null}
+kids: [] ['4041485', '4043228', '4043229', '4043230', '4043231', '4043232', '4043778']

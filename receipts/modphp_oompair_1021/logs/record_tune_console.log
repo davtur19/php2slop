@@ -1,0 +1,11 @@
+plant sid=big3mnbl n=3145728 st=200 len=150 oom=8388608 try=None transport=None
+  sess file size: -1
+  [err] [21-Oct-2026 17:53:54 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 2098791 bytes) in Unknown on line 0 || Stack trace: || #0 {main}
+  consumer_1(small_record) st=200 len=17 oom=None head='big3mnbl | files=1 | ' transport=None
+  consumer_2(small_record) st=200 len=17 oom=None head='big3mnbl | files=1 | ' transport=None
+plant sid=big24mnbl n=2400000 st=200 len=150 oom=8388608 try=None transport=None
+  sess file size: -1
+  [err] [21-Oct-2026 17:53:54 UTC] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 2098791 bytes) in Unknown on line 0 || Stack trace: || #0 {main}
+  consumer_1(small_record) st=200 len=18 oom=None head='big24mnbl | files=1 | ' transport=None
+  consumer_2(small_record) st=200 len=18 oom=None head='big24mnbl | files=1 | ' transport=None
+children: [4041485, 4043228, 4043229, 4043230, 4043231, 4043232, 4043778]
