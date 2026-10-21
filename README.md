@@ -9,8 +9,14 @@ successful startup, then the upload-progress consumer on the surviving worker (G
 
 The confirmed FPM route is G2, a typed zval write that overwrites the `php_binary`
 session decode pointer in `.data`. It is measured on one plain non PIE 8.5.10 build
-with ASLR off. It is not a universal exploit: heap addresses X, P, B0 and the libc
-base are prerequisites, and an ASLR capable heap leak is still open (F14).
+with ASLR off. Profiles for 8.4.25, 8.1.34 and 7.4.33 are derived from freshly
+built non PIE FPM binaries and are not live runs. Profiles are md5 locked and
+selected with `--g2-profile <version|md5>`; the version label is convenience only.
+The lab used `php_binary`, whose decode slot is 16 byte aligned. The default `php`
+handler decode slot is not 16 byte aligned, so its target is the `PS(serializer)`
+pointer slot plus a fake 24 byte `ps_serializer` struct in the record. 5.x cannot
+reuse this geometry. It is not a universal exploit: heap addresses X, P, B0 and
+the libc base are prerequisites, and an ASLR capable heap leak is still open (F14).
 
 ## Lanes
 
@@ -19,7 +25,7 @@ base are prerequisites, and an ASLR capable heap leak is still open (F14).
 | machinery producer and consumer | mod_php 8.5.10 NTS | producer OOM, then a tiny multipart and GET arms | dry wired, live gated; the worker survives |
 | app unserialize OOM | mod_php 8.5.10 NTS | `producer_unser` class ladder | dry wired, `--live` gated by `--unser-url` |
 | FPM app fatal | php-fpm 8.5.10 | post startup fatal inside the unserialize family | kills the worker with exit 70, not a route by itself |
-| G2 decode hijack | php-fpm 8.5.10 ET_EXEC | plant, stale dtor chain, pre RINIT decode, `.data` write | confirmed lab, ASLR off; offline `--step g2` builder |
+| G2 decode hijack | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC | plant, stale dtor chain, pre RINIT decode, `.data` write | 8.5.10 confirmed lab, ASLR off; other offsets derived; offline `--step g2` builder |
 | in band heap leak | mod_php 8.5.10 PIE | `sidlen` / `sidhex` overread after the M5 write | measured, `leak_offset` 0x2188 build specific |
 | real app reachability | MediaWiki/Wikibase, WordPress/WooCommerce | anonymous app request reaches `unserialize` | reachability and availability only, no RCE |
 
@@ -76,10 +82,10 @@ operator.
 | `tool/modules/producer_unser.py` | offline unserialize OOM class ladder (2M / 8M / 128M), dry default with zero sockets |
 | `tool/modules/write_stage.py` | write stage, wired, dry-only (`--step write_stage`) |
 | `tool/modules/leak_stage.py` | mod_php leak stage, dry-only (`--step leak`): Set-Cookie PS(id) request shapes and section C calibration; `leak_offset` is surfaced with its build binding |
-| `tool/modules/g2_chain.py` | G2 FPM chain profile and offline `--step g2` record plan: negative `used_slots`, fake struct placement, record bytes, self-checks |
+| `tool/modules/g2_chain.py` | G2 FPM per build profiles selected by version or md5, and the offline `--step g2` record plan: negative `used_slots`, fake struct placement, record bytes, self-checks |
 | `tool/modules/profiles.py` | `BINARY_PROFILES` + `TARGETS` registry |
 | `tool/stages/probe.py` | pre-flight fingerprint (GET, status/headers) |
-| `addresses/` | per-binary offsets (`g2_fpm_8510.json`, `apache_libphp.json`, FPM/CGI flavors, `generated/`) |
+| `addresses/` | per-binary offsets (`g2_fpm_8510.json`, `g2_fpm_8425.json`, `g2_fpm_8134.json`, `g2_fpm_7433.json`, `apache_libphp.json`, FPM/CGI flavors, `generated/`) |
 | `universal/` | `profile_builder.py` (read-only `nm`/`readelf`), freeze battery, wiki/wp run captures |
 | `fuzzing/` | CGI fuzz harness, deterministic ASAN heap-UAF crashes, `fuzz_findings.md` |
 | `receipts/` | curated named runs: `diag3_10_runs/`, `php5lab/`, `php7lab/`, `advisory_1400/` (index + rule: `receipts/README.md`) |
@@ -97,12 +103,17 @@ operator.
 | 8.4 | 8.4.25 (source) | 8.4.27 | same early reset; 8.4.26 is structurally identical to 8.4.25 |
 | 8.3 | 8.3.27 (source) | 8.3.36 | same early reset |
 | 8.2 | 8.2.29 (source) | 8.2.35 | same early reset |
-| 8.1, 8.0, 7.x, 5.x | EOL, unpatched | none | 7.4.33 write reproduced 4/4; G2 offsets derived for 7.4.33 and 8.1.34 |
+| 8.1, 8.0, 7.x, 5.x | EOL, unpatched | none | 7.4.33 write reproduced 4/4; built FPM G2 offsets derived for 8.1.34 and 7.4.33; 5.x geometry differs |
 
-Measured span: 7.4.33 to 8.5.11. G2 is live confirmed only on 8.5.10; the
-8.4.25, 8.1.34 and 7.4.33 G2 offsets are static derivations on non PIE builds,
-not live runs. Do not key offsets on the version alone: `ps_serializers` is
-build specific.
+Measured span: 7.4.33 to 8.5.11. G2 is live confirmed only on 8.5.10. The
+8.4.25, 8.1.34 and 7.4.33 G2 offsets are from freshly built non PIE FPM binaries,
+not live runs. Profiles are md5 locked: `--g2-profile` accepts the binary md5, and
+a version label is only a convenience. Do not key offsets on the version alone:
+`ps_serializers` is build specific. The default `php` handler decode slot is not
+16 byte aligned, so use the `PS(serializer)` slot and a fake 24 byte
+`ps_serializer` struct. 5.x cannot reuse this geometry: `php_unserialize_data`
+has a different field order, `used_slots` is at `+0x2000`, `next` at `+0x2008`,
+the bound is equality, and `BG(unserialize)` is a struct.
 
 ## Requirements
 
@@ -130,12 +141,17 @@ python3 -m tool --target wiki --step recon          # same via package entry
 refuses `--live`, and does not guess X, P or B0. The example reproduces the
 receipt record byte for byte
 (sha256 `373b4bb1dabda7e4417942ef0b1cd75bbe3880f83b4d1b10187cf66708e075e8`).
+Add `--g2-profile 8.4.25|8.1.34|7.4.33|<md5>` to select another md5 locked
+profile; it selects offsets only, and X, P, B0, the libc base and the record
+length are still operator supplied. The receipt geometry above is 8.5.10
+specific.
 
 Not implemented or closed:
 
 | item | state |
 |---|---|
 | ASLR capable FPM heap leak | open (F14); `fpmboot` needs a fixed body layout and ASLR off |
+| G2 on 5.x | not derived; 5.x layout differs (`used_slots +0x2000`, `next +0x2008`, equality bound, struct `BG(unserialize)`) |
 | G3 `pDestructor` pivot | closed; no pivot, uncontrolled `rsi`, no libc `system` import |
 | modphp measured chain constants | `TARGETS["modphp"]` producer and leak wired, chain unproven |
 
@@ -180,7 +196,7 @@ records), `session.upload_progress.*` (gates the consumer; `cleanup` timing).
 |---|---|
 | recon | derived addresses (`main`, `target`, `stage`, `dso_candidates`) |
 | leak | dry calibration plan, `leak_offset` and its build binding |
-| g2 | `g2-record.bin`, addresses, geometry, checks, record sha256 |
+| g2 | `g2-record.bin`, profile, md5, addresses, geometry, checks, record sha256 |
 | chain | blockers count, per-candidate result, `uid=` line on success |
 
 Runtime output dir is git-ignored. Curated evidence: `receipts/<name>/` with a README
