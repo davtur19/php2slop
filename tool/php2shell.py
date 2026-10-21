@@ -1,20 +1,7 @@
 #!/usr/bin/env python3
-"""php2shell chain driver (--step recon | chain).
 
-recon:   pre-flight fingerprint (tool/stages/probe.py) + stock arm + leak
-         probe + address derivation; machines stay unmodified, receipt only.
-chain:   blocker-hold + per-DSO-candidate attempt loop (rearm + final forged
-         multipart = the controlled copy stage, executed via the reconstructed
-         COMPACT module tool/modules/compact-stock-tail.py).
+"""php2shell.py - chain driver. recon: fingerprint+arm+leak probe receipt; chain: blockers+rearm+forged multipart."""
 
-Target registration and per-build binary profiles: tool/modules/profiles.py.
-
-Not implemented (chain stage producer): producers from
-tool/modules/producer.py are not wired into a CLI step yet.
-Not implemented (chain stage targets): TARGETS["modphp"].
-
-Entry points: ./tool/php2shell.py, ./tool/run, python -m tool
-"""
 
 import argparse
 import hashlib
