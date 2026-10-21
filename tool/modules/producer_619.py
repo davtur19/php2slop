@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
-"""poc1(619) shape builder: 149 t[] FIRST, file f, stall, c2 -> update(free
+"""producer_619 — CVE-2026-109619 producer shape.
+
+poc1(619) body spec: 149 t[] FIRST, file f, stall, c2 -> update(free
 window), c3 -> both stale stores (no intervening FILE_START). Our own
-re-implementation; inert forge default."""
+re-implementation; inert forge default (call=0).
+
+build(sid, cmd, call) -> (phase1, tail) bytes pair."""
 import struct
 import sys
 
