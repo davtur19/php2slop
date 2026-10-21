@@ -699,6 +699,12 @@ def main() -> int:
 
     profile_name = args.profile
     sequence_chain = args.step == "chain" and target_name == "modphp"
+    if args.step == "chain" and not sequence_chain and (
+            args.dry_run or args.build_only):
+        parser.error(
+            "--dry-run/--build-only for --step chain is wired for the modphp "
+            "target only; the fpm chain path is live"
+        )
     if args.step not in ("producer", "leak") and not sequence_chain:
         # producer is a byte-build stage; leak and the modphp chain sequence
         # use the address profile, not a measured BINARY_PROFILES entry.
