@@ -24,6 +24,7 @@ the libc base are prerequisites, and an ASLR capable heap leak is still open (F1
 |---|---|---|---|
 | machinery producer and consumer | mod_php 8.5.10 NTS | producer OOM, then a tiny multipart and GET arms | dry wired, live gated; the worker survives |
 | app unserialize OOM | mod_php 8.5.10 NTS | `producer_unser` class ladder | dry wired, `--live` gated by `--unser-url` |
+| modphp pDestructor superglobal teardown | mod_php 8.5.10 NTS | plant, stale dtor chain, pre-RINIT write into `$_POST` `HashTable.pDestructor` | **closed**: shutdown is fast (`fast_shutdown=1`), no auto table is destroyed |
 | FPM app fatal | php-fpm 8.5.10 | post startup fatal inside the unserialize family | kills the worker with exit 70, not a route by itself |
 | G2 decode hijack | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC | plant, stale dtor chain, pre RINIT decode, `.data` write | 8.5.10 confirmed lab, ASLR off; other offsets derived; offline `--step g2` builder |
 | in band heap leak | mod_php 8.5.10 PIE | `sidlen` / `sidhex` overread after the M5 write | measured, `leak_offset` 0x2188 build specific |
@@ -61,7 +62,27 @@ shot per plant. A corrupt decode pointer persists until the worker restarts.
 
 G3 is closed: `zend_array.pDestructor` is an arbitrary call primitive with `rdi`
 pointing at a controlled zval, but neither binary has a usable stack pivot, `rsi`
-is uncontrolled at the call, and `system` is not imported. F14 is open: no ASLR
+is uncontrolled at the call, and `system` is not imported.
+
+The mod_php pDestructor **superglobal teardown** lane is also closed, for a
+different reason. The pre-RINIT write into `$_POST` `HashTable.pDestructor`
+(`heap+0x2060`) succeeds and survives to `php_request_shutdown`, but
+`zend_shutdown_executor_values` takes the fast path (`is_zend_mm()` true and
+`EG(full_tables_cleanup)` 0) and skips
+`zend_hash_graceful_reverse_destroy(&EG(symbol_table))`. `$_POST` therefore
+stays at rc 1: no `zend_array_destroy` and no `zend_hash_destroy` runs on it.
+No auto global table with elements is destroyed at shutdown; the first such
+table is internal at `heap+0x1fc0` with a NULL `pDestructor`. The session and
+uploaded_files destructors are `8 mod 16` with uncontrolled values, so the
+aligned 16-byte write grid cannot reach them. `zend_get_properties_for`,
+`php_exec_ex` and `zif_system` were never entered and no PWNED file was
+created. Reopening this lane needs an allocator configuration change, a
+primitive that forces slow shutdown, an 8-byte table shift, or an object
+handler destructor. The FPM serializer lane (G2) remains the open path.
+Evidence: `/tmp/opencode/research/gadget_20261021T210031Z/README.md` section 8
+and `lab/gdb/gdb_u3.log`.
+
+F14 is open: no ASLR
 capable heap leak exists. `fpmboot` derives `B0 = K_dest1 - 0x9000` only for a
 fixed body layout with ASLR off, so the G2 plan takes X, P and B0 from the
 operator.
@@ -153,7 +174,8 @@ Not implemented or closed:
 | ASLR capable FPM heap leak | open (F14); `fpmboot` needs a fixed body layout and ASLR off |
 | G2 on 5.x | not derived; 5.x layout differs (`used_slots +0x2000`, `next +0x2008`, equality bound, struct `BG(unserialize)`) |
 | G3 `pDestructor` pivot | closed; no pivot, uncontrolled `rsi`, no libc `system` import |
-| modphp measured chain constants | `TARGETS["modphp"]` producer and leak wired, chain unproven |
+| modphp pDestructor superglobal teardown | closed; the POST write lands, but fast shutdown skips `zend_hash_graceful_reverse_destroy(EG(symbol_table))`, so no auto global table is destroyed and the gadget is not invoked |
+| modphp measured chain constants | `TARGETS["modphp"]` producer and leak wired; superglobal teardown lane closed, FPM serializer lane (G2) the open path |
 
 Parameterized producer/step plan: `/tmp/opencode/realapps/side/php2shell/runs/UNIVERSAL_PLAN.md`.
 
@@ -169,7 +191,7 @@ Parameterized producer/step plan: `/tmp/opencode/realapps/side/php2shell/runs/UN
 | `session.upload_progress.enabled` | 1 (compiled default) | 1 | n/a |
 | `session.upload_progress.cleanup` | 1 at runtime (diag labs override 0) | 1 | n/a |
 | producers | `producer_fpmwiki`, `producer_618`, `producer_619` | `producer_618`, `producer_619` | `producer_modphp`, `producer_unser` |
-| status | run (producer wired) | run | producer wired, leak dry, chain unproven |
+| status | run (producer wired) | run | producer wired, leak dry; pDestructor superglobal lane closed, FPM serializer lane (G2) open |
 
 Values as-found on the lab stack (verify per run). Add a target: new dict in
 `tool/modules/profiles.py:TARGETS` + constants in `BINARY_PROFILES` (generate via
