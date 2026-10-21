@@ -1,19 +1,7 @@
 #!/usr/bin/env python3
-"""producer_618 — CVE-2026-109618 staged multipart producer.
 
-Staged sender re-implementing the community poc0_109618 body layout.
+"""producer_618.py - CVE-2026-109618 staged multipart producer (public poc0 spec re-write, inert forge default; build(sid,cmd,call)->(phase1,tail))."""
 
-We re-wrote this from the public body spec (boundary B7kQpoc618, FILLUNIT fill,
->min_freq stall, 149 x t[] 288-byte reclaim blobs, second file). The bundle's
-python is never executed. Default forge is INERT (call=0): identical body
-bytes, no forged call target.
-
-build(sid, cmd, call) -> (phase1, tail) bytes pair.
-
-Modes (standalone CLI):
-  --cgi PATH   run against a php-cgi binary via stdin pacing (lab jig)
-  --print      just print body meta and write phase1/tail files
-"""
 import argparse
 import os
 import struct

@@ -1,30 +1,5 @@
-"""Target and binary-profile registry.
+"""profiles.py - BINARY_PROFILES (per-build offsets) + TARGETS registry; modphp TODO."""
 
-BINARY_PROFILES holds the per-build machine-code offsets consumed by the
-``--step chain`` exchange sequence. Both entries were measured against the
-operator's own lab builds (moved verbatim from the pre-restructure
-php2shell/php2shell.py driver; comments kept).
-
-TARGETS registers the loopback lab targets used by the driver --target flag:
-
-  binary_profile     key into BINARY_PROFILES; per-build constants for the
-                     leak/chain math (see tool/php2shell.py)
-  host / port / path loopback endpoints (source: universal/freeze_battery.py
-                     TARGETS dict, measured on the operator stack)
-  session_save_path  where the fpm worker writes sess_* records
-                     (source: universal/freeze_battery.py)
-  ini                knobs expected on the target stack; taken from the run
-                     receipts (memory_limit=8M arm receipts diag3,
-                     8M post_max_size budget measured in the freeze battery).
-                     VERIFY per target before a chain run; these are
-                     preconditions, not driver-controlled settings.
-  producer_modules   producer shape builders applicable to the target
-                     (tool/modules/producer_618.py / producer_619.py)
-
-Not implemented (chain stage targets): the modphp target carries no measured
-addresses yet and no producer is wired for it; TARGETS["modphp"] is a stub on
-purpose. See also tool/modules/producer.py (mod_php producer TODO).
-"""
 
 BINARY_PROFILES = {
     "ubuntu85-1.3-compact": {
@@ -75,8 +50,10 @@ TARGETS = {
                 "the ASAN diag receipts override it to 0 - lab-only)",
         },
         "workers": "php-fpm pool [wiki], pm=static, single worker",
-        "producer_modules": ("producer_618", "producer_619"),
-        "status": "available (probe + chain)",
+        # stock stack has no unserialize endpoint: producer_unser is NOT wired
+        # to this target (no app path hands a request body to unserialize()).
+        "producer_modules": ("producer_618", "producer_619", "producer_fpmwiki"),
+        "status": "available (probe + chain + producer step)",
     },
     "wp": {
         "name": "wp",
@@ -101,18 +78,37 @@ TARGETS = {
     "modphp": {
         "name": "modphp",
         "binary_profile": None,
-        "host": None,
-        "port": None,
-        "path": None,
-        "session_save_path": None,
-        "ini": {},
-        "workers": None,
-        "producer_modules": (),
-        # TODO (missing module): no measured per-build constants and no
-        # producer wired for a mod_php SAPI target. Fill in after the
-        # per-binary profile run creates the needed addresses/ entry
-        # (see universal/profile_builder.py and addresses/generated/).
-        "status": "TODO (missing module: no producer, no addresses)",
+        "address_profile": "addresses/apache_libphp.json",
+        "host": "127.0.0.1",
+        "port": 28850,
+        "path": "/mem.php",
+        "session_save_path": "/tmp/opencode/modphp_lab/sessions",
+        "memory_limit_knob": "2M",  # php_value in the vhost conf; absent -> producer pre-flight failure
+        "ini": {
+            # receipts: modphp_lab/runs/run_20261021T155303Z_armoom (read-only
+            # provenance) + /info.php phase A vs C:
+            "memory_limit": "2M (php_value, receipt knob ON; knob OFF -> 128M "
+                "build default, no OOM), the producer refuses absent/128M",
+            "post_max_size": "8M (info.php receipt)",
+            "upload_max_filesize": "2M (info.php receipt)",
+            "max_file_uploads": "20 (info.php receipt; arms already at cap)",
+            "session.upload_progress.enabled": "1 (receipt)",
+            "session.upload_progress.cleanup": "1 (post-arm receipt: sess_labprobe123 cleaned-up)",
+            "session.use_only_cookies": "1 (sid via Cookie header only; form-field sid inert)",
+        },
+        "workers": "httpd 2.4.66 + libphp.so PHP 8.5.10 NTS (mod_php): prefork "
+            "children round-robin, ALL survive the machinery OOM; fatal shows as "
+            "200 + transcript body (not 500)",
+        "producer_stage": "producer_modphp",
+        # second producer (--producer unser): offline unserialize OOM class
+        # ladder; needs a lab unser.php endpoint (not in the stock stack) and
+        # --live takes an explicit --unser-url. producer_modphp stays first.
+        "producer_modules": ("producer_modphp", "producer_unser"),
+        # receipt ladder (file part count fixed at 20 = max_file_uploads cap):
+        # N=262144 -> body 4983500, alloc 266240; 330000 -> 6272764, alloc 331776;
+        # 400000 -> 7602764, alloc 401408 (= producer_modphp.RECEIPT_LADDER)
+        "status": "run (producer wired, dry default; arm receipt "
+            "run_20261021T155303Z_armoom; chain/leak TBD_measure_live_probe)",
     },
 }
 
@@ -140,3 +136,41 @@ def url_for(target_name: str) -> str | None:
     if not entry or entry.get("host") is None:
         return None
     return f"http://{entry['host']}:{entry['port']}{entry['path']}"
+
+
+def producers_for(target_name: str | None) -> tuple[str, ...]:
+    """Registered producer modules for a target; default is the fpmwiki stage."""
+    entry = TARGETS.get(target_name) or {}
+    modules = entry.get("producer_modules")
+    return tuple(modules) if modules else ("producer_fpmwiki",)
+
+
+def known_producers() -> tuple[str, ...]:
+    """Every producer module registered by any target (for ad-hoc URL overrides)."""
+    names = {
+        module
+        for entry in TARGETS.values()
+        for module in entry.get("producer_modules", ())
+    }
+    names.update(("producer_fpmwiki", "producer_modphp", "producer_unser"))
+    return tuple(sorted(names))
+
+
+def resolve_producer(target_name: str | None, requested: str | None = None) -> str:
+    """Producer stage module: TARGETS producer_stage by default, --producer overrides.
+
+    Keys are module names as in TARGETS (producer_<name>); a bare name is
+    prefixed. Registered targets accept only their producer_modules; an ad-hoc
+    URL accepts any known producer module.
+    """
+    entry = TARGETS.get(target_name) or {}
+    if requested:
+        name = requested if requested.startswith("producer_") else f"producer_{requested}"
+        allowed = producers_for(target_name) if target_name else known_producers()
+        if name not in allowed:
+            raise ValueError(
+                f"producer {requested!r} is not available for "
+                f"{target_name or 'an ad-hoc URL'}: registered " + ", ".join(allowed)
+            )
+        return name
+    return entry.get("producer_stage") or producers_for(target_name)[0]

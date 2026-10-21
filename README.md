@@ -1,204 +1,144 @@
-# php2slop — php 8.5 session.upload_progress machinery chain (CVE-2026-109618 / CVE-2026-109619)
+# php2slop
 
-## Overview
+php 8.5 session.upload_progress machinery tooling.
+CVE-2026-109618 / CVE-2026-109619: pre-auth cross-request UAF family
+(`ext/session/session.c` machinery + ZendMM OOM interruption, window 3129-3338 on 8.5.10).
+Fixed 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35 (2026-10-21). Upstream affected range ≥ 5.4.0.
+SAPIs: mod_php, no app cooperation needed. FPM, needs an app-reachable fatal after
+successful startup, then the upload-progress consumer on the surviving worker (GHSA-6wmf-4rv5-p3rp).
 
-Research toolkit for the php-src 8.5.x pre-auth cross-request use-after-free
-family in the session.upload_progress machinery and ZendMM OOM interruption
-(`ext/session/session.c`, entry window 3129–3338 on the analyzed 8.5.10 tree).
-Fixes shipped 2026-10-21 as php 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35; the upstream
-affected range starts at php 5.4.0. The kit contains the driver, request/producer
-builders, per-binary offset profiles and the curated run receipts that document
-both CVE classes on operator-owned stacks.
+## Chain
 
-Two distinct SAPI situations apply. On mod_php, the stale-state machinery lives
-inside the web server process, so the exploit does not depend on the
-application. On php-fpm the exploitable sequence needs a fatal after a
-successful request startup (application level), followed by the
-upload-progress consumer on the surviving worker — the validated FPM path in
-GHSA-6wmf-4rv5-p3rp.
+```
+producer → stale decoder state → upload_progress consumer → negative used_slots → controlled copy
+```
 
-## Mechanism
+1. producer: unauthenticated request OOMs `longjmp` mid-init / leaves stale worker state
+2. consumer: machinery re-entry consumes the stale record pre-RINIT; no `session_start()` needed
+3. negative `used_slots` passes `used_slots + num > VAR_DTOR_ENTRIES_MAX`; `var_push_dtor_value` copies a chosen pointer/type
+4. copy places `zif_passthru` / `zif_system` over a controlled callee; `passthru-<cmd>` runs the payload
 
-Chain, as reproduced and documented in the writeup (<https://calif.io/php2shell/>):
-
-1. **Producer** — an unauthenticated request turns into a forced OOM
-   interruption (`longjmp` out of a mid-initialization context) or leaves
-   stale decoder state behind (CVE-2026-109618 OOM corruption,
-   CVE-2026-109619 stale global state respectively).
-2. **Stale decoder state** — request-owned state survives the heap free in
-   worker globals; the next request consumes it before normal initialization
-   resets it (confirmed consumers: pre-init INI diagnostics, session
-   upload-progress decode paths).
-3. **Upload_progress consumer** — the machinery record re-entry with stale
-   bookkeeping; no `session_start()` call in the application is required
-   (per GHSA-6wmf-4rv5-p3rp).
-4. **Negative `used_slots`** — the forged machinery state passes the signed
-   `used_slots + num > VAR_DTOR_ENTRIES_MAX` check because `used_slots` is
-   negative; `var_push_dtor_value` then copies an attacker-chosen pointer/type.
-5. **Controlled copy** — the copied zval chain into the stage address places
-   `zif_passthru` / `zif_system` over a controlled callee; a forged
-   `passthru-<cmd>` reference string executes the payload. Persist = the
-   surviving daemon keeps executing per forged request.
-
-Line-level provenance for each step is in
-`receipts/diag3_10_runs/` and `docs/validation_1021_filmpost.md`.
+Stage sources: `receipts/diag3_10_runs/`, `docs/validation_1021_filmpost.md`.
 
 ## Layout
 
 | path | contents |
 |---|---|
-| `tool/` | take-and-run driver: `php2shell.py` (CLI, `--step recon|chain`), `run` (sh wrapper), `__main__.py` (`python -m tool`) |
-| `tool/modules/` | `arm.py` (multipart `PHP_SESSION_UPLOAD_PROGRESS` builders + HTTP framing + 14-byte disclosure analyzer), author-provided reconstructed `native-output-leak-stock-arm.py` (STOCK arm) and `compact-stock-tail.py` (COMPACT rearm/final forged multipart), `producer*.py` (618/619 shape builders + facade), `write_stage.py` (stub), `profiles.py` (registry), one-line index in `modules/README.md` |
-| `tool/stages/` | `probe.py` — pre-flight worker-alive + header/status fingerprint |
-| `addresses/` | per-binary symbol/offset profiles (`realapps_fpm.json`, `realapps_np_fpm.json`, CGI flavors, `generated/`) + `runtime_addresses.md` notes |
-| `universal/` | profile builder (`profile_builder.py`: read-only `nm`/`readelf` → per-binary constants), freeze battery + run captures (wiki/wp fullflow, leakprobe, probeonly) |
-| `fuzzing/` | offline CGI-SAPI fuzz harness, deterministic ASAN heap-UAF crashes and minimizations, `fuzz_findings.md` |
-| `receipts/` | curated named runs with own READMEs: `diag3_10_runs/` (diag1–diag10 drivers, gdb cmd/filtered traces), `php5lab_receipts/`, `php7lab_receipts/`, `advisory_1400/` (one-shot fetch + fetched artifacts) |
-| `docs/` | validation log (`validation_1021_filmpost.md`), master validation report (`reports_realapps_validation_1021.md`), previous README version (`README_2026-10-21_research_version.md`) |
+| `tool/php2shell.py` | driver CLI (`--step recon\|chain`) |
+| `tool/run`, `tool/__main__.py` | `./tool/run`, `python -m tool` |
+| `tool/modules/arm.py` | multipart `PHP_SESSION_UPLOAD_PROGRESS` builders, HTTP framing, 14-byte disclosure analyzer |
+| `tool/modules/native-output-leak-stock-arm.py` | STOCK arm body (author-provided reconstruction) |
+| `tool/modules/compact-stock-tail.py` | COMPACT rearm + final forged multipart (author-provided reconstruction) |
+| `tool/modules/producer_618.py` / `producer_619.py` | CVE-109618 / CVE-109619 staged producer shapes (inert forge default) |
+| `tool/modules/producer.py` | 618/619 shape facade (not driver-wired); mod_php producer TODO |
+| `tool/modules/producer_fpmwiki.py` | fpmwiki producer stage (`--step producer`): anon-edit OOM, int N (5.7M receipt); offline byte-build default, `--live` gates the send |
+| `tool/modules/write_stage.py` | write stage, wired, dry-only (`--step write_stage`) |
+| `tool/modules/producer_modphp.py` | modphp producer stage (`--step producer`); STOCK-arm byte parity, int N ladder, knob gate, dry default |
+| `tool/modules/profiles.py` | `BINARY_PROFILES` + `TARGETS` registry |
+| `tool/stages/probe.py` | pre-flight fingerprint (GET, status/headers) |
+| `addresses/` | per-binary offsets (`realapps_fpm.json`, `realapps_np_fpm.json`, CGI flavors, `generated/`) |
+| `universal/` | `profile_builder.py` (read-only `nm`/`readelf`), freeze battery, wiki/wp run captures |
+| `fuzzing/` | CGI fuzz harness, deterministic ASAN heap-UAF crashes, `fuzz_findings.md` |
+| `receipts/` | curated named runs: `diag3_10_runs/`, `php5lab/`, `php7lab/`, `advisory_1400/` (index + rule: `receipts/README.md`) |
+| `docs/` | `validation_1021_filmpost.md`, `reports_realapps_validation_1021.md`, `runtime_addresses.md`, `README_2026-10-21_research_version.md` |
 | `LICENSE` | MIT |
 
 ## Requirements
 
-- python3 ≥ 3.10 (stdlib only: `socket`, `struct`, `hashlib`, `argparse`, `json`).
-- A loopback target you own, reachable HTTP, satisfying the target attributes
-  in the table below.
-- Optional: `gdb`, `nm`, `readelf` for `universal/profile_builder.py` and the
-  gdb ground-truth runs in `receipts/diag3_10_runs/`.
+python3 ≥ 3.10, stdlib only. Loopback target you own. `gdb`/`nm`/`readelf` optional
+(`universal/profile_builder.py`, gdb runs in `receipts/diag3_10_runs/`).
 
-## Quickstart
-
-Commands below correspond to implemented code. The default target endpoints
-and per-build constants are those measured on the lab stack (nginx → php-fpm
-8.5.10); recon and chain against a different build require updating
-`addresses/` and `tool/modules/profiles.py`.
+## Run
 
 ```sh
-# 1. recon: pre-flight fingerprint + stock arm + leak probe + address derivation
-./tool/php2shell.py --target wiki --step recon
-
-# same, package entry point
-python3 -m tool --target wiki --step recon
-
-# 2. chain: blocker-hold + per-DSO-candidate attempt (rearm + forged staged multipart)
-./tool/php2shell.py --target wiki --step chain
-# non-interactive proof command (default: id); listener needed for revshell
-./tool/php2shell.py --target wp --step chain --command id
-
-# one-off URL target (no registered profile; per-build constants mandatory)
+./tool/php2shell.py --target wiki --step recon      # fingerprint + stock arm + leak probe + addresses
+python3 -m tool --target wiki --step recon          # same via package entry
+./tool/php2shell.py --target wp --step chain        # blocker hold + rearm + forged staged multipart
+./tool/php2shell.py --target wiki --step chain --command id
+./tool/php2shell.py --target wiki --step producer --body-bytes 5700000   # byte-build only, no send
+./tool/php2shell.py --target modphp --step producer --body-bytes 262144  # byte-build only, no send
+./tool/php2shell.py --target modphp --step producer --producer unser --memory-limit 2M  # unser payload, byte-build only, no send
+./tool/php2shell.py --target wiki --step write_stage --main-chunk 0x7f8875a00000   # byte-build only, no send
 ./tool/php2shell.py --url http://127.0.0.1:28840/index.php --profile realapps-pie --step recon
 ```
 
-Not implemented (chain stage producer): producer orchestration is not wired
-into `--step recon/chain` — stub/facade at `tool/modules/producer.py`; the
-proven shape builders already live at `tool/modules/producer_618.py` /
-`tool/modules/producer_619.py`, and the parameterized producer plan (ranked
-MW producers, step recipes) is
-`/tmp/opencode/realapps/side/php2shell/runs/UNIVERSAL_PLAN.md`.
+Not implemented:
 
-Not implemented (chain stage targets): `--target modphp` — no measured
-addresses, no producer (`tool/modules/profiles.py`: `TARGETS["modphp"]`).
+| stage | path |
+|---|---|
+| modphp measured chain constants | `tool/modules/profiles.py:TARGETS["modphp"]` |
 
-Not implemented (chain stage write_stage): negative-`used_slots` extraction
-into profiles and stage-write receipt checks — stub at
-`tool/modules/write_stage.py`; the live call path is
-`tool/php2shell.py:attempt()` → `tool/modules/compact-stock-tail.py:COMPACT.probe_body(...)`.
+Parameterized producer/step plan: `/tmp/opencode/realapps/side/php2shell/runs/UNIVERSAL_PLAN.md`.
 
 ## Targets
 
-Target attributes, per `tool/modules/profiles.py:TARGETS` (values as-found on
-the lab stack; verify per run — these are preconditions, not driver settings):
-
 | attribute | wiki | wp | modphp |
 |---|---|---|---|
-| binary profile | `realapps-pie` | `realapps-pie` | — (TODO) |
-| host:port/path | 127.0.0.1:28840 `/index.php` | 127.0.0.1:28841 `/index.php` | — |
-| `memory_limit` | 8M (`php_admin_value`) | 8M | — |
-| pm / max_children | static / 1 | static / 1 | — |
-| `session.save_path` | `/tmp/opencode/realapps/sessions/wiki` | `/tmp/opencode/realapps/sessions/wp` | — |
-| `session.upload_progress.enabled` | 1 (compiled default) | 1 | — |
-| `session.upload_progress.cleanup` | 1 at runtime (diag labs override 0) | 1 | — |
-| producers | `producer_618`, `producer_619` | `producer_618`, `producer_619` | — |
-| status | probe + chain | probe + chain | TODO (missing module) |
+| binary profile | `realapps-pie` | `realapps-pie` | `addresses/apache_libphp.json` (new; constants TBD) |
+| endpoint | 127.0.0.1:28840 `/index.php` | 127.0.0.1:28841 `/index.php` | 127.0.0.1:28850 `/mem.php` |
+| `memory_limit` | 8M (`php_admin_value`) | 8M | 2M (`php_value` knob) |
+| pm / max_children | static / 1 | static / 1 | n/a |
+| `session.save_path` | `/tmp/opencode/realapps/sessions/wiki` | `/tmp/opencode/realapps/sessions/wp` | n/a |
+| `session.upload_progress.enabled` | 1 (compiled default) | 1 | n/a |
+| `session.upload_progress.cleanup` | 1 at runtime (diag labs override 0) | 1 | n/a |
+| producers | `producer_fpmwiki`, `producer_618`, `producer_619` | `producer_618`, `producer_619` | `producer_modphp`, `producer_unser` |
+| status | run (producer wired) | run | producer wired (chain TBD) |
 
-To register a new target: append a dict to `TARGETS` in
-`tool/modules/profiles.py` with `binary_profile`, `host`/`port`/`path`,
-`session_save_path`, and the `ini` keys above. Generate the matching per-build
-constants with `universal/profile_builder.py` (read-only on the binary) and
-set the `dso_deltas`/gadget offsets in `tool/modules/profiles.py:BINARY_PROFILES`
-per the `addresses/` JSON files.
+Values as-found on the lab stack (verify per run). Add a target: new dict in
+`tool/modules/profiles.py:TARGETS` + constants in `BINARY_PROFILES` (generate via
+`universal/profile_builder.py`, offsets per `addresses/*.json`).
 
-Ini knobs that matter at the target: `memory_limit` (low → producer OOM fatal
-inside the machinery window), `post_max_size` (body budget; >8M aborts
-pre-machinery on the lab stack), `max_file_uploads` (arm file-part cap),
-`pm = static` with predictable child mapping (worker-pinned chains),
-`session.save_path` (attacker-writable `sess_*` records are the persistence
-surface), and the `session.upload_progress.*` group (`enabled` gates the
-consumer; `cleanup=1` empties the record at request end — the machinery
-arm/freeze receipts rely on timing, not on a disabled cleanup).
+Ini knobs that matter: `memory_limit` (produces the OOM fatal), `post_max_size`
+(>8M aborts pre-machinery on this stack), `max_file_uploads` (arm file-part cap),
+`pm=static` (pinned child mapping), `session.save_path` (attacker-writable `sess_*`
+records), `session.upload_progress.*` (gates the consumer; `cleanup` timing).
 
-## Receipt scheme
+## Receipts
 
-Each `--step` run writes a receipt directory: per-exchange
-`<label>-request.bin` / `-response.bin` / `-body.bin`, a `result.json` with
-status/headers/sha256 per artifact, and (recon/chain) derived addresses
-(`main`, `target`, `stage`, `dso_candidates`) plus the `uid=` id-line match for
-chain success. Default output directory:
-`files/io/<target>-<step>-<UTC stamp>/` (override with `--output`; the
-directory is local and git-ignored). Published, curated evidence lives under
-`receipts/<name>/` with a describing README — see `receipts/README.md` for the
-index and the commitment rule. Raw uncurated lab logs (`.out/.err/.bin/.log`)
-are intentionally not tracked.
+`--step` writes `files/io/<target>-<step>-<UTC stamp>/` (or `--output DIR`):
+`<label>-request/-response/-body.bin` + `result.json` (status, headers, sha256 per artifact).
+
+| step | extra |
+|---|---|
+| recon | derived addresses (`main`, `target`, `stage`, `dso_candidates`) |
+| chain | blockers count, per-candidate result, `uid=` line on success |
+
+Runtime output dir is git-ignored. Curated evidence: `receipts/<name>/` with a README
+(`receipts/README.md`). Raw logs/binaries not tracked.
 
 ## References
 
-- CVE-2026-109618 — RCE via OOM corruption:
-  <https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w>
-- CVE-2026-109619 — RCE via stale global state:
-  <https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp>
-- php 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35 release announcement (2026-10-21):
-  <https://www.php.net/archive/2026.php#2026-10-21-5>
-- Upstream writeup, *A tale of two PHP remote vulnerabilities*:
-  <https://calif.io/php2shell/> (alias <http://php2shell.com>)
-- Internal: `docs/validation_1021_filmpost.md` (diag3–diag10 ground truth),
-  `docs/reports_realapps_validation_1021.md` (master validation report),
-  `docs/runtime_addresses.md`, `docs/README_2026-10-21_research_version.md`
-  (full historical README version).
-- Partial mitigations (from advisories): patch (complete fix only);
-  `memory_limit=-1` and `session.upload_progress.enabled=0` (admin scope,
-  worker restart); low `post_max_size`; php 8.5 `fatal_error_backtraces=0`;
-  cgroup `memory.max`. Do not use `RLIMIT_AS`/`RLIMIT_DATA` (they trigger the
-  vulnerable `mmap()`-failure path).
+- CVE-2026-109618: https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w
+- CVE-2026-109619: https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp
+- Fix release 2026-10-21: https://www.php.net/archive/2026.php#2026-10-21-5
+- Writeup (upstream, alias `php2shell`): https://calif.io/php2shell/ and http://php2shell.com
+- Internal: `docs/` (validation log, master report), `receipts/` (named runs)
 
-## Legal / Lab notice
-
-Runs exclusively against operator-owned, loopback-only lab targets
-(127.0.0.1) for controlled security research on published, patched bugs;
-use against third-party systems is outside the scope of this repository and
-its license. Targets must satisfy the attribute table above; nothing here
-requires modifying victim applications. Code is provided as-is under MIT.
+Loopback-only, operator-owned targets. Use against third-party systems is out of scope and
+out of license. MIT; no warranty.
 
 ## Mitigations (measured 2026-10-21)
 
 The PHP 8.5.12 patch is the only complete fix; every control below reduces
 attack surface or availability impact and must be kept after patching.
 
-Full matrix: [`docs/mitigation_matrix_1021.md`](docs/mitigation_matrix_1021.md) ·
+Full matrix: [`docs/mitigation_matrix_1021.md`](docs/mitigation_matrix_1021.md),
 receipts: [`receipts/mitigation_matrix_1021/`](receipts/mitigation_matrix_1021/).
 
 Measured compensating controls:
 
-- **M1** `session.upload_progress.enabled=0` (admin scope) — consumer-only:
+- **M1** `session.upload_progress.enabled=0` (admin scope), consumer-only:
   removes the 109619 progress-record writer/update path, not the 109618 OOM
   (lane C: 3/3 arms killed the worker at 8M).
 - **M2** size `memory_limit` to the actual body ceiling: php-cgi
   `≥ 3 × post_max_size + 4 MiB`; FPM/nginx
   `≥ 6.5 × client_max_body_size + 1 MiB` (8× recommended).
 - **E1** edge cap plus headroom: `client_max_body_size 2m` + PHP
-  `memory_limit 128M` → 413 before PHP; cap alone (2m at 8M) is unsafe (3/3 fatal).
+  `memory_limit 128M` answers 413 before PHP; cap alone (2m at 8M) is unsafe (3/3 fatal).
 - **M5, no-upload apps only** method-scoped nginx 415 on `POST`/`PUT`/`PATCH`
   `multipart/form-data` + `client_max_body_size 128k` + `file_uploads=Off`
   (arm 415 before PHP; urlencoded POST and GET stay 200).
-- **Rejected:** token/body WAF rule on `PHP_SESSION_UPLOAD_PROGRESS` — the
+- **Rejected:** token/body WAF rule on `PHP_SESSION_UPLOAD_PROGRESS`; the
   literal token is blocked, but the OOM fires with no token at all.
 
 Before deploying 8.5.12, stage the patch-release regressions

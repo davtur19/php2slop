@@ -1,9 +1,9 @@
-# HANDOFF — advisory_1400 fetcher (one-shot, embargo-gated, idempotent)
+# HANDOFF: advisory_1400 fetcher (one-shot, embargo-gated, idempotent)
 
 Context: CVE-2026-109618 / CVE-2026-109619 (php-src 8.5.x session
 upload-progress UAF family) publish 14:00:00 UTC today, 2026-10-21.
 Two previous sleeping fetcher instances died at session teardown ("Killed by
-SIGTERM" — children of a subagent session die when that session closes), so a
+SIGTERM"; children of a subagent session die when that session closes), so a
 sleeping process must NOT be spawned from a subagent. The fetcher is therefore
 a ONE-SHOT script: the operator session launches it at/after 14:00Z.
 
@@ -30,10 +30,10 @@ If `date -u` is before 2026-10-21T14:00:00Z the script logs
 and exits 0 WITHOUT any network activity. Verified pre-14:00 ("access test"):
 two consecutive runs, exit 0 both times, only `status.txt` written,
 zero fetches. `status.txt` currently holds exactly these two `BEFORE_EMBARGO`
-lines — before the real run you can truncate it if you want a clean log.
+lines; before the real run you can truncate it if you want a clean log.
 
 ## Optional detached awake-at-14:00 launcher
-Only from the operator session (NOT a subagent — its children get SIGTERMed
+Only from the operator session (NOT a subagent; its children get SIGTERMed
 when the session closes). The sleep is computed at invocation time:
 ```
 d=$(( $(date -u -d '2026-10-21 14:00:00' +%s) - $(date -u +%s) )); \
@@ -53,16 +53,16 @@ idempotent if run twice).
 4. `diff_<sha12>.patch` for up to 8 session.c commits with committer date
    >= 2026-10-21T11:45:00Z (the monitoring cutoff), fetched from
    `https://github.com/php/php-src/commit/<sha>.diff`
-5. `tarball_urls.txt` — location record for the 8.5.11 source tarball
+5. `tarball_urls.txt`: location record for the 8.5.11 source tarball
    (`php-8.5.11.tar.gz` / `.tar.xz` distributions URLs); ONE HEAD probe confirms
    availability; the tarball itself is NOT downloaded
-6. `commits_summary.txt` — local parse of the commit JSONs, no network
+6. `commits_summary.txt`: local parse of the commit JSONs, no network
 
 ## analyze_advisory.py state (offline dry-runs done)
 - `py_compile` OK (`python3 -m py_compile`).
 - Fixture dir: `/tmp/opencode/realapps/side/tmp/analyze_dryrun/`
   - `base_pre/` (rate-limit-dict file + pre-cutoff entries + empty list)
-    -> run: `run_pre.log` — "not a list (maybe rate-limited or empty)" and
+    -> run: `run_pre.log`, "not a list (maybe rate-limited or empty)" and
     "NO post-cutoff session.c commits found", rc=0.
   - `base_post/` (a post-cutoff entry with EMPTY message, a real post-cutoff
     entry, a pre-cutoff entry) -> driver `driver_post.py` monkeypatches
@@ -79,7 +79,7 @@ idempotent if run twice).
      `application/vnd.github.v3+json`;
   3. `gh()` per-commit diff fetch wrapped in try/except: FETCH_FAIL logged,
      loop continues (no single-commit network error kills the run).
-  Python here is 3.13.5 — `fromisoformat` already parses GitHub's `Z` dates,
+  Python here is 3.13.5: `fromisoformat` already parses GitHub's `Z` dates,
   so no extra date normalization was added.
 
 ## php.net reachability probe (single, generic, pre-embargo; permitted)
@@ -93,7 +93,7 @@ Result: **HTTP=200 ip=84.17.59.117 dns=0.008s tls=0.025s total=0.037s**
 NO embargo-related artifact was fetched before 14:00:00Z on 2026-10-21 during
 this prep: zero requests to CVE listings, the 8.5.11 release page, session.c
 commit/diff URLs or the tarball. The only network contacts made were (a) the
-single generic homepage probe above and (b) nothing else — the real script
+single generic homepage probe above and (b) nothing else; the real script
 refused to fetch in both pre-embargo test runs. Everything in this directory
 right now (besides this file and `status.txt`) was written by this prep.
 

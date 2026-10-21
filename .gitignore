@@ -22,6 +22,9 @@ ov25_*
 ctrl_out*
 __pycache__/
 *.pyc
+# per-binary address jsons are tracked on purpose (asan_* log hygiene stays)
+!addresses/asan_cgi.json
+!addresses/asan_fpm.json
 # curated receipts (named runs with their own README) are tracked on purpose
 !receipts/**
 
