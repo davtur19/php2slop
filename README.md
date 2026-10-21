@@ -16,7 +16,8 @@ The lab used `php_binary`, whose decode slot is 16 byte aligned. The default `ph
 handler decode slot is not 16 byte aligned, so its target is the `PS(serializer)`
 pointer slot plus a fake 24 byte `ps_serializer` struct in the record. 5.x cannot
 reuse this geometry. It is not a universal exploit: heap addresses X, P, B0 and
-the libc base are prerequisites, and an ASLR capable heap leak is still open (F14).
+the libc base are prerequisites, and an ASLR capable heap leak is still not
+demonstrated (F14 attempted-negative).
 
 ## Lanes
 
@@ -27,7 +28,8 @@ the libc base are prerequisites, and an ASLR capable heap leak is still open (F1
 | modphp pDestructor superglobal teardown | mod_php 8.5.10 NTS | plant, stale dtor chain, pre-RINIT write into `$_POST` `HashTable.pDestructor` | **closed**: shutdown is fast (`fast_shutdown=1`), no auto table is destroyed |
 | FPM app fatal | php-fpm 8.5.10 | post startup fatal inside the unserialize family | kills the worker with exit 70, not a route by itself |
 | G2 decode hijack | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC | plant, stale dtor chain, pre RINIT decode, `.data` write | 8.5.10 confirmed lab, ASLR off; other offsets derived; offline `--step g2` builder |
-| in band heap leak | mod_php 8.5.10 PIE | `sidlen` / `sidhex` overread after the M5 write | measured, `leak_offset` 0x2188 build specific |
+| in band heap leak | mod_php 8.5.10 PIE | `sidlen` / `sidhex` overread after the M5 write | measured, `leak_offset` 0x2188 build specific; boot2 HTTP candidate (`K_dest` at `sidhex[8:16]`, `B0 = K_dest - 0x1000`) lab-only |
+| static session file leak | mod_php 8.5.10 PIE | save_path UAF reclaim, static `sess_*` fetch, M11 encode overread | **attempted-negative (F14)**: save_path control and static serving proven; overread failed; no pointer or `B0`; real target untested |
 | real app reachability | MediaWiki/Wikibase, WordPress/WooCommerce | anonymous app request reaches `unserialize` | reachability and availability only, no RCE |
 
 ## Chain
@@ -78,14 +80,46 @@ aligned 16-byte write grid cannot reach them. `zend_get_properties_for`,
 `php_exec_ex` and `zif_system` were never entered and no PWNED file was
 created. Reopening this lane needs an allocator configuration change, a
 primitive that forces slow shutdown, an 8-byte table shift, or an object
-handler destructor. The FPM serializer lane (G2) remains the open path.
+handler destructor. The FPM serializer lane (G2) remains the viable decode path.
 Evidence: `/tmp/opencode/research/gadget_20261021T210031Z/README.md` section 8
 and `lab/gdb/gdb_u3.log`.
 
-F14 is open: no ASLR
-capable heap leak exists. `fpmboot` derives `B0 = K_dest1 - 0x9000` only for a
-fixed body layout with ASLR off, so the G2 plan takes X, P and B0 from the
-operator.
+F14 is attempted-negative, not open: no ASLR capable heap leak is demonstrated
+end-to-end. The static session file route was run to a negative result on local
+Apache 2.4.66 + mod_php 8.5.10, loopback only. The M6 save path control and
+static serving are proven: the failed
+`ini_set`/deactivate restore leaves `PS(save_path)` dangling to the request
+`zend_string`, the 54 byte GET value reclaims the same allocator bin, and
+`ps_files_open` used the attacker directory. After a restart, `GET /u/sess_tb1`
+returned the seeded 77,842 bytes with a matching sha1. The M11 encode overread
+failed: the 64,946 byte plant record rounds to `0x10000` and the 77,842 byte
+trigger record rounds to `0x14000`, so the trigger allocation moved `+0x2000`;
+the stale `P` landed in filler, `TMPVAR last_dtor=0x4141414141414141`, and the
+worker took SIGSEGV in `tmp_var` at `var_unserializer.c:168`. There was no
+`PS_WRITE`, no access log line and no overread; the static GET was byte identical
+to the seed. No heap pointer and no `B0` were recovered; the gdb measured `P` and
+`B0` are not leaks. The full chain is not demonstrated.
+
+Controls are partial: 21 exchanges against a bound of 20 and 3 of 3 restarts.
+The formal no-save-path, file-not-present and different-sid controls were not
+executed; the benign record control plus the no-reclaim E1/E2 opens are not
+substitutes. The receipt's real-target list is a requirement set, not a target
+test: a directory writable by the PHP user and URL mapped and statically served
+by the same server; an attacker-controlled `sess_<sid>` name and bytes; readable
+mode/owner; a reclaiming `save_path` string in the same allocator bin class; a
+per-request save_path restore; OOM reachable under `memory_limit` with upload
+progress; an app `session_start` with an attacker-controlled sid; and a separate
+heap address source for `P` and `B0`.
+
+`fpmboot` derives `B0 = K_dest1 - 0x9000` only for a fixed body layout with ASLR
+off, so the G2 plan still takes X, P and B0 from the operator. The live gdb-free
+candidate is the mod_php boot2 HTTP leak: the 8 byte word at `sidhex[8:16]` is
+`K_dest`, and `B0 = K_dest - 0x1000`. It is lab-only so far; the boot2 receipt's
+single-process run that takes `B0` only from HTTP and then sends stage 2 was not
+executed. Receipts:
+`/tmp/opencode/research/staticleak_20261021T214538Z/README.md` (with
+`SHA256SUMS` in the same directory) and
+`/tmp/opencode/research/boot2_20261021T214428Z/README.md`.
 
 ## Layout
 
@@ -171,11 +205,11 @@ Not implemented or closed:
 
 | item | state |
 |---|---|
-| ASLR capable FPM heap leak | open (F14); `fpmboot` needs a fixed body layout and ASLR off |
+| ASLR capable FPM heap leak | attempted-negative (F14); static session file route: save_path control and static serving proven, overread failed, no pointer or `B0`; `boot2` HTTP candidate is lab-only; `fpmboot` needs a fixed body layout and ASLR off |
 | G2 on 5.x | not derived; 5.x layout differs (`used_slots +0x2000`, `next +0x2008`, equality bound, struct `BG(unserialize)`) |
 | G3 `pDestructor` pivot | closed; no pivot, uncontrolled `rsi`, no libc `system` import |
 | modphp pDestructor superglobal teardown | closed; the POST write lands, but fast shutdown skips `zend_hash_graceful_reverse_destroy(EG(symbol_table))`, so no auto global table is destroyed and the gadget is not invoked |
-| modphp measured chain constants | `TARGETS["modphp"]` producer and leak wired; superglobal teardown lane closed, FPM serializer lane (G2) the open path |
+| modphp measured chain constants | `TARGETS["modphp"]` producer and leak wired; superglobal teardown lane closed, FPM serializer lane (G2) is the viable decode path, still operator-addressed |
 
 Parameterized producer/step plan: `/tmp/opencode/realapps/side/php2shell/runs/UNIVERSAL_PLAN.md`.
 

@@ -11,8 +11,36 @@ Install, layout and run one-liners: see `README.md`. This file is the lane matri
 | modphp pDestructor superglobal teardown | libphp.so PHP 8.5.10 NTS, httpd prefork | plant, then pre-RINIT upload progress decode | none (automatic shutdown path) | `$_POST` write lands at `heap+0x2060`, but fast shutdown destroys no auto global table | **closed**: `fast_shutdown=1` skips `zend_hash_graceful_reverse_destroy(EG(symbol_table))`; POST rc stays 1 |
 | fpm app fatal | php-fpm 8.5.10 static pool | post startup app level fatal inside the unserialize family | none | worker exits 70, no access row | measured, not a route by itself |
 | fpm G2 decode hijack | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC, ASLR off | `E_USER_ERROR` bailout inside `unserialize` | multipart session record plus forced END decode | marker created, worker survives, decode pointer overwritten | 8.5.10 confirmed lab; other profiles derived, offline `--step g2` |
-| modphp in band leak | libphp.so PHP 8.5.10 NTS PIE | M5 plant and trigger | `sidlen` / `sidhex` overread | live session array pointer over HTTP, 4 of 4 runs | measured, `leak_offset` build specific |
+| modphp in band leak | libphp.so PHP 8.5.10 NTS PIE | M5 plant and trigger | `sidlen` / `sidhex` overread | live session array pointer over HTTP, 4 of 4 runs | measured, `leak_offset` build specific; boot2 HTTP candidate (`K_dest` at `sidhex[8:16]`, `B0 = K_dest - 0x1000`) lab-only |
+| static session file leak | libphp.so PHP 8.5.10 NTS PIE, mod_php | failed `ini_set` save_path restore, 54 B GET reclaim | M11 encode overread, static GET of `sess_tb1` | 77,842 B seed served with matching sha1; overread crashed in `tmp_var` | **attempted-negative (F14)**: save_path control and static serving proven; no pointer or `B0`; controls partial; real target untested |
 | real apps | MediaWiki/Wikibase, WordPress/WooCommerce | anonymous app request | app specific | Wikibase fatal and worker survival, WP 1 of 4 consumers SIGSEGV | reachability and availability, no RCE |
+
+## F14 leak status
+
+F14 is **attempted-negative**, not open. The static session file route proved the
+M6 save path control (failed `ini_set`/deactivate restore, dangling
+`PS(save_path)`, 54 B GET reclaim, `ps_files_open` on the attacker directory)
+and static serving (`GET /u/sess_tb1` returned the seeded 77,842 bytes with a
+matching sha1), but the M11 encode overread failed: the 64,946 B plant
+(`0x10000` class) and 77,842 B trigger (`0x14000` class) put the trigger
+`+0x2000` away, stale `P` landed in filler, and the worker took SIGSEGV in
+`tmp_var` (`last_dtor=0x4141414141414141`). There was no `PS_WRITE`, no overread,
+no heap pointer and no `B0`; the gdb measured `P`/`B0` are not leaks. The full
+chain is not demonstrated. Controls are partial: 21 exchanges against a bound of
+20 and 3 of 3 restarts, with the formal no-save-path, file-not-present and
+different-sid controls not executed.
+
+The real-target list is requirements only, not a target test: PHP-writable
+directory, URL mapped and statically served by the same server, attacker
+controlled `sess_<sid>` name and bytes, readable mode/owner, reclaiming
+`save_path` in the same allocator bin class, per-request save_path restore, OOM
+reachable under `memory_limit` with upload progress, app `session_start` with an
+attacker-controlled sid, and a separate heap address source for `P` and `B0`.
+`fpmboot` is fixed-layout ASLR-off (`B0 = K_dest1 - 0x9000`). The live gdb-free
+candidate is the mod_php boot2 HTTP leak (`K_dest` at `sidhex[8:16]`,
+`B0 = K_dest - 0x1000`), lab-only so far. Receipts:
+`/tmp/opencode/research/staticleak_20261021T214538Z/README.md` (with
+`SHA256SUMS`) and `/tmp/opencode/research/boot2_20261021T214428Z/README.md`.
 
 ## Prerequisites
 
@@ -152,7 +180,7 @@ G2 preconditions and limits:
 | FPM setup | upload progress on with the forced END update in the same request |
 | ordering | the plant request must be the immediately preceding request on the same worker |
 | retries | single shot per plant; the corrupt decode pointer persists until worker restart |
-| ASLR | off in the lab; the ASLR capable heap leak is open (F14) |
+| ASLR | off in the lab; no ASLR capable heap leak is demonstrated (F14 attempted-negative); boot2 HTTP candidate is lab-only; `fpmboot` is fixed-layout ASLR-off |
 
 Confirmed on 8.5.10 in two plant runs (n=7, n=11), same worker, marker created.
 The 8.4.25, 8.1.34 and 7.4.33 profiles are derived from built non PIE FPM
