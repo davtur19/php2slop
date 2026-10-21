@@ -176,3 +176,30 @@ Runs exclusively against operator-owned, loopback-only lab targets
 use against third-party systems is outside the scope of this repository and
 its license. Targets must satisfy the attribute table above; nothing here
 requires modifying victim applications. Code is provided as-is under MIT.
+
+## Mitigations (measured 2026-10-21)
+
+The PHP 8.5.12 patch is the only complete fix; every control below reduces
+attack surface or availability impact and must be kept after patching.
+
+Full matrix: [`docs/mitigation_matrix_1021.md`](docs/mitigation_matrix_1021.md) ·
+receipts: [`receipts/mitigation_matrix_1021/`](receipts/mitigation_matrix_1021/).
+
+Measured compensating controls:
+
+- **M1** `session.upload_progress.enabled=0` (admin scope) — consumer-only:
+  removes the 109619 progress-record writer/update path, not the 109618 OOM
+  (lane C: 3/3 arms killed the worker at 8M).
+- **M2** size `memory_limit` to the actual body ceiling: php-cgi
+  `≥ 3 × post_max_size + 4 MiB`; FPM/nginx
+  `≥ 6.5 × client_max_body_size + 1 MiB` (8× recommended).
+- **E1** edge cap plus headroom: `client_max_body_size 2m` + PHP
+  `memory_limit 128M` → 413 before PHP; cap alone (2m at 8M) is unsafe (3/3 fatal).
+- **M5, no-upload apps only** method-scoped nginx 415 on `POST`/`PUT`/`PATCH`
+  `multipart/form-data` + `client_max_body_size 128k` + `file_uploads=Off`
+  (arm 415 before PHP; urlencoded POST and GET stay 200).
+- **Rejected:** token/body WAF rule on `PHP_SESSION_UPLOAD_PROGRESS` — the
+  literal token is blocked, but the OOM fires with no token at all.
+
+Before deploying 8.5.12, stage the patch-release regressions
+GH-24488, GH-24492, GH-24493, GH-24489.
