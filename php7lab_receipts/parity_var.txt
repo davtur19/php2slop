@@ -1,0 +1,6 @@
+1139:PHPAPI php_serialize_data_t php_var_serialize_init() {
+1141:	/* fprintf(stderr, "SERIALIZE_INIT      == lock: %u, level: %u\n", BG(serialize_lock), BG(serialize).level); */
+1142:	if (BG(serialize_lock) || !BG(serialize).level) {
+1148:			BG(serialize).level = 1;
+1152:		++BG(serialize).level;
+1158:	/* fprintf(stderr, "SERIALIZE_DESTROY   == lock: %u, level: %u\n", BG(serialize_lock), BG(serialize).level); */

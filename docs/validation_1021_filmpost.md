@@ -22,3 +22,8 @@ Cross-request serializer-state corruption family: CONFIRMED on our build, earned
 - php_request_startup order: zend_activate -> sapi_activate (machinery/POST read HERE) -> ... -> hash_environment -> zend_activate_modules(RINIT) — machinery runs pre-RINIT; fatal in machinery leaves BG(serialize) dirty+arena-freed context for the next heavy request.
 
 Artifacts: harnesses/runs/{diag3_arm_oom.py,diag4_repeat_arm.py,diag5_asan.py,diag5run.sh}
+
+## PHP 7.4.33 parity (php7lab, ASAN build, built-in server :28843)
+- Source guard parity: php_var_serialize_init reuse guard var.c:1139-1158 (same shape as 8.5.10:1346); Z_TRY_ADDREF progress->data at session.c:3151 (8.5.10:3154).
+- Behavior: arm + memory_limit=8M → silent close ×3 (no fatal body, no ASAN crash), dispatcher wedged (post-check EMPTY). Same arm at 64M → 200 OK ×3 clean. OOM trigger = arm body machinery traffic, not filename length.
+- Contrast 8.5.10: R1 fatal body → R2 diverged body → R3 process death (SEGV var_unserializer decode).
