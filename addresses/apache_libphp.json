@@ -33,5 +33,33 @@
     "zif_system": "0x000000000040cc80",
     "zval_ptr_dtor": "0x00000000005f0980"
   },
-  "target_offset": "TBD_from_leak_chunk_anchor"
+  "target_offset": "TBD_from_leak_chunk_anchor",
+  "engine": {
+    "php_url_encode": "0x460d70",
+    "ps_globals": "0xa3b020",
+    "basic_globals": "0xa3bdc0",
+    "php_apache_sapi_ub_write": "0x5f7ee0",
+    "zend_rc_dtor_func": "0x96f760"
+  },
+  "engine_binding": {
+    "php_url_encode": "T",
+    "ps_globals": "B",
+    "basic_globals": "B",
+    "php_apache_sapi_ub_write": "t",
+    "zend_rc_dtor_func": "d"
+  },
+  "struct_offsets": {
+    "ps_globals_size": "0x1c0",
+    "ps_id": 16,
+    "ps_http_session_vars": 360,
+    "basic_globals_size": "0x550",
+    "bg_unserialize": 872,
+    "bg_serialize_lock": 848
+  },
+  "derived_addresses": {
+    "ps_id_slot": "0xa3b030",
+    "ps_http_session_vars_slot": "0xa3b188",
+    "bg_unserialize_slot": "0xa3c128"
+  },
+  "offsets_receipt": "/tmp/opencode/research/offsets_modphp_20261021T185955Z/offsets.md"
 }
