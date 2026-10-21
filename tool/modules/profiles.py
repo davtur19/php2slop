@@ -63,11 +63,18 @@ TARGETS = {
         "path": "/index.php",
         "session_save_path": "/tmp/opencode/realapps/sessions/wiki",
         "ini": {
-            "memory_limit": "8M (take-and-run value in the diag3 arm receipts)",
-            "session.upload_progress.enabled": "1",
-            "session.upload_progress.cleanup": "0",
+            # as-found on the running [wiki] pool (UNIVERSAL_PLAN.md, section a):
+            # fpm_realapps.conf [wiki]; no upload_progress overrides anywhere in
+            # the stack, so compiled 8.5.10 defaults apply (session.c:934-945).
+            "memory_limit": "8M (php_admin_value, fpm pool conf)",
+            "pm": "static",
+            "pm.max_children": "1 (duplicate key: later value wins)",
+            "pm.max_requests": "5000",
+            "session.upload_progress.enabled": "1 (compiled default, session.c:934)",
+            "session.upload_progress.cleanup": "1 (compiled default at runtime; "
+                "the ASAN diag receipts override it to 0 - lab-only)",
         },
-        "workers": "php-fpm pool (static pre-fork; repeats return via pool respawn, diag4)",
+        "workers": "php-fpm pool [wiki], pm=static, single worker",
         "producer_modules": ("producer_618", "producer_619"),
         "status": "available (probe + chain)",
     },
@@ -79,11 +86,15 @@ TARGETS = {
         "path": "/index.php",
         "session_save_path": "/tmp/opencode/realapps/sessions/wp",
         "ini": {
-            "memory_limit": "8M (same receipt family as wiki)",
-            "session.upload_progress.enabled": "1",
-            "session.upload_progress.cleanup": "0",
+            # same compiled-defaults reasoning as [wiki]; verify pool conf per run
+            "memory_limit": "8M (php_admin_value, fpm pool conf)",
+            "pm": "static",
+            "pm.max_children": "1 (verify per run)",
+            "pm.max_requests": "5000",
+            "session.upload_progress.enabled": "1 (compiled default, session.c:934)",
+            "session.upload_progress.cleanup": "1 (compiled default at runtime)",
         },
-        "workers": "php-fpm pool (static pre-fork)",
+        "workers": "php-fpm pool, pm=static",
         "producer_modules": ("producer_618", "producer_619"),
         "status": "available (probe + chain)",
     },

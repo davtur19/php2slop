@@ -10,6 +10,7 @@ nohup.out
 # public-repo hygiene: lab noise stays local (raw logs/binaries/outcome files)
 runs/
 receipts/raw/
+files/
 *.out
 *.err
 *.log

@@ -1,122 +1,192 @@
-# phpshell — php 8.5.x session.upload_progress / OOM RCE lab toolkit
+# php2slop — php 8.5 session.upload_progress machinery chain (CVE-2026-109618 / CVE-2026-109619)
 
-Independent research toolkit for the **PHP October 2026 security release**:
-**CVE-2026-109618 / CVE-2026-109619** — pre-auth cross-request machinery
-use-after-free family (php-src `ext/session` upload-progress machinery +
-ZendMM OOM interruption; `ext/session/session.c:3129–3338` window).
+## Name
 
-All experiments run on operator-owned stacks against loopback targets
-(nginx → MediaWiki 1.46.2 / WordPress on stock-build php 8.5.10 fpm/cgi).
+`php2slop` is the repository's working name and is a deliberate, self-aware
+joke about its origin. The work started from the officially published
+advisory material of 2026-10-21 (CVE texts, GHSA technical pages, the writeup)
+— before a fixed php release (8.5.12) was available to test against — and the
+full exploit chain was reconstructed AI-assisted within that window. The name
+acknowledges that fact without dressing it up; the technical claims in this
+README are backed by the receipts, not by the name. Upstream's writeup uses
+the alias `php2shell` (<https://calif.io/php2shell/>, <http://php2shell.com>);
+driver file names and external citations keep that alias unchanged, and any
+clone URL should point at `https://github.com/davtur19/php2slop` (MIT).
 
-**Upstream write-up:** <https://calif.io/php2shell/> (alias: <http://php2shell.com>) —
-*A tale of two PHP remote vulnerabilities*, Calif / OpenAI / Wiz.
 
-**Official advisories (published 2026-10-21 14:00 UTC):**
+## Overview
 
-- CVE-2026-109618 — [GHSA-w8hw-w9fx-j79w](https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w) — RCE via OOM corruption
-- CVE-2026-109619 — [GHSA-6wmf-4rv5-p3rp](https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp) — RCE via stale global state
+Research toolkit for the php-src 8.5.x pre-auth cross-request use-after-free
+family in the session.upload_progress machinery and ZendMM OOM interruption
+(`ext/session/session.c`, entry window 3129–3338 on the analyzed 8.5.10 tree).
+Fixes shipped 2026-10-21 as php 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35; the upstream
+affected range starts at php 5.4.0. The kit contains the driver, request/producer
+builders, per-binary offset profiles and the curated run receipts that document
+both CVE classes on operator-owned stacks.
 
-**Patched in:** PHP 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35 (release announcement:
-<https://www.php.net/archive/2026.php#2026-10-21-5>).
+Two distinct SAPI situations apply. On mod_php, the stale-state machinery lives
+inside the web server process, so the exploit does not depend on the
+application. On php-fpm the exploitable sequence needs a fatal after a
+successful request startup (application level), followed by the
+upload-progress consumer on the surviving worker — the validated FPM path in
+GHSA-6wmf-4rv5-p3rp.
 
-## Status — both CVE classes found and reproduced independently
+## Mechanism
 
-The receipts below were produced on our own trees/binaries/victim apps
-**before** the advisories published; the GHSA technical pages then confirmed
-the same mechanisms line-by-line.
+Chain, as reproduced and documented in the writeup (<https://calif.io/php2shell/>):
 
-| CVE | Mechanism | Our independent receipt |
-|---|---|---|
-| **CVE-2026-109618** OOM corruption | OOM `longjmp()` exits a mid-initialization context; teardown then consumes partially-initialized request state (count-before-key-alloc pattern in hash registration; machinery record torn down early) | `diag3`: arm reaches `Allowed memory size of 8388608 bytes exhausted (tried to allocate 266240 bytes) in Unknown on line 0` **during Request Startup** (pre-RINIT) on *stock* php-fpm 8.5.10 behind nginx, unauthenticated; offline fuzzing: deterministic ASAN heap-UAF at `php_session_rfc1867_update` (`session.c:3155` → `zend_hash.c:872` pDestructor) reproduced 5/5 + 2 reduced repros with planted state (`fuzzing/crashes/`); multipart empty-file-control shape (six `$_FILES` entries per record, not counted by `max_file_uploads`) |
-| **CVE-2026-109619** stale global state | Request-owned state published in worker globals survives the heap free; the next request consumes it *before* normal initialization resets it. Confirmed consumers: pre-init INI diagnostics and **session upload-progress** | `diag5`: ASAN built-in server — R1 OOM fatal → R2 divergent body → R3 process death with SEGV at `tmp_var` (`var_unserializer.c:168`) ← `var_tmp_var` ← `ps_srlzr_decode_php` (`session.c:1123`) ← auto-globals → `php_hash_environment` → `php_request_startup` — the stale-state consumer firing pre-RINIT; `diag9/10` gdb ground truth (macro-free FRESH/REUSE/DESTROY breakpoints); php 5.6.40 flock self-deadlock wedge (stale fd/machinery state) |
+1. **Producer** — an unauthenticated request turns into a forced OOM
+   interruption (`longjmp` out of a mid-initialization context) or leaves
+   stale decoder state behind (CVE-2026-109618 OOM corruption,
+   CVE-2026-109619 stale global state respectively).
+2. **Stale decoder state** — request-owned state survives the heap free in
+   worker globals; the next request consumes it before normal initialization
+   resets it (confirmed consumers: pre-init INI diagnostics, session
+   upload-progress decode paths).
+3. **Upload_progress consumer** — the machinery record re-entry with stale
+   bookkeeping; no `session_start()` call in the application is required
+   (per GHSA-6wmf-4rv5-p3rp).
+4. **Negative `used_slots`** — the forged machinery state passes the signed
+   `used_slots + num > VAR_DTOR_ENTRIES_MAX` check because `used_slots` is
+   negative; `var_push_dtor_value` then copies an attacker-chosen pointer/type.
+5. **Controlled copy** — the copied zval chain into the stage address places
+   `zif_passthru` / `zif_system` over a controlled callee; a forged
+   `passthru-<cmd>` reference string executes the payload. Persist = the
+   surviving daemon keeps executing per forged request.
 
-**SAPI note (matches the official matrix):** on *stock* fpm a pre-RINIT
-startup fatal exits the child — `diag4` repeats come back *identical* because
-the pool respawns a fresh worker each time. The FPM-exploitable sequence
-requires the fatal **after successful startup** (application level), then the
-upload-progress consumer on the surviving worker — exactly the validated FPM
-path in GHSA-6wmf-4rv5-p3rp ("session upload progress … consumer … does not
-require a diagnostic", "no application call to session_start() is required").
-Victim-app surface is unchanged and stock: the decode entry points are
-application-reachable ops (`session_start()` in MediaWiki,
-`maybe_unserialize()` in WordPress).
-
-## Cross-version parity (our own builds)
-
-- **php 8.5.10** — primary lab target (nginx → fpm stock + separate ASAN build for receipts).
-- **php 7.4.33** — `php_var_serialize_init` level-guard parity (`var.c:1139–1158`), `Z_TRY_ADDREF` at `session.c:3151`; machinery-OOM = silent close + dispatcher wedge on the built-in server (see `php7lab_receipts/`).
-- **php 5.6.40** — guard via macro level-sharing (`PHP_VAR_SERIALIZE_INIT`, `php_var.h:55/73`); no `Z_TRY_ADDREF` (record via `ZEND_SET_SYMBOL_WITH_LENGTH`, refcount hand-set); deterministic **flock self-deadlock wedge** with a full disk session record + arm (gdb-resolved stack, `php5lab_receipts/`); `USE_ZEND_ALLOC=0` disables `memory_limit` in 5.6 (control-tested).
-- The upstream "PHP >= 5.4.0" affected range is consistent with these parity findings.
+Line-level provenance for each step is in
+`receipts/diag3_10_runs/` and `docs/validation_1021_filmpost.md`.
 
 ## Layout
 
-- `php2shell/` — exploit driver (`php2shell.py`) + helper modules:
-  `native-output-leak.py` (LEAK probe/raw framing), `native-output-leak-stock-arm.py`
-  (STOCK arm), `compact-stock-tail.py` (COMPACT rearm/final forged multipart);
-  diag harnesses `diag_arm_probe.py`, `diag2_arm_probe_rearm_final.py`.
-- `harnesses/runs/` — diag3…diag10 scripts: `diag3_arm_oom.py`, `diag4_repeat_arm.py`,
-  `diag5_asan.py`/`diag5run.sh`, gdb breakpoint cmd files (`diag9_gdb.cmd`, macro-free
-  FRESH/REUSE/DESTROY at `var.c:1352/1359/1367`), clean-start replay (`diag10_run.sh`),
-  filtered gdb event traces.
-- `fuzzing/` — offline CGI-SAPI fuzzing + deterministic UAF crashes
-  (`crashes/reduce_min_progress_file/`, `crashes/reduce_min_progress_only/`, …),
-  plus `fuzz_findings.md`.
-- `universal/` — freeze battery + per-binary PROFILE builder and run captures.
-- `addresses/` — per-binary symbol/offset profiles (incl. `generated/`).
-- `php5lab_receipts/`, `php7lab_receipts/` — cross-version lab results.
-- `docs/validation_1021_filmpost.md` — dated validation log (diag3–diag10,
-  gdb ground truth, advisory analysis).
-- `advisory_1400/` — embargo-gated one-shot fetcher + fetched advisory artifacts summary.
-- `reports_realapps_validation_1021.md` — master validation report.
-- Root — staged PoC shape builders, build scripts, gdb scripts, trigger-experiment
-  logs, per-ASAN-flavor run logs.
+| path | contents |
+|---|---|
+| `tool/` | take-and-run driver: `php2shell.py` (CLI, `--step recon|chain`), `run` (sh wrapper), `__main__.py` (`python -m tool`) |
+| `tool/modules/` | `arm.py` (multipart `PHP_SESSION_UPLOAD_PROGRESS` builders + HTTP framing + 14-byte disclosure analyzer), author-provided reconstructed `native-output-leak-stock-arm.py` (STOCK arm) and `compact-stock-tail.py` (COMPACT rearm/final forged multipart), `producer*.py` (618/619 shape builders + facade), `write_stage.py` (stub), `profiles.py` (registry), one-line index in `modules/README.md` |
+| `tool/stages/` | `probe.py` — pre-flight worker-alive + header/status fingerprint |
+| `addresses/` | per-binary symbol/offset profiles (`realapps_fpm.json`, `realapps_np_fpm.json`, CGI flavors, `generated/`) + `runtime_addresses.md` notes |
+| `universal/` | profile builder (`profile_builder.py`: read-only `nm`/`readelf` → per-binary constants), freeze battery + run captures (wiki/wp fullflow, leakprobe, probeonly) |
+| `fuzzing/` | offline CGI-SAPI fuzz harness, deterministic ASAN heap-UAF crashes and minimizations, `fuzz_findings.md` |
+| `receipts/` | curated named runs with own READMEs: `diag3_10_runs/` (diag1–diag10 drivers, gdb cmd/filtered traces), `php5lab_receipts/`, `php7lab_receipts/`, `advisory_1400/` (one-shot fetch + fetched artifacts) |
+| `docs/` | validation log (`validation_1021_filmpost.md`), master validation report (`reports_realapps_validation_1021.md`), previous README version (`README_2026-10-21_research_version.md`) |
+| `LICENSE` | MIT |
 
-## Reproduce (receipt commands)
+## Requirements
 
-Built-in server ASAN receipt (diag5 family):
+- python3 ≥ 3.10 (stdlib only: `socket`, `struct`, `hashlib`, `argparse`, `json`).
+- A loopback target you own, reachable HTTP, satisfying the target attributes
+  in the table below.
+- Optional: `gdb`, `nm`, `readelf` for `universal/profile_builder.py` and the
+  gdb ground-truth runs in `receipts/diag3_10_runs/`.
 
-```sh
-USE_ZEND_ALLOC=1 ASAN_OPTIONS=abort_on_error=0:exitcode=21:malloc_context_size=10 \
-  build_asan/sapi/cli/php -S 127.0.0.1:28842 -d memory_limit=8M \
-  -d session.upload_progress.enabled=1 -d session.upload_progress.cleanup=0 \
-  -t <docroot>
-# then send the STOCK arm multipart 3× (runs/diag5run.sh) and watch
-# R1 OOM fatal → R2 divergent body → R3 death w/ SEGV in the decode path
-```
+## Quickstart
 
-gdb ground truth (state lifecycle):
+Commands below correspond to implemented code. The default target endpoints
+and per-build constants are those measured on the lab stack (nginx → php-fpm
+8.5.10); recon and chain against a different build require updating
+`addresses/` and `tool/modules/profiles.py`.
 
 ```sh
-gdb -q -batch -x harnesses/runs/diag9_gdb.cmd --args build_asan/sapi/cli/php -S 127.0.0.1:28846 ...
-# [FRESH]/[REUSE]/[DESTROY] events per request; clean repeats stay balanced
+# 1. recon: pre-flight fingerprint + stock arm + leak probe + address derivation
+./tool/php2shell.py --target wiki --step recon
+
+# same, package entry point
+python3 -m tool --target wiki --step recon
+
+# 2. chain: blocker-hold + per-DSO-candidate attempt (rearm + forged staged multipart)
+./tool/php2shell.py --target wiki --step chain
+# non-interactive proof command (default: id); listener needed for revshell
+./tool/php2shell.py --target wp --step chain --command id
+
+# one-off URL target (no registered profile; per-build constants mandatory)
+./tool/php2shell.py --url http://127.0.0.1:28840/index.php --profile realapps-pie --step recon
 ```
 
-## Mitigations (official, from the GHSAs)
+Not implemented (chain stage producer): producer orchestration is not wired
+into `--step recon/chain` — stub/facade at `tool/modules/producer.py`; the
+proven shape builders already live at `tool/modules/producer_618.py` /
+`tool/modules/producer_619.py`, and the parameterized producer plan (ranked
+MW producers, step recipes) is
+`/tmp/opencode/realapps/side/php2shell/runs/UNIVERSAL_PLAN.md`.
 
-- **Patch** to 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35 — the only complete fix
-  (soft-OOM at VM safe points + immediate hard-OOM `_exit()`, full global
-  state reset at request shutdown).
-- Until then, partial: administratively enforce `memory_limit=-1`;
-  `session.upload_progress.enabled=0` (worker restart required, admin scope);
-  low `post_max_size`; PHP 8.5 `fatal_error_backtraces=0`; frontend size
-  enforcement (incl. requests without usable `Content-Length`); cgroup
-  `memory.max` for availability. Do **not** use `RLIMIT_AS`/`RLIMIT_DATA`
-  (they trigger the vulnerable `mmap()`-failure path).
+Not implemented (chain stage targets): `--target modphp` — no measured
+addresses, no producer (`tool/modules/profiles.py`: `TARGETS["modphp"]`).
 
-## Safety
+Not implemented (chain stage write_stage): negative-`used_slots` extraction
+into profiles and stage-write receipt checks — stub at
+`tool/modules/write_stage.py`; the live call path is
+`tool/php2shell.py:attempt()` → `tool/modules/compact-stock-tail.py:COMPACT.probe_body(...)`.
 
-Lab security research. Targets are operator-owned; tests are loopback-only.
-Excludes third-party bundles (`zer061`, `jpack`) by design.
+## Targets
 
----
+Target attributes, per `tool/modules/profiles.py:TARGETS` (values as-found on
+the lab stack; verify per run — these are preconditions, not driver settings):
 
-## Historical log
+| attribute | wiki | wp | modphp |
+|---|---|---|---|
+| binary profile | `realapps-pie` | `realapps-pie` | — (TODO) |
+| host:port/path | 127.0.0.1:28840 `/index.php` | 127.0.0.1:28841 `/index.php` | — |
+| `memory_limit` | 8M (`php_admin_value`) | 8M | — |
+| pm / max_children | static / 1 | static / 1 | — |
+| `session.save_path` | `/tmp/opencode/realapps/sessions/wiki` | `/tmp/opencode/realapps/sessions/wp` | — |
+| `session.upload_progress.enabled` | 1 (compiled default) | 1 | — |
+| `session.upload_progress.cleanup` | 1 at runtime (diag labs override 0) | 1 | — |
+| producers | `producer_618`, `producer_619` | `producer_618`, `producer_619` | — |
+| status | probe + chain | probe + chain | TODO (missing module) |
 
-### 2026-10-21 — independent verification of community corrected-findings (jackalsyn page)
-Treated as lead, not truth. Fact-check on our 8.5.10 tree: var.c:756 / basic_functions.c:391-393 / var.c:1346 level-guard / session.c:3154 addref — all verbatim. Reproduced ourselves (diag3-5, see docs/validation_1021_filmpost.md): arm OOM pre-RINIT on stock fpm, and on ASAN built-in server: R1 OOM → R2 diverged body → R3 death with SEGV in var_unserializer via session decode at php_hash_environment → php_request_startup.
+To register a new target: append a dict to `TARGETS` in
+`tool/modules/profiles.py` with `binary_profile`, `host`/`port`/`path`,
+`session_save_path`, and the `ini` keys above. Generate the matching per-build
+constants with `universal/profile_builder.py` (read-only on the binary) and
+set the `dso_deltas`/gadget offsets in `tool/modules/profiles.py:BINARY_PROFILES`
+per the `addresses/` JSON files.
 
-### 2026-10-21 — gdb ground truth (diag9/10)
-No BG(serialize) reuse on clean repeats; diag5 divergence/SEGV = disk session-record leftover between run modes; decoded via ps_srlzr_decode_php. Family requires attacker-controlled session record on disk (later superseded by the advisory's producer/consumer model).
+Ini knobs that matter at the target: `memory_limit` (low → producer OOM fatal
+inside the machinery window), `post_max_size` (body budget; >8M aborts
+pre-machinery on the lab stack), `max_file_uploads` (arm file-part cap),
+`pm = static` with predictable child mapping (worker-pinned chains),
+`session.save_path` (attacker-writable `sess_*` records are the persistence
+surface), and the `session.upload_progress.*` group (`enabled` gates the
+consumer; `cleanup=1` empties the record at request end — the machinery
+arm/freeze receipts rely on timing, not on a disabled cleanup).
 
-### 2026-10-21 — official advisory analysis
-Advisories (14:00Z) + upstream write-up mapped 1:1 onto our receipts: 109618 = OOM corruption (diag3/fuzz UAF/empty-file shapes); 109619 = stale global state with session upload-progress as confirmed producer *and* consumer pre-init (diag5 decode-path SEGV; php5.6 flock wedge). Full details: `docs/validation_1021_filmpost.md`.
+## Receipt scheme
+
+Each `--step` run writes a receipt directory: per-exchange
+`<label>-request.bin` / `-response.bin` / `-body.bin`, a `result.json` with
+status/headers/sha256 per artifact, and (recon/chain) derived addresses
+(`main`, `target`, `stage`, `dso_candidates`) plus the `uid=` id-line match for
+chain success. Default output directory:
+`files/io/<target>-<step>-<UTC stamp>/` (override with `--output`; the
+directory is local and git-ignored). Published, curated evidence lives under
+`receipts/<name>/` with a describing README — see `receipts/README.md` for the
+index and the commitment rule. Raw uncurated lab logs (`.out/.err/.bin/.log`)
+are intentionally not tracked.
+
+## References
+
+- CVE-2026-109618 — RCE via OOM corruption:
+  <https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w>
+- CVE-2026-109619 — RCE via stale global state:
+  <https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp>
+- php 8.5.12 / 8.4.27 / 8.3.36 / 8.2.35 release announcement (2026-10-21):
+  <https://www.php.net/archive/2026.php#2026-10-21-5>
+- Upstream writeup, *A tale of two PHP remote vulnerabilities*:
+  <https://calif.io/php2shell/> (alias <http://php2shell.com>)
+- Internal: `docs/validation_1021_filmpost.md` (diag3–diag10 ground truth),
+  `docs/reports_realapps_validation_1021.md` (master validation report),
+  `docs/runtime_addresses.md`, `docs/README_2026-10-21_research_version.md`
+  (full historical README version).
+- Partial mitigations (from advisories): patch (complete fix only);
+  `memory_limit=-1` and `session.upload_progress.enabled=0` (admin scope,
+  worker restart); low `post_max_size`; php 8.5 `fatal_error_backtraces=0`;
+  cgroup `memory.max`. Do not use `RLIMIT_AS`/`RLIMIT_DATA` (they trigger the
+  vulnerable `mmap()`-failure path).
+
+## Legal / Lab notice
+
+Runs exclusively against operator-owned, loopback-only lab targets
+(127.0.0.1) for controlled security research on published, patched bugs;
+use against third-party systems is outside the scope of this repository and
+its license. Targets must satisfy the attribute table above; nothing here
+requires modifying victim applications. Code is provided as-is under MIT.
