@@ -95,11 +95,13 @@ ZIF_NUM_ARGS_OFF = 0x2C
 ZIF_ARG1_VALUE_OFF = 0x50
 ZIF_ARG1_TYPE_OFF = 0x58
 ZIF_ARG1_IS_STRING = 6
-ZIF_RECEIPT = "/tmp/opencode/research/g6zif_20261021T222434Z"
+# Committed receipts are referenced repo-relative; only receipts that are not
+# in the repo yet keep their absolute /tmp research path (F12B_RECEIPT).
+ZIF_RECEIPT = "receipts/g6zif_1021"
 PHP_BINARY_ZIF_BUILDER = "php_binary_zif"
 PHP_BINARY_SERIALIZER = "php_binary"
 F12B_RECEIPT = "/tmp/opencode/research/f12b_zif_20261021T222457Z"
-REALZIF_RECEIPT = "/tmp/opencode/research/realzif_20261022T013000Z"
+REALZIF_RECEIPT = "receipts/realzif_entry2_1022"
 
 
 def _require_record_builder(profile: dict) -> None:
