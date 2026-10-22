@@ -1,0 +1,10 @@
+{
+ "n": 5,
+ "kind": "trigger",
+ "label": "g6f",
+ "status": "",
+ "error": "ConnectionResetError: [Errno 104] Connection reset by peer",
+ "elapsed": 0.038,
+ "stdout": "",
+ "stderr": ""
+}

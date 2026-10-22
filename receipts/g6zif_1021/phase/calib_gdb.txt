@@ -1,0 +1,43 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d2b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/home/davide/ailocal/php/zerodays_1020/build_plainpie/sapi/fpm/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /home/davide/ailocal/php/zerodays_1020/build_plainpie/sapi/fpm/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x83db0f: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 290.
+DECODE hit=1 str=0x7ffff7a6a000 val=0x7ffff7a6a018 len=131014 level=1 data=0x7ffff7a81000 ser2decode=0x83e04f ser2encode=0x83dd97
+0x14c1b50 <ps_serializers+48>:	0x0000000000e0b27d	0x000000000083dd97
+0x14c1b60 <ps_serializers+64>:	0x000000000083e04f	0x0000000000000000
+0x14c1b70 <ps_serializers+80>:	0x0000000000000000	0x0000000000000000
+VAL1 bytes:
+0x7ffff7a6a018:	0x4141414141414160	0x4141414141414141
+0x7ffff7a6a028:	0x4141414141414141	0x4141414141414141
+0x7ffff7a6a038:	0x4141414141414141	0x0000000141414141
+0x7ffff7a6a048:	0x4141414141414141	0x4141414141414141
+0x7ffff7a81000:	0x00007ffff7a81038	0x00007ffff7a84000
+0x7ffff7a81010:	0x00007ffff7a84000	0x0000000000000000
+0x7ffff7a81020:	0x0000000000000000	0x0000000000000000
+0x7ffff7a81030:	0x000000007fffffff	0x00000000000003fa
+0x7ffff7a84000:	0x0000000000000000	0x0000000000000000
+0x7ffff7a84010:	0x0000000000000000	0x0000000000000000
+DECODE hit=2 str=0x7ffff7aae000 val=0x7ffff7aae018 len=131313 level=1 data=0x7ffff7a81000 ser2decode=0x83e04f ser2encode=0x83dd97
+0x14c1b50 <ps_serializers+48>:	0x0000000000e0b27d	0x000000000083dd97
+0x14c1b60 <ps_serializers+64>:	0x000000000083e04f	0x0000000000000000
+0x14c1b70 <ps_serializers+80>:	0x0000000000000000	0x0000000000000000
+VAL2 bytes (first 0x80):
+0x7ffff7aae018:	0x4141414141414160	0x4141414141414141
+0x7ffff7aae028:	0x4141414141414141	0x4141414141414141
+0x7ffff7aae038:	0x4141414141414141	0x0000000141414141
+0x7ffff7aae048:	0x4141414141414141	0x4141414141414141
+0x7ffff7aae058:	0x4141414141414141	0x4141414141414141
+0x7ffff7aae068:	0x0000000000000000	0x4141414141414106
+0x7ffff7aae078:	0x30363739383a6941	0x313a737a013b3933
+0x7ffff7aae088:	0x00223a3339383033	0x0000000000000000
+[Inferior 1 (process 1248866) detached]

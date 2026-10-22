@@ -1,0 +1,15 @@
+{
+ "n": 3,
+ "kind": "calib",
+ "label": "g6c",
+ "script": "probe.php",
+ "body_len": 318,
+ "body_sha256": "74e062ea638d236147088a235fb189b7efd10be9596d139ce6cb814985d4b4c7",
+ "ctype": "multipart/form-data; boundary=----fpmgadgetboundary7MA4YWxkTrZu0gW",
+ "cookie": "PHPSESSID=g6c",
+ "elapsed": 0.0089,
+ "status": "",
+ "error": "ConnectionResetError: [Errno 104] Connection reset by peer",
+ "stdout": "",
+ "stderr": ""
+}

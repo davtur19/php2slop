@@ -1,0 +1,90 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d2b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/home/davide/ailocal/php/zerodays_1020/build_plainpie/sapi/fpm/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /home/davide/ailocal/php/zerodays_1020/build_plainpie/sapi/fpm/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x83db0f: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 290.
+Breakpoint 2 at 0x88f6a7: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c, line 250.
+Breakpoint 3 at 0x88f435: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c, line 201.
+Breakpoint 4 at 0x88f21f: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c, line 113.
+DECODE hit=1 str=0x7ffff7a6a000 val=0x7ffff7a6a018 len=131014 level=1 data=0x7ffff7a81000 ser2decode=0x83e04f ser2encode=0x83dd97
+0x14c1b50 <ps_serializers+48>:	0x0000000000e0b27d	0x000000000083dd97
+0x14c1b60 <ps_serializers+64>:	0x000000000083e04f	0x0000000000000000
+0x14c1b70 <ps_serializers+80>:	0x0000000000000000	0x0000000000000000
+0x7ffff7a6a018:	0x4141414141414160	0x4141414141414141
+0x7ffff7a6a028:	0x4141414141414141	0x4141414141414141
+0x7ffff7a6a038:	0x4141414141414141	0x0000000141414141
+0x7ffff7a6a048:	0x4141414141414141	0x4141414141414141
+0x7ffff7a81000:	0x00007ffff7a81038	0x00007ffff7a84000
+0x7ffff7a81010:	0x00007ffff7a84000	0x0000000000000000
+0x7ffff7a81020:	0x0000000000000000	0x0000000000000000
+0x7ffff7a81030:	0x000000007fffffff	0x00000000000003fa
+0x7ffff7a84000:	0xfffff800009a3db5	0x0000000000000000
+0x7ffff7a84010:	0x0000000000000000	0x0000000000000000
+DECODE hit=2 str=0x7ffff7aae000 val=0x7ffff7aae018 len=131313 level=1 data=0x7ffff7a81000 ser2decode=0x88f6a7 ser2encode=0x83dd97
+0x14c1b50 <ps_serializers+48>:	0x0000000000e0b27d	0x000000000083dd97
+0x14c1b60 <ps_serializers+64>:	0x000000000088f6a7	0x0000000000000000
+0x14c1b70 <ps_serializers+80>:	0x00007ffff7a8d000	0x0000000000000000
+VAL2 first 0x80:
+0x7ffff7aae018:	0x4141414141414160	0x4141414141414141
+0x7ffff7aae028:	0x4141414141414141	0x4141414141414141
+0x7ffff7aae038:	0x4141414141414141	0x0000000141414141
+0x7ffff7aae048:	0x4141414141414141	0x4141414141414141
+0x7ffff7aae058:	0x4141414141414141	0x4141414141414141
+0x7ffff7aae068:	0x00007ffff7aae18f	0x4141414141414106
+0x7ffff7aae078:	0x30363739383a6941	0x313a737a013b3933
+0x7ffff7aae088:	0x00223a3339383033	0x0000000000000000
+ZIF_SYSTEM hit rdi=0x7ffff7aae018 rsi=0x200f1 rdx=0x39a8dcb1866b3216
+0x7ffff7aae018:	0x4141414141414160	0x4141414141414141
+0x7ffff7aae028:	0x4141414141414141	0x4141414141414141
+0x7ffff7aae038:	0x4141414141414141	0x0000000141414141
+0x7ffff7aae048:	0x4141414141414141	0x4141414141414141
+0x7ffff7aae058:	0x4141414141414141	0x4141414141414141
+0x7ffff7aae068:	0x00007ffff7aae18f	0x4141414141414106
+PHP_EXEC_EX rdi=0x7ffff7aae018 rsi=0x200f1 rdx=0x1 numargs=1 arg1val=0x7ffff7aae18f arg1type=6
+F=0x7ffff7aae18f F+0x10(len)=59
+0x7ffff7aae1a7:	"touch /tmp/opencode/research/g6zif_20261021T222434Z/FPM_ZIF"
+PHP_EXEC type=1 cmd=0x7ffff7aae1a7 array=(nil) retval=0x200f1
+0x7ffff7aae1a7:	"touch /tmp/opencode/research/g6zif_20261021T222434Z/FPM_ZIF"
+[Detaching after vfork from child process 1249785]
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000000000088f3e1 in php_exec (type=type@entry=1, cmd=cmd@entry=0x7ffff7aae1a7 "touch /tmp/opencode/research/g6zif_20261021T222434Z/FPM_ZIF", array=array@entry=0x0, return_value=return_value@entry=0x200f1) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c:171
+171				RETVAL_EMPTY_STRING();
+STOPPED rip=0x88f3e1
+#0  0x000000000088f3e1 in php_exec (type=type@entry=1, cmd=cmd@entry=0x7ffff7aae1a7 "touch /tmp/opencode/research/g6zif_20261021T222434Z/FPM_ZIF", array=array@entry=0x0, return_value=return_value@entry=0x200f1) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c:171
+#1  0x000000000088f68f in php_exec_ex (execute_data=<optimized out>, return_value=0x200f1, mode=mode@entry=1) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c:221
+#2  0x000000000088f6b5 in zif_system (execute_data=<optimized out>, return_value=<optimized out>) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c:251
+#3  0x000000000083db69 in php_session_decode (data=0x7ffff7aae000) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:294
+#4  0x0000000000840033 in php_session_initialize () at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:514
+#5  0x00000000008416d1 in php_session_rfc1867_update (progress=progress@entry=0x7ffff7a62000, force_update=force_update@entry=true) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:3147
+#6  0x0000000000841f16 in php_session_rfc1867_callback (event=<optimized out>, event_data=0x7fffffffcb20, extra=<optimized out>) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:3331
+#7  0x00000000009274fe in rfc1867_post_handler (content_type_dup=<optimized out>, arg=0x7fffffffdfe0) at /home/davide/ailocal/php/zerodays_1020/build_plain/main/rfc1867.c:1273
+#8  0x0000000000927df3 in sapi_handle_post (arg=arg@entry=0x7fffffffdfe0) at /home/davide/ailocal/php/zerodays_1020/build_plain/main/SAPI.c:164
+#9  0x00000000009246d7 in php_default_treat_data (arg=0, str=0x0, destArray=<optimized out>) at /home/davide/ailocal/php/zerodays_1020/build_plain/main/php_variables.c:498
+#10 0x00000000009236af in php_auto_globals_create_post (name=0x4021fd60) at /home/davide/ailocal/php/zerodays_1020/build_plain/main/php_variables.c:821
+#11 0x00000000009b404b in zend_activate_auto_globals () at /home/davide/ailocal/php/zerodays_1020/build_plain/Zend/zend_compile.c:2025
+#12 0x000000000092526d in php_hash_environment () at /home/davide/ailocal/php/zerodays_1020/build_plain/main/php_variables.c:794
+#13 0x000000000091994a in php_request_startup () at /home/davide/ailocal/php/zerodays_1020/build_plain/main/main.c:1942
+#14 0x0000000000a9cbe9 in main (argc=<optimized out>, argv=<optimized out>) at /home/davide/ailocal/php/zerodays_1020/build_plain/sapi/fpm/fpm/fpm_main.c:1838
+rip            0x88f3e1            0x88f3e1 <php_exec+450>
+rdi            0x0                 0
+rsi            0x0                 0
+rdx            0x0                 0
+rcx            0x200f1             131313
+rax            0x40200258          1075839576
+rsp            0x7fffffffc750      0x7fffffffc750
+rbp            0x7fffffffc7b0      0x7fffffffc7b0
+=> 0x88f3e1 <php_exec+450>:	mov    %rax,(%rcx)
+   0x88f3e4 <php_exec+453>:	movl   $0x6,0x8(%rcx)
+   0x88f3eb <php_exec+460>:	jmp    0x88f40d <php_exec+494>
+   0x88f3ed <php_exec+462>:	mov    %r12,%rdi
+[Inferior 1 (process 1249305) detached]

@@ -1,0 +1,10 @@
+{
+ "n": 3,
+ "kind": "calib",
+ "label": "g6c",
+ "status": "",
+ "error": "ConnectionResetError: [Errno 104] Connection reset by peer",
+ "elapsed": 0.0089,
+ "stdout": "",
+ "stderr": ""
+}

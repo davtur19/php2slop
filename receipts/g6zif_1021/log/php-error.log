@@ -1,0 +1,21 @@
+[21-Oct-2026 22:25:48 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/g6zif_20261021T222434Z/www/unser.php on line 10
+[21-Oct-2026 22:25:48 UTC] PHP Fatal error:  stop in /tmp/opencode/research/g6zif_20261021T222434Z/www/unser.php on line 10
+Stack trace:
+#0 /tmp/opencode/research/g6zif_20261021T222434Z/www/unser.php(10): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/g6zif_20261021T222434Z/www/unser.php:10}(2, 'unserialize(): ...', '/tmp/opencode/r...', 13)
+#2 /tmp/opencode/research/g6zif_20261021T222434Z/www/unser.php(13): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[21-Oct-2026 22:28:00 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/g6zif_20261021T222434Z/www/unser.php on line 10
+[21-Oct-2026 22:28:00 UTC] PHP Fatal error:  stop in /tmp/opencode/research/g6zif_20261021T222434Z/www/unser.php on line 10
+Stack trace:
+#0 /tmp/opencode/research/g6zif_20261021T222434Z/www/unser.php(10): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/g6zif_20261021T222434Z/www/unser.php:10}(2, 'unserialize(): ...', '/tmp/opencode/r...', 13)
+#2 /tmp/opencode/research/g6zif_20261021T222434Z/www/unser.php(13): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[21-Oct-2026 22:29:05 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/g6zif_20261021T222434Z/www/unser.php on line 10
+[21-Oct-2026 22:29:05 UTC] PHP Fatal error:  stop in /tmp/opencode/research/g6zif_20261021T222434Z/www/unser.php on line 10
+Stack trace:
+#0 /tmp/opencode/research/g6zif_20261021T222434Z/www/unser.php(10): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/g6zif_20261021T222434Z/www/unser.php:10}(2, 'unserialize(): ...', '/tmp/opencode/r...', 13)
+#2 /tmp/opencode/research/g6zif_20261021T222434Z/www/unser.php(13): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
