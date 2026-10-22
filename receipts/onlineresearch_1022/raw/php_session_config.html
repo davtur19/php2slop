@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <base href="https://www.php.net/manual/en/session.configuration.php">
+  
+  <title>PHP: Runtime Configuration - Manual</title>
+
+      <link rel="stylesheet" type="text/css" href="/cached.php?t=&amp;f=/fonts/Fira/fira.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="/cached.php?t=&amp;f=/fonts/Font-Awesome/css/fontello.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="/cached.php?t=&amp;f=/styles/theme-base.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="/cached.php?t=&amp;f=/styles/theme-medium.css" media="screen">
+  
+ <link rel="icon" type="image/svg+xml" sizes="any" href="https://www.php.net/favicon.svg?v=2">
+ <link rel="icon" type="image/png" sizes="196x196" href="https://www.php.net/favicon-196x196.png?v=2">
+ <link rel="icon" type="image/png" sizes="32x32" href="https://www.php.net/favicon-32x32.png?v=2">
+ <link rel="icon" type="image/png" sizes="16x16" href="https://www.php.net/favicon-16x16.png?v=2">
+ <link rel="shortcut icon" href="https://www.php.net/favicon.ico?v=2">
+
+ <link rel="search" type="application/opensearchdescription+xml" href="https://www.php.net/phpnetimprovedsearch.src" title="Add PHP.net search">
+ <link rel="alternate" type="application/atom+xml" href="https://www.php.net/releases/feed.php" title="PHP Release feed">
+ <link rel="alternate" type="application/atom+xml" href="https://www.php.net/feed.atom" title="PHP: Hypertext Preprocessor">
+
+ <link rel="canonical" href="https://www.php.net/manual/en/session.configuration.php">
+ <link rel="shorturl" href="https://www.php.net/manual/en/session.configuration.php">
+ <link rel="alternate" href="https://www.php.net/manual/en/session.configuration.php" hreflang="x-default">
+
+ <link rel="contents" href="https://www.php.net/manual/en/index.php">
+ <link rel="index" href="https://www.php.net/manual/en/session.setup.php">
+ <link rel="prev" href="https://www.php.net/manual/en/session.installation.php">
+ <link rel="next" href="https://www.php.net/manual/en/session.constants.php">
+
+ <link rel="alternate" href="https://www.php.net/manual/en/session.configuration.php" hreflang="en">
+ <link rel="alternate" href="https://www.php.net/manual/de/session.configuration.php" hreflang="de">
+ <link rel="alternate" href="https://www.php.net/manual/es/session.configuration.php" hreflang="es">
+ <link rel="alternate" href="https://www.php.net/manual/fr/session.configuration.php" hreflang="fr">
+ <link rel="alternate" href="https://www.php.net/manual/it/session.configuration.php" hreflang="it">
+ <link rel="alternate" href="https://www.php.net/manual/ja/session.configuration.php" hreflang="ja">
+ <link rel="alternate" href="https://www.php.net/manual/pt_BR/session.configuration.php" hreflang="pt_BR">
+ <link rel="alternate" href="https://www.php.net/manual/ru/session.configuration.php" hreflang="ru">
+ <link rel="alternate" href="https://www.php.net/manual/tr/session.configuration.php" hreflang="tr">
+ <link rel="alternate" href="https://www.php.net/manual/uk/session.configuration.php" hreflang="uk">
+ <link rel="alternate" href="https://www.php.net/manual/zh/session.configuration.php" hreflang="zh">
+
+<link rel="stylesheet" type="text/css" href="/cached.php?t=&amp;f=/fonts/Fira/fira.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/cached.php?t=&amp;f=/fonts/Font-Awesome/css/fontello.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/cached.php?t=&amp;f=/styles/theme-base.css" media="screen">
+<link rel="stylesheet" type="text/css" href="/cached.php?t=&amp;f=/styles/theme-medium.css" media="screen">
+
+
+<meta name="Description" content="Runtime Configuration" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@official_php" />
+<meta name="twitter:title" content="PHP: Runtime Configuration - Manual" />
+<meta name="twitter:description" content="Runtime Configuration" />
+<meta name="twitter:creator" content="@official_php" />
+<meta name="twitter:image:src" content="https://www.php.net/images/meta-image.png" />
+
+<meta itemprop="name" content="PHP: Runtime Configuration - Manual" />
+<meta itemprop="description" content="Runtime Configuration" />
+<meta itemprop="image" content="https://www.php.net/images/meta-image.png" />
+
+<meta property="og:image" content="https://www.php.net/images/meta-image.png" />
+<meta property="og:description" content="Runtime Configuration" />
+
+<link href="https://fosstodon.org/@php" rel="me" />
+<!-- Matomo -->
+<script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDoNotTrack", true]);
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="https://analytics.php.net/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+<!-- End Matomo Code -->
+</head>
+<body class="docs ">
+
+<nav class="navbar navbar-fixed-top">
+  <div class="navbar__inner">
+    <a href="/" aria-label="PHP Home" class="navbar__brand">
+      <img
+        src="/images/logos/php-logo-white.svg"
+        aria-hidden="true"
+        width="80"
+        height="40"
+      >
+    </a>
+
+    <div
+      id="navbar__offcanvas"
+      tabindex="-1"
+      class="navbar__offcanvas"
+      aria-label="Menu"
+      role="navigation"
+    >
+      <button
+        id="navbar__close-button"
+        class="navbar__icon-item navbar_icon-item--visually-aligned navbar__close-button"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+
+      <ul class="navbar__nav">
+                            <li class="navbar__item">
+              <a
+                href="/downloads.php"
+                                class="navbar__link  "
+              >
+                                  Downloads                              </a>
+          </li>
+                            <li class="navbar__item">
+              <a
+                href="/docs.php"
+                aria-current="page"                class="navbar__link navbar__link--active "
+              >
+                                  Documentation                              </a>
+          </li>
+                            <li class="navbar__item">
+              <a
+                href="/get-involved.php"
+                                class="navbar__link  "
+              >
+                                  Get Involved                              </a>
+          </li>
+                            <li class="navbar__item">
+              <a
+                href="/support.php"
+                                class="navbar__link  "
+              >
+                                  Help                              </a>
+          </li>
+                            <li class="navbar__item">
+              <a
+                href="/releases/8.5/index.php"
+                                class="navbar__link  navbar__release"
+              >
+                                  <img src="/images/php8/logo_php8_5.svg" alt="PHP 8.5">
+                              </a>
+          </li>
+              </ul>
+    </div>
+
+    <div class="navbar__right">
+        
+      
+      <!-- Desktop default search -->
+      <form
+        action="/manual-lookup.php"
+        class="navbar__search-form"
+      >
+        <label for="navbar__search-input" aria-label="Search docs">
+          <svg
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  width="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="11" cy="11" r="8"></circle>
+  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>        </label>
+        <input
+          type="search"
+          name="pattern"
+          id="navbar__search-input"
+          class="navbar__search-input"
+          placeholder="Search docs"
+          accesskey="s"
+        >
+        <input type="hidden" name="scope" value="quickref">
+      </form>
+
+      <!-- Desktop encanced search -->
+      <button
+        id="navbar__search-button"
+        class="navbar__search-button"
+        hidden
+      >
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  width="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="11" cy="11" r="8"></circle>
+  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>        Search docs
+      </button>
+
+        
+      <!-- Mobile default items -->
+      <a
+        id="navbar__search-link"
+        href="/lookup-form.php"
+        aria-label="Search docs"
+        class="navbar__icon-item navbar__search-link"
+      >
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  width="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="11" cy="11" r="8"></circle>
+  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>      </a>
+      <a
+        id="navbar__menu-link"
+        href="/menu.php"
+        aria-label="Menu"
+        class="navbar__icon-item navbar_icon-item--visually-aligned navbar_menu-link"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  width="24"
+  viewBox="0 0 24 24"
+  fill="currentColor"
+>
+  <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+</svg>      </a>
+
+      <!-- Mobile enhanced items -->
+      <button
+        id="navbar__search-button-mobile"
+        aria-label="Search docs"
+        class="navbar__icon-item navbar__search-button-mobile"
+        hidden
+      >
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  width="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+>
+  <circle cx="11" cy="11" r="8"></circle>
+  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg>      </button>
+      <button
+        id="navbar__menu-button"
+        aria-label="Menu"
+        class="navbar__icon-item navbar_icon-item--visually-aligned"
+        hidden
+      >
+        <svg xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  width="24"
+  viewBox="0 0 24 24"
+  fill="currentColor"
+>
+  <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+</svg>      </button>
+    </div>
+
+    <div
+      id="navbar__backdrop"
+      class="navbar__backdrop"
+    ></div>
+  </div>
+
+  <div id="flash-message"></div>
+</nav>
+<div class="headsup"><a href='/index.php#2026-10-21-5'>Security advisory: Critical remote code execution vulnerabilities, update now</a></div>
+<nav id="trick"><div><dl>
+<dt><a href='/manual/en/getting-started.php'>Getting Started</a></dt>
+	<dd><a href='/manual/en/introduction.php'>Introduction</a></dd>
+	<dd><a href='/manual/en/tutorial.php'>A simple tutorial</a></dd>
+<dt><a href='/manual/en/langref.php'>Language Reference</a></dt>
+	<dd><a href='/manual/en/language.basic-syntax.php'>Basic syntax</a></dd>
+	<dd><a href='/manual/en/language.types.php'>Types</a></dd>
+	<dd><a href='/manual/en/language.variables.php'>Variables</a></dd>
+	<dd><a href='/manual/en/language.constants.php'>Constants</a></dd>
+	<dd><a href='/manual/en/language.expressions.php'>Expressions</a></dd>
+	<dd><a href='/manual/en/language.operators.php'>Operators</a></dd>
+	<dd><a href='/manual/en/language.control-structures.php'>Control Structures</a></dd>
+	<dd><a href='/manual/en/language.functions.php'>Functions</a></dd>
+	<dd><a href='/manual/en/language.oop5.php'>Classes and Objects</a></dd>
+	<dd><a href='/manual/en/language.namespaces.php'>Namespaces</a></dd>
+	<dd><a href='/manual/en/language.enumerations.php'>Enumerations</a></dd>
+	<dd><a href='/manual/en/language.error-handling.php'>Error Handling</a></dd>
+	<dd><a href='/manual/en/language.fibers.php'>Fibers</a></dd>
+	<dd><a href='/manual/en/language.generators.php'>Generators</a></dd>
+	<dd><a href='/manual/en/language.attributes.php'>Attributes</a></dd>
+	<dd><a href='/manual/en/language.references.php'>References Explained</a></dd>
+	<dd><a href='/manual/en/reserved.variables.php'>Predefined Variables</a></dd>
+	<dd><a href='/manual/en/reserved.exceptions.php'>Predefined Exceptions</a></dd>
+	<dd><a href='/manual/en/reserved.interfaces.php'>Predefined Interfaces and Classes</a></dd>
+	<dd><a href='/manual/en/reserved.attributes.php'>Predefined Attributes</a></dd>
+	<dd><a href='/manual/en/context.php'>Context options and parameters</a></dd>
+	<dd><a href='/manual/en/wrappers.php'>Supported Protocols and Wrappers</a></dd>
+</dl>
+<dl>
+<dt><a href='/manual/en/security.php'>Security</a></dt>
+	<dd><a href='/manual/en/security.intro.php'>Introduction</a></dd>
+	<dd><a href='/manual/en/security.general.php'>General considerations</a></dd>
+	<dd><a href='/manual/en/security.cgi-bin.php'>Installed as CGI binary</a></dd>
+	<dd><a href='/manual/en/security.apache.php'>Installed as an Apache module</a></dd>
+	<dd><a href='/manual/en/security.sessions.php'>Session Security</a></dd>
+	<dd><a href='/manual/en/security.filesystem.php'>Filesystem Security</a></dd>
+	<dd><a href='/manual/en/security.database.php'>Database Security</a></dd>
+	<dd><a href='/manual/en/security.errors.php'>Error Reporting</a></dd>
+	<dd><a href='/manual/en/security.variables.php'>User Submitted Data</a></dd>
+	<dd><a href='/manual/en/security.hiding.php'>Hiding PHP</a></dd>
+	<dd><a href='/manual/en/security.current.php'>Keeping Current</a></dd>
+<dt><a href='/manual/en/features.php'>Features</a></dt>
+	<dd><a href='/manual/en/features.http-auth.php'>HTTP authentication with PHP</a></dd>
+	<dd><a href='/manual/en/features.cookies.php'>Cookies</a></dd>
+	<dd><a href='/manual/en/features.sessions.php'>Sessions</a></dd>
+	<dd><a href='/manual/en/features.file-upload.php'>Handling file uploads</a></dd>
+	<dd><a href='/manual/en/features.remote-files.php'>Using remote files</a></dd>
+	<dd><a href='/manual/en/features.connection-handling.php'>Connection handling</a></dd>
+	<dd><a href='/manual/en/features.persistent-connections.php'>Persistent Database Connections</a></dd>
+	<dd><a href='/manual/en/features.commandline.php'>Command line usage</a></dd>
+	<dd><a href='/manual/en/features.gc.php'>Garbage Collection</a></dd>
+	<dd><a href='/manual/en/features.dtrace.php'>DTrace Dynamic Tracing</a></dd>
+</dl>
+<dl>
+<dt><a href='/manual/en/funcref.php'>Function Reference</a></dt>
+	<dd><a href='/manual/en/refs.basic.php.php'>Affecting PHP's Behaviour</a></dd>
+	<dd><a href='/manual/en/refs.utilspec.audio.php'>Audio Formats Manipulation</a></dd>
+	<dd><a href='/manual/en/refs.remote.auth.php'>Authentication Services</a></dd>
+	<dd><a href='/manual/en/refs.utilspec.cmdline.php'>Command Line Specific Extensions</a></dd>
+	<dd><a href='/manual/en/refs.compression.php'>Compression and Archive Extensions</a></dd>
+	<dd><a href='/manual/en/refs.crypto.php'>Cryptography Extensions</a></dd>
+	<dd><a href='/manual/en/refs.database.php'>Database Extensions</a></dd>
+	<dd><a href='/manual/en/refs.calendar.php'>Date and Time Related Extensions</a></dd>
+	<dd><a href='/manual/en/refs.fileprocess.file.php'>File System Related Extensions</a></dd>
+	<dd><a href='/manual/en/refs.international.php'>Human Language and
+ Character Encoding Support</a></dd>
+	<dd><a href='/manual/en/refs.utilspec.image.php'>Image Processing and Generation</a></dd>
+	<dd><a href='/manual/en/refs.remote.mail.php'>Mail Related Extensions</a></dd>
+	<dd><a href='/manual/en/refs.math.php'>Mathematical Extensions</a></dd>
+	<dd><a href='/manual/en/refs.utilspec.nontext.php'>Non-Text MIME Output</a></dd>
+	<dd><a href='/manual/en/refs.fileprocess.process.php'>Process Control Extensions</a></dd>
+	<dd><a href='/manual/en/refs.basic.other.php'>Other Basic Extensions</a></dd>
+	<dd><a href='/manual/en/refs.remote.other.php'>Other Services</a></dd>
+	<dd><a href='/manual/en/refs.search.php'>Search Engine Extensions</a></dd>
+	<dd><a href='/manual/en/refs.utilspec.server.php'>Server Specific Extensions</a></dd>
+	<dd><a href='/manual/en/refs.basic.session.php'>Session Extensions</a></dd>
+	<dd><a href='/manual/en/refs.basic.text.php'>Text Processing</a></dd>
+	<dd><a href='/manual/en/refs.basic.vartype.php'>Variable and Type Related Extensions</a></dd>
+	<dd><a href='/manual/en/refs.webservice.php'>Web Services</a></dd>
+	<dd><a href='/manual/en/refs.utilspec.windows.php'>Windows Only Extensions</a></dd>
+	<dd><a href='/manual/en/refs.xml.php'>XML Manipulation</a></dd>
+	<dd><a href='/manual/en/refs.ui.php'>GUI Extensions</a></dd>
+</dl>
+<dl>
+<dt>Keyboard Shortcuts</dt><dt>?</dt>
+<dd>This help</dd>
+<dt>j</dt>
+<dd>Next menu item</dd>
+<dt>k</dt>
+<dd>Previous menu item</dd>
+<dt>g p</dt>
+<dd>Previous man page</dd>
+<dt>g n</dt>
+<dd>Next man page</dd>
+<dt>G</dt>
+<dd>Scroll to bottom</dd>
+<dt>g g</dt>
+<dd>Scroll to top</dd>
+<dt>g h</dt>
+<dd>Goto homepage</dd>
+<dt>g s</dt>
+<dd>Goto search<br>(current page)</dd>
+<dt>/</dt>
+<dd>Focus search box</dd>
+</dl></div></nav>
+<div id="goto">
+    <div class="search">
+         <div class="text"></div>
+         <div class="results"><ul></ul></div>
+   </div>
+</div>
+
+  <div id="breadcrumbs" class="clearfix">
+    <div id="breadcrumbs-inner">
+          <div class="next">
+        <a href="session.constants.php">
+          Predefined Constants &raquo;
+        </a>
+      </div>
+              <div class="prev">
+        <a href="session.installation.php">
+          &laquo; Installation        </a>
+      </div>
+          <ul>
+            <li><a href='index.php'>Preface</a></li>      <li><a href='funcref.php'>Function Reference</a></li>      <li><a href='refs.basic.session.php'>Session Extensions</a></li>      <li><a href='book.session.php'>Sessions</a></li>      <li><a href='session.setup.php'>Installing/Configuring</a></li>      </ul>
+    </div>
+  </div>
+
+
+
+
+<div id="layout" class="clearfix">
+  <section id="layout-content">
+  <div class="page-tools">
+    <div class="change-language">
+      <form action="/manual/change.php" method="get" id="changelang" name="changelang">
+        <fieldset>
+          <label for="changelang-langs">Change language:</label>
+          <select onchange="document.changelang.submit()" name="page" id="changelang-langs">
+            <option value='en/session.configuration.php' selected="selected">English</option>
+            <option value='de/session.configuration.php'>German</option>
+            <option value='es/session.configuration.php'>Spanish</option>
+            <option value='fr/session.configuration.php'>French</option>
+            <option value='it/session.configuration.php'>Italian</option>
+            <option value='ja/session.configuration.php'>Japanese</option>
+            <option value='pt_BR/session.configuration.php'>Brazilian Portuguese</option>
+            <option value='ru/session.configuration.php'>Russian</option>
+            <option value='tr/session.configuration.php'>Turkish</option>
+            <option value='uk/session.configuration.php'>Ukrainian</option>
+            <option value='zh/session.configuration.php'>Chinese (Simplified)</option>
+            <option value='help-translate.php'>Other</option>
+          </select>
+        </fieldset>
+      </form>
+    </div>
+  </div><div id="session.configuration" class="section">
+ <h2 class="title">Runtime Configuration</h2>
+ <p class="simpara">
+The behaviour of these functions is affected by settings in <var class="filename">php.ini</var>.
+</p>
+ <p class="para">
+ <table class="doctable table">
+  <caption><strong>Session configuration options</strong></caption>
+  
+   <thead>
+    <tr>
+     <th>Name</th>
+     <th>Default</th>
+     <th>Changeable</th>
+     <th>Changelog</th>
+    </tr>
+
+   </thead>
+
+   <tbody class="tbody">
+    <tr>
+     <td><a href="session.configuration.php#ini.session.save-path" class="link">session.save_path</a></td>
+     <td>&quot;&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.name" class="link">session.name</a></td>
+     <td>&quot;PHPSESSID&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.save-handler" class="link">session.save_handler</a></td>
+     <td>&quot;files&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.auto-start" class="link">session.auto_start</a></td>
+     <td>&quot;0&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-perdir">INI_PERDIR</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.gc-probability" class="link">session.gc_probability</a></td>
+     <td>&quot;1&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.gc-divisor" class="link">session.gc_divisor</a></td>
+     <td>&quot;100&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.gc-maxlifetime" class="link">session.gc_maxlifetime</a></td>
+     <td>&quot;1440&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.serialize-handler" class="link">session.serialize_handler</a></td>
+     <td>&quot;php&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.cookie-lifetime" class="link">session.cookie_lifetime</a></td>
+     <td>&quot;0&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.cookie-path" class="link">session.cookie_path</a></td>
+     <td>&quot;/&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.cookie-domain" class="link">session.cookie_domain</a></td>
+     <td>&quot;&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.cookie-secure" class="link">session.cookie_secure</a></td>
+     <td>&quot;0&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td>Prior to PHP 7.2.0, the default was <code class="literal">&quot;&quot;</code>.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.cookie-httponly" class="link">session.cookie_httponly</a></td>
+     <td>&quot;0&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td>Prior to PHP 7.2.0, the default was <code class="literal">&quot;&quot;</code>.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.cookie-partitioned" class="link">session.cookie_partitioned</a></td>
+     <td>&quot;0&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td>Available as of PHP 8.5.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.cookie-samesite" class="link">session.cookie_samesite</a></td>
+     <td>&quot;&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td>Available as of PHP 7.3.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.use-strict-mode" class="link">session.use_strict_mode</a></td>
+     <td>&quot;0&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.use-cookies" class="link">session.use_cookies</a></td>
+     <td>&quot;1&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.use-only-cookies" class="link">session.use_only_cookies</a></td>
+     <td>&quot;1&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td>Disabling this setting is deprecated as of PHP 8.4.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.referer-check" class="link">session.referer_check</a></td>
+     <td>&quot;&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td>Setting a non-empty value is deprecated as of PHP 8.4.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.cache-limiter" class="link">session.cache_limiter</a></td>
+     <td>&quot;nocache&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.cache-expire" class="link">session.cache_expire</a></td>
+     <td>&quot;180&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.use-trans-sid" class="link">session.use_trans_sid</a></td>
+     <td>&quot;0&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td>Enabling this setting is deprecated as of PHP 8.4.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.trans-sid-tags" class="link">session.trans_sid_tags</a></td>
+     <td>&quot;a=href,area=href,frame=src,form=&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td>
+      Available as of PHP 7.1.0.
+      Changing this setting is deprecated as of PHP 8.4.0.
+     </td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.trans-sid-hosts" class="link">session.trans_sid_hosts</a></td>
+     <td><code class="literal">$_SERVER[&#039;HTTP_HOST&#039;]</code></td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td>
+      Available as of PHP 7.1.0.
+      Setting a non-empty value is deprecated as of PHP 8.4.0.
+     </td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.sid-length" class="link">session.sid_length</a></td>
+     <td>&quot;32&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td>
+      Available as of PHP 7.1.0.
+      Changing this setting is deprecated as of PHP 8.4.0.
+     </td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.sid-bits-per-character" class="link">session.sid_bits_per_character</a></td>
+     <td>&quot;4&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td>
+      Available as of PHP 7.1.0.
+      Changing this setting is deprecated as of PHP 8.4.0.
+     </td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.upload-progress.enabled" class="link">session.upload_progress.enabled</a></td>
+     <td>&quot;1&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-perdir">INI_PERDIR</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.upload-progress.cleanup" class="link">session.upload_progress.cleanup</a></td>
+     <td>&quot;1&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-perdir">INI_PERDIR</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.upload-progress.prefix" class="link">session.upload_progress.prefix</a></td>
+     <td>&quot;upload_progress_&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-perdir">INI_PERDIR</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.upload-progress.name" class="link">session.upload_progress.name</a></td>
+     <td>&quot;PHP_SESSION_UPLOAD_PROGRESS&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-perdir">INI_PERDIR</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.upload-progress.freq" class="link">session.upload_progress.freq</a></td>
+     <td>&quot;1%&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-perdir">INI_PERDIR</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.upload-progress.min-freq" class="link">session.upload_progress.min_freq</a></td>
+     <td>&quot;1&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-perdir">INI_PERDIR</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.lazy-write" class="link">session.lazy_write</a></td>
+     <td>&quot;1&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td class="empty">&nbsp;</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.hash-function" class="link">session.hash_function</a></td>
+     <td>&quot;0&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td>Removed as of PHP 7.1.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.hash-bits-per-character" class="link">session.hash_bits_per_character</a></td>
+     <td>&quot;4&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td>Removed as of PHP 7.1.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.entropy-file" class="link">session.entropy_file</a></td>
+     <td>&quot;&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td>Removed as of PHP 7.1.0.</td>
+    </tr>
+
+    <tr>
+     <td><a href="session.configuration.php#ini.session.entropy-length" class="link">session.entropy_length</a></td>
+     <td>&quot;0&quot;</td>
+     <td><strong><code><a href="info.constants.php#constant.ini-all">INI_ALL</a></code></strong></td>
+     <td>Removed as of PHP 7.1.0.</td>
+    </tr>
+
+   </tbody>
+  
+ </table>
+
+ For further details and definitions of the
+INI_* modes, see the <a href="configuration.changes.modes.php" class="xref">Where a configuration setting may be set</a>.
+ </p>
+ <p class="para">
+  The session management system supports a number of configuration
+  options which you can place in your <var class="filename">php.ini</var> file. We will give a
+  short overview.
+ <dl>
+
+  
+   <dt id="ini.session.save-handler">
+    <code class="parameter">session.save_handler</code>
+    <span class="type"><a href="language.types.string.php" class="type string">string</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.save_handler</code> defines the name of the
+     handler which is used for storing and retrieving data
+     associated with a session. Defaults to
+     <code class="literal">files</code>. Note that individual extensions may register
+     their own <code class="literal">save_handler</code>s; registered handlers can be
+     obtained on a per-installation basis by referring to
+     <span class="function"><a href="function.phpinfo.php" class="function">phpinfo()</a></span>. See also
+     <span class="function"><a href="function.session-set-save-handler.php" class="function">session_set_save_handler()</a></span>.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.save-path">
+    <code class="parameter">session.save_path</code>
+    <span class="type"><a href="language.types.string.php" class="type string">string</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.save_path</code> defines the argument which
+     is passed to the save handler. If you choose the default files
+     handler, this is the path where the files are created. See also
+     <span class="function"><a href="function.session-save-path.php" class="function">session_save_path()</a></span>. 
+    </p>
+    <p class="para">
+     There is an optional <code class="literal">N</code> argument to this directive that determines 
+     the number of directory levels your session files will be spread
+     around in.  For example, setting to <code class="literal">&#039;5;/tmp&#039;</code>
+     may end up creating a session file and location like
+     <code class="literal">/tmp/4/b/1/e/3/sess_4b1e384ad74619bd212e236e52a5a174If
+     </code>.  In order to use <code class="literal">N</code> you must create all of these
+     directories before use.  A small shell script exists in
+     <var class="filename">ext/session</var> to do this, it&#039;s called
+     <var class="filename">mod_files.sh</var>, with a Windows version called
+     <var class="filename">mod_files.bat</var>.  Also note that if <code class="literal">N</code> is
+     used and greater than 0 then automatic garbage collection will
+     not be performed, see a copy of <var class="filename">php.ini</var> for further
+     information.  Also, if you use <code class="literal">N</code>, be sure to surround
+     <code class="literal">session.save_path</code> in  
+     &quot;quotes&quot; because the separator (<code class="literal">;</code>) is
+     also used for comments in <var class="filename">php.ini</var>.
+    </p>
+    <p class="para">
+     The file storage module creates files using mode 600 by default.
+     This default can be changed with the optional <code class="literal">MODE</code> argument:
+     <code class="literal">N;MODE;/path</code> where <code class="literal">MODE</code> is the octal 
+     representation of the mode. 
+     Setting <code class="literal">MODE</code> does not affect the process umask.
+    </p>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="para">
+      If this is set to a world-readable directory, such as
+      <var class="filename">/tmp</var> (the default), other users on the
+      server may be able to hijack sessions by getting the list of
+      files in that directory.
+     </p>
+    </div>
+    <div class="caution"><strong class="caution">Caution</strong>
+     <p class="para">
+      When using the optional directory level argument <code class="literal">N</code>,
+      as described above, note that using a value higher than 1 or 2 is
+      inappropriate for most sites due to the large number of directories
+      required: for example, a value of 3 implies that <code class="literal">(2 ** session.sid_bits_per_character) ** 3</code>
+      directories exist on the filesystem, which can result in a lot of wasted
+      space and inodes.
+     </p>
+     <p class="para">
+      Only use <code class="literal">N</code> greater than 2 if you are absolutely
+      certain that your site is large enough to require it.
+     </p>
+    </div>
+   </dd>
+  
+
+  
+   <dt id="ini.session.name">
+    <code class="parameter">session.name</code>
+    <span class="type"><a href="language.types.string.php" class="type string">string</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.name</code> specifies the name of the
+     session which is used as cookie name. It should only contain
+     alphanumeric characters. Defaults to <code class="literal">PHPSESSID</code>.
+     See also <span class="function"><a href="function.session-name.php" class="function">session_name()</a></span>.
+    </p>
+   </dd>
+  
+  
+  
+   <dt id="ini.session.auto-start">
+    <code class="parameter">session.auto_start</code>
+    <span class="type"><a href="language.types.boolean.php" class="type bool">bool</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.auto_start</code> specifies whether the
+     session module starts a session automatically on request
+     startup. Defaults to <code class="literal">0</code> (disabled).
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.serialize-handler">
+    <code class="parameter">session.serialize_handler</code>
+    <span class="type"><a href="language.types.string.php" class="type string">string</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.serialize_handler</code> defines the name of
+     the handler which is used to serialize/deserialize data. PHP
+     serialize format (name <code class="literal">php_serialize</code>), PHP
+     internal formats (name <code class="literal">php</code> and
+     <code class="literal">php_binary</code>) and WDDX are supported (name
+     <code class="literal">wddx</code>). WDDX is only available, if PHP is
+     compiled with <a href="ref.wddx.php" class="link">WDDX
+     support</a>. <code class="literal">php_serialize</code> uses plain
+     serialize/unserialize function internally and does not have
+     limitations that <code class="literal">php</code>
+     and <code class="literal">php_binary</code> have. Older serialize handlers
+     cannot store numeric index nor string index contains special
+     characters (<code class="literal">|</code> and <code class="literal">!</code>) in
+     $_SESSION. Use <code class="literal">php_serialize</code> to avoid numeric
+     index or special character errors at script shutdown. Defaults
+     to <code class="literal">php</code>.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.gc-probability">
+    <code class="parameter">session.gc_probability</code>
+    <span class="type"><a href="language.types.integer.php" class="type int">int</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.gc_probability</code> in conjunction with
+     <code class="literal">session.gc_divisor</code> is used to manage probability
+     that the gc (garbage collection) routine is started.
+     Defaults to <code class="literal">1</code>. Must be greater than or equal to <code class="literal">0</code>. See <a href="session.configuration.php#ini.session.gc-divisor" class="link">session.gc_divisor</a> for details.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.gc-divisor">
+    <code class="parameter">session.gc_divisor</code>
+    <span class="type"><a href="language.types.integer.php" class="type int">int</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.gc_divisor</code> coupled with 
+     <code class="literal">session.gc_probability</code> defines the probability 
+     that the gc (garbage collection) process is started on every session 
+     initialization.
+     The probability is calculated by using gc_probability/gc_divisor,
+     e.g. 1/100 means there is a 1% chance that the GC process starts
+     on each request.
+     <code class="literal">session.gc_divisor</code> defaults to <code class="literal">100</code>.
+     Must be greater than <code class="literal">0</code>.
+    </p>
+   </dd>
+  
+  
+  
+   <dt id="ini.session.gc-maxlifetime">
+    <code class="parameter">session.gc_maxlifetime</code>
+    <span class="type"><a href="language.types.integer.php" class="type int">int</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.gc_maxlifetime</code> specifies the number
+     of seconds after which data will be seen as &#039;garbage&#039; and
+     potentially cleaned up. Garbage collection may occur during session start
+     (depending on <a href="session.configuration.php#ini.session.gc-probability" class="link">session.gc_probability</a> and
+     <a href="session.configuration.php#ini.session.gc-divisor" class="link">session.gc_divisor</a>).
+     Defaults to <code class="literal">1440</code> (24 minutes).
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="simpara">
+      If different scripts have different values of
+      <code class="literal">session.gc_maxlifetime</code> but share the same place for
+      storing the session data then the script with the minimum value will be
+      cleaning the data. In this case, use this directive together with <a href="session.configuration.php#ini.session.save-path" class="link">session.save_path</a>.
+     </p>
+    </p></blockquote>
+   </dd>
+  
+
+  
+   <dt id="ini.session.referer-check">
+    <code class="parameter">session.referer_check</code>
+    <span class="type"><a href="language.types.string.php" class="type string">string</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.referer_check</code> contains the
+     substring you want to check each HTTP Referer for. If the
+     Referer was sent by the client and the substring was not
+     found, the embedded session id will be marked as invalid.
+     Defaults to the empty string.
+    </p>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Setting <code class="literal">session.referer_check</code> to a non-empty value
+      is deprecated as of PHP 8.4.0.
+     </p>
+    </div>
+   </dd>
+  
+
+  
+   <dt id="ini.session.entropy-file">
+    <code class="parameter">session.entropy_file</code>
+    <span class="type"><a href="language.types.string.php" class="type string">string</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.entropy_file</code> gives a path to an
+     external resource (file) which will be used as an additional
+     entropy source in the session id creation process. Examples are
+     <code class="literal">/dev/random</code> or <code class="literal">/dev/urandom</code>
+     which are available on many Unix systems.
+    </p>
+    <p class="simpara">
+     This feature is supported on Windows. Setting 
+     <code class="literal">session.entropy_length</code> to a non zero value
+     will make PHP use the Windows Random API as entropy source.
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="simpara">
+      Removed in PHP 7.1.0.
+     </p>
+     <p class="simpara">
+      <code class="literal">session.entropy_file</code> defaults
+      to <code class="literal">/dev/urandom</code> or <code class="literal">/dev/arandom</code>
+      if it is available.
+     </p>
+    </p></blockquote>
+   </dd>
+  
+
+  
+   <dt id="ini.session.entropy-length">
+    <code class="parameter">session.entropy_length</code>
+    <span class="type"><a href="language.types.integer.php" class="type int">int</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.entropy_length</code> specifies the number
+     of bytes which will be read from the file specified
+     above. Defaults to <code class="literal">32</code>.
+    </p>
+    <p class="simpara">
+      Removed in PHP 7.1.0.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.use-strict-mode">
+    <code class="parameter">session.use_strict_mode</code>
+    <span class="type"><a href="language.types.boolean.php" class="type bool">bool</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.use_strict_mode</code> specifies whether the
+     module will use strict session id mode. If this mode is enabled,
+     the module does not accept uninitialized session IDs. If an uninitialized
+     session ID is sent from the browser, a new session ID is sent to the browser.
+     Applications are protected from session fixation via session adoption
+     with strict mode.
+     Defaults to <code class="literal">0</code> (disabled).
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="simpara">
+     Enabling <code class="literal">session.use_strict_mode</code> is mandatory for
+     general session security. All sites are advised to enable this. See 
+     <span class="function"><a href="function.session-create-id.php" class="function">session_create_id()</a></span> example code for more details.
+     </p>
+    </p></blockquote>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="para">
+      If a custom session handler registered via <span class="function"><a href="function.session-set-save-handler.php" class="function">session_set_save_handler()</a></span>
+      does not implement <span class="methodname"><a href="sessionupdatetimestamphandlerinterface.validateid.php" class="methodname">SessionUpdateTimestampHandlerInterface::validateId()</a></span>,
+      nor supplies the <code class="parameter">validate_sid</code> callback, respectively,
+      strict session ID mode is effectively disabled, regardless of the value of this directive.
+      Particularly note that <span class="classname"><a href="class.sessionhandler.php" class="classname">SessionHandler</a></span> does <em>not</em>
+      implement <span class="methodname"><strong>SessionHandler::validateId()</strong></span>.
+     </p>
+    </div>
+   </dd>
+  
+
+  
+   <dt id="ini.session.use-cookies">
+    <code class="parameter">session.use_cookies</code>
+    <span class="type"><a href="language.types.boolean.php" class="type bool">bool</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.use_cookies</code> specifies whether the
+     module will use cookies to store the session id on the client
+     side. Defaults to <code class="literal">1</code> (enabled).
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.use-only-cookies">
+    <code class="parameter">session.use_only_cookies</code>
+    <span class="type"><a href="language.types.boolean.php" class="type bool">bool</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.use_only_cookies</code> specifies whether
+     the module will <strong>only</strong> use
+     cookies to store the session id on the client side.
+     Enabling this setting prevents attacks that involve passing session
+     IDs in URLs.
+     Defaults to <code class="literal">1</code> (enabled).
+    </p>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Disabling <code class="literal">session.use_only_cookies</code> is deprecated
+      as of PHP 8.4.0.
+     </p>
+    </div>
+   </dd>
+  
+
+
+  
+   <dt id="ini.session.cookie-lifetime">
+    <code class="parameter">session.cookie_lifetime</code>
+    <span class="type"><a href="language.types.integer.php" class="type int">int</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.cookie_lifetime</code> specifies the lifetime of
+     the cookie in seconds which is sent to the browser. The value 0
+     means &quot;until the browser is closed.&quot; Defaults to
+     <code class="literal">0</code>. See also
+     <span class="function"><a href="function.session-get-cookie-params.php" class="function">session_get_cookie_params()</a></span> and
+     <span class="function"><a href="function.session-set-cookie-params.php" class="function">session_set_cookie_params()</a></span>.
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="simpara">
+      The expiration timestamp is set relative to the server time, which is
+      not necessarily the same as the time in the client&#039;s browser.
+     </p>
+    </p></blockquote> 
+   </dd>
+  
+
+  
+   <dt id="ini.session.cookie-path">
+    <code class="parameter">session.cookie_path</code>
+    <span class="type"><a href="language.types.string.php" class="type string">string</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.cookie_path</code> specifies path to set
+     in the session cookie. Defaults to <code class="literal">/</code>. See also
+     <span class="function"><a href="function.session-get-cookie-params.php" class="function">session_get_cookie_params()</a></span> and
+     <span class="function"><a href="function.session-set-cookie-params.php" class="function">session_set_cookie_params()</a></span>.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.cookie-domain">
+    <code class="parameter">session.cookie_domain</code>
+    <span class="type"><a href="language.types.string.php" class="type string">string</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.cookie_domain</code> specifies the domain to
+     set in the session cookie. Default is none at all meaning the host name of
+     the server which generated the cookie according to cookies specification.
+     See also <span class="function"><a href="function.session-get-cookie-params.php" class="function">session_get_cookie_params()</a></span> and
+     <span class="function"><a href="function.session-set-cookie-params.php" class="function">session_set_cookie_params()</a></span>.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.cookie-secure">
+    <code class="parameter">session.cookie_secure</code>
+    <span class="type"><a href="language.types.boolean.php" class="type bool">bool</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.cookie_secure</code> specifies whether
+     cookies should only be sent over secure connections. With this option set
+     to <code class="literal">on</code>, sessions only work with HTTPS connections.
+     If it is <code class="literal">off</code>, then sessions work with both HTTP and
+     HTTPS connections. Defaults to <code class="literal">off</code>.
+     See also
+     <span class="function"><a href="function.session-get-cookie-params.php" class="function">session_get_cookie_params()</a></span> and
+     <span class="function"><a href="function.session-set-cookie-params.php" class="function">session_set_cookie_params()</a></span>.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.cookie-httponly">
+    <code class="parameter">session.cookie_httponly</code>
+    <span class="type"><a href="language.types.boolean.php" class="type bool">bool</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     Marks the cookie as accessible only through the HTTP protocol. This means
+     that the cookie won&#039;t be accessible by scripting languages, such as
+     JavaScript. This setting can effectively help to reduce identity theft
+     through XSS attacks (although it is not supported by all browsers).
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.cookie-partitioned">
+    <code class="parameter">session.cookie_partitioned</code>
+    <span class="type"><a href="language.types.boolean.php" class="type bool">bool</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     Marks the cookie as partitioned (CHIPS), which means that the cookie will be
+     isolated to a first-party context. This setting can help mitigate
+     cross-site tracking (although it is not supported by all browsers).
+    </p>
+    <p class="simpara">
+     If enabled, <a href="session.configuration.php#ini.session.cookie-secure" class="link">session.cookie_secure</a>
+     must also be enabled, otherwise the session cookie will not be sent and a
+     warning is raised.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.cookie-samesite">
+    <code class="parameter">session.cookie_samesite</code>
+    <span class="type"><a href="language.types.string.php" class="type string">string</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     Allows servers to assert that a cookie ought not to be sent along with
+     cross-site requests. This assertion allows user agents to mitigate the risk
+     of cross-origin information leakage, and provides some protection against
+     cross-site request forgery attacks. Note that this is not supported by all
+     browsers.
+     An empty value means that no SameSite cookie attribute will be set.
+     <code class="literal">Lax</code> and <code class="literal">Strict</code> mean that the cookie
+     will not be sent cross-domain for POST requests; <code class="literal">Lax</code>
+     will send the cookie for cross-domain GET requests, while <code class="literal">Strict</code>
+     will not.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.cache-limiter">
+    <code class="parameter">session.cache_limiter</code>
+    <span class="type"><a href="language.types.string.php" class="type string">string</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.cache_limiter</code> specifies the cache
+     control method used for session pages.
+     It may be one of the following values:
+     <code class="literal">nocache</code>, <code class="literal">private</code>, 
+     <code class="literal">private_no_expire</code>, or <code class="literal">public</code>.
+     Defaults to <code class="literal">nocache</code>. See also the
+     <span class="function"><a href="function.session-cache-limiter.php" class="function">session_cache_limiter()</a></span> documentation for
+     information about what these values mean.
+    </p>
+   </dd>
+  
+
+
+  
+   <dt id="ini.session.cache-expire">
+    <code class="parameter">session.cache_expire</code>
+    <span class="type"><a href="language.types.integer.php" class="type int">int</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.cache_expire</code> specifies time-to-live
+     for cached session pages in minutes, this has no effect for
+     nocache limiter. Defaults to <code class="literal">180</code>. See also
+     <span class="function"><a href="function.session-cache-expire.php" class="function">session_cache_expire()</a></span>.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.use-trans-sid">
+    <code class="parameter">session.use_trans_sid</code>
+    <span class="type"><a href="language.types.boolean.php" class="type bool">bool</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.use_trans_sid</code> whether transparent
+     sid support is enabled or not. Defaults to
+     <code class="literal">0</code> (disabled).
+    </p>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Enabling <code class="literal">session.use_trans_sid</code> is deprecated
+      as of PHP 8.4.0.
+     </p>
+    </div>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="simpara">
+      URL based session management has additional security risks
+      compared to cookie based session management. Users may send
+      a URL that contains an active session ID to their friends by
+      email or users may save a URL that contains a session ID to
+      their bookmarks and access your site with the same session ID
+      always, for example.
+     </p>
+     <p class="simpara">
+      Since PHP 7.1.0, full URL path, e.g. https://php.net/, is 
+      handled by trans sid feature. Previous PHP handled relative
+      URL path only. Rewrite target hosts are defined by <a href="session.configuration.php#ini.session.trans-sid-hosts" class="link">session.trans_sid_hosts</a>.
+     </p>
+    </p></blockquote>
+   </dd>
+  
+
+  
+   <dt id="ini.session.trans-sid-tags">
+    <code class="parameter">session.trans_sid_tags</code>
+    <span class="type"><a href="language.types.string.php" class="type string">string</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.trans_sid_tags</code> specifies which HTML tags
+     are rewritten to include session id when transparent sid support
+     is enabled. Defaults to
+     <code class="literal">a=href,area=href,frame=src,form=</code>
+    </p>
+    <p class="simpara">
+     <code class="literal">form</code> is special tag. <code class="literal">&lt;input hidden=&quot;session_id&quot; name=&quot;session_name&quot;&gt;</code>
+     is added as form variable.
+    </p>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Changing <code class="literal">session.trans_sid_tags</code> from its default
+      value is deprecated as of PHP 8.4.0.
+     </p>
+    </div>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="simpara">
+      Before PHP 7.1.0, <a href="outcontrol.configuration.php#ini.url-rewriter.tags" class="link">url_rewriter.tags</a>
+      was used for this purpose. Since PHP 7.1.0, <code class="literal">fieldset</code> 
+      is no longer considered as special tag.
+     </p>
+    </p></blockquote>
+   </dd>
+  
+
+  
+   <dt id="ini.session.trans-sid-hosts">
+    <code class="parameter">session.trans_sid_hosts</code>
+    <span class="type"><a href="language.types.string.php" class="type string">string</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.trans_sid_hosts</code> specifies which hosts
+     are rewritten to include session id when transparent sid support
+     is enabled. Defaults to <code class="literal">$_SERVER[&#039;HTTP_HOST&#039;]</code>
+     Multiple hosts can be specified by &quot;,&quot;, no space is allowed
+     between hosts. e.g. <code class="literal">php.net,wiki.php.net,bugs.php.net</code>
+    </p>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Setting <code class="literal">session.trans_sid_hosts</code> to a non-empty
+      value is deprecated as of PHP 8.4.0.
+     </p>
+    </div>
+   </dd>
+  
+
+  
+   <dt id="ini.session.sid-length">
+    <code class="parameter">session.sid_length</code>
+    <span class="type"><a href="language.types.integer.php" class="type int">int</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.sid_length</code> allows you to specify the
+     length of session ID string. Session ID length can be between 22
+     to 256.
+    </p>
+    <p class="simpara">
+     The default is 32. A longer session ID is harder to guess.
+    </p>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Changing <code class="literal">session.sid_length</code> from its default
+      value is deprecated as of PHP 8.4.0.
+     </p>
+    </div>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="simpara">
+      Available as of PHP 7.1.0.
+     </p>
+    </p></blockquote>
+   </dd>
+  
+
+  
+   <dt id="ini.session.sid-bits-per-character">
+    <code class="parameter">session.sid_bits_per_character</code>
+    <span class="type"><a href="language.types.integer.php" class="type int">int</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.sid_bits_per_character</code> allows you to specify the
+     number of bits in encoded session ID character. The possible values are 
+     &#039;4&#039; (0-9, a-f), &#039;5&#039; (0-9, a-v), and &#039;6&#039; (0-9, a-z, A-Z, &quot;-&quot;, &quot;,&quot;).
+    </p>
+    <p class="simpara">
+     The default is 4. More bits result in a stronger session ID.
+    </p>
+    <div class="warning"><strong class="warning">Warning</strong>
+     <p class="simpara">
+      Changing <code class="literal">session.sid_bits_per_character</code> from its
+      default value is deprecated as of PHP 8.4.0.
+     </p>
+    </div>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="simpara">
+      Available as of PHP 7.1.0.
+     </p>
+    </p></blockquote>
+   </dd>
+  
+
+  
+   <dt id="ini.session.hash-function">
+    <code class="parameter">session.hash_function</code>
+    <span class="type"><a href="language.types.mixed.php" class="type mixed">mixed</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.hash_function</code> allows you to specify the hash
+     algorithm used to generate the session IDs. &#039;0&#039; means MD5 (128 bits) and
+     &#039;1&#039; means SHA-1 (160 bits).
+    </p>
+    <p class="para">
+     It is also possible to specify any of the algorithms
+     provided by the <a href="ref.hash.php" class="link">hash extension</a> (if it is
+     available), like <code class="literal">sha512</code> or
+     <code class="literal">whirlpool</code>. A complete list of supported algorithms can
+     be obtained with the <span class="function"><a href="function.hash-algos.php" class="function">hash_algos()</a></span> function.
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="simpara">
+      Removed in PHP 7.1.0.
+     </p>
+    </p></blockquote>
+   </dd>
+  
+
+  
+   <dt id="ini.session.hash-bits-per-character">
+    <code class="parameter">session.hash_bits_per_character</code>
+    <span class="type"><a href="language.types.integer.php" class="type int">int</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.hash_bits_per_character</code> allows you to define
+     how many bits are stored in each character when converting the binary
+     hash data to something readable. The possible values are &#039;4&#039; (0-9, a-f),
+     &#039;5&#039; (0-9, a-v), and &#039;6&#039; (0-9, a-z, A-Z, &quot;-&quot;, &quot;,&quot;).
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="simpara">
+      Removed in PHP 7.1.0.
+     </p>
+    </p></blockquote>
+   </dd>
+  
+
+  
+   <dt id="ini.session.upload-progress.enabled">
+    <code class="parameter">session.upload_progress.enabled</code>
+    <span class="type"><a href="language.types.boolean.php" class="type bool">bool</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     Enables upload progress tracking, populating the <var class="varname"><a href="reserved.variables.session.php" class="classname">$_SESSION</a></var> variable.
+     Defaults to 1, enabled.
+    </p>
+    <div class="warning"><strong class="warning">Warning</strong>
+      <p class="simpara">
+          Upload progress writes the client-supplied file name and field name to the
+          session store while the upload in progress, to allow polling the process
+          from a separate request. In applications that do not use upload progress
+          bars, consider disabling this option; file names and field names are not
+          validated and may contain PHP code, making any
+          <a href="https://en.wikipedia.org/wiki/File_inclusion_vulnerability" class="link external">&raquo;&nbsp;local file inclusion vulnerability</a>
+          trivial to exploit.
+        </p>
+      </div>
+   </dd>
+  
+
+  
+   <dt id="ini.session.upload-progress.cleanup">
+    <code class="parameter">session.upload_progress.cleanup</code>
+    <span class="type"><a href="language.types.boolean.php" class="type bool">bool</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     Cleanup the progress information as soon as all POST data has been read
+     (i.e. upload completed). Defaults to 1, enabled.
+    </p>
+    <blockquote class="note"><p><strong class="note">Note</strong>: 
+     <p class="simpara">
+      It is highly recommended to keep this feature enabled.
+     </p>
+    </p></blockquote>
+   </dd>
+  
+
+  
+   <dt id="ini.session.upload-progress.prefix">
+    <code class="parameter">session.upload_progress.prefix</code>
+    <span class="type"><a href="language.types.string.php" class="type string">string</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     A prefix used for the upload progress key in the <var class="varname"><a href="reserved.variables.session.php" class="classname">$_SESSION</a></var>.
+     This key will be concatenated with the value of
+     <code class="literal">$_POST[ini_get(&quot;session.upload_progress.name&quot;)]</code> to
+     provide a unique index.
+    </p>
+    <p class="simpara">
+     Defaults to &quot;upload_progress_&quot;.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.upload-progress.name">
+    <code class="parameter">session.upload_progress.name</code>
+    <span class="type"><a href="language.types.string.php" class="type string">string</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     The name of the key to be used in <var class="varname"><a href="reserved.variables.session.php" class="classname">$_SESSION</a></var> storing
+     the progress information. See also
+     <a href="session.configuration.php#ini.session.upload-progress.prefix" class="link">session.upload_progress.prefix</a>.
+    </p>
+    <p class="simpara">
+     If <code class="literal">$_POST[ini_get(&quot;session.upload_progress.name&quot;)]</code>
+     is not passed or available, upload progressing will not be recorded.
+    </p>
+    <p class="simpara">
+     Defaults to &quot;PHP_SESSION_UPLOAD_PROGRESS&quot;.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.upload-progress.freq">
+    <code class="parameter">session.upload_progress.freq</code>
+    <span class="type"><a href="language.types.mixed.php" class="type mixed">mixed</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     Defines how often the upload progress information should be updated.
+     This can be defined in bytes (i.e. &quot;update progress information after every 100 bytes&quot;), or in percentages (i.e. &quot;update progress information after receiving every 1% of the whole filesize&quot;).
+    </p>
+    <p class="simpara">
+     Defaults to &quot;1%&quot;.
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.upload-progress.min-freq">
+    <code class="parameter">session.upload_progress.min_freq</code>
+    <span class="type"><a href="language.types.integer.php" class="type int">int</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     The minimum delay between updates, in seconds.
+     Defaults to &quot;1&quot; (one second).
+    </p>
+   </dd>
+  
+
+  
+   <dt id="ini.session.lazy-write">
+    <code class="parameter">session.lazy_write</code>
+    <span class="type"><a href="language.types.boolean.php" class="type bool">bool</a></span>
+   </dt>
+   <dd>
+    <p class="simpara">
+     <code class="literal">session.lazy_write</code>, when set to 1, means that session
+     data is only rewritten if it changes. Defaults to 1, enabled.
+    </p>
+   </dd>
+  
+
+ </dl>
+ </p>
+
+ <p class="para">
+  Upload progress will not be registered unless
+  session.upload_progress.enabled is enabled, and the
+  $_POST[ini_get(&quot;session.upload_progress.name&quot;)] variable is set.
+  See <a href="session.upload-progress.php" class="link">Session Upload Progress</a> for more details on this functionality.
+ </p>
+
+</div>    <div class="contribute">
+      <h3 class="title">Found A Problem?</h3>
+      <div>
+         
+      </div>
+      <div class="edit-bug">
+        <a href="https://github.com/php/doc-base/blob/master/README.md" title="This will take you to our contribution guidelines on GitHub" target="_blank" rel="noopener noreferrer">Learn How To Improve This Page</a>
+        •
+        <a href="https://github.com/php/doc-en/blob/master/reference/session/ini.xml">Submit a Pull Request</a>
+        •
+        <a href="https://github.com/php/doc-en/issues/new?body=From%20manual%20page:%20https:%2F%2Fphp.net%2Fsession.configuration%0A%0A---">Report a Bug</a>
+      </div>
+    </div><section id="usernotes">
+ <div class="head">
+  <span class="action"><a href="/manual/add-note.php?sect=session.configuration&amp;repo=en&amp;redirect=https://www.php.net/manual/en/session.configuration.php">＋<small>add a note</small></a></span>
+  <h3 class="title">User Contributed Notes <span class="count">11 notes</span></h3>
+ </div><div id="allnotes">
+  <div class="note" id="115842">  <div class="votes">
+    <div id="Vu115842">
+    <a href="/manual/vote-note.php?id=115842&amp;page=session.configuration&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd115842">
+    <a href="/manual/vote-note.php?id=115842&amp;page=session.configuration&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V115842" title="68% like this...">
+    79
+    </div>
+  </div>
+  <a href="#115842" class="name">
+  <strong class="user"><em>Christopher Kramer</em></strong></a><a class="genanchor" href="#115842"> &para;</a><div class="date" title="2014-10-02 01:22"><strong>12 years ago</strong></div>
+  <div class="text" id="Hcom115842">
+<div class="phpcode"><pre><code class="html">On debian (based) systems, changing session.gc_maxlifetime at runtime has no real effect. Debian disables PHP's own garbage collector by setting session.gc_probability=0. Instead it has a cronjob running every 30 minutes (see /etc/cron.d/php5) that cleans up old sessions. This cronjob basically looks into your php.ini and uses the value of session.gc_maxlifetime there to decide which sessions to clean (see /usr/lib/php5/maxlifetime).
+
+You can adjust the global value in your php.ini (usually /etc/php5/apache2/php.ini). Or you can change the session.save_path so debian's cronjob will not clean up your sessions anymore. Then you need to either do your own garbage collection with your own cronjob or enable PHP's garbage collection (php then needs sufficient privileges on the save_path).
+
+Why does Debian not use PHP's garbarage collection?
+For security reasons, they store session data in a place (/var/lib/php5) with very stringent permissions. With the sticky bit set, only root is allowed to rename or delete files there, so PHP itself cannot clean up old session data. See <a href="https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=267720" rel="nofollow" target="_blank">https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=267720</a> .</code></pre></div>
+  </div>
+ </div>
+  <div class="note" id="128936">  <div class="votes">
+    <div id="Vu128936">
+    <a href="/manual/vote-note.php?id=128936&amp;page=session.configuration&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd128936">
+    <a href="/manual/vote-note.php?id=128936&amp;page=session.configuration&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V128936" title="89% like this...">
+    37
+    </div>
+  </div>
+  <a href="#128936" class="name">
+  <strong class="user"><em>Walerian Walawski - https://w87.eu/</em></strong></a><a class="genanchor" href="#128936"> &para;</a><div class="date" title="2023-10-08 01:23"><strong>3 years ago</strong></div>
+  <div class="text" id="Hcom128936">
+<div class="phpcode"><pre><code class="html">Can't find mod_files.sh? Here it is:
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+
+#!/usr/bin/env bash
+
+if [[ "$2" = "" ]] || [[ "$3" = "" ]]; then
+       echo "Usage: $0 BASE_DIRECTORY DEPTH BITS_PER_CHAR"
+       echo "BASE_DIRECTORY will be created if it doesn't exist"
+       echo "DEPTH must be an integer number &gt;0"
+       echo "BITS_PER_CHAR(session.sid_bits_per_character) should be one of 4, 5, or 6."
+       # <a href="http://php.net/manual/en/session.configuration.php#ini.session.sid-bits-per-character" rel="nofollow" target="_blank">http://php.net/manual/en/session.configuration.php#ini.session.sid-bits-per-character</a>
+       exit 1
+fi
+
+if [[ "$2" = "0" ]] &amp;&amp; [[ ! "$4" = "recurse" ]]; then
+       echo "Can't create a directory tree with depth of 0, exiting."
+fi
+
+if [[ "$2" = "0" ]]; then
+       exit 0
+fi
+
+directory="$1"
+depth="$2"
+bitsperchar="$3"
+
+hash_chars="0 1 2 3 4 5 6 7 8 9 a b c d e f"
+
+if [[ "$bitsperchar" -ge "5" ]]; then
+       hash_chars="$hash_chars g h i j k l m n o p q r s t u v"
+fi
+
+if [[ "$bitsperchar" -ge "6" ]]; then
+       hash_chars="$hash_chars w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z - ,"
+fi
+
+while [[ -d $directory ]] &amp;&amp; [[ $( ls $directory ) ]]; do
+       echo "Directory $directory is not empty! What would you like to do?"
+
+       options="\"Delete directory contents\" \"Choose another directory\" \"Quit\""
+       eval set $options
+       select opt in "$@"; do
+
+              if [[ $opt = "Delete directory contents" ]]; then
+                     echo "Deleting $directory contents... "
+                     rm -rf $directory/*
+              elif [[ $opt = "Choose another directory" ]]; then
+                     echo "Which directory would you like to choose?"
+                     read directory
+              elif [[ $opt = "Quit" ]]; then
+                     exit 0
+              fi
+
+              break;
+       done
+done
+
+if [[ ! -d $directory ]]; then
+       mkdir -p $directory
+fi
+
+echo "Creating session path in $directory with a depth of $depth for session.sid_bits_per_character = $bitsperchar"
+
+for i in $hash_chars; do
+       newpath="$directory/$i"
+       mkdir $newpath || exit 1
+       bash $0 $newpath `expr $depth - 1` $bitsperchar recurse
+done</code></pre></div>
+  </div>
+ </div>
+  <div class="note" id="129300">  <div class="votes">
+    <div id="Vu129300">
+    <a href="/manual/vote-note.php?id=129300&amp;page=session.configuration&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd129300">
+    <a href="/manual/vote-note.php?id=129300&amp;page=session.configuration&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V129300" title="80% like this...">
+    6
+    </div>
+  </div>
+  <a href="#129300" class="name">
+  <strong class="user"><em>theking2(at)king.ma</em></strong></a><a class="genanchor" href="#129300"> &para;</a><div class="date" title="2024-03-03 09:39"><strong>2 years ago</strong></div>
+  <div class="text" id="Hcom129300">
+<div class="phpcode"><pre><code class="html">To prevent mitm-attacks you want to make sure the session cookie is only transmitted over a secure channel prefix it with the magic string "__Secure-". [1]
+
+Like :
+<span class="default">&lt;?php
+    session_start</span><span class="keyword">( [ </span><span class="string">'name' </span><span class="keyword">=&gt; </span><span class="string">'__Secure-Session-ID' </span><span class="keyword">] );
+</span><span class="default">?&gt;
+</span>
+The cookie will not be available on non-secure channel.
+
+(Putting this note it here probably goes unnoticed because of all the noise)
+
+[1]: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#attributes" rel="nofollow" target="_blank">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#attributes</a></code></pre></div>
+  </div>
+ </div>
+  <div class="note" id="129114">  <div class="votes">
+    <div id="Vu129114">
+    <a href="/manual/vote-note.php?id=129114&amp;page=session.configuration&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd129114">
+    <a href="/manual/vote-note.php?id=129114&amp;page=session.configuration&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V129114" title="72% like this...">
+    5
+    </div>
+  </div>
+  <a href="#129114" class="name">
+  <strong class="user"><em>zch1</em></strong></a><a class="genanchor" href="#129114"> &para;</a><div class="date" title="2023-12-20 05:57"><strong>2 years ago</strong></div>
+  <div class="text" id="Hcom129114">
+<div class="phpcode"><pre><code class="html">the pwd should be urlencode when it contanis special chars.
+eg: 
+
+save_handler:redis
+save_path: tcp://127.0.0.1:6739?auth=urlencode('xxxxx')</code></pre></div>
+  </div>
+ </div>
+  <div class="note" id="115913">  <div class="votes">
+    <div id="Vu115913">
+    <a href="/manual/vote-note.php?id=115913&amp;page=session.configuration&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd115913">
+    <a href="/manual/vote-note.php?id=115913&amp;page=session.configuration&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V115913" title="63% like this...">
+    17
+    </div>
+  </div>
+  <a href="#115913" class="name">
+  <strong class="user"><em>GreenReaper</em></strong></a><a class="genanchor" href="#115913"> &para;</a><div class="date" title="2014-10-14 12:56"><strong>12 years ago</strong></div>
+  <div class="text" id="Hcom115913">
+<div class="phpcode"><pre><code class="html">We found a session.save_path depth of 3 led to excessive wastage of inodes and in fact disk space in storing the directory tree. dir_indexes option on ext2/3/4 makes larger directories more feasible anyway, so we decided to move to a depth of 2 instead.
+
+It took a little puzzling to figure out how to move the existing PHP sessions up one directory tree, but we ended up running this in the root sessions directory:
+
+#!/bin/sh
+for a in ./* ; do
+    cd ./$a
+    pwd
+    for b in ./* ; do
+      cd ./$b
+      pwd
+      # Move existing sessions out
+      find ./* -xdev -type f -print0 | xargs -0 mv -t .
+      # Remove subdirectories
+      find ./* -xdev -type d -print0 | xargs -0 rmdir
+      cd ..
+  done
+  cd ..
+done
+
+This script may not be the best way to do it, but it got the job done fast. You can modify it for different depths by adding or removing "for" loops.
+
+The documentation gives a depth of 5 as an example, but five is right out. If you're going beyond 2, you're at the scale where you may want to to look at a large memcached or redis instance instead.</code></pre></div>
+  </div>
+ </div>
+  <div class="note" id="117668">  <div class="votes">
+    <div id="Vu117668">
+    <a href="/manual/vote-note.php?id=117668&amp;page=session.configuration&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd117668">
+    <a href="/manual/vote-note.php?id=117668&amp;page=session.configuration&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V117668" title="61% like this...">
+    17
+    </div>
+  </div>
+  <a href="#117668" class="name">
+  <strong class="user"><em>info at thimbleopensource dot com</em></strong></a><a class="genanchor" href="#117668"> &para;</a><div class="date" title="2015-07-19 07:39"><strong>11 years ago</strong></div>
+  <div class="text" id="Hcom117668">
+<div class="phpcode"><pre><code class="html">I found out that if you need to set custom session settings, you only need to do it once when session starts. Then session maintains its settings, even if you use ini_set and change them, original session still will use it's original setting until it expires.
+
+Just thought it might be useful to someone.</code></pre></div>
+  </div>
+ </div>
+  <div class="note" id="129283">  <div class="votes">
+    <div id="Vu129283">
+    <a href="/manual/vote-note.php?id=129283&amp;page=session.configuration&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd129283">
+    <a href="/manual/vote-note.php?id=129283&amp;page=session.configuration&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V129283" title="57% like this...">
+    1
+    </div>
+  </div>
+  <a href="#129283" class="name">
+  <strong class="user"><em>theking2(at)king.ma</em></strong></a><a class="genanchor" href="#129283"> &para;</a><div class="date" title="2024-02-26 07:43"><strong>2 years ago</strong></div>
+  <div class="text" id="Hcom129283">
+<div class="phpcode"><pre><code class="html">Please be careful with the 'sid_length' when setting 'sid_bits_per_character' to six. 
+
+Setting sid_bits_per_character to 6 includes the character "," to the list of possible characters. A comma will be escaped and transmitted as "%2C" (tested on Chromium Version 119.0.6045.199) adding two extra characters for each comma to the SESSION_ID.</code></pre></div>
+  </div>
+ </div>
+  <div class="note" id="107990">  <div class="votes">
+    <div id="Vu107990">
+    <a href="/manual/vote-note.php?id=107990&amp;page=session.configuration&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd107990">
+    <a href="/manual/vote-note.php?id=107990&amp;page=session.configuration&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V107990" title="54% like this...">
+    8
+    </div>
+  </div>
+  <a href="#107990" class="name">
+  <strong class="user"><em>hassankhodadadeh at NOSPAM dot gmail dot com</em></strong></a><a class="genanchor" href="#107990"> &para;</a><div class="date" title="2012-03-20 05:42"><strong>14 years ago</strong></div>
+  <div class="text" id="Hcom107990">
+<div class="phpcode"><pre><code class="html">max value for "session.gc_maxlifetime" is 65535. values bigger than this may cause  php session stops working.</code></pre></div>
+  </div>
+ </div>
+  <div class="note" id="123598">  <div class="votes">
+    <div id="Vu123598">
+    <a href="/manual/vote-note.php?id=123598&amp;page=session.configuration&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd123598">
+    <a href="/manual/vote-note.php?id=123598&amp;page=session.configuration&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V123598" title="53% like this...">
+    2
+    </div>
+  </div>
+  <a href="#123598" class="name">
+  <strong class="user"><em>boan dot web at outlook dot com</em></strong></a><a class="genanchor" href="#123598"> &para;</a><div class="date" title="2019-02-10 12:43"><strong>7 years ago</strong></div>
+  <div class="text" id="Hcom123598">
+<div class="phpcode"><pre><code class="html">session.cache_limiter may be empty string to disable cache headers entirely. 
+
+Quote:
+&gt; Setting the cache limiter to '' will turn off automatic sending of cache headers entirely.
+
+<a href="http://php.net/manual/en/function.session-cache-limiter.php" rel="nofollow" target="_blank">http://php.net/manual/en/function.session-cache-limiter.php</a></code></pre></div>
+  </div>
+ </div>
+  <div class="note" id="122042">  <div class="votes">
+    <div id="Vu122042">
+    <a href="/manual/vote-note.php?id=122042&amp;page=session.configuration&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd122042">
+    <a href="/manual/vote-note.php?id=122042&amp;page=session.configuration&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V122042" title="52% like this...">
+    2
+    </div>
+  </div>
+  <a href="#122042" class="name">
+  <strong class="user"><em>li-lingjie</em></strong></a><a class="genanchor" href="#122042"> &para;</a><div class="date" title="2017-12-19 09:20"><strong>8 years ago</strong></div>
+  <div class="text" id="Hcom122042">
+<div class="phpcode"><pre><code class="html">Use SessionHandlerInterface interface Custom redis session, found the following:
+
+Use ini_set ('session.save_path', "tcp: //127.0.0.1: 6379? Auth = password"); will be reported:
+
+PHP Fatal error: session_start (): Failed to initialize storage module: user (path: tcp: //127.0.0.1: 6379? Auth = password);
+
+Using session_save_path ("tcp: //127.0.0.1: 6379? Auth = password") will not</code></pre></div>
+  </div>
+ </div>
+  <div class="note" id="84045">  <div class="votes">
+    <div id="Vu84045">
+    <a href="/manual/vote-note.php?id=84045&amp;page=session.configuration&amp;vote=up" title="Vote up!" class="usernotes-voteu">up</a>
+    </div>
+    <div id="Vd84045">
+    <a href="/manual/vote-note.php?id=84045&amp;page=session.configuration&amp;vote=down" title="Vote down!" class="usernotes-voted">down</a>
+    </div>
+    <div class="tally" id="V84045" title="48% like this...">
+    -2
+    </div>
+  </div>
+  <a href="#84045" class="name">
+  <strong class="user"><em>00 at f00n dot com</em></strong></a><a class="genanchor" href="#84045"> &para;</a><div class="date" title="2008-06-25 06:36"><strong>18 years ago</strong></div>
+  <div class="text" id="Hcom84045">
+<div class="phpcode"><pre><code class="html">After having many problems with garbage collection not clearing my sessions I have resolved it through the following.
+
+First I found this in the php.ini (not something i noticed as i use phpinfo(); to see my hosting ini).
+
+; NOTE: If you are using the subdirectory option for storing session files
+;       (see session.save_path above), then garbage collection does *not*
+;       happen automatically.  You will need to do your own garbage
+
+; collection through a shell script, cron entry, or some other method. ;       For example, the following script would is the equivalent of
+;       setting session.gc_maxlifetime to 1440 (1440 seconds = 24 minutes):
+;          cd /path/to/sessions; find -cmin +24 | xargs rm
+
+With this is mind there are options.
+
+1. dont use a custom save_path.
+** This means if your isp hasnt defaulted your session temp to something safer than install default or you are using a shared directory for session data then you would be wise to use named sessions to keep your session from being viewable in other people's scripts.  Creating a unique_id name for this is the common method. **
+
+2. use your custom folder but write a garbage collection script.
+
+3. use a custom handler and a database</code></pre></div>
+  </div>
+ </div></div>
+<div class="foot"><a href="/manual/add-note.php?sect=session.configuration&amp;repo=en&amp;redirect=https://www.php.net/manual/en/session.configuration.php">＋<small>add a note</small></a></div>
+</section>    </section><!-- layout-content -->
+        <aside class='layout-menu'>
+
+        <ul class='parent-menu-list'>
+                                    <li>
+                <a href="session.setup.php">Installing/Configuring</a>
+
+                                    <ul class='child-menu-list'>
+
+                                                <li class="">
+                            <a href="session.requirements.php" title="Requirements">Requirements</a>
+                        </li>
+                                                <li class="">
+                            <a href="session.installation.php" title="Installation">Installation</a>
+                        </li>
+                                                <li class="current">
+                            <a href="session.configuration.php" title="Runtime Configuration">Runtime Configuration</a>
+                        </li>
+                        
+                    </ul>
+                
+            </li>
+                        
+                    </ul>
+    </aside>
+
+
+  </div><!-- layout -->
+
+  <footer>
+    <div class="container footer-content">
+      <div class="row-fluid">
+      <ul class="footmenu">
+        <li><a href="/manual/en/copyright.php">Copyright &copy; 2001-2026 The PHP Documentation Group</a></li>
+        <li><a href="/my.php">My PHP.net</a></li>
+        <li><a href="/contact.php">Contact</a></li>
+        <li><a href="/sites.php">Other PHP.net sites</a></li>
+        <li><a href="/privacy.php">Privacy policy</a></li>
+      </ul>
+      </div>
+    </div>
+  </footer>
+    
+<script src="/cached.php?t=&amp;f=/js/ext/jquery-3.6.0.min.js"></script>
+<script src="/cached.php?t=&amp;f=/js/ext/FuzzySearch.min.js"></script>
+<script src="/cached.php?t=&amp;f=/js/ext/mousetrap.min.js"></script>
+<script src="/cached.php?t=&amp;f=/js/ext/jquery.scrollTo.min.js"></script>
+<script src="/cached.php?t=&amp;f=/js/search.js"></script>
+<script src="/cached.php?t=&amp;f=/js/common.js"></script>
+<script type="module" src="/cached.php?t=&amp;f=/js/interactive-examples.js"></script>
+
+<a id="toTop" href="javascript:;"><span id="toTopHover"></span><img width="40" height="40" alt="To Top" src="/images/to-top@2x.png"></a>
+
+<div id="search-modal__backdrop" class="search-modal__backdrop">
+  <div
+    role="dialog"
+    aria-label="Search modal"
+    id="search-modal"
+    class="search-modal"
+  >
+    <div class="search-modal__header">
+      <div class="search-modal__form">
+        <div class="search-modal__input-icon">
+          <!-- https://feathericons.com search -->
+          <svg xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            width="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+        <input
+          type="search"
+          id="search-modal__input"
+          class="search-modal__input"
+          placeholder="Search docs"
+          aria-label="Search docs"
+        />
+      </div>
+
+      <button aria-label="Close" class="search-modal__close">
+        <!-- https://pictogrammers.com/library/mdi/icon/close/ -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+          width="24"
+          viewBox="0 0 24 24"
+        >
+          <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
+        </svg>
+      </button>
+    </div>
+    <div
+      role="listbox"
+      aria-label="Search results"
+      id="search-modal__results"
+      class="search-modal__results"
+    ></div>
+    <div class="search-modal__helper-text">
+      <div>
+        <kbd>↑</kbd> and <kbd>↓</kbd> to navigate •
+        <kbd>Enter</kbd> to select •
+        <kbd>Esc</kbd> to close • <kbd>/</kbd> to open
+      </div>
+      <div>
+        Press <kbd>Enter</kbd> without
+        selection to search using Google
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

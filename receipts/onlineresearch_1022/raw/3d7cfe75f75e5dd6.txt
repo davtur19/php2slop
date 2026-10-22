@@ -1,0 +1,72 @@
+Title: PHP session save_path RCE at DuckDuckGo
+
+URL Source: https://html.duckduckgo.com/html/?q=PHP+session+save_path+RCE
+
+Markdown Content:
+[](https://html.duckduckgo.com/html/?q=PHP+session+save_path+RCE)
+
+[](https://html.duckduckgo.com/html/ "DuckDuckGo")
+
+## [PHP: session_save_path - Manual](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.php.net%2Fmanual%2Fen%2Ffunction.session%2Dsave%2Dpath.php&rut=2bdc419ce7a045472bed98b525031fe7073cfebe392fd709089f3d04906bbd29)
+
+[![Image 1](https://external-content.duckduckgo.com/ip3/www.php.net.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.php.net%2Fmanual%2Fen%2Ffunction.session%2Dsave%2Dpath.php&rut=2bdc419ce7a045472bed98b525031fe7073cfebe392fd709089f3d04906bbd29)[www.php.net/manual/en/function.session-save-path.php](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.php.net%2Fmanual%2Fen%2Ffunction.session%2Dsave%2Dpath.php&rut=2bdc419ce7a045472bed98b525031fe7073cfebe392fd709089f3d04906bbd29)
+
+[Parameters ¶ path **Session** data path. If specified and not null, the path to which data is saved will be changed. **session_save_path** () needs to be called before session_start () for that purpose. Note: On some operating systems, you may want to specify a path on a filesystem that handles lots of small files efficiently.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.php.net%2Fmanual%2Fen%2Ffunction.session%2Dsave%2Dpath.php&rut=2bdc419ce7a045472bed98b525031fe7073cfebe392fd709089f3d04906bbd29)
+
+## [Critical PHP RCE: CVE-2026-109618 and CVE-2026-109619 | Sansec](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsansec.io%2Fresearch%2Fphp2shell&rut=b701ec480af40753434d5743710922ed2e52e98b5be7d70c1a15cc55118655e9)
+
+[![Image 2](https://external-content.duckduckgo.com/ip3/sansec.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsansec.io%2Fresearch%2Fphp2shell&rut=b701ec480af40753434d5743710922ed2e52e98b5be7d70c1a15cc55118655e9)[sansec.io/research/php2shell](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsansec.io%2Fresearch%2Fphp2shell&rut=b701ec480af40753434d5743710922ed2e52e98b5be7d70c1a15cc55118655e9)
+
+[**PHP** released fixes for two critical remote code execution bugs on October 21. They affect every web server running **PHP** 5.4 or later. Researchers confirmed un...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsansec.io%2Fresearch%2Fphp2shell&rut=b701ec480af40753434d5743710922ed2e52e98b5be7d70c1a15cc55118655e9)
+
+## [php2shell-CVE-2026-109618-CVE-2026-109619-PoC - GitHub](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Feness%2Fphp2shell%2DCVE%2D2026%2D109618%2DCVE%2D2026%2D109619%2DPoC&rut=d54ca38a048fd597a18af025e7abb40eb7a71ed2e07fe8f3c9f53b7c09d953cf)
+
+[![Image 3](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Feness%2Fphp2shell%2DCVE%2D2026%2D109618%2DCVE%2D2026%2D109619%2DPoC&rut=d54ca38a048fd597a18af025e7abb40eb7a71ed2e07fe8f3c9f53b7c09d953cf)[github.com/eness/php2shell-CVE-2026-109618-CVE-2026-109619-PoC](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Feness%2Fphp2shell%2DCVE%2D2026%2D109618%2DCVE%2D2026%2D109619%2DPoC&rut=d54ca38a048fd597a18af025e7abb40eb7a71ed2e07fe8f3c9f53b7c09d953cf)
+
+[php2shell refers to two critical vulnerabilities (CVE-2026-109618 & CVE-2026-109619) affecting core **PHP** functionality. The primary demonstrated vector is a heap use-after-free (UAF) in the **PHP** core **session** upload progress mechanism leading to arbitrary code execution (zend_call_function / system ()). Severity: Critical (CVSS v4.0: 9.2) Impacted Versions: Reports indicate **PHP** versions 5, 6, 7 ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Feness%2Fphp2shell%2DCVE%2D2026%2D109618%2DCVE%2D2026%2D109619%2DPoC&rut=d54ca38a048fd597a18af025e7abb40eb7a71ed2e07fe8f3c9f53b7c09d953cf)
+
+## [php2shell: Dissecting PHP's Critical Session Upload Progress ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)
+
+[![Image 4](https://external-content.duckduckgo.com/ip3/qideng.substack.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)[qideng.substack.com/p/php2shell-dissecting-phps-critical](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)
+
+[Three exploit **PHP's****session**.upload_progress feature (enabled by default since **PHP** 5.4). The fourth — a zero-dependency pre-auth **RCE** on Apache mod_php — exploits **PHP's** memory allocator bailout during multipart parsing.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)
+
+## [session.save_path INI • PHP.Watch](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fphp.watch%2Fcodex%2Fsession.save_path&rut=56338f2682b5c70fbb58383ddd3b1f6a159e5222dbf0083303c430209f89c572)
+
+[![Image 5](https://external-content.duckduckgo.com/ip3/php.watch.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fphp.watch%2Fcodex%2Fsession.save_path&rut=56338f2682b5c70fbb58383ddd3b1f6a159e5222dbf0083303c430209f89c572)[php.watch/codex/session.save_path](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fphp.watch%2Fcodex%2Fsession.save_path&rut=56338f2682b5c70fbb58383ddd3b1f6a159e5222dbf0083303c430209f89c572)
+
+[**Session**: **session.save_path** — Argument passed to save_handler. In the case of files, this is the path where data files are stored. Note: Windows users have to change this variable in order to use **PHP's****session** functions. The path can be defined as: **session.save_path** = "N;/path" where N is an integer.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fphp.watch%2Fcodex%2Fsession.save_path&rut=56338f2682b5c70fbb58383ddd3b1f6a159e5222dbf0083303c430209f89c572)
+
+## [Location for session files in Apache/PHP - Stack Overflow](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F4927850%2Flocation%2Dfor%2Dsession%2Dfiles%2Din%2Dapache%2Dphp&rut=f03fc1c97a91f653b2c9cec2ed6d3eff17671f1743b2946b3aac8bca71647221)
+
+[![Image 6](https://external-content.duckduckgo.com/ip3/stackoverflow.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F4927850%2Flocation%2Dfor%2Dsession%2Dfiles%2Din%2Dapache%2Dphp&rut=f03fc1c97a91f653b2c9cec2ed6d3eff17671f1743b2946b3aac8bca71647221)[stackoverflow.com/questions/4927850/location-for-session-files-in-apache-php](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F4927850%2Flocation%2Dfor%2Dsession%2Dfiles%2Din%2Dapache%2Dphp&rut=f03fc1c97a91f653b2c9cec2ed6d3eff17671f1743b2946b3aac8bca71647221)
+
+[You can use sys_get_temp_dir to return the directory path used for temporary files To find the current **session****save****path,** you can use **session_save_path** () — Get and/or set the current **session****save****path** Refer to this answer to find out what the temp path is when this function returns an empty string.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F4927850%2Flocation%2Dfor%2Dsession%2Dfiles%2Din%2Dapache%2Dphp&rut=f03fc1c97a91f653b2c9cec2ed6d3eff17671f1743b2946b3aac8bca71647221)
+
+## [How to change session_save_path in php.ini file? - Stack Overflow](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F8927404%2Fhow%2Dto%2Dchange%2Dsession%2Dsave%2Dpath%2Din%2Dphp%2Dini%2Dfile&rut=f070cc10c74a175b0ca3f5e9f9b7c51ede6cef8ccef2465c511292798c5659ef)
+
+[![Image 7](https://external-content.duckduckgo.com/ip3/stackoverflow.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F8927404%2Fhow%2Dto%2Dchange%2Dsession%2Dsave%2Dpath%2Din%2Dphp%2Dini%2Dfile&rut=f070cc10c74a175b0ca3f5e9f9b7c51ede6cef8ccef2465c511292798c5659ef)[stackoverflow.com/questions/8927404/how-to-change-session-save-path-in-php-ini-file](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F8927404%2Fhow%2Dto%2Dchange%2Dsession%2Dsave%2Dpath%2Din%2Dphp%2Dini%2Dfile&rut=f070cc10c74a175b0ca3f5e9f9b7c51ede6cef8ccef2465c511292798c5659ef)
+
+[I have a shared hosting on godaddy. I tried to change **session****save****path** in **php**.ini file with this line, **sessions**.**save_path** = "/**session**" I've controlled the **sessions****save****path** with **sessions**.**save_path** () function. It returns /tmp before and after changing **php**.ini Is it possible to change **session****save****path** on shared hosting? Where am I wrong?](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F8927404%2Fhow%2Dto%2Dchange%2Dsession%2Dsave%2Dpath%2Din%2Dphp%2Dini%2Dfile&rut=f070cc10c74a175b0ca3f5e9f9b7c51ede6cef8ccef2465c511292798c5659ef)
+
+## [PHP2Shell: What Actually Protects You Before the 14:00 UTC PHP RCE ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthehackernews.com%2F2026%2F10%2Fphp2shell%2Dwhat%2Dactually%2Dprotects%2Dyou.html&rut=264eb2bec82fff429dbad03bc694321a7e21879162ec4960bf146f4a2ce8bf36)
+
+[![Image 8](https://external-content.duckduckgo.com/ip3/thehackernews.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthehackernews.com%2F2026%2F10%2Fphp2shell%2Dwhat%2Dactually%2Dprotects%2Dyou.html&rut=264eb2bec82fff429dbad03bc694321a7e21879162ec4960bf146f4a2ce8bf36)[thehackernews.com/2026/10/php2shell-what-actually-protects-you.html](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthehackernews.com%2F2026%2F10%2Fphp2shell%2Dwhat%2Dactually%2Dprotects%2Dyou.html&rut=264eb2bec82fff429dbad03bc694321a7e21879162ec4960bf146f4a2ce8bf36)
+
+[Disabling **PHP****Session** Upload Progress does not fully mitigate PHP2Shell; fixes for two critical flaws are scheduled for October 21.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthehackernews.com%2F2026%2F10%2Fphp2shell%2Dwhat%2Dactually%2Dprotects%2Dyou.html&rut=264eb2bec82fff429dbad03bc694321a7e21879162ec4960bf146f4a2ce8bf36)
+
+## [PHP2Shell - Critical vulnerabilities in PHP (CVE-2026-109618, CVE-2026 ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsecuritylabs.datadoghq.com%2Farticles%2Fphp2shell%2Dcritical%2Dvulnerabilities%2Din%2Dphp%2F&rut=818cf7fef45d437c6a1568f0960aba5e3dfa7b5616832761f887262bfd5b0e1d)
+
+[![Image 9](https://external-content.duckduckgo.com/ip3/securitylabs.datadoghq.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsecuritylabs.datadoghq.com%2Farticles%2Fphp2shell%2Dcritical%2Dvulnerabilities%2Din%2Dphp%2F&rut=818cf7fef45d437c6a1568f0960aba5e3dfa7b5616832761f887262bfd5b0e1d)[securitylabs.datadoghq.com/articles/php2shell-critical-vulnerabilities-in-php/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsecuritylabs.datadoghq.com%2Farticles%2Fphp2shell%2Dcritical%2Dvulnerabilities%2Din%2Dphp%2F&rut=818cf7fef45d437c6a1568f0960aba5e3dfa7b5616832761f887262bfd5b0e1d)
+
+[Instead, **PHP** runs the attacker's command while it cleans up the failed request. Any **PHP** script exposes the vulnerable path, even one that only prints a response. The two flaws affect different stages of the request life cycle: CVE-2026-109618: After a memory allocation fails, **PHP** leaves invalid data behind for its cleanup routine to process.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsecuritylabs.datadoghq.com%2Farticles%2Fphp2shell%2Dcritical%2Dvulnerabilities%2Din%2Dphp%2F&rut=818cf7fef45d437c6a1568f0960aba5e3dfa7b5616832761f887262bfd5b0e1d)
+
+## [How to set the PHP session save path - simplified.guide](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.simplified.guide%2Fphp%2Fsession%2Dsave%2Dpath%2Dset&rut=99745c1c71c117d3435e197c36b8200d93ebc72fa16e15c2e58da5af314065cc)
+
+[![Image 10](https://external-content.duckduckgo.com/ip3/www.simplified.guide.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.simplified.guide%2Fphp%2Fsession%2Dsave%2Dpath%2Dset&rut=99745c1c71c117d3435e197c36b8200d93ebc72fa16e15c2e58da5af314065cc)[www.simplified.guide/php/session-save-path-set](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.simplified.guide%2Fphp%2Fsession%2Dsave%2Dpath%2Dset&rut=99745c1c71c117d3435e197c36b8200d93ebc72fa16e15c2e58da5af314065cc)
+
+[How to set the **PHP****session****save****path****PHP** applications that share the default **session** directory can leave unrelated sess_* files under one system path, which complicates ownership, cleanup, and pool isolation.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.simplified.guide%2Fphp%2Fsession%2Dsave%2Dpath%2Dset&rut=99745c1c71c117d3435e197c36b8200d93ebc72fa16e15c2e58da5af314065cc)
+
+[Feedback](https://duckduckgo.com/feedback.html)
+
+![Image 11](https://duckduckgo.com/t/sl_h)

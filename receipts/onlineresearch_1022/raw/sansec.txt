@@ -1,0 +1,218 @@
+
+PHP2Shell: Critical PHP RCE (CVE-2026-109618, CVE-2026-109619) | Sansec
+ 112) {
+ this.ssScrolled = true;
+ } else if (window.pageYOffset 
+Scan your store now
+Scan your
+store now
+Scan your store now!
+PHP2Shell: Critical PHP RCE (CVE-2026-109618, CVE-2026-109619)
+by Sansec Forensics Team
+Published in 
+Threat Research
+ − October 21, 2026
+PHP released fixes for two critical remote code execution bugs on October 21. They affect every web server running PHP 5.4 or later. Researchers confirmed unauthenticated RCE against Magento 2.4.9 and ten other PHP applications. Update PHP now.
+Update PHP on every server now. The writeups and an exploit tool are public. If you cannot patch within the hour, apply the temporary mitigations below.
+CVE-2026-109618 and CVE-2026-109619 are both rated CVSS v4.0 9.2. The flaws are in the PHP engine, so Magento, Shopware and WooCommerce stores are exposed even when their own code is clean. Calif showed that an attacker without a login can run code on Magento 2.4.9, WordPress 7.1.2, Drupal 11.4.3, Joomla 6.1.4, MediaWiki 1.46.2, Roundcube 1.7.4, phpMyAdmin 5.2.3, Nextcloud 35.0.1, Laravel 13.11, Symfony 8.1 and WHMCS. The exploit tool PHP2Shell, credited to Calif, combines both bugs into one attack that needs no login.
+Cloudflare 
+reported
+ early attacks at 07:43 UTC on October 21, before the 14:00 UTC release. We expect mass exploitation now that the patch and the writeups are public.
+Update PHP now
+The fix is a PHP update on the server. You cannot fix PHP2Shell from within your store code. If you do not manage your own server, ask your hosting provider to apply the update now.
+PHP only 
+supports
+ version 8.2 and later. Servers on PHP 8.1 or older get no official fix. Ask your provider to backport the fix or move you to a supported version.
+If you install PHP from Remi's repository (
+rpms.remirepo.net
+), common on RHEL-based servers, the fix was not available there on October 21. The PHP Foundation 
+said
+ the volunteer-run repository would not publish updates that day. Switch to your distribution's PHP packages or build PHP from source.
+If you cannot patch within the hour
+These steps are temporary and partial. They buy time until you update PHP.
+1. Block multipart/form-data in your web server
+Every known trigger is a 
+multipart/form-data
+ request, the format browsers use for file uploads. PHP parses that body before your store code runs. Reject these requests in your web server.
+For nginx, add this to every 
+server
+ block that passes requests to PHP, then run 
+nginx -t && systemctl reload nginx
+:
+if
+ (
+$http_content_type
+~* "multipart/form-data")
+ {
+return
+403
+;
+}
+For Apache, add this to every 
+<VirtualHost>
+ that serves PHP, then reload Apache:
+RewriteEngine
+On
+RewriteCond
+%{HTTP:Content-Type}
+ multipart/form-data
+ [NC]
+RewriteRule
+ ^ -
+ [F]
+The rule breaks file uploads, such as product images in the Magento admin. Some stores submit cart or checkout forms as multipart, so place a test order after you add it. Remove the rule once you have updated PHP.
+2. Take your store offline or make it read-only
+If you can afford to take a PHP server offline, do so. PHP core developer Gina Peter Banyard 
+called
+ that the most sensible option before the release. Several Dutch sites went offline as a precaution on October 21, including 
+Tweakers
+, the 
+House of Representatives
+, the 
+NCSC
+ and 
+Security.NL
+.
+Stop PHP-FPM and have your web server show a static maintenance page. The maintenance modes in Magento and WordPress do not help, because PHP parses each request before the application checks the maintenance flag.
+If you cannot go offline, have your web server reject every request method other than GET and HEAD. Customers can still browse the catalog, but cannot log in or place orders. For nginx:
+if
+ (
+$request_method
+ !
+~ ^(GET|HEAD)$)
+ {
+return
+503
+;
+}
+3. PHP settings
+Calif published two partial mitigations: turn off session upload progress and remove the memory cap. Banyard 
+warned
+ that turning off session upload progress alone is not enough, so combine these settings with the steps above. With 
+memory_limit = -1
+, a single request can use all server memory. Watch memory use and restore the limit once you have updated PHP.
+With mod_php, set the values in 
+php.ini
+ (or a drop-in 
+.ini
+ file under 
+conf.d
+) and restart Apache:
+session.upload_progress.enabled
+ = 
+0
+memory_limit
+ = -
+1
+PHP-FPM reads its own pool configuration, not the command-line 
+php.ini
+. Add these to every pool, for example 
+/etc/php/8.3/fpm/pool.d/www.conf
+:
+php_admin_flag
+[session.upload_progress.enabled]
+ = off
+php_admin_value
+[memory_limit]
+ = -1
+Reload the workers (
+systemctl reload php8.3-fpm
+, with your version in place of 8.3). Then confirm the values in a request served by PHP-FPM, not on the command line.
+The vulnerabilities
+Both CVEs are use-after-free bugs. A fatal error during a request, typically out-of-memory when a request crosses the 
+memory_limit
+, interrupts native PHP code before it cleans up. A later request, or a reused worker, then treats the freed memory as live data.
+CVE
+Class
+Impact
+CVE-2026-109618
+Upload-progress unserializer use-after-free
+Remote memory disclosure and RCE
+CVE-2026-109619
+Fatal-error backtrace use-after-free, OPcache type confusion
+RCE
+CVE-2026-109618 also leaks memory on its own, similar to Heartbleed. PHP's upload-progress handler can return freed worker memory to the client inside a 
+PHPSESSID
+ response cookie. That memory can contain passwords, session tokens, API keys and TLS private keys from other requests. The handler runs before application code, so the leak works even when the application never calls 
+session_start()
+.
+Apache mod_php and PHP-FPM are both affected. The vulnerable code dates to PHP 5.4.0, released in 2012. Default configurations are vulnerable.
+Sansec Shield
+The RCE and memory-disclosure paths run inside PHP, before your store code and before 
+Sansec Shield
+. Do not wait for a Shield rule to protect you. Update PHP.
+Timeline
+Date (UTC)
+Event
+2026-08-01
+Calif finds multiple RCE paths
+2026-08-11
+Calif reports the first bug to PHP and starts coordinated disclosure
+2026-08-24
+Wiz Research reports the vulnerabilities to PHP
+2026-10-20
+Details leak; watchTowr confirms remote code execution in PHP
+2026-10-21 07:43
+Cloudflare reports early attacks
+2026-10-21 14:00
+PHP releases the fixed versions; Calif, Wiz, OpenAI and PHP disclose
+Credits
+The bugs were found by Ryan Austin of Calif, by Wiz Research (Sagi Tzadik, Shir Tamari, Nir Ohfeld and Tomer Schwartz) and by OpenAI. The PHP security team coordinated the fix. See the writeups by 
+Calif
+ and 
+Wiz
+ for the full history and technical detail.
+We will update this article as we learn more.
+Read more
+BlockStrap: Magento and Adobe Commerce RCE (CVE-2026-103849)
+StyleSmuggler: Magento and Adobe Commerce 0-day RCE (CVE-2026-75650) under active attack
+PolyShell: unrestricted file upload in Magento and Adobe Commerce
+Critical backdoor found in MGT Varnish extension
+SessionReaper attacks have started, 3 in 5 stores still vulnerable
+div]:border-ss-grey [&>div]:border-t-2 [&>div]:p-4 [&>div]:shadow-md max-w-[350px] my-0 overflow-clip pb-4 px-8 sticky text-sm top-24">
+In this article
+Protect your store now!
+Block all known Magento attacks, while you schedule the latest critical patch until a convenient moment. No more downtime and instability from rushed patching.
+Get Sansec Shield
+php 
+rce 
+php2shell 
+magento
+Scan your store 
+now
+for malware & vulnerabilities
+$ curl ecomscan.com | sh
+eComscan
+ is the most thorough security scanner for Magento, Adobe Commerce, Shopware, WooCommerce, Sylius and many more.
+Learn more
+Made with 
+❤
+Sansec BV
+Wolvenplein 25
+3512 CK Utrecht
+The Netherlands
+info@sansec.io
+Sansec Shield
+Sansec eComscan
+Pricing
+Guides
+Partners
+About Magecart
+Malware library
+Media coverage
+System status
+Live attacks
+Research
+PolyShell Advisory
+Company
+Contact
+Login
+Stay up to date with the latest eCommerce attacks
+experts in eCommerce security
+Terms & Conditions
+•
+Privacy & Cookie Policy
+•
+Company Reg 77165187
+•
+Tax NL860920306B01

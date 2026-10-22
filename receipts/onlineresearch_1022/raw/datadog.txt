@@ -1,0 +1,417 @@
+
+  PHP2Shell - Critical vulnerabilities in PHP (CVE-2026-109618, CVE-2026-109619): detection, analysis, and remediation | Datadog Security Labs
+Security Labs
+ARTICLES
+CLOUD SECURITY ATLAS
+NEWSLETTER
+ABOUT
+ARTICLES
+CLOUD SECURITY ATLAS
+NEWSLETTER
+ABOUT
+emerging threats and vulnerabilities
+PHP2Shell - Critical vulnerabilities in PHP (CVE-2026-109618, CVE-2026-109619): detection, analysis, and remediation
+October 21, 2026
+    emerging vulnerability
+twitter
+reddit
+on this page
+Key points and observations
+What happened
+How to know if you're affected
+Fixed versions
+Remediation steps
+PHP 8.1 and older
+If you can't patch immediately
+How the vulnerabilities work
+CVE-2026-109618: Interrupted initialization after memory exhaustion
+CVE-2026-109619: Stale state crosses request boundaries
+Exploitation walkthrough for CVE-2026-109618
+Stage 1: Reach the interrupted insertion
+Stage 2: Fill the unfinished bucket with controlled data
+Stage 3: Turn array cleanup into a function call
+Exploit requirements and limitations
+Request and memory limits
+Address discovery is a separate requirement
+Public reports of exploitation
+How the patch addresses both flaws
+How to detect exploitation
+Suspicious form submissions
+Memory exhaustion errors
+Unexpected shell processes
+Signals for CVE-2026-109619
+How Datadog can help
+Conclusion
+Nick Frichette
+Staff Security Researcher
+Emile Spir
+Senior Security Researcher
+Eslam Salem
+Manager, Security Research
+Key points and observations
+PHP 
+disclosed two critical vulnerabilities
+, 
+CVE-2026-109618
+ and 
+CVE-2026-109619
+, each with a CVSS v4.0 score of 9.2. We independently reproduced them and confirmed that application-level authentication can't block an attack: PHP processes the malicious request before any application code runs.
+Only patching fixes these vulnerabilities.
+ Mitigations circulating in the community, such as setting 
+session.upload_progress.enabled=0
+ in the PHP configuration file, don't fully protect you.
+Successful command execution doesn’t necessarily crash the worker. Memory disclosure, including the PHPSESSID technique, can provide addresses needed for exploitation.
+To investigate, look for large form submissions, memory-exhaustion errors during request initialization, and unexpected shell processes.
+Controls at a reverse proxy or another boundary in front of PHP can block requests before they reach the vulnerable parser.
+What happened
+On October 21, 2026, PHP released security updates for two critical remote code execution (RCE) vulnerabilities, 
+CVE-2026-109618
+ and 
+CVE-2026-109619
+. Both have a Common Vulnerability Scoring System (CVSS) v4.0 score of 9.2. 
+PHP 8.2.35, 8.3.36, 8.4.27, and 8.5.12
+ contain the fixes. Older PHP branches are also affected. Although PHP 8.1 and earlier are outside normal upstream support, the PHP security team provided source backports for PHP 7.4, 8.0, and 8.1. Users of older branches should check their vendor’s security advisory for patched packages or upgrade to a supported version.
+Before the public disclosure, our team built exploits for the vulnerabilities so we could analyze them and develop detections. Our reproduction triggers the out-of-memory corruption described in CVE-2026-109618 on PHP 8.5.11 with an unauthenticated HTTP POST request. The request never reaches the target application's code. Instead, PHP runs the attacker's command while it cleans up the failed request. Any PHP script exposes the vulnerable path, even one that only prints a response.
+The two flaws affect different stages of the request life cycle:
+CVE-2026-109618:
+ After a memory allocation fails, PHP leaves invalid data behind for its cleanup routine to process.
+CVE-2026-109619:
+ A PHP worker can reuse stale state from a previous request.
+Our detailed walkthrough primarily covers CVE-2026-109618, although we will discuss CVE-2026-109619 as well.
+How to know if you're affected
+Any PHP runtime that serves HTTP requests is in scope.
+ PHP's 
+release announcement
+ warns that all web deployments are affected, including Apache modules, PHP FastCGI Process Manager (PHP-FPM), 
+php-cgi
+, FrankenPHP, and LiteSpeed.
+When you build your inventory, include containers and applications that bundle their own PHP interpreter. Don't rely solely on the command-line PHP installation: it can use a different version or configuration than the runtime that serves your web application.
+Fixed versions
+The advisories for both 
+CVE-2026-109618
+ and 
+CVE-2026-109619
+ list the same fixed versions for each supported branch:
+PHP branch
+Affected releases
+First fixed release
+8.2
+Before 8.2.35
+8.2.35
+8.3
+Before 8.3.36
+8.3.36
+8.4
+Before 8.4.27
+8.4.27
+8.5
+Before 8.5.12
+8.5.12
+Remediation steps
+For each deployment:
+Record the PHP version, the package or image source, the owner, and the update process.
+Apply the upstream or distributor update. If you use a vendor package, check the vendor's advisory, because vendors sometimes backport fixes without changing the upstream version number.
+Rebuild and redeploy affected container images.
+Restart or replace every worker that still runs the old runtime.
+PHP 8.1 and older
+PHP 8.1 and older are outside the PHP project's normal support window. To address this vulnerability, PHP published 
+minimal source backports for 7.4, 8.0, and 8.1
+, but expect slower fixes for these branches as vendors prioritize have more work to do in order to validate the fix. If you run those older branches, check whether your vendor covers it or move to a 
+supported PHP branch
+.
+If you can't patch immediately
+Restrict public access to exposed applications. Where immediate remediation isn't possible, 
+CERT-EU recommends isolating internet-facing applications
+. Controls at a reverse proxy or another boundary in front of PHP can block requests before they reach the vulnerable parser.
+PHP's 
+temporary mitigation guidance
+ also describes measures for each vulnerability:
+CVE-2026-109618:
+ Enforce 
+memory_limit=-1
+ at the administrator level, and pair it with request limits at the frontend and memory limits on the container. Limit the size of decoded request bodies, including requests without a usable 
+Content-Length
+ header. Don't substitute process limits such as 
+RLIMIT_AS
+ or 
+RLIMIT_DATA
+, because they can trigger the allocation failures this vulnerability depends on. Even with these measures, allocation failures can still happen, and an attacker who exhausts system memory can destabilize the host.
+CVE-2026-109619:
+ Set 
+session.upload_progress.enabled=0
+ and, on PHP 8.5, 
+fatal_error_backtraces=0
+. Apply both settings in configuration that loads before PHP parses the request, then restart every worker. Remove any per-request settings that generate early diagnostics. Hiding the errors doesn't prevent access to stale state.
+These measures reduce your exposure while you update, but none of them fully fixes the vulnerabilities.
+ Patching is the only complete fix.
+How the vulnerabilities work
+Both vulnerabilities follow the same pattern: a fatal error interrupts PHP partway through an operation, and PHP later treats the incomplete state as valid.
+CVE-2026-109618: Interrupted initialization after memory exhaustion
+PHP converts form submissions into the 
+$_POST
+ array. Internally, PHP stores the array's keys and values in a hash table, in entries called buckets. Before application code reads a submitted field, PHP allocates memory for the field name, creates any nested arrays, and inserts the values into those hash tables.
+The flaw appears when an insertion stops halfway through. In the version we tested, 
+_zend_hash_str_add_or_update_i()
+ increments the hash table's entry counters before it allocates a copy of the new key. Here is the relevant sequence in 
+PHP's source
+:
+idx 
+=
+ ht
+->
+nNumUsed
+++
+;
+ht
+->
+nNumOfElements
+++
+;
+p 
+=
+ ht
+->
+arData 
++
+ idx
+;
+p
+->
+key 
+=
+ key 
+=
+zend_string_init
+(
+str
+,
+ len
+,
+GC_FLAGS
+(
+ht
+)
+&
+ IS_ARRAY_PERSISTENT
+)
+;
+If the key allocation exceeds 
+memory_limit
+, PHP raises a fatal error and abandons the insertion. At that point, the counters already include the new bucket, but PHP never initialized the bucket's key or value.
+PHP still cleans up the failed request. When it destroys the array, it visits every counted bucket and interprets its contents as PHP values. The unfinished bucket holds bytes left over from an earlier allocation. An attacker who controls those leftover bytes controls what the cleanup code does next, up to running a shell command.
+This hash table bug is one instance of the broader flaw that 
+PHP's CVE-2026-109618 advisory
+ describes: a memory error abandons an operation while the internal state is incomplete, and cleanup then treats that state as valid. We expect attackers to find other code paths with the same flaw, so don't build defenses around the specifics of the hash table exploit.
+CVE-2026-109619: Stale state crosses request boundaries
+A PHP worker handles many requests over its lifetime. Some worker-wide fields point to memory that belongs to a single request. If PHP frees that memory without clearing the fields, a later request can follow a stale pointer into freed memory. This class of bug is called a use-after-free.
+According to the 
+PHP advisory
+, stale state appears in two ways: a fatal error interrupts PHP while it resets state, or a late shutdown diagnostic recreates state after cleanup. The advisory confirms two exploitable cases:
+Fatal-error backtraces (PHP 8.5 only):
+ Fatal-error reporting keeps backtrace state after shutdown. A configuration diagnostic in a later request reads that state before PHP initializes it. PHP confirmed that this case leads to command execution on 
+mod_php
+.
+Upload processing:
+ After a fatal error, upload processing can leave session or decoder state behind. A later upload reads that state before normal initialization. PHP confirmed command execution on both 
+mod_php
+ and PHP-FPM. On PHP-FPM, the attack also needs the application to perform a suitable operation after startup succeeds.
+The upload case matters because of 
+session upload progress
+, which tracks uploads before the target script runs. PHP 
+enables this feature by default
+, and it runs even if the application never calls 
+session_start()
+.
+To exploit CVE-2026-109619, an attacker's requests must reach the same worker. A larger worker pool lowers the success rate of each attempt, but it doesn't remove the flaw.
+Exploitation walkthrough for CVE-2026-109618
+Our reproduction runs PHP 8.5.11, built from commit 
+678778973bb4d4185c06ef1320de50f1a975d3c8
+, on Debian 12 (ARM64). It uses Apache's prefork worker model with 
+mod_php
+, and sets 
+memory_limit=16M
+, 
+post_max_size=64M
+, and automatic POST parsing. To make allocations and failures easier to observe, our lab runs a single worker, disables OPcache, and shows errors in responses. The exploit ends by calling glibc's 
+system()
+.
+The exploit works in three stages: reach the interrupted insertion, fill the unfinished bucket with controlled data, and turn request cleanup into a 
+system()
+ call.
+Exploitation steps for CVE-2026-109618 (click to enlarge)
+Stage 1: Reach the interrupted insertion
+The request carries three form fields:
+=<binary value>&a=1&<very long field name>[x]=1
+Each field plays a role:
+The empty-name field prepares memory for reuse.
+The 
+a=1
+ field makes PHP allocate hash table storage.
+The oversized name field triggers the incomplete insertion.
+The array syntax tells PHP to create a nested array. In the version we tested, that path reaches a string-key insertion helper that allocates the key after it updates the hash table's counters. A plain field name takes a different path that uses an already-created key that is not vulnerable.
+PHP's filter extension registers the submitted variable in an internal array and then in 
+$_POST
+. We size the field name so that PHP's first key allocation succeeds and the second exceeds 
+memory_limit
+. The failed insertion leaves an incomplete bucket in 
+$_POST
+, which PHP destroys during request shutdown.
+The failure happens during request initialization. Nothing in the target script can impact or defend against the exploit (authentication, filtering…).
+Stage 2: Fill the unfinished bucket with controlled data
+The attacker needs the unfinished bucket to hold useful bytes, not random leftovers. Our reproduction arranges those bytes through heap grooming: a sequence of allocations and frees that steers PHP into reusing a chosen block of memory.
+In this build, a small hash table uses a 320-byte allocation. The binary value in the empty-name field is 276 bytes, and once PHP adds a string header and terminator, its allocation lands in the same 320-byte size class.
+PHP copies that value while it processes the field, then frees the copies because the field name is empty. The 
+a=1
+ field that follows makes the hash tables reuse the freed memory, so most of the binary content survives past the first valid bucket. When the oversized field triggers the fatal error, PHP has counted the second bucket but not initialized it, so PHP reads its contents from the stale bytes the attacker planted. The payload shapes those bytes to resemble a PHP value that points to a fake array.
+Stage 3: Turn array cleanup into a function call
+PHP arrays hold a destructor callback, the function PHP calls to clean up each element when it deletes the array. The attacker sets the expected location to this callback to the address of 
+system()
+ and points the array's element at a command string.
+During shutdown, PHP follows the stale value into the fake array and calls the supplied callback with the supplied element. In our lab, the call becomes 
+system(<command>)
+. The attacker controls the callback address and its pointer argument, allowing the cleanup routine to call 
+system()
+ with a command string.
+Here is the full sequence:
+Request initialization fails
+  → Request shutdown destroys $_POST
+  → PHP interprets the unfinished bucket as an array
+  → PHP destroys the fake array
+  → The destructor callback invokes system(command)
+Our system-call trace records a shell running the command, and the process tree shows its children under an Apache worker. The command runs with the worker's privileges, which are 
+www-data
+ in our lab.
+Our refined exploit returns HTTP 200 with the memory-exhaustion error in the response body, and finishes in 3.10 seconds. Process snapshots show the same Apache worker still running during and after the command. A successful HTTP status doesn't mean a request was harmless, and the exploit doesn't need to crash a worker. The process trace is stronger evidence of execution than the response delay alone.
+Exploit requirements and limitations
+An attacker faces two main constraints: they must size a request to fail allocation at the right moment, and they must defeat ASLR to find valid memory addresses. Neither constraint prevents exploitation, and reports of active attacks are already circulating.
+Request and memory limits
+The exploit needs one field name small enough to fit inside the accepted request body but large enough that copying its key exceeds 
+memory_limit
+. When PHP parses a form-field name, it makes several copies along the way. The attacker uses that extra memory to force an allocation failure while PHP copies the name into a hash table.
+PHP's default memory limits are 
+vulnerable
+. Setting 
+memory_limit=-1
+ blocks the known exploitation path, but don't treat it as a long-term fix: if the underlying allocation still fails, an attacker may still reach remote code execution.
+Address discovery is a separate requirement
+To turn the cleanup bug into command execution, the attacker needs valid memory addresses for the fake data structures and for the function they want to call, such as 
+system()
+. Address space layout randomization (ASLR) randomizes those addresses, so guessing them can take repeated requests and crash workers.
+A memory leak removes much of that guesswork. 
+Wiz describes using the 
+PHPSESSID
+ cookie
+ to leak process memory back to the attacker. If the leaked bytes include pointers that stay valid in the target worker, the attacker can use them to make the exploit more reliable.
+Public reports of exploitation
+As of October 21, we have multiple reports of 
+active exploitation
+ in the wild. We’re also aware of broad untargeted scanning going on.
+How the patch addresses both flaws
+The 
+PHP security patch
+ changes how memory exhaustion interrupts execution. A soft limit now defers the error until PHP reaches a safe point, which lets an in-progress operation finish initializing its data. If memory use crosses a higher hard limit, PHP terminates the worker at once with 
+_exit(137)
+ instead of running normal cleanup over a potentially invalid state.
+The patch also resets request-owned global state before anything can reuse it. During shutdown, PHP clears error and exception state, and it initializes serialization and session state before early request processing can reach it.
+The hash-table insertion still updates its counters before it allocates the key, even in 
+PHP 8.5.12
+. The fix changes the surrounding error handling instead, so an allocation failure no longer leaves the halfway-initialized entry for ordinary cleanup to process.
+The fix looks complete for the known exploit, but we consider the underlying pattern risky. Updating metadata before allocating the memory it describes leaves the door open to similar bugs. If an attacker finds another way to interrupt initialization so that the surrounding metadata still counts unallocated memory as valid (for example, an array that records a size of 2 when an allocation failure leaves only one item), the same class of flaw can return.
+The patch suggests the PHP team knows about the pattern but judged the refactor to remove it too large to finish before the fix shipped. We expect more of these bugs to surface as researchers find exploitable instances of the pattern, and backporting each one may not stay sustainable. It’s also likely that instances of this pattern unique to older versions of PHP will be found and left unpatched.
+How to detect exploitation
+Look for signals at three layers: the incoming HTTP request, the PHP error log, and the processes that web workers spawn. No single signal is conclusive on its own, so correlate them. A successful exploit doesn't necessarily crash the worker or return an error.
+Suspicious form submissions
+Our CVE-2026-109618 exploit sends a request with the 
+application/x-www-form-urlencoded
+ content type, which browsers use for standard web forms. The request body contains:
+A single field name of about 3.5 MB
+Binary data, including raw null bytes, in the value of a field with an empty name
+The request body has this shape:
+=[forged PHP structures and command omitted]&a=1&ZZZZZZZZ...[truncated]...ZZZZZZZZ[x]=1
+Configure your web application firewall (WAF) or reverse proxy to flag unusually long form field names and unexpected control bytes in form submissions. Base your limits on your application's legitimate traffic. Also verify how your inspection engine handles large request bodies: a rule can't inspect bytes that the engine truncates or fields that its parser discards.
+Memory exhaustion errors
+Our exploit attempt generated this fatal error in the PHP error log:
+PHP Fatal error: Allowed memory size of 16777216 bytes exhausted
+(tried to allocate 3500032 bytes) in Unknown on line 0
+The 
+Unknown on line 0
+ location means PHP failed during request initialization, before any script started running. Correlate these errors with oversized POST requests, upstream connection resets, and worker crashes. Memory exhaustion alone doesn't prove an attack, because legitimate workloads can also exhaust memory.
+When the exploit guesses a memory address incorrectly, the Apache worker crashes with a segmentation fault. In our lab, the Apache error log recorded this message:
+AH00052: child pid ... exit signal Segmentation fault (11)
+Unexpected shell processes
+A web worker that spawns a shell is the most direct evidence of successful exploitation. In our capture, an Apache worker spawned a shell, which then launched the attacker's commands:
+apache2 (www-data)
+└── sh -c <reverse-shell command>
+    └── bash [outbound connection to c2.example:443]
+Investigate any shell that a web worker launches, especially when it coincides with the request or error log signals above. If your application runs external commands on purpose, build a baseline of expected activity so you can spot deviations.
+Don't make your detection depend on our demonstration's command names, a specific HTTP status, or a worker crash. In our refined exploit, the request returns HTTP 200, and the same Apache worker keeps running after it executes the command.
+Signals for CVE-2026-109619
+For CVE-2026-109619, review early configuration warnings, shutdown diagnostics, fatal errors, and execution timeouts on routes that attackers can reach. These events can point to the state-retention paths that 
+PHP's advisory
+ describes.
+How Datadog can help
+Datadog Workload Protection
+ has out of the box coverage for PHP applications executing a shell. This detection will catch exploits of those vulnerabilities. You can check for suspicious activity using 
+this query
+. Review uncommon or unusual command lines.
+Workload Protection investigation graph (click to enlarge)
+Datadog Cloud Vulnerability Management
+ can help 
+identify PHP vulnerability findings
+ on supported hosts and container images. Its package scanning support covers official operating system packages; self-compiled runtimes such as our lab build need separate inventory checks. PHP application dependencies managed through Composer are also distinct from the interpreter itself.
+Conclusion
+Both 
+CVE-2026-109618
+ and 
+CVE-2026-109619
+, are critical vulnerabilities that can lead to remote code execution in default PHP configurations. If you run PHP, update to a fixed release or your vendor’s patched package as soon as possible. Rebuild affected container images and restart or replace workers so they’re running the updated code. Configuration changes can block some attack paths, but patching is the only complete fix.
+twitter
+reddit
+            Did you find this article helpful?
+                Subscribe to the Datadog Security Digest
+Get the latest insights from the cloud security community and Security Labs posts, delivered to your inbox monthly. No spam.
+div:has([type=hidden])]:hidden
+                    [&_input]:proportional-nums [&_input]:placeholder:text-gray-5 [&_input]:border [&_input]:border-gray-40 [&_input]:rounded
+                    [&_input]:w-full [&_input]:px-3 [&_input]:py-1.5 [&_input]:focus-within:outline-gray-40 [&_input]:text-16
+                    [&_input]:leading-24 [&_input]:tablet:text-18 [&_input]:tablet:leading-26 [&_input]:desktop:text-20
+                    [&_input]:desktop:leading-28 [&_p:has(span)]:text-14 [&_p:has(span)]:leading-20 [&_p:has(span)]:desktop:text-16
+                    [&_p:has(span)]:desktop:leading-22 [&_label]:hidden [&_button]:bg-transparent [&_button]:text-magenta
+                    [&_button]:font-extrabold [&_button]:uppercase [&_button]:text-14 [&_button]:leading-18 [&_button]:tablet:text-16
+                    [&_button]:tablet:leading-20 [&_button]:desktop:text-18 [&_button]:desktop:leading-24 [&_button]:tracking-[0.01em]
+                    [&_button]:w-max [&_button]:px-2 [&_button]:tablet:px-3 [&_button]:desktop:px-4 [&_button]:absolute [&_button]:right-0
+                    [&_button]:top-[9px] [&_button]:tablet:top-2 [&_a]:text-purple-600 [&_a:hover]:text-purple [&_.mktoErrorMsg]:text-gray-5">
+Thank you for subscribing!
+Related Content
+emerging threats and vulnerabilities
+Datadog threat roundup: top insights for Q4 2024
+emerging threats and vulnerabilities
+Datadog threat roundup: Top insights for Q1 2025
+emerging threats and vulnerabilities
+Datadog threat roundup: Top insights for Q2 2025
+emerging threats and vulnerabilities
+Datadog threat roundup: Top insights for Q3 2025
+work with us
+      We're always looking for talented people to collaborate with
+        featured positions
+                    Senior Software Engineer - Incident Insights & Readiness
+                    Security - Engineering
+                    Senior Platform Security Engineer
+                    Security - Engineering
+                    Engineering Manager I, Commercial Audit
+                    Security - Engineering
+                    Senior Security Engineer, Vulnerability Management
+                    Security - Engineering
+                    Senior Software Engineer - CI/CD Security
+                    Security - Engineering
+                    Senior Application Security Engineer
+                    Security - Engineering
+      We have 
+9
+ positions
+view all
+© Datadog 2026
+TERMS
+PRIVACY
+COOKIES
+twitter
+rss

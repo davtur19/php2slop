@@ -1,0 +1,26 @@
+Title: "php_session_decode" exploit at DuckDuckGo
+
+URL Source: https://html.duckduckgo.com/html/?q=%22php_session_decode%22+exploit
+
+Markdown Content:
+[](https://html.duckduckgo.com/html/?q=%22php_session_decode%22+exploit)
+
+[](https://html.duckduckgo.com/html/ "DuckDuckGo")
+
+## [CVE-2026-109618: RCE via OOM corruption | Miggo](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.miggo.io%2Fvulnerability%2Ddatabase%2Fcve%2FCVE%2D2026%2D109618&rut=a448ee146d56c6d640be94520ef311d27dfe0d74c672d370768ad034ce9cab83)
+
+[![Image 1](https://external-content.duckduckgo.com/ip3/www.miggo.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.miggo.io%2Fvulnerability%2Ddatabase%2Fcve%2FCVE%2D2026%2D109618&rut=a448ee146d56c6d640be94520ef311d27dfe0d74c672d370768ad034ce9cab83)[www.miggo.io/vulnerability-database/cve/CVE-2026-109618](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.miggo.io%2Fvulnerability%2Ddatabase%2Fcve%2FCVE%2D2026%2D109618&rut=a448ee146d56c6d640be94520ef311d27dfe0d74c672d370768ad034ce9cab83)
+
+[The confirmed **exploit** chain uses multipart upload-progress handling: php_session_rfc1867_callback runs during request startup, php_session_initialize publishes PS (id), and **php_session_decode** invokes php_var_unserialize, which stores bookkeeping in BG (unserialize).](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.miggo.io%2Fvulnerability%2Ddatabase%2Fcve%2FCVE%2D2026%2D109618&rut=a448ee146d56c6d640be94520ef311d27dfe0d74c672d370768ad034ce9cab83)
+
+# No more results found for **"php_session_decode" exploit**
+
+**Suggestions**:
+
+*   Check spelling
+*   Try related keywords
+*   Remove unnecessary punctuation
+
+[Feedback](https://duckduckgo.com/feedback.html)
+
+![Image 2](https://duckduckgo.com/t/sl_h)

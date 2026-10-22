@@ -1,0 +1,72 @@
+Title: ret2dlresolve PIE at DuckDuckGo
+
+URL Source: https://html.duckduckgo.com/html/?q=ret2dlresolve+PIE
+
+Markdown Content:
+[](https://html.duckduckgo.com/html/?q=ret2dlresolve+PIE)
+
+[](https://html.duckduckgo.com/html/ "DuckDuckGo")
+
+## [Ret2dlresolve - HackTricks](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2dlresolve.html&rut=3cccfcb6d9db46e072d5f03b7d1c309ad7a1ac4f2711c1d2e0a31e8259ae80b1)
+
+[![Image 1](https://external-content.duckduckgo.com/ip3/hacktricks.wiki.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2dlresolve.html&rut=3cccfcb6d9db46e072d5f03b7d1c309ad7a1ac4f2711c1d2e0a31e8259ae80b1)[hacktricks.wiki/en/binary-exploitation/rop-return-oriented-programing/ret2dlresolve.html](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2dlresolve.html&rut=3cccfcb6d9db46e072d5f03b7d1c309ad7a1ac4f2711c1d2e0a31e8259ae80b1)
+
+[References [1] Boosting your ROP skills with SROP and **ret2dlresolve** - Giulia Martino (HackTricks Track 2023) [2] **ret2dlresolve** - ir0nstone notes [3] 0ctf18 babystack - Nightmare (guyinatuxedo) 32bit, no relro, no canary, nx, no **pie**, basic small buffer overflow and return.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2dlresolve.html&rut=3cccfcb6d9db46e072d5f03b7d1c309ad7a1ac4f2711c1d2e0a31e8259ae80b1)
+
+## [Ret2dlresolve Explained: Forging ELF Relocations to Hijack the Dynamic ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fedoardoderrico.com%2Fblog%2Fret2dlresolve%2Dbut%2Dwell%2Dexplained&rut=2dbb025de22bfe81a517f12e4a6868ecb1e6e4cf394854eff575046a4b57e9d3)
+
+[![Image 2](https://external-content.duckduckgo.com/ip3/edoardoderrico.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fedoardoderrico.com%2Fblog%2Fret2dlresolve%2Dbut%2Dwell%2Dexplained&rut=2dbb025de22bfe81a517f12e4a6868ecb1e6e4cf394854eff575046a4b57e9d3)[edoardoderrico.com/blog/ret2dlresolve-but-well-explained](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fedoardoderrico.com%2Fblog%2Fret2dlresolve%2Dbut%2Dwell%2Dexplained&rut=2dbb025de22bfe81a517f12e4a6868ecb1e6e4cf394854eff575046a4b57e9d3)
+
+[No **PIE**: every address (code, GOT, .bss, the relocation tables) is static and known at compile time. This is huge: **ret2dlresolve** needs to point at structures, and fixed addresses make that pointing trivial.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fedoardoderrico.com%2Fblog%2Fret2dlresolve%2Dbut%2Dwell%2Dexplained&rut=2dbb025de22bfe81a517f12e4a6868ecb1e6e4cf394854eff575046a4b57e9d3)
+
+## [pwnlib.rop.ret2dlresolve — Return to dl_resolve — pwntools 4.15.0 ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdocs.pwntools.com%2Fen%2Fstable%2Frop%2Fret2dlresolve.html&rut=0dd4b3a882f5c7f9888086d5c22df60c74c672c06faa77d039a44db05e2edff2)
+
+[![Image 3](https://external-content.duckduckgo.com/ip3/docs.pwntools.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdocs.pwntools.com%2Fen%2Fstable%2Frop%2Fret2dlresolve.html&rut=0dd4b3a882f5c7f9888086d5c22df60c74c672c06faa77d039a44db05e2edff2)[docs.pwntools.com/en/stable/rop/ret2dlresolve.html](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdocs.pwntools.com%2Fen%2Fstable%2Frop%2Fret2dlresolve.html&rut=0dd4b3a882f5c7f9888086d5c22df60c74c672c06faa77d039a44db05e2edff2)
+
+[pwnlib.rop.**ret2dlresolve** — Return to dl_resolve Provides automatic payload generation for exploiting buffer overflows using **ret2dlresolve**. We use the following example program:](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdocs.pwntools.com%2Fen%2Fstable%2Frop%2Fret2dlresolve.html&rut=0dd4b3a882f5c7f9888086d5c22df60c74c672c06faa77d039a44db05e2edff2)
+
+## [cybersec-notes/binexp/stack/ret2dlresolve/README.md at master ... - GitHub](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fir0nstone%2Fcybersec%2Dnotes%2Fblob%2Fmaster%2Fbinexp%2Fstack%2Fret2dlresolve%2FREADME.md&rut=4aca320dce20460ddef14784ec63a5c6a9b7f1357b9d90fad2eb8906105c01f4)
+
+[![Image 4](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fir0nstone%2Fcybersec%2Dnotes%2Fblob%2Fmaster%2Fbinexp%2Fstack%2Fret2dlresolve%2FREADME.md&rut=4aca320dce20460ddef14784ec63a5c6a9b7f1357b9d90fad2eb8906105c01f4)[github.com/ir0nstone/cybersec-notes/blob/master/binexp/stack/ret2dlresolve/README.md](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fir0nstone%2Fcybersec%2Dnotes%2Fblob%2Fmaster%2Fbinexp%2Fstack%2Fret2dlresolve%2FREADME.md&rut=4aca320dce20460ddef14784ec63a5c6a9b7f1357b9d90fad2eb8906105c01f4)
+
+[**pie** reliable-shellcode ret2csu **ret2dlresolve** README.md exploitation.md return-oriented-programming](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fir0nstone%2Fcybersec%2Dnotes%2Fblob%2Fmaster%2Fbinexp%2Fstack%2Fret2dlresolve%2FREADME.md&rut=4aca320dce20460ddef14784ec63a5c6a9b7f1357b9d90fad2eb8906105c01f4)
+
+## [Ret2dlresolve - HackTricks](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbook.hacktricks.wiki%2Fhi%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2dlresolve.html&rut=bc268229b8d34de220887cfd635bd928c95d4979bacdcc2d61709c0d8d7888c7)
+
+[![Image 5](https://external-content.duckduckgo.com/ip3/book.hacktricks.wiki.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbook.hacktricks.wiki%2Fhi%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2dlresolve.html&rut=bc268229b8d34de220887cfd635bd928c95d4979bacdcc2d61709c0d8d7888c7)[book.hacktricks.wiki/hi/binary-exploitation/rop-return-oriented-programing/ret2dlresolve.html](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbook.hacktricks.wiki%2Fhi%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2dlresolve.html&rut=bc268229b8d34de220887cfd635bd928c95d4979bacdcc2d61709c0d8d7888c7)
+
+[32bit, no relro, no canary, nx, no **pie**, basic small buffer overflow and return. To exploit it the bof is used to call read again with a .bss section and a bigger size, to store in there the dlresolve fake tables to load system, return to main and re-abuse the initial bof to call dlresolve and then system ('/bin/sh').](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbook.hacktricks.wiki%2Fhi%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2dlresolve.html&rut=bc268229b8d34de220887cfd635bd928c95d4979bacdcc2d61709c0d8d7888c7)
+
+## [pwnlib.rop.ret2dlresolve — Return to dl_resolve — pwntools 5.0.0dev ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdocs.pwntools.com%2Fen%2Fdev%2Frop%2Fret2dlresolve.html&rut=b1422cb05ada959cfd0441b21095c92114a75b4de782284d630ea09b70ed4c6d)
+
+[![Image 6](https://external-content.duckduckgo.com/ip3/docs.pwntools.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdocs.pwntools.com%2Fen%2Fdev%2Frop%2Fret2dlresolve.html&rut=b1422cb05ada959cfd0441b21095c92114a75b4de782284d630ea09b70ed4c6d)[docs.pwntools.com/en/dev/rop/ret2dlresolve.html](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdocs.pwntools.com%2Fen%2Fdev%2Frop%2Fret2dlresolve.html&rut=b1422cb05ada959cfd0441b21095c92114a75b4de782284d630ea09b70ed4c6d)
+
+[pwnlib.rop.**ret2dlresolve** — Return to dl_resolve Provides automatic payload generation for exploiting buffer overflows using **ret2dlresolve**. We use the following example program:](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdocs.pwntools.com%2Fen%2Fdev%2Frop%2Fret2dlresolve.html&rut=b1422cb05ada959cfd0441b21095c92114a75b4de782284d630ea09b70ed4c6d)
+
+## [Ret2dlresolve — p3ta-tricks](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fp3ta%2Dtricks.com%2Fpage%2Fhacktricks%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2dlresolve.md&rut=9560c4ff7351fdf6c3c0a3fce179e45dec5a2256fcfc6664daeb30507c1a7081)
+
+[![Image 7](https://external-content.duckduckgo.com/ip3/p3ta-tricks.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fp3ta%2Dtricks.com%2Fpage%2Fhacktricks%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2dlresolve.md&rut=9560c4ff7351fdf6c3c0a3fce179e45dec5a2256fcfc6664daeb30507c1a7081)[p3ta-tricks.com/page/hacktricks/rop-return-oriented-programing/ret2dlresolve.md](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fp3ta%2Dtricks.com%2Fpage%2Fhacktricks%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2dlresolve.md&rut=9560c4ff7351fdf6c3c0a3fce179e45dec5a2256fcfc6664daeb30507c1a7081)
+
+[32bit, no relro, no canary, nx, no **pie**, basic small buffer overflow and return. To exploit it the bof is used to call read again with a .bss section and a bigger size, to store in there the dlresolve fake tables to load system, return to main and re-abuse the initial bof to call dlresolve and then system ('/bin/sh').](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fp3ta%2Dtricks.com%2Fpage%2Fhacktricks%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2dlresolve.md&rut=9560c4ff7351fdf6c3c0a3fce179e45dec5a2256fcfc6664daeb30507c1a7081)
+
+## [SECWIKI/binary-exploitation/rop-return-oriented-programing ... - GitHub](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fblupblob%2FSECWIKI%2Fblob%2Fmaster%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2dlresolve.md&rut=d5edf4a29550a116b464483d986af8599d0967478973fa1332f8fd0da7eeb6f4)
+
+[![Image 8](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fblupblob%2FSECWIKI%2Fblob%2Fmaster%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2dlresolve.md&rut=d5edf4a29550a116b464483d986af8599d0967478973fa1332f8fd0da7eeb6f4)[github.com/blupblob/SECWIKI/blob/master/binary-exploitation/rop-return-oriented-programing/ret2dlresolve.md](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fblupblob%2FSECWIKI%2Fblob%2Fmaster%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2dlresolve.md&rut=d5edf4a29550a116b464483d986af8599d0967478973fa1332f8fd0da7eeb6f4)
+
+[32bit, no relro, no canary, nx, no **pie**, basic small buffer overflow and return. To exploit it the bof is used to call read again with a .bss section and a bigger size, to store in there the dlresolve fake tables to load system, return to main and re-abuse the initial bof to call dlresolve and then system ('/bin/sh').](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fblupblob%2FSECWIKI%2Fblob%2Fmaster%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2dlresolve.md&rut=d5edf4a29550a116b464483d986af8599d0967478973fa1332f8fd0da7eeb6f4)
+
+## [ret2dlresolve | Practical CTF](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbook.jorianwoltjer.com%2Fbinary%2Dexploitation%2Freturn%2Doriented%2Dprogramming%2Drop%2Fret2dlresolve&rut=b0a10384109fff5b655b9e4c7354a004e73ba4b30172facba78a721603c77094)
+
+[![Image 9](https://external-content.duckduckgo.com/ip3/book.jorianwoltjer.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbook.jorianwoltjer.com%2Fbinary%2Dexploitation%2Freturn%2Doriented%2Dprogramming%2Drop%2Fret2dlresolve&rut=b0a10384109fff5b655b9e4c7354a004e73ba4b30172facba78a721603c77094)[book.jorianwoltjer.com/binary-exploitation/return-oriented-programming-rop/ret2dlresolve](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbook.jorianwoltjer.com%2Fbinary%2Dexploitation%2Freturn%2Doriented%2Dprogramming%2Drop%2Fret2dlresolve&rut=b0a10384109fff5b655b9e4c7354a004e73ba4b30172facba78a721603c77094)
+
+[Copy 📟 Binary Exploitation Return-Oriented Programming (ROP) **ret2dlresolve** A way to exploit buffer overflows using ROP when not many gadgets are available, and Full RELRO is disabled **Ret2dlresolve** is a technique that can be used to trick the binary into resolving a specific function, such as system (), into the PLT (Procedure Linkage Table).](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbook.jorianwoltjer.com%2Fbinary%2Dexploitation%2Freturn%2Doriented%2Dprogramming%2Drop%2Fret2dlresolve&rut=b0a10384109fff5b655b9e4c7354a004e73ba4b30172facba78a721603c77094)
+
+## [ret2dlresolve — a shell with no libc leak — algoatson.github.io](https://duckduckgo.com/l/?uddg=https%3A%2F%2Falgoatson.github.io%2Fp%2Fret2dlresolve%2Dno%2Dleak%2F&rut=d0b4ae9ac74a4681e34d3a60ef8c5789aba56abd35d91e95f36731d1227fa744)
+
+[![Image 10](https://external-content.duckduckgo.com/ip3/algoatson.github.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Falgoatson.github.io%2Fp%2Fret2dlresolve%2Dno%2Dleak%2F&rut=d0b4ae9ac74a4681e34d3a60ef8c5789aba56abd35d91e95f36731d1227fa744)[algoatson.github.io/p/ret2dlresolve-no-leak/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Falgoatson.github.io%2Fp%2Fret2dlresolve%2Dno%2Dleak%2F&rut=d0b4ae9ac74a4681e34d3a60ef8c5789aba56abd35d91e95f36731d1227fa744)
+
+[No-**PIE** hands you .bss; with **PIE** you need a leak first, which somewhat defeats the point. Modern glibc bounds-checks the symbol index against the real .dynsym size, so the giant-index trick needs care (keep the fake structures close to the real tables, or use the version that stays in bounds). pwntools picks a working layout for the common cases ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Falgoatson.github.io%2Fp%2Fret2dlresolve%2Dno%2Dleak%2F&rut=d0b4ae9ac74a4681e34d3a60ef8c5789aba56abd35d91e95f36731d1227fa744)
+
+[Feedback](https://duckduckgo.com/feedback.html)
+
+![Image 11](https://duckduckgo.com/t/sl_h)

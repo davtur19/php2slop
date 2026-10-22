@@ -1,0 +1,72 @@
+Title: GOT leak libc base PIE at DuckDuckGo
+
+URL Source: https://html.duckduckgo.com/html/?q=GOT+leak+libc+base+PIE
+
+Markdown Content:
+[](https://html.duckduckgo.com/html/?q=GOT+leak+libc+base+PIE)
+
+[](https://html.duckduckgo.com/html/ "DuckDuckGo")
+
+## [Leaking LibC - The CTF Recipes](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.ctfrecipes.com%2Fpwn%2Fstack%2Dexploitation%2Farbitrary%2Dcode%2Dexecution%2Fcode%2Dreuse%2Dattack%2Fleaking%2Dlibc&rut=b5d4aabf20cb0c28b34117f301625b5e7ebaa09d694310cea8839943df6dffcd)
+
+[![Image 1](https://external-content.duckduckgo.com/ip3/www.ctfrecipes.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.ctfrecipes.com%2Fpwn%2Fstack%2Dexploitation%2Farbitrary%2Dcode%2Dexecution%2Fcode%2Dreuse%2Dattack%2Fleaking%2Dlibc&rut=b5d4aabf20cb0c28b34117f301625b5e7ebaa09d694310cea8839943df6dffcd)[www.ctfrecipes.com/pwn/stack-exploitation/arbitrary-code-execution/code-reuse-attack/leaking-libc](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.ctfrecipes.com%2Fpwn%2Fstack%2Dexploitation%2Farbitrary%2Dcode%2Dexecution%2Fcode%2Dreuse%2Dattack%2Fleaking%2Dlibc&rut=b5d4aabf20cb0c28b34117f301625b5e7ebaa09d694310cea8839943df6dffcd)
+
+[Here the process will print the address of the puts function. Finding **LIBC** library To determine which version of the **libc** library is being used by the program, it is necessary to find which library version contains the 'puts' function at the given address. This can be done by searching through the available library versions and comparing the addresses of the 'printf' function. Once the library ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.ctfrecipes.com%2Fpwn%2Fstack%2Dexploitation%2Farbitrary%2Dcode%2Dexecution%2Fcode%2Dreuse%2Dattack%2Fleaking%2Dlibc&rut=b5d4aabf20cb0c28b34117f301625b5e7ebaa09d694310cea8839943df6dffcd)
+
+## [binary-exploitation-writeups/leak-pie-ret2libc at main - GitHub](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fhoussemhedi%2Fbinary%2Dexploitation%2Dwriteups%2Ftree%2Fmain%2Fleak%2Dpie%2Dret2libc&rut=d784b1ad44695913e8feb76fe2141650117eea7e2eaf8b159aced934dec0dca2)
+
+[![Image 2](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fhoussemhedi%2Fbinary%2Dexploitation%2Dwriteups%2Ftree%2Fmain%2Fleak%2Dpie%2Dret2libc&rut=d784b1ad44695913e8feb76fe2141650117eea7e2eaf8b159aced934dec0dca2)[github.com/houssemhedi/binary-exploitation-writeups/tree/main/leak-pie-ret2libc](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fhoussemhedi%2Fbinary%2Dexploitation%2Dwriteups%2Ftree%2Fmain%2Fleak%2Dpie%2Dret2libc&rut=d784b1ad44695913e8feb76fe2141650117eea7e2eaf8b159aced934dec0dca2)
+
+[With **PIE** enabled, the binary itself loads at a random **base** address each run (just like **libc** under ASLR). All function addresses, **GOT** entries, and ROP gadgets are at **base** + offset — and the **base** changes every time.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fhoussemhedi%2Fbinary%2Dexploitation%2Dwriteups%2Ftree%2Fmain%2Fleak%2Dpie%2Dret2libc&rut=d784b1ad44695913e8feb76fe2141650117eea7e2eaf8b159aced934dec0dca2)
+
+## [binary-exploitation-writeups/leak-pie-ret2libc/README.md at main ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fhoussemhedi%2Fbinary%2Dexploitation%2Dwriteups%2Fblob%2Fmain%2Fleak%2Dpie%2Dret2libc%2FREADME.md&rut=e5582c0b41bbb4ee9b2fcd49e166108b98f4e52cb1626f8f68c712f49a959e72)
+
+[![Image 3](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fhoussemhedi%2Fbinary%2Dexploitation%2Dwriteups%2Fblob%2Fmain%2Fleak%2Dpie%2Dret2libc%2FREADME.md&rut=e5582c0b41bbb4ee9b2fcd49e166108b98f4e52cb1626f8f68c712f49a959e72)[github.com/houssemhedi/binary-exploitation-writeups/blob/main/leak-pie-ret2libc/README.md](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fhoussemhedi%2Fbinary%2Dexploitation%2Dwriteups%2Fblob%2Fmain%2Fleak%2Dpie%2Dret2libc%2FREADME.md&rut=e5582c0b41bbb4ee9b2fcd49e166108b98f4e52cb1626f8f68c712f49a959e72)
+
+[With **PIE** enabled, the binary itself loads at a random **base** address each run (just like **libc** under ASLR). All function addresses, **GOT** entries, and ROP gadgets are at **base** + offset — and the **base** changes every time.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fhoussemhedi%2Fbinary%2Dexploitation%2Dwriteups%2Fblob%2Fmain%2Fleak%2Dpie%2Dret2libc%2FREADME.md&rut=e5582c0b41bbb4ee9b2fcd49e166108b98f4e52cb1626f8f68c712f49a959e72)
+
+## [Leaking libc address with ROP - HackTricks](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2lib%2Frop%2Dleaking%2Dlibc%2Daddress%2Findex.html&rut=6e628fa3ecb654326dccf5689d207bb448350ef70f05d3fe3b53eebb7c7a5653)
+
+[![Image 4](https://external-content.duckduckgo.com/ip3/hacktricks.wiki.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2lib%2Frop%2Dleaking%2Dlibc%2Daddress%2Findex.html&rut=6e628fa3ecb654326dccf5689d207bb448350ef70f05d3fe3b53eebb7c7a5653)[hacktricks.wiki/en/binary-exploitation/rop-return-oriented-programing/ret2lib/rop-leaking-libc-address/index.html](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2lib%2Frop%2Dleaking%2Dlibc%2Daddress%2Findex.html&rut=6e628fa3ecb654326dccf5689d207bb448350ef70f05d3fe3b53eebb7c7a5653)
+
+[ROP - Leaking **LIBC** template Download the exploit and place it in the same directory as the vulnerable binary and give the needed data to the script: Leaking **libc** - template 1- Finding the offset The template need an offset before continuing with the exploit. If any is provided it will execute the necessary code to find it (by default OFFSET = ""):](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2lib%2Frop%2Dleaking%2Dlibc%2Daddress%2Findex.html&rut=6e628fa3ecb654326dccf5689d207bb448350ef70f05d3fe3b53eebb7c7a5653)
+
+## [Leaking libc - template - HackTricks](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2lib%2Frop%2Dleaking%2Dlibc%2Daddress%2Frop%2Dleaking%2Dlibc%2Dtemplate.html&rut=ead803745f17cec45eb5df91d95f561566bcff7b0ae2e9767c14d75b342f4e68)
+
+[![Image 5](https://external-content.duckduckgo.com/ip3/hacktricks.wiki.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2lib%2Frop%2Dleaking%2Dlibc%2Daddress%2Frop%2Dleaking%2Dlibc%2Dtemplate.html&rut=ead803745f17cec45eb5df91d95f561566bcff7b0ae2e9767c14d75b342f4e68)[hacktricks.wiki/en/binary-exploitation/rop-return-oriented-programing/ret2lib/rop-leaking-libc-address/rop-leaking-libc-template.html](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2lib%2Frop%2Dleaking%2Dlibc%2Daddress%2Frop%2Dleaking%2Dlibc%2Dtemplate.html&rut=ead803745f17cec45eb5df91d95f561566bcff7b0ae2e9767c14d75b342f4e68)
+
+[This pwntools template implements a two-stage ROP exploit: first call a PLT function to **leak** its resolved **GOT** entry and calculate the **libc****base**, then build a second chain with **libc** symbols such as system. The ELF and ROP helpers resolve symbols, search loaded files, and construct gadgets for the selected binary. [1] [2]](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fbinary%2Dexploitation%2Frop%2Dreturn%2Doriented%2Dprograming%2Fret2lib%2Frop%2Dleaking%2Dlibc%2Daddress%2Frop%2Dleaking%2Dlibc%2Dtemplate.html&rut=ead803745f17cec45eb5df91d95f561566bcff7b0ae2e9767c14d75b342f4e68)
+
+## [Bypassing PIE: Leaking the Base and Landing the Shot](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fochko%2Dportfolio.vercel.app%2Fwriteups%2Fbypassing%2Dpie&rut=ed009ab65e9e789061d869daa0c60ccc08fa511e5ee668ea95b3bdaace66fdbb)
+
+[![Image 6](https://external-content.duckduckgo.com/ip3/ochko-portfolio.vercel.app.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fochko%2Dportfolio.vercel.app%2Fwriteups%2Fbypassing%2Dpie&rut=ed009ab65e9e789061d869daa0c60ccc08fa511e5ee668ea95b3bdaace66fdbb)[ochko-portfolio.vercel.app/writeups/bypassing-pie](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fochko%2Dportfolio.vercel.app%2Fwriteups%2Fbypassing%2Dpie&rut=ed009ab65e9e789061d869daa0c60ccc08fa511e5ee668ea95b3bdaace66fdbb)
+
+[Build the chain With the **base** known, the rest is textbook. **Leak****libc** via the **GOT**, resolve system, then return into it: LISTING 04 - PYTHON COPY](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fochko%2Dportfolio.vercel.app%2Fwriteups%2Fbypassing%2Dpie&rut=ed009ab65e9e789061d869daa0c60ccc08fa511e5ee668ea95b3bdaace66fdbb)
+
+## [Leaking libc through puts@got with ROPchains | Ian | Hacking](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fian.nl%2Fblog%2Fleak%2Dlibc%2Drop&rut=1d1eed3c8469f2e057f8da9b4bb180836dd1b36ada4bf6e05148f0d8c06469a2)
+
+[![Image 7](https://external-content.duckduckgo.com/ip3/ian.nl.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fian.nl%2Fblog%2Fleak%2Dlibc%2Drop&rut=1d1eed3c8469f2e057f8da9b4bb180836dd1b36ada4bf6e05148f0d8c06469a2)[ian.nl/blog/leak-libc-rop](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fian.nl%2Fblog%2Fleak%2Dlibc%2Drop&rut=1d1eed3c8469f2e057f8da9b4bb180836dd1b36ada4bf6e05148f0d8c06469a2)
+
+[The offset of puts is constant in a specific **libc** version. When you **leak** the runtime address of puts (e.g., puts@got), you can calculate the **base** address of **libc**:](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fian.nl%2Fblog%2Fleak%2Dlibc%2Drop&rut=1d1eed3c8469f2e057f8da9b4bb180836dd1b36ada4bf6e05148f0d8c06469a2)
+
+## [Bypassing ASLR and PIE in CTF Exploitation | picoCTF Solutions](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fpicoctfsolutions.com%2Fposts%2Faslr%2Dpie%2Dbypass%2Dctf&rut=6625e122df675df1c44430d06bc189f7826afc75f31d83c89dd9a950c3f26b66)
+
+[![Image 8](https://external-content.duckduckgo.com/ip3/picoctfsolutions.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fpicoctfsolutions.com%2Fposts%2Faslr%2Dpie%2Dbypass%2Dctf&rut=6625e122df675df1c44430d06bc189f7826afc75f31d83c89dd9a950c3f26b66)[picoctfsolutions.com/posts/aslr-pie-bypass-ctf](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fpicoctfsolutions.com%2Fposts%2Faslr%2Dpie%2Dbypass%2Dctf&rut=6625e122df675df1c44430d06bc189f7826afc75f31d83c89dd9a950c3f26b66)
+
+[The **GOT** (Global Offset Table) stores the resolved runtime address of each **libc** function the binary calls. Printing a **GOT** entry **leaks** that function's runtime address in **libc**, from which you can compute the **libc****base**.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fpicoctfsolutions.com%2Fposts%2Faslr%2Dpie%2Dbypass%2Dctf&rut=6625e122df675df1c44430d06bc189f7826afc75f31d83c89dd9a950c3f26b66)
+
+## [House of ekko | CTF Base](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fctfbase.com%2Fwriteup%2F20261017_securinets2026_house_of_ekko&rut=e36d79e9c09700465c9ab629ce77683625ea614734d68928df086c103c488d31)
+
+[![Image 9](https://external-content.duckduckgo.com/ip3/ctfbase.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fctfbase.com%2Fwriteup%2F20261017_securinets2026_house_of_ekko&rut=e36d79e9c09700465c9ab629ce77683625ea614734d68928df086c103c488d31)[ctfbase.com/writeup/20261017_securinets2026_house_of_ekko](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fctfbase.com%2Fwriteup%2F20261017_securinets2026_house_of_ekko&rut=e36d79e9c09700465c9ab629ce77683625ea614734d68928df086c103c488d31)
+
+[Task: **PIE** heap pwn, two-slot secrets manager with UAF read, double free and no NULL-out; bundled **libc** is custom glibc 2.43 with tcache/fastbins compiled out. Solution: **libc****leak**, merge-overlap, smallbin poison via binmap-loop unlink for an arbitrary **libc** write, then House of Apple 2 via _IO_list_all on exit (0).](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fctfbase.com%2Fwriteup%2F20261017_securinets2026_house_of_ekko&rut=e36d79e9c09700465c9ab629ce77683625ea614734d68928df086c103c488d31)
+
+## [Tut06-2: Advanced ROP - CS6265: Information Security Lab](https://duckduckgo.com/l/?uddg=https%3A%2F%2Ftc.gts3.org%2Fcs6265%2Ftut%2Ftut06%2D02%2Dadvrop.html&rut=9252fb871cb95dd0e013ce2c23c72410bcf8af716ca9108f940666af85d2b29d)
+
+[![Image 10](https://external-content.duckduckgo.com/ip3/tc.gts3.org.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Ftc.gts3.org%2Fcs6265%2Ftut%2Ftut06%2D02%2Dadvrop.html&rut=9252fb871cb95dd0e013ce2c23c72410bcf8af716ca9108f940666af85d2b29d)[tc.gts3.org/cs6265/tut/tut06-02-advrop.html](https://duckduckgo.com/l/?uddg=https%3A%2F%2Ftc.gts3.org%2Fcs6265%2Ftut%2Ftut06%2D02%2Dadvrop.html&rut=9252fb871cb95dd0e013ce2c23c72410bcf8af716ca9108f940666af85d2b29d)
+
+[Step 2. Leaking **libc's** code pointer Although the process image has lots of interesting functions in its PLT/**GOT** that we can abuse, it's missing the truly powerful functions like system () that allow for arbitrary code execution. To invoke arbitrary **libc** functions, we'll first need to **leak** code pointers pointing to **libc**.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Ftc.gts3.org%2Fcs6265%2Ftut%2Ftut06%2D02%2Dadvrop.html&rut=9252fb871cb95dd0e013ce2c23c72410bcf8af716ca9108f940666af85d2b29d)
+
+[Feedback](https://duckduckgo.com/feedback.html)
+
+![Image 11](https://duckduckgo.com/t/sl_h)

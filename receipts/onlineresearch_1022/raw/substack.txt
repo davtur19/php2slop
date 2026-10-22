@@ -1,0 +1,262 @@
+
+php2shell: Dissecting PHP's Critical Session Upload Progress Vulnerabilities
+Man in Cybersecurity
+Subscribe
+Sign in
+php2shell: Dissecting PHP's Critical Session Upload Progress Vulnerabilities
+CVE-2026-109618 & CVE-2026-109619 — Five independent RCE chains, from source audit to working exploits
+Qi Deng
+Oct 21, 2026
+9
+3
+Share
+*CVE-2026-109618 & CVE-2026-109619 — From source code audit to four independent RCE chains*
+On October 20, 2026, PHP’s security team announced an emergency release for two critical vulnerabilities rated CVSS v4.0 9.2, scheduled for October 21 at 14:00 UTC. Details leaked early, a proof-of-concept tool called “PHP2Shell” surfaced, and the security community scrambled to understand the impact.
+I spent the past 24 hours building a lab, reading PHP source code line by line, and constructing working exploits from scratch. Here’s what I found — including attack paths that weren’t in any of the leaked POCs.
+TL;DR:
+ Five independent RCE chains. Three exploit PHP’s 
+session.upload_progress
+ feature (enabled by default since PHP 5.4). The fourth — a zero-dependency pre-auth RCE on Apache mod_php — exploits PHP’s memory allocator bailout during multipart parsing. No login, no LFI, no application code needed.
+What Was Actually Fixed
+PHP released the patch on October 21 — 
+commit 3584a98
+, 
+300 files changed
+. The official advisories:
+CVE-2026-109618
+: RCE via OOM corruption
+ — PHP uses 
+longjmp()
+ on out-of-memory errors. During multipart parsing, if OOM fires while request state is partly initialized, shutdown reads invalid memory. Apache mod_php runs shutdown unconditionally. This gives RCE.
+CVE-2026-109619
+: RCE via stale global state
+ — PHP workers retain global state pointing to freed request memory. Fatal errors (including OOM) skip the reset. A subsequent request reads stale pointers. This gives use-after-free and RCE.
+The Attack Surface
+PHP’s 
+session.upload_progress
+ feature, introduced in PHP 5.4.0, tracks multipart file upload progress in session data. It processes multipart POST bodies 
+before application code runs
+ — in the SAPI layer’s 
+php_session_rfc1867_callback
+.
+This means:
+No authentication required
+No application code involvement
+The handler creates session files with attacker-controllable data
+It runs on 
+any
+ PHP endpoint that accepts POST requests
+Chain A: Session Fixation + Filename Injection
+The 
+MULTIPART_EVENT_FORMDATA
+ handler accepts session IDs from the POST body 
+without checking 
+session.use_only_cookies
+:
+// ext/session/session.c — MULTIPART_EVENT_FORMDATA
+if (name_len == progress->sname_len && 
+ memcmp(data->name, PS(session_name), name_len) == 0) {
+ ZVAL_STRINGL(&progress->sid, (*data->value), value_len);
+ // No use_only_cookies check!
+}
+And the upload filename is stored 
+raw
+ in the session file — no sanitization, no encoding. A filename of is stored as-is.
+Combined with any LFI vulnerability, this gives pre-auth RCE:
+$ python3 exploit_session_inject.py --command ‘id && uname -a’
+[+] RCE CONFIRMED!
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+Linux 5b5e45fd8525 6.8.0-117-generic x86_64 GNU/Linux
+Chain B: var_destroy __destruct Reentry UAF
+In 
+ext/standard/var_unserializer.re
+, the 
+var_destroy
+ function:
+Phase 1
+ (line 245): Frees back-reference extension chunks via 
+efree_size()
+Phase 2
+ (line 310): Calls 
+i_zval_ptr_dtor(zv)
+ — 
+without 
+BG(serialize_lock)
+If 
+__destruct
+ fires during Phase 2, and the destructor calls 
+unserialize()
+, the inner parser 
+reuses the outer’s var_hash
+. The inner 
+R:1500;
+ back-reference walks into the freed extension chunks. ASAN confirmed:
+ERROR: AddressSanitizer: heap-use-after-free
+READ of size 8 at 0xfffff0cb6900 thread T0
+ #0 php_var_unserialize at var_unserializer.c:851
+ #13 var_destroy at var_unserializer.c:310
+freed at:
+ #3 var_destroy at var_unserializer.c:245
+I turned this into RCE by overwriting 
+var_dump
+‘s handler pointer with 
+zif_system
+ via 
+/proc/self/mem
+:
+$ USE_ZEND_ALLOC=0 php exploit_x86_v2.php
+[*] Overwriting var_dump handler -> zif_system...
+uid=0(root) gid=0(root) groups=0(root)
+Linux 35ecc988099c 6.8.0-117-generic x86_64 GNU/Linux
+Chain C: Session Handler Mismatch
+If two directories on the same server use different session serialize handlers via 
+.user.ini
+, the session file format depends on which directory handles the request.
+When the 
+php
+ handler reads data written by 
+php_serialize
+, the pipe 
+|
+ character inside the filename creates a format mismatch. The 
+php
+ handler splits at 
+|
+ and deserializes the injected object.
+The critical finding: 
+__destruct
+ fires even when the decode returns FAILURE.
+ The 
+PHP_VAR_UNSERIALIZE_DESTROY(var_hash)
+ cleanup runs on both success and failure paths.
+garbage|O:4:”Evil”:1:{s:3:”cmd”;s:22:”id > /tmp/rce_proof”;}TRAILING_JUNK
+ ^ ^
+ php handler splits here trailing data = FAILURE
+ O:4:”Evil” deserialized but __destruct ALREADY FIRED
+Verified on PHP 8.2.34:
+DESTRUCT! cmd=id; uname -a; hostname
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+Linux 5b5e45fd8525 6.8.0-117-generic aarch64 GNU/Linux
+Chain D: OOM Corruption — Zero-Dependency RCE
+This is the most critical finding. From the 
+official advisory
+:
+*”Apache mod_php unconditionally invokes the request shutdown procedure, even when request startup has failed. This happens entirely before any application-specific code begins execution.”*
+The Mechanism
+Attacker sends a multipart POST with fields designed to exhaust 
+memory_limit
+OOM fires during multipart parsing. 
+longjmp()
+ bailout skips 
+init_executor
+EG()
+ globals left uninitialized — error handlers, object store, exception state
+Apache mod_php runs shutdown anyway, reads the stale globals
+With heap shaping: controlled execution. RCE
+OOM Trigger Strategies
+The advisory confirms three multipart-based strategies:
+No Content-Length
+: Bypasses 
+post_max_size
+ check, allows unlimited body data
+Unlimited part headers
+: Each header uses more PHP memory than wire bytes (~4x amplification)
+Empty file controls + nested names
+: Don’t count toward 
+max_file_uploads
+, nested arrays multiply memory use
+I confirmed the OOM condition on Apache mod_php:
+$ python3 exploit_oom_modphp.py --target http://target:80 --memory-limit 32
+ [1] Populating EG() state on worker...
+ [2] Triggering OOM during multipart parsing...
+ [+] OOM TRIGGERED!
+ Fatal error: Allowed memory size of 33554432 bytes exhausted
+ longjmp() bailout executed
+ mod_php shutdown runs on stale EG() state
+No login. No LFI. No application code. Just a single HTTP POST to any PHP endpoint.
+Chain E: FPM Session OOM → Stale BG(unserialize) → RCE
+While Chain D targets mod_php, this chain targets 
+PHP-FPM
+ — the more common deployment model. It exploits a subtle timing gap in FPM's request lifecycle.
+The Timing Gap
+PHP-FPM's request startup order is: 
+sapi_activate() → rfc1867 (upload_progress) → zend_activate_modules() → PHP_RINIT_FUNCTION(basic)
+The critical detail: 
+rfc1867
+ (which handles session.upload_progress) runs 
+before
+PHP_RINIT_FUNCTION(basic)
+. The patch added 
+php_basic_early_rinit()
+ to reset BG() before rfc1867 — because on unpatched PHP, BG(unserialize) state from the previous request is still accessible during rfc1867.
+The Attack
+Step 1 (Producer):
+ Send request to an endpoint that calls session_start() with Cookie pointing to a ~30MB session file. The session_start() decode triggers OOM during php_var_unserialize. The longjmp bailout skips PHP_VAR_UNSERIALIZE_DESTROY, so BG(unserialize).level stays at 1. The FPM worker survives because the OOM was in application code, not startup.
+Step 2 (Consumer):
+ Send multipart POST with PHP_SESSION_UPLOAD_PROGRESS. The rfc1867 handler fires before PHP_RINIT_FUNCTION(basic), accessing the stale BG(unserialize) from Step 1. The session handler attempts to work with the dirty state, triggering "Session object destruction failed" — __destruct fires on partially-decoded objects from the stale session. With crafted session objects, this gives controlled code execution.
+I verified this with GDB, confirming BG(unserialize).level = 1 after the producer's OOM. The consumer's rfc1867 handler then accesses this stale state:
+[1] PRODUCER: session_start() decode → OOM...
+ [+] OOM during session decode!
+ BG(unserialize).level = 1, session destruction state dirty
+[2] CONSUMER: upload_progress → stale BG → session destruction...
+ [+] STALE STATE CONSUMED!
+ → Session object destruction failed
+ → Failed to decode session object
+ → Session destroyed during stale cleanup
+ → Error in Request Startup (rfc1867 phase)
+Impact Summary
+The four chains cover every common PHP deployment:
+Chain A
+ (Session + LFI): Targets apps with any file inclusion vulnerability. WordPress plugins, custom PHP apps.
+Chain B
+ (UAF): Targets apps that call unserialize on user input. Laravel, Magento, any app with deserialization entry points.
+Chain C
+ (Handler Mismatch): Targets multi-app servers where different directories use different session handlers. Common in shared hosting.
+Chain D
+ (OOM): Targets any Apache mod_php installation. No application dependency at all. This is a PHP runtime-level vulnerability.
+Every PHP version from 5.4.0 to 8.5.11 is affected — 
+14 years of vulnerable code
+.
+Fixed in PHP 8.2.35, 8.3.36, 8.4.27, 8.5.12.
+Mitigation
+; Immediate — does NOT fix Chain D (OOM is in Zend core, not session)
+session.upload_progress.enabled = Off
+session.use_only_cookies = On
+The only complete fix is updating PHP.
+POCs and Lab
+Verification POCs: 
+github.com/ikow/php2shell-poc
+Includes Docker lab with both PHP-FPM + nginx and Apache mod_php configurations.
+Full Exploit Code
+The following section contains the complete, working exploit code for all four chains. Each was tested and verified on PHP 8.2.34 in our Docker lab environment.
+Chain A
+ is the simplest — pure Python, targets any PHP app with an LFI sink. 
+Chain B
+ requires local PHP execution with 
+/proc/self/mem
+ access. 
+Chain C
+ requires two directories with different session handlers. 
+Chain D
+ targets Apache mod_php with default configuration — zero application dependencies.
+Subscribe for free to continue reading
+Enter your email and get every post from Man in Cybersecurity.
+Subscribe
+Already have an account?
+Sign in
+© 
+2026
+Qi Deng
+ · 
+Privacy
+ ∙ 
+Terms
+ ∙ 
+Collection notice
+Start your Substack
+Get the app
+Substack
+is the home for great culture
+ This site requires JavaScript to run correctly. Please 
+turn on JavaScript
+ or unblock scripts

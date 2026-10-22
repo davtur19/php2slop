@@ -1,0 +1,72 @@
+Title: PHP session deserialization RCE writeup PHP 7 PIE at DuckDuckGo
+
+URL Source: https://html.duckduckgo.com/html/?q=PHP+session+deserialization+RCE+writeup+PHP+7+PIE
+
+Markdown Content:
+[](https://html.duckduckgo.com/html/?q=PHP+session+deserialization+RCE+writeup+PHP+7+PIE)
+
+[](https://html.duckduckgo.com/html/ "DuckDuckGo")
+
+## [Exploiting PHP unserialization for RCE | bl4ckarch](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbl4ckarch.github.io%2Fposts%2FExploiting%2DPHP%2DDeserialization%2F&rut=bc9ec7dc86e70d14289b4b6262560390964e31c43354af1c4d1e78dc9f31969a)
+
+[![Image 1](https://external-content.duckduckgo.com/ip3/bl4ckarch.github.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbl4ckarch.github.io%2Fposts%2FExploiting%2DPHP%2DDeserialization%2F&rut=bc9ec7dc86e70d14289b4b6262560390964e31c43354af1c4d1e78dc9f31969a)[bl4ckarch.github.io/posts/Exploiting-PHP-Deserialization/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbl4ckarch.github.io%2Fposts%2FExploiting%2DPHP%2DDeserialization%2F&rut=bc9ec7dc86e70d14289b4b6262560390964e31c43354af1c4d1e78dc9f31969a)
+
+[Introduction **PHP** Object Injection vulnerabilities are frequently found in web applications. If successfully exploited they let attackers run arbitrary code and take advantage of vulnerabilities in **deserialization**. This blog post will demonstrate how to use object-oriented programming (OOP) analysis, magic methods, and payload creation to achieve arbitrary command execution due **deserialization**.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbl4ckarch.github.io%2Fposts%2FExploiting%2DPHP%2DDeserialization%2F&rut=bc9ec7dc86e70d14289b4b6262560390964e31c43354af1c4d1e78dc9f31969a)
+
+## [PayloadsAllTheThings/Insecure Deserialization/PHP.md at master ... - GitHub](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fswisskyrepo%2FPayloadsAllTheThings%2Fblob%2Fmaster%2FInsecure%2520Deserialization%2FPHP.md&rut=7ec3b304dacabd97c6d44fa0de87680b77ef8b1f06c6aeddba8cac1d5ec79e8c)
+
+[![Image 2](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fswisskyrepo%2FPayloadsAllTheThings%2Fblob%2Fmaster%2FInsecure%2520Deserialization%2FPHP.md&rut=7ec3b304dacabd97c6d44fa0de87680b77ef8b1f06c6aeddba8cac1d5ec79e8c)[github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Insecure Deserialization/PHP.md](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fswisskyrepo%2FPayloadsAllTheThings%2Fblob%2Fmaster%2FInsecure%2520Deserialization%2FPHP.md&rut=7ec3b304dacabd97c6d44fa0de87680b77ef8b1f06c6aeddba8cac1d5ec79e8c)
+
+[**PHP****Deserialization****PHP** Object Injection is an application level vulnerability that could allow an attacker to perform different kinds of malicious attacks, such as Code Injection, SQL Injection, Path Traversal and Application Denial of Service, depending on the context.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fswisskyrepo%2FPayloadsAllTheThings%2Fblob%2Fmaster%2FInsecure%2520Deserialization%2FPHP.md&rut=7ec3b304dacabd97c6d44fa0de87680b77ef8b1f06c6aeddba8cac1d5ec79e8c)
+
+## [Exploiting PHP Deserialization - Vickie Li's Security Blog](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvickieli.dev%2Finsecure%2520deserialization%2Fexploiting%2Dphp%2Ddeserialization%2F&rut=9e399e7adad7b5d4756a2dd1a5c0c8966bb0a5c62e2c6ac11852508eec889d06)
+
+[![Image 3](https://external-content.duckduckgo.com/ip3/vickieli.dev.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvickieli.dev%2Finsecure%2520deserialization%2Fexploiting%2Dphp%2Ddeserialization%2F&rut=9e399e7adad7b5d4756a2dd1a5c0c8966bb0a5c62e2c6ac11852508eec889d06)[vickieli.dev/insecure deserialization/exploiting-php-deserialization/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvickieli.dev%2Finsecure%2520deserialization%2Fexploiting%2Dphp%2Ddeserialization%2F&rut=9e399e7adad7b5d4756a2dd1a5c0c8966bb0a5c62e2c6ac11852508eec889d06)
+
+[You can achieve **RCE** using this **deserialization** flaw because a user-provided object is passed into unserialize. And the class Example2 has a magic function that runs eval () on user-provided input.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvickieli.dev%2Finsecure%2520deserialization%2Fexploiting%2Dphp%2Ddeserialization%2F&rut=9e399e7adad7b5d4756a2dd1a5c0c8966bb0a5c62e2c6ac11852508eec889d06)
+
+## [Escalating PHP Deserialization - Vickie Li's Security Blog](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvickieli.dev%2Finsecure%2520deserialization%2Funserialize%2Dexploits%2F&rut=8aab45cbcec114bb979be79c398139aa92737426b65c80265c89254ff7c5a1f7)
+
+[![Image 4](https://external-content.duckduckgo.com/ip3/vickieli.dev.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvickieli.dev%2Finsecure%2520deserialization%2Funserialize%2Dexploits%2F&rut=8aab45cbcec114bb979be79c398139aa92737426b65c80265c89254ff7c5a1f7)[vickieli.dev/insecure deserialization/unserialize-exploits/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvickieli.dev%2Finsecure%2520deserialization%2Funserialize%2Dexploits%2F&rut=8aab45cbcec114bb979be79c398139aa92737426b65c80265c89254ff7c5a1f7)
+
+[Escalating **PHP****Deserialization** Don't despair when you can't **RCE**. How to achieve authentication bypass and SQL injection using **PHP's** unserialize (). Last time, we talked about how **PHP's** unserialize leads to vulnerabilities, and how an attacker can utilize it to achieve **RCE**.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvickieli.dev%2Finsecure%2520deserialization%2Funserialize%2Dexploits%2F&rut=8aab45cbcec114bb979be79c398139aa92737426b65c80265c89254ff7c5a1f7)
+
+## [CVE-2026-109618 / CVE-2026-109619 - PHP2Shell - GitHub](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2FNayrae%2FCVE%2D2026%2D109618&rut=b41f14d516853526cee6cf6f6e8825a3df25fe17ec22b68e5d0ca2981d6e2f5e)
+
+[![Image 5](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2FNayrae%2FCVE%2D2026%2D109618&rut=b41f14d516853526cee6cf6f6e8825a3df25fe17ec22b68e5d0ca2981d6e2f5e)[github.com/Nayrae/CVE-2026-109618](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2FNayrae%2FCVE%2D2026%2D109618&rut=b41f14d516853526cee6cf6f6e8825a3df25fe17ec22b68e5d0ca2981d6e2f5e)
+
+[A **session** file written by a directory using php_serialize can be read by a directory using the default **php** handler. The attacker controls the **session** ID (via a POST field, not just a cookie), plants a serialized object, and the victim directory's session_start () instantiates it, firing __destruct () on decode failure.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2FNayrae%2FCVE%2D2026%2D109618&rut=b41f14d516853526cee6cf6f6e8825a3df25fe17ec22b68e5d0ca2981d6e2f5e)
+
+## [PHP Deserialization - Bootlesshacker's Cybersecurity Blog](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.bootlesshacker.com%2Fphp%2Ddeserialization%2F&rut=cd54af9f2d8ab7fc4d57bf74ac12f7860929573a4578edf9d63a1c5c974fec76)
+
+[![Image 6](https://external-content.duckduckgo.com/ip3/www.bootlesshacker.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.bootlesshacker.com%2Fphp%2Ddeserialization%2F&rut=cd54af9f2d8ab7fc4d57bf74ac12f7860929573a4578edf9d63a1c5c974fec76)[www.bootlesshacker.com/php-deserialization/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.bootlesshacker.com%2Fphp%2Ddeserialization%2F&rut=cd54af9f2d8ab7fc4d57bf74ac12f7860929573a4578edf9d63a1c5c974fec76)
+
+[**PHP****Deserialization** is not something that I have much experience of, but having done a CTF recently which required me to exploit **PHP****deserialization** to gain remote access, I realised how straight forward it can be. Through this post, I aim to provide a basic example of a **deserialization** to **RCE** exploit for those who aren't familiar.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.bootlesshacker.com%2Fphp%2Ddeserialization%2F&rut=cd54af9f2d8ab7fc4d57bf74ac12f7860929573a4578edf9d63a1c5c974fec76)
+
+## [PHP Deserialization Rce by shulkwisec · SkillMD](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fskillmd.com%2Fskills%2Fshulkwisec%2Fphp%2Ddeserialization%2Drce&rut=9a9792d8014ff17f7e0af09f5b5a1ecb65604c9967eab1ab8d367e1f3833587e)
+
+[![Image 7](https://external-content.duckduckgo.com/ip3/skillmd.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fskillmd.com%2Fskills%2Fshulkwisec%2Fphp%2Ddeserialization%2Drce&rut=9a9792d8014ff17f7e0af09f5b5a1ecb65604c9967eab1ab8d367e1f3833587e)[skillmd.com/skills/shulkwisec/php-deserialization-rce](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fskillmd.com%2Fskills%2Fshulkwisec%2Fphp%2Ddeserialization%2Drce&rut=9a9792d8014ff17f7e0af09f5b5a1ecb65604c9967eab1ab8d367e1f3833587e)
+
+[File contents **PHP****Deserialization** to **RCE** When to Use During a web application assessment where user-supplied input is passed to **PHP's** unserialize () function. Often found in base64-encoded or URL-encoded cookies, hidden form fields, or API endpoints handling legacy architecture.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fskillmd.com%2Fskills%2Fshulkwisec%2Fphp%2Ddeserialization%2Drce&rut=9a9792d8014ff17f7e0af09f5b5a1ecb65604c9967eab1ab8d367e1f3833587e)
+
+## [GPN CTF 2026 — Pharry: PHP 7.4 PHAR Deserialization via Two-Connection ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fcybersecurityelite.com%2Fctf%2Dwriteups%2Fgpn%2Dctf%2D2026%2Dpharry%2F&rut=5eac2e4c4198b846dbd047a617c2b0b3647e5bff571c380f24afaa534d1ab7c7)
+
+[![Image 8](https://external-content.duckduckgo.com/ip3/cybersecurityelite.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fcybersecurityelite.com%2Fctf%2Dwriteups%2Fgpn%2Dctf%2D2026%2Dpharry%2F&rut=5eac2e4c4198b846dbd047a617c2b0b3647e5bff571c380f24afaa534d1ab7c7)[cybersecurityelite.com/ctf-writeups/gpn-ctf-2026-pharry/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fcybersecurityelite.com%2Fctf%2Dwriteups%2Fgpn%2Dctf%2D2026%2Dpharry%2F&rut=5eac2e4c4198b846dbd047a617c2b0b3647e5bff571c380f24afaa534d1ab7c7)
+
+[GPN CTF Pharry **writeup**: a two-connection race makes md5_file() and file_get_contents() read different PHAR data.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fcybersecurityelite.com%2Fctf%2Dwriteups%2Fgpn%2Dctf%2D2026%2Dpharry%2F&rut=5eac2e4c4198b846dbd047a617c2b0b3647e5bff571c380f24afaa534d1ab7c7)
+
+## [PHP Deserialization and Object Injection — Knowledge Base — h00die-gr3y](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fh00die%2Dgr3y.github.io%2Fknowledge%2Dbase%2Fphp%2Ddeserialization%2F&rut=57ce8f05e797b17e9d0e1dbda16376292cc28349e79d6b20dff2aab3caadd04b)
+
+[![Image 9](https://external-content.duckduckgo.com/ip3/h00die-gr3y.github.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fh00die%2Dgr3y.github.io%2Fknowledge%2Dbase%2Fphp%2Ddeserialization%2F&rut=57ce8f05e797b17e9d0e1dbda16376292cc28349e79d6b20dff2aab3caadd04b)[h00die-gr3y.github.io/knowledge-base/php-deserialization/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fh00die%2Dgr3y.github.io%2Fknowledge%2Dbase%2Fphp%2Ddeserialization%2F&rut=57ce8f05e797b17e9d0e1dbda16376292cc28349e79d6b20dff2aab3caadd04b)
+
+[A practical guide to working out what attacker-controlled **PHP****deserialization** actually gives you, which classes are reachable, and how that can grow into real impact.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fh00die%2Dgr3y.github.io%2Fknowledge%2Dbase%2Fphp%2Ddeserialization%2F&rut=57ce8f05e797b17e9d0e1dbda16376292cc28349e79d6b20dff2aab3caadd04b)
+
+## [PHP - Deserialization + Autoload Classes - HackTricks](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fpentesting%2Dweb%2Fdeserialization%2Fphp%2Ddeserialization%2D%252B%2Dautoload%2Dclasses.html&rut=cc6c8bf628c3e77fb378a7220fc45324cf3ecd34f514a8de2084c4628b879417)
+
+[![Image 10](https://external-content.duckduckgo.com/ip3/hacktricks.wiki.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fpentesting%2Dweb%2Fdeserialization%2Fphp%2Ddeserialization%2D%252B%2Dautoload%2Dclasses.html&rut=cc6c8bf628c3e77fb378a7220fc45324cf3ecd34f514a8de2084c4628b879417)[hacktricks.wiki/en/pentesting-web/deserialization/php-deserialization-+-autoload-classes.html](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fpentesting%2Dweb%2Fdeserialization%2Fphp%2Ddeserialization%2D%252B%2Dautoload%2Dclasses.html&rut=cc6c8bf628c3e77fb378a7220fc45324cf3ecd34f514a8de2084c4628b879417)
+
+[Submit a PR; when CI executes phpunit --configuration phpunit.xml, the PHPT runner reads the coverage file and deserializes the gadget, giving **RCE** inside the runner container.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fpentesting%2Dweb%2Fdeserialization%2Fphp%2Ddeserialization%2D%252B%2Dautoload%2Dclasses.html&rut=cc6c8bf628c3e77fb378a7220fc45324cf3ecd34f514a8de2084c4628b879417)
+
+[Feedback](https://duckduckgo.com/feedback.html)
+
+![Image 11](https://duckduckgo.com/t/sl_h)

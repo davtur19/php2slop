@@ -1,0 +1,72 @@
+Title: Wiz Research php2shell technical analysis at DuckDuckGo
+
+URL Source: https://html.duckduckgo.com/html/?q=Wiz+Research+php2shell+technical+analysis
+
+Markdown Content:
+[](https://html.duckduckgo.com/html/?q=Wiz+Research+php2shell+technical+analysis)
+
+[](https://html.duckduckgo.com/html/ "DuckDuckGo")
+
+## [PHP2Shell: AI uncovers critical RCE vulnerabilities affecting 70% of ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.wiz.io%2Fblog%2Fphp2shell%2Dphp%2Drce&rut=1a132548351166505f8510d91f3657c65c82e57f38b72b1dcfd878f45bdce8a1)
+
+[![Image 1](https://external-content.duckduckgo.com/ip3/www.wiz.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.wiz.io%2Fblog%2Fphp2shell%2Dphp%2Drce&rut=1a132548351166505f8510d91f3657c65c82e57f38b72b1dcfd878f45bdce8a1)[www.wiz.io/blog/php2shell-php-rce](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.wiz.io%2Fblog%2Fphp2shell%2Dphp%2Drce&rut=1a132548351166505f8510d91f3657c65c82e57f38b72b1dcfd878f45bdce8a1)
+
+[Executive Summary **Wiz****Research** uncovered multiple critical vulnerabilities in core PHP, a popular general-purpose scripting language that powers 70% of all websites in the world. Successful exploitation could allow attackers to take control of affected servers, steal sensitive data, and deface the websites running on them.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.wiz.io%2Fblog%2Fphp2shell%2Dphp%2Drce&rut=1a132548351166505f8510d91f3657c65c82e57f38b72b1dcfd878f45bdce8a1)
+
+## [PHP2Shell: Critical PHP RCE (CVE-2026-109618, CVE-2026-109619)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsansec.io%2Fresearch%2Fphp2shell&rut=b701ec480af40753434d5743710922ed2e52e98b5be7d70c1a15cc55118655e9)
+
+[![Image 2](https://external-content.duckduckgo.com/ip3/sansec.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsansec.io%2Fresearch%2Fphp2shell&rut=b701ec480af40753434d5743710922ed2e52e98b5be7d70c1a15cc55118655e9)[sansec.io/research/php2shell](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsansec.io%2Fresearch%2Fphp2shell&rut=b701ec480af40753434d5743710922ed2e52e98b5be7d70c1a15cc55118655e9)
+
+[See the writeups by Calif and **Wiz** for the full history and **technical** detail. ... Read more BlockStrap: Magento and Adobe Commerce RCE (CVE-2026-103849) StyleSmuggler: Magento and Adobe Commerce 0-day RCE (CVE-2026-75650) under active attack PolyShell: unrestricted file upload in Magento and Adobe Commerce Critical backdoor found in MGT Varnish ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsansec.io%2Fresearch%2Fphp2shell&rut=b701ec480af40753434d5743710922ed2e52e98b5be7d70c1a15cc55118655e9)
+
+## [PHP2Shell - Critical vulnerabilities in PHP (CVE-2026-109618, CVE-2026 ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsecuritylabs.datadoghq.com%2Farticles%2Fphp2shell%2Dcritical%2Dvulnerabilities%2Din%2Dphp%2F&rut=818cf7fef45d437c6a1568f0960aba5e3dfa7b5616832761f887262bfd5b0e1d)
+
+[![Image 3](https://external-content.duckduckgo.com/ip3/securitylabs.datadoghq.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsecuritylabs.datadoghq.com%2Farticles%2Fphp2shell%2Dcritical%2Dvulnerabilities%2Din%2Dphp%2F&rut=818cf7fef45d437c6a1568f0960aba5e3dfa7b5616832761f887262bfd5b0e1d)[securitylabs.datadoghq.com/articles/php2shell-critical-vulnerabilities-in-php/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsecuritylabs.datadoghq.com%2Farticles%2Fphp2shell%2Dcritical%2Dvulnerabilities%2Din%2Dphp%2F&rut=818cf7fef45d437c6a1568f0960aba5e3dfa7b5616832761f887262bfd5b0e1d)
+
+[Learn about the two critical vulnerabilities in PHP dubbed **PHP2Shell**.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsecuritylabs.datadoghq.com%2Farticles%2Fphp2shell%2Dcritical%2Dvulnerabilities%2Din%2Dphp%2F&rut=818cf7fef45d437c6a1568f0960aba5e3dfa7b5616832761f887262bfd5b0e1d)
+
+## [AI-Assisted Research Uncovers Critical PHP2Shell RCE Vulnerabilities](https://duckduckgo.com/l/?uddg=https%3A%2F%2Ftech.yahoo.com%2Fcybersecurity%2Farticles%2Fai%2Dassisted%2Dresearch%2Duncovers%2Dcritical%2D012743884.html&rut=e86a93903d89522111f0fb6b9512328a2d47ea9bec81d9f1bd23739c90f63c28)
+
+[![Image 4](https://external-content.duckduckgo.com/ip3/tech.yahoo.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Ftech.yahoo.com%2Fcybersecurity%2Farticles%2Fai%2Dassisted%2Dresearch%2Duncovers%2Dcritical%2D012743884.html&rut=e86a93903d89522111f0fb6b9512328a2d47ea9bec81d9f1bd23739c90f63c28)[tech.yahoo.com/cybersecurity/articles/ai-assisted-research-uncovers-critical-012743884.html](https://duckduckgo.com/l/?uddg=https%3A%2F%2Ftech.yahoo.com%2Fcybersecurity%2Farticles%2Fai%2Dassisted%2Dresearch%2Duncovers%2Dcritical%2D012743884.html&rut=e86a93903d89522111f0fb6b9512328a2d47ea9bec81d9f1bd23739c90f63c28)
+
+[The Mechanism of **PHP2Shell****Wiz****Research**, which combined these vulnerabilities into an exploit script dubbed "**php2shell**," identified the flaws as memory-safety issues stemming from how PHP handles fatal errors during request processing.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Ftech.yahoo.com%2Fcybersecurity%2Farticles%2Fai%2Dassisted%2Dresearch%2Duncovers%2Dcritical%2D012743884.html&rut=e86a93903d89522111f0fb6b9512328a2d47ea9bec81d9f1bd23739c90f63c28)
+
+## [PHP2Shell Vulnerabilities Put 70% of Websites at Risk](https://duckduckgo.com/l/?uddg=https%3A%2F%2Ftidbits.com%2F2026%2F10%2F21%2Fphp2shell%2Dvulnerabilities%2Dput%2D70%2Dof%2Dwebsites%2Dat%2Drisk%2F&rut=e4126b94232eec1addbbb99c5e95e6192c3d3335e78e0e0b97d0d1d6bd7a21fd)
+
+[![Image 5](https://external-content.duckduckgo.com/ip3/tidbits.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Ftidbits.com%2F2026%2F10%2F21%2Fphp2shell%2Dvulnerabilities%2Dput%2D70%2Dof%2Dwebsites%2Dat%2Drisk%2F&rut=e4126b94232eec1addbbb99c5e95e6192c3d3335e78e0e0b97d0d1d6bd7a21fd)[tidbits.com/2026/10/21/php2shell-vulnerabilities-put-70-of-websites-at-risk/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Ftidbits.com%2F2026%2F10%2F21%2Fphp2shell%2Dvulnerabilities%2Dput%2D70%2Dof%2Dwebsites%2Dat%2Drisk%2F&rut=e4126b94232eec1addbbb99c5e95e6192c3d3335e78e0e0b97d0d1d6bd7a21fd)
+
+[The executive summary to **Wiz****Research's** blog post lays it all out: **Wiz****Research** uncovered multiple critical vulnerabilities in core PHP, a popular general-purpose scripting language that powers 70% of all websites in the world.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Ftidbits.com%2F2026%2F10%2F21%2Fphp2shell%2Dvulnerabilities%2Dput%2D70%2Dof%2Dwebsites%2Dat%2Drisk%2F&rut=e4126b94232eec1addbbb99c5e95e6192c3d3335e78e0e0b97d0d1d6bd7a21fd)
+
+## [AI found flaws in the code behind 70% of the web. The fix took two ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthenewstack.io%2Fai%2Dphp2shell%2Ddisclosure%2Dframework%2F&rut=e8b2993c8ce88885fc698e8924d72c4fb6681c560295212369d4c9d7c581cecd)
+
+[![Image 6](https://external-content.duckduckgo.com/ip3/thenewstack.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthenewstack.io%2Fai%2Dphp2shell%2Ddisclosure%2Dframework%2F&rut=e8b2993c8ce88885fc698e8924d72c4fb6681c560295212369d4c9d7c581cecd)[thenewstack.io/ai-php2shell-disclosure-framework/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthenewstack.io%2Fai%2Dphp2shell%2Ddisclosure%2Dframework%2F&rut=e8b2993c8ce88885fc698e8924d72c4fb6681c560295212369d4c9d7c581cecd)
+
+[PHP powers roughly 70% of the world's websites, according to **Wiz****Research**, so a flaw in its core engine affects much more than any single application. On Wednesday, researchers disclosed two critical vulnerabilities discovered with help from frontier AI models.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthenewstack.io%2Fai%2Dphp2shell%2Ddisclosure%2Dframework%2F&rut=e8b2993c8ce88885fc698e8924d72c4fb6681c560295212369d4c9d7c581cecd)
+
+## [php2shell: Assessing Elastic detection coverage relevant to CVE-2026 ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.elastic.co%2Fsecurity%2Dlabs%2Fthreat%2Dcommand%2Fphp2shell%2Dphp%2Drce%2Ddetection&rut=18c996d879189a9cd16e1d0e699999cad0e89083f3f7ed3fdbca87f07118f9ae)
+
+[![Image 7](https://external-content.duckduckgo.com/ip3/www.elastic.co.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.elastic.co%2Fsecurity%2Dlabs%2Fthreat%2Dcommand%2Fphp2shell%2Dphp%2Drce%2Ddetection&rut=18c996d879189a9cd16e1d0e699999cad0e89083f3f7ed3fdbca87f07118f9ae)[www.elastic.co/security-labs/threat-command/php2shell-php-rce-detection](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.elastic.co%2Fsecurity%2Dlabs%2Fthreat%2Dcommand%2Fphp2shell%2Dphp%2Drce%2Ddetection&rut=18c996d879189a9cd16e1d0e699999cad0e89083f3f7ed3fdbca87f07118f9ae)
+
+[They were reported by **Wiz****Research**, which identified them with the help of frontier AI models and coordinated disclosure with the PHP project. Additionally, a web page called **php2shell** was created and contains a lot of relevant information about the vulnerability.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.elastic.co%2Fsecurity%2Dlabs%2Fthreat%2Dcommand%2Fphp2shell%2Dphp%2Drce%2Ddetection&rut=18c996d879189a9cd16e1d0e699999cad0e89083f3f7ed3fdbca87f07118f9ae)
+
+## [PHP2SHELL: Critical PHP RCE Flaws Threaten Web Infrastructure Amid ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Flabs.beazley.security%2Fadvisories%2FBSL%2DA1233&rut=e71615d99ade95daae5751cc1a4334d1a7cc9206bf8a1f8b2c9e5049ffbba280)
+
+[![Image 8](https://external-content.duckduckgo.com/ip3/labs.beazley.security.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Flabs.beazley.security%2Fadvisories%2FBSL%2DA1233&rut=e71615d99ade95daae5751cc1a4334d1a7cc9206bf8a1f8b2c9e5049ffbba280)[labs.beazley.security/advisories/BSL-A1233](https://duckduckgo.com/l/?uddg=https%3A%2F%2Flabs.beazley.security%2Fadvisories%2FBSL%2DA1233&rut=e71615d99ade95daae5751cc1a4334d1a7cc9206bf8a1f8b2c9e5049ffbba280)
+
+[**Wiz****Research** combined the flaws into an exploit chain dubbed **php2shell** and demonstrated unauthenticated remote code execution (RCE) against current WordPress, Drupal, and Joomla container images. Because the flaws reside in PHP itself, even basic applications running vulnerable versions may be exposed.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Flabs.beazley.security%2Fadvisories%2FBSL%2DA1233&rut=e71615d99ade95daae5751cc1a4334d1a7cc9206bf8a1f8b2c9e5049ffbba280)
+
+## [OpenAI's PHP2Shell Exposes 70% of Websites to Remote Code Attacks ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Falphasignal.ai%2Fnews%2Fopenai%2Ds%2Dphp2shell%2Dexposes%2D70%2Dof%2Dwebsites%2Dto%2Dremote%2Dcode%2Dattacks&rut=32a445d6e4ce1108c488641880e14e77ecc6e3a7b287e7a63441534082469311)
+
+[![Image 9](https://external-content.duckduckgo.com/ip3/alphasignal.ai.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Falphasignal.ai%2Fnews%2Fopenai%2Ds%2Dphp2shell%2Dexposes%2D70%2Dof%2Dwebsites%2Dto%2Dremote%2Dcode%2Dattacks&rut=32a445d6e4ce1108c488641880e14e77ecc6e3a7b287e7a63441534082469311)[alphasignal.ai/news/openai-s-php2shell-exposes-70-of-websites-to-remote-code-attacks](https://duckduckgo.com/l/?uddg=https%3A%2F%2Falphasignal.ai%2Fnews%2Fopenai%2Ds%2Dphp2shell%2Dexposes%2D70%2Dof%2Dwebsites%2Dto%2Dremote%2Dcode%2Dattacks&rut=32a445d6e4ce1108c488641880e14e77ecc6e3a7b287e7a63441534082469311)
+
+[**Wiz's****analysis** cites estimates that PHP runs on roughly 70% of websites with a known server-side language, including sites built with WordPress, Drupal, Joomla and MediaWiki. OpenAI's disclosure describes **PHP2Shell** as an early example of a frontier model helping researchers find an internet-scale vulnerability before widespread exploitation.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Falphasignal.ai%2Fnews%2Fopenai%2Ds%2Dphp2shell%2Dexposes%2D70%2Dof%2Dwebsites%2Dto%2Dremote%2Dcode%2Dattacks&rut=32a445d6e4ce1108c488641880e14e77ecc6e3a7b287e7a63441534082469311)
+
+## [PHP2Shell: Critical PHP Flaws Threaten Millions of Sites](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbreachnews.com%2Fresearch%2Fphp2shell%2Dtwo%2Dcritical%2Dphp%2Dvulnerabilities%2Dthreaten%2Dmillions%2Dof%2Dwebsites%2Das%2Dattacks%2Demerge%2F&rut=afdac9e9db0ca18d396a79c959ea3de59f8cf860d73399a31ea90d0e64a5a256)
+
+[![Image 10](https://external-content.duckduckgo.com/ip3/breachnews.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbreachnews.com%2Fresearch%2Fphp2shell%2Dtwo%2Dcritical%2Dphp%2Dvulnerabilities%2Dthreaten%2Dmillions%2Dof%2Dwebsites%2Das%2Dattacks%2Demerge%2F&rut=afdac9e9db0ca18d396a79c959ea3de59f8cf860d73399a31ea90d0e64a5a256)[breachnews.com/research/php2shell-two-critical-php-vulnerabilities-threaten-millions-of-websites-as-attacks-emerge/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbreachnews.com%2Fresearch%2Fphp2shell%2Dtwo%2Dcritical%2Dphp%2Dvulnerabilities%2Dthreaten%2Dmillions%2Dof%2Dwebsites%2Das%2Dattacks%2Demerge%2F&rut=afdac9e9db0ca18d396a79c959ea3de59f8cf860d73399a31ea90d0e64a5a256)
+
+[According to **technical****research** published by **Wiz****Research**, the vulnerabilities originate from memory-safety problems within PHP's core execution environment. **Wiz** researchers demonstrated unauthenticated remote code execution against WordPress, Drupal and Joomla in controlled testing environments.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbreachnews.com%2Fresearch%2Fphp2shell%2Dtwo%2Dcritical%2Dphp%2Dvulnerabilities%2Dthreaten%2Dmillions%2Dof%2Dwebsites%2Das%2Dattacks%2Demerge%2F&rut=afdac9e9db0ca18d396a79c959ea3de59f8cf860d73399a31ea90d0e64a5a256)
+
+[Feedback](https://duckduckgo.com/feedback.html)
+
+![Image 11](https://duckduckgo.com/t/sl_h)

@@ -1,0 +1,72 @@
+Title: PHP session upload progress UAF remote exploit at DuckDuckGo
+
+URL Source: https://html.duckduckgo.com/html/?q=PHP+session+upload+progress+UAF+remote+exploit
+
+Markdown Content:
+[](https://html.duckduckgo.com/html/?q=PHP+session+upload+progress+UAF+remote+exploit)
+
+[](https://html.duckduckgo.com/html/ "DuckDuckGo")
+
+## [GitHub - Zer061/CVE-2026-109618: PoC CVE-2026-109618 / -109619 (PHP ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2FZer061%2FCVE%2D2026%2D109618&rut=f073cef33a9a247778e1c41d3f0ad8127a162946525994f02cdfcca2e330e594)
+
+[![Image 1](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2FZer061%2FCVE%2D2026%2D109618&rut=f073cef33a9a247778e1c41d3f0ad8127a162946525994f02cdfcca2e330e594)[github.com/Zer061/CVE-2026-109618](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2FZer061%2FCVE%2D2026%2D109618&rut=f073cef33a9a247778e1c41d3f0ad8127a162946525994f02cdfcca2e330e594)
+
+[Under the constraints of being fully **remote**, HTTP-only, with no session_start () on the target page and no **PHP** written on the target side, a single **exploit**.py achieves RCE on **PHP** 8.4.26 + Apache prefork + mod_php.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2FZer061%2FCVE%2D2026%2D109618&rut=f073cef33a9a247778e1c41d3f0ad8127a162946525994f02cdfcca2e330e594)
+
+## [PHP2Shell: Turning a Session Upload-Progress UAF into Unauthenticated ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdev.to%2Fsyrex1013%2Fphp2shell%2Dturning%2Da%2Dsession%2Dupload%2Dprogress%2Duaf%2Dinto%2Dunauthenticated%2Drce%2Dcve%2D2026%2D109618%2D%2D30ab&rut=c8675908cfadf6edb3e45129a5005a7025f7c7a13b02b8d654b30a5827fbec0b)
+
+[![Image 2](https://external-content.duckduckgo.com/ip3/dev.to.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdev.to%2Fsyrex1013%2Fphp2shell%2Dturning%2Da%2Dsession%2Dupload%2Dprogress%2Duaf%2Dinto%2Dunauthenticated%2Drce%2Dcve%2D2026%2D109618%2D%2D30ab&rut=c8675908cfadf6edb3e45129a5005a7025f7c7a13b02b8d654b30a5827fbec0b)[dev.to/syrex1013/php2shell-turning-a-session-upload-progress-uaf-into-unauthenticated-rce-cve-2026-109618--30ab](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdev.to%2Fsyrex1013%2Fphp2shell%2Dturning%2Da%2Dsession%2Dupload%2Dprogress%2Duaf%2Dinto%2Dunauthenticated%2Drce%2Dcve%2D2026%2D109618%2D%2D30ab&rut=c8675908cfadf6edb3e45129a5005a7025f7c7a13b02b8d654b30a5827fbec0b)
+
+[I published PHP2Shell, a proof-of-concept for two critical **PHP** vulnerabilities — CVE-2026-109618 and CVE-2026-109619 — that enable a heap use-after-free in **session.upload_progress** and, with the right chain, unauthenticated **remote** code execution.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdev.to%2Fsyrex1013%2Fphp2shell%2Dturning%2Da%2Dsession%2Dupload%2Dprogress%2Duaf%2Dinto%2Dunauthenticated%2Drce%2Dcve%2D2026%2D109618%2D%2D30ab&rut=c8675908cfadf6edb3e45129a5005a7025f7c7a13b02b8d654b30a5827fbec0b)
+
+## [php2shell: Dissecting PHP's Critical Session Upload Progress ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)
+
+[![Image 3](https://external-content.duckduckgo.com/ip3/qideng.substack.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)[qideng.substack.com/p/php2shell-dissecting-phps-critical](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)
+
+[Three **exploit****PHP's****session.upload_progress** feature (enabled by default since **PHP** 5.4). The fourth — a zero-dependency pre-auth RCE on Apache mod_php — **exploits****PHP's** memory allocator bailout during multipart parsing.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)
+
+## [CVE-2026-109618 and CVE-2026-109619: Critical Unauthenticated Remote ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.rapid7.com%2Fblog%2Fpost%2Fetr%2Dcve%2D2026%2D109618%2Dand%2Dcve%2D2026%2D109619%2Dcritical%2Dunauthenticated%2Dremote%2Dcode%2Dexecution%2Din%2Dphp%2F&rut=d8adb4b278e22ac9581bb154152565a1851ce24e85027e10207d5c7621674d35)
+
+[![Image 4](https://external-content.duckduckgo.com/ip3/www.rapid7.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.rapid7.com%2Fblog%2Fpost%2Fetr%2Dcve%2D2026%2D109618%2Dand%2Dcve%2D2026%2D109619%2Dcritical%2Dunauthenticated%2Dremote%2Dcode%2Dexecution%2Din%2Dphp%2F&rut=d8adb4b278e22ac9581bb154152565a1851ce24e85027e10207d5c7621674d35)[www.rapid7.com/blog/post/etr-cve-2026-109618-and-cve-2026-109619-critical-unauthenticated-remote-code-execution-in-php/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.rapid7.com%2Fblog%2Fpost%2Fetr%2Dcve%2D2026%2D109618%2Dand%2Dcve%2D2026%2D109619%2Dcritical%2Dunauthenticated%2Dremote%2Dcode%2Dexecution%2Din%2Dphp%2F&rut=d8adb4b278e22ac9581bb154152565a1851ce24e85027e10207d5c7621674d35)
+
+[On October 21, 2026, the **PHP** project announced security releases for two critical vulnerabilities in **PHP**. CVE-2026-109618 can corrupt memory during out-of-memory (OOM) handling, while CVE-2026-109619 is a use-after-free flaw involving state retained between requests. Both have a CVSSv4 score of 9.2 and both can allow for unauthenticated **remote** code execution (RCE) with the web worker's privileges.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.rapid7.com%2Fblog%2Fpost%2Fetr%2Dcve%2D2026%2D109618%2Dand%2Dcve%2D2026%2D109619%2Dcritical%2Dunauthenticated%2Dremote%2Dcode%2Dexecution%2Din%2Dphp%2F&rut=d8adb4b278e22ac9581bb154152565a1851ce24e85027e10207d5c7621674d35)
+
+## [Critical PHP RCE: CVE-2026-109618 and CVE-2026-109619](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsansec.io%2Fresearch%2Fphp2shell&rut=b701ec480af40753434d5743710922ed2e52e98b5be7d70c1a15cc55118655e9)
+
+[![Image 5](https://external-content.duckduckgo.com/ip3/sansec.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsansec.io%2Fresearch%2Fphp2shell&rut=b701ec480af40753434d5743710922ed2e52e98b5be7d70c1a15cc55118655e9)[sansec.io/research/php2shell](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsansec.io%2Fresearch%2Fphp2shell&rut=b701ec480af40753434d5743710922ed2e52e98b5be7d70c1a15cc55118655e9)
+
+[**PHP** released fixes for two critical **remote** code execution bugs on October 21. They affect every web server running **PHP** 5.4 or later. Researchers confirmed un...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsansec.io%2Fresearch%2Fphp2shell&rut=b701ec480af40753434d5743710922ed2e52e98b5be7d70c1a15cc55118655e9)
+
+## [eness/php2shell-CVE-2026-109618-CVE-2026-109619-PoC | DeepWiki](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdeepwiki.com%2Feness%2Fphp2shell%2DCVE%2D2026%2D109618%2DCVE%2D2026%2D109619%2DPoC&rut=67ad365fcc9755bb269d3668ac6f0df47e3ef7fd668d115123f300f094b291c5)
+
+[![Image 6](https://external-content.duckduckgo.com/ip3/deepwiki.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdeepwiki.com%2Feness%2Fphp2shell%2DCVE%2D2026%2D109618%2DCVE%2D2026%2D109619%2DPoC&rut=67ad365fcc9755bb269d3668ac6f0df47e3ef7fd668d115123f300f094b291c5)[deepwiki.com/eness/php2shell-CVE-2026-109618-CVE-2026-109619-PoC](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdeepwiki.com%2Feness%2Fphp2shell%2DCVE%2D2026%2D109618%2DCVE%2D2026%2D109619%2DPoC&rut=67ad365fcc9755bb269d3668ac6f0df47e3ef7fd668d115123f300f094b291c5)
+
+[Relevant source files Purpose and Scope This repository provides an advisory, proof-of-concept **exploit**, and comprehensive mitigation toolkit for CVE-2026-109618 and CVE-2026-109619, two critical pre-authentication **Remote** Code Execution (RCE) vulnerabilities affecting the **PHP** core **session****upload****progress** mechanism README.md 5-37](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdeepwiki.com%2Feness%2Fphp2shell%2DCVE%2D2026%2D109618%2DCVE%2D2026%2D109619%2DPoC&rut=67ad365fcc9755bb269d3668ac6f0df47e3ef7fd668d115123f300f094b291c5)
+
+## [php2shell (CVE-2026-109618, CVE-2026-109619): Critical PHP RCE FAQ ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.tenable.com%2Fblog%2Fphp2shell%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619%2Dfrequently%2Dasked%2Dquestions%2Dabout%2Dcritical%2Dphp%2Dremote&rut=31dc494fc08747fc159bc083fb5638950c0f6f20b8c158d5088150651e401a9a)
+
+[![Image 7](https://external-content.duckduckgo.com/ip3/www.tenable.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.tenable.com%2Fblog%2Fphp2shell%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619%2Dfrequently%2Dasked%2Dquestions%2Dabout%2Dcritical%2Dphp%2Dremote&rut=31dc494fc08747fc159bc083fb5638950c0f6f20b8c158d5088150651e401a9a)[www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.tenable.com%2Fblog%2Fphp2shell%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619%2Dfrequently%2Dasked%2Dquestions%2Dabout%2Dcritical%2Dphp%2Dremote&rut=31dc494fc08747fc159bc083fb5638950c0f6f20b8c158d5088150651e401a9a)
+
+[For CVE-2026-109619, it lists setting **session**.**upload_progress**.enabled=0 and, on **PHP** 8.5, fatal_error_backtraces=0. **PHP** says to restart every **PHP** worker after these changes.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.tenable.com%2Fblog%2Fphp2shell%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619%2Dfrequently%2Dasked%2Dquestions%2Dabout%2Dcritical%2Dphp%2Dremote&rut=31dc494fc08747fc159bc083fb5638950c0f6f20b8c158d5088150651e401a9a)
+
+## [Stopgap for CVE-2026-109618 / CVE-2026-109619: disable session upload ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgist.github.com%2Fleevigraham%2F2137f5f4cee6da10c1284824d2f48b36&rut=61c8dbeeaba5a127afb94f94e3539ecc4f1ec81ac5d8a8484228a5569a9d174c)
+
+[![Image 8](https://external-content.duckduckgo.com/ip3/gist.github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgist.github.com%2Fleevigraham%2F2137f5f4cee6da10c1284824d2f48b36&rut=61c8dbeeaba5a127afb94f94e3539ecc4f1ec81ac5d8a8484228a5569a9d174c)[gist.github.com/leevigraham/2137f5f4cee6da10c1284824d2f48b36](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgist.github.com%2Fleevigraham%2F2137f5f4cee6da10c1284824d2f48b36&rut=61c8dbeeaba5a127afb94f94e3539ecc4f1ec81ac5d8a8484228a5569a9d174c)
+
+# [Stopgap for CVE-2026-109618 / CVE-2026-109619: disable **session****upload****progress** in every **PHP**-FPM version. # The attack vector is unconfirmed until the 14:00 UTC advisory.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgist.github.com%2Fleevigraham%2F2137f5f4cee6da10c1284824d2f48b36&rut=61c8dbeeaba5a127afb94f94e3539ecc4f1ec81ac5d8a8484228a5569a9d174c)
+
+## [PHP2Shell: Critical PHP RCE Vulnerabilities CVE-2026-109618 and CVE ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.abstract.security%2Fblog%2Fphp2shell%2Dcritical%2Dphp%2Drce%2Dvulnerabilities%2Dcve%2D2026%2D109618%2Dand%2Dcve%2D2026%2D109619&rut=747dd81427aa8709782479eb481f12168e3759f0a711e68f5dbcb0ff20ec92e2)
+
+[![Image 9](https://external-content.duckduckgo.com/ip3/www.abstract.security.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.abstract.security%2Fblog%2Fphp2shell%2Dcritical%2Dphp%2Drce%2Dvulnerabilities%2Dcve%2D2026%2D109618%2Dand%2Dcve%2D2026%2D109619&rut=747dd81427aa8709782479eb481f12168e3759f0a711e68f5dbcb0ff20ec92e2)[www.abstract.security/blog/php2shell-critical-php-rce-vulnerabilities-cve-2026-109618-and-cve-2026-109619](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.abstract.security%2Fblog%2Fphp2shell%2Dcritical%2Dphp%2Drce%2Dvulnerabilities%2Dcve%2D2026%2D109618%2Dand%2Dcve%2D2026%2D109619&rut=747dd81427aa8709782479eb481f12168e3759f0a711e68f5dbcb0ff20ec92e2)
+
+[CVE-2026-109619 ("php2shell") targets **PHP's****session.upload_progress** callback, which fires on any POST endpoint before application code runs. The **exploit** body is only ~450 bytes, so size-based WAF rules do not help. The **session**.**upload_progress**.enabled = Off mitigation in the callout above addresses this family specifically.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.abstract.security%2Fblog%2Fphp2shell%2Dcritical%2Dphp%2Drce%2Dvulnerabilities%2Dcve%2D2026%2D109618%2Dand%2Dcve%2D2026%2D109619&rut=747dd81427aa8709782479eb481f12168e3759f0a711e68f5dbcb0ff20ec92e2)
+
+## [PHP2Shell - Critical vulnerabilities in PHP (CVE-2026-109618, CVE-2026 ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsecuritylabs.datadoghq.com%2Farticles%2Fphp2shell%2Dcritical%2Dvulnerabilities%2Din%2Dphp%2F&rut=818cf7fef45d437c6a1568f0960aba5e3dfa7b5616832761f887262bfd5b0e1d)
+
+[![Image 10](https://external-content.duckduckgo.com/ip3/securitylabs.datadoghq.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsecuritylabs.datadoghq.com%2Farticles%2Fphp2shell%2Dcritical%2Dvulnerabilities%2Din%2Dphp%2F&rut=818cf7fef45d437c6a1568f0960aba5e3dfa7b5616832761f887262bfd5b0e1d)[securitylabs.datadoghq.com/articles/php2shell-critical-vulnerabilities-in-php/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsecuritylabs.datadoghq.com%2Farticles%2Fphp2shell%2Dcritical%2Dvulnerabilities%2Din%2Dphp%2F&rut=818cf7fef45d437c6a1568f0960aba5e3dfa7b5616832761f887262bfd5b0e1d)
+
+[CVE-2026-109619: Set **session**.**upload_progress**.enabled=0 and, on **PHP** 8.5, fatal_error_backtraces=0. Apply both settings in configuration that loads before **PHP** parses the request, then restart every worker.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsecuritylabs.datadoghq.com%2Farticles%2Fphp2shell%2Dcritical%2Dvulnerabilities%2Din%2Dphp%2F&rut=818cf7fef45d437c6a1568f0960aba5e3dfa7b5616832761f887262bfd5b0e1d)
+
+[Feedback](https://duckduckgo.com/feedback.html)
+
+![Image 11](https://duckduckgo.com/t/sl_h)

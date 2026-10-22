@@ -1,0 +1,359 @@
+
+PHP2Shell: Turning a Session Upload-Progress UAF into Unauthenticated RCE (CVE-2026-109618 / CVE-2026-109619) - DEV Community
+Skip to content
+Navigation menu
+Search
+                Powered by Algolia
+Search
+              Log in
+            Create account
+DEV Community
+Close
+        Add reaction
+      Like
+      Unicorn
+      Exploding Head
+      Raised Hands
+      Fire
+      Jump to Comments
+      Save
+      Boost
+Pick as gem
+More...
+Copy link
+Copy link
+Copied to Clipboard
+              Share to X
+              Share to LinkedIn
+              Share to Facebook
+              Share to Mastodon
+Share Post via...
+Report Abuse
+syrex1013
+Posted on 
+Oct 21
+                PHP2Shell: Turning a Session Upload-Progress UAF into Unauthenticated RCE (CVE-2026-109618 / CVE-2026-109619)
+#
+security
+#
+php
+#
+cve
+#
+infosec
+I published 
+PHP2Shell
+, a proof-of-concept for two critical PHP vulnerabilities — 
+CVE-2026-109618
+ and 
+CVE-2026-109619
+ — that enable a heap use-after-free in 
+session.upload_progress
+ and, with the right chain, unauthenticated remote code execution.
+For security research and authorized testing only.
+Repo: 
+github.com/syrex1013/php2shell
+  Why this matters
+PHP’s multipart upload-progress feature (
+session.upload_progress
+) is enabled by default in many deployments. The bugs sit in 
+ext/session/session.c
+ and carry a 
+CVSS 9.2
+ rating. They affect a long range of versions:
+Branch
+Vulnerable through
+Fixed in
+PHP 8.2
+8.2.34
+8.2.35
+PHP 8.3
+8.3.35
+8.3.36
+PHP 8.4
+8.4.26
+8.4.27
+PHP 8.5
+8.5.11
+8.5.12
+PHP ≤ 8.1
+all
+no backport — EOL
+If you still run anything at or below those “vulnerable through” lines — especially EOL 8.1 and older — you should treat this as urgent.
+  Background: the two CVEs
+Both issues are 
+heap use-after-free
+ bugs in the rfc1867 upload-progress handler.
+The handler caches raw 
+zval*
+ pointers into the session HashTable (
+arData
+). When a multipart upload stalls longer than 
+session.upload_progress.min_freq
+ (default 
+1 second
+), a later 
+FILE_DATA
+ event re-enters session init and 
+frees that HashTable
+. The cached pointers then point at freed memory. The next write (storing 
+bytes_processed
+ via 
+ZVAL_LONG
+) goes through those stale pointers.
+CVE
+Stale pointer
+CVE-2026-109618
+post_bytes_processed
+ (session.c ~3292)
+CVE-2026-109619
+current_file_bytes_processed
+ (session.c ~3318)
+Simplified flow from the research:
+Phase 1
+ — POST multipart with 
+PHP_SESSION_UPLOAD_PROGRESS
+ → rfc1867 callback caches 
+zval*
+ into 
+arData
+.
+Stall
+ — wait longer than 
+min_freq
+ → 
+php_session_initialize()
+ / 
+php_session_track_init()
+ frees the HashTable.
+Phase 2
+ — send another 
+FILE_DATA
+ chunk on the same connection → 
+ZVAL_LONG
+ writes through the stale pointer (
+UAF write
+).
+The vendor fix removes the long-lived 
+zval*
+ cache and re-derives the target pointer on each write instead of keeping it across the stall window. Credit for the original research goes to 
+Ahmed Sultan (0x4148)
+ — see also 
+jackalsyn.com/posts/php-up-2026.html
+. The PHP patch was committed around September 2026 (bugs.php.net).
+  What’s in the PHP2Shell repo
+I packaged the research so others can reproduce and harden against it safely:
+Component
+Purpose
+poc.py
+Full RCE exploit chain with multiple fallback paths
+lab-uaf/
+Docker lab that reproduces the UAF primitive on PHP 8.4.4-FPM
+lab/
+Apache-based lab for the session-poison + LFI RCE chain
+  UAF lab (primitive)
+lab-uaf
+ reproduces the stale-pointer write on stock PHP-FPM (no ASAN, no debug build). Typical flow:
+git clone https://github.com/syrex1013/php2shell
+cd 
+php2shell/lab-uaf
+docker compose up 
+-d
+--build
+python3 scripts/php2shell_poc.py 
+--monitor
+--rounds
+ 5
+Enter fullscreen mode
+Exit fullscreen mode
+Successful arming looks like: session status 200, 
+bytes_processed
+ updated, and confirmation that cached 
+zval*
+ pointers were written through (stale path reached).
+There is also a 
+heap spray
+ mode (
+--spray N
+) that prepends dummy file parts sized to exhaust the ZendMM 256-byte bin (matching an 8-entry session HashTable 
+arData
+), raising the odds that the stale write hits a live allocation rather than a quietly reallocated table.
+  RCE chain (
+poc.py
+)
+Against a vulnerable PHP web app, 
+poc.py
+ tries several stages ordered by reliability:
+Session poison + LFI
+ — needs something like 
+include($_GET[...])
+Log poisoning + LFI
+ — needs a readable access log via LFI
+FastCGI direct (no LFI)
+ — php-fpm reachable on common ports (e.g. 9000–9003)
+PEAR webshell drop
+ — when 
+/usr/share/php/pearcmd.php
+ is accessible
+Example against the Apache lab:
+cd 
+lab
+docker compose up 
+-d
+--build
+python3 ../poc.py http://localhost:8888/index.php 
+"id"
+\
+--lfi-param
+ page 
+\
+--chunk-delay
+ 0.01 
+\
+--chunk-size
+ 128
+Enter fullscreen mode
+Exit fullscreen mode
+On success you should see RCE confirmed via session+LFI and command output from the web user (e.g. 
+www-data
+). The tool also supports interactive shell (
+-i
+), probe-only mode, and blind callback exfiltration when you cannot read output on-target.
+I’m keeping this post at the architecture level. Full options and labs live in the 
+repo README
+.
+  Mitigation
+Immediate (no patch required):
+; php.ini
+session.upload_progress.enabled
+=
+Off
+Enter fullscreen mode
+Exit fullscreen mode
+Proper fix:
+ upgrade PHP to the fixed release for your branch — 
+8.2.35+
+, 
+8.3.36+
+, 
+8.4.27+
+, or 
+8.5.12+
+. EOL branches (≤ 8.1) will not get a backport; plan a version jump.
+Also review apps for LFI, exposed php-fpm, and PEAR endpoints — those turn a memory bug into reliable RCE in the PoC chains above.
+  Responsible use
+This work is for 
+security research and authorized testing only.
+Do not run PHP2Shell (or any of these chains) against systems you do not own or do not have 
+explicit written permission
+ to test. Unauthorized use is illegal. The MIT-licensed code in the repo is intended for authorized testing, research, and education; operators remain responsible for how they use it.
+If you find related issues in production, disclose them through your vendor’s process and patch first.
+  Links
+PoC / research: 
+https://github.com/syrex1013/php2shell
+CVE-2026-109618 — 
+post_bytes_processed
+ stale pointer
+CVE-2026-109619 — 
+current_file_bytes_processed
+ stale pointer
+Original research: Ahmed Sultan (0x4148)
+  Closing
+Session upload progress is an easy feature to leave on and forget. These CVEs show how a stall-window UAF in that path becomes a serious RCE story once you combine it with common app or deployment mistakes.
+Patch, or turn 
+session.upload_progress.enabled
+ off until you can. If you want to reproduce the primitive or the chains in a lab you control, start here: 
+github.com/syrex1013/php2shell
+.
+Questions, lab feedback, or hardening notes — open an issue on the repo or find me as 
+syrex1013
+ on GitHub.
+— Adrian
+          Top comments 
+(0)
+Subscribe
+Personal
+Trusted User
+        Create template
+Templates let you quickly answer FAQs or store snippets for re-use.
+Submit
+Preview
+Dismiss
+Code of Conduct
+•
+Report abuse
+        Are you sure you want to hide this comment? It will become hidden in your post, but will still be visible via the comment's 
+permalink
+.
+Hide child comments as well
+          Confirm
+For further actions, you may consider blocking this person and/or 
+reporting abuse
+      syrex1013
+Follow
+          Joined
+Aug 23, 2024
+            Trending on 
+DEV Community
+Hot
+                Join the Hacktoberfest Open-Source AI Challenge: Slow and Steady! $2,850 in Prizes Across 21 Winners.
+#
+devchallenge
+#
+hf26challenge
+#
+hacktoberfest
+#
+productivity
+                I'm a First-Year ECE Student Trying to Figure Out "The Prestige Path" vs. Just Building Stuff
+#
+discuss
+#
+career
+#
+beginners
+#
+development
+                My AI Agent Leaked a Secret Across Two Sessions. Every Guard Said “Fine.”
+#
+ai
+#
+security
+#
+database
+#
+showdev
+DEV Community
+ — A space to discuss and keep up software development and manage your software career
+      Home
+      DEV Challenges
+      DEV++
+      Videos
+      DEV Education Tracks
+      DEV Help
+      Advertise on DEV
+      Organization Accounts
+      DEV Showcase
+      About
+      Contact
+      Free Postgres Database
+      DEV Shop
+      MLH
+      Code of Conduct
+      Privacy Policy
+      Terms of Use
+Built on 
+Forem
+ — the 
+open source
+ software that powers 
+DEV
+ and other inclusive communities.
+Made with love and 
+Ruby on Rails
+. DEV Community 
+©
+ 2016 - 2026.
+          We're a place where coders share, stay up-to-date and grow their careers.
+        Log in
+        Create account

@@ -1,0 +1,72 @@
+Title: zif_passthru PHP exploit at DuckDuckGo
+
+URL Source: https://html.duckduckgo.com/html/?q=zif_passthru+PHP+exploit
+
+Markdown Content:
+[](https://html.duckduckgo.com/html/?q=zif_passthru+PHP+exploit)
+
+[](https://html.duckduckgo.com/html/ "DuckDuckGo")
+
+## [php2shell (CVE-2026-109618 / CVE-2026-109619): Defending Against ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsecurityarsenal.com%2Fblog%2Fphp2shell%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619%2Ddefending%2Dagainst%2Dcritical%2Dunauthenticated%2Dphp%2Dremote%2Dcode%2Dexecution&rut=6af1052bee5e777a9f2f1dfac6edcdee60829f7cc396ae613f79fe9290d52e4a)
+
+[![Image 1](https://external-content.duckduckgo.com/ip3/securityarsenal.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsecurityarsenal.com%2Fblog%2Fphp2shell%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619%2Ddefending%2Dagainst%2Dcritical%2Dunauthenticated%2Dphp%2Dremote%2Dcode%2Dexecution&rut=6af1052bee5e777a9f2f1dfac6edcdee60829f7cc396ae613f79fe9290d52e4a)[securityarsenal.com/blog/php2shell-cve-2026-109618-cve-2026-109619-defending-against-critical-unauthenticated-php-remote-code-execution](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsecurityarsenal.com%2Fblog%2Fphp2shell%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619%2Ddefending%2Dagainst%2Dcritical%2Dunauthenticated%2Dphp%2Dremote%2Dcode%2Dexecution&rut=6af1052bee5e777a9f2f1dfac6edcdee60829f7cc396ae613f79fe9290d52e4a)
+
+[Two critical, unauthenticated **PHP** RCE flaws (CVSSv4.0 9.2) are under early exploitation. Emergency patches land October 21 — **PHP** 8.x only. Here's how to detect and defend now.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsecurityarsenal.com%2Fblog%2Fphp2shell%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619%2Ddefending%2Dagainst%2Dcritical%2Dunauthenticated%2Dphp%2Dremote%2Dcode%2Dexecution&rut=6af1052bee5e777a9f2f1dfac6edcdee60829f7cc396ae613f79fe9290d52e4a)
+
+## [PHP 7.4 FFI - 'disable_functions' Bypass - PHP webapps Exploit](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.exploit%2Ddb.com%2Fexploits%2F48655&rut=74002d79bb8239e9b31a88e3a9dc58bf0b88584e52ec6dc51182e79c70cbf1a1)
+
+[![Image 2](https://external-content.duckduckgo.com/ip3/www.exploit-db.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.exploit%2Ddb.com%2Fexploits%2F48655&rut=74002d79bb8239e9b31a88e3a9dc58bf0b88584e52ec6dc51182e79c70cbf1a1)[www.exploit-db.com/exploits/48655](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.exploit%2Ddb.com%2Fexploits%2F48655&rut=74002d79bb8239e9b31a88e3a9dc58bf0b88584e52ec6dc51182e79c70cbf1a1)
+
+[**PHP** 7.4 FFI - 'disable_functions' Bypass.. webapps **exploit** for **PHP** platform](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.exploit%2Ddb.com%2Fexploits%2F48655&rut=74002d79bb8239e9b31a88e3a9dc58bf0b88584e52ec6dc51182e79c70cbf1a1)
+
+## [PHP2Shell: Critical PHP RCE Flaws CVE-2026-109618 & CVE-2026-109619 ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthecybersecguru.com%2Fadvisory%2Fphp2shell%2Dcve%2D2026%2D109618%2D109619%2Dphp%2Drce%2F&rut=a46963c57c6da5d5b2fc38a384b6aa6d995908b7235ca954739f87d3695fb5e5)
+
+[![Image 3](https://external-content.duckduckgo.com/ip3/thecybersecguru.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthecybersecguru.com%2Fadvisory%2Fphp2shell%2Dcve%2D2026%2D109618%2D109619%2Dphp%2Drce%2F&rut=a46963c57c6da5d5b2fc38a384b6aa6d995908b7235ca954739f87d3695fb5e5)[thecybersecguru.com/advisory/php2shell-cve-2026-109618-109619-php-rce/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthecybersecguru.com%2Fadvisory%2Fphp2shell%2Dcve%2D2026%2D109618%2D109619%2Dphp%2Drce%2F&rut=a46963c57c6da5d5b2fc38a384b6aa6d995908b7235ca954739f87d3695fb5e5)
+
+[PHP2Shell exposes two critical **PHP** RCE flaws, CVE-2026-109618 and CVE-2026-109619. Learn the risks, affected versions, mitigations and patching steps](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthecybersecguru.com%2Fadvisory%2Fphp2shell%2Dcve%2D2026%2D109618%2D109619%2Dphp%2Drce%2F&rut=a46963c57c6da5d5b2fc38a384b6aa6d995908b7235ca954739f87d3695fb5e5)
+
+## [CVE-2026-109618 and CVE-2026-109619: PHP2Shell | ThreatLabz - Zscaler](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.zscaler.com%2Fblogs%2Fsecurity%2Dresearch%2Fcve%2D2026%2D109618%2Dand%2Dcve%2D2026%2D109619%2Dphp%2Dvulnerable%2Dunauthenticated%2Drce&rut=832e3cba4d6f0e802d62c150ce474f8076f1776c3b76ff8ebaf924c825feaa7b)
+
+[![Image 4](https://external-content.duckduckgo.com/ip3/www.zscaler.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.zscaler.com%2Fblogs%2Fsecurity%2Dresearch%2Fcve%2D2026%2D109618%2Dand%2Dcve%2D2026%2D109619%2Dphp%2Dvulnerable%2Dunauthenticated%2Drce&rut=832e3cba4d6f0e802d62c150ce474f8076f1776c3b76ff8ebaf924c825feaa7b)[www.zscaler.com/blogs/security-research/cve-2026-109618-and-cve-2026-109619-php-vulnerable-unauthenticated-rce](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.zscaler.com%2Fblogs%2Fsecurity%2Dresearch%2Fcve%2D2026%2D109618%2Dand%2Dcve%2D2026%2D109619%2Dphp%2Dvulnerable%2Dunauthenticated%2Drce&rut=832e3cba4d6f0e802d62c150ce474f8076f1776c3b76ff8ebaf924c825feaa7b)
+
+[**Exploit** Vector: This vulnerability is chainable with CVE-2026-109618. The partial initialization in CVE-2026-109618 allows an attacker to shape the freed memory contents and gain control of the instruction pointer, enabling highly reliable RCE.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.zscaler.com%2Fblogs%2Fsecurity%2Dresearch%2Fcve%2D2026%2D109618%2Dand%2Dcve%2D2026%2D109619%2Dphp%2Dvulnerable%2Dunauthenticated%2Drce&rut=832e3cba4d6f0e802d62c150ce474f8076f1776c3b76ff8ebaf924c825feaa7b)
+
+## [Cannot Patch PHP Yet? The Alternatives for CVE-2026-109618 and CVE-2026 ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fmassivegrid.com%2Fblog%2Fphp%2Dcve%2D2026%2D109618%2D109619%2Dmitigations%2Dwhen%2Dyou%2Dcannot%2Dpatch%2F&rut=a5690f56f589461aef38ee8b7d475e9414062c4ff3768f405151220aba791019)
+
+[![Image 5](https://external-content.duckduckgo.com/ip3/massivegrid.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fmassivegrid.com%2Fblog%2Fphp%2Dcve%2D2026%2D109618%2D109619%2Dmitigations%2Dwhen%2Dyou%2Dcannot%2Dpatch%2F&rut=a5690f56f589461aef38ee8b7d475e9414062c4ff3768f405151220aba791019)[massivegrid.com/blog/php-cve-2026-109618-109619-mitigations-when-you-cannot-patch/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fmassivegrid.com%2Fblog%2Fphp%2Dcve%2D2026%2D109618%2D109619%2Dmitigations%2Dwhen%2Dyou%2Dcannot%2Dpatch%2F&rut=a5690f56f589461aef38ee8b7d475e9414062c4ff3768f405151220aba791019)
+
+[The only complete fix for CVE-2026-109618 and CVE-2026-109619, the two critical **PHP** remote code execution bugs known as PHP2Shell and patched on 21 October 2026, is updating to **PHP** 8.5.12, 8.4.27, 8.3.36 or 8.2.35. The **PHP** project says so in its advisory and this post does not argue with it. But on release day many servers cannot take the update: the distribution package is still building, the ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fmassivegrid.com%2Fblog%2Fphp%2Dcve%2D2026%2D109618%2D109619%2Dmitigations%2Dwhen%2Dyou%2Dcannot%2Dpatch%2F&rut=a5690f56f589461aef38ee8b7d475e9414062c4ff3768f405151220aba791019)
+
+## [PHP Critical RCE (CVE-2026-109618 & CVE-2026-109619)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.triskelelabs.com%2Fresources%2Fphp%2Dcritical%2Drce%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619&rut=5a875e8f7373d0b626dda4192c7f2c274fb87a342c63fefae479e9dbf9567ed5)
+
+[![Image 6](https://external-content.duckduckgo.com/ip3/www.triskelelabs.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.triskelelabs.com%2Fresources%2Fphp%2Dcritical%2Drce%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619&rut=5a875e8f7373d0b626dda4192c7f2c274fb87a342c63fefae479e9dbf9567ed5)[www.triskelelabs.com/resources/php-critical-rce-cve-2026-109618-cve-2026-109619](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.triskelelabs.com%2Fresources%2Fphp%2Dcritical%2Drce%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619&rut=5a875e8f7373d0b626dda4192c7f2c274fb87a342c63fefae479e9dbf9567ed5)
+
+[PHP2Shell: critical unauthenticated RCE in **PHP** (CVE-2026-109618 & CVE-2026-109619) is being exploited. Patch now and hunt for compromise.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.triskelelabs.com%2Fresources%2Fphp%2Dcritical%2Drce%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619&rut=5a875e8f7373d0b626dda4192c7f2c274fb87a342c63fefae479e9dbf9567ed5)
+
+## [PHP Core Remote Code Execution Vulnerabilities (PHP2Shell): Recommended ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Flogpresso.com%2Fen%2Fblog%2F2026%2D10%2D21%2Dphp2shell%2Dsecurity%2Dadvisory&rut=a22837bde3bc23334bdecb75f3e83c1887dd3e894a4a5777e4fffec20efa987d)
+
+[![Image 7](https://external-content.duckduckgo.com/ip3/logpresso.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Flogpresso.com%2Fen%2Fblog%2F2026%2D10%2D21%2Dphp2shell%2Dsecurity%2Dadvisory&rut=a22837bde3bc23334bdecb75f3e83c1887dd3e894a4a5777e4fffec20efa987d)[logpresso.com/en/blog/2026-10-21-php2shell-security-advisory](https://duckduckgo.com/l/?uddg=https%3A%2F%2Flogpresso.com%2Fen%2Fblog%2F2026%2D10%2D21%2Dphp2shell%2Dsecurity%2Dadvisory&rut=a22837bde3bc23334bdecb75f3e83c1887dd3e894a4a5777e4fffec20efa987d)
+
+[The two vulnerabilities are known as PHP2Shell. The **PHP** security team announced an out-of-band security release for October 21, 2026, at 14:00 UTC (23:00 KST). However, vulnerability details and screenshots of an **exploit** tool were leaked on October 20, ahead of the patch release.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Flogpresso.com%2Fen%2Fblog%2F2026%2D10%2D21%2Dphp2shell%2Dsecurity%2Dadvisory&rut=a22837bde3bc23334bdecb75f3e83c1887dd3e894a4a5777e4fffec20efa987d)
+
+## [Sizing the PHP exposure window for CVE-2026-109618 and CVE-2026-109619 ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.virustotal.com%2F2026%2F10%2Fsizing%2Dphp%2Dexposure%2Dwindow%2Dfor%2Dcve%2D2026.html&rut=fbef476e9411bf2ffbd3718af37f80550f56209b90bee28ba1aed09a5bf9bec3)
+
+[![Image 8](https://external-content.duckduckgo.com/ip3/blog.virustotal.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.virustotal.com%2F2026%2F10%2Fsizing%2Dphp%2Dexposure%2Dwindow%2Dfor%2Dcve%2D2026.html&rut=fbef476e9411bf2ffbd3718af37f80550f56209b90bee28ba1aed09a5bf9bec3)[blog.virustotal.com/2026/10/sizing-php-exposure-window-for-cve-2026.html](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.virustotal.com%2F2026%2F10%2Fsizing%2Dphp%2Dexposure%2Dwindow%2Dfor%2Dcve%2D2026.html&rut=fbef476e9411bf2ffbd3718af37f80550f56209b90bee28ba1aed09a5bf9bec3)
+
+[On October 20, the **PHP** security team announced an out-of-band security release for Wednesday, October 21, 2026 at 14:00 UTC, fixing two critical vulnerabilities rated CVSS v4.0 9.2 (CVE-2026-109618 and CVE-2026-109619). Hours before the release, technical details leaked publicly. They point to the session.upload_progress feature, which has been part of **PHP** since 5.4.0 and is enabled by default ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.virustotal.com%2F2026%2F10%2Fsizing%2Dphp%2Dexposure%2Dwindow%2Dfor%2Dcve%2D2026.html&rut=fbef476e9411bf2ffbd3718af37f80550f56209b90bee28ba1aed09a5bf9bec3)
+
+## [PHP2Shell: Responding to CVE-2026-109618 and CVE-2026-109619 - Tanium](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.tanium.com%2Fblog%2Fphp2shell%2Dresponding%2Dto%2Dcve%2D2026%2D109618%2Dand%2Dcve%2D2026%2D109619&rut=db4f89827de72c02722f1fea3b594210c3784b26da546c3b50e560eac7d72878)
+
+[![Image 9](https://external-content.duckduckgo.com/ip3/www.tanium.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.tanium.com%2Fblog%2Fphp2shell%2Dresponding%2Dto%2Dcve%2D2026%2D109618%2Dand%2Dcve%2D2026%2D109619&rut=db4f89827de72c02722f1fea3b594210c3784b26da546c3b50e560eac7d72878)[www.tanium.com/blog/php2shell-responding-to-cve-2026-109618-and-cve-2026-109619](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.tanium.com%2Fblog%2Fphp2shell%2Dresponding%2Dto%2Dcve%2D2026%2D109618%2Dand%2Dcve%2D2026%2D109619&rut=db4f89827de72c02722f1fea3b594210c3784b26da546c3b50e560eac7d72878)
+
+[Two critical **PHP** flaws, CVE-2026-109618 and CVE-2026-109619 ("PHP2Shell"), allow unauthenticated remote code execution. What they are, how far exploitation has gone, and how to find and patch every **PHP** install.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.tanium.com%2Fblog%2Fphp2shell%2Dresponding%2Dto%2Dcve%2D2026%2D109618%2Dand%2Dcve%2D2026%2D109619&rut=db4f89827de72c02722f1fea3b594210c3784b26da546c3b50e560eac7d72878)
+
+## [Critical PHP Security Update: Two RCE Flaws (CVE-2026-109618, CVE-2026 ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.sucuri.net%2F2026%2F10%2Fcritical%2Dphp%2Dsecurity%2Dupdate%2Dtwo%2Drce%2Dflaws%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619.html&rut=4f78f7d86a88882626d2387eee537af0d58e07bf0db2870ee824d9821591cc01)
+
+[![Image 10](https://external-content.duckduckgo.com/ip3/blog.sucuri.net.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.sucuri.net%2F2026%2F10%2Fcritical%2Dphp%2Dsecurity%2Dupdate%2Dtwo%2Drce%2Dflaws%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619.html&rut=4f78f7d86a88882626d2387eee537af0d58e07bf0db2870ee824d9821591cc01)[blog.sucuri.net/2026/10/critical-php-security-update-two-rce-flaws-cve-2026-109618-cve-2026-109619.html](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.sucuri.net%2F2026%2F10%2Fcritical%2Dphp%2Dsecurity%2Dupdate%2Dtwo%2Drce%2Dflaws%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619.html&rut=4f78f7d86a88882626d2387eee537af0d58e07bf0db2870ee824d9821591cc01)
+
+[Two critical **PHP** vulnerabilities (CVE-2026-109618 and CVE-2026-109619) can allow unauthenticated attackers to execute code on affected web servers. Both carry a CVSS v4.0 score of 9.2, and exploitation attempts are already being observed in the wild.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.sucuri.net%2F2026%2F10%2Fcritical%2Dphp%2Dsecurity%2Dupdate%2Dtwo%2Drce%2Dflaws%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619.html&rut=4f78f7d86a88882626d2387eee537af0d58e07bf0db2870ee824d9821591cc01)
+
+[Feedback](https://duckduckgo.com/feedback.html)
+
+![Image 11](https://duckduckgo.com/t/sl_h)

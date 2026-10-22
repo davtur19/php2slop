@@ -1,0 +1,72 @@
+Title: PHP 7 pwn heap exploit zend_object at DuckDuckGo
+
+URL Source: https://html.duckduckgo.com/html/?q=PHP+7+pwn+heap+exploit+zend_object
+
+Markdown Content:
+[](https://html.duckduckgo.com/html/?q=PHP+7+pwn+heap+exploit+zend_object)
+
+[](https://html.duckduckgo.com/html/ "DuckDuckGo")
+
+## [php2shell: Dissecting PHP's Critical Session Upload Progress ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)
+
+[![Image 1](https://external-content.duckduckgo.com/ip3/qideng.substack.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)[qideng.substack.com/p/php2shell-dissecting-phps-critical](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)
+
+[Three **exploit****PHP's** session.upload_progress feature (enabled by default since **PHP** 5.4). The fourth — a zero-dependency pre-auth RCE on Apache mod_php — **exploits****PHP's** memory allocator bailout during multipart parsing.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)
+
+## [PHP2Shell: Critical PHP RCE Flaws CVE-2026-109618 & CVE-2026-109619 ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthecybersecguru.com%2Fadvisory%2Fphp2shell%2Dcve%2D2026%2D109618%2D109619%2Dphp%2Drce%2F&rut=a46963c57c6da5d5b2fc38a384b6aa6d995908b7235ca954739f87d3695fb5e5)
+
+[![Image 2](https://external-content.duckduckgo.com/ip3/thecybersecguru.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthecybersecguru.com%2Fadvisory%2Fphp2shell%2Dcve%2D2026%2D109618%2D109619%2Dphp%2Drce%2F&rut=a46963c57c6da5d5b2fc38a384b6aa6d995908b7235ca954739f87d3695fb5e5)[thecybersecguru.com/advisory/php2shell-cve-2026-109618-109619-php-rce/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthecybersecguru.com%2Fadvisory%2Fphp2shell%2Dcve%2D2026%2D109618%2D109619%2Dphp%2Drce%2F&rut=a46963c57c6da5d5b2fc38a384b6aa6d995908b7235ca954739f87d3695fb5e5)
+
+[PHP2Shell exposes two critical **PHP** RCE flaws, CVE-2026-109618 and CVE-2026-109619. Learn the risks, affected versions, mitigations and patching steps](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthecybersecguru.com%2Fadvisory%2Fphp2shell%2Dcve%2D2026%2D109618%2D109619%2Dphp%2Drce%2F&rut=a46963c57c6da5d5b2fc38a384b6aa6d995908b7235ca954739f87d3695fb5e5)
+
+## [MAD Bugs: Finding and Exploiting a 21-Year-Old Vulnerability in PHP](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.calif.io%2Fp%2Fmad%2Dbugs%2Dfinding%2Dand%2Dexploiting%2Da&rut=ebc91f56b81cb760a74ed5da5a087681fe17748803bb65154f7c6707139246b8)
+
+[![Image 3](https://external-content.duckduckgo.com/ip3/blog.calif.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.calif.io%2Fp%2Fmad%2Dbugs%2Dfinding%2Dand%2Dexploiting%2Da&rut=ebc91f56b81cb760a74ed5da5a087681fe17748803bb65154f7c6707139246b8)[blog.calif.io/p/mad-bugs-finding-and-exploiting-a](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.calif.io%2Fp%2Fmad%2Dbugs%2Dfinding%2Dand%2Dexploiting%2Da&rut=ebc91f56b81cb760a74ed5da5a087681fe17748803bb65154f7c6707139246b8)
+
+[For that to work via a path **PHP** exposes to user code, the local **exploit** forges the fake **zend_object** as a Closure specifically. A Closure is **PHP's** runtime representation of function () { ... }: a **zend_object** followed by a zend_function whose func.handler holds the C function pointer.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.calif.io%2Fp%2Fmad%2Dbugs%2Dfinding%2Dand%2Dexploiting%2Da&rut=ebc91f56b81cb760a74ed5da5a087681fe17748803bb65154f7c6707139246b8)
+
+## [PHP2Shell: How Security Teams Should Assess and Contain the Reported ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.dexpose.io%2Fphp2shell%2Dphp%2Drce%2Dexposure%2Dresponse%2F&rut=5ea0d6b9a3973bea67d4bd0686b48d2b6b285af5bdf8eedd2b5effe1cd37085d)
+
+[![Image 4](https://external-content.duckduckgo.com/ip3/www.dexpose.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.dexpose.io%2Fphp2shell%2Dphp%2Drce%2Dexposure%2Dresponse%2F&rut=5ea0d6b9a3973bea67d4bd0686b48d2b6b285af5bdf8eedd2b5effe1cd37085d)[www.dexpose.io/php2shell-php-rce-exposure-response/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.dexpose.io%2Fphp2shell%2Dphp%2Drce%2Dexposure%2Dresponse%2F&rut=5ea0d6b9a3973bea67d4bd0686b48d2b6b285af5bdf8eedd2b5effe1cd37085d)
+
+[An operational assessment of CVE-2026-109618 and CVE-2026-109619: **PHP** runtime exposure, multipart request handling, interim controls, and response priorities.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.dexpose.io%2Fphp2shell%2Dphp%2Drce%2Dexposure%2Dresponse%2F&rut=5ea0d6b9a3973bea67d4bd0686b48d2b6b285af5bdf8eedd2b5effe1cd37085d)
+
+## [xuehuolll — PoC exploit for CVE-2026-109618 | Sploitus](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsploitus.com%2Fexploit%3Fid%3DA89D185D%2DA937%2D500E%2DA02E%2D879217CB955A&rut=b0730bfa2bbeb7194f6395d75afef633024eb44fcc347f17945a1a94ad0beae0)
+
+[![Image 5](https://external-content.duckduckgo.com/ip3/sploitus.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsploitus.com%2Fexploit%3Fid%3DA89D185D%2DA937%2D500E%2DA02E%2D879217CB955A&rut=b0730bfa2bbeb7194f6395d75afef633024eb44fcc347f17945a1a94ad0beae0)[sploitus.com/exploit?id=A89D185D-A937-500E-A02E-879217CB955A](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsploitus.com%2Fexploit%3Fid%3DA89D185D%2DA937%2D500E%2DA02E%2D879217CB955A&rut=b0730bfa2bbeb7194f6395d75afef633024eb44fcc347f17945a1a94ad0beae0)
+
+[Audit confirms no use-after-free in **PHP** session.upload_progress. (CVE-2026-109618 CVE-2026-109619)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsploitus.com%2Fexploit%3Fid%3DA89D185D%2DA937%2D500E%2DA02E%2D879217CB955A&rut=b0730bfa2bbeb7194f6395d75afef633024eb44fcc347f17945a1a94ad0beae0)
+
+## [PDF Exploiting PHP-7 unserialize](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.checkpoint.com%2Fwp%2Dcontent%2Fuploads%2F2016%2F08%2FExploiting%2DPHP%2D7%2Dunserialize%2DReport%2D160829.pdf&rut=bf8677752d8050d331cf9ce0b0344ac1f779af9812c1059d3d95443ef28ea6cc)
+
+[![Image 6](https://external-content.duckduckgo.com/ip3/blog.checkpoint.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.checkpoint.com%2Fwp%2Dcontent%2Fuploads%2F2016%2F08%2FExploiting%2DPHP%2D7%2Dunserialize%2DReport%2D160829.pdf&rut=bf8677752d8050d331cf9ce0b0344ac1f779af9812c1059d3d95443ef28ea6cc)[blog.checkpoint.com/wp-content/uploads/2016/08/Exploiting-PHP-7-unserialize-Report-160829.pdf](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.checkpoint.com%2Fwp%2Dcontent%2Fuploads%2F2016%2F08%2FExploiting%2DPHP%2D7%2Dunserialize%2DReport%2D160829.pdf&rut=bf8677752d8050d331cf9ce0b0344ac1f779af9812c1059d3d95443ef28ea6cc)
+
+[In **PHP-7**, the struct zval, which is the fundamental struct for holding values, internally points to struct zend_string to represent strings. The struct zend_string in turn, embeds the string at the end of the struct, using the flexible array member as explained in the "values and objects" section.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.checkpoint.com%2Fwp%2Dcontent%2Fuploads%2F2016%2F08%2FExploiting%2DPHP%2D7%2Dunserialize%2DReport%2D160829.pdf&rut=bf8677752d8050d331cf9ce0b0344ac1f779af9812c1059d3d95443ef28ea6cc)
+
+## [PDF Melting the Flesh of PHP's Memory Hardening](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.cs.ucr.edu%2F~zhiyunq%2Fpub%2Fsec26_php_exploit.pdf&rut=3adb339ff4f9d8bf827c8a2028d7a938aace21b52f42052554157a9b3c59460f)
+
+[![Image 7](https://external-content.duckduckgo.com/ip3/www.cs.ucr.edu.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.cs.ucr.edu%2F~zhiyunq%2Fpub%2Fsec26_php_exploit.pdf&rut=3adb339ff4f9d8bf827c8a2028d7a938aace21b52f42052554157a9b3c59460f)[www.cs.ucr.edu/~zhiyunq/pub/sec26_php_exploit.pdf](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.cs.ucr.edu%2F~zhiyunq%2Fpub%2Fsec26_php_exploit.pdf&rut=3adb339ff4f9d8bf827c8a2028d7a938aace21b52f42052554157a9b3c59460f)
+
+[**Heap** hardening involves a range of strategies designed to fortify **PHP's** memory management mechanisms, such as making **heap** metadata read-only and isolating the **PHP** application **heap** from the **heap** that handles HTTP-related objects. Nevertheless, the effectiveness of such **heap** hardening solutions has not been scrutinized.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.cs.ucr.edu%2F~zhiyunq%2Fpub%2Fsec26_php_exploit.pdf&rut=3adb339ff4f9d8bf827c8a2028d7a938aace21b52f42052554157a9b3c59460f)
+
+## [CrowdStrike Protects Customers from Threats Delivered via PHP2Shell](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.crowdstrike.com%2Fen%2Dus%2Fblog%2Fcrowdstrike%2Dprotects%2Dcustomers%2Dfrom%2Dphp%2Drce%2Dzero%2Ddays%2F&rut=a6373a2d3a830d8dc8a7e4484f7d801ec46d36a8a85120ec475df19ee52e2524)
+
+[![Image 8](https://external-content.duckduckgo.com/ip3/www.crowdstrike.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.crowdstrike.com%2Fen%2Dus%2Fblog%2Fcrowdstrike%2Dprotects%2Dcustomers%2Dfrom%2Dphp%2Drce%2Dzero%2Ddays%2F&rut=a6373a2d3a830d8dc8a7e4484f7d801ec46d36a8a85120ec475df19ee52e2524)[www.crowdstrike.com/en-us/blog/crowdstrike-protects-customers-from-php-rce-zero-days/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.crowdstrike.com%2Fen%2Dus%2Fblog%2Fcrowdstrike%2Dprotects%2Dcustomers%2Dfrom%2Dphp%2Drce%2Dzero%2Ddays%2F&rut=a6373a2d3a830d8dc8a7e4484f7d801ec46d36a8a85120ec475df19ee52e2524)
+
+[Zend is the C implementation that compiles **PHP** source into bytecode, executes it in a virtual machine, and manages everything the language needs at runtime: variables, arrays, objects, reference counting, and memory allocation.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.crowdstrike.com%2Fen%2Dus%2Fblog%2Fcrowdstrike%2Dprotects%2Dcustomers%2Dfrom%2Dphp%2Drce%2Dzero%2Ddays%2F&rut=a6373a2d3a830d8dc8a7e4484f7d801ec46d36a8a85120ec475df19ee52e2524)
+
+## [CVE-2026-109618: PHP RCE flaw explained - Brandefense](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbrandefense.io%2Fknowledge%2Dhub%2Fvulnerabilities%2Fcve%2D2026%2D109618%2F&rut=33f1eb8d6c5b20d30c07509c2320d79a5186d09e73230ad4fa955c95aba15ec4)
+
+[![Image 9](https://external-content.duckduckgo.com/ip3/brandefense.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbrandefense.io%2Fknowledge%2Dhub%2Fvulnerabilities%2Fcve%2D2026%2D109618%2F&rut=33f1eb8d6c5b20d30c07509c2320d79a5186d09e73230ad4fa955c95aba15ec4)[brandefense.io/knowledge-hub/vulnerabilities/cve-2026-109618/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbrandefense.io%2Fknowledge%2Dhub%2Fvulnerabilities%2Fcve%2D2026%2D109618%2F&rut=33f1eb8d6c5b20d30c07509c2320d79a5186d09e73230ad4fa955c95aba15ec4)
+
+[CVE-2026-109618 is a critical **PHP** RCE flaw rated 9.2 ("RCE via OOM corruption"). See the cause, affected versions, fixed releases and what to do.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbrandefense.io%2Fknowledge%2Dhub%2Fvulnerabilities%2Fcve%2D2026%2D109618%2F&rut=33f1eb8d6c5b20d30c07509c2320d79a5186d09e73230ad4fa955c95aba15ec4)
+
+## [A 21-Year-Old PHP Vulnerability That Opens the Door to Remote Code ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.cyberkendra.com%2F2026%2F05%2Fa%2D21%2Dyear%2Dold%2Dphp%2Dvulnerability%2Dthat.html&rut=37e54c0fdcaabd165e65b3333e9f9ed3f44dfb70ccd3981657c9b860719efb2c)
+
+[![Image 10](https://external-content.duckduckgo.com/ip3/www.cyberkendra.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.cyberkendra.com%2F2026%2F05%2Fa%2D21%2Dyear%2Dold%2Dphp%2Dvulnerability%2Dthat.html&rut=37e54c0fdcaabd165e65b3333e9f9ed3f44dfb70ccd3981657c9b860719efb2c)[www.cyberkendra.com/2026/05/a-21-year-old-php-vulnerability-that.html](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.cyberkendra.com%2F2026%2F05%2Fa%2D21%2Dyear%2Dold%2Dphp%2Dvulnerability%2Dthat.html&rut=37e54c0fdcaabd165e65b3333e9f9ed3f44dfb70ccd3981657c9b860719efb2c)
+
+[The remote **exploit** carries a significant precondition: the target application must load a class implementing Serializable that calls unserialize () recursively on user-supplied data and then mutates the resulting object's properties. That combination is uncommon in production code. The local **exploit**, however, carries no such restriction — any **PHP** process that passes attacker-controlled ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.cyberkendra.com%2F2026%2F05%2Fa%2D21%2Dyear%2Dold%2Dphp%2Dvulnerability%2Dthat.html&rut=37e54c0fdcaabd165e65b3333e9f9ed3f44dfb70ccd3981657c9b860719efb2c)
+
+[Feedback](https://duckduckgo.com/feedback.html)
+
+![Image 11](https://duckduckgo.com/t/sl_h)

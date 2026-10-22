@@ -1,0 +1,72 @@
+Title: PHP pwn challenge writeup zend_function handler at DuckDuckGo
+
+URL Source: https://html.duckduckgo.com/html/?q=PHP+pwn+challenge+writeup+zend_function+handler
+
+Markdown Content:
+[](https://html.duckduckgo.com/html/?q=PHP+pwn+challenge+writeup+zend_function+handler)
+
+[](https://html.duckduckgo.com/html/ "DuckDuckGo")
+
+## [PwnSec CTF 2026 — Writeups - GitHub](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fhax1ng%2Fpwnsec%2Dctf%2D2026&rut=654273289df17e09f7961f8a012775beef0baa25dc6d83e7d2fbb3f1d9edd548)
+
+[![Image 1](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fhax1ng%2Fpwnsec%2Dctf%2D2026&rut=654273289df17e09f7961f8a012775beef0baa25dc6d83e7d2fbb3f1d9edd548)[github.com/hax1ng/pwnsec-ctf-2026](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fhax1ng%2Fpwnsec%2Dctf%2D2026&rut=654273289df17e09f7961f8a012775beef0baa25dc6d83e7d2fbb3f1d9edd548)
+
+[PwnSec CTF 2026 was a 24-hour jeopardy-style competition spanning **pwn**, web, crypto, reverse engineering, misc, and OSINT. This repository collects our solved **challenges** — each in its own directory with a standalone, beginner- friendly **writeup** (README.md) and the final working exploit / solve scripts and the relevant **challenge** source. The **writeups** walk through the full thought process ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fhax1ng%2Fpwnsec%2Dctf%2D2026&rut=654273289df17e09f7961f8a012775beef0baa25dc6d83e7d2fbb3f1d9edd548)
+
+## [BsidesTLV 2023 - 'Zen (d) Master' writeup (pwn) - pwner.gg](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fpwner.gg%2Fctf%2Dwriteups%2F2023%2D06%2D01%2Dzend%2Dmaster&rut=9cc725254eff43a248f29bf65954284726de5d8052d94d381a96c9ad8454293c)
+
+[![Image 2](https://external-content.duckduckgo.com/ip3/pwner.gg.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fpwner.gg%2Fctf%2Dwriteups%2F2023%2D06%2D01%2Dzend%2Dmaster&rut=9cc725254eff43a248f29bf65954284726de5d8052d94d381a96c9ad8454293c)[pwner.gg/ctf-writeups/2023-06-01-zend-master](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fpwner.gg%2Fctf%2Dwriteups%2F2023%2D06%2D01%2Dzend%2Dmaster&rut=9cc725254eff43a248f29bf65954284726de5d8052d94d381a96c9ad8454293c)
+
+[A server.py file that gets your input and run arbitrary **PHP** code (+with the .ini configs applied). The .patch files introduce a new function for the PHP8 interpreter called jit_optimize (), it accepts two parameters: a function name and an offset.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fpwner.gg%2Fctf%2Dwriteups%2F2023%2D06%2D01%2Dzend%2Dmaster&rut=9cc725254eff43a248f29bf65954284726de5d8052d94d381a96c9ad8454293c)
+
+## [PwnSec CTF 2026 - PHP Sandbox Escape Challenge Writeup](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fkore.one%2Fpwnsec%2Dctf%2D2026%2Dphp%2Dsandbox%2Descape%2Dchallenge%2Dwriteup%2F&rut=3ce9df43369ca989c66270eb0d7e7fad56ae6e0dca54b22535dab734bb3f1127)
+
+[![Image 3](https://external-content.duckduckgo.com/ip3/kore.one.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fkore.one%2Fpwnsec%2Dctf%2D2026%2Dphp%2Dsandbox%2Descape%2Dchallenge%2Dwriteup%2F&rut=3ce9df43369ca989c66270eb0d7e7fad56ae6e0dca54b22535dab734bb3f1127)[kore.one/pwnsec-ctf-2026-php-sandbox-escape-challenge-writeup/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fkore.one%2Fpwnsec%2Dctf%2D2026%2Dphp%2Dsandbox%2Descape%2Dchallenge%2Dwriteup%2F&rut=3ce9df43369ca989c66270eb0d7e7fad56ae6e0dca54b22535dab734bb3f1127)
+
+[**PHP** Sandbox Escape is a native-code exploitation **challenge** hidden behind what initially looks like a heavily restricted **PHP** evaluator. The application deliberately grants arbitrary **PHP** evaluation, but attempts to contain it with an exceptionally long disable_functions list and an open_basedir restriction. The decisive mistake is that the sandbox treats **PHP** function filtering as a native](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fkore.one%2Fpwnsec%2Dctf%2D2026%2Dphp%2Dsandbox%2Descape%2Dchallenge%2Dwriteup%2F&rut=3ce9df43369ca989c66270eb0d7e7fad56ae6e0dca54b22535dab734bb3f1127)
+
+## [php2shell-poc/GUIDE.md at main · joshuarosato/php2shell-poc](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fjoshuarosato%2Fphp2shell%2Dpoc%2Fblob%2Fmain%2FGUIDE.md&rut=c8699d20ce5f73f34334d6f37bace9418d4e1133e93c9e102fb5085db3aadb79)
+
+[![Image 4](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fjoshuarosato%2Fphp2shell%2Dpoc%2Fblob%2Fmain%2FGUIDE.md&rut=c8699d20ce5f73f34334d6f37bace9418d4e1133e93c9e102fb5085db3aadb79)[github.com/joshuarosato/php2shell-poc/blob/main/GUIDE.md](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fjoshuarosato%2Fphp2shell%2Dpoc%2Fblob%2Fmain%2FGUIDE.md&rut=c8699d20ce5f73f34334d6f37bace9418d4e1133e93c9e102fb5085db3aadb79)
+
+[The upstream fix is **php**-src commit 3584a98b"Avoid state corruption via bailout" (merged into PHP-8.3 / PHP-8.4 / PHP-8.5). Observable proof of CVE-2026-109619 (RCE): the session upload-progress **handler** unserialises the session during request startup. Before the fix that unserialiser may instantiate objects and run their __wakeup ().](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fjoshuarosato%2Fphp2shell%2Dpoc%2Fblob%2Fmain%2FGUIDE.md&rut=c8699d20ce5f73f34334d6f37bace9418d4e1133e93c9e102fb5085db3aadb79)
+
+## [TJCTF 2026 — QA210 Writeups](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fyuri08%2Dqa210.github.io%2Ftjctf%2D2026%2F&rut=64e356051f2adebb46d8f5441822c9174cf72200989811741ce113cd253eea77)
+
+[![Image 5](https://external-content.duckduckgo.com/ip3/yuri08-qa210.github.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fyuri08%2Dqa210.github.io%2Ftjctf%2D2026%2F&rut=64e356051f2adebb46d8f5441822c9174cf72200989811741ce113cd253eea77)[yuri08-qa210.github.io/tjctf-2026/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fyuri08%2Dqa210.github.io%2Ftjctf%2D2026%2F&rut=64e356051f2adebb46d8f5441822c9174cf72200989811741ce113cd253eea77)
+
+[Twelve **Challenges**, One Competition Complete **writeup** collection for TJCTF 2026 covering Web exploitation, Cryptography, Forensics, Reverse Engineering, **Pwn**, and Misc categories. Each **challenge** broken down step by step with full exploit code and detailed explanations.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fyuri08%2Dqa210.github.io%2Ftjctf%2D2026%2F&rut=64e356051f2adebb46d8f5441822c9174cf72200989811741ce113cd253eea77)
+
+## [Pwn CTF Writeups — Find pwn CTF Writeups by Technique - CTF Helper](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fctfhelper.com%2Fwriteups%2Fpwn&rut=7c3c4be56dc619dc0cb70a1cee596ef0e1883633046fde8cb16b7b16190576bf)
+
+[![Image 6](https://external-content.duckduckgo.com/ip3/ctfhelper.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fctfhelper.com%2Fwriteups%2Fpwn&rut=7c3c4be56dc619dc0cb70a1cee596ef0e1883633046fde8cb16b7b16190576bf)[ctfhelper.com/writeups/pwn](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fctfhelper.com%2Fwriteups%2Fpwn&rut=7c3c4be56dc619dc0cb70a1cee596ef0e1883633046fde8cb16b7b16190576bf)
+
+[Find **pwn** CTF **writeups**: Buffer overflow, ROP chains, format string, heap exploitation, ret2libc. Links to CTFtime **writeups** by tag, GitHub collections, and learning resources for **pwn****challenges**.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fctfhelper.com%2Fwriteups%2Fpwn&rut=7c3c4be56dc619dc0cb70a1cee596ef0e1883633046fde8cb16b7b16190576bf)
+
+## [From memory corruption to disable_functions bypass: understanding PHP ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fx%2Dc3ll.github.io%2Fposts%2FUAF%2DPHP%2Ddisable_functions%2F&rut=c3b14c66d842d39a7dd4bcf8cf963695423972cceb3951612a3eeae0b05bcc2a)
+
+[![Image 7](https://external-content.duckduckgo.com/ip3/x-c3ll.github.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fx%2Dc3ll.github.io%2Fposts%2FUAF%2DPHP%2Ddisable_functions%2F&rut=c3b14c66d842d39a7dd4bcf8cf963695423972cceb3951612a3eeae0b05bcc2a)[x-c3ll.github.io/posts/UAF-PHP-disable_functions/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fx%2Dc3ll.github.io%2Fposts%2FUAF%2DPHP%2Ddisable_functions%2F&rut=c3b14c66d842d39a7dd4bcf8cf963695423972cceb3951612a3eeae0b05bcc2a)
+
+[Now the **handler** field is pointing to the display_disabled_function. If you are wondering why the functions have a "zif_" prefix it is because they are created using the PHP_FUNCTION macro and it expands to a C symbol with the acronym of "Zend Internal Function".](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fx%2Dc3ll.github.io%2Fposts%2FUAF%2DPHP%2Ddisable_functions%2F&rut=c3b14c66d842d39a7dd4bcf8cf963695423972cceb3951612a3eeae0b05bcc2a)
+
+## [Writeups - CTF Challenge Solutions | CTFdojo](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fctfdojo.com%2Fwriteups%2F&rut=198356985a8055d4063be89396d9146b5621ac9a1779d26dd90496b95be87ccf)
+
+[![Image 8](https://external-content.duckduckgo.com/ip3/ctfdojo.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fctfdojo.com%2Fwriteups%2F&rut=198356985a8055d4063be89396d9146b5621ac9a1779d26dd90496b95be87ccf)[ctfdojo.com/writeups/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fctfdojo.com%2Fwriteups%2F&rut=198356985a8055d4063be89396d9146b5621ac9a1779d26dd90496b95be87ccf)
+
+[CTF **writeups**: step-by-step **challenge** solutions on web exploitation, cryptography, forensics, reverse engineering, **pwn** and more.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fctfdojo.com%2Fwriteups%2F&rut=198356985a8055d4063be89396d9146b5621ac9a1779d26dd90496b95be87ccf)
+
+## [MAD Bugs: Finding and Exploiting a 21-Year-Old Vulnerability in PHP](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.calif.io%2Fp%2Fmad%2Dbugs%2Dfinding%2Dand%2Dexploiting%2Da&rut=ebc91f56b81cb760a74ed5da5a087681fe17748803bb65154f7c6707139246b8)
+
+[![Image 9](https://external-content.duckduckgo.com/ip3/blog.calif.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.calif.io%2Fp%2Fmad%2Dbugs%2Dfinding%2Dand%2Dexploiting%2Da&rut=ebc91f56b81cb760a74ed5da5a087681fe17748803bb65154f7c6707139246b8)[blog.calif.io/p/mad-bugs-finding-and-exploiting-a](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.calif.io%2Fp%2Fmad%2Dbugs%2Dfinding%2Dand%2Dexploiting%2Da&rut=ebc91f56b81cb760a74ed5da5a087681fe17748803bb65154f7c6707139246b8)
+
+[MAD Bugs: Finding and Exploiting a 21-Year-Old Vulnerability in **PHP** When this bug shipped, the dinosaurs had just gone extinct, only 64.999979 million years prior.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblog.calif.io%2Fp%2Fmad%2Dbugs%2Dfinding%2Dand%2Dexploiting%2Da&rut=ebc91f56b81cb760a74ed5da5a087681fe17748803bb65154f7c6707139246b8)
+
+## [Pwn Challenges | firmianay/CTF-All-In-One | DeepWiki](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdeepwiki.com%2Ffirmianay%2FCTF%2DAll%2DIn%2DOne%2F7.1%2Dpwn%2Dchallenges&rut=a57e589b7f8acef1b5a2d4edc64ca45a7a35cfb20fc9d439cdcb8914ddb89851)
+
+[![Image 10](https://external-content.duckduckgo.com/ip3/deepwiki.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdeepwiki.com%2Ffirmianay%2FCTF%2DAll%2DIn%2DOne%2F7.1%2Dpwn%2Dchallenges&rut=a57e589b7f8acef1b5a2d4edc64ca45a7a35cfb20fc9d439cdcb8914ddb89851)[deepwiki.com/firmianay/CTF-All-In-One/7.1-pwn-challenges](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdeepwiki.com%2Ffirmianay%2FCTF%2DAll%2DIn%2DOne%2F7.1%2Dpwn%2Dchallenges&rut=a57e589b7f8acef1b5a2d4edc64ca45a7a35cfb20fc9d439cdcb8914ddb89851)
+
+[The **challenge****writeups** in this repository demonstrate various exploitation methods across different types of vulnerabilities. By studying these examples and applying the techniques to new **challenges**, CTF participants can build their binary exploitation skills and improve their ability to identify and exploit vulnerabilities in real-world software.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdeepwiki.com%2Ffirmianay%2FCTF%2DAll%2DIn%2DOne%2F7.1%2Dpwn%2Dchallenges&rut=a57e589b7f8acef1b5a2d4edc64ca45a7a35cfb20fc9d439cdcb8914ddb89851)
+
+[Feedback](https://duckduckgo.com/feedback.html)
+
+![Image 11](https://duckduckgo.com/t/sl_h)

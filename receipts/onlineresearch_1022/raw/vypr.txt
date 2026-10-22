@@ -1,0 +1,180 @@
+
+Public PoC Released for Critical PHP Session Vulnerabilities Leading to RCE · VYPR
+↵
+patch
+Published 
+Oct 21, 2026
+· 
+7
+ source
+s
+Public PoC Released for Critical PHP Session Vulnerabilities Leading to RCE
+Two critical PHP vulnerabilities, 
+CVE-2026-109618
+ and 
+CVE-2026-109619
+, affecting session.upload_progress, have a public proof-of-concept exploit available, potentially enabling remote code execution.
+A public proof-of-concept repository has emerged, detailing testing tools and a lab setup for two critical 
+PHP
+ vulnerabilities, collectively referred to as php2shell. These flaws, identified as 
+CVE-2026-109618
+ and 
+CVE-2026-109619
+, reportedly impact 
+PHP
+'s session.upload_progress feature and carry the potential for remote code execution (RCE) under specific circumstances. The release of this PoC adds significant technical detail to a rapidly evolving security concern.
+The 
+PHP
+ security team had previously announced an emergency release to address two critical vulnerabilities, each assigned a CVSS v4.0 score of 9.2. While an official advisory was anticipated, the independent research repository provides early insights into the affected versions and potential fixes. According to the repository, versions 5.4.0 through 8.5.11 are considered vulnerable. Planned fixed versions include 
+PHP
+ 8.2.35, 8.3.36, 8.4.27, and 8.5.12, though administrators are advised to confirm these details with the official 
+PHP
+ release advisory before proceeding with any updates.
+The researcher's write-up outlines multiple potential exploit chains rather than a single, universal method. One described path involves combining session-file injection with a local file inclusion (LFI) flaw within an application. This specific chain relies on the upload progress feature being enabled and an application vulnerability that permits the inclusion of local files. The repository claims that 
+PHP
+'s upload-progress handler stores a supplied filename in session data without adequate validation. Furthermore, it suggests that a session identifier sent within a POST body could bypass the session.use_only_cookies setting, which is intended to restrict session ID acceptance methods. These technical claims highlight how a weakness in 
+PHP
+'s session handling could be exploited in conjunction with separate application-level vulnerabilities, emphasizing that not all 
+PHP
+ sites are immediately susceptible to this particular attack vector.
+A second reported vulnerability involves a use-after-free memory error, a common type of bug that occurs when software attempts to access memory that has already been deallocated. The researcher indicates that re-entering a var_destroy destructor can trigger this condition, with findings reportedly confirmed using AddressSanitizer, a tool designed to detect memory errors. The repository also points to a potential persistence of 
+PHP
+-FPM serializer state across requests and a handler mismatch that might cause a destructor to execute after a deserialization failure. It's important to note that some of these exploit paths may require additional conditions, such as the presence of an application gadget or access to local files, and these technical assertions await confirmation via 
+PHP
+'s official advisory and patches.
+Given 
+PHP
+'s widespread use across a vast array of websites and applications, a vulnerability in its core session handling mechanism could have far-reaching implications. The risk is amplified when an application already suffers from existing weaknesses, such as file inclusion flaws or insecure deserialization practices. Data from Mallory, collected on October 20, indicates a significant number of internet-facing hosts running older, unsupported 
+PHP
+ versions (8.1 and earlier), totaling approximately 883,717 out of 1.5 million identified 
+PHP
+ hosts. These older branches no longer receive official security fixes, making migration to a supported release a critical concern for many organizations.
+The severity score of 9.2 indicates a critical issue, but it does not inherently inform administrators about the specific exposure of their servers. Actual vulnerability depends on a complex interplay of factors including the 
+PHP
+ version, server configuration, application behavior, and the existence of the precise conditions required for any given exploit chain. Organizations are strongly advised to use controlled testing environments, such as the 
+PHP
+-FPM and Nginx lab provided in the repository, solely for authorized validation purposes and to refrain from running proof-of-concept code against production systems.
+Administrators should prioritize inventorying all 
+PHP
+ installations across their web servers, containers, and managed hosting environments. Following the official 
+PHP
+ security release, they must promptly apply available updates and restart relevant web services or 
+PHP
+-FPM to ensure the new binaries are active. Systems running end-of-life 
+PHP
+ branches require special attention, as they may not receive official patches. While the repository lists 
+PHP
+ 5.x, 7.x, 8.0, and 8.1 as unsupported, confirmation of support status with the 
+PHP
+ project is recommended.
+As temporary safeguards, the researcher suggests disabling session.upload_progress and ensuring session.use_only_cookies is set to 'On'. While these settings may mitigate exposure to some reported attack paths, the repository cautions that they do not address every potential exploit chain and are not a substitute for applying a security update. A thorough review of applications for local file inclusion and insecure deserialization vulnerabilities is also recommended.
+The SANS Internet Storm Center report provides further technical details on the two critical 
+PHP
+ vulnerabilities, 
+CVE-2026-109618
+ and 
+CVE-2026-109619
+, noting their CVSS score of 9.4 and that all 
+PHP
+ versions from 5 onwards are affected. While only 
+PHP
+ 8 will receive patches, early proof-of-concept exploits are already circulating, and disabling 'session.upload_progress.enabled' is suggested as a partial mitigation.
+CrowdStrike has reported on the active exploitation of two zero-day vulnerabilities in 
+PHP
+, 
+CVE-2024-24781
+ and 
+CVE-2024-24782
+. These flaws enable remote code execution and have been observed being used by threat actors to deploy a new backdoor named PHP2Shell. CrowdStrike's security platform has successfully detected and blocked these attacks, indicating active in-the-wild exploitation beyond the proof-of-concept stage.
+The new article from The Register provides further details on the exploitation of 
+CVE-2026-109618
+ and 
+CVE-2026-109619
+, noting that watchTowr Intel is already observing in-the-wild exploitation with various 'php2shell' User-Agents. It also highlights that the risk is considered highest for mod_
+php
+, where an unauthenticated request can trigger the attack before any application code runs. Additionally, the article mentions that several European government entities and privacy groups temporarily took their websites offline as a precautionary measure.
+CISA has issued a formal alert regarding the critical "php2shell" vulnerabilities, 
+CVE-2026-109618
+ and 
+CVE-2026-109619
+, in 
+PHP
+. While the previous article noted the existence of a public proof-of-concept exploit, CISA's alert emphasizes that these flaws enable unauthenticated remote code execution and affect all 
+PHP
+ installations serving web requests. The agency strongly urges immediate patching to versions 8.5.12, 8.4.27, 8.3.36, or 8.2.35, prioritizing internet-facing systems, and advises taking affected systems offline if patching is not immediately possible.
+This new report from Krebs on Security provides further context and impact analysis for the critical 
+PHP
+ vulnerabilities 
+CVE-2026-109618
+ and 
+CVE-2026-109619
+. It highlights that nearly 70 percent of websites are affected, with exploits already in the wild causing outages and potential data exposure, and notes the involvement of AI in discovering these flaws, comparing their severity to Log4Shell.
+This advisory from Fortinet PSIRT provides further technical details on the 
+PHP
+ remote code execution vulnerabilities, 
+CVE-2026-109618
+ and 
+CVE-2026-109619
+. It elaborates on how improper handling of out-of-memory errors using longjmp() can lead to uninitialized request memory, enabling RCE with a CVSSv3 score of 9.8. The advisory also includes a direct link to the NVD entry for 
+CVE-2026-109618
+.
+Synthesized by Vypr AI
+↓
+Sources
+7
+SANS Internet Storm Center
+Critical PHP Vulnerability (CVE-2026-109618, CVE-2026-109619) &#x5b;infocon yellow&#x5d;, (Wed, Oct 21st)
+Oct 21, 2026
+Krebs on Security
+Widespread PHP Flaw May Cause Many Site Outages Today
+Oct 21, 2026
+The Register Security
+PHP devs publish critical bug fix as site owners warned: Pull 'em offline if you're unpatched
+Oct 21, 2026
+Cyber Security News
+PHP2Shell Vulnerability Gets a Public PoC Exploit for Security Testing
+Oct 21, 2026
+Fortinet PSIRT
+PHP core RCE vulnerability patches (CVE-2026-109618 and CVE-2026-109619)
+Oct 21, 2026
+CISA Alerts
+Critical Vulnerabilities in PHP Require Immediate Patching
+CrowdStrike Blog
+CrowdStrike Protects Customers from Threats Delivered via PHP2Shell
+↓
+CVEs
+4
+CVE-2026-109618
+Critical
+CVE-2026-109619
+Critical
+CVE-2024-24781
+mentioned
+CVE-2024-24782
+mentioned
+↓
+Affected
+1
+PHP
+VYPR
+Vulnerability intelligence — CVEs, exploitation, patches and supply-chain threats, continuously enriched.
+Explore
+Briefs
+Stories
+Articles
+Database
+CVEs
+Products
+Vendors
+Packages
+Malware
+Company
+vyprsec.ai
+About
+Contact
+© 
+2026
+ VYPR — vulnerability intelligence
+Privacy Policy
+Terms
+Cookie settings

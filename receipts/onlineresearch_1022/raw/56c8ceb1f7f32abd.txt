@@ -1,0 +1,72 @@
+Title: ps_serializers PHP session at DuckDuckGo
+
+URL Source: https://html.duckduckgo.com/html/?q=ps_serializers+PHP+session
+
+Markdown Content:
+[](https://html.duckduckgo.com/html/?q=ps_serializers+PHP+session)
+
+[](https://html.duckduckgo.com/html/ "DuckDuckGo")
+
+## [Php-session-serializer - MediaWiki](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.mediawiki.org%2Fwiki%2FPhp%2Dsession%2Dserializer%2Fen&rut=d2b7f497dd2ceff014b0ec4946e6728dadd86de3612816301c4c2a25ffc5f40b)
+
+[![Image 1](https://external-content.duckduckgo.com/ip3/www.mediawiki.org.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.mediawiki.org%2Fwiki%2FPhp%2Dsession%2Dserializer%2Fen&rut=d2b7f497dd2ceff014b0ec4946e6728dadd86de3612816301c4c2a25ffc5f40b)[www.mediawiki.org/wiki/Php-session-serializer/en](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.mediawiki.org%2Fwiki%2FPhp%2Dsession%2Dserializer%2Fen&rut=d2b7f497dd2ceff014b0ec4946e6728dadd86de3612816301c4c2a25ffc5f40b)
+
+[**php**-**session**-serializer is a **PHP** library that provides methods that work like **PHP's** session_encode and session_decode functions but don't mess with the $_**SESSION** superglobal.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.mediawiki.org%2Fwiki%2FPhp%2Dsession%2Dserializer%2Fen&rut=d2b7f497dd2ceff014b0ec4946e6728dadd86de3612816301c4c2a25ffc5f40b)
+
+## [php-session-serializer: php-session-serializer - Wikimedia](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdoc.wikimedia.org%2Fphp%2Dsession%2Dserializer%2F&rut=2f9c622c7ae1b2ef13724b7a4aef580ed8bbdaf28b7dee010a736a40f15ddfc2)
+
+[![Image 2](https://external-content.duckduckgo.com/ip3/doc.wikimedia.org.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdoc.wikimedia.org%2Fphp%2Dsession%2Dserializer%2F&rut=2f9c622c7ae1b2ef13724b7a4aef580ed8bbdaf28b7dee010a736a40f15ddfc2)[doc.wikimedia.org/php-session-serializer/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdoc.wikimedia.org%2Fphp%2Dsession%2Dserializer%2F&rut=2f9c622c7ae1b2ef13724b7a4aef580ed8bbdaf28b7dee010a736a40f15ddfc2)
+
+[[License] **php**-**session**-serializer **php**-**session**-serializer is a **PHP** library that provides methods that work like **PHP's** session_encode and session_decode functions, but don't mess with the $_**SESSION** superglobal. It supports the **php**, php_binary, and php_serialize serialize handlers. wddx is not supported, since it is inferior to **php** and php_binary ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdoc.wikimedia.org%2Fphp%2Dsession%2Dserializer%2F&rut=2f9c622c7ae1b2ef13724b7a4aef580ed8bbdaf28b7dee010a736a40f15ddfc2)
+
+## [GitHub - wikimedia/php-session-serializer: Mirror of https://gerrit ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fwikimedia%2Fphp%2Dsession%2Dserializer&rut=da48976ba986503d123facf9ebafce90803ca9ca59e8503aa12363d5a4319f66)
+
+[![Image 3](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fwikimedia%2Fphp%2Dsession%2Dserializer&rut=da48976ba986503d123facf9ebafce90803ca9ca59e8503aa12363d5a4319f66)[github.com/wikimedia/php-session-serializer](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fwikimedia%2Fphp%2Dsession%2Dserializer&rut=da48976ba986503d123facf9ebafce90803ca9ca59e8503aa12363d5a4319f66)
+
+[**php**-**session**-serializer is a **PHP** library that provides methods that work like **PHP's** session_encode and session_decode functions, but don't mess with the $_**SESSION** superglobal. It supports the **php**, php_binary, and php_serialize serialize handlers. wddx is not supported, since it is inferior to **php** and php_binary.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fwikimedia%2Fphp%2Dsession%2Dserializer&rut=da48976ba986503d123facf9ebafce90803ca9ca59e8503aa12363d5a4319f66)
+
+## [PHP Sessions - W3Schools](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.w3schools.com%2Fphp%2Fphp_sessions.asp&rut=195f21742864d1ebbf03adaf05f8286165c1b19a3e3e2150cf8d91e51c662afa)
+
+[![Image 4](https://external-content.duckduckgo.com/ip3/www.w3schools.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.w3schools.com%2Fphp%2Fphp_sessions.asp&rut=195f21742864d1ebbf03adaf05f8286165c1b19a3e3e2150cf8d91e51c662afa)[www.w3schools.com/php/php_sessions.asp](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.w3schools.com%2Fphp%2Fphp_sessions.asp&rut=195f21742864d1ebbf03adaf05f8286165c1b19a3e3e2150cf8d91e51c662afa)
+
+[What is a **PHP****Session**? **Session** variables hold information about one single user, and are available through all pages in one application. When you work with an application, you open it, do some changes, and then you close it. This is much like a **Session**. The computer knows who you are. It knows when you start the application and when you close it. But on the internet there is one problem: the ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.w3schools.com%2Fphp%2Fphp_sessions.asp&rut=195f21742864d1ebbf03adaf05f8286165c1b19a3e3e2150cf8d91e51c662afa)
+
+## [wikimedia/php-session-serializer - Packagist.org](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fpackagist.org%2Fpackages%2Fwikimedia%2Fphp%2Dsession%2Dserializer&rut=4c40c774b86f640dec22d52f34d33f7d48af4043ff2bd852b948d9cc4a98c6cc)
+
+[![Image 5](https://external-content.duckduckgo.com/ip3/packagist.org.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fpackagist.org%2Fpackages%2Fwikimedia%2Fphp%2Dsession%2Dserializer&rut=4c40c774b86f640dec22d52f34d33f7d48af4043ff2bd852b948d9cc4a98c6cc)[packagist.org/packages/wikimedia/php-session-serializer](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fpackagist.org%2Fpackages%2Fwikimedia%2Fphp%2Dsession%2Dserializer&rut=4c40c774b86f640dec22d52f34d33f7d48af4043ff2bd852b948d9cc4a98c6cc)
+
+[**php**-**session**-serializer **php**-**session**-serializer is a **PHP** library that provides methods that work like **PHP's** session_encode and session_decode functions, but don't mess with the $_**SESSION** superglobal.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fpackagist.org%2Fpackages%2Fwikimedia%2Fphp%2Dsession%2Dserializer&rut=4c40c774b86f640dec22d52f34d33f7d48af4043ff2bd852b948d9cc4a98c6cc)
+
+## [php-session-serializer/README.md at master - GitHub](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fwikimedia%2Fphp%2Dsession%2Dserializer%2Fblob%2Fmaster%2FREADME.md&rut=1f3329a20e0a9b2891d2ccd8c7c9ad4f3392375d7a2a6c139581fb09b9290df2)
+
+[![Image 6](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fwikimedia%2Fphp%2Dsession%2Dserializer%2Fblob%2Fmaster%2FREADME.md&rut=1f3329a20e0a9b2891d2ccd8c7c9ad4f3392375d7a2a6c139581fb09b9290df2)[github.com/wikimedia/php-session-serializer/blob/master/README.md](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fwikimedia%2Fphp%2Dsession%2Dserializer%2Fblob%2Fmaster%2FREADME.md&rut=1f3329a20e0a9b2891d2ccd8c7c9ad4f3392375d7a2a6c139581fb09b9290df2)
+
+[**php**-**session**-serializer **php**-**session**-serializer is a **PHP** library that provides methods that work like **PHP's** session_encode and session_decode functions, but don't mess with the $_**SESSION** superglobal.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fwikimedia%2Fphp%2Dsession%2Dserializer%2Fblob%2Fmaster%2FREADME.md&rut=1f3329a20e0a9b2891d2ccd8c7c9ad4f3392375d7a2a6c139581fb09b9290df2)
+
+## [php 7 - PHP Session Serialize Object - Stack Overflow](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F47246489%2Fphp%2Dsession%2Dserialize%2Dobject&rut=1ac48fd99b615eab903f6849831e4699f46301de013881fff55c4ff2f7daf045)
+
+[![Image 7](https://external-content.duckduckgo.com/ip3/stackoverflow.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F47246489%2Fphp%2Dsession%2Dserialize%2Dobject&rut=1ac48fd99b615eab903f6849831e4699f46301de013881fff55c4ff2f7daf045)[stackoverflow.com/questions/47246489/php-session-serialize-object](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F47246489%2Fphp%2Dsession%2Dserialize%2Dobject&rut=1ac48fd99b615eab903f6849831e4699f46301de013881fff55c4ff2f7daf045)
+
+[You can save objects in **sessions** like any other value. At the end of the script the **session** got serialized and saved anyway: When **PHP** shuts down, it will automatically take the contents of the $_**SESSION** superglobal, serialize it, and send it for storage using the **session** save handler.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F47246489%2Fphp%2Dsession%2Dserialize%2Dobject&rut=1ac48fd99b615eab903f6849831e4699f46301de013881fff55c4ff2f7daf045)
+
+## [PHP: Sessions - Manual](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.php.net%2Fmanual%2Fen%2Fbook.session.php&rut=2fe07f716363a965e3d2c27321096d5d3f97f87052745deb0503af42d337f7bd)
+
+[![Image 8](https://external-content.duckduckgo.com/ip3/www.php.net.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.php.net%2Fmanual%2Fen%2Fbook.session.php&rut=2fe07f716363a965e3d2c27321096d5d3f97f87052745deb0503af42d337f7bd)[www.php.net/manual/en/book.session.php](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.php.net%2Fmanual%2Fen%2Fbook.session.php&rut=2fe07f716363a965e3d2c27321096d5d3f97f87052745deb0503af42d337f7bd)
+
+[Introduction ¶ **Session** support in **PHP** consists of a way to preserve certain data across subsequent accesses. A visitor accessing your web site is assigned a unique id, the so-called **session** id. This is either stored in a cookie on the user side or is propagated in the URL. The **session** support allows you to store data between requests in the $_**SESSION** superglobal array. When a visitor accesses ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.php.net%2Fmanual%2Fen%2Fbook.session.php&rut=2fe07f716363a965e3d2c27321096d5d3f97f87052745deb0503af42d337f7bd)
+
+## [php - serialize () and $_SESSION - Stack Overflow](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F8281188%2Fserialize%2Dand%2Dsession&rut=9d20b1c58153c70624da2c14efc0cb6e925bcdc5a7012856c47483de817b55dd)
+
+[![Image 9](https://external-content.duckduckgo.com/ip3/stackoverflow.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F8281188%2Fserialize%2Dand%2Dsession&rut=9d20b1c58153c70624da2c14efc0cb6e925bcdc5a7012856c47483de817b55dd)[stackoverflow.com/questions/8281188/serialize-and-session](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F8281188%2Fserialize%2Dand%2Dsession&rut=9d20b1c58153c70624da2c14efc0cb6e925bcdc5a7012856c47483de817b55dd)
+
+[Once the user is authenticated, I serialized the class object and stored it in a **session**. However, I cant seem to print its output even after using unserialize (). Creating the **session** variable:](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F8281188%2Fserialize%2Dand%2Dsession&rut=9d20b1c58153c70624da2c14efc0cb6e925bcdc5a7012856c47483de817b55dd)
+
+## [PHP: Custom Session Handlers - Manual](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.php.net%2Fmanual%2Fen%2Fsession.customhandler.php&rut=77134371a7fb2b08170d0bcb6ee9f45776163f0ed8ef44ad3e8deddc5049e98b)
+
+[![Image 10](https://external-content.duckduckgo.com/ip3/www.php.net.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.php.net%2Fmanual%2Fen%2Fsession.customhandler.php&rut=77134371a7fb2b08170d0bcb6ee9f45776163f0ed8ef44ad3e8deddc5049e98b)[www.php.net/manual/en/session.customhandler.php](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.php.net%2Fmanual%2Fen%2Fsession.customhandler.php&rut=77134371a7fb2b08170d0bcb6ee9f45776163f0ed8ef44ad3e8deddc5049e98b)
+
+[Custom **Session** Handlers ¶ To implement database storage, or any other storage method, you will need to use session_set_save_handler () to create a set of user-level storage functions. A **session** handlers may be created using the SessionHandlerInterface or extending **PHP's** internal handlers by inheriting from SessionHandler.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.php.net%2Fmanual%2Fen%2Fsession.customhandler.php&rut=77134371a7fb2b08170d0bcb6ee9f45776163f0ed8ef44ad3e8deddc5049e98b)
+
+[Feedback](https://duckduckgo.com/feedback.html)
+
+![Image 11](https://duckduckgo.com/t/sl_h)

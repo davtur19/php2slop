@@ -1,0 +1,1128 @@
+                            Melting the Flesh of PHP’s Memory Hardening
+
+                              Yifan Wu                   Xiaochuan Yu               Zhiyun Qian
+                             UC Riverside                UC San Diego               UC Riverside
+
+
+
+
+                         Abstract                                  execution. Unlike vulnerabilities in specific business logic
+                                                                   within PHP applications, flaws within the PHP interpreter
+   Heap allocators are responsible for efficiently allocating
+                                                                   itself offer broader attack surfaces and higher exploitation
+or releasing memory on the heap. In addition, they also com-
+                                                                   potential. Recently, this has prompted PHP developers to
+monly implement various mitigation measures to defend
+                                                                   introduce heap hardening techniques [59] as a countermea-
+against heap-based memory corruption. Recently, the PHP
+                                                                   sure to mitigate the exploitation of PHP vulnerabilities. Heap
+project launched a heap hardening initiative aimed at stop-
+                                                                   hardening involves a range of strategies designed to fortify
+ping popular heap exploit techniques or restricting the exploit
+                                                                   PHP’s memory management mechanisms, such as making
+strategy space. In this paper, we conduct the first security
+                                                                   heap metadata read-only and isolating the PHP application
+study to understand the impact and effectiveness of these new
+                                                                   heap from the heap that handles HTTP-related objects.
+protective measures. We find that while they are effective at
+                                                                      Nevertheless, the effectiveness of such heap hardening so-
+stopping current-generation exploits, they fall short against
+                                                                   lutions has not been scrutinized. In this study, we systemati-
+determined attackers who will adapt. Through our analysis,
+                                                                   cally survey all built-in PHP object types that are generally
+we not only identify the flaw that allows specific mitigations
+                                                                   available to PHP applications and identify feasible generic
+to be bypassed, but also a new suite of novel exploitation
+                                                                   attack paths that do not depend on application-specific objects.
+strategies that work for the most common vulnerabilities in-
+                                                                   From our investigation of PHP, we uncover implementation
+volving out-of-bounds memory write and use-after-free write
+                                                                   flaws that render some defenses vulnerable to bypass. In other
+primitives. Notably, our strategy is generic across the built-in
+                                                                   cases, we identify alternative and universal exploit paths that
+PHP objects and can still work even with a single-byte out-
+                                                                   are constrained by the defenses. Overall, we are the first to
+of-bounds memory write primitive. Finally, we evaluate our
+                                                                   propose a comprehensive security analysis of proposed PHP
+exploit strategies against five real vulnerabilities in an envi-
+                                                                   heap hardening and a generic end-to-end remote PHP exploit
+ronment with all evaluated protections enabled. The results
+                                                                   strategy under minimal assumptions and weak bug primitives.
+show that although the new protection measures can effec-
+                                                                   The techniques work for local exploits, i.e., sandbox [19, 29]
+tively defend against the exploitation of most vulnerabilities,
+                                                                   escaping [6], which are generally easier to construct, as well.
+the attack strategies proposed by this work can still make
+                                                                   Furthermore, we show the exploit techniques work for weak
+these vulnerabilities exploitable again. The identified flaw has
+                                                                   primitives, i.e., a single-byte OOB write. In response, we
+since been patched after our responsible disclosure.
+                                                                   propose mitigation strategies and responsibly disclose our
+                                                                   findings to the developers, offering recommendations for im-
+1   Introduction                                                   proving the security of PHP’s memory management systems.
+                                                                      We demonstrate the effectiveness of our proposed exploit
+PHP remains one of the most widely used programming lan-           techniques by reviving four publicly available remote exploits
+guages for web development, with 72.2% of websites still           that no longer work under the new PHP heap defenses. In
+relying on PHP as of 2026 [62]. Prominent platforms such           particular, we demonstrated effective and reliable end-to-end
+as WordPress, HotCRP, and numerous other web frameworks            exploits that can achieve control flow hijacking and arbitrary
+are built on PHP. The popularity and extensive usage of PHP        code execution in a fully remote setting, which prior academic
+highlight its significance in web infrastructure and security.     research [21] did not consider. Furthermore, we demonstrate
+   In recent years, several high-impact PHP exploits, such as      the same technique also works for local PHP sandbox escape.
+CVE-2024-2961 and CVE-2022-31626, underscore the feasi-               The contributions of our work are as follows:
+bility of directly targeting the PHP interpreter for remote code   • Security analysis of PHP’s heap hardening defenses:
+We present the first comprehensive study of the latest PHP
+                                                                                                                                         configs and
+heap hardening techniques, identifying their weaknesses and                                                                              saved cache
+limitations. We identify several strategies that enable full         user
+                                                                                                 static resources
+bypasses, including one exploiting an implementation flaw
+                                                                        HTTP(s) request                 CGI call                Interpreted
+that we reported and that has since been fixed upstream.
+• Generic end-to-end exploit strategy under minimal as-                                   middleware                                          Application’s
+                                                                                                                    PHP Interpreter
+sumptions, supporting remote exploitation. We identify                                                                                         PHP scripts
+                                                                                    Web Server environment
+a feasible exploit path that relies only on built-in PHP ob-        attacker
+                                                                                   middleware configure              interpreter              web application
+ject types, avoids application-specific objects, and still works                   errors / memory errors           memory errors              logic errors
+with weak primitives such as a single-byte out-of-bounds
+write, even when all evaluated heap hardenings are enabled.
+By combining techniques discussed in this paper, we extend
+                                                                    Figure 1: Workflow Overview of a PHP Web Application.
+PHP memory-corruption exploitation to a fully remote setting
+without requiring a separate information leak.
+• Strong evaluation results with real CVEs: We success-            focus on protection-bypass techniques in the latest PHP inter-
+fully demonstrated the strategy by developing stable exploits      preter, namely PHP-FPM and its worker processes.
+against real-world CVEs and CTF challenges (most are re-              From a functional perspective, web applications developed
+mote settings). We further propose two hardening patches           in PHP can be viewed as remotely callable functions. Users
+that mitigate the evaluated exploit paths. Our open-sourced        send HTTP requests to the server, and the PHP interpreter
+artifacts support reproducibility and future defense research.     selects and parses the corresponding PHP script, performs
+                                                                   the required operations, and returns the rendered HTML or
+2     Background & Motivation                                      other types of content. Generally, this process is stateless
+                                                                   and non-interactive. PHP developers commonly use session
+In this section, we first briefly introduce the basic workflow     IDs to manage multiple requests from the same user and
+of PHP applications. We then define the threat model and           maintain user-specific data across sessions. However, ordinary
+describe various vulnerabilities and attack capabilities con-      users and remote attackers have no direct access to the PHP
+sidered in this study. We then describe the design and behav-      interpreter or server-side session state. Their interaction is
+ior of PHP memory management components that are most              limited to issuing HTTP requests and observing the responses.
+relevant to implementing new protections and developing by-           As an interpreted language, PHP applications are deployed
+pass strategies. Finally, this section presents a series of heap   as separate script files on the server and are parsed and exe-
+hardening protections recently introduced by the PHP devel-        cuted at runtime by the PHP interpreter. In practice, only
+opment team to mitigate memory corruption vulnerabilities.         administrators can modify these scripts. As a result, re-
+                                                                   mote attackers typically cannot supply arbitrary PHP code
+                                                                   or freely shape heap allocations to aid exploitation, unlike
+2.1    Workflow of PHP Application
+                                                                   in JavaScript or Python engine exploits. Instead, they must
+In a typical PHP web application workflow demonstrated in          reach and trigger interpreter vulnerabilities indirectly through
+Figure 1, users access a specific URL through their browsers,      existing, legitimate application code paths. For example,
+and the request is initially received by a web server (also        CVE-2022-31626 can be triggered when an application calls
+called middleware, such as Nginx, Apache, or httpd). The           mysqli_real_connect() to connect to a remote database
+web server then forwards the dynamically processed part of         and cause an overflow copy of the password.
+the request to the PHP interpreter according to its configura-        Attackers have different capabilities in cloud computing en-
+tion. To meet the demands of high concurrency in modern            vironments. A typical scenario is that cloud service providers
+web applications, PHP usually employs PHP-FPM (FastCGI             deploy servers running PHP interpreters, allowing users to
+Process Manager) [20] as a process manager, which creates          upload and host their own PHP scripts for personal websites
+multiple interpreter instances (worker processes) by using the     or remotely callable cloud functions. In such scenarios, PHP
+fork mechanism to parse and execute PHP scripts. A typical         interpreters provide comprehensive sandboxing mechanisms
+request handling workflow can be summarized as follows:            (enabled via configuration files). These mechanisms allow
+User (or attacker) → Web server (middleware) → PHP-FPM             server providers to restrict CPU and memory resources used
+→ Worker process → PHP script parsing and execution.               by each script, control file access permissions, and disable
+   Each stage of this workflow may expose an attack sur-           certain sensitive built-in functions (such as system() and
+face, spanning web-server vulnerabilities, memory errors in        socket()), thereby preventing users from executing poten-
+the PHP interpreter, and application-level logic flaws. In this    tially malicious scripts. In this scenario, since attackers can
+work, we exclude middleware issues and script-level logic          upload and execute arbitrary PHP scripts, they possess greater
+vulnerabilities (such as SQL injection and XSS), and instead       flexibility for exploitation and can freely create various PHP
+objects to assist their attack process.                           • Large: Memory allocations larger than 3 KB but smaller
+                                                                  than 2 MB are allocated from a larger cache structure called
+                                                                  zend_mm_chunk in units of pages.
+2.2    Threat model                                               • Huge: Huge allocations that exceed 2 MB are directly allo-
+                                                                  cated using the mmap system call.
+Corresponding to the two scenarios mentioned above, our
+work analyzes two primary attack scenarios targeting mem-
+ory corruption vulnerabilities in the PHP interpreter: (1) re-
+mote code execution and (2) sandbox escape. In the remote
+code execution scenario, attackers cannot directly modify any
+content on the server or deploy new PHP code. Instead, they
+can only craft specific HTTP requests and leverage existing
+legitimate PHP scripts on the server to shape memory layouts,
+triggering and exploiting vulnerabilities within the PHP inter-
+preter. In contrast, the sandbox escape scenario assumes that
+attackers can freely deploy PHP scripts on the server, running
+arbitrary PHP code within a restricted environment (sandbox)
+provided by the PHP interpreter. These two scenarios differ in
+the abilities of attackers to deploy PHP scripts. However, both
+aim at the same ultimate goal: to execute arbitrary system
+commands on the target server.                                    Figure 2: Overview of PHP Interpreter Memory Allocation.
+   We assume that in both attack scenarios, attackers can
+achieve initial memory corruption via a vulnerability in the         As shown in Figure 2, from an implementation perspec-
+PHP interpreter, such as an out-of-bounds (OOB) or use-after-     tive, ZendMM manages memory through a multilevel struc-
+free (UAF) issue. Under our threat model, the attackers aim to    ture: At the top level, there is exactly one zend_mm_heap
+exploit this initial memory corruption further and ultimately     object. This object maintains singly linked freelists for
+gain the ability to execute arbitrary system commands as the      each slot size and manages a doubly linked list of multiple
+PHP interpreter. Our threat model and exploitation strategy       zend_mm_chunk structures, each with a fixed size of 2 MB.
+are mainly independent of the PHP interpreter’s deployment        Each zend_mm_chunk contains a bitmap to record the avail-
+mode (e.g., embedded as a shared library or working stan-         ability of its 512 pages (each page is 4 KB in size).
+dalone), as interpreter-level mechanisms govern them.                For small-sized memory allocations, the freelists of slots
+   We also assume that the target PHP interpreter has all four    follow a last-in-first-out (LIFO) strategy. Since all slots
+protection mechanisms from the Heap Hardening initiative,         within the same freelist are of equal size, the allocator does
+which have been merged into the latest official release or        not need to store size metadata. As a result, when a slot
+have existing prototype implementations [2, 60]. The details      is freed, only the first 8 bytes are used to store the next
+of these protection mechanisms will be elaborated in §2.4.        pointer in the singly linked list. When a freelist is exhausted,
+Additionally, apart from the known memory corruption vul-         ZendMM will allocate new memory in units of pages from
+nerability in the PHP interpreter, we do not assume other vul-    the available space in a zend_mm_chunk. Similarly, large al-
+nerabilities, e.g., from other server components. The server      locations will also request new memory in units of pages
+environment is also assumed to enable all mainstream attack       from zend_mm_chunk. However, when a large object is freed,
+mitigation mechanisms, including Address Space Layout Ran-        it will be returned directly to zend_mm_chunk. The allo-
+domization, stack canaries, and Non-eXecutable memory.            cation from zend_mm_chunk uses a deterministic best-fit
+                                                                  strategy. If the current zend_mm_chunk is exhausted, a new
+                                                                  zend_mm_chunk is allocated and added to the top-level dou-
+2.3    Memory management in PHP                                   bly linked list in zend_mm_heap.
+                                                                     Before processing each new request, the PHP interpreter ini-
+To improve memory allocation performance, reduce frag-            tializes a default zend_mm_chunk. At the end of each request,
+mentation, and better support large objects, PHP has a cus-       the interpreter releases all extra zend_mm_chunk structures
+tom memory manager known as Zend Memory Manager                   except the default one and clears all freelists in the default
+(ZendMM) [41] to manage heap memory. From a high-level            chunk. Consequently, data or heap layouts are not shared
+perspective, ZendMM categorizes memory allocation into            across requests. In other words, the initial state of the PHP
+three cases based on allocation size:                             heap memory is identical for each new request under normal
+• Small: Memory allocations smaller than 3 KB are managed         circumstances. This uniform reset mechanism after each re-
+by 30 singly linked lists, each containing fixed-sized slots      quest, combined with the best-fit and LIFO allocation strategy,
+ranging from 8 bytes to 3072 bytes.                               makes PHP memory allocations deterministic. That is, given
+the same PHP script, the same requests can always produce          such as zend_mm_chunk, PHP introduced an integrity check
+an identical heap layout.                                          mechanism similar to Safe-Unlinking [58], with a related
+                                                                   php_stream_bucket check still under review. Specifically,
+                                                                   when elements are unlinked from doubly linked lists, this
+2.4    New defenses of PHP
+                                                                   mechanism verifies that the forward pointer fd and backward
+The PHP development team has implemented four protection           pointer bk satisfy the fundamental doubly linked list con-
+mechanisms as part of the “Heap Hardening” initiative since        straints: P->fd->bk == P and P->bk->fd == P. This mech-
+April 30, 2024. Two of these protections, Shadow Pointer and       anism prevents attackers from manipulating doubly linked list
+Unlink Abuse Prevention, have already been merged into offi-       pointers to perform arbitrary address read/write operations or
+cial release since PHP 8.4.0, while the other two, Read-only       forge memory management structures, i.e., zend_mm_chunk.
+Metadata and Heap Isolation, remain unreleased proposals or            Read-only Metadata (not merged): The Read-only Meta-
+prototypes. Appendix A summarizes their timeline, release          data protection aims to safeguard the integrity of function
+status, and upstream references.                                   pointers in heap metadata at runtime. The heap management
+   Shadow Pointer (PHP 8.4.0+): Similar to pointer encryp-         structure used by PHP, zend_mm_heap, is located within the
+tion named Safe-Linking [23] used by GNU libc or Pointer           first memory page of the default zend_mm_chunk. This struc-
+Authentication Codes (PAC) [30] by ARM, PHP’s Shadow               ture contains several critical memory management function
+Pointer Protection provides integrity checks for singly linked     hooks (such as pointers to malloc, free, and realloc). If
+freelists. Small allocations are organized using bins. Bins of     attackers corrupt these metadata pointers, subsequent memory
+the same size are grouped together as a singly linked freelist.    allocation or deallocation operations could allow attackers
+An attacker can corrupt the next pointer and force the Zend        to hijack the PHP interpreter’s control flow easily. Thus, the
+Heap allocator to return a specific memory chunk on the very       PHP maintainers plan to dynamically alter the read-write
+next allocation and write to it. This gives a powerful exploit     permissions of the metadata page, granting temporary write
+primitive of arbitrary allocation and writes. PHP’s Shadow         permissions only during legitimate metadata updates to pre-
+Pointer aims at verifying the integrity of the freelist. To do     vent the compromise of these critical pointers. As summarized
+this, this mitigation stores an additional encrypted copy of the   in Appendix A, the custom-heap-disabling idea was rejected
+next pointer at the end of each free memory slot. We illustrate    and the later Read-only Metadata prototype is not merged.
+this in Figure 3. The XOR-based encryption and decryption          We treat the later version as a proposed defense and included
+rely on a secret called the shadow key stored within the heap      it in our evaluation as well.
+metadata and refreshed automatically by worker processes.              Heap Isolation (pending merge): The Heap Isolation pro-
+To accommodate this extra piece of data, PHP increased the         tection aims to separate attacker-controlled data structures,
+minimum slot size from 8 to 16 bytes — the first 8 bytes can       such as HTTP request headers and POST request data, from
+continue serving as the next pointer of the freelist, while the    the application logic (i.e., memory allocations made by PHP
+additional 8 bytes at the end store the encrypted pointer copy.    scripts written by developers). By allocating request data to
+Each time a bin is retrieved from the linked list, the allocator   a dedicated heap separate from the main heap used by the
+                                                                   application, Heap Isolation prevents attackers from directly
+                                                                   manipulating the application’s heap layout via crafted HTTP
+                                                                   key-value pairs, making it more challenging to position over-
+                                                                   flowable objects adjacent to sensitive application objects. This
+                                                                   separation mitigates targeted memory corruption through lay-
+                                                                   out manipulation. In the future, the PHP maintainers plan to
+                                                                   extend Heap Isolation at the object and function levels for
+             shadow = byte_swap(next)
+                                        L
+                                            shadow_key
+                                                                   stronger separation guarantees.
+                                                                       The roadmap also contains broader ideas such as guard
+   Figure 3: Singly Linked Freelist with Shadow pointer            pages, freelist randomization, and finer-grained type or size
+                                                                   isolation. We discuss them only as future directions in §8.1
+checks whether the next pointer has been tampered with by          because they are not yet close to production deployment and
+comparing it against the decoded shadow pointer. Therefore, it     there is no prototype available.
+prevents the hijacking of freelists, for example, through OOB
+write primitives from achieving arbitrary address allocations      3     Overview
+and writes. The ZendMM verifies the integrity of the pointer
+copy whenever allocating memory from the freelist and will         3.1    High-Level Goals
+immediately abort execution upon detecting a mismatch.
+  Unlink Abuse Prevention (partially merged): To pre-              To transform memory corruption primitives such as use-after-
+vent memory corruption attacks against doubly linked lists         free (UAF) and out-of-bounds (OOB) accesses into complete
+remote code execution or local sandbox escape exploits, at-        1. The application may allocate other object types. However,
+tackers typically need to perform multiple stages of primitive     to preserve generality, our exploitation technique considers
+transformation. For example, converting an OOB primitive           only the objects listed in Table 1 as helpers.
+into an arbitrary address write primitive, or using a UAF prim-
+itive to derive an infoleak primitive. Additionally, some of             Data Type                   Descriptions
+these new primitives also simultaneously grant postconditions
+that serve as preconditions for subsequent primitives.                     zval         PHP value reference or inline storage
+   Memory protection mechanisms such as Heap Hardening                 zend_string             Inline storing a string
+reduce the exploitation strategy space by imposing additional           zend_array              Hash table in Zend
+preconditions or making existing preconditions tighter, i.e.,          zend_object         Represents an object in PHP
+harder to fulfill, at various known primitive transformation
+opportunities. To bypass these defenses, attackers need to
+                                                                   Table 1: Basic Data Types Allocated When Parsing Requests
+systematically analyze the imposed constraints on primitive
+transformations and explore potential new exploit paths. At-
+tackers typically follow two approaches: (1) achieving the            Data encoding restrictions. Previously, attackers could
+same primitive and/or postconditions under the more stringent      inject URL-encoded raw string data via POST request bodies
+preconditions; (2) circumventing the restricted transformation     to spray arbitrary raw bytes (with varying lengths) into the
+by converting existing primitives into different, functional,      now-isolated heap region. This path is no longer available.
+but less constrained primitives. Eventually, attackers leverage    Attackers can instead rely on common PHP application fea-
+these newly acquired primitives or postconditions to complete      tures to spray attacker-controlled objects. Under our threat
+the exploitation process.                                          model, usable generic options reduce to JSON parsing and
+   In the rest of the section, we will first thoroughly analyze    XML parsing. We present a detailed analysis of those formats
+the restrictions imposed by heap hardening protection mecha-       in §6. An attacker can craft such payloads and trigger object
+nisms on primitive transformations. We will then explore pos-      creation on the application heap during decoding. Specifi-
+sible new exploit paths and combine the two bypass strategies      cally, to inject large buffers with attacker-controllable input,
+described above to propose a comprehensive and practical           an attacker can choose string objects that will be parsed into
+exploitation methodology.                                          zend_string. Unfortunately, PHP’s string decoding func-
+                                                                   tion imposes restrictions. For example, json_decode emits
+                                                                   escape sequences for characters above U+007F. This limits
+3.2    Technical Challenges                                        the number of bytes available for spraying.
+Specifically, we find that the new heap mitigations render            One-shot interaction. In most cases, attackers can only
+classical exploitation strategies ineffective and alternative      interact with PHP applications indirectly through stateless
+strategies difficult, which we discuss below.                      HTTP requests and CGI calls. Such stateless indirect interac-
+   Freelist metadata corruption is no longer effective.            tion presents unique challenges for exploitation. Due to PHP-
+Achieving a write-anywhere primitive via freelist hijacking is     FPM’s share-nothing architecture [40], it will reset the Zend
+now particularly difficult. Specifically, attackers must forge     heap after handling a request. The attacker is thus limited
+both the freelist entry’s next pointer and shadow pointer,         to a one-shot interaction. When shadow pointers and heap
+which is encoded by the shadow key as illustrated in Fig-          isolation are enabled, this constraint makes it even harder
+ure 3. This renders attacks that rely on overwriting the next      to achieve the necessary memory layout for exploitation. In
+pointer [5, 10–12] infeasible.                                     short, heap fengshui has to be done in a single HTTP request.
+   Corrupting heap metadata is no longer effective. Hard-
+ening custom heap management function hooks significantly          4     Bypass Shadow Key Protection
+raises the bar for attackers seeking to hijack function point-
+ers with controllable arguments. Exploitation techniques that      We develop two high-level solutions to bypass this protection.
+target those read-only metadata regions [11] have to adapt.        First, we identify a critical implementation flaw that allows an
+   Limited application objects. Besides heap metadata, an          attacker to predict the shadow key value. Second, even if the
+attacker can turn to application objects for heap spray and cor-   implementation flaw is fixed (as it was after our reporting), we
+ruption. However, due to heap isolation, objects that are origi-   show novel strategies that no longer corrupt the next pointer,
+nally attacker-controlled, e.g., $_GET, $_POST, and $_COOKIE       leveraging commonly found OOB and UAF primitives.
+are now put in a separate heap region (i.e., user input heap).
+This significantly limits the available heap objects that an
+                                                                   4.1    Shadow Key Derandomization
+attacker can spray on the application heap, which is where
+vulnerabilities occur [38,39]. We summarized only commonly         After analyzing the shadow key implementation, we find that
+allocated and controllable types in §6 and listed them in Table    it is first created in the main process and then inherited by
+all worker processes. To prevent the shadow keys from being        severe constraints of a short overflow, directly overwriting an
+predicted, the shadow key of each worker process will be           entire zval or its reference is infeasible. Therefore, our first
+updated when the heap is torn down, after handling a request.      objective is to escalate this minimal primitive into a broader
+   Unfortunately, there are two implementation issues: First,      out-of-bounds access by targeting some critical objects. As
+refreshing the shadow keys in worker processes does not            we discussed in §3.2, we aim to find our target object types in
+refresh the key in the main process since they are in different    the table. Specifically to corrupt an adjacent zend_array.
+memory spaces. Second, a newly spawned worker process                 A zend_array can operate in two modes. In the integer-
+does not update the inherited shadow key from the parent until     indexed array mode, where all keys are integers, the arPacked
+after handling a request. Consequently, exposing the shadow        pointer points to the data storage of the array. Alternatively,
+key of a worker that handles its very first request effectively    when the array has string keys, it will operate in hashtable
+reveals the shadow key of the main process, which in turn          mode. And arData pointer will be used in this mode. The
+compromises the key for every newly spawned future worker.         arData is a butterfly-like structure, i.e., it points to the middle
+   Specifically, we define an overflow that can overwrite both     of a contiguous block of allocated memory, as shown in Fig-
+the next pointer and the shadow-key-encrypted pointer within       ure 4. The memory for arData is allocated with a total size
+a bin as a long overflow. We can first construct an out-of-        equal to the sum of the index array and the bucket storage. The
+bounds read primitive from a long overflow with the existing       arData pointer references the first bucket. Memory preceding
+method shown in Figure 14 to leak the encrypted next pointer.      it stores the index array (4-byte integers indexing buckets).
+As the shadow key is XORed with the next pointer, it is suffi-     In both modes, two distinct heap objects are allocated: the
+cient to leak the encrypted next pointer to recover the shadow     zend_array and the arData-backed allocation. We corrupt
+key. Since corrupting any shadow pointer will force a new          the latter (specifically, the index array) via a short overflow.
+worker with predictable key, we can now corrupt the freelist
+with a fake next pointer with a matching encrypted next
+pointer (shown in Figure 3). This effectively revives freelist
+poisoning to derive arbitrary allocation and write primitives.
+   After responsibly disclosing this issue to the PHP develop-
+ers, this implementation flaw has since been patched.
+
+
+4.2    Pivot from Buffer Overflows
+In this section, we present new exploit strategies for heap
+buffer overflows of any size in the PHP interpreter. At a high
+level, our strategy is to avoid corrupting the next pointer. In-
+stead, we will identify other targets to spray for corruption          Figure 4: The process of index lookup in zend_array
+and derive alternative exploit paths. Specifically, we will in-
+troduce a universal exploitation approach in detail that can          In particular, we will allocate the zend_array object in
+systematically transform these limited vulnerabilities into full   hashtable mode. We illustrate the critical part of the data
+exploitation by completely controlling the general zval struc-     structure of a zend_array and lookup process in Figure 4.
+ture. Ultimately, this universal exploit strategy enables an       When it (1) evaluates any code such as $table[key], the
+attacker to achieve arbitrary read and write capabilities even     Zend Engine will (2) compute the hash of the key and apply
+after the shadow key derandomization issue has been patched.       a bitwise OR with hashtable->nTableMask to produce an
+   Our strategy applies to overflows of any size. For large        offset into the index array. Finally, (3) it retrieves the element
+overflows that can reach the next free slot (and potentially       from the array as the index into the Bucket buffer to access
+overwrite the next pointer), we will spray additional objects      the corresponding zval.
+to occupy that slot. For small overflows, next pointer cor-           As illustrated in Figure 5, once we place the arData buffer
+ruption is not a concern, but pivoting to stronger primitives      right next to the buffer overflow victim, we will be able to
+becomes harder. Notably, our strategy still works even for         overwrite the very first index (since we have only a short
+1-byte overflows: although such short overflows generally          overflow) with a large value. This enables us to craft a fake
+cannot be pivoted into out-of-bounds reads (as longer over-        bucket at a higher address (via heap spraying), which contains
+flows can), and thus cannot leak the shadow key. Despite this,     a zval that is under the attacker’s control.
+we can still achieve control flow hijacks.                         Pivot to limited- - & limited++. Assuming we have suc-
+   Next, we describe how to derive stronger primitives without     cessfully corrupted the index lookup array as illustrated in
+corrupting the next pointer, using short overflows as initial      Figure 5, we can turn this into a powerful primitive to decre-
+primitives, since they represent the more challenging cases.       ment or increment an attacker-controlled location (decided
+Pivot to large index out-of-bounds zval access. Given the          by the fake zval’s value pointer). This is because an at-
+                                                                       Figure 6: Fake Zval points to Type Flags of Another Zval
+
+
+                                                                   type_flags, we can force it to become a reference-counted
+          Figure 5: Corrupt the index lookup array
+                                                                   type. Then, an attacker can trigger an operation on the ref-
+                                                                   counted zval object. For example, one can trigger the zval
+tacker can forge a zval object that is refcounted, by setting      array to be freed, which will go through each element and
+its type_flags. This way, during a hashtable store operation       trigger a decrement operation on this refcounted zval, i.e.,
+that overwrites an existing zval (in our case it is the fake       at the address of 0xdeadbeef in this example. We will dis-
+one) with a new one, the reference count of the existing object    cuss how to spray raw scalar data later in §6 so that we can
+pointed to by the value pointer will be decremented (since a       construct an arbitrary address (instead of 0xdeadbeef).
+reference is lost). Similarly, when a read operation occurs that
+retrieves the object, the reference count will be incremented      4.3      Pivot From Use-After-Free
+(as a new reference is created). Since the value pointer is
+attacker-controlled, this primitive can decrement or increment     Since we seek a universally applicable exploit chain under our
+memory at an attacker-specified address.                           PHP threat model, we restrict our analysis to use-after-free
+   One limitation, though, is that due to data decoding restric-   bugs in the basic PHP object types enumerated in Table 1. We
+tions on data encoding (as mentioned in §3.2), the attacker        divide these UAFs into two groups: zval UAFs and UAFs
+cannot inject arbitrary values for the value pointer when          on other object types. Either group enables control of a zval
+spraying string objects, and hence we call the decrement and       structure.
+increment primitives “limited”.                                    • UAF on zval yields direct control of a zval.
+   Lift to arbitrary- - & arbitrary++. We demonstrate one          • UAF on other objects yields indirect control of a zval.
+approach to further lift the limited decrement & increment            For a zend_array as shown in Figure 4, its data stor-
+primitives to arbitrary ones. As we show in Figure 6, we           age buffer holds a sequence of zval. When the inter-
+can point the value pointer of the fake zval (part of the          preter frees the zend_array, it also releases the elements
+fake bucket as described in Figure 5) to the type_flags            buffer. Reclaiming the buffer allows the attacker to con-
+of yet another zval object (one extra layer of indirection).       trol zvals in the buffer as well. Other objects, including
+This is possible through careful heap spraying as follows.         zend_object and zend_function, contain a HashTable
+First, we (1) construct a legitimate value pointer (part of the    (alias of zend_array) member that describes essential prop-
+fake bucket) which can be obtained by allocating actual zval       erties. Note that the object defined by the web application
+objects and freeing them (leaving residual value in memory).       is still materialized as a zend_object. This places UAFs in
+Second, we (2) spray a string with its tail overlapping with       application-defined objects within our scope.
+only the lower bytes of the legitimate value pointer (e.g., by        Once we obtain control over a direct or indirect zval, dis-
+overwriting the lowest byte or the second lowest byte). This       carding and using the zval brings us back to the decrement
+effectively allows us to partially control the value pointer       and increment primitives we mentioned previously in §4.2.
+(its lower bytes specifically) such that it will point to nearby
+memory that is controlled by the attacker.
+   In this case, we will spray zval array objects so that the      5     Bypass Read-only Metadata and Doubly
+partially controlled value pointer will point to a type_flags            linked List Protection
+field in one of the zval objects in the array.
+   By applying our decrement & increment primitive on              Now that we have achieved arbitrary increment and decre-
+the partially controlled value pointer, which points to the        ment primitives, we aim to achieve either control flow hijack
+or arbitrary write primitives. Without the Read-only Meta-                                                             Type confusion
+
+data protection, we could have used the primitive to corrupt                                                 zval.value             GC Header
+a function pointer (in allocator hooks as shown in Figure 2),                                 value
+                                                                                                                 ...                      ...
+and achieve control flow hijack by decrementing it or incre-                                 type info
+                                                                       Fake Bucket                           zval.value                 arData
+                                                                                               hash
+menting it many times. Similarly, without the doubly linked                                                      ...                      ...
+                                                                                               key
+list protection, we could have corrupted such next and prev                                                  zval.value             destructor
+
+pointers in zend_mm_chunk to achieve arbitrary write. How-                                                       ...                      ...
+
+ever, due to such protections, these are no longer feasible. At a
+high level, these restrictions impose additional preconditions
+that make an obvious primitive transformation become harder.        Figure 7: Trigger Destructor of Fake Array with Fake Bucket
+This means we will need to look for alternative exploit paths,
+i.e., by finding alternative objects and their fields to corrupt
+and derive more powerful exploits.                                  (at the rightmost of the figure). We then leverage the partially
+   In this section, we will describe exploit strategies that take   controllable nature of the value pointer (as mentioned in §4.2
+arbitrary increment and decrement primitives as input, and          when pivoting to arbitrary decrement & increment primitives)
+produce either control flow hijack or arbitrary write primitives.   and have the pointer point to a nearby address (by changing
+Finally, to realize end-to-end exploits, we will also describe      its lower bytes). Thus, it is likely going to point to attacker-
+how to achieve infoleak using the same input primitives.            controlled memory instead. In this case, we will again spray
+                                                                    an array of zval objects.
+                                                                       In the zval array, we configure the first zval.value,
+5.1     Achieve Control Flow Hijack                                 which would be interpreted as the GC header’s refcount field,
+5.1.1   Metadata corruption                                         to a value of 1. This setup ensures that when the PHP inter-
+                                                                    preter executes a replacement operation on the hashtable, it
+As mentioned, one widely documented method to achieve               would cause the decrement of the refcount to 0 and thus in-
+control flow hijacking before the implementation of the             voke the destructor function. Crucially, because both arData
+new mitigations is to target the heap metadata [11]. The            and pDestructor fields overlap with specific entries in a
+Zend heap memory allocator exposes a mechanism to regis-            sprayed zval array, we obtain full control over the function
+ter custom memory management functions. This includes               calling destination as well as the arguments passed to it. In
+the ability to override core operations such as malloc,             other words, we can now achieve a control flow hijack. One
+free, realloc, garbage collection, and heap shutdown im-            might wonder whether there is any restriction on the target
+plementation. Those function pointers are stored in the             addresses, as data encoding may impose such restrictions (as
+main heap _zend_mm_heap metadata, and can be enabled by             mentioned in §4.2). However, as will be described in §6, this
+_zend_mm_heap::use_custom_heap. With our heap decre-                restriction no longer applies since we can prepare scalar data
+ment and increment primitives, we could overwrite those             (e.g., integers) in the sprayed zval array.
+pointers and eventually invoke arbitrary functions. Unfor-
+tunately, these function pointers are marked as read-only by
+the Read-only Metadata mitigation (as described in §2.4).           5.2     Information Leak
+                                                                    To obtain the necessary function addresses, e.g., system()
+5.1.2   Destructor function pointer corruption                      in libc, zif_system() in PHP, and other payload addresses
+Alternatively, we seek alternative function pointers that are       under ASLR, implementing an address-leak primitive is a
+outside of the protection of read-only heap metadata. Specifi-      critical component of the entire exploit chain. Even though
+cally, we aim to find heap objects with function pointers that      not a focus of our novel exploit strategies, we describe our
+can be allocated by an attacker. Out of the available PHP           infoleak for completeness. Overall, we consider two options.
+interpreter objects listed in Table 1, we find that zend_array      First, as an optional step, we can leak some address (e.g.,
+has a destructor function pointer that will be called by the        on heap) as an anchor which can speed up the subsequent
+Zend Engine to ensure proper cleanup of all elements in the         probing process. Second, we probe the address space using
+array by iterating over each of them in its storage. Specifi-       previously derived primitives and identify the location of the
+cally, the function pointer, i.e., array->pDestructor, will         .text section in libc or PHP.
+be dereferenced and called for every element in the array.
+   As shown in Figure 7, the idea is to first reuse the previ-      5.2.1    Leak some heap address
+ously described capability of creating a fake bucket object
+(described in the previous section). Then we configure the          We can leverage our arbitrary decrement and increment prim-
+type_flags of the fake bucket so that the PHP interpreter           itives to target some critical fields in basic objects such as the
+thinks the value pointer points to a reference-counted object       length of a string as discussed in previous sections, which can
+derive out-of-bounds read primitives. However, typically read-                              such as (g)libc will be located relative to Zend heap. We
+ing a string and returning it through HTTP responses (e.g.,                                 make the assumption that there are only a few popular stock
+via JSON or XML payloads) is subject to data constraints                                    glibc versions that simplify the probing process. Finally, note
+as mentioned in §3.2. Alternatively, we can also manipulate                                 that the memory probing can also be done without knowing
+the type of zval by applying the arbitrary decrement and                                    any valid heap address; instead, one can simply brute force
+increment primitives to its type tag to achieve type confusion.                             all possible locations of the heap. However, the probing will
+   For example, we can convert the zval from a string type                                  take much longer and likely trigger many more crashes.
+into a double, as illustrated in Figure 8. In this way, we can                                                …                                                       …
+leak the address of the string because the value field will be                              [0x000059adca400000 - 0x000059adca908000) r-x /usr/sbin/php-fpm
+interpreted as double and thus can be correctly encoded in the                                                …                                                       …
+                                                                                            [0x000059adf7410000 - 0x000059adf76c0000)    rw- FPM_heap
+HTTP response (e.g., via JSON or XML). In other words, we                                                     …                                                       …
+know where the Zend heap is.                                                                [0x00007ffff4600000 - 0x00007ffff4800000 )   rw- zend_heap
+                                                                                            [0x00007ffff482a000 - 0x00007ffff4831000)    r-- /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+                                                                                            [0x00007ffff4888000 - 0x00007ffff4891000 )   rw-
+ Double: 6.9533461755114104e-   IS_DOUBLE   0x7ffff46123f0   IS_STRING
+                                                                         String: AAAAAAAA   [0x00007ffff4891000 - 0x00007ffff4893000 )   r-- /usr/lib/x86_64-linux-gnu/libffi.so.8.1.0
+              310                              type info
+                                                                                            [0x00007ffff4893000 - 0x00007ffff489a000 )   r-x /usr/lib/x86_64-linux-gnu/libffi.so.8.1.0
+                                                                                                              …                                                       …
+                                                                                            [0x00007ffff780d000 - 0x00007ffff7835000 )   r-- /usr/lib/x86_64-linux-gnu/libc.so.6
+                                                                                                              …                                                       …
+          Figure 8: Zval Interpretation Based on Type info
+
+   Alternatively, we can try to leak a libc heap address. In                                               Figure 9: Memory Layout of PHP process
+order to improve the performance, the Zend Engine will preal-
+locate several internal strings on libc heap [40]. For example,
+an empty string will be preallocated on libc’s heap instead of
+handled by Zend. Using the same technique above, but with                                   6      Bypass Heap Isolation
+an empty string, we can then leak libc’s heap address as well.
+   Knowing an address in either the Zend heap or the libc                                   In order to successfully achieve the previously described prim-
+heap allows the attacker to subsequently scan the memory                                    itive transformations, one key step is heap fengshui. Given
+address space and locate the base address of the .text section                              the new mitigation that isolates the heap under direct attacker
+for either the PHP application or libc.                                                     control (e.g., HTTP request fields) from the application heap,
+                                                                                            this step becomes challenging. In particular, under this mitiga-
+                                                                                            tion, requests related global data, such as $_GET, $_POST, and
+5.2.2        Memory probing from known heap addresses
+                                                                                            $_COOKIE are allocated in a separate heap zone, preventing
+Our arbitrary decrement and increment primitives imply an                                   crafted requests from manipulating the main application heap.
+arbitrary address probing ability. We can probe the memory                                     Faced with the constraints of Zend heap isolation, we shift
+page by page to discover the boundaries of the writable mem-                                our heap fengshui or grooming strategy from the HTTP re-
+ory as shown in Figure 9. Specifically, when probing memory                                 quest to the decoding process of the application’s PHP scripts.
+that is unmapped or not writable, the worker will crash be-                                 Since the decoding occurs within the PHP script of the web
+cause of a segmentation fault and notify the attacker with a                                application, those allocations take place in the application’s
+502 HTTP error code. Given that each newly spawned worker                                   heap. We specifically choose to focus on JSON and XML
+inherits the same address space layout as the main process (a                               decoding, which are pervasive in web applications (Appendix
+known issue [53]), an attacker can attempt the probing many                                 Table A2).
+times and gradually narrow down the boundary.                                                  We performed static analysis of their respective parsing
+   If we have already leaked the address of the Zend heap or                                functions with the source code using CodeQL. Table 2 summa-
+the libc heap, we can simply scan towards higher or lower                                   rizes the types of objects that can be allocated by the parsing
+addresses, to identify the boundary. Because the Zend heap                                  functions. Consequently, such objects are always allocatable
+and libc heaps reside near well-known memory mappings                                       by an attacker as long as the application supports requests
+(dynamic libraries and the main executable, respectively),                                  that contain XML or JSON and decodes them.
+starting the probing from the anchors will be significantly
+faster than probing the entire possible range of a .text segment.
+                                                                                            6.1        One-shot Heap Fengshui
+   As an example shown in Figure 9, when we start probing
+from a Zend heap address, say 0x00007ffff4600000                                            To address the challenges of one-shot interactions as discussed
+towards higher addresses, there will be no crash                                            in §3.2, we use a one-shot heap grooming strategy. All groom-
+at 0x00007ffff4800000-0x1000 but then crash at                                              ing operations are done within a single request by leveraging
+0x00007ffff4800000 (since the corresponding page is                                         the fact that the encoded JSON or XML data (i.e., key/value
+unmapped). This allows us to decide where other libraries                                   pairs) can contain multiple identical keys: While each key’s
+ Format              Allocated Types                                                              Functions
+ JSON                zend_array, zend_string                                                      json_decode, simdjson_decode, simdjson_key_value
+                                                                                                  xml_parse, xml_parse_into_struct, simplexml_load_file,
+ XML                 zend_array, zend_string, zend_object
+                                                                                                  simplexml_load_string
+ YAML                zend_array, zend_string                                                      yaml_parse, yaml_parse_url, yaml_parse_file
+                     zend_array, zend_string, zend_value,
+ Mixed                                                                                            unserialize (not recommended to use with untrusted user input)
+                     zend_object
+
+
+                               Table 2: Parser formats, their result data types, and corresponding PHP parsing functions.
+
+
+value is parsed and allocated, only one key’s value is retained                                         we spray objects of varying sizes such as zend_string and
+after parsing, and all other values are freed. We demonstrate                                           zend_array on the same page, so that the vulnerable object
+the idea in Figure 10. We perform heap grooming at the page-                                            and these helpers together occupy a page-level region we can
+level and every block in Figure 10 and Figure 11 represents                                             position against the target.
+one page. A significant problem in small-size allocations
+arises from the fact that many similarly small-size allocations,                                                                                                   GC header
+                                                                                                                                                                       …
+as well as metadata of various objects, during the application                                                                                                       arData
+runtime may be handled by the same freelist, which intro-                                                                                                              …
+duces noise into our heap grooming process. Our page-level                                                     {
+                                                                                                                                                                   destructor
+                                                                                                                   'key0': 'A' * 0x3000,   Index lookup array
+spraying strategy can reduce such noise and make the lay-                                                          'key1': 'B' * 0x4000,
+out process more generic. Furthermore, it is resilient against                                                     'key2’: target_array,
+                                                                                                                   'key1': null
+potential future mitigations such as freelist randomization.                                                   }
+When a request size exceeds one page, ZendMM searches for
+the most suitable contiguous pages to satisfy the allocation,                                                                                           Allocate victim buffer
+
+as discussed in §2.3. We exploit this behavior to precisely
+obtain the allocation layouts we require.                                                                  Figure 11: Overwrite index lookup array in one request
+
+                                       (a) Allocate value of key0
+                                                                                                           In the second purpose, we place a forged object on a cho-
+ {                                                                               Allocated for key0     sen page so that a single partial pointer overwrite can reach it.
+     'key0': 'A' * 0x3000,
+     'key1': 'B' * 0x4000,             (b) Allocate value of key1                Allocated for key1     Since objects within the same chunk share their high-order
+     'key2': 'C' * 0x5000,                                                                              address bits, a pointer that already references some page in
+     'key1': null                                                                Allocated for key2
+ }                                     (c) Allocate value of key2
+                                                                                 Free memory
+                                                                                                        the Zend heap can be redirected to an attacker-prepared ob-
+                                                                                                        ject by rewriting only its low bytes, as long as that object has
+                       (d) Allocate new value of key1 and free the old value of key1                    been groomed onto the intended page. Page-level fengshui
+                                                                                                        places the forged object exactly where the low-byte overwrite
+                                                                                                        in §4.2 lands, so that the partially controlled value pointer
+       Figure 10: Page-level heap grooming in one request                                               there resolves to the attacker-controlled object instead of an
+                                                                                                        unintended location. The destructor-based control flow hijack
+   We use page-level fengshui for two purposes: positioning                                             in §5.1.2 depends on the same arrangement. This purpose
+the victim object so that its corruption reaches the intended                                           applies to both OOB and UAF primitives, as our method first
+target, and positioning the forged objects that a corrupted                                             converts either one into the same arbitrary decrement prim-
+pointer is later redirected to. We discuss them in turn.                                                itive in §4 before the forged object is placed. This operates
+   The first purpose applies primarily to out-of-bounds over-                                           entirely at the granularity of pages, where the spraying unit
+flows, where the victim object must precede the region we                                               can be a single multi-page object or an entire freelist backed
+intend to corrupt. By leveraging this behavior, we first allo-                                          by contiguous pages.
+cate appropriately sized chunks before our corruption target
+region, then free those chunks and reallocate them as the
+                                                                                                        6.2    Raw Data Spraying
+overflowable victim object. This ensures that our overflow
+spans into the target memory region. For example, we can use                                            Recall our earlier observation that string-based spraying is
+arData as described in §4. We illustrate this idea in Figure                                            restricted by encoding rules of those data decoding func-
+11. When the vulnerable object cannot fill a page on its own,                                           tions, we turn to a more flexible approach: packed array
+buffer spraying. In particular, when an array is operating          7.2     Experiment Results
+as an integer-indexed array (packed array), its arPacked
+pointer will point to a contiguous sequence of zval rather          We first reproduced each public exploit chain in our test en-
+than Bucket. By setting each zval’s value to the desired inte-      vironment. The results in Table 3 show that the original ex-
+ger, we effectively spray arbitrary 8-byte patterns directly into   ploits of CVE-2024-2961 [11], CVE-2022-31626 [5], and
+memory, thereby sidestepping all string-encoding constraints.       CTF Case A [50] can no longer achieve arbitrary command
+This technique helps us with full control over the raw bytes        execution because the new Heap Hardening protections com-
+needed for building the fake array in §5.                           pletely blocked their exploit strategy. We further manually
+   Despite the power of packed array buffer spraying to put         analyzed the exploit logic and confirmed that the failures were
+any byte pattern into memory, its utility is limited by the fact    caused by reliance on freelist corruption, rather than differ-
+that each 16-byte chunk only grants control over the first 8        ences in application-layer behavior. The original exploits for
+bytes, namely the zval.value field, leaving the type_flags          CVE-2019-6977 [9] and CTF Case B [33] also failed because
+immutable. We designed a novel hash spraying technique as           they either assumed ASLR was disabled or could only tam-
+a complementary raw byte spraying strategy. The key idea is         per with application data, which does not satisfy our goal of
+to exploit PHP’s DJBX33A hash algorithm [8, 40]. In particu-        command execution. In contrast, CVE-2023-3824 [32] and
+lar, we find that this hash algorithm is highly reversible: for     CVE-2019-11043 [26] still succeed because they rely on pow-
+a given 8-byte hash value, one can construct an input string        erful but rare primitives not yet covered by current defenses:
+(in UTF-8) of a specific size by solving each character in          in-structure overwrite of a data pointer or a negative overflow
+a “backwards” fashion with Algorithm 1. In contrast to the          during request parsing, respectively.
+packed array method, this hash-based spraying offers a sig-
+nificant benefit: the sprayed content includes a controllable             ID / Case             Goal      Primitive        Origin       Recon
+8-byte hash (with the highest bit set) and partially controllable    CVE-2024-2961              RCE          OOB              No          Yes
+length fields and string literals, as illustrated in Figure 13.      CVE-2023-3824              SBE          OOB              Yes          -
+                                                                     CVE-2022-31626             RCE          OOB              No          Yes
+7     Evaluation                                                     CVE-2019-11043             RCE          OOB              Yes          -
+                                                                     CVE-2019-6977              SBE          OOB              No          Yes
+7.1    Experiment Setup                                                CTF Case A               RCE          OOB              No          Yes
+                                                                       CTF Case B               RCE          UAF              No          Yes
+To systematically evaluate the effectiveness of our exploit
+strategy under Heap Hardening protections, we consider every        RCE: remote code execution. SBE: sandbox escape. OOB: out-of-bounds
+                                                                    write. UAF: use-after-free. Case A/B are modified from public CTF chal-
+PHP memory corruption CVE with a public proof-of-concept
+                                                                    lenges. "Origin" and "Recon" indicate whether public exploits and those
+exploit released between 2019 and 2025: CVE-2024-2961               reconstructed using our strategy succeed in the test environment, respectively.
+[39], CVE-2023-3824 [32], CVE-2022-31626 [5], CVE-2019-
+11043 [36], and CVE-2019-6977 [37]. We added two closely
+related PHP memory corruption challenges from public CTFs           Table 3: Existing and Rebuilt Exploits under Heap Hardening
+to cover a broader range of bug patterns, giving seven test
+targets. However, real-world web applications often contain            For the five scenarios where the original exploits failed or
+business logic that may accidentally benefit the exploit. For       were limited, we applied our exploit and defense bypass strate-
+example, the public PoC [10] for CVE-2022-31626 relies on           gies to craft new exploits that can regain command execution
+Adminer [61] decoding base64 input, which makes spraying            ability. We performed stability tests on three representative
+and leaking raw data easier. To remove such external noise          CVEs (CVE-2024-2961, CVE-2022-31626, and CVE-2019-
+and highlight interpreter-level challenges, we built a minimal      6977). As shown in Table 4, all tests succeeded across 100
+reproduction web app for two remote targets: CVE-2022-              runs. The new exploits required fewer than 300 HTTP re-
+31626 uses a simplified update bookmark feature extracted           quests on average in the remote scenario and only two re-
+from real-world application phpMyAdmin [48], and CVE-               quests in the local sandbox-escape scenario with arbitrary
+2024-2961 uses a crafted application that logs file hashes.         script uploads.
+All other CVEs and the two CTF cases keep the shortest                 These results show that the four implemented Heap Hard-
+official or community trigger path. All targets were run inside     ening protections are still not universal for all memory cor-
+the same base container image: 64-bit Ubuntu 22.04, Docker          ruptions, but they can efficiently mitigate traditional freelist-
+24.0.5, with all four evaluated protections enabled on our          based attacks. Our general bypass strategy fills this gap and re-
+test branch based on PHP 8.4.0. The attacker machine uses           stores reliable exploitability for multiple memory-corruption
+Ubuntu 22.04 and identical hardware (24-core Intel Ultra9-          bugs. To ensure reproducibility, we have released all exploit
+285HX @4.60GHz, 64GB RAM @4400MT/s). The exploit                    scripts and the complete container image so the research com-
+scripts are executed with Python 3.10.12.                           munity can build on them further.
+          ID             Goal      Mean       Worst      Stability      pointed by our overwritten residual value pointer. Then the
+                                                                        decrement primitive will be applied to the type tag.
+ CVE-2024-2961           RCE      245.76       507        100 %           This grants us an address leak. All these memory allocating
+ CVE-2022-31626          RCE      284.96       507        100 %         and freeing operations of this and the previous step can be
+ CVE-2019-6977           SBE       2.00         2         100 %         done in one request as shown in §6.
+Mean and Worst indicate the number of HTTP requests sent to achieve a
+successful exploit. Stability indicates the Success Rate.               7.3.3   Arbitrary code execution
+
+         Table 4: Stability Test (100 Runs per Target)                  We craft fake array by spraying a sequence of zval with re-
+                                                                        peated payload [0x700000001, arg0, pc] in Figure 12.
+                                                                        Since the array payload["key"] is integer-indexed, the
+7.3     Experiment Case Study                                           parsed zend_array will be set to packed mode. When
+                                                                        the array is in packed mode, the storage buffer will be a
+We demonstrate an end-to-end attack with CVE-2024-2961.                 simple sequence of zval. Three zvals take 0x30 bytes
+Although this vulnerability is capable of producing overflows           of memory, and their zval.value fields overlap with the
+of up to three bytes, in most real-world application config-            GC header, arData, and pDestructor of a zend_array
+urations it is practically limited to a single-byte overflow.           respectively. For the 0x0000000700000001 in payload, 1
+Moreover, the value of the overflowed byte is constrained to            is the reference count, 0x7 means this object should be
+the range from 0x48 to 0x4D.                                            destroyed with zend_array_destroy, which will invoke
+                                                                        array->pDestructor, i.e., the pc in payload. Note that we
+7.3.1   Initial memory preparation                                      keep the payload of step one in the request data, but spray
+                                                                        our fake array into the memory pointed by the residual value
+While our prior discussion followed a conceptual progression            pointer. Then, when the interpreter executes $table[$key]
+from primitives to full exploitation, our actual exploitation           = $v, the reference count of our fake array will be decreased
+workflow begins differently. In practice, we start with the             to 0 and invoke zend_array_destroy. Since we have set up
+initial memory preparation. Given that each heap zone (appli-           our array->pDestructor, it will then call pc(arg0).
+cation heap and isolated user request heap) is aligned to 2 MB,
+and ASLR cannot randomize the offset within a page, partially           payload = {
+overwriting a valid pointer grants us the ability to pivot it to            "key": [
+                                                                                0x0000000700000001, arg0, pc,
+somewhere else in the Zend heap space. As demonstrated in                   ] * 0x400
+§5, we first allocate a sequence of Buckets, then free it, then         }
+there will be a large amount of residual zval as well as hash
+and key pointers on the heap. This is an important step, as we
+cannot use arbitrary data as a reference-counted zval for now                   Figure 12: Payload Used to Craft Fake Array
+due to the encoding issues discussed in §3.2. Then we allocate
+a string to partially overwrite the value pointer of a residual
+zval to pivot it to somewhere. Since the escape character will
+be inserted into the lower address of the string, we can safely         8     Mitigation Discussion
+overwrite the pointer without the encoding issue.
+                                                                        This section discusses mitigation directions in two parts. We
+7.3.2   Access our fake bucket and fix the access key                   first revisit the PHP heap hardening roadmap and analyze
+                                                                        how its unreleased or proposal-stage defenses would affect
+With the exploitation technique in §5 and §6, we use the                the generic attack path identified in this paper. We then present
+vulnerability to corrupt the first index of the index lookup            two targeted hardening checks that we implemented and eval-
+array, making it point to the fake bucket built in §7.3.1.              uated to block this path.
+   Then we spray multiple strings to re-occupy the memory
+pointed by the residual key pointer in the fake bucket (which
+                                                                        8.1     Roadmap Defense Directions
+is a pointer to zend_string). The string is carefully crafted
+as shown in §6 to make sure that it has the same hash value             The PHP heap hardening roadmap can be grouped into three
+as the residual hash in the bucket. Now operations such as              stages of maturity. Shadow Pointer and Unlink Abuse Pre-
+$table[$key] and $table[$key] = $v will be directed to                  vention are already merged into stable releases. Both have
+our fake bucket. We leverage our heap fengshui technique in             proven effective and forced attackers away from freelist poi-
+§6 to precisely control the memory layout. Specifically, we             soning, which motivates the built-in-object path studied in
+arrange allocations such that a zval whose type tag references          this paper. Read-only Metadata and Further Heap Isolation
+the zend_string destined for return, resides at an address              have prototypes but are not yet merged, and Guard Pages and
+Freelist Randomization remain proposals without prototype           LIFO reuse is generally preserved, so UAF primitives remain
+code. We focus on these four items below. For the prototypes,       available, but their secondary targets become equally hard to
+we analyze what they contribute and where they fall short.          predict. The remaining gap is page-level spraying: an attacker
+For the proposals, we discuss how they could be implemented         who exhausts a freelist can still treat the page-aligned region
+and to what extent they would block the generic attack path         as a single spraying unit, and the page-level fengshui in §6.1
+that we identified.                                                 can partially bypass intra-freelist randomization. Freelist
+   (1) Read-only Metadata protects allocator hooks in               randomization is therefore best paired with isolation or
+zend_mm_heap, with a prototype that has reached a stable            randomized guard pages.
+design. An earlier custom-heap variant was rejected out of             Overall, isolation and randomization are the directions that
+concern [3] for the debugging value these pointers provide.         most directly affect this path, while targeted metadata protec-
+The later Read-only Metadata prototype remains unmerged,            tion offers more limited benefit.
+with maintainers questioning [4] whether its roughly 0.6%
+runtime cost is justified by the protection it provides. We view
+this protection as offering limited benefit under our threat
+model. Once an attacker can corrupt allocator metadata, the
+underlying write primitive is already strong enough to be
+                                                                    8.2 Targeted Hardening for the Remaining
+redirected to writable interpreter objects, as in §5.1.2, and the       Generic Path
+ASLR probe in §5.2.2 can further expose writable structures
+inside the PHP and libc images. Read-only Metadata there-           Beyond the roadmap, we implemented and evaluated two
+fore raises exploitation cost without reducing reliability for      targeted checks. Each independently breaks the generic attack
+attackers who reach this stage.                                     path in this paper.
+   (2) Further Heap Isolation is still under development, it        • Patch-hashtable: Validate that a requested hashtable index
+plans to put objects of the same types into the same chunk,         does not exceed num_used before the selected Bucket is used.
+avoiding the mix of different types of objects (this is similar     This blocks the forged Bucket step in §4.2, which we rely on
+to AutoSlab [28] in the Linux kernel). Further Heap Isolation       to convert a weak one-byte overflow into stronger increment
+directly addresses our threat model, since it disrupts remote       and decrement primitives.
+heap shaping before the attacker reaches an object-corruption
+                                                                    • Patch-refcnt: On every hashtable operation that updates a
+path. Our attack assumes that parser-allocated and victim ob-
+                                                                    refcount, such as replacing or reading an entry, validate that
+jects can be arranged at predictable page-level positions. If the
+                                                                    the target address lies inside the PHP heap and points to a
+objects listed in Table 1 are placed in dedicated heaps that do
+                                                                    correctly aligned zend_refcounted object. This invalidates
+not share pages, this assumption no longer holds and generic
+                                                                    the arbitrary increment and decrement primitives and also
+remote exploitation against built-in PHP objects would no
+                                                                    blocks the ASLR probe in §5.2.2 and the destructor-based
+longer be feasible.
+                                                                    control flow hijack in §5.1.2.
+   (3) Guard Pages insert unmapped pages between freelists
+or large allocations to prevent linear access across them and          The two checks sit at different points in the exploit chain.
+mitigate cross-page overflows. Our exploit does not rely on         Patch-hashtable targets primitive transformation and only
+either primitive, so fixed-size guard pages contribute little to    needs to harden one generic object, which keeps its cost low.
+closing the path in this paper. A randomized variant [54, 55]       It is worth adopting on its own, since zend_array is the
+is more relevant, since the information leak in §5.2.1 and          only built-in object we surveyed that enables generic remote
+the control flow hijack in §5.1.2 both depend on page-level         primitive transformation. Patch-refcnt sits further along the
+fengshui. Randomized guard pages would inject page-level            path and covers strong primitives that do not pivot through a
+entropy at low engineering cost. The tradeoff is some address-      hashtable. The tradeoff is that it instruments a hotter code path
+space fragmentation and runtime overhead.                           and carries higher cost. We view Patch-refcnt as a stopgap
+   (4)     Freelist Randomization, inspired by                the   that becomes less necessary if PHP adopts the isolation and
+SLAB_FREELIST_RANDOM [16] mitigation in the Linux                   randomization defenses discussed above.
+kernel, has also been proposed but not yet implemented.                We measured both checks under the environment in §7.1.
+It randomizes slot order within each freelist at low cost,          Patch-hashtable mitigates three cases in Table 4 with a 0.17%
+since randomization is only required at freelist initialization.    overhead. CTF Case A and Case B start from stronger primi-
+This breaks a core assumption of our exploit as the relative        tives that do not pivot through a hashtable, so they fall outside
+distance between two same-size objects will be no longer            its scope. Patch-refcnt mitigates four cases with an 8.86%
+predictable, so a short overflow cannot reliably reach a chosen     overhead, consistent with the broader code path it covers. As
+field in a neighboring object. The primitive transformation         for the last case, CTF Case A exploits the shadow pointer
+in §4.2 also breaks, since secondary targets such as the fake       implementation flaw discussed in §4.1, and PHP maintainers
+Bucket in Figure 5 can no longer be placed at known offsets.        have addressed it with two subsequent patches [46, 47].
+9    Related Work                                                    of Address-Space Randomization [53] exploits the low en-
+                                                                     tropy limitation of ASLR on 32-bit systems to bypass it within
+We first review prior attack research and point out how our          a few hundred seconds. However, on 64-bit systems, the en-
+approach differs. We then examine existing defense work and          tropy of ASLR has been strengthened by six orders (220 ),
+explain how it relates to PHP’s heap hardening features.             making this technique less effective. K-leak [27] combines
+   Exploiting memory corruption in PHP interpreter. Gol-             memory errors in 64-bit Linux kernels to bypass KASLR.
+lum [21] aims to automatically generate exploits for mem-            ARCHEAP [66] and HeapHopper [7] automatically discover
+ory corruption bugs in PHP. It uses its custom allocator,            exploits that bypass allocator checks in heap allocators like
+ShapeShifter, to mimic PHP’s ZendMM allocation behav-                ptmalloc2 [17], but their search scope is limited by memory
+ior and locate the desired heap layout. With the help of Shrike      and time constraints.
+and a genetic algorithm, Gollum produces a set of PHP code              Heap Hardening. SeaK [64] and Uriah [22] isolate se-
+fragments that recreate the same layout under ZendMM. Af-            lected protectable objects into separate heaps, while random-
+ter controlling the positions of the overflow source and the         ized slab caches [18] and SeMalloc [63] reduce the chance
+target object, Gollum overwrites the target’s function pointer       that vulnerable and target objects become adjacent by select-
+and redirects it to a One Gadget to finish the exploit. While        ing among multiple heap caches. These directions are relevant
+Gollum can build the expected layout for relatively large over-      to future ZendMM isolation if they can be reproduced at low
+flows when the attacker can run arbitrary PHP code, it can-          cost and prevent cross-cache attacks. Memcheck [52] and Ad-
+not create a valid layout for a PHP remote exploit. In these         dress Sanitizer (ASAN) [51] provide broader runtime checks,
+real-world cases disclosed in the last five years, the available     but are mostly limited to testing environments due to high
+primitives are relatively weak, and new mitigations make ear-        overhead. Scudo [49] uses checksummed chunk headers and
+lier heap manipulation tricks ineffective. Moreover, Gollum          size-based isolation, making it a useful reference for PHP.
+assumes that ASLR is disabled, and, as noted in §3.2, using
+One Gadget to exploit the PHP interpreter does not provide           10    Conclusion
+arbitrary command execution. Consequently, the proofs of
+concept produced by Gollum still need extra adjustment, such         This work presents the first systematic evaluation of PHP’s
+as combining them with the techniques in §5, before they             memory protection mechanisms. Within this scope, we sys-
+become full exploits. The ideas in this work can enlarge Gol-        tematically surveyed all built-in PHP object types and the
+lum’s search space and help it produce exploits that work in         generic attack paths available to remote attackers. We iden-
+more restrictive, real-world scenarios. This work offers an          tified implementation flaws and proposed a generalized ex-
+opportunity to strengthen tools like Gollum.                         ploitation strategy that transforms weak primitives, includ-
+   Charles Fol et al. proposed “Generic Remote Exploit Tech-         ing single-byte overflows, into reliable arbitrary command
+niques for the PHP Allocator”. [10] Their method overwrites          execution, bypassing all evaluated heap hardening defenses.
+the least-significant bytes of a freelist’s next pointer, allowing   Our techniques are effective in both remote code execution
+the pointer to be hijacked to almost any nearby address. This        and sandbox escape scenarios. We validated our approach by
+hijack creates overlapping slots and lets the attacker modify        reviving real-world CVEs with all evaluated protections en-
+arbitrary data on the heap. Before heap hardening was de-            abled and confirmed its reliability through automated stability
+ployed, this was a powerful remote exploitation technique,           testing. We further discussed deployable mitigations to offer
+but PHP’s new protections can effectively detect attempts            insights into practical strategies for improving PHP’s memory
+to corrupt the freelist pointers and thus disable the attack.        safety. Our results highlight the limitations of existing mitiga-
+In addition, the technique proposed by Charles Fol et al. as-        tions and motivate the development of comprehensive models
+sumes the attacker can forge structures such as zend_array           for securing PHP’s memory.
+by spraying raw data directly into the web application’s heap.
+However, heap isolation prevents raw spraying and mitigates
+this structure-forging trick. Our work introduces several new
+                                                                     Acknowledgments
+techniques that can still achieve arbitrary heap writes. We also
+                                                                     We thank the anonymous reviewers and our shepherd for the
+use the method in §6 to regain the ability to spray raw data
+                                                                     careful and thorough feedback, which substantially improved
+into the application heap under restricted conditions.
+                                                                     this paper. We are also grateful to Trent Jaeger for his early
+   Bypassing safety defenses. Prior work has also studied            guidance on this project.
+how limited memory-corruption primitives bypass allocator
+or platform defenses. SLUBStick [31] turns cross-cache at-
+tacks into arbitrary read/write primitives through a slab tim-
+ing side channel. System Register Hijacking [35] modifies
+privileged registers to bypass kernel defenses such as SMEP,
+SMAP, KASLR, and (Fine-)IBT [15]. On The Effectiveness
+Ethical Considerations                                            into command execution. The study does not introduce a
+                                                                  new PHP memory corruption vulnerability or application
+We structure this discussion around stakeholder analysis and      entry point. The remaining risk comes from lowering the
+two phases of this work: the research process and publica-        effort needed to adapt future exploits after such vulnerabilities
+tion of results. We then discuss mitigations for the risks and    already exist. Open-source artifacts may also increase this
+explain why conducting and publishing this study is justified.    risk if they are used outside local test environments.
+
+Stakeholder Analysis and Research Process Impact
+                                                                  Mitigations
+This work has five stakeholder groups. The first group is
+the PHP development team, especially maintainers responsi-        We use several mitigations to reduce harm. First, we dis-
+ble for heap hardening. The second group is PHP operators,        closed the implementation flaw to PHP maintainers before
+hosting providers, and cloud platforms that deploy PHP inter-     publication and separate that patched flaw from the remaining
+preters. The third group is PHP application and framework         techniques. Second, we pair the attack analysis with defense
+developers, whose code paths may expose decoding and allo-        discussion: we explain which existing mitigations are effec-
+cation behavior that affects exploitability. The fourth group     tive, which paths remain open, and why additional hardening
+is the security research community, which studies interpreter     of built-in PHP objects can raise exploitation cost. Our artifact
+exploitation, heap hardening, and memory-safety defenses.         also includes two prototype checks that independently break
+The fifth group is end users and organizations that rely on       the attack path identified in this paper, giving maintainers con-
+PHP-based infrastructure, because exploitation and mitigation     crete short-term hardening options. Third, deployment-level
+outcomes affect their data, services, and operations.             mitigations. PHP’s own mitigations should be complemented
+   The study uses only existing PHP interpreter memory cor-       by sandbox restrictions, monitoring, WAFs, rate limits, and
+ruption CVEs and introduces no new vulnerabilities. We also       anomaly detection. Finally, future PHP hardening should eval-
+followed responsible disclosure for the implementation flaw       uate built-in PHP objects and decoding-based allocation paths,
+found in the heap hardening mechanism. The PHP developers         because current hardening mainly focuses on heap metadata
+patched the issue after our report. This protects maintain-       while our results show that built-in objects may also need
+ers, operators, and end users before publication. It also gives   protection.
+the community a clearer view of which results depend on a
+patched implementation flaw and which results remain rele-
+vant to PHP’s interpreter behavior.
+                                                                  Justification for Conducting and Publishing the Research
+
+Impact of Publication: Positive impacts                           Move before attackers. Withholding the results would leave
+                                                                  maintainers and operators with less information about the
+For maintainers, this work evaluates current heap hardening
+                                                                  limits of current hardening. Similar strategies could still be
+under a realistic remote attacker model, shows which tradi-
+                                                                  discovered independently, and defenders would have fewer
+tional paths are blocked, and identifies where determined
+                                                                  concrete examples for improving PHP. Publication after re-
+attackers can still adapt. For operators and hosting providers,
+                                                                  sponsible disclosure gives the community a safer path: the
+it reduces false confidence and supports complementary de-
+                                                                  implementation flaw is patched, the assumptions are explicit,
+fenses such as sandboxing, monitoring, WAFs, rate limiting,
+                                                                  and the paper provides mitigation directions and targeted
+and anomaly detection. For application and framework de-
+                                                                  patch implementations.
+velopers, it explains why exposed JSON and XML decoding
+paths matter after an interpreter memory corruption bug. For         Proactively addressing the misuse risk. We address the
+the research community, the artifacts provide Docker files,       risk through responsible disclosure and concrete defense rec-
+reference commands, and standalone implementations as a           ommendations. In particular, our proposed mitigations, al-
+reproducible baseline. For end users and organizations, the       ready implemented in the artifacts, give PHP maintainers
+paper clarifies that heap hardening narrows exploitation but      concrete options for stopping the generic exploit strategy dis-
+does not eliminate it, helping them assess the security posture   cussed in the paper.
+of service providers and advocate stronger layered defenses.         Longer-term impact. Overall, we believe publishing this
+                                                                  paper will bring more awareness of PHP’s security posture to
+                                                                  the security community, which will inform future hardening
+Impact of Publication: Negative impact
+                                                                  directions. Even though there is some risk of misuse in the
+The main risk is misuse. The paper describes exploit strategies   short term, it will lead to a more secure PHP interpreter in
+that can help attackers adapt after PHP heap hardening is         the long run. In other words, the long-term benefits to PHP
+deployed. These strategies may lower the engineering effort       maintainers, application developers, operators, end users, and
+needed to turn a future PHP memory corruption vulnerability       the research community outweigh the short-term risk.
+Open Science                                                    [10] Charles Fol. Generic remote exploit techniques for the
+                                                                     php allocator, and 0days. https://www.blackalps.
+Our artifacts have been released at the following link: http         ch/ba-22/talks.php, 2022.
+s://zenodo.org/records/20401797. All experimental
+environments include Docker files and reference commands        [11] Charles Fol. Iconv, set the charset to rce: Exploiting the
+that facilitate easy and stable reproduction. We also provide        glibc to hack the php engine (part 1). https://blog.l
+standalone implementations for all pseudocode that appear in         exfo.fr/iconv-cve-2024-2961-p1.html, 2024.
+the paper.                                                      [12] Charles Fol. Iconv, set the charset to rce: Exploiting the
+                                                                     glibc to hack the php engine (part 2). https://blog.l
+References                                                           exfo.fr/iconv-cve-2024-2961-p2.html, 2024.
+                                                                [13] Cake Software Foundation. Cakephp: The rapid devel-
+ [1] Adobe. Magento open source. https://www.magent                  opment framework for php - official repository. https:
+     o.com, 2025.                                                    //cakephp.org, 2025.
+ [2] Arnaud Le Blanc. The php interpreter. https://gi           [14] CodeIgniter Foundation. Open source php framework
+     thub.com/arnaud-lb/php-src/tree/mm-zones,                       (originally from ellislab). https://github.com/bci
+     2024.                                                           t-ci/CodeIgniter, 2025.
+ [3] bwoebi.    PHP pr 14570: Make some parts of                [15] Alexander J. Gaidis, Joao Moreira, Ke Sun, Alyssa
+     _zend_mm_heap read-only at runtime (the first com-              Milburn, Vaggelis Atlidakis, and Vasileios P. Kemerlis.
+     ment). https://github.com/php/php-src/pull/                     Fineibt: Fine-grain control-flow enforcement with indi-
+     14570#issuecomment-2168457515, 2024.                            rect branch tracking. In Proceedings of the 26th Interna-
+                                                                     tional Symposium on Research in Attacks, Intrusions
+ [4] bwoebi.    PHP pr 14570: Make some parts of
+                                                                     and Defenses, RAID ’23, page 527–546, New York,
+     _zend_mm_heap read-only at runtime (the second com-
+                                                                     NY, USA, 2023. Association for Computing Machinery.
+     ment). https://github.com/php/php-src/pull/
+                                                                     doi:10.1145/3607199.3607219.
+     14570#issuecomment-2248354450, 2024.
+                                                                [16] Thomas Garnier. mm: Slab freelist randomization. ht
+ [5] CFandR-github. CVE-2022-31626 analysis. https:                  tps://lore.kernel.org/lkml/1460138602-853
+     //github.com/CFandR-github/PHP-binary-bugs/                     86-1-git-send-email-thgarnie@google.com/T/,
+     blob/main/cve_2022_31626, 2022.                                 2016.
+ [6] SSD Secure Disclosure. PHP spldoublylinkedlist uaf         [17] W GLOGER. Ptmalloc. http://www.malloc.de,
+     sandbox escape. https://bugs.php.net/bug.php                    2006.
+     ?id=80111, 2020.
+                                                                [18] Ruiqi GONG. Randomized slab caches for kmalloc().
+ [7] Moritz Eckert, Antonio Bianchi, Ruoyu Wang, Yan                 https://lkml.org/lkml/2023/5/8/206, 2023.
+     Shoshitaishvili, Christopher Kruegel, and Giovanni Vi-
+     gna. HeapHopper: Bringing bounded model checking to        [19] PHP Documentation Group. Description of core php.ini
+     heap implementation security. In 27th USENIX Security           directives. https://www.php.net/manual/en/ini.
+     Symposium (USENIX Security 18), pages 99–116, Balti-            core.php, 2025.
+     more, MD, August 2018. USENIX Association. URL:            [20] PHP Documentation Group. Fastcgi process manager
+     https://www.usenix.org/conference/usenixse                      (fpm). https://www.php.net/manual/en/install.
+     curity18/presentation/eckert.                                   fpm.php, 2025.
+ [8] César Estébanez, Yago Saez, Gustavo Recio, and Pe-         [21] Sean Heelan, Tom Melham, and Daniel Kroening. Gol-
+     dro Isasi. Performance of the most common non-                  lum: Modular and greybox exploit generation for heap
+     cryptographic hash functions. Software: Practice and            overflows in interpreters. In Proceedings of the 2019
+     Experience, 44(6):681–698, 2014. URL: https://                  ACM SIGSAC conference on computer and communica-
+     onlinelibrary.wiley.com/doi/abs/10.100                          tions security, pages 1689–1706, 2019.
+     2/spe.2179, arXiv:https://onlinelibrary.
+     wiley.com/doi/pdf/10.1002/spe.2179, doi:                   [22] Kaiming Huang, Mathias Payer, Zhiyun Qian, Jack
+     10.1002/spe.2179.                                               Sampson, Gang Tan, and Trent Jaeger. Top of the heap:
+                                                                     Efficient memory error protection of safe heap objects.
+ [9] Charles Fol. imagecolormatch() oob heap write exploit.          In Proceedings of the 2024 on ACM SIGSAC Confer-
+     https://github.com/cfreal/exploits/tree/ma                      ence on Computer and Communications Security, pages
+     ster/CVE-2019-6977-imagecolormatch, 2019.                       1330–1344, 2024.
+[23] Eyal Itkin. Safe-linking – eliminating a 20 year-old           turning system registers against the system. In 34th
+     malloc() exploit primitive. https://research.check             USENIX Security Symposium (USENIX Security 25),
+     point.com/2020/safe-linking-eliminating-a                      pages 7427–7446, 2025.
+    -20-year-old-malloc-exploit-primitive, 2020.
+                                                               [36] MITRE. CVE-2019-11043. https://cve.mitre.or
+[24] Eddie Kohler. Hotcrp conference review software. ht            g/cgi-bin/cvename.cgi?name=CVE-2019-11043,
+     tps://read.seas.harvard.edu/~kohler/hotcrp,                    2019.
+     2025.
+                                                               [37] MITRE. CVE-2019-6977. https://cve.mitre.or
+[25] Laravel. The laravel framework. https://laravel.               g/cgi-bin/cvename.cgi?name=CVE-2019-6977,
+     com, 2025.                                                     2019.
+[26] Emil Lerner. Phuip-fpizdam. https://github.com/n          [38] MITRE. CVE-2022-31626. https://cve.mitre.or
+     eex/phuip-fpizdam, 2019.                                       g/cgi-bin/cvename.cgi?name=CVE-2022-31626,
+                                                                    2022.
+[27] Zhengchuan Liang, Xiaochen Zou, Chengyu Song, and
+     Zhiyun Qian. K-leak: Towards automating the gener-        [39] MITRE. CVE-2024-2961. https://cve.mitre.or
+     ation of multi-step infoleak exploits against the linux        g/cgi-bin/cvename.cgi?name=CVE-2024-2961,
+     kernel. In NDSS. Internet Society, 2024.                       2024.
+[28] Zhenpeng Lin. How autoslab changes the memory un-         [40] Julien Pauli, Nikita Popov, and Anthony Ferrara. PHP
+     safety game. https://grsecurity.net/how_autos                  internals book. https://www.phpinternalsbook.c
+     lab_changes_the_memory_unsafety_game, 2021.                    om/index.html.
+[29] LoadForge. Enhance security by disabling dangerous        [41] Julien Pauli, Nikita Popov, and Anthony Ferrara. Zend
+     php functions. https://loadforge.com/guides/d                  memory manager. https://www.phpinternalsbook
+     isable-dangerous-php-functions-for-enhance                     .com/php7/memory_management/zend_memory_ma
+     d-security, 2025.                                              nager.html, 2024.
+[30] ARM LTD. ARMv8 architecture reference manual, for         [42] PHP Group. PHP pr 13943: Add two checks for
+     armv8-a architecture profile (arm ddi 0487). https:            zend_mm_heap’s integrity. https://github.com
+     //developer.arm.com/documentation/ddi0487/,                    /php/php-src/pull/13943, 2024.
+     2024.
+                                                               [43] PHP Group. PHP pr 14054: Detect heap freelist corrup-
+[31] Lukas Maar, Stefan Gast, Martin Unterguggenberger,             tion. https://github.com/php/php-src/pull/14
+     Mathias Oberhuber, and Stefan Mangard. SLUB-                   054, 2024.
+     Stick: Arbitrary memory writes through practical soft-
+     ware Cross-Cache attacks within the linux kernel. In      [44] PHP Group. PHP pr 14304: Remote heap feng shui /
+     33rd USENIX Security Symposium (USENIX Security                heap spraying protection. https://github.com/php
+     24), pages 4051–4068, Philadelphia, PA, August 2024.           /php-src/pull/14304, 2024.
+     USENIX Association. URL: https://www.usenix.o
+     rg/conference/usenixsecurity24/presentatio                [45] PHP Group. PHP pr 14339: Add an unlink check for
+     n/maar-slubstick.                                              php_stream_bucket_unlink. https://github.com/p
+                                                                    hp/php-src/pull/14339, 2024.
+[32] maplgebra. CVE-2023-3824: Lucky off-by-one (two?).
+     https://m4p1e.com/2024/03/01/CVE-2023-3824,               [46] PHP Group. PHP pr 16765: Refresh zend mm shadow
+     2024.                                                          key on fork. https://github.com/php/php-src/p
+                                                                    ull/16765, 2024.
+[33] maplgebra. N1ctf24 php master writeup. https://m4
+     p1e.com/2024/11/12/n1ctf24-php-master, 2024.              [47] PHP Group. PHP pr 19287: Call php_child_init() after
+                                                                    fork during preloading. https://github.com/php/p
+[34] Trilby Media. Grav - a modern flat-file cms. https:            hp-src/pull/19287, 2025.
+     //getgrav.org/, 2025.
+                                                               [48] phpMyAdmin. A web interface for mysql and mariadb.
+[35] Jennifer Miller, Manas Ghandat, Kyle Zeng, Hongkai             https://www.phpmyadmin.net, 2025.
+     Chen, Abdelouahab Habs Benchikh, Tiffany Bao, Ruoyu
+     Wang, Adam Doupé, and Yan Shoshitaishvili. System         [49] LLVM Project. Scudo hardened allocator. https://ll
+     register hijacking: Compromising kernel integrity by           vm.org/docs/ScudoHardenedAllocator.html.
+[50] r3kapig. Securinets ctf quals 2024(jeopardy). https:      [62] W3Techs. Usage statistics of php for websites. https:
+     //r3kapig-not1on.notion.site/Securinets-C                      //w3techs.com/technologies/details/pl-php,
+     TF-Quals-2024-Jeopardy-118ec1515fb980eeade                     2026.
+     bc7b6df22a7a1, 2024.
+                                                               [63] Ruizhe Wang, Meng Xu, and N Asokan. Semalloc:
+[51] Konstantin Serebryany, Derek Bruening, Alexander               Semantics-informed memory allocator. In Proceedings
+     Potapenko, and Dmitriy Vyukov. {AddressSanitizer}:             of the 2024 on ACM SIGSAC Conference on Computer
+     A fast address sanity checker. In 2012 USENIX annual           and Communications Security, pages 1375–1389, 2024.
+     technical conference (USENIX ATC 12), pages 309–318,
+                                                               [64] Zicheng Wang, Yicheng Guang, Yueqi Chen, Zhenpeng
+     2012.
+                                                                    Lin, Michael Le, Dang K Le, Dan Williams, Xinyu Xing,
+[52] Julian Seward and Nicholas Nethercote. Using valgrind          Zhongshu Gu, and Hani Jamjoom. {SeaK}: Rethinking
+     to detect undefined value errors with bit-precision. In        the design of a secure allocator for {OS} kernel. In
+     USENIX Annual Technical Conference, General Track,             33rd USENIX Security Symposium (USENIX Security
+     pages 17–30, 2005.                                             24), pages 1171–1188, 2024.
+
+[53] Hovav Shacham, Matthew Page, Ben Pfaff, Eu-Jin Goh,       [65] WordPress. Blog tool, publishing platform, and cms.
+     Nagendra Modadugu, and Dan Boneh. On the effective-            https://wordpress.org, 2025.
+     ness of address-space randomization. In Proceedings of    [66] Insu Yun, Dhaval Kapil, and Taesoo Kim. Automatic
+     the 11th ACM conference on Computer and communi-               techniques to systematically discover new heap exploita-
+     cations security, pages 298–307, 2004.                         tion primitives. In 29th USENIX Security Symposium
+[54] Sam Silvestro, Hongyu Liu, Corey Crosser, Zhiqiang             (USENIX Security 20), pages 1111–1128. USENIX As-
+     Lin, and Tongping Liu. Freeguard: A faster secure heap         sociation, August 2020. URL: https://www.usenix
+     allocator. In Proceedings of the 2017 ACM SIGSAC               .org/conference/usenixsecurity20/presentat
+     Conference on Computer and Communications Security,            ion/yun.
+     CCS ’17, page 2389–2403, New York, NY, USA, 2017.
+     Association for Computing Machinery. doi:10.1145/
+     3133956.3133957.
+
+[55] Sam Silvestro, Hongyu Liu, Tianyi Liu, Zhiqiang Lin,
+     and Tongping Liu. Guarder: A tunable secure allocator.
+     In 27th USENIX Security Symposium (USENIX Secu-
+     rity 18), pages 117–133, Baltimore, MD, August 2018.
+     USENIX Association. URL: https://www.usenix.o
+     rg/conference/usenixsecurity18/presentatio
+     n/silvestro.
+
+[56] Yii Software. Yii 2: The fast, secure and professional
+     php framework. https://www.yiiframework.com,
+     2025.
+
+[57] Symfony Core Team. The symfony php framework.
+     https://symfony.com, 2025.
+
+[58] Chris Valasek. Understanding the low fragmentation
+     heap. Black Hat USA, 11, 2010.
+
+[59] Julien Voisin. Heap hardening. https://github.com
+     /php/php-src/issues/14083, 2024.
+
+[60] Julien Voisin. Make some parts of _zend_mm_heap
+     read-only at runtime. https://github.com/php/php
+    -src/pull/14570, 2024.
+
+[61] Jakub Vrana. Database management in a single php file.
+     https://www.adminer.org, 2025.
+Appendix
+
+A      Timeline of PHP Heap Hardening                                Name                                    Stars              JSON             XML           M           Y
+                                                                                     Top 5 PHP Frameworks on GitHub
+The PHP heap hardening roadmap was opened on Apr. 30,
+2024 and lists allocator unlink checks, freelist shadow point-       Laravel [25]                           34479                ✓                  ✓           ✓          ×
+ers, read-only metadata, guard pages, freelist randomization,        Symfony [57]                           30922                ✓                  ✓           ✓          ✓
+heap isolation, and related isolation ideas [59]. The protec-        CodeIgniter [14]                       18226                ×                  ✓           ✓          ×
+tions in Table A1 are the ones that have available prototypes        Yii 2 [56]                             14319                ✓                  ✓           ✓          ×
+and materially affect our evaluation.                                CakePHP [13]                            8785                ✓                  ✓           ✓          ×
+                                                                                               Popular PHP Applications
+    Protection                      Status
+                                                                     WordPress [65]                         20071                ✓                  ✓           ✓          ×
+    Shadow pointer [43]             Merged to PHP 8.4.0+             Grav [34]                              14903                ✓                  ✓           ✓          ✓
+    Fork-refresh Patches [46, 47]   Merged to PHP 8.5.0+
+    Unlink Abuse Prevention [42]    Merged to PHP 8.4.0+             Magento2 [1]                           11768                ✓                  ✓           ✓          ×
+    Read-only metadata [60]         Closed prototype                 phpMyAdmin [48]                        7495                 ✓                  ✓           ✓          ✓
+    Remote heap isolation [44]      Open prototype                   HotCRP [24]                             389                 ✓                  ✓           ✓          ×
+
+     Table A1: Available PHP heap hardening protections.           M refers to the serialized format from the serialize function in PHP and Y
+                                                                   refers to the YAML serialization language.
+
+   The freelist shadow pointer PR was merged into master on
+                                                                   Table A2: Comparison of supported serialization formats us-
+Jun. 12, 2024 [43], and the unlink checks were merged into
+                                                                   age in popular open source PHP frameworks and applications.
+master on Apr. 23, 2024 [42], while the stream-bucket vari-
+ant [45] remains open. Two fork-refresh patches were later
+merged into master on Jul. 29, 2025 [46, 47] to fix the shadow
+pointer randomization issue. Heap isolation is not released,
+but it directly targets remote heap shaping, so evaluating it                                                                          GC Header
+helps estimate the value of this direction. Read-only Metadata                       Controllable with highest bit set to 1                  hash
+has two versions as discussed in §2.4 but neither is deployed                                                                             length
+
+or considered an imminent mitigation. We include the later                                             Partially controllable
+                                                                                                                                         content
+version which is more practical according to the discussion
+thread [60] only as a representative metadata-protection de-
+sign. §5 addresses this class of design, while the techniques in
+§4 and §6 remain relevant regardless of whether PHP adopts         Figure 13: Spray String with Controllable Hash Value and
+read-only metadata.                                                Partially Controllable Content
+
+Algorithm 1 Reverse DJBX33A Hash
+ 1: Input: Target hash value H, target input length n
+ 2: Output: String s of length n such that DJBX33A(s) = H
+                                                                                                               zend_string                                       zend_string
+ 3: H0 ← DJBX33A(n zero bytes)                                                                                 GC header                                           GC header
+ 4: ∆ ← (H − H0 ) mod 264                                                                                          hash                                               hash
+                                                                                  zval                            length              zval                           length
+ 5: seq ← [ ]                                                                    value                                                value
+                                                                                                             AAAAAAAA                                            AAAAAAAA
+ 6: while ∆ ≥ 33 do                                                             type info                    AAAAAAAA                type info                   AAAAAAAA
+                                                                                                             AAAAAAAA                                            AAAAAAAA
+ 7:     seq.append(∆
+                mod 33)                                                                                    AAAAAAAA
+                                                                                                               ………
+                                                                                                                                        Out of bound read        AAAAAAAA
+                                                                     Lower                                                                                         ………
+               ∆                                                              Interpret heap data as
+                                                                                                             AAAAAAAA                                            AAAAAAAA
+ 8:     ∆←                                                           Higher
+                                                                              string                             heap data                                          heap data
+               33
+                                                                                                                 heap data                                          heap data
+ 9: end while                                                                                                    heap data                                          heap data
+10: seq.append(∆)
+                                                                                            (a) Corrupt the value pointer               (b) Corrupt the length of string
+11: s ← n - len(seq) zero bytes ∥ reverse(seq)
+                                                                                                 Overflow data                               Corrupt target
+12: return s
+
+
+
+                                                                     Figure 14: Convert heap overflow to out-of-bounds read
+

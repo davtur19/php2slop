@@ -1,0 +1,72 @@
+Title: PHP 8 session unserialize object injection at DuckDuckGo
+
+URL Source: https://html.duckduckgo.com/html/?q=PHP+8+session+unserialize+object+injection
+
+Markdown Content:
+[](https://html.duckduckgo.com/html/?q=PHP+8+session+unserialize+object+injection)
+
+[](https://html.duckduckgo.com/html/ "DuckDuckGo")
+
+## [PayloadsAllTheThings/Insecure Deserialization/PHP.md at master ... - GitHub](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fswisskyrepo%2FPayloadsAllTheThings%2Fblob%2Fmaster%2FInsecure%2520Deserialization%2FPHP.md&rut=7ec3b304dacabd97c6d44fa0de87680b77ef8b1f06c6aeddba8cac1d5ec79e8c)
+
+[![Image 1](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fswisskyrepo%2FPayloadsAllTheThings%2Fblob%2Fmaster%2FInsecure%2520Deserialization%2FPHP.md&rut=7ec3b304dacabd97c6d44fa0de87680b77ef8b1f06c6aeddba8cac1d5ec79e8c)[github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Insecure Deserialization/PHP.md](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fswisskyrepo%2FPayloadsAllTheThings%2Fblob%2Fmaster%2FInsecure%2520Deserialization%2FPHP.md&rut=7ec3b304dacabd97c6d44fa0de87680b77ef8b1f06c6aeddba8cac1d5ec79e8c)
+
+[**PHP****Object****Injection** is an application level vulnerability that could allow an attacker to perform different kinds of malicious attacks, such as Code **Injection**, SQL **Injection**, Path Traversal and Application Denial of Service, depending on the context. The vulnerability occurs when user-supplied input is not properly sanitized before being passed to the **unserialize** () **PHP** function. Since **PHP** ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fswisskyrepo%2FPayloadsAllTheThings%2Fblob%2Fmaster%2FInsecure%2520Deserialization%2FPHP.md&rut=7ec3b304dacabd97c6d44fa0de87680b77ef8b1f06c6aeddba8cac1d5ec79e8c)
+
+## [PHP Object Injection | OWASP Foundation](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fcommunity.owasp.org%2Fvulnerabilities%2FPHP_Object_Injection&rut=467263110d848798ad5d4a0b5e280caba5921f34d85bca4694994a2e3b685144)
+
+[![Image 2](https://external-content.duckduckgo.com/ip3/community.owasp.org.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fcommunity.owasp.org%2Fvulnerabilities%2FPHP_Object_Injection&rut=467263110d848798ad5d4a0b5e280caba5921f34d85bca4694994a2e3b685144)[community.owasp.org/vulnerabilities/PHP_Object_Injection](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fcommunity.owasp.org%2Fvulnerabilities%2FPHP_Object_Injection&rut=467263110d848798ad5d4a0b5e280caba5921f34d85bca4694994a2e3b685144)
+
+[Author (s): Description **PHP****Object****Injection** is an application level vulnerability that could allow an attacker to perform different kinds of malicious attacks, such as Code **Injection**, SQL **Injection**, Path Traversal and Application Denial of Service, depending on the context. The vulnerability occurs when user-supplied input is not properly sanitized before being passed to the **unserialize** ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fcommunity.owasp.org%2Fvulnerabilities%2FPHP_Object_Injection&rut=467263110d848798ad5d4a0b5e280caba5921f34d85bca4694994a2e3b685144)
+
+## [PHP Object Injection: Exploiting Deserialization and POP Chains](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fappsecbrief.com%2Farticles%2Fphp%2Dobject%2Dinjection%2Dpop%2Dchains%2Ddeserialization%2Dexploitation%2Dguide%2D2026%2F&rut=20e57f467cea268474df284c658d25fbaea2d66498f480cd5f4b83bb8247caec)
+
+[![Image 3](https://external-content.duckduckgo.com/ip3/appsecbrief.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fappsecbrief.com%2Farticles%2Fphp%2Dobject%2Dinjection%2Dpop%2Dchains%2Ddeserialization%2Dexploitation%2Dguide%2D2026%2F&rut=20e57f467cea268474df284c658d25fbaea2d66498f480cd5f4b83bb8247caec)[appsecbrief.com/articles/php-object-injection-pop-chains-deserialization-exploitation-guide-2026/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fappsecbrief.com%2Farticles%2Fphp%2Dobject%2Dinjection%2Dpop%2Dchains%2Ddeserialization%2Dexploitation%2Dguide%2D2026%2F&rut=20e57f467cea268474df284c658d25fbaea2d66498f480cd5f4b83bb8247caec)
+
+[**PHP's****unserialize**() function, when passed attacker-controlled data, can trigger magic methods across the application's class hierarchy in sequences that produce remote code execution. This guide covers how **PHP****object****injection** works, how POP chains are constructed, and how to prevent the vulnerability in **PHP** applications.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fappsecbrief.com%2Farticles%2Fphp%2Dobject%2Dinjection%2Dpop%2Dchains%2Ddeserialization%2Dexploitation%2Dguide%2D2026%2F&rut=20e57f467cea268474df284c658d25fbaea2d66498f480cd5f4b83bb8247caec)
+
+## [PHP Object Injection | Sonar](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.sonarsource.com%2Fblog%2Fphp%2Dobject%2Dinjection%2F&rut=72ac8b73457db78f5f98ef0ef97364c7e425588154ddc775e72fe9c6542c45ed)
+
+[![Image 4](https://external-content.duckduckgo.com/ip3/www.sonarsource.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.sonarsource.com%2Fblog%2Fphp%2Dobject%2Dinjection%2F&rut=72ac8b73457db78f5f98ef0ef97364c7e425588154ddc775e72fe9c6542c45ed)[www.sonarsource.com/blog/php-object-injection/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.sonarsource.com%2Fblog%2Fphp%2Dobject%2Dinjection%2F&rut=72ac8b73457db78f5f98ef0ef97364c7e425588154ddc775e72fe9c6542c45ed)
+
+[TL;DR overview **PHP****object****injection** occurs when user-controlled data is passed to **PHP's****unserialize** () function, allowing attackers to instantiate arbitrary **objects** whose magic methods execute attacker-controlled logic during deserialization.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.sonarsource.com%2Fblog%2Fphp%2Dobject%2Dinjection%2F&rut=72ac8b73457db78f5f98ef0ef97364c7e425588154ddc775e72fe9c6542c45ed)
+
+## [What is PHP Object Injection? Exploit & Prevent](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblogs.jsmon.sh%2Fwhat%2Dis%2Dphp%2Dobject%2Dinjection%2Dways%2Dto%2Dexploit%2Dexamples%2Dand%2Dimpact%2F&rut=dcb7d3c0d3bdf16001daa025160f52ec4218a74d6abe41a04add8a6812bb83a7)
+
+[![Image 5](https://external-content.duckduckgo.com/ip3/blogs.jsmon.sh.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblogs.jsmon.sh%2Fwhat%2Dis%2Dphp%2Dobject%2Dinjection%2Dways%2Dto%2Dexploit%2Dexamples%2Dand%2Dimpact%2F&rut=dcb7d3c0d3bdf16001daa025160f52ec4218a74d6abe41a04add8a6812bb83a7)[blogs.jsmon.sh/what-is-php-object-injection-ways-to-exploit-examples-and-impact/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblogs.jsmon.sh%2Fwhat%2Dis%2Dphp%2Dobject%2Dinjection%2Dways%2Dto%2Dexploit%2Dexamples%2Dand%2Dimpact%2F&rut=dcb7d3c0d3bdf16001daa025160f52ec4218a74d6abe41a04add8a6812bb83a7)
+
+[Learn how **PHP****Object****Injection** works, the danger of **unserialize**(), and how to prevent RCE and POP chains in your **PHP** applications.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fblogs.jsmon.sh%2Fwhat%2Dis%2Dphp%2Dobject%2Dinjection%2Dways%2Dto%2Dexploit%2Dexamples%2Dand%2Dimpact%2F&rut=dcb7d3c0d3bdf16001daa025160f52ec4218a74d6abe41a04add8a6812bb83a7)
+
+## [Exploiting PHP unserialization for RCE | bl4ckarch](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbl4ckarch.github.io%2Fposts%2FExploiting%2DPHP%2DDeserialization%2F&rut=bc9ec7dc86e70d14289b4b6262560390964e31c43354af1c4d1e78dc9f31969a)
+
+[![Image 6](https://external-content.duckduckgo.com/ip3/bl4ckarch.github.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbl4ckarch.github.io%2Fposts%2FExploiting%2DPHP%2DDeserialization%2F&rut=bc9ec7dc86e70d14289b4b6262560390964e31c43354af1c4d1e78dc9f31969a)[bl4ckarch.github.io/posts/Exploiting-PHP-Deserialization/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbl4ckarch.github.io%2Fposts%2FExploiting%2DPHP%2DDeserialization%2F&rut=bc9ec7dc86e70d14289b4b6262560390964e31c43354af1c4d1e78dc9f31969a)
+
+[Before jumping into the challenge, it's important to understand what **PHP****Object****Injection** is. When user-controlled input is passed to the **unserialize** () function, attackers can inject serialized **objects** into the application.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbl4ckarch.github.io%2Fposts%2FExploiting%2DPHP%2DDeserialization%2F&rut=bc9ec7dc86e70d14289b4b6262560390964e31c43354af1c4d1e78dc9f31969a)
+
+## [PHP Object Injection: unserialize () and the Magic-Method Chain](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fselfsec.io%2Fblog%2Fdeserialization%2Dphp&rut=d2f365edafbd43b8b088bf9fe531b2b2f3e5504713f14a24f8f33b79f33e95c1)
+
+[![Image 7](https://external-content.duckduckgo.com/ip3/selfsec.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fselfsec.io%2Fblog%2Fdeserialization%2Dphp&rut=d2f365edafbd43b8b088bf9fe531b2b2f3e5504713f14a24f8f33b79f33e95c1)[selfsec.io/blog/deserialization-php](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fselfsec.io%2Fblog%2Fdeserialization%2Dphp&rut=d2f365edafbd43b8b088bf9fe531b2b2f3e5504713f14a24f8f33b79f33e95c1)
+
+[**PHP** serialization turns an **object** into a string with serialize (), and **unserialize** () rebuilds it on the other side. The trap is that **unserialize** () does not just parse data — it instantiates whatever classes the string names and runs their magic methods as part of reconstruction, including classes you never intended to receive. The moment you call it on input an attacker controls, you have ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fselfsec.io%2Fblog%2Fdeserialization%2Dphp&rut=d2f365edafbd43b8b088bf9fe531b2b2f3e5504713f14a24f8f33b79f33e95c1)
+
+## [Understanding PHP Object Injection Techniques - hacking](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsalivity.github.io%2Fhacking%2Farticle%2Funderstanding%2Dphp%2Dobject%2Dinjection%2Dtechniques&rut=b7509676288f44b10515707751b4b5bf028772ccb0bdc9f712337df0ed540991)
+
+[![Image 8](https://external-content.duckduckgo.com/ip3/salivity.github.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsalivity.github.io%2Fhacking%2Farticle%2Funderstanding%2Dphp%2Dobject%2Dinjection%2Dtechniques&rut=b7509676288f44b10515707751b4b5bf028772ccb0bdc9f712337df0ed540991)[salivity.github.io/hacking/article/understanding-php-object-injection-techniques](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsalivity.github.io%2Fhacking%2Farticle%2Funderstanding%2Dphp%2Dobject%2Dinjection%2Dtechniques&rut=b7509676288f44b10515707751b4b5bf028772ccb0bdc9f712337df0ed540991)
+
+[Cookies and **Session** Identifiers: Applications sometimes store complex **session** data or preferences inside base64-encoded cookies. If these cookies are decoded and passed to **unserialize** (), modifying the cookie value triggers **object****injection**.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsalivity.github.io%2Fhacking%2Farticle%2Funderstanding%2Dphp%2Dobject%2Dinjection%2Dtechniques&rut=b7509676288f44b10515707751b4b5bf028772ccb0bdc9f712337df0ed540991)
+
+## [Exploiting PHP Deserialization - Vickie Li's Security Blog](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvickieli.dev%2Finsecure%2520deserialization%2Fexploiting%2Dphp%2Ddeserialization%2F&rut=9e399e7adad7b5d4756a2dd1a5c0c8966bb0a5c62e2c6ac11852508eec889d06)
+
+[![Image 9](https://external-content.duckduckgo.com/ip3/vickieli.dev.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvickieli.dev%2Finsecure%2520deserialization%2Fexploiting%2Dphp%2Ddeserialization%2F&rut=9e399e7adad7b5d4756a2dd1a5c0c8966bb0a5c62e2c6ac11852508eec889d06)[vickieli.dev/insecure deserialization/exploiting-php-deserialization/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvickieli.dev%2Finsecure%2520deserialization%2Fexploiting%2Dphp%2Ddeserialization%2F&rut=9e399e7adad7b5d4756a2dd1a5c0c8966bb0a5c62e2c6ac11852508eec889d06)
+
+[Exploiting **PHP** Deserialization Intro to **PHP****object****injection** vulnerabilities. Serialization is when an **object** in a programming language (say, a Java or **PHP****object**) is converted into a format that can be stored or transferred.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvickieli.dev%2Finsecure%2520deserialization%2Fexploiting%2Dphp%2Ddeserialization%2F&rut=9e399e7adad7b5d4756a2dd1a5c0c8966bb0a5c62e2c6ac11852508eec889d06)
+
+## [What is PHP object injection? | Tutorial & example | Snyk Learn](https://duckduckgo.com/l/?uddg=https%3A%2F%2Flearn.snyk.io%2Flesson%2Fobject%2Dinjection%2F&rut=e88e11cf7711b2426e97652cea833045e5772638aa7174183d6b5c66be39399b)
+
+[![Image 10](https://external-content.duckduckgo.com/ip3/learn.snyk.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Flearn.snyk.io%2Flesson%2Fobject%2Dinjection%2F&rut=e88e11cf7711b2426e97652cea833045e5772638aa7174183d6b5c66be39399b)[learn.snyk.io/lesson/object-injection/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Flearn.snyk.io%2Flesson%2Fobject%2Dinjection%2F&rut=e88e11cf7711b2426e97652cea833045e5772638aa7174183d6b5c66be39399b)
+
+[Learn how a **PHP****object****injection** attack works and how to mitigate and remediate the vulnerability with real-world examples from security experts.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Flearn.snyk.io%2Flesson%2Fobject%2Dinjection%2F&rut=e88e11cf7711b2426e97652cea833045e5772638aa7174183d6b5c66be39399b)
+
+[Feedback](https://duckduckgo.com/feedback.html)
+
+![Image 11](https://duckduckgo.com/t/sl_h)

@@ -1,0 +1,72 @@
+Title: zif_system execute_data fake zend_function PHP pwn at DuckDuckGo
+
+URL Source: https://html.duckduckgo.com/html/?q=zif_system+execute_data+fake+zend_function+PHP+pwn
+
+Markdown Content:
+[](https://html.duckduckgo.com/html/?q=zif_system+execute_data+fake+zend_function+PHP+pwn)
+
+[](https://html.duckduckgo.com/html/ "DuckDuckGo")
+
+## [PHP FFI disable_functions Bypass (no FFI::load or FFI::cdefs) hunter ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgist.github.com%2Fhuntergregal%2Fcb7066438f0155c4951c24a284885911&rut=fbdc0c7a4971df0c7e698eca6d1f458d4d4915ce2c64df9113e96f4a7ebcefce)
+
+[![Image 1](https://external-content.duckduckgo.com/ip3/gist.github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgist.github.com%2Fhuntergregal%2Fcb7066438f0155c4951c24a284885911&rut=fbdc0c7a4971df0c7e698eca6d1f458d4d4915ce2c64df9113e96f4a7ebcefce)[gist.github.com/huntergregal/cb7066438f0155c4951c24a284885911](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgist.github.com%2Fhuntergregal%2Fcb7066438f0155c4951c24a284885911&rut=fbdc0c7a4971df0c7e698eca6d1f458d4d4915ce2c64df9113e96f4a7ebcefce)
+
+[the easiest way is to create cdata object, write target RIP (**zif_system's** address) to it and finally modify it's zend_ffi_type_kind to ZEND_FFI_TYPE_FUNC to call it](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgist.github.com%2Fhuntergregal%2Fcb7066438f0155c4951c24a284885911&rut=fbdc0c7a4971df0c7e698eca6d1f458d4d4915ce2c64df9113e96f4a7ebcefce)
+
+## [From memory corruption to disable_functions bypass: understanding PHP ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fx%2Dc3ll.github.io%2Fposts%2FUAF%2DPHP%2Ddisable_functions%2F&rut=c3b14c66d842d39a7dd4bcf8cf963695423972cceb3951612a3eeae0b05bcc2a)
+
+[![Image 2](https://external-content.duckduckgo.com/ip3/x-c3ll.github.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fx%2Dc3ll.github.io%2Fposts%2FUAF%2DPHP%2Ddisable_functions%2F&rut=c3b14c66d842d39a7dd4bcf8cf963695423972cceb3951612a3eeae0b05bcc2a)[x-c3ll.github.io/posts/UAF-PHP-disable_functions/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fx%2Dc3ll.github.io%2Fposts%2FUAF%2DPHP%2Ddisable_functions%2F&rut=c3b14c66d842d39a7dd4bcf8cf963695423972cceb3951612a3eeae0b05bcc2a)
+
+[The exploit creates a **fake** closure object copying the values and changing the type to the value "1" (internal function) and the handle to the **zif_system** location, so this function will be called instead:](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fx%2Dc3ll.github.io%2Fposts%2FUAF%2DPHP%2Ddisable_functions%2F&rut=c3b14c66d842d39a7dd4bcf8cf963695423972cceb3951612a3eeae0b05bcc2a)
+
+## [Exploit for CVE-2026-109618 - exploit database | Vulners.com](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvulners.com%2Fgithubexploit%2F7E498B2A%2D478E%2D5057%2D86D7%2DEF17331DAF5A&rut=db7ea77d2f49470d1471f8a9685db42ed963fdc136443add37c249b15f212c33)
+
+[![Image 3](https://external-content.duckduckgo.com/ip3/vulners.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvulners.com%2Fgithubexploit%2F7E498B2A%2D478E%2D5057%2D86D7%2DEF17331DAF5A&rut=db7ea77d2f49470d1471f8a9685db42ed963fdc136443add37c249b15f212c33)[vulners.com/githubexploit/7E498B2A-478E-5057-86D7-EF17331DAF5A](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvulners.com%2Fgithubexploit%2F7E498B2A%2D478E%2D5057%2D86D7%2DEF17331DAF5A&rut=db7ea77d2f49470d1471f8a9685db42ed963fdc136443add37c249b15f212c33)
+
+[CVE-2026-109618 / CVE-2026-109619: php2shell One-shot RCE proof of concept for the **PHP** session.upload_progress use-after-free vulnerabilities. The exploit chains a heap leak, a libphp leak, and a forged pDestructor call to reach **zif_system** — all o...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvulners.com%2Fgithubexploit%2F7E498B2A%2D478E%2D5057%2D86D7%2DEF17331DAF5A&rut=db7ea77d2f49470d1471f8a9685db42ed963fdc136443add37c249b15f212c33)
+
+## [Finding and Exploiting a 21-Year-Old Vulnerability in PHP](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fcalif.io%2Fresearch%2Fphp%2Duaf&rut=57b0d63b38bf7209061a1a8b24798c3e87851e85903a961542306236fdd2a137)
+
+[![Image 4](https://external-content.duckduckgo.com/ip3/calif.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fcalif.io%2Fresearch%2Fphp%2Duaf&rut=57b0d63b38bf7209061a1a8b24798c3e87851e85903a961542306236fdd2a137)[calif.io/research/php-uaf](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fcalif.io%2Fresearch%2Fphp%2Duaf&rut=57b0d63b38bf7209061a1a8b24798c3e87851e85903a961542306236fdd2a137)
+
+[Step 4 needs the engine to dispatch into a chosen C function (here **zif_system**, **PHP's** native implementation of system ()). For that to work via a path **PHP** exposes to user code, the local exploit forges the **fake** zend_object as a Closure specifically.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fcalif.io%2Fresearch%2Fphp%2Duaf&rut=57b0d63b38bf7209061a1a8b24798c3e87851e85903a961542306236fdd2a137)
+
+## [The Cure to Curiosity: From Web to Pwn - FFI Arbitrary read/write ...](https://duckduckgo.com/l/?uddg=http%3A%2F%2Fblog.huntergregal.com%2F2020%2F07%2Ffrom%2Dweb%2Dto%2Dpwn%2Dffi%2Darbitrary%2Dreadwrite.html&rut=6259b8088e4e531a85fd2655f30d611aad810153987ccfac256897f2c3e61f25)
+
+[![Image 5](https://external-content.duckduckgo.com/ip3/blog.huntergregal.com.ico)](https://duckduckgo.com/l/?uddg=http%3A%2F%2Fblog.huntergregal.com%2F2020%2F07%2Ffrom%2Dweb%2Dto%2Dpwn%2Dffi%2Darbitrary%2Dreadwrite.html&rut=6259b8088e4e531a85fd2655f30d611aad810153987ccfac256897f2c3e61f25)[blog.huntergregal.com/2020/07/from-web-to-pwn-ffi-arbitrary-readwrite.html](https://duckduckgo.com/l/?uddg=http%3A%2F%2Fblog.huntergregal.com%2F2020%2F07%2Ffrom%2Dweb%2Dto%2Dpwn%2Dffi%2Darbitrary%2Dreadwrite.html&rut=6259b8088e4e531a85fd2655f30d611aad810153987ccfac256897f2c3e61f25)
+
+[For the final step we need to create a proper zend_execute object to pass to `**zif_system**`. The `**zif_system**` call is pretty odd and uses ALOT of C macros which made reading it a PITA.](https://duckduckgo.com/l/?uddg=http%3A%2F%2Fblog.huntergregal.com%2F2020%2F07%2Ffrom%2Dweb%2Dto%2Dpwn%2Dffi%2Darbitrary%2Dreadwrite.html&rut=6259b8088e4e531a85fd2655f30d611aad810153987ccfac256897f2c3e61f25)
+
+## [GitHub - KarimUD7/RCE-POCKET-POC-for-PHP2SHELL: Pocket proof-of-concept ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2FKarimUD7%2FRCE%2DPOCKET%2DPOC%2Dfor%2DPHP2SHELL&rut=97c2dcc3f3c16d84ea1691590c43694e96ce3eb770fb458cf45ddda387133391)
+
+[![Image 6](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2FKarimUD7%2FRCE%2DPOCKET%2DPOC%2Dfor%2DPHP2SHELL&rut=97c2dcc3f3c16d84ea1691590c43694e96ce3eb770fb458cf45ddda387133391)[github.com/KarimUD7/RCE-POCKET-POC-for-PHP2SHELL](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2FKarimUD7%2FRCE%2DPOCKET%2DPOC%2Dfor%2DPHP2SHELL&rut=97c2dcc3f3c16d84ea1691590c43694e96ce3eb770fb458cf45ddda387133391)
+
+[reclaim: the 280-byte sprays reclaim the freed bin-320 heap leak: write-through via R:N of a zend_reference pointer uaf_read (addr, n): **fake** IS_STRING positioned at an arbitrary address **fake** closure: ce, handlers, func.handler = **zif_system** (resolved in the module's static function table, thereby bypassing disable_functions)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2FKarimUD7%2FRCE%2DPOCKET%2DPOC%2Dfor%2DPHP2SHELL&rut=97c2dcc3f3c16d84ea1691590c43694e96ce3eb770fb458cf45ddda387133391)
+
+## [exploits/php-filter-bypass/exploit.php at master · mm0r1/exploits](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fmm0r1%2Fexploits%2Fblob%2Fmaster%2Fphp%2Dfilter%2Dbypass%2Fexploit.php&rut=487a007176b87acbffd951cadaa97a1a9d406f988c0b8a146d6570e43c93cc30)
+
+[![Image 7](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fmm0r1%2Fexploits%2Fblob%2Fmaster%2Fphp%2Dfilter%2Dbypass%2Fexploit.php&rut=487a007176b87acbffd951cadaa97a1a9d406f988c0b8a146d6570e43c93cc30)[github.com/mm0r1/exploits/blob/master/php-filter-bypass/exploit.php](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fmm0r1%2Fexploits%2Fblob%2Fmaster%2Fphp%2Dfilter%2Dbypass%2Fexploit.php&rut=487a007176b87acbffd951cadaa97a1a9d406f988c0b8a146d6570e43c93cc30)
+
+[**Pwn** stuff. Contribute to mm0r1/exploits development by creating an account on GitHub.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fmm0r1%2Fexploits%2Fblob%2Fmaster%2Fphp%2Dfilter%2Dbypass%2Fexploit.php&rut=487a007176b87acbffd951cadaa97a1a9d406f988c0b8a146d6570e43c93cc30)
+
+## [Hypertext Preprocessor - Ansh Agrawal](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fspyduck007.github.io%2Fctf%2Fwrite%2Dups%2Fhypertext%2Dpreprocessor%2F&rut=a8a2e4cbf6f8d8d4ac4c95a31fb850c8bb0a2dd4bcabe4243b7d4d51208fb5d7)
+
+[![Image 8](https://external-content.duckduckgo.com/ip3/spyduck007.github.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fspyduck007.github.io%2Fctf%2Fwrite%2Dups%2Fhypertext%2Dpreprocessor%2F&rut=a8a2e4cbf6f8d8d4ac4c95a31fb850c8bb0a2dd4bcabe4243b7d4d51208fb5d7)[spyduck007.github.io/ctf/write-ups/hypertext-preprocessor/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fspyduck007.github.io%2Fctf%2Fwrite%2Dups%2Fhypertext%2Dpreprocessor%2F&rut=a8a2e4cbf6f8d8d4ac4c95a31fb850c8bb0a2dd4bcabe4243b7d4d51208fb5d7)
+
+[The first bug is the easy web bug: ... Because the file is uploaded directly into the document root, uploading a .**php** file lets us execute **PHP** code through the browser. The second part is the actual **pwn** part. Even though system () is disabled at the **PHP** config level, the internal C implementation of system still exists inside **PHP**.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fspyduck007.github.io%2Fctf%2Fwrite%2Dups%2Fhypertext%2Dpreprocessor%2F&rut=a8a2e4cbf6f8d8d4ac4c95a31fb850c8bb0a2dd4bcabe4243b7d4d51208fb5d7)
+
+## [php2shell-poc — PoC exploit | Sploitus](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsploitus.com%2Fexploit%3Fid%3DD08FDE5F%2D32C2%2D5F07%2DB1B5%2D197A3F4C6923&rut=a62f02b8c3e72aae3922faf3f2c99f62f1c491c9818c7bb45903c283bb8946ea)
+
+[![Image 9](https://external-content.duckduckgo.com/ip3/sploitus.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsploitus.com%2Fexploit%3Fid%3DD08FDE5F%2D32C2%2D5F07%2DB1B5%2D197A3F4C6923&rut=a62f02b8c3e72aae3922faf3f2c99f62f1c491c9818c7bb45903c283bb8946ea)[sploitus.com/exploit?id=D08FDE5F-32C2-5F07-B1B5-197A3F4C6923](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsploitus.com%2Fexploit%3Fid%3DD08FDE5F%2D32C2%2D5F07%2DB1B5%2D197A3F4C6923&rut=a62f02b8c3e72aae3922faf3f2c99f62f1c491c9818c7bb45903c283bb8946ea)
+
+[Local RCE in **PHP** via the session.upload_progress issue reaching **zif_system**.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsploitus.com%2Fexploit%3Fid%3DD08FDE5F%2D32C2%2D5F07%2DB1B5%2D197A3F4C6923&rut=a62f02b8c3e72aae3922faf3f2c99f62f1c491c9818c7bb45903c283bb8946ea)
+
+## [PHP 7.4 FFI - 'disable_functions' Bypass - PHP webapps Exploit](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.exploit%2Ddb.com%2Fexploits%2F48655&rut=74002d79bb8239e9b31a88e3a9dc58bf0b88584e52ec6dc51182e79c70cbf1a1)
+
+[![Image 10](https://external-content.duckduckgo.com/ip3/www.exploit-db.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.exploit%2Ddb.com%2Fexploits%2F48655&rut=74002d79bb8239e9b31a88e3a9dc58bf0b88584e52ec6dc51182e79c70cbf1a1)[www.exploit-db.com/exploits/48655](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.exploit%2Ddb.com%2Fexploits%2F48655&rut=74002d79bb8239e9b31a88e3a9dc58bf0b88584e52ec6dc51182e79c70cbf1a1)
+
+[**PHP** 7.4 FFI - 'disable_functions' Bypass.. webapps exploit for **PHP** platform](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.exploit%2Ddb.com%2Fexploits%2F48655&rut=74002d79bb8239e9b31a88e3a9dc58bf0b88584e52ec6dc51182e79c70cbf1a1)
+
+[Feedback](https://duckduckgo.com/feedback.html)
+
+![Image 11](https://duckduckgo.com/t/sl_h)

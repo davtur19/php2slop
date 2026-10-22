@@ -1,0 +1,725 @@
+
+PHP2Shell: Inside PHP Upload Progress and the RCE I Couldn't Reproduce
+Skip to content
+0x
+4148
+Home
+Blog
+About
+advisories
+static analysis
+PHP2Shell: Inside PHP Upload Progress and the RCE I Couldn’t Reproduce
+October 21, 2026
+·
+16 min read
+A PHP application can reject a malicious request perfectly and still be too late. PHP parses parts of the HTTP request in native code 
+before
+ your application starts running. That is what makes the reported 
+PHP2Shell
+ vulnerabilities, 
+CVE-2026-109618
+ and 
+CVE-2026-109619
+, worth investigating.
+I spent time reading the PHP source, building a PHP 8.4.4 lab, and testing the published RCE approach on PHP-FPM and LiteSpeed. I could reach the upload-progress path and observe its session updates. I could not reproduce a crash or command execution. That gap is the interesting part of this story.
+#
+TL;DR
+What is confirmed:
+ PHP announced two critical issues rated 
+CVSS v4.0 9.2
+ each, with a security release scheduled for 
+October 21, 2026, at 14:00 UTC
+. At the time of this pre-release analysis, PHP had not published the final affected-version matrix or patch-level root causes.
+Why the attack surface matters:
+ PHP’s 
+session.upload_progress
+ callback runs during native 
+multipart/form-data
+ parsing, before application code. A dedicated upload page is not necessarily required for the parser to run.
+What I reproduced:
+ On PHP 
+8.4.4-FPM/Bookworm
+ behind nginx, a controlled multipart request activated upload-progress tracking. A second request observed session counters during the upload. Disabling the feature removed that observable behavior.
+What I did not reproduce:
+ No process crash or RCE in follow-up tests on 
+PHP 8.4.4-FPM
+ and 
+lsphp 8.2.27
+, including attempts with the published heap-forging approach and runtime addresses obtained through GDB. Observing a session counter is 
+not proof of a use-after-free
+.
+What to do:
+ Identify the PHP build actually serving web traffic, disable 
+session.upload_progress
+ if unused, restrict unexpected multipart requests where practical, and apply the vendor security update. Temporary mitigations are not a substitute for patching.
+#
+Why PHP can process a multipart request before your code
+The first mistake is assuming that an upload-related PHP bug requires 
+/upload.php
+ or a vulnerable application feature.
+PHP handles 
+multipart/form-data
+ through its native RFC1867 parser. When a request reaches a PHP handler, the parser processes form fields and file data before the script starts. The built-in session upload-progress extension can receive those parser events and update session records at that point.
+HTTP POST multipart/form-data
+          |
+          v
+  nginx / Apache / proxy
+          |
+          v
+      PHP SAPI
+          |
+          +--> main/rfc1867.c: multipart parser
+          |       |
+          |       +--> FORM_DATA / FILE_START / FILE_DATA
+          |                     |
+          |                     +--> ext/session/session.c
+          |                           upload-progress callback
+          |
+          v
+     index.php starts
+          |
+          v
+     Framework / routing / validation
+Code language:
+plaintext
+(
+plaintext
+)
+The 
+PHP manual
+ explicitly says upload-progress information is written 
+before any scripts execute
+. An application check against 
+$_FILES
+, a controller authorization rule, or 
+ini_set()
+ inside 
+index.php
+ cannot undo a native operation that already happened.
+PHP has provided upload-progress tracking since PHP 5.4. Its documented defaults include:
+session.upload_progress.enabled
+ = 
+On
+session.upload_progress.cleanup
+ = 
+On
+session.upload_progress.name
+ = 
+"PHP_SESSION_UPLOAD_PROGRESS"
+session.upload_progress.prefix
+ = 
+"upload_progress_"
+session.upload_progress.freq
+ = 
+"1%"
+session.upload_progress.min_freq
+ = 
+"1"
+Code language:
+TOML, also INI
+(
+ini
+)
+The field name activates tracking; its 
+value
+ helps form the session key. This ordinary example demonstrates the interface, not an exploit:
+<
+form
+action
+=
+"/index.php"
+method
+=
+"POST"
+enctype
+=
+"multipart/form-data"
+>
+<
+input
+type
+=
+"hidden"
+name
+=
+"PHP_SESSION_UPLOAD_PROGRESS"
+value
+=
+"job42"
+>
+<
+input
+type
+=
+"file"
+name
+=
+"attachment"
+>
+<
+button
+type
+=
+"submit"
+>
+Upload
+</
+button
+>
+</
+form
+>
+Code language:
+HTML, XML
+(
+xml
+)
+The progress field needs to precede the file part, and a usable session identifier must be available. PHP can then produce a record similar to:
+$_SESSION[
+'upload_progress_job42'
+] = [
+'content_length'
+  => 
+57343257
+,
+'bytes_processed'
+ => 
+453489
+,
+'done'
+            => 
+false
+,
+'files'
+           => [
+        [
+'name'
+ => 
+'example.bin'
+, 
+'bytes_processed'
+ => 
+453489
+]
+    ],
+];
+Code language:
+PHP
+(
+php
+)
+With 
+session.upload_progress.cleanup = On
+, the entry can disappear once PHP finishes reading the request. Not seeing it in later application code does not mean the callback never ran. A custom session handler registered by userland PHP is likewise too late to affect the earlier progress processing for that request.
+None of this proves that 
+every PHP endpoint is exploitable
+. The affected code must be reachable under the actual SAPI, INI settings, session conditions, and whichever root cause the official patches ultimately establish. It does explain why “we have no upload page” is a poor risk assessment.
+#
+Following the cached pointers in PHP 8.4.4
+I fixed the source review to the 
+PHP 8.4.4
+ tag rather than mixing line numbers from several branches. Three files matter:
+main/rfc1867.c             Multipart input and parser events
+ext/session/session.c      Session upload-progress event handling
+ext/session/php_session.h  Upload-progress state
+Code language:
+plaintext
+(
+plaintext
+)
+Inside the progress structure, PHP stores two raw pointers:
+zval *post_bytes_processed;
+zval *current_file_bytes_processed;
+Code language:
+Arduino
+(
+arduino
+)
+The 
+MULTIPART_EVENT_FILE_START
+ path finds the counters inside PHP arrays and caches their addresses:
+progress->post_bytes_processed = zend_hash_str_find(
+    Z_ARRVAL(progress->data), 
+"bytes_processed"
+,
+sizeof
+(
+"bytes_processed"
+) - 
+1
+);
+progress->current_file_bytes_processed = zend_hash_str_find(
+    Z_ARRVAL(progress->current_file), 
+"bytes_processed"
+,
+sizeof
+(
+"bytes_processed"
+) - 
+1
+);
+Code language:
+Arduino
+(
+arduino
+)
+zend_hash_str_find()
+ returns a 
+zval *
+ pointing into HashTable-owned storage. Caching the pointer is safe only while that particular slot remains valid. A PHP array value being alive and a pointer to one of its internal slots remaining valid are 
+not automatically the same guarantee
+.
+When file data arrives, PHP 8.4.4 writes the counters and then invokes the periodic update:
+Z_LVAL_P(progress->current_file_bytes_processed) =
+    data->offset + data->length;
+Z_LVAL_P(progress->post_bytes_processed) =
+    data->post_bytes_processed;
+php_session_rfc1867_update(progress, 
+0
+);
+Code language:
+Arduino
+(
+arduino
+)
+These are the actual 
+Z_LVAL_P
+ assignments
+ in the version I reviewed, not the 
+ZVAL_LONG
+ calls that appeared in an earlier description of the bug.
+The update path can reinitialize the session and write the progress record back:
+/* Selected operations in php_session_rfc1867_update();
+   intervening conditions omitted. */
+php_session_initialize();
+PS(session_status) = php_session_active;
+Z_TRY_ADDREF(progress->data);
+zend_hash_update(Z_ARRVAL_P(sess_var), progress->key.s, &progress->data);
+php_session_flush(
+1
+);
+Code language:
+Arduino
+(
+arduino
+)
+Session initialization can also destroy previous session-state values through 
+php_session_track_init()
+ and 
+zval_ptr_dtor(&PS(http_session_vars))
+.
+Here is the memory-ownership question: 
+does that process actually release the 
+arData
+ allocation containing one of the cached counters?
+ If it does, a later 
+FILE_DATA
+ event may write through a dangling pointer. If it only frees a separate decoded session array, the proposed use-after-free explanation is incomplete. 
+Z_TRY_ADDREF(progress->data)
+, array separation, and reference counts all matter.
+The event order matters too. The first 
+FILE_DATA
+ event 
+writes before calling
+php_session_rfc1867_update()
+. If that update invalidates a pointer, the interesting stale write would occur on a 
+subsequent
+ data event, not on the write that preceded the update.
+FILE_START      Cache counter zval* addresses
+    |
+FILE_DATA       Write counters while slots are valid
+    |
+update()        Reinitialize / replace session state
+    |           Does the *same* owning allocation get freed?
+    v
+next FILE_DATA  Reuse cached pointers
+                Potential UAF only if their storage died
+Code language:
+plaintext
+(
+plaintext
+)
+That last condition is where a source-level suspicion becomes a memory-safety finding. Seeing 
+php_session_initialize()
+ run is not enough. I would need to record the cached pointer, its owner, the precise free, and the later access to the same address. The original public analysis proposes such a path; my own lab has not supplied that allocation trace.
+#
+My PHP 8.4.4 lab and what the PoC showed
+I used 
+PHP 8.4.4-FPM on Debian Bookworm
+, nginx, and a small Docker Compose setup. The lab exposed a local HTTP service on port 
+19268
+ and used a static FPM pool with four workers. The relevant configuration deliberately allowed request streaming:
+fastcgi_request_buffering
+off
+;
+Code language:
+Nginx
+(
+nginx
+)
+With buffering off, a pause in the client’s request body can propagate through nginx to PHP-FPM. With nginx’s usual buffering enabled, PHP may instead receive the body after nginx has collected it. This affects timing but 
+does not disable multipart parsing
+.
+The lab uses these files. The full Docker setup and PoC script are published at 
+github.com/0x4148/CVE-2026-109618-php2shell-lab
+.
+File
+Purpose
+docker-compose.yml
+, 
+docker-compose.mitigated.yml
+Normal and mitigated lab runs
+conf/php.ini
+, 
+conf/php-mitigated.ini
+Upload progress on/off
+conf/nginx.conf
+, 
+conf/www.conf
+nginx forwarding and PHP-FPM pool
+scripts/php2shell_poc.py
+, 
+scripts/verify.sh
+Streaming request test and checks
+check_progress.php
+Lab-only progress observer
+These commands assume the accompanying lab files exist; this Markdown article does not bundle them:
+docker compose up -d --build
+curl http://127.0.0.1:19268/index.php
+bash scripts/verify.sh
+python3 scripts/php2shell_poc.py --verify
+python3 scripts/php2shell_poc.py --monitor --verbose
+Code language:
+Bash
+(
+bash
+)
+The PoC sends one multipart request in stages while monitoring the session from a second request. In the PHP 8.4.4 parser, 
+FILLUNIT
+ is defined as 
+1024 * 5
+ (5,120 bytes), but 
+network writes do not map one-to-one to parser events
+. The lab used a roughly 1.5-second pause with a one-second 
+min_freq
+ setting so that progress-update timing could be examined. The exact threshold also depends on the byte-based update logic and request processing.
+The lifecycle being tested is straightforward:
+Client                     nginx                  PHP-FPM
+  |                          |                       |
+  |-- multipart start ------>|-- stream body ------>| FILE_START: cache pointers
+  |                          |                       | FILE_DATA: update counters
+  |      pause               |                       |
+  |-- more file data ------->|-- stream body ------>| FILE_DATA, then update()
+  |                          |                       | session state may change
+  |-- later file data ------>|-- stream body ------>| next FILE_DATA: reused pointers
+  |-- closing boundary ----->|---------------------->| FILE_END / cleanup
+Code language:
+plaintext
+(
+plaintext
+)
+The lab notes include this representative output while upload progress was enabled:
+Round 1/1
+SID:     ph2sh_a3f8e1b204c97d52
+Status:  200 OK
+Armed:   YES - bytes_processed = 5376
+Code language:
+plaintext
+(
+plaintext
+)
+That output confirms that an upload-progress record was available during the request. It is consistent with the source-level counter updates. 
+It does not prove the counters were written after their memory was freed.
+Armed: YES
+ is the script’s label, not an AddressSanitizer report. Terminal output can be very confident; the allocator is under no obligation to agree.
+The observer also calls into session handling, which can affect locks and timing. It is useful instrumentation, not a passive view of memory ownership.
+I then switched to the configuration with progress disabled:
+session.upload_progress.enabled
+ = 
+Off
+Code language:
+TOML, also INI
+(
+ini
+)
+docker compose -f docker-compose.yml \
+  -f docker-compose.mitigated.yml up -d
+python3 scripts/php2shell_poc.py --verify --monitor
+Code language:
+Bash
+(
+bash
+)
+The notes show 
+Armed: NO - session empty
+ in this configuration. That is consistent with disabling the feature, although timing or monitoring failures can also produce an empty record. The reliable operational check is the 
+effective web-SAPI setting
+, not the script’s success label.
+#
+I tried the published RCE chain. It did not reproduce.
+The 
+PHP-UP-2026 publication
+ describes more than a callback bug. It ships a framework (
+php_up_framework.py
+) and separate PoCs for the two CVEs. The proposed chain uses a cached pointer, session-state changes, and heap allocations designed to reclaim the freed space with forged Zend callable structures. The reported endpoint is 
+zend_call_function()
+ and ultimately command execution.
+That claim is testable, which I appreciate. I tested its approach on my builds instead of taking “RCE” in the title as the last word.
+Test
+My observation
+PHP 8.4.4-FPM, Debian Bookworm, nginx
+Upload-progress path reached; no worker crash or RCE
+lsphp
+ 8.2.27 under OpenLiteSpeed
+No worker crash or RCE
+Outer and inner counter variants as described in the publication
+Neither reproduced command execution
+Pauses around 1.2–2.0 seconds
+No working RCE chain observed
+With and without the published forge approach
+No controlled crash observed
+Build-specific symbol offsets and GDB-derived runtime addresses
+No working chain observed
+Roughly 10–20 attempts per configuration across multiple test combinations
+No successful RCE reported in my notes
+These are negative results for 
+my tested configurations
+, not proof that exploitation is impossible on the original author’s exact binary. I also did not independently capture a conclusive stale-pointer sanitizer trace.
+#
+The ownership question comes first
+The published explanation describes session reinitialization freeing an older tree. But the cached counters are obtained from 
+progress->data
+ and 
+progress->current_file
+. Those are not automatically the same allocation as the old decoded session root. The refcount adjustments and any copy-on-write separation need to be followed through the update path.
+If the exact 
+arData
+ block backing a cached counter never gets freed, there is nothing for a heap spray to reclaim. This is a more basic question than the number of objects in a spray. My source review identified it as unresolved, not disproved.
+#
+A size match is not a heap overlap
+The publication’s forge technique describes 
+149 multipart parameters
+ carrying 
+288-byte data
+ intended to reach a ZendMM allocation class around 
+320 bytes
+. Even if those allocations use the expected size class, they still must land in the 
+exact slot
+ previously occupied by the allegedly freed HashTable data. ZendMM’s allocator state, free lists, extensions, and request history affect that outcome.
+My tests did not record a successful overlap. That could explain failure, but I cannot present allocator placement as the proven blocker without tracing the allocations. Requesting a 320-byte allocation is not a reservation for one particular 320-byte address.
+#
+A symbol delta is not an ASLR bypass
+The original material provides offsets between internal functions for particular 
+lsphp82
+ builds. Those offsets are build-specific. They do not by themselves reveal the 
+runtime address
+ needed to use forged function pointers under ASLR.
+The public framework accepts a 
+--dtor <leak>
+ input, which assumes that a function address has already been obtained. The disclosure does not demonstrate a generally available unauthenticated information leak that supplies it.
+For my local tests I supplied GDB-derived runtime addresses to remove that uncertainty. The chain still failed. That tells me 
+ASLR alone did not explain my failures
+; it does not provide a remote ASLR bypass.
+One correction worth preserving: 
+PHP 8.2.34 was released September 24, 2026
+, according to 
+PHP’s changelog
+. Its release did not happen on the October 21 disclosure day. I could not reproduce the published result on my available 
+lsphp
+ build, but that is not evidence that its target package never existed.
+#
+What a working RCE claim still needs
+An effective chain would need to establish the actual free and later stale access, reclamation of the correct allocation, corruption of bytes that are subsequently interpreted as a callable, and suitable runtime addresses. A sanitizer report can establish a memory bug, but 
+a sanitizer report is not an end-to-end RCE demonstration
+.
+I did not find a reproducible successful execution trace on the publication page, and my tests did not produce one. That is a reason to describe the RCE as 
+not independently reproduced here
+, rather than to accuse the original author of fabricating results. An absence of public evidence is not proof an exploit never worked.
+The proposed CVE-to-pointer mapping, one for the outer counter and one for the per-file counter, likewise remains a 
+public research attribution
+, not a vendor-confirmed split in this pre-release article.
+#
+What to change on real PHP servers
+The first job is identifying the PHP runtime 
+actually serving requests
+. The terminal’s 
+php -v
+ may refer to a different installation than Apache, PHP-FPM, a container, or LiteSpeed.
+On Apache-based systems, check the integration:
+apachectl -M 2>/dev/null | grep -Ei 
+'php|proxy_fcgi|mpm'
+ps -eo pid,comm,args | grep -E 
+'[p]hp-fpm|[a]pache2|[h]ttpd'
+php -v
+php --ini
+Code language:
+Bash
+(
+bash
+)
+The last two commands report the 
+CLI
+ environment. For a brief, administrator-only check through the actual virtual host and handler, a small PHP script is more useful:
+<?php
+header(
+'Content-Type: text/plain'
+);
+printf(
+"PHP version: %s\nSAPI: %s\n"
+, PHP_VERSION, PHP_SAPI);
+printf(
+"Loaded php.ini: %s\n"
+, php_ini_loaded_file() ?: 
+'(none)'
+);
+foreach
+ ([
+'session.upload_progress.enabled'
+,
+'session.upload_progress.min_freq'
+,
+'file_uploads'
+,
+] 
+as
+ $setting) {
+    printf(
+"%s = %s\n"
+, $setting, var_export(ini_get($setting), 
+true
+));
+}
+Code language:
+PHP
+(
+php
+)
+Restrict access, verify through the 
+same PHP handler as the application
+, and delete the diagnostic afterward. Do not leave it on the public internet as a free configuration tour.
+If the application does not require built-in session upload progress, disable it in the effective configuration:
+session.upload_progress.enabled
+ = 
+Off
+Code language:
+TOML, also INI
+(
+ini
+)
+For a managed PHP-FPM pool, an administrator-controlled setting may be appropriate:
+php_admin_flag[session.upload_progress.enabled]
+ = 
+off
+Code language:
+TOML, also INI
+(
+ini
+)
+Reload or restart the PHP handler that actually uses that setting, then verify through the web SAPI. Depending on your installation, that might mean Apache 
+mod_php
+, a PHP-FPM service, a LiteSpeed worker, or a container replacement. Restarting Apache alone does not reload an unrelated FPM pool.
+Also consider blocking unexpected 
+multipart/form-data
+ requests at a reverse proxy or WAF 
+before
+ PHP receives them. Do this per route, not as a blind global rule: legitimate APIs may use multipart bodies. 
+fastcgi_request_buffering on
+ affects the streaming experiment, but 
+is not a security patch
+. Nor is 
+session.upload_progress.cleanup = On
+.
+Once PHP publishes the security releases, install the vendor-confirmed fixes, including distribution backports where documented. Review each CVE separately. An early claim that all PHP releases from 5.4 onward are vulnerable is not an official affected-version matrix. There was no generally released PHP 6, either.
+For source validation after the fixed tags are available:
+git fetch --tags origin
+git diff <affected-tag>..<fixed-tag> -- \
+  main/rfc1867.c ext/session/session.c ext/session/php_session.h
+Code language:
+Bash
+(
+bash
+)
+I would inspect the 
+.phpt
+ regression tests as well as the diff. Those usually reveal which event sequence or lifetime problem the maintainers actually fixed.
+#
+Detection: useful leads, not magic signatures
+A request using 
+PHP_SESSION_UPLOAD_PROGRESS
+ is not automatically malicious; it is a documented feature. Neither is 
+multipart/form-data
+ a reliable indicator by itself. I would correlate 
+unexpected multipart requests on non-upload routes
+ with unusual request duration, PHP worker crashes or restarts, and process activity under the web-server account. Unexpected shells, outbound connections, or file changes deserve separate investigation.
+Most access logs do not include multipart body fields. If a WAF has request metadata, preserve it without unnecessarily retaining session IDs or uploaded contents. A missing string in an ordinary access log does not clear the host.
+A patched runtime also does not undo any persistence or credential exposure from a previous compromise. If exploitation is suspected, preserve evidence and investigate the host separately.
+#
+Final conclusion
+The most useful part of PHP2Shell is the boundary it exposes: 
+native PHP request processing happens before application validation
+. That behavior is documented, and my PHP 8.4.4 lab confirmed that the upload-progress mechanism can be reached and observed during a multipart request.
+The stronger claim is where I remain unconvinced. I could trace the cached 
+zval *
+ lookups and counter writes in source, and I tested the published RCE approach across PHP-FPM and LiteSpeed builds. 
+I could not reproduce a crash, a proven freed-slot write, or code execution.
+ The outstanding question is whether session reinitialization frees the 
+specific
+ allocation those pointers reference. Without that evidence, the reported heap-forging chain is not established by my results.
+That does not make the announced PHP vulnerabilities safe to ignore. Disable upload progress if you do not use it, verify the actual web-facing PHP configuration, and patch as soon as the official releases are available. I would rather have a reproducible crash trace than a very impressive “RCE achieved” label attached to a request that completed normally.
+#
+References
+PHP Security Team: Upcoming Critical PHP Security Release
+, October 20, 2026.
+PHP Manual: Session Upload Progress
+.
+PHP Manual: Session Runtime Configuration
+.
+PHP 8.4.4 source: 
+main/rfc1867.c
+.
+PHP 8.4.4 source: 
+ext/session/session.c
+.
+PHP 8.4.4 source: 
+ext/session/php_session.h
+.
+PHP-UP-2026: Public analysis and claimed exploit framework
+.
+CERT-EU: Advisory 2026-018
+.
+watchTowr: CVE-2026-109618 FAQ
+.
+PHP 8 changelog
+.
+PHP Wiki: Session Upload Progress RFC
+.
+CVE-2026-109618-php2shell-lab
+: my Docker/nginx/PHP-FPM lab and PoC script used throughout this analysis.
+Till next time,
+Ahmed
+Written by
+Ahmed Sultan (0x4148)
+CVE-2026-109618
+CVE-2026-109619
+PHP Security
+PHP2Shell
+Remote Code Execution
+Use After Free
+Vulnerability Research
+Related research
+Oct 12, 2026
+FreePBX 17: From SQL Injection to Remote Code Execution
+					advisories / static analysis				
+Oct 12, 2026
+Ten Years Later, A2Billing Still Had a Few Surprises
+					advisories / static analysis				
+Dec 5, 2016
+Elastix voip distro all versions < 3 , Remote command execution exploit
+					advisories / static analysis				
+© 2026 Ahmed Sultan (0x4148)
+Knowledge isn't an object. It's a flow.
+DeXpose
+GitHub
+X
+LinkedIn
+RSS

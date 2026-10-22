@@ -1,0 +1,72 @@
+Title: php session deserialization rce at DuckDuckGo
+
+URL Source: https://html.duckduckgo.com/html/?q=PHP+session+deserialization+RCE
+
+Markdown Content:
+[](https://html.duckduckgo.com/html/?q=PHP+session+deserialization+RCE)
+
+[](https://html.duckduckgo.com/html/ "DuckDuckGo")
+
+## [Exploiting PHP unserialization for RCE | bl4ckarch](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbl4ckarch.github.io%2Fposts%2FExploiting%2DPHP%2DDeserialization%2F&rut=bc9ec7dc86e70d14289b4b6262560390964e31c43354af1c4d1e78dc9f31969a)
+
+[![Image 1](https://external-content.duckduckgo.com/ip3/bl4ckarch.github.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbl4ckarch.github.io%2Fposts%2FExploiting%2DPHP%2DDeserialization%2F&rut=bc9ec7dc86e70d14289b4b6262560390964e31c43354af1c4d1e78dc9f31969a)[bl4ckarch.github.io/posts/Exploiting-PHP-Deserialization/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbl4ckarch.github.io%2Fposts%2FExploiting%2DPHP%2DDeserialization%2F&rut=bc9ec7dc86e70d14289b4b6262560390964e31c43354af1c4d1e78dc9f31969a)
+
+[Introduction **PHP** Object Injection vulnerabilities are frequently found in web applications. If successfully exploited they let attackers run arbitrary code and take advantage of vulnerabilities in **deserialization**. This blog post will demonstrate how to use object-oriented programming (OOP) analysis, magic methods, and payload creation to achieve arbitrary command execution due **deserialization**.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fbl4ckarch.github.io%2Fposts%2FExploiting%2DPHP%2DDeserialization%2F&rut=bc9ec7dc86e70d14289b4b6262560390964e31c43354af1c4d1e78dc9f31969a)
+
+## [PayloadsAllTheThings/Insecure Deserialization/PHP.md at master ... - GitHub](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fswisskyrepo%2FPayloadsAllTheThings%2Fblob%2Fmaster%2FInsecure%2520Deserialization%2FPHP.md&rut=7ec3b304dacabd97c6d44fa0de87680b77ef8b1f06c6aeddba8cac1d5ec79e8c)
+
+[![Image 2](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fswisskyrepo%2FPayloadsAllTheThings%2Fblob%2Fmaster%2FInsecure%2520Deserialization%2FPHP.md&rut=7ec3b304dacabd97c6d44fa0de87680b77ef8b1f06c6aeddba8cac1d5ec79e8c)[github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Insecure Deserialization/PHP.md](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fswisskyrepo%2FPayloadsAllTheThings%2Fblob%2Fmaster%2FInsecure%2520Deserialization%2FPHP.md&rut=7ec3b304dacabd97c6d44fa0de87680b77ef8b1f06c6aeddba8cac1d5ec79e8c)
+
+[**PHP****Deserialization****PHP** Object Injection is an application level vulnerability that could allow an attacker to perform different kinds of malicious attacks, such as Code Injection, SQL Injection, Path Traversal and Application Denial of Service, depending on the context.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fswisskyrepo%2FPayloadsAllTheThings%2Fblob%2Fmaster%2FInsecure%2520Deserialization%2FPHP.md&rut=7ec3b304dacabd97c6d44fa0de87680b77ef8b1f06c6aeddba8cac1d5ec79e8c)
+
+## [Exploiting PHP Deserialization - Vickie Li's Security Blog](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvickieli.dev%2Finsecure%2520deserialization%2Fexploiting%2Dphp%2Ddeserialization%2F&rut=9e399e7adad7b5d4756a2dd1a5c0c8966bb0a5c62e2c6ac11852508eec889d06)
+
+[![Image 3](https://external-content.duckduckgo.com/ip3/vickieli.dev.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvickieli.dev%2Finsecure%2520deserialization%2Fexploiting%2Dphp%2Ddeserialization%2F&rut=9e399e7adad7b5d4756a2dd1a5c0c8966bb0a5c62e2c6ac11852508eec889d06)[vickieli.dev/insecure deserialization/exploiting-php-deserialization/](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvickieli.dev%2Finsecure%2520deserialization%2Fexploiting%2Dphp%2Ddeserialization%2F&rut=9e399e7adad7b5d4756a2dd1a5c0c8966bb0a5c62e2c6ac11852508eec889d06)
+
+[You can achieve **RCE** using this **deserialization** flaw because a user-provided object is passed into unserialize. And the class Example2 has a magic function that runs eval () on user-provided input.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fvickieli.dev%2Finsecure%2520deserialization%2Fexploiting%2Dphp%2Ddeserialization%2F&rut=9e399e7adad7b5d4756a2dd1a5c0c8966bb0a5c62e2c6ac11852508eec889d06)
+
+## [PHP Serialization Vulnerabilities Explained: 2026 Security Guide](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fkhimananda.com%2Fblog%2Fphp%2Dserialization%2Dvulnerabilities%2Dexplained&rut=36d69d9b5a123b96242481e2330b661f6cdbba53f38293744bd04b8c829ac255)
+
+[![Image 4](https://external-content.duckduckgo.com/ip3/khimananda.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fkhimananda.com%2Fblog%2Fphp%2Dserialization%2Dvulnerabilities%2Dexplained&rut=36d69d9b5a123b96242481e2330b661f6cdbba53f38293744bd04b8c829ac255)[khimananda.com/blog/php-serialization-vulnerabilities-explained](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fkhimananda.com%2Fblog%2Fphp%2Dserialization%2Dvulnerabilities%2Dexplained&rut=36d69d9b5a123b96242481e2330b661f6cdbba53f38293744bd04b8c829ac255)
+
+[Learn how **PHP** serialization vulnerabilities lead to **RCE** and data leaks. Practical fixes, safe formats, and hardened unserialize() patterns for 2026.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fkhimananda.com%2Fblog%2Fphp%2Dserialization%2Dvulnerabilities%2Dexplained&rut=36d69d9b5a123b96242481e2330b661f6cdbba53f38293744bd04b8c829ac255)
+
+## [Critical PHP RCE: CVE-2026-109618 and CVE-2026-109619 | Sansec](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsansec.io%2Fresearch%2Fphp2shell&rut=b701ec480af40753434d5743710922ed2e52e98b5be7d70c1a15cc55118655e9)
+
+[![Image 5](https://external-content.duckduckgo.com/ip3/sansec.io.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsansec.io%2Fresearch%2Fphp2shell&rut=b701ec480af40753434d5743710922ed2e52e98b5be7d70c1a15cc55118655e9)[sansec.io/research/php2shell](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsansec.io%2Fresearch%2Fphp2shell&rut=b701ec480af40753434d5743710922ed2e52e98b5be7d70c1a15cc55118655e9)
+
+[**PHP** released fixes for two critical remote code execution bugs on October 21. They affect every web server running **PHP** 5.4 or later. Researchers confirmed un...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fsansec.io%2Fresearch%2Fphp2shell&rut=b701ec480af40753434d5743710922ed2e52e98b5be7d70c1a15cc55118655e9)
+
+## [GitHub - scallydima/php2shell-poc: Independent security research on the ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fscallydima%2Fphp2shell%2Dpoc&rut=d45fa239917ed2ef5dc796c582cef1a2fe9e4e6e498ec5931b757ddafc0696b9)
+
+[![Image 6](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fscallydima%2Fphp2shell%2Dpoc&rut=d45fa239917ed2ef5dc796c582cef1a2fe9e4e6e498ec5931b757ddafc0696b9)[github.com/scallydima/php2shell-poc](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fscallydima%2Fphp2shell%2Dpoc&rut=d45fa239917ed2ef5dc796c582cef1a2fe9e4e6e498ec5931b757ddafc0696b9)
+
+[Two critical pre-auth **RCE** vulnerabilities in **PHP** core's **session**.upload_progress handler, affecting **PHP** 5.4.0 through 8.5.x. This repository contains verification POCs and lab setup for authorized security testing.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fscallydima%2Fphp2shell%2Dpoc&rut=d45fa239917ed2ef5dc796c582cef1a2fe9e4e6e498ec5931b757ddafc0696b9)
+
+## [php2shell: Dissecting PHP's Critical Session Upload Progress ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)
+
+[![Image 7](https://external-content.duckduckgo.com/ip3/qideng.substack.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)[qideng.substack.com/p/php2shell-dissecting-phps-critical](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)
+
+[php2shell: Dissecting **PHP's** Critical **Session** Upload Progress Vulnerabilities CVE-2026-109618 & CVE-2026-109619 — Five independent **RCE** chains, from source audit to working exploits](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)
+
+## [Public PoC Released for Critical PHP Session Vulnerabilities Leading to RCE](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fportal.vyprsec.ai%2Fstories%2Fpublic%2Dpoc%2Dreleased%2Dfor%2Dcritical%2Dphp%2Dsession%2Dvulnerabilities%2Dleading%2Dto%2Drce&rut=af7f4a78a032c177c68d09e149f760202a7ab0a80cda9bc5a80c0ea6e3b92f43)
+
+[![Image 8](https://external-content.duckduckgo.com/ip3/portal.vyprsec.ai.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fportal.vyprsec.ai%2Fstories%2Fpublic%2Dpoc%2Dreleased%2Dfor%2Dcritical%2Dphp%2Dsession%2Dvulnerabilities%2Dleading%2Dto%2Drce&rut=af7f4a78a032c177c68d09e149f760202a7ab0a80cda9bc5a80c0ea6e3b92f43)[portal.vyprsec.ai/stories/public-poc-released-for-critical-php-session-vulnerabilities-leading-to-rce](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fportal.vyprsec.ai%2Fstories%2Fpublic%2Dpoc%2Dreleased%2Dfor%2Dcritical%2Dphp%2Dsession%2Dvulnerabilities%2Dleading%2Dto%2Drce&rut=af7f4a78a032c177c68d09e149f760202a7ab0a80cda9bc5a80c0ea6e3b92f43)
+
+[Two critical **PHP** vulnerabilities, CVE-2026-109618 and CVE-2026-109619, affecting **session**.upload_progress, have a public proof-of-concept exploit available, potentially enabling remote code execution.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fportal.vyprsec.ai%2Fstories%2Fpublic%2Dpoc%2Dreleased%2Dfor%2Dcritical%2Dphp%2Dsession%2Dvulnerabilities%2Dleading%2Dto%2Drce&rut=af7f4a78a032c177c68d09e149f760202a7ab0a80cda9bc5a80c0ea6e3b92f43)
+
+## [Deserialization - HackTricks](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fpentesting%2Dweb%2Fdeserialization%2Findex.html&rut=56903a0ff6dd0ccaab8cde2f4e034186fd45f4dc930f61ef1f1468977006fde6)
+
+[![Image 9](https://external-content.duckduckgo.com/ip3/hacktricks.wiki.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fpentesting%2Dweb%2Fdeserialization%2Findex.html&rut=56903a0ff6dd0ccaab8cde2f4e034186fd45f4dc930f61ef1f1468977006fde6)[hacktricks.wiki/en/pentesting-web/deserialization/index.html](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fpentesting%2Dweb%2Fdeserialization%2Findex.html&rut=56903a0ff6dd0ccaab8cde2f4e034186fd45f4dc930f61ef1f1468977006fde6)
+
+[The serialize-javascript package is designed exclusively for serialization purposes, lacking any built-in **deserialization** capabilities. Users are responsible for implementing their own method for **deserialization**.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fpentesting%2Dweb%2Fdeserialization%2Findex.html&rut=56903a0ff6dd0ccaab8cde2f4e034186fd45f4dc930f61ef1f1468977006fde6)
+
+## [Exploiting insecure deserialization vulnerabilities | Web Security Academy](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fportswigger.net%2Fweb%2Dsecurity%2Fdeserialization%2Fexploiting&rut=1afe69730a73ba22a22b1f2dd4e07517bb9c6b707db8a5c42557d799a03d9ee8)
+
+[![Image 10](https://external-content.duckduckgo.com/ip3/portswigger.net.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fportswigger.net%2Fweb%2Dsecurity%2Fdeserialization%2Fexploiting&rut=1afe69730a73ba22a22b1f2dd4e07517bb9c6b707db8a5c42557d799a03d9ee8)[portswigger.net/web-security/deserialization/exploiting](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fportswigger.net%2Fweb%2Dsecurity%2Fdeserialization%2Fexploiting&rut=1afe69730a73ba22a22b1f2dd4e07517bb9c6b707db8a5c42557d799a03d9ee8)
+
+[Exploiting insecure **deserialization** vulnerabilities In this section, we'll teach you how to exploit some common scenarios using examples from **PHP**, Ruby, and Java **deserialization**. We hope to demonstrate how exploiting insecure **deserialization** is actually much easier than many people believe.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fportswigger.net%2Fweb%2Dsecurity%2Fdeserialization%2Fexploiting&rut=1afe69730a73ba22a22b1f2dd4e07517bb9c6b707db8a5c42557d799a03d9ee8)
+
+[Feedback](https://duckduckgo.com/feedback.html)
+
+![Image 11](https://duckduckgo.com/t/sl_h)

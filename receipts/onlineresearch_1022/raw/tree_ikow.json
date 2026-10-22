@@ -1,0 +1,226 @@
+{
+  "sha": "4312bc78bb49c619cd76f711d3e6bf608fbeb046",
+  "url": "https://api.github.com/repos/ikow/php2shell-poc/git/trees/4312bc78bb49c619cd76f711d3e6bf608fbeb046",
+  "tree": [
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4de0e35b49ae8f734d97fa38571fbe56c543ee13",
+      "size": 9203,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/4de0e35b49ae8f734d97fa38571fbe56c543ee13"
+    },
+    {
+      "path": "detection",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "94163a3b436a05f0d9a2fbb6a40e64df4736b6a5",
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/trees/94163a3b436a05f0d9a2fbb6a40e64df4736b6a5"
+    },
+    {
+      "path": "detection/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "31a926e1ca7e92b1c63ef7a5dd87deb39a60b00e",
+      "size": 3217,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/31a926e1ca7e92b1c63ef7a5dd87deb39a60b00e"
+    },
+    {
+      "path": "detection/modsecurity.conf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1dead6ae5925948c2a4a60eb635064e281038ab1",
+      "size": 3871,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/1dead6ae5925948c2a4a60eb635064e281038ab1"
+    },
+    {
+      "path": "detection/php2shell.lua",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1a250803eb5ce459057e07b060c13092b28416b6",
+      "size": 3925,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/1a250803eb5ce459057e07b060c13092b28416b6"
+    },
+    {
+      "path": "detection/php2shell.rules",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b9f09fe2586fbfa7037d2eac3bf1f17686ce986a",
+      "size": 10526,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/b9f09fe2586fbfa7037d2eac3bf1f17686ce986a"
+    },
+    {
+      "path": "detection/php2shell.yaml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "78b2848af0d8feb7af9d3678b3d2b862579e3b1c",
+      "size": 5338,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/78b2848af0d8feb7af9d3678b3d2b862579e3b1c"
+    },
+    {
+      "path": "docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "68c73dadc79be84d649b5321e43a8954e4c792b2",
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/trees/68c73dadc79be84d649b5321e43a8954e4c792b2"
+    },
+    {
+      "path": "docs/ANALYSIS.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "71a9820680f6cb7e2e3ad330bb7a12ccfcf3de0f",
+      "size": 6978,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/71a9820680f6cb7e2e3ad330bb7a12ccfcf3de0f"
+    },
+    {
+      "path": "docs/cover.png",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e47cebe608187dafdeaeef531ed153013c1b7d13",
+      "size": 2767482,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/e47cebe608187dafdeaeef531ed153013c1b7d13"
+    },
+    {
+      "path": "docs/linkedin_comment.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f9f1d7c82dfba6bc13686c2a7d9adc6193e2b5e0",
+      "size": 763,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/f9f1d7c82dfba6bc13686c2a7d9adc6193e2b5e0"
+    },
+    {
+      "path": "docs/linkedin_post.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4cb7f2211086bcc1bd69d1a944b44204f70a3de9",
+      "size": 1384,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/4cb7f2211086bcc1bd69d1a944b44204f70a3de9"
+    },
+    {
+      "path": "docs/substack_article.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "655ecabe7cd57931aa05dcf1bee57d9bbe99fb3e",
+      "size": 13724,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/655ecabe7cd57931aa05dcf1bee57d9bbe99fb3e"
+    },
+    {
+      "path": "exploit",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "035e9956f87a9a106fa9452e615f02f5ccfc584b",
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/trees/035e9956f87a9a106fa9452e615f02f5ccfc584b"
+    },
+    {
+      "path": "exploit/chain_a_session_lfi.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3a743216d8ea15aedbb247354f1448dffeaddab5",
+      "size": 7065,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/3a743216d8ea15aedbb247354f1448dffeaddab5"
+    },
+    {
+      "path": "exploit/chain_b_uaf_rce.php",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "41a4137fab1cdc61a0484becc67ac4e16ca47cce",
+      "size": 3316,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/41a4137fab1cdc61a0484becc67ac4e16ca47cce"
+    },
+    {
+      "path": "exploit/chain_c_mismatch_rce.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1fac3769582329375ffe132c830054fc5f2e921f",
+      "size": 7217,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/1fac3769582329375ffe132c830054fc5f2e921f"
+    },
+    {
+      "path": "lab",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6819aa88ab2544ddb7740d496e92886f81cfe474",
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/trees/6819aa88ab2544ddb7740d496e92886f81cfe474"
+    },
+    {
+      "path": "lab/README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5f44e0e8541d236d71a29b2667f7329e339ed549",
+      "size": 2280,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/5f44e0e8541d236d71a29b2667f7329e339ed549"
+    },
+    {
+      "path": "lab/docker-compose.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "520ad2c2aeaef687989d2ae6ef91116374db95aa",
+      "size": 1140,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/520ad2c2aeaef687989d2ae6ef91116374db95aa"
+    },
+    {
+      "path": "lab/php-apache.ini",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "da9417c36f8a2e644736793407fb2f099c3b796d",
+      "size": 385,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/da9417c36f8a2e644736793407fb2f099c3b796d"
+    },
+    {
+      "path": "lab/setup.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "fe98b030a998d35351a79be99fc1ba21f2fe6560",
+      "size": 8548,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/fe98b030a998d35351a79be99fc1ba21f2fe6560"
+    },
+    {
+      "path": "poc",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "504eb817c1be8bc90bd5fba844b7e3bd614022cb",
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/trees/504eb817c1be8bc90bd5fba844b7e3bd614022cb"
+    },
+    {
+      "path": "poc/verify_fpm_stale_state.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "bbcc2b31f59d63c5817335604c4b6651be57bdaa",
+      "size": 4008,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/bbcc2b31f59d63c5817335604c4b6651be57bdaa"
+    },
+    {
+      "path": "poc/verify_handler_mismatch.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4e5de16845de71f080c9593646d87741c182a7e5",
+      "size": 3881,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/4e5de16845de71f080c9593646d87741c182a7e5"
+    },
+    {
+      "path": "poc/verify_oom_trigger.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "53fc82103343bf7117fb3c87be2294fd502ff799",
+      "size": 8528,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/53fc82103343bf7117fb3c87be2294fd502ff799"
+    },
+    {
+      "path": "poc/verify_session_injection.py",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7c7aaa133d74b0e991673ead3d94d480ce02eb40",
+      "size": 3552,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/7c7aaa133d74b0e991673ead3d94d480ce02eb40"
+    },
+    {
+      "path": "poc/verify_uaf_asan.php",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "80520f02a12e5874c5854d5804b608282b3a588b",
+      "size": 1856,
+      "url": "https://api.github.com/repos/ikow/php2shell-poc/git/blobs/80520f02a12e5874c5854d5804b608282b3a588b"
+    }
+  ],
+  "truncated": false
+}

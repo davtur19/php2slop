@@ -1,0 +1,72 @@
+Title: session.upload_progress RCE at DuckDuckGo
+
+URL Source: https://html.duckduckgo.com/html/?q=session.upload_progress+RCE
+
+Markdown Content:
+[](https://html.duckduckgo.com/html/?q=session.upload_progress+RCE)
+
+[](https://html.duckduckgo.com/html/ "DuckDuckGo")
+
+## [GitHub - ikow/php2shell-poc: CVE-2026-109618/109619 PHP session.upload ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fikow%2Fphp2shell%2Dpoc&rut=e8ad8bb92321835fa2d113255e9c03f7422c2653e44921b0fc0b8e58449a7fa0)
+
+[![Image 1](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fikow%2Fphp2shell%2Dpoc&rut=e8ad8bb92321835fa2d113255e9c03f7422c2653e44921b0fc0b8e58449a7fa0)[github.com/ikow/php2shell-poc](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fikow%2Fphp2shell%2Dpoc&rut=e8ad8bb92321835fa2d113255e9c03f7422c2653e44921b0fc0b8e58449a7fa0)
+
+[Five independent **RCE** chains exploiting PHP's **session.upload_progress** and the Zend engine's OOM bailout. 14 years of vulnerable code — PHP 5.4.0 (2012) through 8.5.11.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fikow%2Fphp2shell%2Dpoc&rut=e8ad8bb92321835fa2d113255e9c03f7422c2653e44921b0fc0b8e58449a7fa0)
+
+## [php2shell: Dissecting PHP's Critical Session Upload Progress ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)
+
+[![Image 2](https://external-content.duckduckgo.com/ip3/qideng.substack.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)[qideng.substack.com/p/php2shell-dissecting-phps-critical](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)
+
+[Three exploit PHP's **session.upload_progress** feature (enabled by default since PHP 5.4). The fourth — a zero-dependency pre-auth **RCE** on Apache mod_php — exploits PHP's memory allocator bailout during multipart parsing.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fqideng.substack.com%2Fp%2Fphp2shell%2Ddissecting%2Dphps%2Dcritical&rut=3154b813cd18c0738217863624f2176d306a75c73ef3d3f130d546a8fdd73d63)
+
+## [PHP2Shell: Inside PHP Upload Progress and the RCE I Couldn't Reproduce](https://duckduckgo.com/l/?uddg=https%3A%2F%2F0x4148.com%2Fposts%2Fphp2shell%2Dphp%2Dcore%2Drce%2Dcve%2D2026%2D109618%2D109619%2F&rut=706639da4937987d9c4ecda17940e654a5ce4c6ade96676b08ab7e97ba3a5ad7)
+
+[![Image 3](https://external-content.duckduckgo.com/ip3/0x4148.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2F0x4148.com%2Fposts%2Fphp2shell%2Dphp%2Dcore%2Drce%2Dcve%2D2026%2D109618%2D109619%2F&rut=706639da4937987d9c4ecda17940e654a5ce4c6ade96676b08ab7e97ba3a5ad7)[0x4148.com/posts/php2shell-php-core-rce-cve-2026-109618-109619/](https://duckduckgo.com/l/?uddg=https%3A%2F%2F0x4148.com%2Fposts%2Fphp2shell%2Dphp%2Dcore%2Drce%2Dcve%2D2026%2D109618%2D109619%2F&rut=706639da4937987d9c4ecda17940e654a5ce4c6ade96676b08ab7e97ba3a5ad7)
+
+[My PHP2Shell investigation: PHP upload-progress internals, CVE-2026-109618 and CVE-2026-109619, a PHP 8.4.4 lab, failed **RCE** reproduction, and practical mitigations.](https://duckduckgo.com/l/?uddg=https%3A%2F%2F0x4148.com%2Fposts%2Fphp2shell%2Dphp%2Dcore%2Drce%2Dcve%2D2026%2D109618%2D109619%2F&rut=706639da4937987d9c4ecda17940e654a5ce4c6ade96676b08ab7e97ba3a5ad7)
+
+## [Disabling session.upload_progress Before the php2shell Patch Lands](https://duckduckgo.com/l/?uddg=https%3A%2F%2Flilting.ch%2Fen%2Farticles%2Fphp2shell%2Dsession%2Dupload%2Dprogress%2Duaf&rut=1853ae068eece9a27713df793dfc955e1aa53894f0999a49f6bae2df77415340)
+
+[![Image 4](https://external-content.duckduckgo.com/ip3/lilting.ch.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Flilting.ch%2Fen%2Farticles%2Fphp2shell%2Dsession%2Dupload%2Dprogress%2Duaf&rut=1853ae068eece9a27713df793dfc955e1aa53894f0999a49f6bae2df77415340)[lilting.ch/en/articles/php2shell-session-upload-progress-uaf](https://duckduckgo.com/l/?uddg=https%3A%2F%2Flilting.ch%2Fen%2Farticles%2Fphp2shell%2Dsession%2Dupload%2Dprogress%2Duaf&rut=1853ae068eece9a27713df793dfc955e1aa53894f0999a49f6bae2df77415340)
+
+[Session Upload Progress writes the progress of a file upload into the session (the mechanism the server uses to remember per-user state) under $_SESSION, so a separate request can read it back and draw a progress bar. The PHP manual lists the default value of session.upload_progress.enabled as 1 (enabled).](https://duckduckgo.com/l/?uddg=https%3A%2F%2Flilting.ch%2Fen%2Farticles%2Fphp2shell%2Dsession%2Dupload%2Dprogress%2Duaf&rut=1853ae068eece9a27713df793dfc955e1aa53894f0999a49f6bae2df77415340)
+
+## [PHP2Shell: Turning a Session Upload-Progress UAF into Unauthenticated ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdev.to%2Fsyrex1013%2Fphp2shell%2Dturning%2Da%2Dsession%2Dupload%2Dprogress%2Duaf%2Dinto%2Dunauthenticated%2Drce%2Dcve%2D2026%2D109618%2D%2D30ab&rut=c8675908cfadf6edb3e45129a5005a7025f7c7a13b02b8d654b30a5827fbec0b)
+
+[![Image 5](https://external-content.duckduckgo.com/ip3/dev.to.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdev.to%2Fsyrex1013%2Fphp2shell%2Dturning%2Da%2Dsession%2Dupload%2Dprogress%2Duaf%2Dinto%2Dunauthenticated%2Drce%2Dcve%2D2026%2D109618%2D%2D30ab&rut=c8675908cfadf6edb3e45129a5005a7025f7c7a13b02b8d654b30a5827fbec0b)[dev.to/syrex1013/php2shell-turning-a-session-upload-progress-uaf-into-unauthenticated-rce-cve-2026-109618--30ab](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdev.to%2Fsyrex1013%2Fphp2shell%2Dturning%2Da%2Dsession%2Dupload%2Dprogress%2Duaf%2Dinto%2Dunauthenticated%2Drce%2Dcve%2D2026%2D109618%2D%2D30ab&rut=c8675908cfadf6edb3e45129a5005a7025f7c7a13b02b8d654b30a5827fbec0b)
+
+[Session upload progress is an easy feature to leave on and forget. These CVEs show how a stall-window UAF in that path becomes a serious **RCE** story once you combine it with common app or deployment mistakes.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fdev.to%2Fsyrex1013%2Fphp2shell%2Dturning%2Da%2Dsession%2Dupload%2Dprogress%2Duaf%2Dinto%2Dunauthenticated%2Drce%2Dcve%2D2026%2D109618%2D%2D30ab&rut=c8675908cfadf6edb3e45129a5005a7025f7c7a13b02b8d654b30a5827fbec0b)
+
+## [Stopgap for CVE-2026-109618 / CVE-2026-109619: disable session upload ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgist.github.com%2Fleevigraham%2F2137f5f4cee6da10c1284824d2f48b36&rut=61c8dbeeaba5a127afb94f94e3539ecc4f1ec81ac5d8a8484228a5569a9d174c)
+
+[![Image 6](https://external-content.duckduckgo.com/ip3/gist.github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgist.github.com%2Fleevigraham%2F2137f5f4cee6da10c1284824d2f48b36&rut=61c8dbeeaba5a127afb94f94e3539ecc4f1ec81ac5d8a8484228a5569a9d174c)[gist.github.com/leevigraham/2137f5f4cee6da10c1284824d2f48b36](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgist.github.com%2Fleevigraham%2F2137f5f4cee6da10c1284824d2f48b36&rut=61c8dbeeaba5a127afb94f94e3539ecc4f1ec81ac5d8a8484228a5569a9d174c)
+
+[Stopgap for CVE-2026-109618 / CVE-2026-109619: disable session upload progress in every PHP-FPM version. - gist:2137f5f4cee6da10c1284824d2f48b36](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgist.github.com%2Fleevigraham%2F2137f5f4cee6da10c1284824d2f48b36&rut=61c8dbeeaba5a127afb94f94e3539ecc4f1ec81ac5d8a8484228a5569a9d174c)
+
+## [GitHub - junaire/CVE-2026-109618-exploit](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fjunaire%2FCVE%2D2026%2D109618%2Dexploit&rut=68e6f87eb5c68ef48d278724be119fbcebc854f520bc4aa4389748ace00216f9)
+
+[![Image 7](https://external-content.duckduckgo.com/ip3/github.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fjunaire%2FCVE%2D2026%2D109618%2Dexploit&rut=68e6f87eb5c68ef48d278724be119fbcebc854f520bc4aa4389748ace00216f9)[github.com/junaire/CVE-2026-109618-exploit](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fjunaire%2FCVE%2D2026%2D109618%2Dexploit&rut=68e6f87eb5c68ef48d278724be119fbcebc854f520bc4aa4389748ace00216f9)
+
+[Unauthenticated **RCE** in PHP core's **session.upload_progress** handling (CVSS v4.0 9.2, both CVEs). Fixes shipped 2026-10-21 (8.2.35 / 8.3.36 / 8.4.27 / 8.5.12); every earlier PHP with **session.upload_progress** — 5.4.0 through 8.5.11 — is affected. Mitigation: session.upload_progress.enabled = Off. This project contains a working exploit (exploit.py) and a Docker target environment that ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fgithub.com%2Fjunaire%2FCVE%2D2026%2D109618%2Dexploit&rut=68e6f87eb5c68ef48d278724be119fbcebc854f520bc4aa4389748ace00216f9)
+
+## [PHP2Shell: What Actually Protects You Before the 14:00 UTC PHP RCE ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthehackernews.com%2F2026%2F10%2Fphp2shell%2Dwhat%2Dactually%2Dprotects%2Dyou.html&rut=264eb2bec82fff429dbad03bc694321a7e21879162ec4960bf146f4a2ce8bf36)
+
+[![Image 8](https://external-content.duckduckgo.com/ip3/thehackernews.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthehackernews.com%2F2026%2F10%2Fphp2shell%2Dwhat%2Dactually%2Dprotects%2Dyou.html&rut=264eb2bec82fff429dbad03bc694321a7e21879162ec4960bf146f4a2ce8bf36)[thehackernews.com/2026/10/php2shell-what-actually-protects-you.html](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthehackernews.com%2F2026%2F10%2Fphp2shell%2Dwhat%2Dactually%2Dprotects%2Dyou.html&rut=264eb2bec82fff429dbad03bc694321a7e21879162ec4960bf146f4a2ce8bf36)
+
+[Disabling PHP Session Upload Progress does not fully mitigate PHP2Shell; fixes for two critical flaws are scheduled for October 21.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fthehackernews.com%2F2026%2F10%2Fphp2shell%2Dwhat%2Dactually%2Dprotects%2Dyou.html&rut=264eb2bec82fff429dbad03bc694321a7e21879162ec4960bf146f4a2ce8bf36)
+
+## [php2shell (CVE-2026-109618, CVE-2026-109619): Critical PHP RCE FAQ ...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.tenable.com%2Fblog%2Fphp2shell%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619%2Dfrequently%2Dasked%2Dquestions%2Dabout%2Dcritical%2Dphp%2Dremote&rut=31dc494fc08747fc159bc083fb5638950c0f6f20b8c158d5088150651e401a9a)
+
+[![Image 9](https://external-content.duckduckgo.com/ip3/www.tenable.com.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.tenable.com%2Fblog%2Fphp2shell%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619%2Dfrequently%2Dasked%2Dquestions%2Dabout%2Dcritical%2Dphp%2Dremote&rut=31dc494fc08747fc159bc083fb5638950c0f6f20b8c158d5088150651e401a9a)[www.tenable.com/blog/php2shell-cve-2026-109618-cve-2026-109619-frequently-asked-questions-about-critical-php-remote](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.tenable.com%2Fblog%2Fphp2shell%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619%2Dfrequently%2Dasked%2Dquestions%2Dabout%2Dcritical%2Dphp%2Dremote&rut=31dc494fc08747fc159bc083fb5638950c0f6f20b8c158d5088150651e401a9a)
+
+[For CVE-2026-109619, it lists setting session.upload_progress.enabled=0 and, on PHP 8.5, fatal_error_backtraces=0. PHP says to restart every PHP worker after these changes. PHP also suggests a container or cgroup memory limit as an availability boundary, though it says this is not a complete mitigation either.](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fwww.tenable.com%2Fblog%2Fphp2shell%2Dcve%2D2026%2D109618%2Dcve%2D2026%2D109619%2Dfrequently%2Dasked%2Dquestions%2Dabout%2Dcritical%2Dphp%2Dremote&rut=31dc494fc08747fc159bc083fb5638950c0f6f20b8c158d5088150651e401a9a)
+
+## [LFI2RCE via PHP_SESSION_UPLOAD_PROGRESS - HackTricks](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fpentesting%2Dweb%2Ffile%2Dinclusion%2Fvia%2Dphp_session_upload_progress.html&rut=b32231b18f14a28e7220c9053cc02e822c4b69153e17b82fc7aaeeb594ada8c4)
+
+[![Image 10](https://external-content.duckduckgo.com/ip3/hacktricks.wiki.ico)](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fpentesting%2Dweb%2Ffile%2Dinclusion%2Fvia%2Dphp_session_upload_progress.html&rut=b32231b18f14a28e7220c9053cc02e822c4b69153e17b82fc7aaeeb594ada8c4)[hacktricks.wiki/en/pentesting-web/file-inclusion/via-php_session_upload_progress.html](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fpentesting%2Dweb%2Ffile%2Dinclusion%2Fvia%2Dphp_session_upload_progress.html&rut=b32231b18f14a28e7220c9053cc02e822c4b69153e17b82fc7aaeeb594ada8c4)
+
+[With an LFI, PHP's upload-progress feature can create a session file even when the application did not otherwise start a session and session.auto_start=Off...](https://duckduckgo.com/l/?uddg=https%3A%2F%2Fhacktricks.wiki%2Fen%2Fpentesting%2Dweb%2Ffile%2Dinclusion%2Fvia%2Dphp_session_upload_progress.html&rut=b32231b18f14a28e7220c9053cc02e822c4b69153e17b82fc7aaeeb594ada8c4)
+
+[Feedback](https://duckduckgo.com/feedback.html)
+
+![Image 11](https://duckduckgo.com/t/sl_h)

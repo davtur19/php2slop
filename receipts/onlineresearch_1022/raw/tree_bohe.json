@@ -1,0 +1,233 @@
+{
+  "sha": "0438273aa2fbd4dcee61cd445ad7381658afe552",
+  "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/trees/0438273aa2fbd4dcee61cd445ad7381658afe552",
+  "tree": [
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b1417e3281e33f8183cc3193a3f9e63c91261a5f",
+      "size": 216,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/b1417e3281e33f8183cc3193a3f9e63c91261a5f"
+    },
+    {
+      "path": "LICENSE",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b10b605e97ad6c357e9a76517ee119d176696612",
+      "size": 1083,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/b10b605e97ad6c357e9a76517ee119d176696612"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d19ca087c5d7e48b9ce40ef7653b4f2fd380e49b",
+      "size": 8364,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/d19ca087c5d7e48b9ce40ef7653b4f2fd380e49b"
+    },
+    {
+      "path": "docs",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5d8585eca1e14e4e395fe42287f3f667e087eed9",
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/trees/5d8585eca1e14e4e395fe42287f3f667e087eed9"
+    },
+    {
+      "path": "docs/DERIVATION.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d9e38106263595e50a3ad50986fb740bed34cd0",
+      "size": 6676,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/2d9e38106263595e50a3ad50986fb740bed34cd0"
+    },
+    {
+      "path": "docs/RESULTS.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1f21ed163bf83742faabe4cf79676250bada4398",
+      "size": 5159,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/1f21ed163bf83742faabe4cf79676250bada4398"
+    },
+    {
+      "path": "exp",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "886674b2c584a9c76923a4bd7f714116ad91621a",
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/trees/886674b2c584a9c76923a4bd7f714116ad91621a"
+    },
+    {
+      "path": "exp/exp_rce.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "1993fcfe5f79003ba6a54308c8605c8e9d5ab61f",
+      "size": 2603,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/1993fcfe5f79003ba6a54308c8605c8e9d5ab61f"
+    },
+    {
+      "path": "exp/lib2shell.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "598bb342be611ca8335b3aae5442cfde707d85ab",
+      "size": 4888,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/598bb342be611ca8335b3aae5442cfde707d85ab"
+    },
+    {
+      "path": "exp/poc_oom.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "5600ac133c69a10f5a85ad61ee0c4e8960eaa130",
+      "size": 2116,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/5600ac133c69a10f5a85ad61ee0c4e8960eaa130"
+    },
+    {
+      "path": "exp/poc_pre_rinit.py",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "fc4193d856d779e59889c698a2917af7b5ee4598",
+      "size": 2144,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/fc4193d856d779e59889c698a2917af7b5ee4598"
+    },
+    {
+      "path": "lab",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c43dca2edd28397d9e1f9fee30938e556f2d4e89",
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/trees/c43dca2edd28397d9e1f9fee30938e556f2d4e89"
+    },
+    {
+      "path": "lab/docker-compose.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5cb360392807178ba92e1dd621455e777cd57572",
+      "size": 1001,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/5cb360392807178ba92e1dd621455e777cd57572"
+    },
+    {
+      "path": "lab/nginx.patched.conf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "85b25b869b743f0cbdd3a5ca39e114d8e5c21019",
+      "size": 459,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/85b25b869b743f0cbdd3a5ca39e114d8e5c21019"
+    },
+    {
+      "path": "lab/nginx.vuln.conf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ba9e1ff44d59034b800199ac4df2a203fafa54c8",
+      "size": 456,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/ba9e1ff44d59034b800199ac4df2a203fafa54c8"
+    },
+    {
+      "path": "lab/php.ini",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "73f0cc2473214f85138420d3917748a8de901c6a",
+      "size": 750,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/73f0cc2473214f85138420d3917748a8de901c6a"
+    },
+    {
+      "path": "lab/webroot",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e6cf847e1b096fcfc1c10e236eca12811cc74548",
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/trees/e6cf847e1b096fcfc1c10e236eca12811cc74548"
+    },
+    {
+      "path": "lab/webroot/api",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e4567645c92842f7e6e0af9e2e9e705c728594c1",
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/trees/e4567645c92842f7e6e0af9e2e9e705c728594c1"
+    },
+    {
+      "path": "lab/webroot/api/.user.ini",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "67a04c546cbc16887788510638e1a72b81989fe8",
+      "size": 32,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/67a04c546cbc16887788510638e1a72b81989fe8"
+    },
+    {
+      "path": "lab/webroot/api/admin.php",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "7aa39f40731688e0ed66b9c0a8ea348f65678695",
+      "size": 77,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/7aa39f40731688e0ed66b9c0a8ea348f65678695"
+    },
+    {
+      "path": "lab/webroot/api/pre.php",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "e01924ebea07194e172eb73933db90e729ff8e50",
+      "size": 174,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/e01924ebea07194e172eb73933db90e729ff8e50"
+    },
+    {
+      "path": "lab/webroot/api/start.php",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "08e52851ff009bf958cb96e9630e1e2e8e3919fb",
+      "size": 116,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/08e52851ff009bf958cb96e9630e1e2e8e3919fb"
+    },
+    {
+      "path": "lab/webroot/app",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "65a1b8e565caa23f0ea632891d0f006f2e860463",
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/trees/65a1b8e565caa23f0ea632891d0f006f2e860463"
+    },
+    {
+      "path": "lab/webroot/app/.user.ini",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "17f4b729a5f4b6ba4f39a38c43da11b6ab65eb23",
+      "size": 42,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/17f4b729a5f4b6ba4f39a38c43da11b6ab65eb23"
+    },
+    {
+      "path": "lab/webroot/app/upload.php",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5ce547ddade5a42d6f26da69490bac29a3e9f8a2",
+      "size": 118,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/5ce547ddade5a42d6f26da69490bac29a3e9f8a2"
+    },
+    {
+      "path": "lab/webroot/index.php",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "79bd570fdd23192d969f214fe2cccc81b57f6223",
+      "size": 255,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/79bd570fdd23192d969f214fe2cccc81b57f6223"
+    },
+    {
+      "path": "lab/webroot/preload.php",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "648609f6cec0ef4360f7a9dc0ecdccdc86ed9c4a",
+      "size": 2136,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/648609f6cec0ef4360f7a9dc0ecdccdc86ed9c4a"
+    },
+    {
+      "path": "lab/www.conf",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c1ad88040fd2450ba04557dd8e274944c1a581a8",
+      "size": 85,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/c1ad88040fd2450ba04557dd8e274944c1a581a8"
+    },
+    {
+      "path": "verify.sh",
+      "mode": "100755",
+      "type": "blob",
+      "sha": "54ce9c7884c294070dec265c435557e3a6ea534f",
+      "size": 1964,
+      "url": "https://api.github.com/repos/BoheSama1999/php2shell-exp/git/blobs/54ce9c7884c294070dec265c435557e3a6ea534f"
+    }
+  ],
+  "truncated": false
+}
