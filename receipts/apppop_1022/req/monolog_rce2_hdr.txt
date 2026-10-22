@@ -1,0 +1,12 @@
+HTTP/1.1 500 Internal Server Error
+Server: nginx/1.30.1
+Date: Thu, 22 Oct 2026 02:04:17 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 1090
+Connection: keep-alive
+X-Powered-By: PHP/8.5.10
+X-Content-Type-Options: nosniff
+Content-Security-Policy: default-src 'self'; script-src 'none'; object-src 'none'
+Vary: Accept-Encoding
+X-Request-Id: 3a16a261a6999dc33a23c99c
+

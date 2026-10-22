@@ -1,0 +1,9 @@
+[t=0.30] sent=131072 file_size=0
+  file[:400]=b''
+[t=0.60] sent=262144 file_size=0
+  file[:400]=b''
+[t=0.90] sent=393216 file_size=0
+  file[:400]=b''
+[t=1.20] sent=524288 file_size=0
+  file[:400]=b''
+[abort] sent=524288/524288; closing socket abruptly

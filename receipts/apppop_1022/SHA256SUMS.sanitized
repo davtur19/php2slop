@@ -1,0 +1,6 @@
+# Original hashes of the two pre-sanitization files in the local archive
+# (/tmp/opencode/research/apppop_20261022T015427Z/).
+# The in-repo copies have $wgDBpassword, $wgSecretKey and $wgUpgradeKey replaced
+# with REDACTED, so they intentionally do not match these hashes.
+e259daccba568167efd9fae2dc529aac9c89faf1c6d15c50fff7965399f344e4  phase/LocalSettings.php.before
+3189d2a44cb2cf6d92abe12a4256c7e70b6277a040e9686b3b48ce2e58304792  phase/LocalSettings.php.after

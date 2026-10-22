@@ -1,0 +1,3 @@
+response_status: HTTP/1.1 200 OK
+response_bytes: 3046
+body[:300]=b'b1b\r\n<br />\n<b>Warning</b>:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_x|O:9:&quot;TestClass&quot;:0:{}&quot; in <b>Unknown</b> on line <b>0</b><br />\n<br />\n<b>Warning</b>:  PHP Request Startup: Failed to write session data. Data contains inv'

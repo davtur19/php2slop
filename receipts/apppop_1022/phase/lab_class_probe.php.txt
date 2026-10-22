@@ -1,0 +1,35 @@
+<?php
+// lab-only: report class resolution + autoloader order after MediaWiki setup
+// (this includes WebStart.php -> Setup.php, hence the same autoloader state as
+// index.php at the point where session_start() has already run).
+define( 'MW_ENTRY_POINT', 'index' );
+require __DIR__ . '/includes/WebStart.php';
+
+header( 'Content-Type: text/plain' );
+$out = [];
+foreach ( [
+	'GuzzleHttp\\Cookie\\FileCookieJar',
+	'GuzzleHttp\\Cookie\\SetCookie',
+	'Monolog\\Handler\\GroupHandler',
+	'Monolog\\Level',
+	'Monolog\\LogRecord',
+	'Wikimedia\\FileBackend\\FSFile\\TempFSFile',
+	'JakubOnderka\\PhpParallelLint\\FileWriter',
+	'TestClass',
+] as $c ) {
+	try {
+		$r = new ReflectionClass( $c );
+		$out[] = "$c => " . $r->getFileName();
+	} catch ( Throwable $e ) {
+		$out[] = "$c => NOT LOADABLE (" . get_class( $e ) . ')';
+	}
+}
+$out[] = '--- autoloaders:';
+foreach ( spl_autoload_functions() as $i => $f ) {
+	if ( is_array( $f ) ) {
+		$out[] = $i . ': ' . ( is_object( $f[0] ) ? get_class( $f[0] ) : (string)$f[0] ) . '::' . $f[1];
+	} else {
+		$out[] = $i . ': ' . ( is_string( $f ) ? $f : get_debug_type( $f ) );
+	}
+}
+echo implode( "\n", $out ) . "\n";

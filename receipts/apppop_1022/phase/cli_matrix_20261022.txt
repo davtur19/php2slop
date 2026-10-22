@@ -1,0 +1,56 @@
+CLI encoder matrix (UTC 2026-10-22T02:20:00Z)
+Purpose: show the php-serializer guard is not HTTP-specific and produces a 0-byte session file.
+
+== PHP 5.6.40 ==
+-- inject --
+stdout/stderr:
+  NULL
+file: sess_cli5601 size=0 bytes
+hex: 
+-- control --
+stdout/stderr:
+  NULL
+file: sess_cli5602 size=22 bytes
+hex: 75706c6f61645f70726f67726573735f787c693a313b
+
+== PHP 7.0.33 ==
+-- inject --
+stdout/stderr:
+  NULL
+file: sess_cli7001 size=0 bytes
+hex: 
+-- control --
+stdout/stderr:
+  NULL
+file: sess_cli7002 size=22 bytes
+hex: 75706c6f61645f70726f67726573735f787c693a313b
+
+== PHP 7.4.33 ==
+-- inject --
+stdout/stderr:
+  bool(true)
+file: sess_cli7401 size=0 bytes
+hex: 
+-- control --
+stdout/stderr:
+  bool(true)
+file: sess_cli7402 size=22 bytes
+hex: 75706c6f61645f70726f67726573735f787c693a313b
+
+== PHP 8.5.10 ==
+-- inject --
+stdout/stderr:
+  
+  Warning: session_write_close(): Failed to write session data. Data contains invalid key "x|O:9:"TestClass":0:{}" in Command line code on line 1
+  bool(true)
+file: sess_cli8501 size=0 bytes
+hex: 
+-- control --
+stdout/stderr:
+  bool(true)
+file: sess_cli8502 size=22 bytes
+hex: 75706c6f61645f70726f67726573735f787c693a313b
+
+Note: control key is upload_progress_x (no pipe) and serializes normally.
+The inject key x|O:9:"TestClass":0:{} is the exact upload-progress value form;
+the progress code prefixes it with session.upload_progress.prefix (empty in this lab).

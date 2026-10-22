@@ -1,0 +1,16 @@
+== guzzle 2026-10-22T02:18:28Z
+seed_sid=t414qrne6448duqsv2qf0ag2ua0qn5m9 len=32
+payload=/tmp/opencode/research/apppop_20261022T015427Z/phase/sess_guzzle_fw1_injected_valid.bin sha256=206720b939233864878160e9a5bd70e200058a9af519e4da5c3ae5315f706873
+http=HTTP/1.1 200 OK
+marker=/tmp/opencode/research/apppop_20261022T015427Z/phase/markers/pop_guzzle_written.txt exists=yes size=94 sha256=1834ba461d356c99e61ca627e9b9c4433c034b0a30d761955204854f7424fcbc
+marker_content=[{"Expires":1,"Discard":false,"Value":"POPPWNED-apppop guzzle file write\n","HostOnly":false}]
+session_bytes=842
+
+== monolog9 2026-10-22T02:18:30Z
+seed_sid=n4amrvbfctdr66vqbeacvb2a4heeq1rm len=32
+payload=/tmp/opencode/research/apppop_20261022T015427Z/phase/sess_Monolog_RCE9_injected.bin sha256=f51f288cce01c188f4781890bc726fe42b15157ba09caf3833cc86f6ac2a3f26
+http=HTTP/1.1 200 OK
+marker=/tmp/opencode/research/apppop_20261022T015427Z/phase/markers/pop_Monolog_RCE9.txt exists=yes size=0 sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+marker_content=
+session_bytes=12
+

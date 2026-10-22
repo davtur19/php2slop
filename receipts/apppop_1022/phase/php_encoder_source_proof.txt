@@ -1,0 +1,86 @@
+PHP session `php` serializer: `|` key guard and failure-to-empty-write
+=====================================================================
+Claim: when session.serialize_handler=php, php_session_encode() rejects any
+session key containing PS_DELIMITER ('|') (and, in most versions, the undef
+marker '!'), and php_session_save_current_state() then writes a zero-length
+string to the session store.  The upload-progress key is prefix+value, so any
+value that starts a serialized object (x|O:...) makes the key contain '|' and
+triggers this path.  No crafted object reaches the file.
+
+Verified line numbers (source trees available on the host; not modified):
+
+Version  Guard (memchr on key)                         Failure path writes "" / empty
+-------  --------------------------------------------  ---------------------------
+5.0.5    ext/session/session.c:470                     ext/session/session.c:839
+5.1.6    ext/session/session.c:471                     ext/session/session.c:845
+5.2.17   ext/session/session.c:816 (also '!')          ext/session/session.c:553
+5.3.29   ext/session/session.c:922 (also '!')          ext/session/session.c:611
+5.4.45   ext/session/session.c:889 (also '!')          ext/session/session.c:495
+5.6.40   ext/session/session.c:990 (also '!')          ext/session/session.c:547
+7.0.33   ext/session/session.c:1041 (also '!')         ext/session/session.c:596
+7.4.33   ext/session/session.c:964                    ext/session/session.c:487
+8.4.26   ext/session/session.c:1086                   ext/session/session.c:543
+8.4.27   ext/session/session.c:1112                   ext/session/session.c:547
+8.5.10   ext/session/session.c:1075 (warning at 1079)  ext/session/session.c:553
+8.5.11   ext/session/session.c:1075 (warning at 1079)  ext/session/session.c:553
+8.5.12   ext/session/session.c:1101 (warning at 1105)  ext/session/session.c:557
+
+Source roots used:
+  5.0.5/5.1.6/5.2.17  /tmp/opencode/php5matrix_work/src/php-<v>.tar.gz
+  5.3.29              /tmp/opencode/php5matrix_work/src/php-5.3.29.tar.gz
+  5.4.45              /tmp/opencode/php5modphp_build/src/php-5.4.45
+  5.6.40              /tmp/opencode/php5lab/php-5.6.40
+  7.0.33              /tmp/opencode/research/verext_20261022T002332Z/build/php-7.0.33
+  7.4.33              /tmp/opencode/php7lab/php-7.4.33
+  8.4.26/8.4.27       /tmp/opencode/cvefetch/php-8.4.26, php-8.4.27
+  8.5.10              /home/davide/ailocal/php/zerodays_1020/build_plain (deployed)
+  8.5.11              /tmp/opencode/research/fixdiff_20261021T192645Z/php-8.5.11
+  8.5.12              /tmp/opencode/phpbuild_docker_20261022T013110Z/srcbuild/php-8.5.12
+
+Exact deployed-8.5.10 snippet (lines 1070-1088):
+--------------------------------------------------------------------------
+	PS_ENCODE_LOOP(
+		smart_str_append(&buf, key);
+		if (memchr(ZSTR_VAL(key), PS_DELIMITER, ZSTR_LEN(key))) {
+			PHP_VAR_SERIALIZE_DESTROY(var_hash);
+			smart_str_free(&buf);
+			fail = true;
+			php_error_docref(NULL, E_WARNING, "Failed to write session data. Data contains invalid key \"%s\"", ZSTR_VAL(key));
+			break;
+		}
+		smart_str_appendc(&buf, PS_DELIMITER);
+		php_var_serialize(&buf, struc, &var_hash);
+	);
+
+	if (fail) {
+		return NULL;
+	}
+--------------------------------------------------------------------------
+and the caller (php_session_save_current_state, lines 549-555):
+--------------------------------------------------------------------------
+				val = php_session_encode();
+				if (val) {
+					...
+					ret = PS(mod)->s_write(&PS(mod_data), PS(id), val, PS(gc_maxlifetime));
+					...
+				} else {
+					ret = PS(mod)->s_write(&PS(mod_data), PS(id), ZSTR_EMPTY_ALLOC(), PS(gc_maxlifetime));
+				}
+--------------------------------------------------------------------------
+The same else-branch write exists in 7.0/7.4/8.4 (empty zend_string) and as
+s_write(..., "", 0) in 5.x.  PHP 8.5 adds the explicit warning string;
+older versions fail silently from the caller's perspective, but the 0-byte result is
+identical (measured below).
+
+Measured CLI matrix (phase/ver_cli_20261022, run 2026-10-22T02:10Z):
+  command shape:
+    php -d session.save_path=<dir> -d session.serialize_handler=php \
+        -d session.use_cookies=0 -r 'session_id("cliNNNN");
+        session_start(); $_SESSION["<key>"]=1; var_dump(session_write_close());'
+  key for inject: x|O:9:"TestClass":0:{}
+  key for control: upload_progress_x
+  Result: inject -> sess file 0 bytes in 5.6.40, 7.0.33, 7.4.33, 8.5.10;
+          control -> 22 bytes "upload_progress_x|i:1;" in all four.
+  PHP 8.5.10 additionally printed:
+    Warning: session_write_close(): Failed to write session data.
+    Data contains invalid key "x|O:9:\"TestClass\":0:{}"

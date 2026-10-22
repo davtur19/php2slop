@@ -1,0 +1,33 @@
+php-error.log excerpts (lab log: /tmp/opencode/research/wikitype_20261021T212610Z/log/php-error.log)
+UTC timestamps; lab local time is UTC+2.
+
+== invalid-key warning counts by key ==
+    104 Data contains invalid key "k|O:9:"TestClass":0:{}" in Unknown on line 0
+    103 Data contains invalid key "q|O:9:"TestClass":0:{}" in Unknown on line 0
+     26 Data contains invalid key "x|O:9:"TestClass":0:{}" in Unknown on line 0
+     25 Data contains invalid key "y|O:9:"TestClass":0:{}" in Unknown on line 0
+     13 Data contains invalid key "upload_progress_x|O:9:"TestClass":0:{}" in Unknown on line 0
+
+== invalid-key warning counts by minute ==
+     26 22-Oct-2026 01:5
+    245 22-Oct-2026 02:0
+
+== representative lines ==
+-- exact payload x|O (local 03:59 = UTC 01:59) --
+[22-Oct-2026 01:59:15 UTC] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;x|O:9:&quot;TestClass&quot;:0:{}&quot; in Unknown on line 0
+[22-Oct-2026 01:59:15 UTC] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;x|O:9:&quot;TestClass&quot;:0:{}&quot; in Unknown on line 0
+-- default prefix upload_progress_x|O (local 04:06 = UTC 02:06) --
+[22-Oct-2026 02:06:20 UTC] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_x|O:9:&quot;TestClass&quot;:0:{}&quot; in Unknown on line 0
+[22-Oct-2026 02:06:20 UTC] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;upload_progress_x|O:9:&quot;TestClass&quot;:0:{}&quot; in Unknown on line 0
+
+== non-warning session lines around the decode tests ==
+[22-Oct-2026 01:29:33 UTC] PHP Warning:  session_start(): Session cannot be started after headers have already been sent (sent from /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/mw_handler_probe.php on line 27) in /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/mw_handler_probe.php on line 32
+[22-Oct-2026 02:03:24 UTC] PHP Warning:  session_start(): Unexpected end of serialized data in /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/includes/Setup.php on line 536
+[22-Oct-2026 02:03:24 UTC] PHP Warning:  session_start(): Failed to decode session object. Session has been destroyed in /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/includes/Setup.php on line 536
+[22-Oct-2026 02:04:40 UTC] PHP Deprecated:  Creation of dynamic property Monolog\LogRecord::$mixed is deprecated in /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/includes/Setup.php on line 536
+[22-Oct-2026 02:04:40 UTC] PHP Deprecated:  Creation of dynamic property Monolog\LogRecord::$mixed is deprecated in /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/includes/Setup.php on line 536
+[22-Oct-2026 02:18:29 UTC] PHP Deprecated:  Creation of dynamic property Monolog\LogRecord::$mixed is deprecated in /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/includes/Setup.php on line 536
+
+== first/last warning timestamps ==
+[22-Oct-2026 01:59:15 UTC] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;x|O:9:&quot;TestClass&quot;:0:{}&quot; in Unknown on line 0
+[22-Oct-2026 02:06:55 UTC] PHP Warning:  PHP Request Startup: Failed to write session data. Data contains invalid key &quot;k|O:9:&quot;TestClass&quot;:0:{}&quot; in Unknown on line 0

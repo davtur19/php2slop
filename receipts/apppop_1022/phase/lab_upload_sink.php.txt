@@ -1,0 +1,5 @@
+<?php
+// lab-only upload sink: no session calls, so the session file state after the
+// request is exactly what PHP's upload-progress handler wrote.
+header( 'Content-Type: text/plain' );
+echo "sink-ok\n";

@@ -1,0 +1,3 @@
+
+Warning: session_write_close(): Failed to write session data. Data contains invalid key "x|O:9:"TestClass":0:{}" in Command line code on line 1
+bool(true)

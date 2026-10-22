@@ -1,0 +1,16 @@
+Lab session snapshots copied into phase/ at 2026-10-22T02:25:18Z
+
+original                                             copy                                          bytes sha256
+sess_084u62mcp07jaupife3u5hpo0ctmmb8f                sess_guzzle_after_trigger.bin                   819 04897c803a8d3fe4d56e5390e39a78360e20ab73f19b1fc0ad9ced1eaa0f509f
+sess_5ptn63o90qiotptjfn5834ihfcub31r6                sess_cleanup_on_after.bin                       223 3e842caef906134159a11032522f164e2c444534d6660487730e1037447c8a66
+sess_a71495drv0ltsq817f2evkj9b1010ij5                sess_monolog_after_trigger_12b.bin               12 9fbd2cd796dd2060d98d37fee0a971a859f9e6f1c66688ca6c5ded6a5a4ad5d7
+sess_bgal0l5ubji923v03lcge3f0bpilrva9                sess_testclass_after_decode.bin                 371 24fa733205b1a643f8968f18d340176703c513f2b0a8f5867c6d56522c4d77bf
+sess_ccuefig2qqoap1d1139ev9rtv9dn3dtf                sess_cleanup_off_abort.bin                      560 cbf46576fccd61cd5a1510eda33a5b23ea8225ff8d8546c30b56c3b9e43cb325
+sess_l8cr3r5jivdtedai9bcet34gbakikdt1                sess_inject_cleanup_off_0b.bin                    0 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+sess_mfcebe1nuhai4sg15djjfm1ebjdjgb4a                sess_fd1_after_trigger.bin                      441 3b4e5e02591b923f76bca3a9195365817b0723ce5a1c19e2c021d01be88b739f
+sess_nbu62url5m85gacfs6sugo8msjj33ujl                sess_phpsessid_only_untouched.bin               557 fb01b86e11893bb497cd1018e0755168b52e468871bbb7179b5db4dc57a88aea
+sess_rat7i25edel2t4nkba18ue6dmbvhbk2f                sess_testclass_negative_control.bin             259 41e1d986d0bcca212ec114e98e96f0098dd64444b2628836032dceade0f8537d
+sess_sra6fh0gpcbfjls9utlclc56e7p1n38p                sess_inject_default_prefix_0b.bin                 0 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+sess_test123                                         sess_cleanup_off_complete.bin                   332 410c92ed9456ee2d757b5ba352c01236f7ddfd7726bd74e632be20fefe7a9316
+sess_vd1u8qqjfuiqm0tp9bfppiaqqs1rst49                sess_inject_cleanup_on_0b.bin                     0 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+sess_vuvqvarhj9h4appraf2dlit3gh24inrb                sess_inject_slowabort_cleanup_on_0b.bin           0 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855

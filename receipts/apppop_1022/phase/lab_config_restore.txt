@@ -1,0 +1,61 @@
+Lab configuration / residual state at 2026-10-22T02:20:16Z
+
+MediaWiki 1.46.2 at /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki
+HTTP: http://127.0.0.1:28866/index.php?title=Main_Page -> 200
+PHP: 8.5.10 (X-Powered-By from live requests)
+FPM master: 1696968 (restarted during the run; current)
+1718621
+1718623 (restarted during run; current)
+
+Config hashes:
+065dbfde76073d5a4a1498656639f6048330df42819a36383ea147852192d99d  /tmp/opencode/research/wikitype_20261021T212610Z/conf/nginx.conf
+201e55f99cff03e7d3e92487e3e56d701b0457ec31a05c6ffd71dff790814536  /tmp/opencode/research/wikitype_20261021T212610Z/conf/fpm.conf
+e259daccba568167efd9fae2dc529aac9c89faf1c6d15c50fff7965399f344e4  /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/LocalSettings.php
+
+Baseline hashes recorded in the wikitype receipt manifest:
+  fpm.conf             201e55f99cff03e7d3e92487e3e56d701b0457ec31a05c6ffd71dff790814536
+  nginx.conf           065dbfde76073d5a4a1498656639f6048330df42819a36383ea147852192d99d
+  LocalSettings.php    e259daccba568167efd9fae2dc529aac9c89faf1c6d15c50fff7965399f344e4
+
+Current session settings (php_admin_value):
+32:php_admin_value[session.save_handler] = files
+33:php_admin_value[session.save_path] = /tmp/opencode/research/wikitype_20261021T212610Z/sessions
+34:php_admin_value[session.serialize_handler] = php
+37:php_admin_value[session.upload_progress.enabled] = 1
+38:php_admin_value[session.upload_progress.cleanup] = 0
+39:php_admin_value[session.upload_progress.prefix] = ""
+40:php_admin_value[session.upload_progress.name] = PHP_SESSION_UPLOAD_PROGRESS
+41:php_admin_value[session.upload_progress.freq] = 1
+42:php_admin_value[session.upload_progress.min_freq] = 0
+
+TestClass registration:
+  grep -c TestClass LocalSettings.php = 0
+  labclasses dir absent
+  lab_upload_sink.php absent
+  lab_class_probe.php absent
+
+LocalSettings.php is byte-identical to phase/LocalSettings.php.before:
+  IDENTICAL
+
+Session directory still contains the run's original snapshots (03:58-04:07 local):
+total 64
+drwxr-xr-x  2 davide davide 4096 Oct 22 04:18 .
+drwxr-xr-x 13 davide davide 4096 Oct 22 04:07 ..
+-rw-------  1 davide davide  819 Oct 22 04:04 sess_084u62mcp07jaupife3u5hpo0ctmmb8f
+-rw-------  1 davide davide  223 Oct 22 04:00 sess_5ptn63o90qiotptjfn5834ihfcub31r6
+-rw-------  1 davide davide   12 Oct 22 04:05 sess_a71495drv0ltsq817f2evkj9b1010ij5
+-rw-------  1 davide davide  371 Oct 22 03:59 sess_bgal0l5ubji923v03lcge3f0bpilrva9
+-rw-------  1 davide davide  560 Oct 22 04:06 sess_ccuefig2qqoap1d1139ev9rtv9dn3dtf
+-rw-------  1 davide davide   12 Oct 22 04:04 sess_jsq0lao0d0mkpeqf60mbl26k7qsno0s3
+-rw-------  1 davide davide   12 Oct 22 04:04 sess_juhfr3pdqbj365siqnqkji52qpprsqm2
+-rw-------  1 davide davide    0 Oct 22 04:06 sess_l8cr3r5jivdtedai9bcet34gbakikdt1
+-rw-------  1 davide davide  441 Oct 22 04:05 sess_mfcebe1nuhai4sg15djjfm1ebjdjgb4a
+-rw-------  1 davide davide  218 Oct 22 04:06 sess_nbr8qjo8it2p6086fel2671l5a0ij8fc
+-rw-------  1 davide davide  557 Oct 22 04:07 sess_nbu62url5m85gacfs6sugo8msjj33ujl
+-rw-------  1 davide davide  216 Oct 22 04:07 sess_puttvffsa7ds93lsao3k9fh2ecqgr27m
+-rw-------  1 davide davide  259 Oct 22 04:07 sess_rat7i25edel2t4nkba18ue6dmbvhbk2f
+-rw-------  1 davide davide    0 Oct 22 04:06 sess_sra6fh0gpcbfjls9utlclc56e7p1n38p
+-rw-------  1 davide davide  332 Oct 22 03:58 sess_test123
+-rw-------  1 davide davide    0 Oct 22 04:00 sess_vd1u8qqjfuiqm0tp9bfppiaqqs1rst49
+-rw-------  1 davide davide  227 Oct 22 03:59 sess_vtesb3lsfhi0eqg1vp3c0sfvv56hbq80
+-rw-------  1 davide davide    0 Oct 22 04:05 sess_vuvqvarhj9h4appraf2dlit3gh24inrb

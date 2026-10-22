@@ -1,0 +1,1 @@
+[{"Expires":1,"Discard":false,"Value":"POPPWNED-apppop guzzle file write\n","HostOnly":false}]

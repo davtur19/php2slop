@@ -1,0 +1,33 @@
+<?php
+/**
+ * Lab-only test class for the apppop receipt.
+ * Deliberately NOT part of any extension: registered lab-only via
+ * $wgAutoloadClasses in LocalSettings.php so that autoload timing can be observed.
+ */
+
+// Prove the class file was loaded (autoloaded) during this request.
+@file_put_contents(
+	'/tmp/opencode/research/apppop_20261022T015427Z/phase/markers/class_file_loaded.txt',
+	date( 'c' ) . " pid=" . getmypid() . " sapi=" . PHP_SAPI . " uri=" . ( $_SERVER['REQUEST_URI'] ?? '-' ) . "\n",
+	FILE_APPEND
+);
+
+class TestClass {
+	public $p = 'x';
+
+	public function __wakeup() {
+		@file_put_contents(
+			'/tmp/opencode/research/apppop_20261022T015427Z/phase/markers/testclass_wakeup.txt',
+			date( 'c' ) . " pid=" . getmypid() . " uri=" . ( $_SERVER['REQUEST_URI'] ?? '-' ) . "\n",
+			FILE_APPEND
+		);
+	}
+
+	public function __destruct() {
+		@file_put_contents(
+			'/tmp/opencode/research/apppop_20261022T015427Z/phase/markers/testclass_destruct.txt',
+			date( 'c' ) . " pid=" . getmypid() . " uri=" . ( $_SERVER['REQUEST_URI'] ?? '-' ) . "\n",
+			FILE_APPEND
+		);
+	}
+}

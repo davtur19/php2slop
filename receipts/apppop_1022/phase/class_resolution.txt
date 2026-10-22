@@ -1,0 +1,13 @@
+GuzzleHttp\Cookie\FileCookieJar => /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/vendor/guzzlehttp/guzzle/src/Cookie/FileCookieJar.php
+GuzzleHttp\Cookie\SetCookie => /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/vendor/guzzlehttp/guzzle/src/Cookie/SetCookie.php
+Monolog\Handler\GroupHandler => /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/extensions/FundraisingEmailUnsubscribe/vendor/monolog/monolog/src/Monolog/Handler/GroupHandler.php
+Monolog\Level => /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/extensions/FundraisingEmailUnsubscribe/vendor/monolog/monolog/src/Monolog/Level.php
+Monolog\LogRecord => /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/extensions/FundraisingEmailUnsubscribe/vendor/monolog/monolog/src/Monolog/LogRecord.php
+Wikimedia\FileBackend\FSFile\TempFSFile => /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/includes/libs/FileBackend/FSFile/TempFSFile.php
+JakubOnderka\PhpParallelLint\FileWriter => NOT LOADABLE (ReflectionException)
+TestClass => /tmp/opencode/research/wikitype_20261021T212610Z/labclasses/TestClass.php
+--- autoloaders:
+0: Composer\Autoload\ClassLoader::loadClass
+1: Composer\Autoload\ClassLoader::loadClass
+2: Closure
+3: Composer\Autoload\ClassLoader::loadClass
