@@ -1,0 +1,10 @@
+{
+ "n": 7,
+ "kind": "sess",
+ "label": "crash",
+ "status": "",
+ "error": "ConnectionResetError: [Errno 104] Connection reset by peer",
+ "elapsed": 0.065,
+ "stdout": "",
+ "stderr": ""
+}

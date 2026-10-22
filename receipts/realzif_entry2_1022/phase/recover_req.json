@@ -1,0 +1,10 @@
+{
+ "n": 8,
+ "kind": "sess",
+ "label": "recover",
+ "status": "X-Powered-By: PHP/8.5.10",
+ "error": null,
+ "elapsed": 0.0007,
+ "stdout": "X-Powered-By: PHP/8.5.10\r\nExpires: Thu, 19 Nov 1981 08:52:00 GMT\r\nCache-Control: no-store, no-cache, must-revalidate\r\nPragma: no-cache\r\nContent-type: text/html; charset=UTF-8\r\n\r\nPID=143459 SID=recover FOO=bar\n",
+ "stderr": ""
+}

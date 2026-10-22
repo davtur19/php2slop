@@ -1,0 +1,55 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff689b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/realapps/install_realapps_np/sbin/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0xa3c074: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c, line 257.
+Breakpoint 2 at 0xa3bdfd: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c, line 201.
+POISON_ZIF_PASSTHRU hit=1 rdi=0x7ffff467a0d8 rsi=0x8d
+0x7ffff467a0d8:	0x32313a736f6f6603	0x5151515151223a38
+0x7ffff467a0e8:	0x5151515151515151	0x5151515151515151
+0x7ffff467a0f8:	0x5151515151515151	0x0000000151515151
+0x7ffff467a108:	0x5151515151515151	0x5151515151515151
+0x7ffff467a118:	0x5151515151515151	0x5151515151515151
+POISON_PHP_EXEC_EX rdi=0x7ffff467a0d8 rsi=0x8d rdx=0x3 numargs=1 arg1=0x4141414141414141 type=6
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00007ffff6981858 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+STOPPED rip=0x7ffff6981858
+#0  0x00007ffff6981858 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x0000000000a3be51 in zend_str_has_nul_byte (str=0x4141414141414141) at /home/davide/ailocal/php/zerodays_1020/build_plain/Zend/zend_API.h:947
+#2  zend_parse_arg_path_str (arg=0x7ffff467a128, dest=0x7fffffffbba8, check_null=false, arg_num=1) at /home/davide/ailocal/php/zerodays_1020/build_plain/Zend/zend_API.h:2329
+#3  php_exec_ex (execute_data=0x7ffff467a0d8, return_value=0x8d, mode=mode@entry=3) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c:207
+#4  0x0000000000a3c082 in zif_passthru (execute_data=<optimized out>, return_value=<optimized out>) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c:258
+#5  0x00000000009e6901 in php_session_decode (data=0x7ffff467a0c0) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:294
+#6  0x00000000009e8d76 in php_session_initialize () at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:514
+#7  0x00000000009e95be in php_session_start () at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:1739
+#8  0x00000000009ea12d in zif_session_start (execute_data=<optimized out>, return_value=0x7fffffffbe00) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:2698
+#9  0x0000000000bf21c2 in ZEND_DO_ICALL_SPEC_RETVAL_UNUSED_HANDLER () at /home/davide/ailocal/php/zerodays_1020/build_plain/Zend/zend_vm_execute.h:1360
+#10 execute_ex (ex=<optimized out>) at /home/davide/ailocal/php/zerodays_1020/build_plain/Zend/zend_vm_execute.h:116486
+#11 0x0000000000bf0444 in zend_execute (op_array=op_array@entry=0x7ffff4684000, return_value=return_value@entry=0x0) at /home/davide/ailocal/php/zerodays_1020/build_plain/Zend/zend_vm_execute.h:121974
+#12 0x0000000000c5adae in zend_execute_script (type=type@entry=8, retval=retval@entry=0x0, file_handle=file_handle@entry=0x7fffffffe6a0) at /home/davide/ailocal/php/zerodays_1020/build_plain/Zend/zend.c:1981
+#13 0x0000000000aec026 in php_execute_script_ex (primary_file=primary_file@entry=0x7fffffffe6a0, retval=retval@entry=0x0) at /home/davide/ailocal/php/zerodays_1020/build_plain/main/main.c:2641
+#14 0x0000000000aec306 in php_execute_script (primary_file=primary_file@entry=0x7fffffffe6a0) at /home/davide/ailocal/php/zerodays_1020/build_plain/main/main.c:2681
+#15 0x0000000000c67149 in main (argc=<optimized out>, argv=<optimized out>) at /home/davide/ailocal/php/zerodays_1020/build_plain/sapi/fpm/fpm/fpm_main.c:1899
+rip            0x7ffff6981858      0x7ffff6981858
+rdi            0x4141414141414159  4702111234474983769
+rsi            0x2                 2
+rdx            0x3                 3
+rcx            0x0                 0
+rax            0x159               345
+rsp            0x7fffffffbb98      0x7fffffffbb98
+rbp            0x7ffff467a0d8      0x7ffff467a0d8
+=> 0x7ffff6981858:	vpcmpeqb (%rdi),%ymm16,%k0
+   0x7ffff698185e:	kmovd  %k0,%eax
+   0x7ffff6981862:	test   %eax,%eax
+   0x7ffff6981864:	je     0x7ffff6981880
+[Inferior 1 (process 142370) detached]

@@ -1,0 +1,15 @@
+{
+ "n": 7,
+ "kind": "sess",
+ "label": "crash",
+ "script": "sess.php",
+ "body_len": 0,
+ "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+ "ctype": "application/x-www-form-urlencoded",
+ "cookie": "PHPSESSID=crash",
+ "elapsed": 0.065,
+ "status": "",
+ "error": "ConnectionResetError: [Errno 104] Connection reset by peer",
+ "stdout": "",
+ "stderr": ""
+}

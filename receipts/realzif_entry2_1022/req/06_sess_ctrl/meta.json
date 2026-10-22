@@ -1,0 +1,15 @@
+{
+ "n": 6,
+ "kind": "sess",
+ "label": "ctrl",
+ "script": "sess.php",
+ "body_len": 0,
+ "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+ "ctype": "application/x-www-form-urlencoded",
+ "cookie": "PHPSESSID=ctrl",
+ "elapsed": 0.0007,
+ "status": "X-Powered-By: PHP/8.5.10",
+ "error": null,
+ "stdout": "X-Powered-By: PHP/8.5.10\r\nExpires: Thu, 19 Nov 1981 08:52:00 GMT\r\nCache-Control: no-store, no-cache, must-revalidate\r\nPragma: no-cache\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Fatal error</b>:  Uncaught ArgumentCountError: session_start() expects at least 1 argument, 0 given in /tmp/opencode/research/realzif_20261022T013000Z/www/sess.php:2\nStack trace:\n#0 /tmp/opencode/research/realzif_20261022T013000Z/www/sess.php(2): session_start()\n#1 {main}\n  thrown in <b>/tmp/opencode/research/realzif_20261022T013000Z/www/sess.php</b> on line <b>2</b><br />\n",
+ "stderr": ""
+}

@@ -1,0 +1,19 @@
+[21-Oct-2026 23:31:49 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/realzif_20261022T013000Z/www/unser.php on line 10
+[21-Oct-2026 23:31:49 UTC] PHP Fatal error:  stop in /tmp/opencode/research/realzif_20261022T013000Z/www/unser.php on line 10
+Stack trace:
+#0 /tmp/opencode/research/realzif_20261022T013000Z/www/unser.php(10): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/realzif_20261022T013000Z/www/unser.php:10}(2, 'unserialize(): ...', '/tmp/opencode/r...', 13)
+#2 /tmp/opencode/research/realzif_20261022T013000Z/www/unser.php(13): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[21-Oct-2026 23:32:29 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/realzif_20261022T013000Z/www/unser.php on line 10
+[21-Oct-2026 23:32:29 UTC] PHP Fatal error:  stop in /tmp/opencode/research/realzif_20261022T013000Z/www/unser.php on line 10
+Stack trace:
+#0 /tmp/opencode/research/realzif_20261022T013000Z/www/unser.php(10): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/realzif_20261022T013000Z/www/unser.php:10}(2, 'unserialize(): ...', '/tmp/opencode/r...', 13)
+#2 /tmp/opencode/research/realzif_20261022T013000Z/www/unser.php(13): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[21-Oct-2026 23:33:29 UTC] PHP Fatal error:  Uncaught ArgumentCountError: session_start() expects at least 1 argument, 0 given in /tmp/opencode/research/realzif_20261022T013000Z/www/sess.php:2
+Stack trace:
+#0 /tmp/opencode/research/realzif_20261022T013000Z/www/sess.php(2): session_start()
+#1 {main}
+  thrown in /tmp/opencode/research/realzif_20261022T013000Z/www/sess.php on line 2

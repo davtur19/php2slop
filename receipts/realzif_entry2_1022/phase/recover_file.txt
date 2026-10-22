@@ -1,0 +1,1 @@
+mode=short len=14 offsets: 0x2c= 0x50= 0x58=

