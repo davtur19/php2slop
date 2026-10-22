@@ -1,0 +1,53 @@
+{
+ "sid": "pd1",
+ "path": "/upcleanup/diag.php",
+ "keylen": 1000,
+ "filedata": 7000000,
+ "body_len": 7001238,
+ "http": 200,
+ "resp_len": 40,
+ "elapsed": 0.031,
+ "samples": 28,
+ "distinct_sizes": [
+  -1,
+  0,
+  1319,
+  1321,
+  1323
+ ],
+ "nonzero_samples": 20,
+ "first_nonzero": [
+  {
+   "t": 1792633604.15739,
+   "size": 1319,
+   "head": "upload_progress_KKKKKKKKKKKKKKKKKKKKKKKK"
+  },
+  {
+   "t": 1792633604.158465,
+   "size": 1321,
+   "head": "upload_progress_KKKKKKKKKKKKKKKKKKKKKKKK"
+  },
+  {
+   "t": 1792633604.1595554,
+   "size": 1321,
+   "head": "upload_progress_KKKKKKKKKKKKKKKKKKKKKKKK"
+  }
+ ],
+ "last_nonzero": [
+  {
+   "t": 1792633604.1757112,
+   "size": 1323,
+   "head": "upload_progress_KKKKKKKKKKKKKKKKKKKKKKKK"
+  },
+  {
+   "t": 1792633604.1767807,
+   "size": 1323,
+   "head": "upload_progress_KKKKKKKKKKKKKKKKKKKKKKKK"
+  },
+  {
+   "t": 1792633604.177851,
+   "size": 1323,
+   "head": "upload_progress_KKKKKKKKKKKKKKKKKKKKKKKK"
+  }
+ ]
+}

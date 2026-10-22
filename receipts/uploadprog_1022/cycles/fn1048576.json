@@ -1,0 +1,45 @@
+{
+ "mode": "size:16:1048576",
+ "sid": "fn1048576",
+ "keylen": 16,
+ "namelen": 1048576,
+ "before": {
+  "exists": false
+ },
+ "workers_before": [
+  "1404401"
+ ],
+ "body_len": 1048835,
+ "http": {
+  "status": 200,
+  "resp_len": 203,
+  "time": 0.008,
+  "head": "getcwd OK '/tmp/opencode/research/realchain_20261022T015900Z/www'\nphpversion OK '8.5.10'\nsession_id OK ''\nsession_name O"
+ },
+ "after": {
+  "exists": true,
+  "size": 1048943,
+  "mode": "0o600",
+  "sha256": "a22dffdd3ba417a384b98417b23c63e8b1d6262a782993080a41cf6043936e3e"
+ },
+ "http_get": {
+  "status": 200,
+  "len": 1048943,
+  "head": "upload_progress_KKKKKKKKKKKKKKKK|a:5:{s:10:\"start_time\";i:179263"
+ },
+ "workers_after": [
+  "1404401"
+ ],
+ "analysis": {
+  "file_size": 1048943,
+  "head_repr": "b'upload_progress_KKKKKKKKKKKKKKKK|a:5:{s:10:\"start_time\";i:1792633566;s:14:\"content_length\";i:1048835;s:15:\"bytes_processed\";i:1048835;s:4:\"done\";b:1;s:5:\"files\";a:1:{i:0;a:7:{s:10:\"field_name\";s:1:\"f\";s:4:\"name\";s:104857'",
+  "name_len": 32,
+  "name_head": "upload_progress_KKKKKKKKKKKKKKKK",
+  "key_off": 16,
+  "key_contiguous": true,
+  "key_first_diff": null,
+  "value_head": "b'a:5:{s:10:\"start_time\";i:1792633566;s:14:\"content_length\";i:1048835;s:15:\"bytes_processed\";i:1048835;s:4:\"done\";b:1;s:5:\"files\";a:1:{i:0;a:7:{s:10:\"field_name\";s:1:\"f\";s:4:\"name\";s:1048576:\"NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN'",
+  "value_tail": "b'NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN\";s:8:\"tmp_name\";s:27:\"/tmp/phpmulg0i3h6g545z6Kz6u\";s:5:\"error\";i:0;s:4:\"done\";b:1;s:10:\"start_time\";i:1792633566;s:15:\"bytes_processed\";i:4;}}}'",
+  "pipe_count": 1
+ }
+}

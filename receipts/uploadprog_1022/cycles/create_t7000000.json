@@ -1,0 +1,10 @@
+{
+ "status": 200,
+ "resp": "getcwd OK '/tmp/opencode/research/realchain_20261022T015900Z/www'\nphpversion OK '8.5.10'\nsession_id OK ''\nsession_name OK 'PHPSESSID'\nsession_status OK 1\nstrlen OK 3\nini_get OK '512M'\ntime OK 17926340",
+ "time": 0.051,
+ "body_len": 7000277,
+ "sess_size": 7000365,
+ "headers": {
+  "Content-Type": "text/plain;charset=UTF-8"
+ }
+}

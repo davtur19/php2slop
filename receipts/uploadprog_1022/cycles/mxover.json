@@ -1,0 +1,33 @@
+{
+ "mode": "size:8390000:16",
+ "sid": "mxover",
+ "keylen": 8390000,
+ "namelen": 16,
+ "before": {
+  "exists": false
+ },
+ "workers_before": [
+  "1404401"
+ ],
+ "body_len": 8390259,
+ "http": {
+  "status": 413,
+  "resp_len": 183,
+  "time": 0.007,
+  "head": "<html>\r\n<head><title>413 Request Entity Too Large</title></head>\r\n<body>\r\n<center><h1>413 Request Entity Too Large</h1><"
+ },
+ "after": {
+  "exists": false
+ },
+ "http_get": {
+  "status": 404,
+  "len": 69136,
+  "head": "<!DOCTYPE html>\n<html lang=\"en-US\">\n<head>\n\t<meta charset=\"UTF-8"
+ },
+ "workers_after": [
+  "1404401"
+ ],
+ "analysis": {
+  "exists": false
+ }
+}

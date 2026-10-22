@@ -1,0 +1,11 @@
+{
+ "status": 502,
+ "resp": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+ "time": 0.007,
+ "body_len": 267,
+ "sess_size": 1500703,
+ "headers": {
+  "Content-Type": "text/html",
+  "Content-Length": "157"
+ }
+}

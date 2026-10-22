@@ -1,0 +1,39 @@
+{
+ "mode": "size:1000:16",
+ "sid": "cln1",
+ "keylen": 1000,
+ "namelen": 16,
+ "before": {
+  "exists": false
+ },
+ "workers_before": [
+  "1404401"
+ ],
+ "body_len": 1259,
+ "http": {
+  "status": 200,
+  "resp_len": 40,
+  "time": 0.001,
+  "head": "cleanup=1 enabled=1 freq=1\nstatus=1 id=\n"
+ },
+ "after": {
+  "exists": true,
+  "size": 0,
+  "mode": "0o600",
+  "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+ },
+ "http_get": {
+  "status": 200,
+  "len": 0,
+  "head": ""
+ },
+ "workers_after": [
+  "1404401"
+ ],
+ "analysis": {
+  "file_size": 0,
+  "head_repr": "b''",
+  "name_len": -1,
+  "name_head": ""
+ }
+}

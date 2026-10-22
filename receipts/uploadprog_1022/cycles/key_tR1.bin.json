@@ -1,0 +1,32 @@
+{
+ "X1": "0x7f791b06a000",
+ "KEYLEN": 1500000,
+ "PLO": "0x7f791b080000",
+ "PHI": "0x7f791b1e0000",
+ "F": "0x7f791aa01218",
+ "CMD": "touch /tmp/opencode/research/uploadprog_20261022T014518Z/MARK_UP;",
+ "variants": 344,
+ "skipped": [
+  "0x7f791b1d9000",
+  "0x7f791b1da000",
+  "0x7f791b1db000",
+  "0x7f791b1dc000",
+  "0x7f791b1dd000",
+  "0x7f791b1de000",
+  "0x7f791b1df000",
+  "0x7f791b1e0000"
+ ],
+ "n_skipped": 8,
+ "skippipe": [
+  "0x7f791b149000"
+ ],
+ "pipe": false,
+ "frame": {
+  "num_args_off": 5,
+  "arg_off": 41,
+  "type_off": 49,
+  "zstr_off": 473,
+  "zstr_len_off": 489,
+  "zstr_cmd_off": 497
+ }
+}
