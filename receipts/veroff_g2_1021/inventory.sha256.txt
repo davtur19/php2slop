@@ -1,0 +1,15 @@
+# sha256 | path | bytes
+# curated from /tmp/opencode/research/veroff_20261021_215718 on 2026-10-22
+# source has no manifest; static-derivation receipt (no lab service, no HTTP)
+# kept: README, g2_offsets.json, zifsys.json + scanner, php2slop fragment, build/buildone.sh and the three build logs
+# not copied: build/php-7.4.33 + build/php-8.1.34 source trees, build/php-8.4.25 tarball, src8427/php-8.4.27.tar.xz (68,852 files / 726,550,132 B of upstream sources)
+# complete inventory of this receipt directory (inventory file excluded)
+cfa506b4edc9a83cb2b9390ca6c74455fff6e13418bac12005541287ce0888d7  README.md  12338
+4d733e135b571f9a162faa296aafb4218343c2a2392e5b214a7b3ea67c76ed8f  build/b7433.log  24225
+ee8bd81fec1c84a45d334f3a737457df4269d7e878ca091e5c62bc6726526464  build/b8134.log  25972
+ef03783c370f5c4d98fd2410582aacd3803b37f9644b137b213d6c95f84174ba  build/b8425.log  19
+2578dc7c3e651619e12dd60ac262394afb5cd349bf37c1d8696c3bae85b4c3ca  build/buildone.sh  412
+e607afad7875ee1252c50b4e474e19997c53e750e4da4fb613a6f3fc2a3b730c  g2_offsets.json  4605
+dcb3a54c0ee7dbf2bcc5f0730f5026f88ec22aeb37c0c8817381425b646723d4  php2slop_profiles_fragment.py  3123
+3028168558bf78cf22f9e2af91801329d1f138c3652935e11b444317c52bef6e  zifsys.json  26832
+e57b4ed62fce5c68f0d710c0a2e3fcc65356ab3053b62a57a47e34bbd2e063f4  zifsys_scan.py  15775

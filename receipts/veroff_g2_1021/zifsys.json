@@ -1,0 +1,702 @@
+{
+  "schema": "zif_system_direct_serializer_route_v1",
+  "generated": "2026-10-22T00:25Z",
+  "reference_zif_system": "0x88f6a7",
+  "v6_table_crosscheck": {
+    "8.4.25": {
+      "zend_eval_string_v6": "0x873790",
+      "decode_target_v6": "0xe01180",
+      "ps_serializer_abs_v6": "0xe03a60"
+    },
+    "8.1.34": {
+      "zend_eval_string_v6": "0x7ec4d5",
+      "decode_target_v6": "0xe01140",
+      "ps_serializer_abs_v6": "0xe02fb0"
+    },
+    "7.4.33": {
+      "zend_eval_string_v6": "0x7cd5ab",
+      "decode_target_v6": "0xe010a0",
+      "ps_serializer_abs_v6": "0xe02df0"
+    },
+    "8.5.10": {
+      "zend_eval_string_v6": "0x9cfd10",
+      "decode_target_v6": "0x14c1b60",
+      "ps_serializer_abs_v6": "0x14c6160"
+    }
+  },
+  "versions": {
+    "8.4.25": {
+      "binary": "/tmp/opencode/research/veroff_20261021_215718/build/php-8.4.25/sapi/fpm/php-fpm",
+      "md5": "95cca39b95cb5f2d5b897fc5cc6e8628",
+      "build_id": "ff6fee90a6574c7cf4e89a91ad76619ff03b13b2",
+      "size_bytes": 28342408,
+      "elf_type": "ET_EXEC",
+      "pie": false,
+      "df_1_pie": false,
+      "symbols": {
+        "zif_system": "0x753d20",
+        "php_exec_ex": "0x753aa3",
+        "php_exec": "0x75388d",
+        "zend_eval_string": "0x873790",
+        "zend_eval_stringl": "0x873541",
+        "zif_exec": "0x753d10",
+        "zif_passthru": "0x753d30",
+        "zif_shell_exec": "0x754489",
+        "zif_popen": "0x7567a9",
+        "zif_proc_open": "0x7858c7",
+        "ps_serializers": "0xe01140",
+        "ps_globals": "0xe03900",
+        "arginfo_system": "0xaf6ba0",
+        "php_session_decode": "0x7037b4",
+        "php_session_initialize": "0x705a8c"
+      },
+      "symbol_types": {
+        "zif_system": "STT_FUNC",
+        "php_exec_ex": "STT_FUNC",
+        "php_exec": "STT_FUNC",
+        "zend_eval_string": "STT_FUNC"
+      },
+      "zif_system": {
+        "addr": "0x753d20",
+        "size": 16,
+        "align16": true,
+        "body_hex": "554889e5ba01000000e875fdffff5dc3",
+        "shape": "push rbp; mov rbp,rsp; mov edx,1; call php_exec_ex; pop rbp; ret",
+        "php_exec_ex": "0x753aa3"
+      },
+      "zif_system_refs": [
+        {
+          "section": ".rodata",
+          "ptr_addr": "0xaefe68",
+          "fname_ptr": "0xa08d47",
+          "fname": "system",
+          "arg_info": "0xaf6ba0",
+          "num_args": 2,
+          "flags": "0x0",
+          "kind": "zend_function_entry",
+          "entry_addr": "0xaefe60"
+        }
+      ],
+      "zend_function_entry": {
+        "addr": "0xaefe60",
+        "section": ".rodata",
+        "section_flags": "0x2",
+        "section_writable": false,
+        "entry_size": 48,
+        "fname_ptr": "0xa08d47",
+        "fname": "system",
+        "handler": "0x753d20",
+        "arg_info": "0xaf6ba0",
+        "num_args": 2,
+        "flags": "0x0"
+      },
+      "arg_info": {
+        "addr": "0xaf6ba0",
+        "header_name_word": "0x1",
+        "required_num_args": 1,
+        "return_type_mask": "0x44",
+        "args": [
+          {
+            "index": 1,
+            "name": "command",
+            "name_ptr": "0xa0990d",
+            "type_mask": "0x40",
+            "pass_by_ref": false,
+            "default_value": null
+          },
+          {
+            "index": 2,
+            "name": "result_code",
+            "name_ptr": "0xa09abe",
+            "type_mask": "0x2000000",
+            "pass_by_ref": true,
+            "default_value": "null"
+          }
+        ]
+      },
+      "static_zend_function_with_handler_zif_system": [],
+      "alignment": {
+        "ps_serializers": "0xe01140",
+        "ps_serializers_mod16": 0,
+        "ps_globals": "0xe03900",
+        "ps_serializer_abs": "0xe03a60",
+        "ps_serializer_abs_mod16": 0,
+        "decode_slot": "0xe01180",
+        "decode_slot_mod16": 0,
+        "all_slots_16_aligned": true
+      },
+      "serializers": [
+        {
+          "idx": 0,
+          "entry_addr": "0xe01140",
+          "name": "php_serialize",
+          "encode": "0x6ff410",
+          "decode": "0x6ff470",
+          "decode_slot_addr": "0xe01150",
+          "decode_slot_mod16": 0
+        },
+        {
+          "idx": 1,
+          "entry_addr": "0xe01158",
+          "name": "php",
+          "encode": "0x704027",
+          "decode": "0x703eca",
+          "decode_slot_addr": "0xe01168",
+          "decode_slot_mod16": 8
+        },
+        {
+          "idx": 2,
+          "entry_addr": "0xe01170",
+          "name": "php_binary",
+          "encode": "0x703a3c",
+          "decode": "0x703cf4",
+          "decode_slot_addr": "0xe01180",
+          "decode_slot_mod16": 0
+        }
+      ],
+      "decode_call_site": {
+        "addr": "0x70380b",
+        "call_bytes": "ff5010",
+        "len_load": "mov 0x10(%rax),%rsi",
+        "val_load": "lea 0x18(%rax),%rdi",
+        "serializer_slot": "0xe03a60",
+        "window_hex": "ff488b7010488d7818488b0555027000ff501041",
+        "rsi_is_len": true,
+        "rdi_is_val": true,
+        "abi": "rdi = ZSTR_VAL(session_payload) (zend_string+0x18); rsi = ZSTR_LEN(session_payload) (zend_string+0x10); call *0x10(serializer)"
+      },
+      "return_value_writes": [
+        "0x753918 movl $0x2,0x8(%rax) (RETVAL_FALSE)",
+        "0x753a38 mov %rbx,(%rax); 0x753a3b movl $0x106,0x8(%rax) (RETVAL_STRINGL)",
+        "0x753a4f mov %rax,(%rcx); 0x753a52 movl $0x6,0x8(%rcx) (RETVAL_EMPTY_STRING)"
+      ],
+      "execute_data_map": {
+        "base": "session payload buffer (rdi)",
+        "func": "buf+0x18 (not dereferenced on php_exec_ex fast path)",
+        "this_u2_num_args": "buf+0x2c (mode=1 accepts 1 or 2)",
+        "arg1_zval": "buf+0x50",
+        "arg1_type_info_byte": "buf+0x58 (must be 6 = IS_STRING)",
+        "zend_string_val": "ptr+0x18",
+        "zend_string_len": "ptr+0x10",
+        "func_deref_on_success_path": false
+      },
+      "route_verdict": "blocked_after_exec: command runs, then php_exec writes a zval through return_value=(zval*)rsi=session_length -> SIGSEGV",
+      "blockers": [
+        "php_exec(mode, cmd, NULL, return_value) writes a zval through parameter 4; zif_system forwards rsi unchanged, so return_value = (zval*)ZSTR_LEN(session payload) (small integer, unmapped) -> worker SIGSEGV after the command runs. Evidence: php_exec_ex stores rsi at -0x50(%rbp) and reloads it into rcx before both php_exec calls; php_exec does mov %rax,(%rcx); movl $0x6,0x8(%rcx) (and the false/empty paths also store through rcx).",
+        "fake execute_data must live in the session buffer; arg1 zval needs an absolute zend_string pointer, so the session buffer address must be known (heap leak or ASLR-off). func at buf+0x18 is not read on the successful parse path, so it may be any readable value.",
+        "no static zend_function (type=ZEND_INTERNAL_FUNCTION, handler=zif_system, function_name='system') exists in .data/.data.rel.ro or any alloc section; only a read-only .rodata zend_function_entry exists. The runtime zend_internal_function is allocated by zend_register_functions() at startup (heap), so it has no ELF address.",
+        "address is build specific; 0x88f6a7 is the 8.5.10 reference only."
+      ],
+      "v6_crosscheck": {
+        "zend_eval_string_match": true,
+        "decode_target_match": true,
+        "ps_serializer_abs_match": true
+      }
+    },
+    "8.1.34": {
+      "binary": "/tmp/opencode/research/veroff_20261021_215718/build/php-8.1.34/sapi/fpm/php-fpm",
+      "md5": "6ea2762ef76f44674805736e19570bb1",
+      "build_id": "5b776429a95eebc43be24e001314e19e5fc4e1fd",
+      "size_bytes": 25797456,
+      "elf_type": "ET_EXEC",
+      "pie": false,
+      "df_1_pie": false,
+      "symbols": {
+        "zif_system": "0x7348f9",
+        "php_exec_ex": "0x73467d",
+        "php_exec": "0x734467",
+        "zend_eval_string": "0x7ec4d5",
+        "zend_eval_stringl": "0x7ec27f",
+        "zif_exec": "0x7348e9",
+        "zif_passthru": "0x734909",
+        "zif_shell_exec": "0x73508e",
+        "zif_popen": "0x737382",
+        "zif_proc_open": "0x78b524",
+        "ps_serializers": "0xe01100",
+        "ps_globals": "0xe02e80",
+        "arginfo_system": "0xae50a0",
+        "php_session_decode": "0x6eac79",
+        "php_session_initialize": "0x6ecc34"
+      },
+      "symbol_types": {
+        "zif_system": "STT_FUNC",
+        "php_exec_ex": "STT_FUNC",
+        "php_exec": "STT_FUNC",
+        "zend_eval_string": "STT_FUNC"
+      },
+      "zif_system": {
+        "addr": "0x7348f9",
+        "size": 16,
+        "align16": false,
+        "body_hex": "554889e5ba01000000e876fdffff5dc3",
+        "shape": "push rbp; mov rbp,rsp; mov edx,1; call php_exec_ex; pop rbp; ret",
+        "php_exec_ex": "0x73467d"
+      },
+      "zif_system_refs": [
+        {
+          "section": ".rodata",
+          "ptr_addr": "0xadf5c8",
+          "fname_ptr": "0xa25afa",
+          "fname": "system",
+          "arg_info": "0xae50a0",
+          "num_args": 2,
+          "flags": "0x0",
+          "kind": "zend_function_entry",
+          "entry_addr": "0xadf5c0"
+        }
+      ],
+      "zend_function_entry": {
+        "addr": "0xadf5c0",
+        "section": ".rodata",
+        "section_flags": "0x2",
+        "section_writable": false,
+        "entry_size": 32,
+        "fname_ptr": "0xa25afa",
+        "fname": "system",
+        "handler": "0x7348f9",
+        "arg_info": "0xae50a0",
+        "num_args": 2,
+        "flags": "0x0"
+      },
+      "arg_info": {
+        "addr": "0xae50a0",
+        "header_name_word": "0x1",
+        "required_num_args": 1,
+        "return_type_mask": "0x44",
+        "args": [
+          {
+            "index": 1,
+            "name": "command",
+            "name_ptr": "0xa266cd",
+            "type_mask": "0x40",
+            "pass_by_ref": false,
+            "default_value": null
+          },
+          {
+            "index": 2,
+            "name": "result_code",
+            "name_ptr": "0xa2688a",
+            "type_mask": "0x2000000",
+            "pass_by_ref": true,
+            "default_value": "null"
+          }
+        ]
+      },
+      "static_zend_function_with_handler_zif_system": [],
+      "alignment": {
+        "ps_serializers": "0xe01100",
+        "ps_serializers_mod16": 0,
+        "ps_globals": "0xe02e80",
+        "ps_serializer_abs": "0xe02fb0",
+        "ps_serializer_abs_mod16": 0,
+        "decode_slot": "0xe01140",
+        "decode_slot_mod16": 0,
+        "all_slots_16_aligned": true
+      },
+      "serializers": [
+        {
+          "idx": 0,
+          "entry_addr": "0xe01100",
+          "name": "php_serialize",
+          "encode": "0x6e7471",
+          "decode": "0x6e74d1",
+          "decode_slot_addr": "0xe01110",
+          "decode_slot_mod16": 0
+        },
+        {
+          "idx": 1,
+          "entry_addr": "0xe01118",
+          "name": "php",
+          "encode": "0x6eb407",
+          "decode": "0x6eb2a9",
+          "decode_slot_addr": "0xe01128",
+          "decode_slot_mod16": 8
+        },
+        {
+          "idx": 2,
+          "entry_addr": "0xe01130",
+          "name": "php_binary",
+          "encode": "0x6eaecb",
+          "decode": "0x6eb0d3",
+          "decode_slot_addr": "0xe01140",
+          "decode_slot_mod16": 0
+        }
+      ],
+      "decode_call_site": {
+        "addr": "0x6eac96",
+        "call_bytes": "ff5010",
+        "len_load": "mov 0x10(%rdi),%rsi",
+        "val_load": "add $0x18,%rdi",
+        "serializer_slot": "0xe02fb0",
+        "window_hex": "8371004885c0741f488b77104883c718ff501089",
+        "rsi_is_len": true,
+        "rdi_is_val": true,
+        "abi": "rdi = ZSTR_VAL(session_payload) (zend_string+0x18); rsi = ZSTR_LEN(session_payload) (zend_string+0x10); call *0x10(serializer)"
+      },
+      "return_value_writes": [
+        "0x7344f2 movl $0x2,0x8(%rax) (RETVAL_FALSE)",
+        "0x734612 mov %rbx,(%rax); 0x734615 movl $0x106,0x8(%rax) (RETVAL_STRINGL)",
+        "0x734629 mov %rax,(%rcx); 0x73462c movl $0x6,0x8(%rcx) (RETVAL_EMPTY_STRING)"
+      ],
+      "execute_data_map": {
+        "base": "session payload buffer (rdi)",
+        "func": "buf+0x18 (not dereferenced on php_exec_ex fast path)",
+        "this_u2_num_args": "buf+0x2c (mode=1 accepts 1 or 2)",
+        "arg1_zval": "buf+0x50",
+        "arg1_type_info_byte": "buf+0x58 (must be 6 = IS_STRING)",
+        "zend_string_val": "ptr+0x18",
+        "zend_string_len": "ptr+0x10",
+        "func_deref_on_success_path": false
+      },
+      "route_verdict": "blocked_after_exec: command runs, then php_exec writes a zval through return_value=(zval*)rsi=session_length -> SIGSEGV",
+      "blockers": [
+        "php_exec(mode, cmd, NULL, return_value) writes a zval through parameter 4; zif_system forwards rsi unchanged, so return_value = (zval*)ZSTR_LEN(session payload) (small integer, unmapped) -> worker SIGSEGV after the command runs. Evidence: php_exec_ex stores rsi at -0x50(%rbp) and reloads it into rcx before both php_exec calls; php_exec does mov %rax,(%rcx); movl $0x6,0x8(%rcx) (and the false/empty paths also store through rcx).",
+        "fake execute_data must live in the session buffer; arg1 zval needs an absolute zend_string pointer, so the session buffer address must be known (heap leak or ASLR-off). func at buf+0x18 is not read on the successful parse path, so it may be any readable value.",
+        "no static zend_function (type=ZEND_INTERNAL_FUNCTION, handler=zif_system, function_name='system') exists in .data/.data.rel.ro or any alloc section; only a read-only .rodata zend_function_entry exists. The runtime zend_internal_function is allocated by zend_register_functions() at startup (heap), so it has no ELF address.",
+        "address is build specific; 0x88f6a7 is the 8.5.10 reference only."
+      ],
+      "v6_crosscheck": {
+        "zend_eval_string_match": true,
+        "decode_target_match": true,
+        "ps_serializer_abs_match": true
+      }
+    },
+    "7.4.33": {
+      "binary": "/tmp/opencode/research/veroff_20261021_215718/build/php-7.4.33/sapi/fpm/php-fpm",
+      "md5": "9c7b5c2287fdebe6b3324223034715da",
+      "build_id": "1f996193caece78f0f794fb83c3c60707a068ce1",
+      "size_bytes": 22764672,
+      "elf_type": "ET_EXEC",
+      "pie": false,
+      "df_1_pie": false,
+      "symbols": {
+        "zif_system": "0x71dd66",
+        "php_exec_ex": "0x71daf7",
+        "php_exec": "0x71d7fc",
+        "zend_eval_string": "0x7cd5ab",
+        "zend_eval_stringl": "0x7cd343",
+        "zif_exec": "0x71dd56",
+        "zif_passthru": "0x71dd76",
+        "zif_shell_exec": "0x71e4ae",
+        "zif_popen": "0x720558",
+        "zif_proc_open": "0x770b29",
+        "ps_serializers": "0xe01060",
+        "ps_globals": "0xe02cc0",
+        "arginfo_system": "0xb37480",
+        "php_session_decode": "0x6d582a",
+        "php_session_initialize": "0x6d7774"
+      },
+      "symbol_types": {
+        "zif_system": "STT_FUNC",
+        "php_exec_ex": "STT_FUNC",
+        "php_exec": "STT_FUNC",
+        "zend_eval_string": "STT_FUNC"
+      },
+      "zif_system": {
+        "addr": "0x71dd66",
+        "size": 16,
+        "align16": false,
+        "body_hex": "554889e5ba01000000e883fdffff5dc3",
+        "shape": "push rbp; mov rbp,rsp; mov edx,1; call php_exec_ex; pop rbp; ret",
+        "php_exec_ex": "0x71daf7"
+      },
+      "zif_system_refs": [
+        {
+          "section": ".rodata",
+          "ptr_addr": "0xb2d3c8",
+          "fname_ptr": "0xa231fb",
+          "fname": "system",
+          "arg_info": "0xb37480",
+          "num_args": 2,
+          "flags": "0x0",
+          "kind": "zend_function_entry",
+          "entry_addr": "0xb2d3c0"
+        }
+      ],
+      "zend_function_entry": {
+        "addr": "0xb2d3c0",
+        "section": ".rodata",
+        "section_flags": "0x2",
+        "section_writable": false,
+        "entry_size": 32,
+        "fname_ptr": "0xa231fb",
+        "fname": "system",
+        "handler": "0x71dd66",
+        "arg_info": "0xb37480",
+        "num_args": 2,
+        "flags": "0x0"
+      },
+      "arg_info": {
+        "addr": "0xb37480",
+        "header_name_word": "0x1",
+        "required_num_args": 1,
+        "return_type_mask": null,
+        "args": [
+          {
+            "index": 1,
+            "name": "command",
+            "name_ptr": "0xa24734",
+            "type_word": "0x0",
+            "pass_by_reference": 0,
+            "is_variadic": 0
+          },
+          {
+            "index": 2,
+            "name": "return_value",
+            "name_ptr": "0xa24957",
+            "type_word": "0x0",
+            "pass_by_reference": 1,
+            "is_variadic": 0
+          }
+        ]
+      },
+      "static_zend_function_with_handler_zif_system": [],
+      "alignment": {
+        "ps_serializers": "0xe01060",
+        "ps_serializers_mod16": 0,
+        "ps_globals": "0xe02cc0",
+        "ps_serializer_abs": "0xe02df0",
+        "ps_serializer_abs_mod16": 0,
+        "decode_slot": "0xe010a0",
+        "decode_slot_mod16": 0,
+        "all_slots_16_aligned": true
+      },
+      "serializers": [
+        {
+          "idx": 0,
+          "entry_addr": "0xe01060",
+          "name": "php_serialize",
+          "encode": "0x6d2214",
+          "decode": "0x6d2274",
+          "decode_slot_addr": "0xe01070",
+          "decode_slot_mod16": 0
+        },
+        {
+          "idx": 1,
+          "entry_addr": "0xe01078",
+          "name": "php",
+          "encode": "0x6d5fcc",
+          "decode": "0x6d5e5f",
+          "decode_slot_addr": "0xe01088",
+          "decode_slot_mod16": 8
+        },
+        {
+          "idx": 2,
+          "entry_addr": "0xe01090",
+          "name": "php_binary",
+          "encode": "0x6d5a77",
+          "decode": "0x6d5c7f",
+          "decode_slot_addr": "0xe010a0",
+          "decode_slot_mod16": 0
+        }
+      ],
+      "decode_call_site": {
+        "addr": "0x6d5847",
+        "call_bytes": "ff5010",
+        "len_load": "mov 0x10(%rdi),%rsi",
+        "val_load": "add $0x18,%rdi",
+        "serializer_slot": "0xe02df0",
+        "window_hex": "d572004885c0741f488b77104883c718ff501089",
+        "rsi_is_len": true,
+        "rdi_is_val": true,
+        "abi": "rdi = ZSTR_VAL(session_payload) (zend_string+0x18); rsi = ZSTR_LEN(session_payload) (zend_string+0x10); call *0x10(serializer)"
+      },
+      "return_value_writes": [
+        "0x71da78 mov %r12,(%rax); 0x71da7b movl $0x106,0x8(%rax) (RETVAL_STRINGL)",
+        "0x71daa1 mov %rax,(%rcx); 0x71daa4 movl $0x6,0x8(%rcx) (RETVAL_EMPTY_STRING)",
+        "err path RETVAL_FALSE writes IS_FALSE through the same saved pointer (source 7.4 exec.c err label)"
+      ],
+      "execute_data_map": {
+        "base": "session payload buffer (rdi)",
+        "func": "buf+0x18 (not dereferenced on php_exec_ex fast path)",
+        "this_u2_num_args": "buf+0x2c (mode=1 accepts 1 or 2)",
+        "arg1_zval": "buf+0x50",
+        "arg1_type_info_byte": "buf+0x58 (must be 6 = IS_STRING)",
+        "zend_string_val": "ptr+0x18",
+        "zend_string_len": "ptr+0x10",
+        "func_deref_on_success_path": false
+      },
+      "route_verdict": "blocked_after_exec: command runs, then php_exec writes a zval through return_value=(zval*)rsi=session_length -> SIGSEGV",
+      "blockers": [
+        "php_exec(mode, cmd, NULL, return_value) writes a zval through parameter 4; zif_system forwards rsi unchanged, so return_value = (zval*)ZSTR_LEN(session payload) (small integer, unmapped) -> worker SIGSEGV after the command runs. Evidence: php_exec_ex stores rsi at -0x50(%rbp) and reloads it into rcx before both php_exec calls; php_exec does mov %rax,(%rcx); movl $0x6,0x8(%rcx) (and the false/empty paths also store through rcx).",
+        "fake execute_data must live in the session buffer; arg1 zval needs an absolute zend_string pointer, so the session buffer address must be known (heap leak or ASLR-off). func at buf+0x18 is not read on the successful parse path, so it may be any readable value.",
+        "no static zend_function (type=ZEND_INTERNAL_FUNCTION, handler=zif_system, function_name='system') exists in .data/.data.rel.ro or any alloc section; only a read-only .rodata zend_function_entry exists. The runtime zend_internal_function is allocated by zend_register_functions() at startup (heap), so it has no ELF address.",
+        "address is build specific; 0x88f6a7 is the 8.5.10 reference only."
+      ],
+      "v6_crosscheck": {
+        "zend_eval_string_match": true,
+        "decode_target_match": true,
+        "ps_serializer_abs_match": true
+      }
+    },
+    "8.5.10": {
+      "binary": "/home/davide/ailocal/php/zerodays_1020/build_plainpie/sapi/fpm/php-fpm",
+      "md5": "825470df6b9fa7d0178a1a9bcf4ce6dc",
+      "build_id": "3d459b79bdd7d0fb8181e21fec72783062e6f6d9",
+      "size_bytes": 42900672,
+      "elf_type": "ET_EXEC",
+      "pie": false,
+      "df_1_pie": false,
+      "symbols": {
+        "zif_system": "0x88f6a7",
+        "php_exec_ex": "0x88f435",
+        "php_exec": "0x88f21f",
+        "zend_eval_string": "0x9cfd10",
+        "zend_eval_stringl": "0x9cfac1",
+        "zif_exec": "0x88f697",
+        "zif_passthru": "0x88f6b7",
+        "zif_shell_exec": "0x88fe10",
+        "zif_popen": "0x89233d",
+        "zif_proc_open": "0x8c1e43",
+        "ps_serializers": "0x14c1b20",
+        "ps_globals": "0x14c6000",
+        "arginfo_system": "0x103d960",
+        "php_session_decode": "0x83db0f",
+        "php_session_initialize": "0x83fed3"
+      },
+      "symbol_types": {
+        "zif_system": "STT_FUNC",
+        "php_exec_ex": "STT_FUNC",
+        "php_exec": "STT_FUNC",
+        "zend_eval_string": "STT_FUNC"
+      },
+      "zif_system": {
+        "addr": "0x88f6a7",
+        "size": 16,
+        "align16": false,
+        "body_hex": "554889e5ba01000000e880fdffff5dc3",
+        "shape": "push rbp; mov rbp,rsp; mov edx,1; call php_exec_ex; pop rbp; ret",
+        "php_exec_ex": "0x88f435"
+      },
+      "zif_system_refs": [
+        {
+          "section": ".rodata",
+          "ptr_addr": "0x1036c28",
+          "fname_ptr": "0xe05d5a",
+          "fname": "system",
+          "arg_info": "0x103d960",
+          "num_args": 2,
+          "flags": "0x0",
+          "kind": "zend_function_entry",
+          "entry_addr": "0x1036c20"
+        }
+      ],
+      "zend_function_entry": {
+        "addr": "0x1036c20",
+        "section": ".rodata",
+        "section_flags": "0x2",
+        "section_writable": false,
+        "entry_size": 48,
+        "fname_ptr": "0xe05d5a",
+        "fname": "system",
+        "handler": "0x88f6a7",
+        "arg_info": "0x103d960",
+        "num_args": 2,
+        "flags": "0x0"
+      },
+      "arg_info": {
+        "addr": "0x103d960",
+        "header_name_word": "0x1",
+        "required_num_args": 1,
+        "return_type_mask": "0x44",
+        "args": [
+          {
+            "index": 1,
+            "name": "command",
+            "name_ptr": "0xe0ee1e",
+            "type_mask": "0x40",
+            "pass_by_ref": false,
+            "default_value": null
+          },
+          {
+            "index": 2,
+            "name": "result_code",
+            "name_ptr": "0xe0efc6",
+            "type_mask": "0x2000000",
+            "pass_by_ref": true,
+            "default_value": "null"
+          }
+        ]
+      },
+      "static_zend_function_with_handler_zif_system": [],
+      "alignment": {
+        "ps_serializers": "0x14c1b20",
+        "ps_serializers_mod16": 0,
+        "ps_globals": "0x14c6000",
+        "ps_serializer_abs": "0x14c6160",
+        "ps_serializer_abs_mod16": 0,
+        "decode_slot": "0x14c1b60",
+        "decode_slot_mod16": 0,
+        "all_slots_16_aligned": true
+      },
+      "serializers": [
+        {
+          "idx": 0,
+          "entry_addr": "0x14c1b20",
+          "name": "php_serialize",
+          "encode": "0x8391af",
+          "decode": "0x83920f",
+          "decode_slot_addr": "0x14c1b30",
+          "decode_slot_mod16": 0
+        },
+        {
+          "idx": 1,
+          "entry_addr": "0x14c1b38",
+          "name": "php",
+          "encode": "0x83e387",
+          "decode": "0x83e225",
+          "decode_slot_addr": "0x14c1b48",
+          "decode_slot_mod16": 8
+        },
+        {
+          "idx": 2,
+          "entry_addr": "0x14c1b50",
+          "name": "php_binary",
+          "encode": "0x83dd97",
+          "decode": "0x83e04f",
+          "decode_slot_addr": "0x14c1b60",
+          "decode_slot_mod16": 0
+        }
+      ],
+      "decode_call_site": {
+        "addr": "0x83db66",
+        "call_bytes": "ff5010",
+        "len_load": "mov 0x10(%rax),%rsi",
+        "val_load": "lea 0x18(%rax),%rdi",
+        "serializer_slot": "0x14c6160",
+        "window_hex": "ff488b7010488d7818488b05fa85c800ff501041",
+        "rsi_is_len": true,
+        "rdi_is_val": true,
+        "abi": "rdi = ZSTR_VAL(session_payload) (zend_string+0x18); rsi = ZSTR_LEN(session_payload) (zend_string+0x10); call *0x10(serializer)"
+      },
+      "return_value_writes": [
+        "0x88f2aa movl $0x2,0x8(%rax) (RETVAL_FALSE)",
+        "0x88f3ca mov %rbx,(%rax); 0x88f3cd movl $0x106,0x8(%rax) (RETVAL_STRINGL)",
+        "0x88f3e1 mov %rax,(%rcx) (RETVAL_EMPTY_STRING)"
+      ],
+      "execute_data_map": {
+        "base": "session payload buffer (rdi)",
+        "func": "buf+0x18 (not dereferenced on php_exec_ex fast path)",
+        "this_u2_num_args": "buf+0x2c (mode=1 accepts 1 or 2)",
+        "arg1_zval": "buf+0x50",
+        "arg1_type_info_byte": "buf+0x58 (must be 6 = IS_STRING)",
+        "zend_string_val": "ptr+0x18",
+        "zend_string_len": "ptr+0x10",
+        "func_deref_on_success_path": false
+      },
+      "route_verdict": "blocked_after_exec: command runs, then php_exec writes a zval through return_value=(zval*)rsi=session_length -> SIGSEGV",
+      "blockers": [
+        "php_exec(mode, cmd, NULL, return_value) writes a zval through parameter 4; zif_system forwards rsi unchanged, so return_value = (zval*)ZSTR_LEN(session payload) (small integer, unmapped) -> worker SIGSEGV after the command runs. Evidence: php_exec_ex stores rsi at -0x50(%rbp) and reloads it into rcx before both php_exec calls; php_exec does mov %rax,(%rcx); movl $0x6,0x8(%rcx) (and the false/empty paths also store through rcx).",
+        "fake execute_data must live in the session buffer; arg1 zval needs an absolute zend_string pointer, so the session buffer address must be known (heap leak or ASLR-off). func at buf+0x18 is not read on the successful parse path, so it may be any readable value.",
+        "no static zend_function (type=ZEND_INTERNAL_FUNCTION, handler=zif_system, function_name='system') exists in .data/.data.rel.ro or any alloc section; only a read-only .rodata zend_function_entry exists. The runtime zend_internal_function is allocated by zend_register_functions() at startup (heap), so it has no ELF address.",
+        "address is build specific; 0x88f6a7 is the 8.5.10 reference only."
+      ],
+      "v6_crosscheck": {
+        "zend_eval_string_match": true,
+        "decode_target_match": true,
+        "ps_serializer_abs_match": true
+      }
+    }
+  },
+  "reference_match": "8.5.10"
+}
