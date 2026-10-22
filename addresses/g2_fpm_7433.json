@@ -180,7 +180,7 @@
     "no claim is made for other session savers, opcache, ZTS or shared pools"
   ],
   "receipts": {
-    "V6": "/tmp/opencode/research/veroff_20261021_215718"
+    "V6": "receipts/veroff_g2_1021"
   },
   "eol": "2022-11-28"
 }
