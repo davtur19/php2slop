@@ -276,7 +276,7 @@
   "receipts": {
     "F12b": "/tmp/opencode/research/f12b_zif_20261021T222457Z",
     "F12b_producer": "/tmp/opencode/research/wikitype_20261021T212610Z",
-    "G6_lab": "/tmp/opencode/research/g6zif_20261021T222434Z",
+    "G6_lab": "receipts/g6zif_1021",
     "G2_lab": "/tmp/opencode/research/fpmgadget_20261021T211940Z",
     "F14": "/tmp/opencode/research/fpmboot_20261021T214637Z",
     "F14_staticleak": "/tmp/opencode/research/staticleak_20261021T214538Z",

@@ -297,7 +297,7 @@ the assembled key1.
 The record is `[0x60][96-byte key][i:<zif decimal address>;]` plus
 `\x01zs:<L>:"<payload>";`; the fake P and B0 sit in the payload relative to X1,
 and `F` is relative to X2. Hashes for the reference command
-`touch /tmp/opencode/research/g6zif_20261021T222434Z/FPM_ZIF`:
+`touch receipts/g6zif_1021/FPM_ZIF`:
 `zif_system` `3ba454f85777e57230330fd483401dbfd384570b635d0818b0a93e4454f7354f`,
 `zif_passthru` `a3622221a56ef25cb1e652a590b0fd22f52a2c919bd9aeff28957b448b81a84f`.
 
@@ -347,7 +347,7 @@ live G6 run; the other symbols are binary-derived profile data. G6 still needs
 X1, X2, P and B0, and no
 ASLR-capable heap leak is demonstrated. The G6 proof is a private ASLR-off lab
 run, not a real-target claim. Receipt:
-`/tmp/opencode/research/g6zif_20261021T222434Z/README.md`.
+`receipts/g6zif_1021/README.md`.
 
 ## F12b realapps zif decode (real-target RCE)
 
