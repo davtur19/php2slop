@@ -1,0 +1,7 @@
+[*] rotating worker over HTTP
+[*] stage 1 attempt 1
+[*] rotating worker over HTTP
+[*] stage 2 attempt 1
+[*] rotating worker over HTTP
+RESULT {"container": "9bieaslr-8511-on-8M", "stages": {"stage1_attempts": 1, "stage1": "0x7f6a9c200000", "stage2_attempts": 1, "stage2": "0x0"}, "proof": "", "result": "FAIL"}
+exit=1

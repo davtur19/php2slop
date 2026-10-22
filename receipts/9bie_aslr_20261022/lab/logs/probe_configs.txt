@@ -1,0 +1,88 @@
+== 9bieaslr-8426-on-8M ==
+display_errors=1
+memory_limit=8M
+post_max_size=64M
+max_input_vars=1000
+session.use_cookies=1
+session.use_strict_mode=0
+session.upload_progress.enabled=1
+session.save_path=/tmp
+PHP=8.4.26
+children: 2
+== 9bieaslr-8511-on-8M ==
+display_errors=1
+memory_limit=8M
+post_max_size=64M
+max_input_vars=1000
+session.use_cookies=1
+session.use_strict_mode=0
+session.upload_progress.enabled=1
+session.save_path=/tmp
+PHP=8.5.11
+children: 2
+== 9bieaslr-8511-on-def ==
+display_errors=1
+memory_limit=128M
+post_max_size=64M
+max_input_vars=1000
+session.use_cookies=1
+session.use_strict_mode=0
+session.upload_progress.enabled=1
+session.save_path=/tmp
+PHP=8.5.11
+children: 2
+== 9bieaslr-8426-off-8M ==
+display_errors=
+memory_limit=8M
+post_max_size=64M
+max_input_vars=1000
+session.use_cookies=1
+session.use_strict_mode=0
+session.upload_progress.enabled=1
+session.save_path=/tmp
+PHP=8.4.26
+children: 2
+== 9bieaslr-8511-off-8M ==
+display_errors=
+memory_limit=8M
+post_max_size=64M
+max_input_vars=1000
+session.use_cookies=1
+session.use_strict_mode=0
+session.upload_progress.enabled=1
+session.save_path=/tmp
+PHP=8.5.11
+children: 2
+== 9bieaslr-8511-on-16M ==
+display_errors=1
+memory_limit=16M
+post_max_size=64M
+max_input_vars=1000
+session.use_cookies=1
+session.use_strict_mode=0
+session.upload_progress.enabled=1
+session.save_path=/tmp
+PHP=8.5.11
+children: 2
+== 9bieaslr-8426-on-def ==
+display_errors=1
+memory_limit=128M
+post_max_size=64M
+max_input_vars=1000
+session.use_cookies=1
+session.use_strict_mode=0
+session.upload_progress.enabled=1
+session.save_path=/tmp
+PHP=8.4.26
+children: 2
+== 9bieaslr-8426-on-16M ==
+display_errors=1
+memory_limit=16M
+post_max_size=64M
+max_input_vars=1000
+session.use_cookies=1
+session.use_strict_mode=0
+session.upload_progress.enabled=1
+session.save_path=/tmp
+PHP=8.4.26
+children: 2

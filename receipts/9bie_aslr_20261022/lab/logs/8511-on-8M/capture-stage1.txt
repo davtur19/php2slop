@@ -1,0 +1,4 @@
+[*] rotating worker over HTTP
+STAGE1_RET 0x7f6a9c200000
+RESP1 status=200 wire_cookie_len=0 decoded_cookie_len=0 head_len=213 total_len=693
+RESP2 status=200 wire_cookie_len=11386 decoded_cookie_len=4096 head_len=11631 total_len=12195

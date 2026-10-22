@@ -1,0 +1,100 @@
+# Receipt metadata — 9bie php2shell-bypass-aslr-exp analysis
+# Generated 2026-10-22 (UTC). Companion to report.md / README.md.
+
+receipt_path       = /tmp/opencode/research/9bie_aslr_20261022T095015Z
+receipt_date_utc   = 2026-10-22
+analyst_env        = Linux 6.12.113+deb13-amd64, Python 3.13.5, Docker 26.1.5, curl 8.14.1
+
+## Repository under test
+repo_url           = https://github.com/9bie/php2shell-bypass-aslr-exp
+repo_commit        = 4586f5cc120c82fd468b17469202bac629810ad9
+repo_commit_date   = 2026-10-21 22:53:37 +0800
+repo_commit_subject= README: add English translation (readme_en.md)
+repo_tracked_files = 293 (294 in the working tree; no SHA256SUMS shipped)
+repo_clone         = ./repo (not included in checksum set)
+prior_receipt      = /home/davide/ailocal/php/phpshell/receipts/9bie_1022 (same HEAD, PHP 8.4.26 only)
+
+## Source trees used for static anchors
+src/php-8.4.26     : php-src 8.4.26, PHP_VERSION "8.4.26", PHP_VERSION_ID 80426
+src/php-8.5.11     : php-src 8.5.11, PHP_VERSION "8.5.11"
+anchor_map         = lab/logs/source-anchors-8.5.11.txt
+
+## Container images
+php:8.4.26-apache
+  image_id         = sha256:46b195b6378e712d1a65cd3f853242bebd7f3cb4cafe137fd592b365909d2c17
+  repo_digest      = php@sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a
+  created          = 2026-10-21T00:32:27Z
+  php              = PHP 8.4.26 (cli) (built: Oct 21 2026 00:31:19) (NTS)
+  apache           = Apache/2.4.69 (Debian), prefork + mod_php, Debian 12 (bookworm)
+php:8.5.11-apache
+  image_id         = sha256:b384c1b31d2008af2160a735bb856317926f893553293f526024019a31d0fd6b
+  repo_digest      = php@sha256:47e6d8849049375e0d19e81f1b391ed88828d4653e0d1b00822185b66b564e8b
+  created          = 2026-10-21T00:27:07Z
+  php              = PHP 8.5.11 (cli) (built: Oct 21 2026 00:25:58) (NTS)
+  apache           = Apache/2.4.69 (Debian), prefork + mod_php, Debian 12 (bookworm)
+
+## Containers (all loopback-only, 127.0.0.1, no mounts, not privileged)
+name                    port   php     display_errors  memory_limit  container_id
+9bieaslr-8426-on-8M     18230  8.4.26  On              8M            c5bf0ce48c19d244a79c271af52483755cf39bded598d31fd36be53f5b02d93d
+9bieaslr-8426-off-8M    18231  8.4.26  Off             8M            3071cae7baacba98fb79959829ad07a1060b6ef41a32a4dc94d0046077e185fc
+9bieaslr-8426-on-16M    18232  8.4.26  On              16M           4750ffaea5c347c2309f5680d75a85ba676519a7c542b2253e735bae63db694d
+9bieaslr-8426-off-16M   18233  8.4.26  Off             16M           1e176eb27fee257c9970e5712bd9d4b4c58eff91dd57495db01daefc6152b208
+9bieaslr-8426-on-def    18234  8.4.26  On              128M          402c471a3dade0238a7bfc71c7d3bd87c420deeb984cb499368f7a954e4b1828
+9bieaslr-8511-on-8M     18235  8.5.11  On              8M            66b2df6f168d26244f6c9aecc08cf68a001b16aa265fa9504a80626a9cac07bd
+9bieaslr-8511-off-8M    18236  8.5.11  Off             8M            d76fb807fe5b2cc93b5e8e5ebccbaacd444fffe82c8bf31ba2396cdc0d0049cf
+9bieaslr-8511-on-16M    18237  8.5.11  On              16M           042c058d9a3b278706010adb5d9cb13bf7a4cd522c14ce5aa028f08297d0a237
+9bieaslr-8511-off-16M   18238  8.5.11  Off             16M           895e43aad0ed93087feed69961ffc3bbcb130b6bd6452678154518289c5881ae
+9bieaslr-8511-on-def    18239  8.5.11  On              128M          a72991d6108b8e707b61371c1de70498e3f0dfb98d46027af4bc37928a594852
+
+Container setup: docker run -d -p 127.0.0.1:<port>:80 <image>; index.php, mpm_prefork.conf,
+apache-single.conf and the per-container php.ini copied in with `docker cp`; apache2ctl -k restart.
+Network: default bridge; DNS/outbound not used by the exploit. Ports published only on loopback.
+
+## ASLR / isolation ground truth
+host randomize_va_space = 2
+container personality   = 00000000 (ADDR_NO_RANDOMIZE not set)
+binds                   = null for all ten containers
+mounts                  = [] for all ten containers
+privileged              = false for all ten containers
+evidence                = lab/logs/isolation.txt, lab/logs/aslr-groundtruth.txt
+leaked libphp bases matched /proc/1/maps in 6/6 On containers (see report §4.4).
+
+## Exploit constants / offsets used (measured against the lab libphp copies)
+                       PHP 8.4.26          PHP 8.5.11
+zif_system             0x465370 (t)        0x5996e0 (t)
+zval_ptr_dtor          0x65eb60 (T)        0x7b47a0 (T)
+bookworm HTDATA        chunk+0x690d8       chunk+0x690d8 (verified)
+stage1 filler count    841                 841 (verified)
+stage2 target array    a0443, 16 elems     a0443, 16 elems (verified)
+stage3 pads            6 x (name31,val31)  6 x (name31,val31) (verified)
+proof command          id>/tmp/p1 (11 B)   id>/tmp/p1 (11 B)
+libphp SHA-256         51663cf883b1223436d4c99f31dd0225735ea5573665e4242621eee7f4ee679c
+                       2c80ca2a245ca1ccca9946f30ebeca210b9689bc24f2bd07eda717d70108ee5d
+Symbols checked with nm on lab/libphp/libphp-8.4.26.so and libphp-8.5.11.so.
+The two 46 MB binaries stay in the scratch receipt only; their SHA-256 values above pin them.
+
+## Method
+- lab/driver_one.py imports the repo's own Exploit class and uses its rotate/stage1/stage2/stage3.
+- Proof detection: docker exec <container> cat /tmp/p1 (no host mount).
+- Unmodified exploit control: lab/run_exploit.sh, logs in lab/logs/8426-on-8M/run1.log.
+- Runs strictly sequential per container; six early concurrent runs discarded to lab/logs/_invalid_concurrent/.
+- n = 2-3 per matrix row; existence/one-shot measurements, not reliability rates.
+
+## CVE facts (CVE-2026-109618)
+published          = 2026-10-21T14:17:09Z (NVD)
+CNA CVSS 4.0       = 9.2 Critical, CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N
+NVD CVSS 3.1       = 9.8 Critical, CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+weaknesses         = CWE-416, CWE-755, CWE-824, CWE-1325
+affected ranges    = 8.2.* < 8.2.35; 8.3.* < 8.3.36; 8.4.* < 8.4.27; 8.5.* < 8.5.12
+fix commit         = 3584a98bda0f2c0d367255b046798b0d3a221a19 "Avoid state corruption via bailout"
+fix behavior       = php_rinit_session_globals() at MULTIPART_EVENT_START; OOM bailout -> UnwindExit
+8.5.11 status      = vulnerable; session.c:3193 MULTIPART_EVENT_START has no reset (verified in src/php-8.5.11)
+
+## Provenance / limits
+- No commit was made to the project repository.
+- This receipt is copied to /home/davide/ailocal/php/phpshell/receipts/9bie_aslr_20261022/
+  as report.md, README.md, metadata.txt, SHA256SUMS and lab/ (lab/libphp binaries,
+  the repo clone and PHP source trees are omitted).
+- FPM, PHP 8.2.34 and PHP 7.x were not run in this receipt.
+- 128M stage-3 failure is an uncalibrated-geometry result, not proof of impossibility.
+- Repo clone and PHP source trees are excluded from SHA256SUMS; image digests above pin them.

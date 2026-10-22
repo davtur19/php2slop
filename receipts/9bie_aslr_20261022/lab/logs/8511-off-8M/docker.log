@@ -1,0 +1,181 @@
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.35. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.35. Set the 'ServerName' directive globally to suppress this message
+[Thu Oct 22 09:57:43.634279 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.5.11 configured -- resuming normal operations
+[Thu Oct 22 09:57:43.634297 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Thu Oct 22 09:57:43.735275 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00173: SIGHUP received.  Attempting to restart
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.35. Set the 'ServerName' directive globally to suppress this message
+[Thu Oct 22 09:57:43.746246 2026] [mpm_prefork:warn] [pid 1:tid 1] AH00179: changing ServerLimit to 1 from original value of 256 not allowed during restart
+[Thu Oct 22 09:57:43.751302 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.5.11 configured -- resuming normal operations
+[Thu Oct 22 09:57:43.751311 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Thu Oct 22 09:57:43.751354 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.35. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.35. Set the 'ServerName' directive globally to suppress this message
+[Thu Oct 22 09:57:45.168273 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.5.11 configured -- resuming normal operations
+[Thu Oct 22 09:57:45.168312 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+172.17.0.1 - - [22/Oct/2026:09:57:46 +0000] "GET /index.php HTTP/1.1" 200 195 "-" "curl/8.14.1"
+172.17.0.1 - - [22/Oct/2026:09:58:01 +0000] "GET /probe.php HTTP/1.1" 200 403 "-" "curl/8.14.1"
+172.17.0.1 - - [22/Oct/2026:10:00:24 +0000] "GET /probe.php HTTP/1.1" 200 403 "-" "curl/8.14.1"
+[Thu Oct 22 10:09:36.561852 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:59780] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:09:36.565055 2026] [php:error] [pid 17:tid 17] [client 172.17.0.1:59780] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 1585152 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:09:36 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+zend_mm_heap corrupted
+[Thu Oct 22 10:09:37.831679 2026] [mpm_prefork:error] [pid 1:tid 1] AH00161: server reached MaxRequestWorkers setting, consider raising the MaxRequestWorkers setting
+[Thu Oct 22 10:09:37.832057 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)
+[Thu Oct 22 10:09:38.846590 2026] [php:warn] [pid 31:tid 31] [client 172.17.0.1:59806] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:09:38.849967 2026] [php:error] [pid 31:tid 31] [client 172.17.0.1:59806] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 2098791 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:09:38 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+[Thu Oct 22 10:09:39.058702 2026] [php:warn] [pid 31:tid 31] [client 172.17.0.1:34630] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Thu Oct 22 10:09:39.058713 2026] [php:warn] [pid 31:tid 31] [client 172.17.0.1:34630] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp) in Unknown on line 0
+[Thu Oct 22 10:09:39.058717 2026] [php:warn] [pid 31:tid 31] [client 172.17.0.1:34630] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:09:39 +0000] "POST /index.php HTTP/1.1" 200 195 "-" "-"
+[Thu Oct 22 10:09:39.089727 2026] [php:warn] [pid 31:tid 31] [client 172.17.0.1:34640] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:09:39.091337 2026] [php:error] [pid 31:tid 31] [client 172.17.0.1:34640] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 1585152 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:09:39 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+zend_mm_heap corrupted
+[Thu Oct 22 10:09:39.833987 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 31 exit signal Abort (6)
+[Thu Oct 22 10:09:40.840472 2026] [php:warn] [pid 38:tid 38] [client 172.17.0.1:34664] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:09:40.841930 2026] [php:error] [pid 38:tid 38] [client 172.17.0.1:34664] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 1585152 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:09:40 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+zend_mm_heap corrupted
+[Thu Oct 22 10:09:41.836330 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 38 exit signal Abort (6)
+[Thu Oct 22 10:09:42.839457 2026] [php:warn] [pid 39:tid 39] [client 172.17.0.1:34692] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:09:42.842451 2026] [php:error] [pid 39:tid 39] [client 172.17.0.1:34692] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 2098791 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:09:42 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+[Thu Oct 22 10:09:43.067228 2026] [php:warn] [pid 39:tid 39] [client 172.17.0.1:34702] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Thu Oct 22 10:09:43.067241 2026] [php:warn] [pid 39:tid 39] [client 172.17.0.1:34702] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp) in Unknown on line 0
+[Thu Oct 22 10:09:43.067246 2026] [php:warn] [pid 39:tid 39] [client 172.17.0.1:34702] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:09:43 +0000] "POST /index.php HTTP/1.1" 200 195 "-" "-"
+[Thu Oct 22 10:09:43.097916 2026] [php:warn] [pid 39:tid 39] [client 172.17.0.1:34712] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:09:43.099414 2026] [php:error] [pid 39:tid 39] [client 172.17.0.1:34712] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 1585152 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:09:43 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+zend_mm_heap corrupted
+[Thu Oct 22 10:09:43.839004 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 39 exit signal Abort (6)
+[Thu Oct 22 10:10:32.552388 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:37638] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:10:32 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:10:32 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:34 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:34 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:34 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:34 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:35 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:35 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:35 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:35 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:36 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:36 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:11:37.021485 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50648] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:11:37 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:37 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:11:37.591762 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:37196] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:11:37 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:37 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:46 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:46 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:46 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:46 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:46 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:46 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:47 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:47 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:47 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:47 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:11:47.917473 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:51122] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 32768 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:11:47 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:47 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:11:48.288619 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:51132] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 32768 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:11:48 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:48 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:11:48.656040 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:51152] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 32768 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:11:48 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:48 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:11:49.027127 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:51174] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 32768 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:11:49 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:49 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:11:49.397788 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:51192] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 40960 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:11:49 +0000] "POST /index.php HTTP/1.1" 500 211 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:11:49 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:56.337693 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50092] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:56.413293 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50098] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:56.490604 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50110] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:56.563792 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50122] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:56.639752 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50148] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:56.713174 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50168] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:56.790262 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50174] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:56.870021 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50188] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:56.944036 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50192] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:56 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:57.017350 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50208] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:57.090777 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50228] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:57.164974 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50246] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:57.240391 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50258] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:57.319720 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50262] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:57.397357 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50280] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:57.473615 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:50286] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:57.558832 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:41138] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:57.637657 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:41168] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:57.719827 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:41172] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:57.799094 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:41202] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:57.878854 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:41216] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:57.950223 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:41230] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:57 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:58 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+[Thu Oct 22 10:14:58.024412 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:41244] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:58 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 10:14:58.096514 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:41256] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 24576 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:14:58 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:14:58 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:10:17:20 +0000] "GET /probe.php HTTP/1.1" 200 403 "-" "curl/8.14.1"
+[Thu Oct 22 10:18:55.784571 2026] [php:warn] [pid 40:tid 40] [client 172.17.0.1:42934] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:18:55.786052 2026] [php:error] [pid 40:tid 40] [client 172.17.0.1:42934] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 1585152 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:18:55 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+zend_mm_heap corrupted
+[Thu Oct 22 10:18:56.369384 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 40 exit signal Abort (6)
+[Thu Oct 22 10:18:57.372255 2026] [php:warn] [pid 57:tid 57] [client 172.17.0.1:42960] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:18:57.375415 2026] [php:error] [pid 57:tid 57] [client 172.17.0.1:42960] PHP Fatal error:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 2098791 bytes) in Unknown on line 0\nStack trace:\n#0 {main}
+172.17.0.1 - - [22/Oct/2026:10:18:57 +0000] "POST /index.php HTTP/1.1" 500 275 "-" "-"
+[Thu Oct 22 10:18:57.589326 2026] [php:warn] [pid 57:tid 57] [client 172.17.0.1:43644] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Thu Oct 22 10:18:57.589338 2026] [php:warn] [pid 57:tid 57] [client 172.17.0.1:43644] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp) in Unknown on line 0
+[Thu Oct 22 10:18:57.589343 2026] [php:warn] [pid 57:tid 57] [client 172.17.0.1:43644] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:18:57 +0000] "POST /index.php HTTP/1.1" 200 195 "-" "-"

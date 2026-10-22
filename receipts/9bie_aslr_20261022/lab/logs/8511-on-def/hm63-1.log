@@ -1,0 +1,14 @@
+[*] rotating worker over HTTP
+[*] stage 1 attempt 1
+[*] rotating worker over HTTP
+[*] stage 2 attempt 1
+[*] rotating worker over HTTP
+[*] stage 3: HTDATA=0x7fcc700690d8 ZIF=0x7fcc71f996e0
+[-] stage3 attempt 1: no proof
+[*] rotating worker over HTTP
+[-] stage3 attempt 2: no proof
+[*] rotating worker over HTTP
+[-] stage3 attempt 3: no proof
+[*] rotating worker over HTTP
+RESULT {"container": "9bieaslr-8511-on-def", "stages": {"stage1_attempts": 1, "stage1": "0x7fcc70000000", "stage2_attempts": 1, "stage2": "0x7fcc71a00000", "stage3_attempts": 3}, "proof": "", "result": "NO_PROOF"}
+exit=1

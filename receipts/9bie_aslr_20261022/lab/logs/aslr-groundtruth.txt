@@ -1,0 +1,51 @@
+# ASLR ground truth captured 2026-10-22T10:28:13Z
+# host randomize_va_space=2
+# libphp mapping of PID 1 (Apache master) per container; compare with results.json
+
+## 9bieaslr-8426-on-8M
+7f464a9ca000-7f464ab20000 r--p 00000000 00:173 10796681                  /usr/lib/apache2/modules/libphp.so
+7f464ab20000-7f464b033000 r-xp 00156000 00:173 10796681                  /usr/lib/apache2/modules/libphp.so
+7f464b033000-7f464bb39000 r--p 00669000 00:173 10796681                  /usr/lib/apache2/modules/libphp.so
+personality: 00000000
+apache procs: 1 202 
+index: 200
+
+## 9bieaslr-8511-on-8M
+7f6a9de00000-7f6a9df83000 r--p 00000000 00:397 10887428                  /usr/lib/apache2/modules/libphp.so
+7f6a9df83000-7f6a9e5bf000 r-xp 00183000 00:397 10887428                  /usr/lib/apache2/modules/libphp.so
+7f6a9e5bf000-7f6a9e600000 ---p 007bf000 00:397 10887428                  /usr/lib/apache2/modules/libphp.so
+personality: 00000000
+apache procs: 1 132 
+index: 200
+
+## 9bieaslr-8426-on-16M
+7faf03ed4000-7faf0402a000 r--p 00000000 00:227 10796681                  /usr/lib/apache2/modules/libphp.so
+7faf0402a000-7faf0453d000 r-xp 00156000 00:227 10796681                  /usr/lib/apache2/modules/libphp.so
+7faf0453d000-7faf05043000 r--p 00669000 00:227 10796681                  /usr/lib/apache2/modules/libphp.so
+personality: 00000000
+apache procs: 1 61 
+index: 200
+
+## 9bieaslr-8511-on-16M
+7fa899200000-7fa899383000 r--p 00000000 00:3ab 10887428                  /usr/lib/apache2/modules/libphp.so
+7fa899383000-7fa8999bf000 r-xp 00183000 00:3ab 10887428                  /usr/lib/apache2/modules/libphp.so
+7fa8999bf000-7fa899a00000 ---p 007bf000 00:3ab 10887428                  /usr/lib/apache2/modules/libphp.so
+personality: 00000000
+apache procs: 1 60 
+index: 200
+
+## 9bieaslr-8426-on-def
+7ff97f757000-7ff97f8ad000 r--p 00000000 00:261 10796681                  /usr/lib/apache2/modules/libphp.so
+7ff97f8ad000-7ff97fdc0000 r-xp 00156000 00:261 10796681                  /usr/lib/apache2/modules/libphp.so
+7ff97fdc0000-7ff9808c6000 r--p 00669000 00:261 10796681                  /usr/lib/apache2/modules/libphp.so
+personality: 00000000
+apache procs: 1 91 
+index: 200
+
+## 9bieaslr-8511-on-def
+7fcc71a00000-7fcc71b83000 r--p 00000000 00:16b 10887428                  /usr/lib/apache2/modules/libphp.so
+7fcc71b83000-7fcc721bf000 r-xp 00183000 00:16b 10887428                  /usr/lib/apache2/modules/libphp.so
+7fcc721bf000-7fcc72200000 ---p 007bf000 00:16b 10887428                  /usr/lib/apache2/modules/libphp.so
+personality: 00000000
+apache procs: 1 90 
+index: 200

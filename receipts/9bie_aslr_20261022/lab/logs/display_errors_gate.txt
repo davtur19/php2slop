@@ -1,0 +1,33 @@
+# display_errors gate: Apache error-log signatures (container local time = UTC)
+
+## 9bieaslr-8426-on-8M
+[Thu Oct 22 10:02:51.048579 2026] [php:warn] [pid 160:tid 160] [client 172.17.0.1:53410] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:02:51.048622 2026] [php:warn] [pid 160:tid 160] [client 172.17.0.1:53410] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Thu Oct 22 10:19:06.354724 2026] [php:warn] [pid 170:tid 170] [client 172.17.0.1:57884] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:19:06.354952 2026] [php:warn] [pid 170:tid 170] [client 172.17.0.1:57884] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Thu Oct 22 10:19:07.750000 2026] [php:warn] [pid 202:tid 202] [client 172.17.0.1:57906] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:19:07.750066 2026] [php:warn] [pid 202:tid 202] [client 172.17.0.1:57906] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+
+## 9bieaslr-8511-on-8M
+[Thu Oct 22 10:02:50.929720 2026] [php:warn] [pid 90:tid 90] [client 172.17.0.1:52038] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:02:50.929778 2026] [php:warn] [pid 90:tid 90] [client 172.17.0.1:52038] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Thu Oct 22 10:19:08.039416 2026] [php:warn] [pid 100:tid 100] [client 172.17.0.1:56922] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:19:08.040516 2026] [php:warn] [pid 100:tid 100] [client 172.17.0.1:56922] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Thu Oct 22 10:19:09.617017 2026] [php:warn] [pid 132:tid 132] [client 172.17.0.1:56940] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:19:09.617080 2026] [php:warn] [pid 132:tid 132] [client 172.17.0.1:56940] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+
+## 9bieaslr-8426-off-8M
+[Thu Oct 22 10:09:38.206561 2026] [php:warn] [pid 31:tid 31] [client 172.17.0.1:46812] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:09:39.966525 2026] [php:warn] [pid 38:tid 38] [client 172.17.0.1:46842] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:09:41.965063 2026] [php:warn] [pid 39:tid 39] [client 172.17.0.1:46870] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:09:42.212413 2026] [php:warn] [pid 39:tid 39] [client 172.17.0.1:46900] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:18:53.629433 2026] [php:warn] [pid 40:tid 40] [client 172.17.0.1:57822] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:18:55.501856 2026] [php:warn] [pid 70:tid 70] [client 172.17.0.1:57850] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+
+## 9bieaslr-8511-off-8M
+[Thu Oct 22 10:09:39.089727 2026] [php:warn] [pid 31:tid 31] [client 172.17.0.1:34640] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:09:40.840472 2026] [php:warn] [pid 38:tid 38] [client 172.17.0.1:34664] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:09:42.839457 2026] [php:warn] [pid 39:tid 39] [client 172.17.0.1:34692] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:09:43.097916 2026] [php:warn] [pid 39:tid 39] [client 172.17.0.1:34712] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:18:55.784571 2026] [php:warn] [pid 40:tid 40] [client 172.17.0.1:42934] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:18:57.372255 2026] [php:warn] [pid 57:tid 57] [client 172.17.0.1:42960] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0

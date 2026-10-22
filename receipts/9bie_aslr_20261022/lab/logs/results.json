@@ -1,0 +1,560 @@
+{
+ "date": "2026-10-22",
+ "repo": "4586f5cc120c82fd468b17469202bac629810ad9",
+ "rows": [
+  {
+   "php": "8.4.26",
+   "display_errors": "On",
+   "memory_limit": "8M",
+   "huge_mb": 12,
+   "runs": [
+    {
+     "container": "9bieaslr-8426-on-8M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x7f4648e00000",
+      "stage2_attempts": 1,
+      "stage2": "0x7f464a9ca000",
+      "stage3_attempts": 1
+     },
+     "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)",
+     "result": "RCE",
+     "file": "8426-on-8M/driver-serial1.log"
+    },
+    {
+     "container": "9bieaslr-8426-on-8M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x7f4648e00000",
+      "stage2_attempts": 1,
+      "stage2": "0x7f464a9ca000",
+      "stage3_attempts": 1
+     },
+     "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)",
+     "result": "RCE",
+     "file": "8426-on-8M/driver-serial2.log"
+    },
+    {
+     "container": "9bieaslr-8426-on-8M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x7f4648e00000",
+      "stage2_attempts": 1,
+      "stage2": "0x7f464a9ca000",
+      "stage3_attempts": 1
+     },
+     "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)",
+     "result": "RCE",
+     "file": "8426-on-8M/driver-serial3.log"
+    }
+   ],
+   "summary": {
+    "n": 3,
+    "stage1_ok": 3,
+    "stage2_ok": 3,
+    "rce": 3
+   },
+   "stage1_bases": [
+    "0x7f4648e00000"
+   ],
+   "stage2_bases": [
+    "0x7f464a9ca000"
+   ],
+   "stage3_attempts": [
+    1
+   ]
+  },
+  {
+   "php": "8.5.11",
+   "display_errors": "On",
+   "memory_limit": "8M",
+   "huge_mb": 12,
+   "runs": [
+    {
+     "container": "9bieaslr-8511-on-8M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x7f6a9c200000",
+      "stage2_attempts": 1,
+      "stage2": "0x7f6a9de00000",
+      "stage3_attempts": 1
+     },
+     "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)",
+     "result": "RCE",
+     "file": "8511-on-8M/driver-serial1.log"
+    },
+    {
+     "container": "9bieaslr-8511-on-8M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x7f6a9c200000",
+      "stage2_attempts": 1,
+      "stage2": "0x7f6a9de00000",
+      "stage3_attempts": 1
+     },
+     "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)",
+     "result": "RCE",
+     "file": "8511-on-8M/driver-serial2.log"
+    },
+    {
+     "container": "9bieaslr-8511-on-8M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x7f6a9c200000",
+      "stage2_attempts": 1,
+      "stage2": "0x7f6a9de00000",
+      "stage3_attempts": 1
+     },
+     "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)",
+     "result": "RCE",
+     "file": "8511-on-8M/driver-serial3.log"
+    }
+   ],
+   "summary": {
+    "n": 3,
+    "stage1_ok": 3,
+    "stage2_ok": 3,
+    "rce": 3
+   },
+   "stage1_bases": [
+    "0x7f6a9c200000"
+   ],
+   "stage2_bases": [
+    "0x7f6a9de00000"
+   ],
+   "stage3_attempts": [
+    1
+   ]
+  },
+  {
+   "php": "8.4.26",
+   "display_errors": "On",
+   "memory_limit": "16M",
+   "huge_mb": 12,
+   "runs": [
+    {
+     "container": "9bieaslr-8426-on-16M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x7faf02200000",
+      "stage2_attempts": 1,
+      "stage2": "0x7faf03ed4000",
+      "stage3_attempts": 1
+     },
+     "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)",
+     "result": "RCE",
+     "file": "8426-on-16M/gate1.log"
+    },
+    {
+     "container": "9bieaslr-8426-on-16M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x7faf02200000",
+      "stage2_attempts": 1,
+      "stage2": "0x7faf03ed4000",
+      "stage3_attempts": 1
+     },
+     "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)",
+     "result": "RCE",
+     "file": "8426-on-16M/gate2.log"
+    }
+   ],
+   "summary": {
+    "n": 2,
+    "stage1_ok": 2,
+    "stage2_ok": 2,
+    "rce": 2
+   },
+   "stage1_bases": [
+    "0x7faf02200000"
+   ],
+   "stage2_bases": [
+    "0x7faf03ed4000"
+   ],
+   "stage3_attempts": [
+    1
+   ]
+  },
+  {
+   "php": "8.5.11",
+   "display_errors": "On",
+   "memory_limit": "16M",
+   "huge_mb": 12,
+   "runs": [
+    {
+     "container": "9bieaslr-8511-on-16M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x7fa897600000",
+      "stage2_attempts": 1,
+      "stage2": "0x7fa899200000",
+      "stage3_attempts": 1
+     },
+     "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)",
+     "result": "RCE",
+     "file": "8511-on-16M/gate1.log"
+    },
+    {
+     "container": "9bieaslr-8511-on-16M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x7fa897600000",
+      "stage2_attempts": 1,
+      "stage2": "0x7fa899200000",
+      "stage3_attempts": 1
+     },
+     "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)",
+     "result": "RCE",
+     "file": "8511-on-16M/gate2.log"
+    }
+   ],
+   "summary": {
+    "n": 2,
+    "stage1_ok": 2,
+    "stage2_ok": 2,
+    "rce": 2
+   },
+   "stage1_bases": [
+    "0x7fa897600000"
+   ],
+   "stage2_bases": [
+    "0x7fa899200000"
+   ],
+   "stage3_attempts": [
+    1
+   ]
+  },
+  {
+   "php": "8.4.26",
+   "display_errors": "On",
+   "memory_limit": "128M",
+   "huge_mb": 12,
+   "runs": [
+    {
+     "container": "9bieaslr-8426-on-def",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x0"
+     },
+     "proof": "",
+     "result": "FAIL",
+     "file": "8426-on-def/hm12-1.log"
+    },
+    {
+     "container": "9bieaslr-8426-on-def",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x0"
+     },
+     "proof": "",
+     "result": "FAIL",
+     "file": "8426-on-def/hm12-2.log"
+    }
+   ],
+   "summary": {
+    "n": 2,
+    "stage1_ok": 0,
+    "stage2_ok": 0,
+    "rce": 0
+   },
+   "stage1_bases": [
+    "0x0"
+   ],
+   "stage2_bases": [],
+   "stage3_attempts": []
+  },
+  {
+   "php": "8.5.11",
+   "display_errors": "On",
+   "memory_limit": "128M",
+   "huge_mb": 12,
+   "runs": [
+    {
+     "container": "9bieaslr-8511-on-def",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x0"
+     },
+     "proof": "",
+     "result": "FAIL",
+     "file": "8511-on-def/hm12-1.log"
+    },
+    {
+     "container": "9bieaslr-8511-on-def",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x0"
+     },
+     "proof": "",
+     "result": "FAIL",
+     "file": "8511-on-def/hm12-2.log"
+    }
+   ],
+   "summary": {
+    "n": 2,
+    "stage1_ok": 0,
+    "stage2_ok": 0,
+    "rce": 0
+   },
+   "stage1_bases": [
+    "0x0"
+   ],
+   "stage2_bases": [],
+   "stage3_attempts": []
+  },
+  {
+   "php": "8.4.26",
+   "display_errors": "On",
+   "memory_limit": "128M",
+   "huge_mb": 63,
+   "runs": [
+    {
+     "container": "9bieaslr-8426-on-def",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x7ff97da00000",
+      "stage2_attempts": 1,
+      "stage2": "0x7ff97f757000",
+      "stage3_attempts": 3
+     },
+     "proof": "",
+     "result": "NO_PROOF",
+     "file": "8426-on-def/hm63-1.log"
+    },
+    {
+     "container": "9bieaslr-8426-on-def",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x7ff97da00000",
+      "stage2_attempts": 1,
+      "stage2": "0x7ff97f757000",
+      "stage3_attempts": 3
+     },
+     "proof": "",
+     "result": "NO_PROOF",
+     "file": "8426-on-def/hm63-2.log"
+    }
+   ],
+   "summary": {
+    "n": 2,
+    "stage1_ok": 2,
+    "stage2_ok": 2,
+    "rce": 0
+   },
+   "stage1_bases": [
+    "0x7ff97da00000"
+   ],
+   "stage2_bases": [
+    "0x7ff97f757000"
+   ],
+   "stage3_attempts": [
+    3
+   ]
+  },
+  {
+   "php": "8.5.11",
+   "display_errors": "On",
+   "memory_limit": "128M",
+   "huge_mb": 63,
+   "runs": [
+    {
+     "container": "9bieaslr-8511-on-def",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x7fcc70000000",
+      "stage2_attempts": 1,
+      "stage2": "0x7fcc71a00000",
+      "stage3_attempts": 3
+     },
+     "proof": "",
+     "result": "NO_PROOF",
+     "file": "8511-on-def/hm63-1.log"
+    },
+    {
+     "container": "9bieaslr-8511-on-def",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x7fcc70000000",
+      "stage2_attempts": 1,
+      "stage2": "0x7fcc71a00000",
+      "stage3_attempts": 3
+     },
+     "proof": "",
+     "result": "NO_PROOF",
+     "file": "8511-on-def/hm63-2.log"
+    }
+   ],
+   "summary": {
+    "n": 2,
+    "stage1_ok": 2,
+    "stage2_ok": 2,
+    "rce": 0
+   },
+   "stage1_bases": [
+    "0x7fcc70000000"
+   ],
+   "stage2_bases": [
+    "0x7fcc71a00000"
+   ],
+   "stage3_attempts": [
+    3
+   ]
+  },
+  {
+   "php": "8.4.26",
+   "display_errors": "Off",
+   "memory_limit": "8M",
+   "huge_mb": 12,
+   "runs": [
+    {
+     "container": "9bieaslr-8426-off-8M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x0"
+     },
+     "proof": "",
+     "result": "FAIL",
+     "file": "8426-off-8M/classic1.log"
+    },
+    {
+     "container": "9bieaslr-8426-off-8M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x0"
+     },
+     "proof": "",
+     "result": "FAIL",
+     "file": "8426-off-8M/classic2.log"
+    }
+   ],
+   "summary": {
+    "n": 2,
+    "stage1_ok": 0,
+    "stage2_ok": 0,
+    "rce": 0
+   },
+   "stage1_bases": [
+    "0x0"
+   ],
+   "stage2_bases": [],
+   "stage3_attempts": []
+  },
+  {
+   "php": "8.5.11",
+   "display_errors": "Off",
+   "memory_limit": "8M",
+   "huge_mb": 12,
+   "runs": [
+    {
+     "container": "9bieaslr-8511-off-8M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x0"
+     },
+     "proof": "",
+     "result": "FAIL",
+     "file": "8511-off-8M/classic1.log"
+    },
+    {
+     "container": "9bieaslr-8511-off-8M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x0"
+     },
+     "proof": "",
+     "result": "FAIL",
+     "file": "8511-off-8M/classic2.log"
+    }
+   ],
+   "summary": {
+    "n": 2,
+    "stage1_ok": 0,
+    "stage2_ok": 0,
+    "rce": 0
+   },
+   "stage1_bases": [
+    "0x0"
+   ],
+   "stage2_bases": [],
+   "stage3_attempts": []
+  },
+  {
+   "php": "8.4.26",
+   "display_errors": "Off",
+   "memory_limit": "16M",
+   "huge_mb": 12,
+   "runs": [
+    {
+     "container": "9bieaslr-8426-off-16M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x0"
+     },
+     "proof": "",
+     "result": "FAIL",
+     "file": "8426-off-16M/classic1.log"
+    },
+    {
+     "container": "9bieaslr-8426-off-16M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x0"
+     },
+     "proof": "",
+     "result": "FAIL",
+     "file": "8426-off-16M/classic2.log"
+    }
+   ],
+   "summary": {
+    "n": 2,
+    "stage1_ok": 0,
+    "stage2_ok": 0,
+    "rce": 0
+   },
+   "stage1_bases": [
+    "0x0"
+   ],
+   "stage2_bases": [],
+   "stage3_attempts": []
+  },
+  {
+   "php": "8.5.11",
+   "display_errors": "Off",
+   "memory_limit": "16M",
+   "huge_mb": 12,
+   "runs": [
+    {
+     "container": "9bieaslr-8511-off-16M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x0"
+     },
+     "proof": "",
+     "result": "FAIL",
+     "file": "8511-off-16M/classic1.log"
+    },
+    {
+     "container": "9bieaslr-8511-off-16M",
+     "stages": {
+      "stage1_attempts": 1,
+      "stage1": "0x0"
+     },
+     "proof": "",
+     "result": "FAIL",
+     "file": "8511-off-16M/classic2.log"
+    }
+   ],
+   "summary": {
+    "n": 2,
+    "stage1_ok": 0,
+    "stage2_ok": 0,
+    "rce": 0
+   },
+   "stage1_bases": [
+    "0x0"
+   ],
+   "stage2_bases": [],
+   "stage3_attempts": []
+  }
+ ]
+}

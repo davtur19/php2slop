@@ -1,0 +1,52 @@
+# Source anchors for the CVE-2026-109618 / 9bie chain
+# Local trees: src/php-8.4.26 and src/php-8.5.11 (official php-src tags)
+# All line numbers are 1-based and were checked in this receipt's source trees.
+#
+# The table in report.md section 2.6 uses 8.4.26 line numbers; this file is the
+# 8.5.11 equivalent (and notes the 8.4.26 value for context).
+
+item                                                   8.5.11   8.4.26
+-----------------------------------------------------  -------  -------
+ext/session/session.c
+  php_rinit_session_globals() definition                   111      108
+  php_rinit_session_globals() call in RINIT                209      188
+  php_rinit_session_globals() call in RSHUTDOWN           2863     2899
+  php_session_initialize() definition                      431      419
+  PS(send_cookie) = 1 (new id, s_create_sid path)          469      457
+  PS(send_cookie) = 1 (new id, create_id path)             483      471
+  php_session_reset_id() failure branch                    487      475
+  php_session_send_cookie() definition                    1373     1426
+  SG(headers_sent) check inside send_cookie               1379     1432
+  "Session cookie cannot be sent..." warning              1380     1437/1439
+  php_session_reset_id() definition                       1594     1552
+  PS(send_cookie) = 0 after successful send               1610     1568
+  php_session_rfc1867_update() definition                 3132     3175
+  php_session_initialize() call in rfc1867_update         3153     3196
+  php_session_rfc1867_cleanup() definition                3166     3209
+  php_session_initialize() call in rfc1867_cleanup        3168     3211
+  case MULTIPART_EVENT_START                              3193     3236
+  case MULTIPART_EVENT_FILE_START                         3233     3277
+  case MULTIPART_EVENT_END                                3326     3370
+
+main/php_variables.c
+  "Input variables exceeded ..." max_input_vars warning    557      557
+
+main/SAPI.c
+  SG(headers_sent) = 1 in sapi_send_headers()              903      885
+
+ext/standard/url.c
+  php_url_encode_impl() definition                          450      449
+  zend_string_safe_alloc(3, len, 0, false/0)                542      457
+
+# Facts verified against these anchors
+# - 8.5.11 (like 8.4.26) has NO php_rinit_session_globals() call in
+#   MULTIPART_EVENT_START; the public fix adds it there (fix.patch).
+# - php_session_send_cookie() returns FAILURE before the PS(send_cookie) = 0
+#   assignment when SG(headers_sent) is set, so send_cookie stays 1.
+# - The leaked bytes come from php_url_encode_impl()/zend_string_safe_alloc()
+#   inside send_cookie, not from the warning text.
+# - 8.5.11 shifts: send_cookie -53 lines, reset_id +42, rfc1867 -43/-41,
+#   MULTIPART_EVENT_* -43/-44; SAPI +18, url safe_alloc +85.
+#   The 8.5.11 heap/geometry constants are nevertheless unchanged
+#   (HTDATA=chunk+0x690d8, 841 fillers, a0443/16, 6x(31,31) pads);
+#   only the libphp symbol offsets differ (see metadata.txt).

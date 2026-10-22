@@ -1,0 +1,21 @@
+## isolation
+== 9bieaslr-8426-off-16M
+ports={"80/tcp":[{"HostIp":"127.0.0.1","HostPort":"18233"}]} binds=null mounts=[] network=bridge privileged=false
+== 9bieaslr-8426-off-8M
+ports={"80/tcp":[{"HostIp":"127.0.0.1","HostPort":"18231"}]} binds=null mounts=[] network=bridge privileged=false
+== 9bieaslr-8426-on-16M
+ports={"80/tcp":[{"HostIp":"127.0.0.1","HostPort":"18232"}]} binds=null mounts=[] network=bridge privileged=false
+== 9bieaslr-8426-on-8M
+ports={"80/tcp":[{"HostIp":"127.0.0.1","HostPort":"18230"}]} binds=null mounts=[] network=bridge privileged=false
+== 9bieaslr-8426-on-def
+ports={"80/tcp":[{"HostIp":"127.0.0.1","HostPort":"18234"}]} binds=null mounts=[] network=bridge privileged=false
+== 9bieaslr-8511-off-16M
+ports={"80/tcp":[{"HostIp":"127.0.0.1","HostPort":"18238"}]} binds=null mounts=[] network=bridge privileged=false
+== 9bieaslr-8511-off-8M
+ports={"80/tcp":[{"HostIp":"127.0.0.1","HostPort":"18236"}]} binds=null mounts=[] network=bridge privileged=false
+== 9bieaslr-8511-on-16M
+ports={"80/tcp":[{"HostIp":"127.0.0.1","HostPort":"18237"}]} binds=null mounts=[] network=bridge privileged=false
+== 9bieaslr-8511-on-8M
+ports={"80/tcp":[{"HostIp":"127.0.0.1","HostPort":"18235"}]} binds=null mounts=[] network=bridge privileged=false
+== 9bieaslr-8511-on-def
+ports={"80/tcp":[{"HostIp":"127.0.0.1","HostPort":"18239"}]} binds=null mounts=[] network=bridge privileged=false

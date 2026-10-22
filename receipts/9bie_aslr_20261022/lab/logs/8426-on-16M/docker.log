@@ -1,0 +1,94 @@
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.24. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.24. Set the 'ServerName' directive globally to suppress this message
+[Thu Oct 22 09:57:32.543994 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.4.26 configured -- resuming normal operations
+[Thu Oct 22 09:57:32.544016 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Thu Oct 22 09:57:32.647430 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00173: SIGHUP received.  Attempting to restart
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.24. Set the 'ServerName' directive globally to suppress this message
+[Thu Oct 22 09:57:32.651459 2026] [mpm_prefork:warn] [pid 1:tid 1] AH00179: changing ServerLimit to 1 from original value of 256 not allowed during restart
+[Thu Oct 22 09:57:32.655452 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.4.26 configured -- resuming normal operations
+[Thu Oct 22 09:57:32.655462 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Thu Oct 22 09:57:32.655501 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.24. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.24. Set the 'ServerName' directive globally to suppress this message
+[Thu Oct 22 09:57:34.064918 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.4.26 configured -- resuming normal operations
+[Thu Oct 22 09:57:34.064936 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+172.17.0.1 - - [22/Oct/2026:09:57:35 +0000] "GET /index.php HTTP/1.1" 200 195 "-" "curl/8.14.1"
+172.17.0.1 - - [22/Oct/2026:09:58:01 +0000] "GET /probe.php HTTP/1.1" 200 405 "-" "curl/8.14.1"
+172.17.0.1 - - [22/Oct/2026:10:00:24 +0000] "GET /probe.php HTTP/1.1" 200 405 "-" "curl/8.14.1"
+[Thu Oct 22 10:03:50.001505 2026] [php:warn] [pid 18:tid 18] [client 172.17.0.1:36560] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:03:50.001585 2026] [php:warn] [pid 18:tid 18] [client 172.17.0.1:36560] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Thu Oct 22 10:03:50.007637 2026] [php:error] [pid 18:tid 18] [client 172.17.0.1:36560] PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted (tried to allocate 4197581 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:03:49 +0000] "POST /index.php HTTP/1.1" 200 694 "-" "-"
+zend_mm_heap corrupted
+[Thu Oct 22 10:03:50.418075 2026] [mpm_prefork:error] [pid 1:tid 1] AH00161: server reached MaxRequestWorkers setting, consider raising the MaxRequestWorkers setting
+[Thu Oct 22 10:03:50.418113 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 18 exit signal Abort (6)
+[Thu Oct 22 10:03:51.432149 2026] [php:warn] [pid 32:tid 32] [client 172.17.0.1:36566] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:03:51.432210 2026] [php:warn] [pid 32:tid 32] [client 172.17.0.1:36566] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Thu Oct 22 10:03:51.440492 2026] [php:error] [pid 32:tid 32] [client 172.17.0.1:36566] PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted (tried to allocate 6296371 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:03:51 +0000] "POST /index.php HTTP/1.1" 200 694 "-" "-"
+[Thu Oct 22 10:03:51.651664 2026] [php:warn] [pid 32:tid 32] [client 172.17.0.1:36568] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Thu Oct 22 10:03:51.651678 2026] [php:warn] [pid 32:tid 32] [client 172.17.0.1:36568] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp) in Unknown on line 0
+[Thu Oct 22 10:03:51.651682 2026] [php:warn] [pid 32:tid 32] [client 172.17.0.1:36568] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:03:51 +0000] "POST /index.php HTTP/1.1" 200 12663 "-" "-"
+[Thu Oct 22 10:03:51.690446 2026] [php:warn] [pid 32:tid 32] [client 172.17.0.1:36582] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:03:51.690491 2026] [php:warn] [pid 32:tid 32] [client 172.17.0.1:36582] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Thu Oct 22 10:03:51.695647 2026] [php:error] [pid 32:tid 32] [client 172.17.0.1:36582] PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted (tried to allocate 4197581 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:03:51 +0000] "POST /index.php HTTP/1.1" 200 694 "-" "-"
+zend_mm_heap corrupted
+[Thu Oct 22 10:03:52.420322 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 32 exit signal Abort (6)
+[Thu Oct 22 10:03:53.425230 2026] [php:warn] [pid 33:tid 33] [client 172.17.0.1:36598] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:03:53.425281 2026] [php:warn] [pid 33:tid 33] [client 172.17.0.1:36598] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Thu Oct 22 10:03:53.434878 2026] [php:error] [pid 33:tid 33] [client 172.17.0.1:36598] PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted (tried to allocate 6296371 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:03:53 +0000] "POST /index.php HTTP/1.1" 200 694 "-" "-"
+[Thu Oct 22 10:03:53.645955 2026] [php:warn] [pid 33:tid 33] [client 172.17.0.1:36612] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Thu Oct 22 10:03:53.645969 2026] [php:warn] [pid 33:tid 33] [client 172.17.0.1:36612] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp) in Unknown on line 0
+[Thu Oct 22 10:03:53.645972 2026] [php:warn] [pid 33:tid 33] [client 172.17.0.1:36612] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:03:53 +0000] "POST /index.php HTTP/1.1" 200 855 "-" "-"
+[Thu Oct 22 10:03:53.674943 2026] [php:warn] [pid 33:tid 33] [client 172.17.0.1:36616] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:03:53.674985 2026] [php:warn] [pid 33:tid 33] [client 172.17.0.1:36616] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Thu Oct 22 10:03:53.679909 2026] [php:error] [pid 33:tid 33] [client 172.17.0.1:36616] PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted (tried to allocate 4197581 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:03:53 +0000] "POST /index.php HTTP/1.1" 200 694 "-" "-"
+zend_mm_heap corrupted
+[Thu Oct 22 10:03:54.423015 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 33 exit signal Abort (6)
+[Thu Oct 22 10:03:55.434462 2026] [php:error] [pid 34:tid 34] [client 172.17.0.1:36632] PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted (tried to allocate 6296371 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:03:55 +0000] "POST /index.php HTTP/1.1" 200 368 "-" "-"
+[Thu Oct 22 10:03:56.424336 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 34 exit signal Segmentation fault (11)
+[Thu Oct 22 10:03:57.431095 2026] [php:warn] [pid 49:tid 49] [client 172.17.0.1:36644] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:03:57.431146 2026] [php:warn] [pid 49:tid 49] [client 172.17.0.1:36644] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Thu Oct 22 10:03:57.436875 2026] [php:error] [pid 49:tid 49] [client 172.17.0.1:36644] PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted (tried to allocate 4197581 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:03:57 +0000] "POST /index.php HTTP/1.1" 200 694 "-" "-"
+zend_mm_heap corrupted
+[Thu Oct 22 10:03:58.426932 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 49 exit signal Abort (6)
+[Thu Oct 22 10:03:59.429985 2026] [php:warn] [pid 50:tid 50] [client 172.17.0.1:44188] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:03:59.430039 2026] [php:warn] [pid 50:tid 50] [client 172.17.0.1:44188] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Thu Oct 22 10:03:59.438664 2026] [php:error] [pid 50:tid 50] [client 172.17.0.1:44188] PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted (tried to allocate 6296371 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:03:59 +0000] "POST /index.php HTTP/1.1" 200 694 "-" "-"
+[Thu Oct 22 10:03:59.649023 2026] [php:warn] [pid 50:tid 50] [client 172.17.0.1:44202] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Thu Oct 22 10:03:59.649040 2026] [php:warn] [pid 50:tid 50] [client 172.17.0.1:44202] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp) in Unknown on line 0
+[Thu Oct 22 10:03:59.649045 2026] [php:warn] [pid 50:tid 50] [client 172.17.0.1:44202] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:03:59 +0000] "POST /index.php HTTP/1.1" 200 12345 "-" "-"
+[Thu Oct 22 10:03:59.677013 2026] [php:warn] [pid 50:tid 50] [client 172.17.0.1:44218] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:03:59.677051 2026] [php:warn] [pid 50:tid 50] [client 172.17.0.1:44218] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Thu Oct 22 10:03:59.681986 2026] [php:error] [pid 50:tid 50] [client 172.17.0.1:44218] PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted (tried to allocate 4197581 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:03:59 +0000] "POST /index.php HTTP/1.1" 200 694 "-" "-"
+zend_mm_heap corrupted
+[Thu Oct 22 10:04:00.429441 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 50 exit signal Abort (6)
+[Thu Oct 22 10:04:01.432539 2026] [php:warn] [pid 51:tid 51] [client 172.17.0.1:44228] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:04:01.432593 2026] [php:warn] [pid 51:tid 51] [client 172.17.0.1:44228] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Thu Oct 22 10:04:01.440754 2026] [php:error] [pid 51:tid 51] [client 172.17.0.1:44228] PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted (tried to allocate 6296371 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:04:01 +0000] "POST /index.php HTTP/1.1" 200 694 "-" "-"
+[Thu Oct 22 10:04:01.652281 2026] [php:warn] [pid 51:tid 51] [client 172.17.0.1:44232] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Thu Oct 22 10:04:01.652314 2026] [php:warn] [pid 51:tid 51] [client 172.17.0.1:44232] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp) in Unknown on line 0
+[Thu Oct 22 10:04:01.652318 2026] [php:warn] [pid 51:tid 51] [client 172.17.0.1:44232] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:04:01 +0000] "POST /index.php HTTP/1.1" 200 855 "-" "-"
+[Thu Oct 22 10:04:01.680102 2026] [php:warn] [pid 51:tid 51] [client 172.17.0.1:44248] PHP Warning:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in Unknown on line 0
+[Thu Oct 22 10:04:01.680147 2026] [php:warn] [pid 51:tid 51] [client 172.17.0.1:44248] PHP Warning:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in Unknown on line 0
+[Thu Oct 22 10:04:01.684964 2026] [php:error] [pid 51:tid 51] [client 172.17.0.1:44248] PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted (tried to allocate 4197581 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:04:01 +0000] "POST /index.php HTTP/1.1" 200 694 "-" "-"
+zend_mm_heap corrupted
+[Thu Oct 22 10:04:02.432034 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 51 exit signal Abort (6)
+[Thu Oct 22 10:04:03.441858 2026] [php:error] [pid 52:tid 52] [client 172.17.0.1:44276] PHP Fatal error:  Allowed memory size of 16777216 bytes exhausted (tried to allocate 6296371 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:10:04:03 +0000] "POST /index.php HTTP/1.1" 200 368 "-" "-"
+[Thu Oct 22 10:04:04.433871 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 52 exit signal Segmentation fault (11)
+172.17.0.1 - - [22/Oct/2026:10:17:20 +0000] "GET /probe.php HTTP/1.1" 200 405 "-" "curl/8.14.1"
+172.17.0.1 - - [22/Oct/2026:10:17:46 +0000] "GET /index.php HTTP/1.1" 200 195 "-" "curl/8.14.1"
