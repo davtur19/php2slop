@@ -1,0 +1,25 @@
+* Uses proxy env variable NO_PROXY == 'localhost,127.0.0.1,::1'
+*   Trying 127.0.0.1:28866...
+* Connected to 127.0.0.1 (127.0.0.1) port 28866
+* using HTTP/1.x
+> GET /index.php?title=Special:FundraiserUnsubscribe HTTP/1.1
+> Host: 127.0.0.1:28866
+> User-Agent: curl/8.14.1
+> Accept: */*
+> Cookie: wikidb_session=333grnft71l6b43gqcte0bo7ku92eave
+> 
+* Request completely sent off
+< HTTP/1.1 500 Internal Server Error
+< Server: nginx/1.30.1
+< Date: Thu, 22 Oct 2026 01:42:08 GMT
+< Content-Type: text/html; charset=UTF-8
+< Content-Length: 1015
+< Connection: keep-alive
+< X-Powered-By: PHP/8.5.10
+< X-Content-Type-Options: nosniff
+< Content-Security-Policy: default-src 'self'; script-src 'none'; object-src 'none'
+< Vary: Accept-Encoding
+< X-Request-Id: d74a63ad5bd2cba29acf43eb
+< 
+{ [1015 bytes data]
+* Connection #0 to host 127.0.0.1 left intact

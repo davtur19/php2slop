@@ -1,0 +1,31 @@
+Oct 22 03:34:34 opencode-vm FundraisingEmailUnsubscribe[52927]: (1538909978035) : Could not process '' or execute pre-existing session.
+Oct 22 03:34:39 opencode-vm FundraisingEmailUnsubscribe[52927]: (8756387450639) : Starting process 'thankyou' with URI variables: {"title":"Special:FundraiserUnsubscribe","p":"thankyou","e":"victim@example.com","c":"1","v":"abc","h":"708b335fcea881b04486ae495e49442d7de56f7b"}
+Oct 22 03:34:39 opencode-vm FundraisingEmailUnsubscribe[52927]: (8756387450639) : Resolved parameter 'hash' to "708b335fcea881b04486ae495e49442d7de56f7b"
+Oct 22 03:34:39 opencode-vm FundraisingEmailUnsubscribe[52927]: (8756387450639) : Resolved parameter 'contribution-id' to "1"
+Oct 22 03:34:39 opencode-vm FundraisingEmailUnsubscribe[52927]: (8756387450639) : Resolved parameter 'email' to "victim@example.com"
+Oct 22 03:34:39 opencode-vm FundraisingEmailUnsubscribe[52927]: (8756387450639) : Running FundraiserUnsubscribeThankYou verification
+Oct 22 03:34:39 opencode-vm FundraisingEmailUnsubscribe[52927]: (8756387450639) : UnsubThankYou : Hash verification success!
+Oct 22 03:35:03 opencode-vm FundraisingEmailUnsubscribe[1439895]: (6847923052954) : Starting process 'thankyou' with URI variables: {"title":"Special:FundraiserUnsubscribe","p":"thankyou","e":"webserved@example.org","c":"42","v":"web1","h":""}
+Oct 22 03:35:03 opencode-vm FundraisingEmailUnsubscribe[1439895]: (6847923052954) : Parameter failed filtering: 'h' -> 'hash'
+Oct 22 03:35:08 opencode-vm FundraisingEmailUnsubscribe[1439895]: (8401841784036) : Starting process 'thankyou' with URI variables: {"title":"Special:FundraiserUnsubscribe","p":"thankyou","e":"webserved@example.org","c":"42","v":"web1","h":"247c8363fbdf85742daaa9af8252d586c7957d32"}
+Oct 22 03:35:08 opencode-vm FundraisingEmailUnsubscribe[1439895]: (8401841784036) : Resolved parameter 'hash' to "247c8363fbdf85742daaa9af8252d586c7957d32"
+Oct 22 03:35:08 opencode-vm FundraisingEmailUnsubscribe[1439895]: (8401841784036) : Resolved parameter 'contribution-id' to "42"
+Oct 22 03:35:08 opencode-vm FundraisingEmailUnsubscribe[1439895]: (8401841784036) : Resolved parameter 'email' to "webserved@example.org"
+Oct 22 03:35:08 opencode-vm FundraisingEmailUnsubscribe[1439895]: (8401841784036) : Running FundraiserUnsubscribeThankYou verification
+Oct 22 03:35:08 opencode-vm FundraisingEmailUnsubscribe[1439895]: (8401841784036) : UnsubThankYou : Hash verification success!
+Oct 22 03:37:22 opencode-vm FundraisingEmailUnsubscribe[1439895]: (8401841784036) : Resuming session
+Oct 22 03:37:22 opencode-vm FundraisingEmailUnsubscribe[1439895]: (8401841784036) : User decided to cancel action!
+Oct 22 03:39:07 opencode-vm FundraisingEmailUnsubscribe[1439895]: (1152479871205) : Starting process 'thankyou' with URI variables:
+Oct 22 03:39:07 opencode-vm FundraisingEmailUnsubscribe[1439895]: (1152479871205) : Resolved parameter 'hash' to "07803447cf09d22e4f3e6dde30770fb09ef492cc"
+Oct 22 03:39:07 opencode-vm FundraisingEmailUnsubscribe[1439895]: (1152479871205) : Resolved parameter 'contribution-id' to "7"
+Oct 22 03:39:07 opencode-vm FundraisingEmailUnsubscribe[1439895]: (1152479871205) : Resolved parameter 'email' to "A\ufffdB|C\"D\ufffd\x7f\ufffd@example.com"
+Oct 22 03:39:07 opencode-vm FundraisingEmailUnsubscribe[1439895]: (1152479871205) : Running FundraiserUnsubscribeThankYou verification
+Oct 22 03:39:07 opencode-vm FundraisingEmailUnsubscribe[1439895]: (1152479871205) : UnsubThankYou : Hash verification failed! Expected '65402cdefb8ea0188dd0268a9ed3fb495f3e21d6' got '07803447cf09d22e4f3e6dde30770fb09ef492cc'.
+Oct 22 03:39:07 opencode-vm FundraisingEmailUnsubscribe[1439895]: (1152479871205) : FundraiserUnsubscribeThankYou failed validation of {"hash":"07803447cf09d22e4f3e6dde30770fb09ef492cc","contribution-id":"7","email":"A\ufffdB|C\"D\ufffd\x7f\ufffd@example.com"}
+Oct 22 03:39:07 opencode-vm FundraisingEmailUnsubscribe[1439895]: (1868245945781) : Resolved parameter 'hash' to "54d4f33af376a60f47109bd925f7d5cd74968d71"
+Oct 22 03:39:07 opencode-vm FundraisingEmailUnsubscribe[1439895]: (1868245945781) : Resolved parameter 'contribution-id' to "7"
+Oct 22 03:39:07 opencode-vm FundraisingEmailUnsubscribe[1439895]: (1868245945781) : Resolved parameter 'email' to "big@example.net"
+Oct 22 03:39:07 opencode-vm FundraisingEmailUnsubscribe[1439895]: (1868245945781) : Running FundraiserUnsubscribeThankYou verification
+Oct 22 03:39:07 opencode-vm FundraisingEmailUnsubscribe[1439895]: (1868245945781) : UnsubThankYou : Hash verification success!
+Oct 22 03:40:21 opencode-vm FundraisingEmailUnsubscribe[1439895]: (1868245945781) : Resuming session
+Oct 22 03:40:21 opencode-vm FundraisingEmailUnsubscribe[1439895]: (1868245945781) : User decided to cancel action!

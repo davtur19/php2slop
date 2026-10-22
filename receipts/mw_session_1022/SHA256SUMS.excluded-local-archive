@@ -1,0 +1,8 @@
+# Excluded from this repo copy; present in /tmp/opencode/research/mw_session_20261022T031700Z/
+# Verify against the local archive; written/fetch pairs are byte-identical.
+af54618a8bcdd1a96097d750025eb57f7249f9378a1a0c67cb72b873650cedab  phase/session_file_big_variant.bin
+af54618a8bcdd1a96097d750025eb57f7249f9378a1a0c67cb72b873650cedab  phase/session_file_big_variant_fetch.bin
+ea3e979db5f61a78e997e236f3087fc12eaf7012c9243ba29a17e3d999298695  phase/session_file_optin_big.bin
+ea3e979db5f61a78e997e236f3087fc12eaf7012c9243ba29a17e3d999298695  phase/session_file_optin_big_fetch.bin
+8cc3f4ce437a6c955b64ef5dfcd2bb951cdc3b5f7b1ccfed53dabd86607f3092  req/big_variant_body.txt
+5826d427273b1d4bb1206a49b42d6a17127bdc8c4432239d844b59a18a8dd840  req/optin_big_body.txt

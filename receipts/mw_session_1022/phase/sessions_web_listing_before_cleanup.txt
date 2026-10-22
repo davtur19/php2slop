@@ -1,0 +1,21 @@
+total 16
+drwxrwxrwx  2 davide davide 4096 Oct 22 03:45 .
+drwxr-xr-x 16 davide davide 4096 Oct 22 03:34 ..
+-rw-------  1 davide davide    0 Oct 22 03:39 sess_17dgq178t36do4aeocusuphajskj8rhv
+-rw-------  1 davide davide    0 Oct 22 03:42 sess_333grnft71l6b43gqcte0bo7ku92eave
+-rw-------  1 davide davide  223 Oct 22 03:44 sess_69195g9mph1dhfg7bq6gk2q6t42m52sn
+-rw-------  1 davide davide    0 Oct 22 03:37 sess_cbo2f1cicjmod10u2ko3rg9mj4lffqbq
+-rw-------  1 davide davide    0 Oct 22 03:44 sess_gdf566jom5qdnqemrv83oo2jd0habgtn
+-rw-------  1 davide davide    0 Oct 22 03:43 sess_gqckop4r8qtf6ljgc4t6a87rf0ojctru
+-rw-------  1 davide davide    0 Oct 22 03:45 sess_oufe5d579ahmh3hlqt1jq00i7pos0nll
+-rw-------  1 davide davide  329 Oct 22 03:41 sess_qi0sg03k5liblccc2dd1gn58p5ssmrbl
+-rw-------  1 davide davide    0 Oct 22 03:40 sess_tm7o6n8j9gpm6nnfti6fftlmvinvc7je
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/sessions_web/sess_17dgq178t36do4aeocusuphajskj8rhv
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/sessions_web/sess_333grnft71l6b43gqcte0bo7ku92eave
+95c636af8ffc6e88dd1d53521922f464b16832c6ce6cc6bcb14c58fc602c50fa  /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/sessions_web/sess_69195g9mph1dhfg7bq6gk2q6t42m52sn
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/sessions_web/sess_cbo2f1cicjmod10u2ko3rg9mj4lffqbq
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/sessions_web/sess_gdf566jom5qdnqemrv83oo2jd0habgtn
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/sessions_web/sess_gqckop4r8qtf6ljgc4t6a87rf0ojctru
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/sessions_web/sess_oufe5d579ahmh3hlqt1jq00i7pos0nll
+30c275bf283e2125475deeb9bb91d5cb801f7460028a94f2c886f1c923851131  /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/sessions_web/sess_qi0sg03k5liblccc2dd1gn58p5ssmrbl
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /tmp/opencode/research/wikitype_20261021T212610Z/www/mediawiki/sessions_web/sess_tm7o6n8j9gpm6nnfti6fftlmvinvc7je

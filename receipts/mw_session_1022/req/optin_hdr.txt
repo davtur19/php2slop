@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Server: nginx/1.30.1
+Date: Thu, 22 Oct 2026 01:44:46 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 27567
+Connection: keep-alive
+X-Powered-By: PHP/8.5.10
+X-Content-Type-Options: nosniff
+Set-Cookie: wikidb_session=69195g9mph1dhfg7bq6gk2q6t42m52sn; path=/; HttpOnly
+Content-language: en
+X-Frame-Options: DENY
+Vary: Accept-Encoding, Cookie
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Cache-Control: private, must-revalidate, max-age=0
+X-Request-Id: 3e21fc30a0ad9169123ad90a
+

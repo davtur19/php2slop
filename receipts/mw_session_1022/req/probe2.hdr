@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Server: nginx/1.30.1
+Date: Thu, 22 Oct 2026 01:29:16 GMT
+Content-Type: application/json
+Content-Length: 1890
+Connection: keep-alive
+X-Powered-By: PHP/8.5.10
+X-Content-Type-Options: nosniff
+Set-Cookie: wikidb_session=v4spfusqmc7e9tb2qtdagksa9cfhv3f0; path=/; HttpOnly
+Vary: Accept-Encoding
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Cache-Control: private, max-age=0, s-maxage=0
+X-Request-Id: 45950b3b92063c4c68675a1c
+

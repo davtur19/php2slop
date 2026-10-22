@@ -1,0 +1,22 @@
+== 334-byte web-written (thankyou) ==
+size 334 first_pipe 8
+first 96 bytes: b'fr-unsub|a:5:{s:7:"process";s:8:"thankyou";s:7:"variant";s:4:"web1";s:5:"email";s:21:"webserved@'
+hex 0..0x60: 66722d756e7375627c613a353a7b733a373a2270726f63657373223b733a383a227468616e6b796f75223b733a373a2276617269616e74223b733a343a2277656231223b733a353a22656d61696c223b733a32313a2277656273657276656440
+  S+0x18 fake execute_data func        off=0x18 bytes=b'ss";s:8:' q=0x3a383a733b227373
+  S+0x2c num_args                      off=0x2c bytes=b':7:"vari' q=0x69726176223a373a
+  S+0x50 arg1 value                    off=0x50 bytes=b's:21:"we' q=0x6577223a31323a73
+  S+0x58 arg1 type                     off=0x58 bytes=b'bserved@' q=0x4064657672657362
+
+== 1,900,220-byte optin big-variant ==
+size 1900220 first_pipe 8
+first 96 bytes: b'fr-unsub|a:5:{s:7:"process";s:5:"optin";s:7:"variant";s:1900000:"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB'
+hex 0..0x60: 66722d756e7375627c613a353a7b733a373a2270726f63657373223b733a353a226f7074696e223b733a373a2276617269616e74223b733a313930303030303a2242424242424242424242424242424242424242424242424242424242424242
+  S+0x18 fake execute_data func        off=0x18 bytes=b'ss";s:5:' q=0x3a353a733b227373
+  S+0x2c num_args                      off=0x2c bytes=b'"variant' q=0x746e616972617622
+  S+0x50 arg1 value                    off=0x50 bytes=b'BBBBBBBB' q=0x4242424242424242
+  S+0x58 arg1 type                     off=0x58 bytes=b'BBBBBBBB' q=0x4242424242424242
+
+f12b trigger requirements (prior receipt):
+  file starts with k0|s:1900000:"... ; 15 filler vars k0..k14, 16th name = 0x300-byte fake execute_data, then z|i:K
+  first decode expects the 16th 1.9MB value ZSTR_VAL at chunk+0x1018; blob offsets p_off=0x18afe8 b_off=0x1000
+  second decode expects buffer offset 0x18=F, 0x2c=1, 0x50=F, 0x58=6 (IS_STRING)

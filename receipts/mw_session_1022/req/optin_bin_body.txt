@@ -1,0 +1,1 @@
+p=optin&v=bin2&e=opt%00bin%7C%22X%01%FF%40example.org
