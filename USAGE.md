@@ -1,12 +1,12 @@
 # USAGE
 
 > **Status: WIP.** Not a universal or stock-default exploit. The authoritative
-> works / does-not-work table is in `README.md`; this file is the lab record
-> (lane matrix, internal G2/G6 plan, prerequisites, version matrix, failure
-> diagnosis). The public end-to-end path is `--step chain`. Sections marked
-> **Internal** document `--step leak` / `--step g2` planning stages and
-> historical G2/G6/F12b work; they have no transport and are not needed for
-> normal use.
+> works / does-not-work summary is in `README.md`; this file is the lab record
+> (lane matrix, FPM G2/G6 plan, prerequisites, version matrix, failure
+> diagnosis). The public mod_php end-to-end path is `--step chain`. `--step g2`
+> is the separate FPM serializer-decode lane, offline by design; `--step leak`
+> and `--step write_stage` are internal calibration stages. None is needed for
+> the mod_php chain.
 
 Install, layout and run one-liners: see `README.md`.
 
@@ -18,8 +18,8 @@ Install, layout and run one-liners: see `README.md`.
 | modphp app unserialize | lab unserialize endpoint | `producer_unser` master shape class payload | tiny multipart plus GET arms | HTTP 200, fatal transcript at the class tried alloc, worker survives | dry wired, live gated by `--unser-url` |
 | modphp pDestructor superglobal teardown | libphp.so PHP 8.5.10 NTS, httpd prefork | plant, then pre-RINIT upload progress decode | none (automatic shutdown path) | `$_POST` write lands at `heap+0x2060`, but fast shutdown destroys no auto global table | **closed**: `fast_shutdown=1` skips `zend_hash_graceful_reverse_destroy(EG(symbol_table))`; POST rc stays 1 |
 | fpm app fatal | php-fpm 8.5.10 static pool | post startup app level fatal inside the unserialize family | none | worker exits 70, no access row | measured, not a route by itself |
-| fpm G2 decode hijack | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC, ASLR off | `E_USER_ERROR` bailout inside `unserialize` | multipart session record plus forced END decode | marker created, worker survives, decode pointer overwritten | 8.5.10 confirmed lab; other profiles derived, offline `--step g2` (internal) |
-| fpm G6 zif decode | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC, ASLR off | same G2 plant | the G2 write points `ps_serializers[2].decode` at `zif_system` / `zif_passthru`; the record is a fake `zend_execute_data` | `zif_system`: marker created, then SIGSEGV at `php_exec+450`; `zif_passthru`: HTTP 200, marker recreated, worker survives | 8.5.10 live lab G6; other profiles binary-derived; offline `--step g2 --g2-decode ...` (internal) |
+| fpm G2 decode hijack | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC, ASLR off | `E_USER_ERROR` bailout inside `unserialize` | multipart session record plus forced END decode | marker created, worker survives, decode pointer overwritten | 8.5.10 reported lab, E2E verification running; other profiles derived, offline `--step g2` |
+| fpm G6 zif decode | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC, ASLR off | same G2 plant | the G2 write points `ps_serializers[2].decode` at `zif_system` / `zif_passthru`; the record is a fake `zend_execute_data` | `zif_system`: marker created, then SIGSEGV at `php_exec+450`; `zif_passthru`: HTTP 200, marker recreated, worker survives | 8.5.10 reported lab G6; other profiles binary-derived; offline `--step g2 --g2-decode ...` |
 | F12b realapps zif decode | installed php-fpm 8.5.10 ET_EXEC, MediaWiki/Wikibase, ASLR off | anonymous `/api.php` Wikibase OOM (`application/vnd.php.serialized`, 500 KB probe) | the `php` session record overwrites `ps_serializers[1].decode` (`0x22c54c8`) with `zif_system` (`0xa3c061`); the record is the fake `execute_data` | marker `WIKI_ZIF` created at `00:29:18`; worker SIGSEGV at `php_exec+466`; FPM respawn; nginx 502 then health 200 | **confirmed private ASLR-off RCE**; `zif_passthru` (`0xa3c074`) clean gdb-free run in `receipts/realchain_20261022/` |
 | modphp in band leak | libphp.so PHP 8.5.10 NTS PIE | M5 plant and trigger | `sidlen` / `sidhex` overread | live session array pointer over HTTP, 4 of 4 runs | measured, `leak_offset` build specific; boot2 HTTP candidate (`K_dest` at `sidhex[8:16]`, `B0 = K_dest - 0x1000`) lab-only |
 | static session file leak | libphp.so PHP 8.5.10 NTS PIE, mod_php | failed `ini_set` save_path restore, 54 B GET reclaim | M11 encode overread, static GET of `sess_tb1` | 77,842 B seed served with matching sha1; overread crashed in `tmp_var` | **reproduced on real target (F14)**: the mod_php lane was attempted-negative; the WP/WooCommerce FPM 8.5.10 stack under ASLR on served the leaked `K_dest` and a gdb-free `zif_passthru` marker; `receipts/realchain_20261022/` |
@@ -79,9 +79,12 @@ The MediaWiki/Wikibase ASLR-on survey found no in-band heap pointer. Receipts:
 | `recon` | one GET | fingerprint and addresses |
 | `producer` | yes, to the supplied target | request bytes and `result.json` |
 | `chain` | modphp sequence: producer plus consumer arms; fpm legacy path | per-candidate receipt |
+| `g2` | never; offline FPM lane | `g2-record.bin`, profile, md5, decode mode and plan JSON |
 
-`chain` is the public end-to-end path; `recon` and `producer` are the
-operator-facing helper stages that talk to the supplied target.
+`chain` is the public mod_php end-to-end path; `recon` and `producer` are the
+operator-facing helper stages that talk to the supplied target. `g2` is the
+separate FPM G2/G6 serializer-decode lane (see below), not an internal/debug
+alias for the mod_php chain.
 
 ### Internal/debug stages
 
@@ -92,18 +95,20 @@ These stages have **no transport**. They only build records or plans under
 |---|---|---|
 | `write_stage` | never | final forged multipart bytes |
 | `leak` | never | dry modphp calibration plan |
-| `g2` | never | `g2-record.bin`, profile, md5, decode mode and plan JSON |
 
-The G2/G6/F12b material below is retained as an internal lab record; it is
-not the supported public path.
+The FPM lane and the F14/F12b records below are not part of the mod_php
+`chain` flow; F14/F12b remain historical lab records.
 
-## Internal: G2 / G6 plan (`--step g2`)
+## FPM G2 / G6 plan (`--step g2`)
 
-Internal/debug, offline only: `--step g2` never sends. It is retained because
-the G2/G6 profiles and record arithmetic are the reference for the FPM work,
-not because it is part of the normal `--step chain` flow.
+FPM lane, offline by design: `--step g2` never sends. It builds the FPM G2/G6
+session-record payload (`ps_serializers[2].decode` write) and is a separate
+lane from the 9bie mod_php chain. G1 is the fake `execute_data`, G2 the
+serializer-decode write, G6 the zif redirect. End-to-end verification is
+running: profiles exist for PHP 8.5.10, 8.4.25, 8.1.34 and 7.4.33, but this is
+not yet a confirmed public route in `README.md`.
 
-G2 is the confirmed FPM route on the plain PHP 8.5.10 build, with derived profiles
+G2 is the reported FPM route on the plain PHP 8.5.10 build, with derived profiles
 for 8.4.25, 8.1.34 and 7.4.33. A controlled bailout leaves a stale
 `BG(unserialize)` dtor chain. The pre RINIT upload progress session decode reuses
 it, and the typed zval write reaches `ps_serializers[2].decode` in `.data`. The
@@ -272,7 +277,7 @@ reuse this geometry: `php_unserialize_data` has a different field order,
 `used_slots` is at `+0x2000`, `next` at `+0x2008`, the bound is equality, and
 `BG(unserialize)` is a struct.
 
-## Internal: G6 zif decode (lab RCE)
+## FPM: G6 zif decode (lab RCE)
 
 G6 is the positive extension of the G2 serializer write: on 8.5.10 the write
 points `ps_serializers[2].decode` at `zif_system` (`0x88f6a7`) or
@@ -375,7 +380,7 @@ ASLR-capable heap leak is demonstrated. The G6 proof is a private ASLR-off lab
 run, not a real-target claim. Receipt:
 `receipts/g6zif_1021/README.md`.
 
-## Internal: F12b realapps zif decode (private ASLR-off proof)
+## FPM: F12b realapps zif decode (private ASLR-off proof)
 
 F12b is the real-target proof of the same serializer-decode overwrite, on the
 installed realapps PHP 8.5.10 binary
@@ -545,8 +550,8 @@ exploitation is claimed.
 
 ## Failure diagnosis
 
-Rows naming `g2` are internal debug diagnostics for the offline planner; they
-do not apply to the public `--step chain` path.
+Rows naming `g2` are diagnostics for the offline FPM record builder; they do
+not apply to the mod_php `--step chain` path.
 
 | symptom | cause | check | action |
 |---|---|---|---|
