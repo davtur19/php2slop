@@ -1,0 +1,25 @@
+PHPGGC checkout used for payload generation
+path: /tmp/opencode/research/apppop_20261022T015427Z/phpggc
+commit: f8aebde3a1abb88b02042fd12a71b4c61d6cfe2c
+date: 2025-09-29 16:51:06 +0200
+describe: f8aebde
+
+Relevant chain headers:
+-- Guzzle/FW/1
+       public static $version = '4.0.0-rc.2 <= 7.5.0+';
+       public static $vector = '__destruct';
+-- MediaWiki/FD/1
+       public static $version = '1.21.0+';
+       public static $vector = '__destruct';
+-- Monolog/RCE/8
+       public static $version = '3.0.0 <= 3.1.0+';
+       public static $vector = '__destruct';
+-- Monolog/RCE/9
+       public static $version = '3.0.0 <= 3.1.0+';
+       public static $vector = '__destruct';
+-- Monolog/FW/1
+       public static $version = '3.0.0 <= 3.1.0+';
+       public static $vector = '__destruct';
+-- Monolog/RCE/2
+       public static $version = '1.4.1 <= 2.7.0+';
+       public static $vector = '__destruct';
