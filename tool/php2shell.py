@@ -238,9 +238,9 @@ def run_g2_step(args) -> int:
 
     No transport exists on this path: --live is refused with a JSON error. The
     php_binary record is built from operator supplied X, P and B0 plus the
-    fixed .data decode slot or an explicit target. The zif_system/zif_passthru
-    G6 modes additionally require X2, the second decode buffer. --step g2 never
-    guesses an address and never opens a socket.
+    profile serializer entry named php_binary or an explicit target. The
+    zif_system/zif_passthru G6 modes additionally require X2, the second decode
+    buffer. --step g2 never guesses an address and never opens a socket.
     """
     if args.output is None:
         stamp = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
@@ -825,7 +825,9 @@ def main() -> int:
         choices=g2_chain_module.DECODE_MODES,
         default="php_binary",
         help="--step g2 decode mode: php_binary (G2), zif_passthru (G6 clean "
-             "control) or zif_system (G6 one-shot); default php_binary",
+             "control) or zif_system (G6 one-shot); default php_binary; the "
+             "written decode pointer remains poisoned in that worker until "
+             "worker recycle",
     )
     parser.add_argument(
         "--g2-p",
@@ -855,8 +857,9 @@ def main() -> int:
         "--g2-target",
         default=None,
         help="--step g2: 16-byte aligned write target (default: the profile "
-             "ps_serializers[2].decode slot); for zif modes this remains the "
-             "slot, while the written i:<n>; value is the profile zif address",
+             "serializer entry named php_binary, not default_target); for zif "
+             "modes this remains the slot, while the written i:<n>; value is "
+             "the profile zif address",
     )
     parser.add_argument(
         "--g2-value",
