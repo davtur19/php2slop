@@ -1,0 +1,1 @@
+{'K_dest': '0x7f791b0f2000', 'X': '0x7f791b06a000', 'val': '0x7f791b06a018', 'P': '0x7f791b0e6000', 'F': '0x7f791b0f2218', 'total': 524288, 'L': 523248, 'used_target_static': -8759880327357, 'used_target_static_hex': '0xfffff8086e71df43', 'P_off': '0x7bfe8'}

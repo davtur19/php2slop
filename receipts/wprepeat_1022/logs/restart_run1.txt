@@ -1,0 +1,5 @@
+stopping old master 184500
+[22-Oct-2026 02:43:31] NOTICE: [pool wp] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:43:31] NOTICE: [pool wp] 'group' directive is ignored when FPM is not running as root
+master=591059 worker=591060
+LISTEN 0      511        127.0.0.1:28893      0.0.0.0:*    users:(("nginx",pid=160459,fd=5),("nginx",pid=160458,fd=5))    

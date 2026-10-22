@@ -1,0 +1,13 @@
+=== leak gdb
+Catchpoint 1 (signal SIGSEGV)
+Catchpoint 2 (signal SIGABRT)
+ARMED
+DECODE n=1 data=0x7fa8a966a000 val=0x7fa8a966a018 len=1048576 bg_level=1 bg_data=0x7fa8a96f1000
+SETVAR name=0x7fa8a9657200 nlen=1 namebytes=S val=0x7fffd7e0ca90 type=0xd
+SREAL z=0x7fa8a9661080 type=0x106 str=0x7fa8a9656080 sdata=0x7fa8a9656098 slen=32
+SETVAR name=0x7fa8a9657220 nlen=1 namebytes=J val=0x7fffd7e0ca90 type=0xd
+SETVAR name=0x7fa8a9657240 nlen=1 namebytes=K val=0x7fffd7e0ca90 type=0xd
+DECODE n=2 data=0x7fa8a9001000 val=0x7fa8a9001018 len=1048888 bg_level=1 bg_data=0x7fa8a96f1000
+LEAK_TWO_DECODES
+=== trigger resp
+status 502 len 157 body b'<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n'
