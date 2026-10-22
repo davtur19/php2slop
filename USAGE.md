@@ -1,6 +1,14 @@
 # USAGE
 
-Install, layout and run one-liners: see `README.md`. This file is the lane matrix, the G2/G6 plan, prerequisites, version matrix and failure diagnosis.
+> **Status: WIP.** Not a universal or stock-default exploit. The authoritative
+> works / does-not-work table is in `README.md`; this file is the lab record
+> (lane matrix, internal G2/G6 plan, prerequisites, version matrix, failure
+> diagnosis). The public end-to-end path is `--step chain`. Sections marked
+> **Internal** document `--step leak` / `--step g2` planning stages and
+> historical G2/G6/F12b work; they have no transport and are not needed for
+> normal use.
+
+Install, layout and run one-liners: see `README.md`.
 
 ## Lane matrix
 
@@ -10,14 +18,14 @@ Install, layout and run one-liners: see `README.md`. This file is the lane matri
 | modphp app unserialize | lab unserialize endpoint | `producer_unser` master shape class payload | tiny multipart plus GET arms | HTTP 200, fatal transcript at the class tried alloc, worker survives | dry wired, live gated by `--unser-url` |
 | modphp pDestructor superglobal teardown | libphp.so PHP 8.5.10 NTS, httpd prefork | plant, then pre-RINIT upload progress decode | none (automatic shutdown path) | `$_POST` write lands at `heap+0x2060`, but fast shutdown destroys no auto global table | **closed**: `fast_shutdown=1` skips `zend_hash_graceful_reverse_destroy(EG(symbol_table))`; POST rc stays 1 |
 | fpm app fatal | php-fpm 8.5.10 static pool | post startup app level fatal inside the unserialize family | none | worker exits 70, no access row | measured, not a route by itself |
-| fpm G2 decode hijack | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC, ASLR off | `E_USER_ERROR` bailout inside `unserialize` | multipart session record plus forced END decode | marker created, worker survives, decode pointer overwritten | 8.5.10 confirmed lab; other profiles derived, offline `--step g2` |
-| fpm G6 zif decode | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC, ASLR off | same G2 plant | the G2 write points `ps_serializers[2].decode` at `zif_system` / `zif_passthru`; the record is a fake `zend_execute_data` | `zif_system`: marker created, then SIGSEGV at `php_exec+450`; `zif_passthru`: HTTP 200, marker recreated, worker survives | 8.5.10 live lab G6; other profiles binary-derived; offline `--step g2 --g2-decode ...` |
+| fpm G2 decode hijack | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC, ASLR off | `E_USER_ERROR` bailout inside `unserialize` | multipart session record plus forced END decode | marker created, worker survives, decode pointer overwritten | 8.5.10 confirmed lab; other profiles derived, offline `--step g2` (internal) |
+| fpm G6 zif decode | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC, ASLR off | same G2 plant | the G2 write points `ps_serializers[2].decode` at `zif_system` / `zif_passthru`; the record is a fake `zend_execute_data` | `zif_system`: marker created, then SIGSEGV at `php_exec+450`; `zif_passthru`: HTTP 200, marker recreated, worker survives | 8.5.10 live lab G6; other profiles binary-derived; offline `--step g2 --g2-decode ...` (internal) |
 | F12b realapps zif decode | installed php-fpm 8.5.10 ET_EXEC, MediaWiki/Wikibase, ASLR off | anonymous `/api.php` Wikibase OOM (`application/vnd.php.serialized`, 500 KB probe) | the `php` session record overwrites `ps_serializers[1].decode` (`0x22c54c8`) with `zif_system` (`0xa3c061`); the record is the fake `execute_data` | marker `WIKI_ZIF` created at `00:29:18`; worker SIGSEGV at `php_exec+466`; FPM respawn; nginx 502 then health 200 | **confirmed private ASLR-off RCE**; `zif_passthru` (`0xa3c074`) clean gdb-free run in `receipts/realchain_20261022/` |
 | modphp in band leak | libphp.so PHP 8.5.10 NTS PIE | M5 plant and trigger | `sidlen` / `sidhex` overread | live session array pointer over HTTP, 4 of 4 runs | measured, `leak_offset` build specific; boot2 HTTP candidate (`K_dest` at `sidhex[8:16]`, `B0 = K_dest - 0x1000`) lab-only |
 | static session file leak | libphp.so PHP 8.5.10 NTS PIE, mod_php | failed `ini_set` save_path restore, 54 B GET reclaim | M11 encode overread, static GET of `sess_tb1` | 77,842 B seed served with matching sha1; overread crashed in `tmp_var` | **reproduced on real target (F14)**: the mod_php lane was attempted-negative; the WP/WooCommerce FPM 8.5.10 stack under ASLR on served the leaked `K_dest` and a gdb-free `zif_passthru` marker; `receipts/realchain_20261022/` |
 | real apps | MediaWiki/Wikibase, WordPress/WooCommerce | anonymous app request | app specific | Wikibase fatal and worker survival, WP 1 of 4 consumers SIGSEGV | reachability and availability; F12b separately confirms RCE on the private realapps 8.5.10 target |
 
-## F14 leak status
+## Internal: F14 leak status
 
 F14 is **reproduced on a real target**. The mod_php lane proved the M6 save path
 control (failed `ini_set`/deactivate restore, dangling `PS(save_path)`, 54 B GET
@@ -70,12 +78,30 @@ The MediaWiki/Wikibase ASLR-on survey found no in-band heap pointer. Receipts:
 |---|---|---|
 | `recon` | one GET | fingerprint and addresses |
 | `producer` | yes, to the supplied target | request bytes and `result.json` |
+| `chain` | modphp sequence: producer plus consumer arms; fpm legacy path | per-candidate receipt |
+
+`chain` is the public end-to-end path; `recon` and `producer` are the
+operator-facing helper stages that talk to the supplied target.
+
+### Internal/debug stages
+
+These stages have **no transport**. They only build records or plans under
+`files/io/...` for lab analysis and are not needed for normal use.
+
+| step | sends | output |
+|---|---|---|
 | `write_stage` | never | final forged multipart bytes |
 | `leak` | never | dry modphp calibration plan |
 | `g2` | never | `g2-record.bin`, profile, md5, decode mode and plan JSON |
-| `chain` | modphp sequence: producer plus consumer arms; fpm legacy path | per-candidate receipt |
 
-## G2 / G6 plan
+The G2/G6/F12b material below is retained as an internal lab record; it is
+not the supported public path.
+
+## Internal: G2 / G6 plan (`--step g2`)
+
+Internal/debug, offline only: `--step g2` never sends. It is retained because
+the G2/G6 profiles and record arithmetic are the reference for the FPM work,
+not because it is part of the normal `--step chain` flow.
 
 G2 is the confirmed FPM route on the plain PHP 8.5.10 build, with derived profiles
 for 8.4.25, 8.1.34 and 7.4.33. A controlled bailout leaves a stale
@@ -246,7 +272,7 @@ reuse this geometry: `php_unserialize_data` has a different field order,
 `used_slots` is at `+0x2000`, `next` at `+0x2008`, the bound is equality, and
 `BG(unserialize)` is a struct.
 
-## G6 zif decode (lab RCE)
+## Internal: G6 zif decode (lab RCE)
 
 G6 is the positive extension of the G2 serializer write: on 8.5.10 the write
 points `ps_serializers[2].decode` at `zif_system` (`0x88f6a7`) or
@@ -349,7 +375,7 @@ ASLR-capable heap leak is demonstrated. The G6 proof is a private ASLR-off lab
 run, not a real-target claim. Receipt:
 `receipts/g6zif_1021/README.md`.
 
-## F12b realapps zif decode (real-target RCE)
+## Internal: F12b realapps zif decode (private ASLR-off proof)
 
 F12b is the real-target proof of the same serializer-decode overwrite, on the
 installed realapps PHP 8.5.10 binary
@@ -508,7 +534,7 @@ exploitation is claimed.
 |---|---|---|
 | `--step recon` | GET the path, record status, server, connection, content type and body bytes | exit 0 alive, exit 2 not alive |
 | disclosure gate | 14 B frozen profile disclosure at LEAK_OFFSET inside a main chunk | LEAK_OFFSET 0x57030, main chunk 0x200000 |
-| `--step leak` | dry calibration plan, request shapes plus algorithm, no transport | 10 exchanges per stage, 3 stable triples, 4096 B Set-Cookie cap, approx 98 encoded pointers |
+| `--step leak` (internal) | dry calibration plan, request shapes plus algorithm, no transport | 10 exchanges per stage, 3 stable triples, 4096 B Set-Cookie cap, approx 98 encoded pointers |
 | `leak_offset` | decoded session array minus Zend chunk base, measured on libphp md5 `92f76e84a77bf8b56c45c3868fa29a6c` | 0x2188 = heap + 0x2148, heap = chunk + 0x40; 4 of 4 runs, ASLR on; build and mapping specific, not a universal constant |
 | leak binding scope | the channel is the in-band `sidlen` / `sidhex` overread, not the Set-Cookie PS(id) channel | the Set-Cookie PS(id) offset is not separately measured; `target_offset` remains `TBD_from_leak_chunk_anchor` |
 | address profile | `addresses/apache_libphp.json`, per binary offsets and lane | 40492240 B, md5 `92f76e84a77bf8b56c45c3868fa29a6c`, p_align 0x1000 |
@@ -518,6 +544,9 @@ exploitation is claimed.
 | profile pack build | `universal/profile_builder.py` reads `nm` and `readelf` and writes `addresses/*.json` | new target needs `profiles.py` TARGETS plus BINARY_PROFILES |
 
 ## Failure diagnosis
+
+Rows naming `g2` are internal debug diagnostics for the offline planner; they
+do not apply to the public `--step chain` path.
 
 | symptom | cause | check | action |
 |---|---|---|---|
