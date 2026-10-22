@@ -1,0 +1,9 @@
+2026/10/22 03:31:33 [notice] 1423113#0: using the "epoll" event method
+2026/10/22 03:31:33 [notice] 1423113#0: nginx/1.30.1
+2026/10/22 03:31:33 [notice] 1423113#0: built by gcc 14.2.0 (Debian 14.2.0-19) 
+2026/10/22 03:31:33 [notice] 1423113#0: OS: Linux 6.12.113+deb13-amd64
+2026/10/22 03:31:33 [notice] 1423113#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/10/22 03:31:33 [notice] 1423114#0: start worker processes
+2026/10/22 03:31:33 [notice] 1423114#0: start worker process 1423115
+2026/10/22 03:31:41 [error] 1423115#0: *3 upstream sent unknown "Transfer-Encoding": "" while reading response header from upstream, client: 127.0.0.1, server: 127.0.0.1, request: "GET /index.php/install/wizard/checkHost/ HTTP/1.1", upstream: "fastcgi://unix:/tmp/opencode/research/stock_20261022T013022Z/run/php-fpm.sock:", host: "127.0.0.1:28895"
+2026/10/22 03:44:59 [error] 1423115#0: *27 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: 127.0.0.1, request: "POST /lab_noop.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/opencode/research/stock_20261022T013022Z/run/php-fpm.sock:", host: "127.0.0.1:28895"

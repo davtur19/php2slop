@@ -1,0 +1,9 @@
+date_utc=2026-10-22T01:58:16Z
+randomize_va_space=2
+master_1663851_personality=00000000
+worker_1682840_personality=00000000
+master_cmdline=php-fpm: master process (/tmp/opencode/research/stock_20261022T013022Z/conf/fpm.conf)                                               
+worker_cmdline=php-fpm: pool mage                                                                                                                  
+php md5=4ee099823b75e16ea36f93c71d57bfd8
+nginx=/bin/bash: line 14: /usr/sbin/nginx: No such file or directory
+mariadb=Installing MariaDB/MySQL system tables in '/tmp/opencode/research/stock_20261022T013022Z/db' ...

@@ -1,0 +1,20 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f747f09b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/realapps/install_realapps_np/sbin/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x9e68b5: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 290.
+Breakpoint 2 at 0xa3c074: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c, line 257.
+DECODE n=1 str=0x7f747ce6b000 val=0x7f747ce6b018 len=1048576 bg=1 bgd=0x7f747ce8b000 ser1=0x9e6fae ser2=0x9e6dd5
+DECODE n=2 str=0x7f747c801000 val=0x7f747c801018 len=1048888 bg=1 bgd=0x7f747ce8b000 ser1=0xa3c074 ser2=(nil)
+ZIF_PASSTHRU exec=0x7f747c801018 rsi=1048888 numargs=1 arg1=0x7f747c801418 type=6
+0x7f747c801418:	0x4141414141414141	0x4141414141414141
+[Inferior 1 (process 1674637) detached]

@@ -1,0 +1,18 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f747f09b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/realapps/install_realapps_np/sbin/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+WORKER pid=1682840
+ser1_decode=0xa3c074
+ser2_decode=(nil)
+BG level=0 data=(nil)
+[Inferior 1 (process 1682840) detached]

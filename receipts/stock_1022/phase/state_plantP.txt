@@ -1,0 +1,2 @@
+BG level=1 data=0x7f747ce8b000
+last=0x7f747cfa7000 first_dtor=0x7f747ce8e000 last_dtor=0x7f747ce8e000 cur=3964 max=4096 entries.used=1018 entries.next=0x7f747cee8000

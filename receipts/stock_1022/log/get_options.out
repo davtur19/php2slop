@@ -1,0 +1,3433 @@
+
+Deprecated: Case statements followed by a semicolon (;) are deprecated, use a colon (:) instead in /tmp/opencode/research/stock_20261022T013022Z/www/vendor/phpseclib/mcrypt_compat/lib/mcrypt.php on line 588
+
+Deprecated: Constant E_STRICT is deprecated since 8.4, the error level was removed in /tmp/opencode/research/stock_20261022T013022Z/www/app/code/core/Mage/Core/functions.php on line 168
+
+Deprecated: Zend_Log::__construct(): Implicitly marking parameter $writer as nullable is deprecated, the explicit nullable type must be used instead in /tmp/opencode/research/stock_20261022T013022Z/www/vendor/shardj/zf1-future/library/Zend/Log.php on line 119
+
+Deprecated: Constant E_STRICT is deprecated since 8.4, the error level was removed in /tmp/opencode/research/stock_20261022T013022Z/www/app/code/core/Mage/Core/functions.php on line 168
+
+Deprecated: Constant E_STRICT is deprecated since 8.4, the error level was removed in /tmp/opencode/research/stock_20261022T013022Z/www/app/code/core/Mage/Core/functions.php on line 168
+
+Deprecated: Constant E_STRICT is deprecated since 8.4, the error level was removed in /tmp/opencode/research/stock_20261022T013022Z/www/app/code/core/Mage/Core/functions.php on line 168
+array (
+  'locale' => 
+  array (
+    0 => 
+    array (
+      'value' => 'af_ZA',
+      'label' => 'Afrikaans (South Africa)',
+    ),
+    1 => 
+    array (
+      'value' => 'sq_AL',
+      'label' => 'Albanian (Albania)',
+    ),
+    2 => 
+    array (
+      'value' => 'ar_DZ',
+      'label' => 'Arabic (Algeria)',
+    ),
+    3 => 
+    array (
+      'value' => 'ar_EG',
+      'label' => 'Arabic (Egypt)',
+    ),
+    4 => 
+    array (
+      'value' => 'ar_KW',
+      'label' => 'Arabic (Kuwait)',
+    ),
+    5 => 
+    array (
+      'value' => 'ar_MA',
+      'label' => 'Arabic (Morocco)',
+    ),
+    6 => 
+    array (
+      'value' => 'ar_SA',
+      'label' => 'Arabic (Saudi Arabia)',
+    ),
+    7 => 
+    array (
+      'value' => 'az_AZ',
+      'label' => 'Azerbaijani (Azerbaijan)',
+    ),
+    8 => 
+    array (
+      'value' => 'be_BY',
+      'label' => 'Belarusian (Belarus)',
+    ),
+    9 => 
+    array (
+      'value' => 'bn_BD',
+      'label' => 'Bengali (Bangladesh)',
+    ),
+    10 => 
+    array (
+      'value' => 'bs_BA',
+      'label' => 'Bosnian (Bosnia and Herzegovina)',
+    ),
+    11 => 
+    array (
+      'value' => 'bg_BG',
+      'label' => 'Bulgarian (Bulgaria)',
+    ),
+    12 => 
+    array (
+      'value' => 'ca_ES',
+      'label' => 'Catalan (Spain)',
+    ),
+    13 => 
+    array (
+      'value' => 'zh_CN',
+      'label' => 'Chinese (China)',
+    ),
+    14 => 
+    array (
+      'value' => 'zh_HK',
+      'label' => 'Chinese (Hong Kong SAR China)',
+    ),
+    15 => 
+    array (
+      'value' => 'zh_TW',
+      'label' => 'Chinese (Taiwan)',
+    ),
+    16 => 
+    array (
+      'value' => 'hr_HR',
+      'label' => 'Croatian (Croatia)',
+    ),
+    17 => 
+    array (
+      'value' => 'cs_CZ',
+      'label' => 'Czech (Czech Republic)',
+    ),
+    18 => 
+    array (
+      'value' => 'da_DK',
+      'label' => 'Danish (Denmark)',
+    ),
+    19 => 
+    array (
+      'value' => 'nl_NL',
+      'label' => 'Dutch (Netherlands)',
+    ),
+    20 => 
+    array (
+      'value' => 'en_AU',
+      'label' => 'English (Australia)',
+    ),
+    21 => 
+    array (
+      'value' => 'en_CA',
+      'label' => 'English (Canada)',
+    ),
+    22 => 
+    array (
+      'value' => 'en_IE',
+      'label' => 'English (Ireland)',
+    ),
+    23 => 
+    array (
+      'value' => 'en_NZ',
+      'label' => 'English (New Zealand)',
+    ),
+    24 => 
+    array (
+      'value' => 'en_GB',
+      'label' => 'English (United Kingdom)',
+    ),
+    25 => 
+    array (
+      'value' => 'en_US',
+      'label' => 'English (United States)',
+    ),
+    26 => 
+    array (
+      'value' => 'et_EE',
+      'label' => 'Estonian (Estonia)',
+    ),
+    27 => 
+    array (
+      'value' => 'fil_PH',
+      'label' => 'Filipino (Philippines)',
+    ),
+    28 => 
+    array (
+      'value' => 'fi_FI',
+      'label' => 'Finnish (Finland)',
+    ),
+    29 => 
+    array (
+      'value' => 'fr_CA',
+      'label' => 'French (Canada)',
+    ),
+    30 => 
+    array (
+      'value' => 'fr_FR',
+      'label' => 'French (France)',
+    ),
+    31 => 
+    array (
+      'value' => 'fr_CH',
+      'label' => 'French (Switzerland)',
+    ),
+    32 => 
+    array (
+      'value' => 'gl_ES',
+      'label' => 'Galician (Spain)',
+    ),
+    33 => 
+    array (
+      'value' => 'ka_GE',
+      'label' => 'Georgian (Georgia)',
+    ),
+    34 => 
+    array (
+      'value' => 'de_AT',
+      'label' => 'German (Austria)',
+    ),
+    35 => 
+    array (
+      'value' => 'de_DE',
+      'label' => 'German (Germany)',
+    ),
+    36 => 
+    array (
+      'value' => 'de_CH',
+      'label' => 'German (Switzerland)',
+    ),
+    37 => 
+    array (
+      'value' => 'el_GR',
+      'label' => 'Greek (Greece)',
+    ),
+    38 => 
+    array (
+      'value' => 'gu_IN',
+      'label' => 'Gujarati (India)',
+    ),
+    39 => 
+    array (
+      'value' => 'he_IL',
+      'label' => 'Hebrew (Israel)',
+    ),
+    40 => 
+    array (
+      'value' => 'hi_IN',
+      'label' => 'Hindi (India)',
+    ),
+    41 => 
+    array (
+      'value' => 'hu_HU',
+      'label' => 'Hungarian (Hungary)',
+    ),
+    42 => 
+    array (
+      'value' => 'is_IS',
+      'label' => 'Icelandic (Iceland)',
+    ),
+    43 => 
+    array (
+      'value' => 'id_ID',
+      'label' => 'Indonesian (Indonesia)',
+    ),
+    44 => 
+    array (
+      'value' => 'it_IT',
+      'label' => 'Italian (Italy)',
+    ),
+    45 => 
+    array (
+      'value' => 'it_CH',
+      'label' => 'Italian (Switzerland)',
+    ),
+    46 => 
+    array (
+      'value' => 'ja_JP',
+      'label' => 'Japanese (Japan)',
+    ),
+    47 => 
+    array (
+      'value' => 'km_KH',
+      'label' => 'Khmer (Cambodia)',
+    ),
+    48 => 
+    array (
+      'value' => 'ko_KR',
+      'label' => 'Korean (South Korea)',
+    ),
+    49 => 
+    array (
+      'value' => 'lo_LA',
+      'label' => 'Lao (Laos)',
+    ),
+    50 => 
+    array (
+      'value' => 'lv_LV',
+      'label' => 'Latvian (Latvia)',
+    ),
+    51 => 
+    array (
+      'value' => 'lt_LT',
+      'label' => 'Lithuanian (Lithuania)',
+    ),
+    52 => 
+    array (
+      'value' => 'mk_MK',
+      'label' => 'Macedonian (Macedonia)',
+    ),
+    53 => 
+    array (
+      'value' => 'ms_MY',
+      'label' => 'Malay (Malaysia)',
+    ),
+    54 => 
+    array (
+      'value' => 'mn_MN',
+      'label' => 'Mongolian (Mongolia)',
+    ),
+    55 => 
+    array (
+      'value' => 'nb_NO',
+      'label' => 'Norwegian Bokmål (Norway)',
+    ),
+    56 => 
+    array (
+      'value' => 'nn_NO',
+      'label' => 'Norwegian Nynorsk (Norway)',
+    ),
+    57 => 
+    array (
+      'value' => 'fa_IR',
+      'label' => 'Persian (Iran)',
+    ),
+    58 => 
+    array (
+      'value' => 'pl_PL',
+      'label' => 'Polish (Poland)',
+    ),
+    59 => 
+    array (
+      'value' => 'pt_BR',
+      'label' => 'Portuguese (Brazil)',
+    ),
+    60 => 
+    array (
+      'value' => 'pt_PT',
+      'label' => 'Portuguese (Portugal)',
+    ),
+    61 => 
+    array (
+      'value' => 'ro_RO',
+      'label' => 'Romanian (Romania)',
+    ),
+    62 => 
+    array (
+      'value' => 'ru_RU',
+      'label' => 'Russian (Russia)',
+    ),
+    63 => 
+    array (
+      'value' => 'sr_RS',
+      'label' => 'Serbian (Serbia)',
+    ),
+    64 => 
+    array (
+      'value' => 'sk_SK',
+      'label' => 'Slovak (Slovakia)',
+    ),
+    65 => 
+    array (
+      'value' => 'sl_SI',
+      'label' => 'Slovenian (Slovenia)',
+    ),
+    66 => 
+    array (
+      'value' => 'es_AR',
+      'label' => 'Spanish (Argentina)',
+    ),
+    67 => 
+    array (
+      'value' => 'es_CL',
+      'label' => 'Spanish (Chile)',
+    ),
+    68 => 
+    array (
+      'value' => 'es_CO',
+      'label' => 'Spanish (Colombia)',
+    ),
+    69 => 
+    array (
+      'value' => 'es_CR',
+      'label' => 'Spanish (Costa Rica)',
+    ),
+    70 => 
+    array (
+      'value' => 'es_MX',
+      'label' => 'Spanish (Mexico)',
+    ),
+    71 => 
+    array (
+      'value' => 'es_PA',
+      'label' => 'Spanish (Panama)',
+    ),
+    72 => 
+    array (
+      'value' => 'es_PE',
+      'label' => 'Spanish (Peru)',
+    ),
+    73 => 
+    array (
+      'value' => 'es_ES',
+      'label' => 'Spanish (Spain)',
+    ),
+    74 => 
+    array (
+      'value' => 'es_VE',
+      'label' => 'Spanish (Venezuela)',
+    ),
+    75 => 
+    array (
+      'value' => 'sw_KE',
+      'label' => 'Swahili (Kenya)',
+    ),
+    76 => 
+    array (
+      'value' => 'sv_SE',
+      'label' => 'Swedish (Sweden)',
+    ),
+    77 => 
+    array (
+      'value' => 'th_TH',
+      'label' => 'Thai (Thailand)',
+    ),
+    78 => 
+    array (
+      'value' => 'tr_TR',
+      'label' => 'Turkish (Turkey)',
+    ),
+    79 => 
+    array (
+      'value' => 'uk_UA',
+      'label' => 'Ukrainian (Ukraine)',
+    ),
+    80 => 
+    array (
+      'value' => 'vi_VN',
+      'label' => 'Vietnamese (Vietnam)',
+    ),
+    81 => 
+    array (
+      'value' => 'cy_GB',
+      'label' => 'Welsh (United Kingdom)',
+    ),
+  ),
+  'currency' => 
+  array (
+    0 => 
+    array (
+      'value' => 'AFN',
+      'label' => 'Afghan Afghani',
+    ),
+    1 => 
+    array (
+      'value' => 'ALL',
+      'label' => 'Albanian Lek',
+    ),
+    2 => 
+    array (
+      'value' => 'DZD',
+      'label' => 'Algerian Dinar',
+    ),
+    3 => 
+    array (
+      'value' => 'AOA',
+      'label' => 'Angolan Kwanza',
+    ),
+    4 => 
+    array (
+      'value' => 'ARS',
+      'label' => 'Argentine Peso',
+    ),
+    5 => 
+    array (
+      'value' => 'AMD',
+      'label' => 'Armenian Dram',
+    ),
+    6 => 
+    array (
+      'value' => 'AWG',
+      'label' => 'Aruban Florin',
+    ),
+    7 => 
+    array (
+      'value' => 'AUD',
+      'label' => 'Australian Dollar',
+    ),
+    8 => 
+    array (
+      'value' => 'AZN',
+      'label' => 'Azerbaijani Manat',
+    ),
+    9 => 
+    array (
+      'value' => 'AZM',
+      'label' => 'Azerbaijani Manat (1993–2006)',
+    ),
+    10 => 
+    array (
+      'value' => 'BSD',
+      'label' => 'Bahamian Dollar',
+    ),
+    11 => 
+    array (
+      'value' => 'BHD',
+      'label' => 'Bahraini Dinar',
+    ),
+    12 => 
+    array (
+      'value' => 'BDT',
+      'label' => 'Bangladeshi Taka',
+    ),
+    13 => 
+    array (
+      'value' => 'BBD',
+      'label' => 'Barbadian Dollar',
+    ),
+    14 => 
+    array (
+      'value' => 'BYR',
+      'label' => 'Belarusian Ruble',
+    ),
+    15 => 
+    array (
+      'value' => 'BZD',
+      'label' => 'Belize Dollar',
+    ),
+    16 => 
+    array (
+      'value' => 'BMD',
+      'label' => 'Bermudan Dollar',
+    ),
+    17 => 
+    array (
+      'value' => 'BTN',
+      'label' => 'Bhutanese Ngultrum',
+    ),
+    18 => 
+    array (
+      'value' => 'BOB',
+      'label' => 'Bolivian Boliviano',
+    ),
+    19 => 
+    array (
+      'value' => 'BAM',
+      'label' => 'Bosnia-Herzegovina Convertible Mark',
+    ),
+    20 => 
+    array (
+      'value' => 'BWP',
+      'label' => 'Botswanan Pula',
+    ),
+    21 => 
+    array (
+      'value' => 'BRL',
+      'label' => 'Brazilian Real',
+    ),
+    22 => 
+    array (
+      'value' => 'GBP',
+      'label' => 'British Pound Sterling',
+    ),
+    23 => 
+    array (
+      'value' => 'BND',
+      'label' => 'Brunei Dollar',
+    ),
+    24 => 
+    array (
+      'value' => 'BGN',
+      'label' => 'Bulgarian Lev',
+    ),
+    25 => 
+    array (
+      'value' => 'BUK',
+      'label' => 'Burmese Kyat',
+    ),
+    26 => 
+    array (
+      'value' => 'BIF',
+      'label' => 'Burundian Franc',
+    ),
+    27 => 
+    array (
+      'value' => 'XOF',
+      'label' => 'CFA Franc BCEAO',
+    ),
+    28 => 
+    array (
+      'value' => 'XPF',
+      'label' => 'CFP Franc',
+    ),
+    29 => 
+    array (
+      'value' => 'KHR',
+      'label' => 'Cambodian Riel',
+    ),
+    30 => 
+    array (
+      'value' => 'CAD',
+      'label' => 'Canadian Dollar',
+    ),
+    31 => 
+    array (
+      'value' => 'CVE',
+      'label' => 'Cape Verdean Escudo',
+    ),
+    32 => 
+    array (
+      'value' => 'KYD',
+      'label' => 'Cayman Islands Dollar',
+    ),
+    33 => 
+    array (
+      'value' => 'CLP',
+      'label' => 'Chilean Peso',
+    ),
+    34 => 
+    array (
+      'value' => 'CNY',
+      'label' => 'Chinese Yuan',
+    ),
+    35 => 
+    array (
+      'value' => 'COP',
+      'label' => 'Colombian Peso',
+    ),
+    36 => 
+    array (
+      'value' => 'KMF',
+      'label' => 'Comorian Franc',
+    ),
+    37 => 
+    array (
+      'value' => 'CDF',
+      'label' => 'Congolese Franc',
+    ),
+    38 => 
+    array (
+      'value' => 'CRC',
+      'label' => 'Costa Rican Colón',
+    ),
+    39 => 
+    array (
+      'value' => 'HRK',
+      'label' => 'Croatian Kuna',
+    ),
+    40 => 
+    array (
+      'value' => 'CUP',
+      'label' => 'Cuban Peso',
+    ),
+    41 => 
+    array (
+      'value' => 'CZK',
+      'label' => 'Czech Republic Koruna',
+    ),
+    42 => 
+    array (
+      'value' => 'DKK',
+      'label' => 'Danish Krone',
+    ),
+    43 => 
+    array (
+      'value' => 'DJF',
+      'label' => 'Djiboutian Franc',
+    ),
+    44 => 
+    array (
+      'value' => 'DOP',
+      'label' => 'Dominican Peso',
+    ),
+    45 => 
+    array (
+      'value' => 'XCD',
+      'label' => 'East Caribbean Dollar',
+    ),
+    46 => 
+    array (
+      'value' => 'EGP',
+      'label' => 'Egyptian Pound',
+    ),
+    47 => 
+    array (
+      'value' => 'GQE',
+      'label' => 'Equatorial Guinean Ekwele',
+    ),
+    48 => 
+    array (
+      'value' => 'ERN',
+      'label' => 'Eritrean Nakfa',
+    ),
+    49 => 
+    array (
+      'value' => 'EEK',
+      'label' => 'Estonian Kroon',
+    ),
+    50 => 
+    array (
+      'value' => 'ETB',
+      'label' => 'Ethiopian Birr',
+    ),
+    51 => 
+    array (
+      'value' => 'EUR',
+      'label' => 'Euro',
+    ),
+    52 => 
+    array (
+      'value' => 'FKP',
+      'label' => 'Falkland Islands Pound',
+    ),
+    53 => 
+    array (
+      'value' => 'FJD',
+      'label' => 'Fijian Dollar',
+    ),
+    54 => 
+    array (
+      'value' => 'GMD',
+      'label' => 'Gambian Dalasi',
+    ),
+    55 => 
+    array (
+      'value' => 'GEK',
+      'label' => 'Georgian Kupon Larit',
+    ),
+    56 => 
+    array (
+      'value' => 'GEL',
+      'label' => 'Georgian Lari',
+    ),
+    57 => 
+    array (
+      'value' => 'GHS',
+      'label' => 'Ghanaian Cedi',
+    ),
+    58 => 
+    array (
+      'value' => 'GIP',
+      'label' => 'Gibraltar Pound',
+    ),
+    59 => 
+    array (
+      'value' => 'GTQ',
+      'label' => 'Guatemalan Quetzal',
+    ),
+    60 => 
+    array (
+      'value' => 'GNF',
+      'label' => 'Guinean Franc',
+    ),
+    61 => 
+    array (
+      'value' => 'GYD',
+      'label' => 'Guyanaese Dollar',
+    ),
+    62 => 
+    array (
+      'value' => 'HTG',
+      'label' => 'Haitian Gourde',
+    ),
+    63 => 
+    array (
+      'value' => 'HNL',
+      'label' => 'Honduran Lempira',
+    ),
+    64 => 
+    array (
+      'value' => 'HKD',
+      'label' => 'Hong Kong Dollar',
+    ),
+    65 => 
+    array (
+      'value' => 'HUF',
+      'label' => 'Hungarian Forint',
+    ),
+    66 => 
+    array (
+      'value' => 'ISK',
+      'label' => 'Icelandic Króna',
+    ),
+    67 => 
+    array (
+      'value' => 'INR',
+      'label' => 'Indian Rupee',
+    ),
+    68 => 
+    array (
+      'value' => 'IDR',
+      'label' => 'Indonesian Rupiah',
+    ),
+    69 => 
+    array (
+      'value' => 'IRR',
+      'label' => 'Iranian Rial',
+    ),
+    70 => 
+    array (
+      'value' => 'IQD',
+      'label' => 'Iraqi Dinar',
+    ),
+    71 => 
+    array (
+      'value' => 'ILS',
+      'label' => 'Israeli New Sheqel',
+    ),
+    72 => 
+    array (
+      'value' => 'JMD',
+      'label' => 'Jamaican Dollar',
+    ),
+    73 => 
+    array (
+      'value' => 'JPY',
+      'label' => 'Japanese Yen',
+    ),
+    74 => 
+    array (
+      'value' => 'JOD',
+      'label' => 'Jordanian Dinar',
+    ),
+    75 => 
+    array (
+      'value' => 'KZT',
+      'label' => 'Kazakhstani Tenge',
+    ),
+    76 => 
+    array (
+      'value' => 'KES',
+      'label' => 'Kenyan Shilling',
+    ),
+    77 => 
+    array (
+      'value' => 'KWD',
+      'label' => 'Kuwaiti Dinar',
+    ),
+    78 => 
+    array (
+      'value' => 'KGS',
+      'label' => 'Kyrgystani Som',
+    ),
+    79 => 
+    array (
+      'value' => 'LAK',
+      'label' => 'Laotian Kip',
+    ),
+    80 => 
+    array (
+      'value' => 'LVL',
+      'label' => 'Latvian Lats',
+    ),
+    81 => 
+    array (
+      'value' => 'LBP',
+      'label' => 'Lebanese Pound',
+    ),
+    82 => 
+    array (
+      'value' => 'LSL',
+      'label' => 'Lesotho Loti',
+    ),
+    83 => 
+    array (
+      'value' => 'LRD',
+      'label' => 'Liberian Dollar',
+    ),
+    84 => 
+    array (
+      'value' => 'LYD',
+      'label' => 'Libyan Dinar',
+    ),
+    85 => 
+    array (
+      'value' => 'LTL',
+      'label' => 'Lithuanian Litas',
+    ),
+    86 => 
+    array (
+      'value' => 'MOP',
+      'label' => 'Macanese Pataca',
+    ),
+    87 => 
+    array (
+      'value' => 'MKD',
+      'label' => 'Macedonian Denar',
+    ),
+    88 => 
+    array (
+      'value' => 'MGA',
+      'label' => 'Malagasy Ariary',
+    ),
+    89 => 
+    array (
+      'value' => 'MWK',
+      'label' => 'Malawian Kwacha',
+    ),
+    90 => 
+    array (
+      'value' => 'MYR',
+      'label' => 'Malaysian Ringgit',
+    ),
+    91 => 
+    array (
+      'value' => 'MVR',
+      'label' => 'Maldivian Rufiyaa',
+    ),
+    92 => 
+    array (
+      'value' => 'MRO',
+      'label' => 'Mauritanian Ouguiya',
+    ),
+    93 => 
+    array (
+      'value' => 'MUR',
+      'label' => 'Mauritian Rupee',
+    ),
+    94 => 
+    array (
+      'value' => 'MXN',
+      'label' => 'Mexican Peso',
+    ),
+    95 => 
+    array (
+      'value' => 'MDL',
+      'label' => 'Moldovan Leu',
+    ),
+    96 => 
+    array (
+      'value' => 'MNT',
+      'label' => 'Mongolian Tugrik',
+    ),
+    97 => 
+    array (
+      'value' => 'MAD',
+      'label' => 'Moroccan Dirham',
+    ),
+    98 => 
+    array (
+      'value' => 'MZN',
+      'label' => 'Mozambican Metical',
+    ),
+    99 => 
+    array (
+      'value' => 'MMK',
+      'label' => 'Myanmar Kyat',
+    ),
+    100 => 
+    array (
+      'value' => 'NAD',
+      'label' => 'Namibian Dollar',
+    ),
+    101 => 
+    array (
+      'value' => 'NPR',
+      'label' => 'Nepalese Rupee',
+    ),
+    102 => 
+    array (
+      'value' => 'ANG',
+      'label' => 'Netherlands Antillean Guilder',
+    ),
+    103 => 
+    array (
+      'value' => 'TWD',
+      'label' => 'New Taiwan Dollar',
+    ),
+    104 => 
+    array (
+      'value' => 'NZD',
+      'label' => 'New Zealand Dollar',
+    ),
+    105 => 
+    array (
+      'value' => 'NIC',
+      'label' => 'Nicaraguan Córdoba (1988–1991)',
+    ),
+    106 => 
+    array (
+      'value' => 'NGN',
+      'label' => 'Nigerian Naira',
+    ),
+    107 => 
+    array (
+      'value' => 'KPW',
+      'label' => 'North Korean Won',
+    ),
+    108 => 
+    array (
+      'value' => 'NOK',
+      'label' => 'Norwegian Krone',
+    ),
+    109 => 
+    array (
+      'value' => 'OMR',
+      'label' => 'Omani Rial',
+    ),
+    110 => 
+    array (
+      'value' => 'PKR',
+      'label' => 'Pakistani Rupee',
+    ),
+    111 => 
+    array (
+      'value' => 'PAB',
+      'label' => 'Panamanian Balboa',
+    ),
+    112 => 
+    array (
+      'value' => 'PGK',
+      'label' => 'Papua New Guinean Kina',
+    ),
+    113 => 
+    array (
+      'value' => 'PYG',
+      'label' => 'Paraguayan Guarani',
+    ),
+    114 => 
+    array (
+      'value' => 'PEN',
+      'label' => 'Peruvian Nuevo Sol',
+    ),
+    115 => 
+    array (
+      'value' => 'PHP',
+      'label' => 'Philippine Peso',
+    ),
+    116 => 
+    array (
+      'value' => 'PLN',
+      'label' => 'Polish Zloty',
+    ),
+    117 => 
+    array (
+      'value' => 'QAR',
+      'label' => 'Qatari Rial',
+    ),
+    118 => 
+    array (
+      'value' => 'RHD',
+      'label' => 'Rhodesian Dollar',
+    ),
+    119 => 
+    array (
+      'value' => 'RON',
+      'label' => 'Romanian Leu',
+    ),
+    120 => 
+    array (
+      'value' => 'ROL',
+      'label' => 'Romanian Leu (1952–2006)',
+    ),
+    121 => 
+    array (
+      'value' => 'RUB',
+      'label' => 'Russian Ruble',
+    ),
+    122 => 
+    array (
+      'value' => 'RWF',
+      'label' => 'Rwandan Franc',
+    ),
+    123 => 
+    array (
+      'value' => 'SHP',
+      'label' => 'Saint Helena Pound',
+    ),
+    124 => 
+    array (
+      'value' => 'SVC',
+      'label' => 'Salvadoran Colón',
+    ),
+    125 => 
+    array (
+      'value' => 'WST',
+      'label' => 'Samoan Tala',
+    ),
+    126 => 
+    array (
+      'value' => 'SAR',
+      'label' => 'Saudi Riyal',
+    ),
+    127 => 
+    array (
+      'value' => 'RSD',
+      'label' => 'Serbian Dinar',
+    ),
+    128 => 
+    array (
+      'value' => 'SCR',
+      'label' => 'Seychellois Rupee',
+    ),
+    129 => 
+    array (
+      'value' => 'SLL',
+      'label' => 'Sierra Leonean Leone',
+    ),
+    130 => 
+    array (
+      'value' => 'SGD',
+      'label' => 'Singapore Dollar',
+    ),
+    131 => 
+    array (
+      'value' => 'SKK',
+      'label' => 'Slovak Koruna',
+    ),
+    132 => 
+    array (
+      'value' => 'SBD',
+      'label' => 'Solomon Islands Dollar',
+    ),
+    133 => 
+    array (
+      'value' => 'SOS',
+      'label' => 'Somali Shilling',
+    ),
+    134 => 
+    array (
+      'value' => 'ZAR',
+      'label' => 'South African Rand',
+    ),
+    135 => 
+    array (
+      'value' => 'KRW',
+      'label' => 'South Korean Won',
+    ),
+    136 => 
+    array (
+      'value' => 'LKR',
+      'label' => 'Sri Lankan Rupee',
+    ),
+    137 => 
+    array (
+      'value' => 'SDG',
+      'label' => 'Sudanese Pound',
+    ),
+    138 => 
+    array (
+      'value' => 'SRD',
+      'label' => 'Surinamese Dollar',
+    ),
+    139 => 
+    array (
+      'value' => 'SZL',
+      'label' => 'Swazi Lilangeni',
+    ),
+    140 => 
+    array (
+      'value' => 'SEK',
+      'label' => 'Swedish Krona',
+    ),
+    141 => 
+    array (
+      'value' => 'CHF',
+      'label' => 'Swiss Franc',
+    ),
+    142 => 
+    array (
+      'value' => 'SYP',
+      'label' => 'Syrian Pound',
+    ),
+    143 => 
+    array (
+      'value' => 'STD',
+      'label' => 'São Tomé and Príncipe Dobra',
+    ),
+    144 => 
+    array (
+      'value' => 'TJS',
+      'label' => 'Tajikistani Somoni',
+    ),
+    145 => 
+    array (
+      'value' => 'TZS',
+      'label' => 'Tanzanian Shilling',
+    ),
+    146 => 
+    array (
+      'value' => 'THB',
+      'label' => 'Thai Baht',
+    ),
+    147 => 
+    array (
+      'value' => 'TOP',
+      'label' => 'Tongan Paʻanga',
+    ),
+    148 => 
+    array (
+      'value' => 'TTD',
+      'label' => 'Trinidad and Tobago Dollar',
+    ),
+    149 => 
+    array (
+      'value' => 'TND',
+      'label' => 'Tunisian Dinar',
+    ),
+    150 => 
+    array (
+      'value' => 'TRY',
+      'label' => 'Turkish Lira',
+    ),
+    151 => 
+    array (
+      'value' => 'TRL',
+      'label' => 'Turkish Lira (1922–2005)',
+    ),
+    152 => 
+    array (
+      'value' => 'TMM',
+      'label' => 'Turkmenistani Manat (1993–2009)',
+    ),
+    153 => 
+    array (
+      'value' => 'USD',
+      'label' => 'US Dollar',
+    ),
+    154 => 
+    array (
+      'value' => 'UGX',
+      'label' => 'Ugandan Shilling',
+    ),
+    155 => 
+    array (
+      'value' => 'UAH',
+      'label' => 'Ukrainian Hryvnia',
+    ),
+    156 => 
+    array (
+      'value' => 'AED',
+      'label' => 'United Arab Emirates Dirham',
+    ),
+    157 => 
+    array (
+      'value' => 'UYU',
+      'label' => 'Uruguayan Peso',
+    ),
+    158 => 
+    array (
+      'value' => 'UZS',
+      'label' => 'Uzbekistan Som',
+    ),
+    159 => 
+    array (
+      'value' => 'VUV',
+      'label' => 'Vanuatu Vatu',
+    ),
+    160 => 
+    array (
+      'value' => 'VEF',
+      'label' => 'Venezuelan Bolívar',
+    ),
+    161 => 
+    array (
+      'value' => 'VEB',
+      'label' => 'Venezuelan Bolívar (1871–2008)',
+    ),
+    162 => 
+    array (
+      'value' => 'VND',
+      'label' => 'Vietnamese Dong',
+    ),
+    163 => 
+    array (
+      'value' => 'CHE',
+      'label' => 'WIR Euro',
+    ),
+    164 => 
+    array (
+      'value' => 'CHW',
+      'label' => 'WIR Franc',
+    ),
+    165 => 
+    array (
+      'value' => 'YER',
+      'label' => 'Yemeni Rial',
+    ),
+    166 => 
+    array (
+      'value' => 'ZMK',
+      'label' => 'Zambian Kwacha (1968–2012)',
+    ),
+    167 => 
+    array (
+      'value' => 'ZWD',
+      'label' => 'Zimbabwean Dollar (1980–2008)',
+    ),
+  ),
+  'timezone' => 
+  array (
+    0 => 
+    array (
+      'value' => 'Australia/Darwin',
+      'label' => 'AUS Central Standard Time (Australia/Darwin)',
+    ),
+    1 => 
+    array (
+      'value' => 'Australia/Melbourne',
+      'label' => 'AUS Eastern Standard Time (Australia/Melbourne)',
+    ),
+    2 => 
+    array (
+      'value' => 'Australia/Sydney',
+      'label' => 'AUS Eastern Standard Time (Australia/Sydney)',
+    ),
+    3 => 
+    array (
+      'value' => 'Asia/Kabul',
+      'label' => 'Afghanistan Standard Time (Asia/Kabul)',
+    ),
+    4 => 
+    array (
+      'value' => 'America/Anchorage',
+      'label' => 'Alaskan Standard Time (America/Anchorage)',
+    ),
+    5 => 
+    array (
+      'value' => 'America/Juneau',
+      'label' => 'Alaskan Standard Time (America/Juneau)',
+    ),
+    6 => 
+    array (
+      'value' => 'America/Nome',
+      'label' => 'Alaskan Standard Time (America/Nome)',
+    ),
+    7 => 
+    array (
+      'value' => 'America/Sitka',
+      'label' => 'Alaskan Standard Time (America/Sitka)',
+    ),
+    8 => 
+    array (
+      'value' => 'America/Yakutat',
+      'label' => 'Alaskan Standard Time (America/Yakutat)',
+    ),
+    9 => 
+    array (
+      'value' => 'Asia/Aden',
+      'label' => 'Arab Standard Time (Asia/Aden)',
+    ),
+    10 => 
+    array (
+      'value' => 'Asia/Bahrain',
+      'label' => 'Arab Standard Time (Asia/Bahrain)',
+    ),
+    11 => 
+    array (
+      'value' => 'Asia/Kuwait',
+      'label' => 'Arab Standard Time (Asia/Kuwait)',
+    ),
+    12 => 
+    array (
+      'value' => 'Asia/Qatar',
+      'label' => 'Arab Standard Time (Asia/Qatar)',
+    ),
+    13 => 
+    array (
+      'value' => 'Asia/Riyadh',
+      'label' => 'Arab Standard Time (Asia/Riyadh)',
+    ),
+    14 => 
+    array (
+      'value' => 'Asia/Dubai',
+      'label' => 'Arabian Standard Time (Asia/Dubai)',
+    ),
+    15 => 
+    array (
+      'value' => 'Asia/Muscat',
+      'label' => 'Arabian Standard Time (Asia/Muscat)',
+    ),
+    16 => 
+    array (
+      'value' => 'Etc/GMT-4',
+      'label' => 'Arabian Standard Time (Etc/GMT-4)',
+    ),
+    17 => 
+    array (
+      'value' => 'Asia/Baghdad',
+      'label' => 'Arabic Standard Time (Asia/Baghdad)',
+    ),
+    18 => 
+    array (
+      'value' => 'America/Argentina/La_Rioja',
+      'label' => 'Argentina Standard Time (America/Argentina/La_Rioja)',
+    ),
+    19 => 
+    array (
+      'value' => 'America/Argentina/Rio_Gallegos',
+      'label' => 'Argentina Standard Time (America/Argentina/Rio_Gallegos)',
+    ),
+    20 => 
+    array (
+      'value' => 'America/Argentina/Salta',
+      'label' => 'Argentina Standard Time (America/Argentina/Salta)',
+    ),
+    21 => 
+    array (
+      'value' => 'America/Argentina/San_Juan',
+      'label' => 'Argentina Standard Time (America/Argentina/San_Juan)',
+    ),
+    22 => 
+    array (
+      'value' => 'America/Argentina/San_Luis',
+      'label' => 'Argentina Standard Time (America/Argentina/San_Luis)',
+    ),
+    23 => 
+    array (
+      'value' => 'America/Argentina/Tucuman',
+      'label' => 'Argentina Standard Time (America/Argentina/Tucuman)',
+    ),
+    24 => 
+    array (
+      'value' => 'America/Argentina/Ushuaia',
+      'label' => 'Argentina Standard Time (America/Argentina/Ushuaia)',
+    ),
+    25 => 
+    array (
+      'value' => 'America/Buenos_Aires',
+      'label' => 'Argentina Standard Time (America/Buenos_Aires)',
+    ),
+    26 => 
+    array (
+      'value' => 'America/Catamarca',
+      'label' => 'Argentina Standard Time (America/Catamarca)',
+    ),
+    27 => 
+    array (
+      'value' => 'America/Cordoba',
+      'label' => 'Argentina Standard Time (America/Cordoba)',
+    ),
+    28 => 
+    array (
+      'value' => 'America/Jujuy',
+      'label' => 'Argentina Standard Time (America/Jujuy)',
+    ),
+    29 => 
+    array (
+      'value' => 'America/Mendoza',
+      'label' => 'Argentina Standard Time (America/Mendoza)',
+    ),
+    30 => 
+    array (
+      'value' => 'America/Glace_Bay',
+      'label' => 'Atlantic Standard Time (America/Glace_Bay)',
+    ),
+    31 => 
+    array (
+      'value' => 'America/Goose_Bay',
+      'label' => 'Atlantic Standard Time (America/Goose_Bay)',
+    ),
+    32 => 
+    array (
+      'value' => 'America/Halifax',
+      'label' => 'Atlantic Standard Time (America/Halifax)',
+    ),
+    33 => 
+    array (
+      'value' => 'America/Moncton',
+      'label' => 'Atlantic Standard Time (America/Moncton)',
+    ),
+    34 => 
+    array (
+      'value' => 'America/Thule',
+      'label' => 'Atlantic Standard Time (America/Thule)',
+    ),
+    35 => 
+    array (
+      'value' => 'Atlantic/Bermuda',
+      'label' => 'Atlantic Standard Time (Atlantic/Bermuda)',
+    ),
+    36 => 
+    array (
+      'value' => 'Asia/Baku',
+      'label' => 'Azerbaijan Standard Time (Asia/Baku)',
+    ),
+    37 => 
+    array (
+      'value' => 'America/Scoresbysund',
+      'label' => 'Azores Standard Time (America/Scoresbysund)',
+    ),
+    38 => 
+    array (
+      'value' => 'Atlantic/Azores',
+      'label' => 'Azores Standard Time (Atlantic/Azores)',
+    ),
+    39 => 
+    array (
+      'value' => 'America/Bahia',
+      'label' => 'Bahia Standard Time (America/Bahia)',
+    ),
+    40 => 
+    array (
+      'value' => 'Asia/Dhaka',
+      'label' => 'Bangladesh Standard Time (Asia/Dhaka)',
+    ),
+    41 => 
+    array (
+      'value' => 'Asia/Thimphu',
+      'label' => 'Bangladesh Standard Time (Asia/Thimphu)',
+    ),
+    42 => 
+    array (
+      'value' => 'America/Regina',
+      'label' => 'Canada Central Standard Time (America/Regina)',
+    ),
+    43 => 
+    array (
+      'value' => 'America/Swift_Current',
+      'label' => 'Canada Central Standard Time (America/Swift_Current)',
+    ),
+    44 => 
+    array (
+      'value' => 'Atlantic/Cape_Verde',
+      'label' => 'Cape Verde Standard Time (Atlantic/Cape_Verde)',
+    ),
+    45 => 
+    array (
+      'value' => 'Etc/GMT+1',
+      'label' => 'Cape Verde Standard Time (Etc/GMT+1)',
+    ),
+    46 => 
+    array (
+      'value' => 'Asia/Yerevan',
+      'label' => 'Caucasus Standard Time (Asia/Yerevan)',
+    ),
+    47 => 
+    array (
+      'value' => 'Australia/Adelaide',
+      'label' => 'Cen. Australia Standard Time (Australia/Adelaide)',
+    ),
+    48 => 
+    array (
+      'value' => 'Australia/Broken_Hill',
+      'label' => 'Cen. Australia Standard Time (Australia/Broken_Hill)',
+    ),
+    49 => 
+    array (
+      'value' => 'America/Belize',
+      'label' => 'Central America Standard Time (America/Belize)',
+    ),
+    50 => 
+    array (
+      'value' => 'America/Costa_Rica',
+      'label' => 'Central America Standard Time (America/Costa_Rica)',
+    ),
+    51 => 
+    array (
+      'value' => 'America/El_Salvador',
+      'label' => 'Central America Standard Time (America/El_Salvador)',
+    ),
+    52 => 
+    array (
+      'value' => 'America/Guatemala',
+      'label' => 'Central America Standard Time (America/Guatemala)',
+    ),
+    53 => 
+    array (
+      'value' => 'America/Managua',
+      'label' => 'Central America Standard Time (America/Managua)',
+    ),
+    54 => 
+    array (
+      'value' => 'America/Tegucigalpa',
+      'label' => 'Central America Standard Time (America/Tegucigalpa)',
+    ),
+    55 => 
+    array (
+      'value' => 'Etc/GMT+6',
+      'label' => 'Central America Standard Time (Etc/GMT+6)',
+    ),
+    56 => 
+    array (
+      'value' => 'Pacific/Galapagos',
+      'label' => 'Central America Standard Time (Pacific/Galapagos)',
+    ),
+    57 => 
+    array (
+      'value' => 'Antarctica/Vostok',
+      'label' => 'Central Asia Standard Time (Antarctica/Vostok)',
+    ),
+    58 => 
+    array (
+      'value' => 'Asia/Almaty',
+      'label' => 'Central Asia Standard Time (Asia/Almaty)',
+    ),
+    59 => 
+    array (
+      'value' => 'Asia/Bishkek',
+      'label' => 'Central Asia Standard Time (Asia/Bishkek)',
+    ),
+    60 => 
+    array (
+      'value' => 'Asia/Qyzylorda',
+      'label' => 'Central Asia Standard Time (Asia/Qyzylorda)',
+    ),
+    61 => 
+    array (
+      'value' => 'Etc/GMT-6',
+      'label' => 'Central Asia Standard Time (Etc/GMT-6)',
+    ),
+    62 => 
+    array (
+      'value' => 'Indian/Chagos',
+      'label' => 'Central Asia Standard Time (Indian/Chagos)',
+    ),
+    63 => 
+    array (
+      'value' => 'America/Campo_Grande',
+      'label' => 'Central Brazilian Standard Time (America/Campo_Grande)',
+    ),
+    64 => 
+    array (
+      'value' => 'America/Cuiaba',
+      'label' => 'Central Brazilian Standard Time (America/Cuiaba)',
+    ),
+    65 => 
+    array (
+      'value' => 'Europe/Belgrade',
+      'label' => 'Central Europe Standard Time (Europe/Belgrade)',
+    ),
+    66 => 
+    array (
+      'value' => 'Europe/Bratislava',
+      'label' => 'Central Europe Standard Time (Europe/Bratislava)',
+    ),
+    67 => 
+    array (
+      'value' => 'Europe/Budapest',
+      'label' => 'Central Europe Standard Time (Europe/Budapest)',
+    ),
+    68 => 
+    array (
+      'value' => 'Europe/Ljubljana',
+      'label' => 'Central Europe Standard Time (Europe/Ljubljana)',
+    ),
+    69 => 
+    array (
+      'value' => 'Europe/Podgorica',
+      'label' => 'Central Europe Standard Time (Europe/Podgorica)',
+    ),
+    70 => 
+    array (
+      'value' => 'Europe/Prague',
+      'label' => 'Central Europe Standard Time (Europe/Prague)',
+    ),
+    71 => 
+    array (
+      'value' => 'Europe/Tirane',
+      'label' => 'Central Europe Standard Time (Europe/Tirane)',
+    ),
+    72 => 
+    array (
+      'value' => 'Europe/Sarajevo',
+      'label' => 'Central European Standard Time (Europe/Sarajevo)',
+    ),
+    73 => 
+    array (
+      'value' => 'Europe/Skopje',
+      'label' => 'Central European Standard Time (Europe/Skopje)',
+    ),
+    74 => 
+    array (
+      'value' => 'Europe/Warsaw',
+      'label' => 'Central European Standard Time (Europe/Warsaw)',
+    ),
+    75 => 
+    array (
+      'value' => 'Europe/Zagreb',
+      'label' => 'Central European Standard Time (Europe/Zagreb)',
+    ),
+    76 => 
+    array (
+      'value' => 'Antarctica/Macquarie',
+      'label' => 'Central Pacific Standard Time (Antarctica/Macquarie)',
+    ),
+    77 => 
+    array (
+      'value' => 'Etc/GMT-11',
+      'label' => 'Central Pacific Standard Time (Etc/GMT-11)',
+    ),
+    78 => 
+    array (
+      'value' => 'Pacific/Efate',
+      'label' => 'Central Pacific Standard Time (Pacific/Efate)',
+    ),
+    79 => 
+    array (
+      'value' => 'Pacific/Guadalcanal',
+      'label' => 'Central Pacific Standard Time (Pacific/Guadalcanal)',
+    ),
+    80 => 
+    array (
+      'value' => 'Pacific/Kosrae',
+      'label' => 'Central Pacific Standard Time (Pacific/Kosrae)',
+    ),
+    81 => 
+    array (
+      'value' => 'Pacific/Noumea',
+      'label' => 'Central Pacific Standard Time (Pacific/Noumea)',
+    ),
+    82 => 
+    array (
+      'value' => 'Pacific/Ponape',
+      'label' => 'Central Pacific Standard Time (Pacific/Ponape)',
+    ),
+    83 => 
+    array (
+      'value' => 'America/Chicago',
+      'label' => 'Central Standard Time (America/Chicago)',
+    ),
+    84 => 
+    array (
+      'value' => 'America/Indiana/Knox',
+      'label' => 'Central Standard Time (America/Indiana/Knox)',
+    ),
+    85 => 
+    array (
+      'value' => 'America/Indiana/Tell_City',
+      'label' => 'Central Standard Time (America/Indiana/Tell_City)',
+    ),
+    86 => 
+    array (
+      'value' => 'America/Matamoros',
+      'label' => 'Central Standard Time (America/Matamoros)',
+    ),
+    87 => 
+    array (
+      'value' => 'America/Menominee',
+      'label' => 'Central Standard Time (America/Menominee)',
+    ),
+    88 => 
+    array (
+      'value' => 'America/North_Dakota/Beulah',
+      'label' => 'Central Standard Time (America/North_Dakota/Beulah)',
+    ),
+    89 => 
+    array (
+      'value' => 'America/North_Dakota/Center',
+      'label' => 'Central Standard Time (America/North_Dakota/Center)',
+    ),
+    90 => 
+    array (
+      'value' => 'America/North_Dakota/New_Salem',
+      'label' => 'Central Standard Time (America/North_Dakota/New_Salem)',
+    ),
+    91 => 
+    array (
+      'value' => 'America/Rainy_River',
+      'label' => 'Central Standard Time (America/Rainy_River)',
+    ),
+    92 => 
+    array (
+      'value' => 'America/Rankin_Inlet',
+      'label' => 'Central Standard Time (America/Rankin_Inlet)',
+    ),
+    93 => 
+    array (
+      'value' => 'America/Resolute',
+      'label' => 'Central Standard Time (America/Resolute)',
+    ),
+    94 => 
+    array (
+      'value' => 'America/Winnipeg',
+      'label' => 'Central Standard Time (America/Winnipeg)',
+    ),
+    95 => 
+    array (
+      'value' => 'CST6CDT',
+      'label' => 'Central Standard Time (CST6CDT)',
+    ),
+    96 => 
+    array (
+      'value' => 'America/Bahia_Banderas',
+      'label' => 'Central Standard Time (Mexico) (America/Bahia_Banderas)',
+    ),
+    97 => 
+    array (
+      'value' => 'America/Cancun',
+      'label' => 'Central Standard Time (Mexico) (America/Cancun)',
+    ),
+    98 => 
+    array (
+      'value' => 'America/Merida',
+      'label' => 'Central Standard Time (Mexico) (America/Merida)',
+    ),
+    99 => 
+    array (
+      'value' => 'America/Mexico_City',
+      'label' => 'Central Standard Time (Mexico) (America/Mexico_City)',
+    ),
+    100 => 
+    array (
+      'value' => 'America/Monterrey',
+      'label' => 'Central Standard Time (Mexico) (America/Monterrey)',
+    ),
+    101 => 
+    array (
+      'value' => 'Asia/Chongqing',
+      'label' => 'China Standard Time (Asia/Chongqing)',
+    ),
+    102 => 
+    array (
+      'value' => 'Asia/Harbin',
+      'label' => 'China Standard Time (Asia/Harbin)',
+    ),
+    103 => 
+    array (
+      'value' => 'Asia/Hong_Kong',
+      'label' => 'China Standard Time (Asia/Hong_Kong)',
+    ),
+    104 => 
+    array (
+      'value' => 'Asia/Kashgar',
+      'label' => 'China Standard Time (Asia/Kashgar)',
+    ),
+    105 => 
+    array (
+      'value' => 'Asia/Macau',
+      'label' => 'China Standard Time (Asia/Macau)',
+    ),
+    106 => 
+    array (
+      'value' => 'Asia/Shanghai',
+      'label' => 'China Standard Time (Asia/Shanghai)',
+    ),
+    107 => 
+    array (
+      'value' => 'Asia/Urumqi',
+      'label' => 'China Standard Time (Asia/Urumqi)',
+    ),
+    108 => 
+    array (
+      'value' => 'Etc/GMT+12',
+      'label' => 'Dateline Standard Time (Etc/GMT+12)',
+    ),
+    109 => 
+    array (
+      'value' => 'Africa/Addis_Ababa',
+      'label' => 'E. Africa Standard Time (Africa/Addis_Ababa)',
+    ),
+    110 => 
+    array (
+      'value' => 'Africa/Asmera',
+      'label' => 'E. Africa Standard Time (Africa/Asmera)',
+    ),
+    111 => 
+    array (
+      'value' => 'Africa/Dar_es_Salaam',
+      'label' => 'E. Africa Standard Time (Africa/Dar_es_Salaam)',
+    ),
+    112 => 
+    array (
+      'value' => 'Africa/Djibouti',
+      'label' => 'E. Africa Standard Time (Africa/Djibouti)',
+    ),
+    113 => 
+    array (
+      'value' => 'Africa/Juba',
+      'label' => 'E. Africa Standard Time (Africa/Juba)',
+    ),
+    114 => 
+    array (
+      'value' => 'Africa/Kampala',
+      'label' => 'E. Africa Standard Time (Africa/Kampala)',
+    ),
+    115 => 
+    array (
+      'value' => 'Africa/Khartoum',
+      'label' => 'E. Africa Standard Time (Africa/Khartoum)',
+    ),
+    116 => 
+    array (
+      'value' => 'Africa/Mogadishu',
+      'label' => 'E. Africa Standard Time (Africa/Mogadishu)',
+    ),
+    117 => 
+    array (
+      'value' => 'Africa/Nairobi',
+      'label' => 'E. Africa Standard Time (Africa/Nairobi)',
+    ),
+    118 => 
+    array (
+      'value' => 'Antarctica/Syowa',
+      'label' => 'E. Africa Standard Time (Antarctica/Syowa)',
+    ),
+    119 => 
+    array (
+      'value' => 'Etc/GMT-3',
+      'label' => 'E. Africa Standard Time (Etc/GMT-3)',
+    ),
+    120 => 
+    array (
+      'value' => 'Indian/Antananarivo',
+      'label' => 'E. Africa Standard Time (Indian/Antananarivo)',
+    ),
+    121 => 
+    array (
+      'value' => 'Indian/Comoro',
+      'label' => 'E. Africa Standard Time (Indian/Comoro)',
+    ),
+    122 => 
+    array (
+      'value' => 'Indian/Mayotte',
+      'label' => 'E. Africa Standard Time (Indian/Mayotte)',
+    ),
+    123 => 
+    array (
+      'value' => 'Australia/Brisbane',
+      'label' => 'E. Australia Standard Time (Australia/Brisbane)',
+    ),
+    124 => 
+    array (
+      'value' => 'Australia/Lindeman',
+      'label' => 'E. Australia Standard Time (Australia/Lindeman)',
+    ),
+    125 => 
+    array (
+      'value' => 'America/Sao_Paulo',
+      'label' => 'E. South America Standard Time (America/Sao_Paulo)',
+    ),
+    126 => 
+    array (
+      'value' => 'America/Detroit',
+      'label' => 'Eastern Standard Time (America/Detroit)',
+    ),
+    127 => 
+    array (
+      'value' => 'America/Grand_Turk',
+      'label' => 'Eastern Standard Time (America/Grand_Turk)',
+    ),
+    128 => 
+    array (
+      'value' => 'America/Havana',
+      'label' => 'Eastern Standard Time (America/Havana)',
+    ),
+    129 => 
+    array (
+      'value' => 'America/Indiana/Petersburg',
+      'label' => 'Eastern Standard Time (America/Indiana/Petersburg)',
+    ),
+    130 => 
+    array (
+      'value' => 'America/Indiana/Vincennes',
+      'label' => 'Eastern Standard Time (America/Indiana/Vincennes)',
+    ),
+    131 => 
+    array (
+      'value' => 'America/Indiana/Winamac',
+      'label' => 'Eastern Standard Time (America/Indiana/Winamac)',
+    ),
+    132 => 
+    array (
+      'value' => 'America/Iqaluit',
+      'label' => 'Eastern Standard Time (America/Iqaluit)',
+    ),
+    133 => 
+    array (
+      'value' => 'America/Kentucky/Monticello',
+      'label' => 'Eastern Standard Time (America/Kentucky/Monticello)',
+    ),
+    134 => 
+    array (
+      'value' => 'America/Louisville',
+      'label' => 'Eastern Standard Time (America/Louisville)',
+    ),
+    135 => 
+    array (
+      'value' => 'America/Montreal',
+      'label' => 'Eastern Standard Time (America/Montreal)',
+    ),
+    136 => 
+    array (
+      'value' => 'America/Nassau',
+      'label' => 'Eastern Standard Time (America/Nassau)',
+    ),
+    137 => 
+    array (
+      'value' => 'America/New_York',
+      'label' => 'Eastern Standard Time (America/New_York)',
+    ),
+    138 => 
+    array (
+      'value' => 'America/Nipigon',
+      'label' => 'Eastern Standard Time (America/Nipigon)',
+    ),
+    139 => 
+    array (
+      'value' => 'America/Pangnirtung',
+      'label' => 'Eastern Standard Time (America/Pangnirtung)',
+    ),
+    140 => 
+    array (
+      'value' => 'America/Port-au-Prince',
+      'label' => 'Eastern Standard Time (America/Port-au-Prince)',
+    ),
+    141 => 
+    array (
+      'value' => 'America/Thunder_Bay',
+      'label' => 'Eastern Standard Time (America/Thunder_Bay)',
+    ),
+    142 => 
+    array (
+      'value' => 'America/Toronto',
+      'label' => 'Eastern Standard Time (America/Toronto)',
+    ),
+    143 => 
+    array (
+      'value' => 'EST5EDT',
+      'label' => 'Eastern Standard Time (EST5EDT)',
+    ),
+    144 => 
+    array (
+      'value' => 'Africa/Cairo',
+      'label' => 'Egypt Standard Time (Africa/Cairo)',
+    ),
+    145 => 
+    array (
+      'value' => 'Asia/Yekaterinburg',
+      'label' => 'Ekaterinburg Standard Time (Asia/Yekaterinburg)',
+    ),
+    146 => 
+    array (
+      'value' => 'Europe/Helsinki',
+      'label' => 'FLE Standard Time (Europe/Helsinki)',
+    ),
+    147 => 
+    array (
+      'value' => 'Europe/Kiev',
+      'label' => 'FLE Standard Time (Europe/Kiev)',
+    ),
+    148 => 
+    array (
+      'value' => 'Europe/Mariehamn',
+      'label' => 'FLE Standard Time (Europe/Mariehamn)',
+    ),
+    149 => 
+    array (
+      'value' => 'Europe/Riga',
+      'label' => 'FLE Standard Time (Europe/Riga)',
+    ),
+    150 => 
+    array (
+      'value' => 'Europe/Simferopol',
+      'label' => 'FLE Standard Time (Europe/Simferopol)',
+    ),
+    151 => 
+    array (
+      'value' => 'Europe/Sofia',
+      'label' => 'FLE Standard Time (Europe/Sofia)',
+    ),
+    152 => 
+    array (
+      'value' => 'Europe/Tallinn',
+      'label' => 'FLE Standard Time (Europe/Tallinn)',
+    ),
+    153 => 
+    array (
+      'value' => 'Europe/Uzhgorod',
+      'label' => 'FLE Standard Time (Europe/Uzhgorod)',
+    ),
+    154 => 
+    array (
+      'value' => 'Europe/Vilnius',
+      'label' => 'FLE Standard Time (Europe/Vilnius)',
+    ),
+    155 => 
+    array (
+      'value' => 'Europe/Zaporozhye',
+      'label' => 'FLE Standard Time (Europe/Zaporozhye)',
+    ),
+    156 => 
+    array (
+      'value' => 'Pacific/Fiji',
+      'label' => 'Fiji Standard Time (Pacific/Fiji)',
+    ),
+    157 => 
+    array (
+      'value' => 'Atlantic/Canary',
+      'label' => 'GMT Standard Time (Atlantic/Canary)',
+    ),
+    158 => 
+    array (
+      'value' => 'Atlantic/Faeroe',
+      'label' => 'GMT Standard Time (Atlantic/Faeroe)',
+    ),
+    159 => 
+    array (
+      'value' => 'Atlantic/Madeira',
+      'label' => 'GMT Standard Time (Atlantic/Madeira)',
+    ),
+    160 => 
+    array (
+      'value' => 'Europe/Dublin',
+      'label' => 'GMT Standard Time (Europe/Dublin)',
+    ),
+    161 => 
+    array (
+      'value' => 'Europe/Guernsey',
+      'label' => 'GMT Standard Time (Europe/Guernsey)',
+    ),
+    162 => 
+    array (
+      'value' => 'Europe/Isle_of_Man',
+      'label' => 'GMT Standard Time (Europe/Isle_of_Man)',
+    ),
+    163 => 
+    array (
+      'value' => 'Europe/Jersey',
+      'label' => 'GMT Standard Time (Europe/Jersey)',
+    ),
+    164 => 
+    array (
+      'value' => 'Europe/Lisbon',
+      'label' => 'GMT Standard Time (Europe/Lisbon)',
+    ),
+    165 => 
+    array (
+      'value' => 'Europe/London',
+      'label' => 'GMT Standard Time (Europe/London)',
+    ),
+    166 => 
+    array (
+      'value' => 'Asia/Nicosia',
+      'label' => 'GTB Standard Time (Asia/Nicosia)',
+    ),
+    167 => 
+    array (
+      'value' => 'Europe/Athens',
+      'label' => 'GTB Standard Time (Europe/Athens)',
+    ),
+    168 => 
+    array (
+      'value' => 'Europe/Bucharest',
+      'label' => 'GTB Standard Time (Europe/Bucharest)',
+    ),
+    169 => 
+    array (
+      'value' => 'Europe/Chisinau',
+      'label' => 'GTB Standard Time (Europe/Chisinau)',
+    ),
+    170 => 
+    array (
+      'value' => 'Asia/Tbilisi',
+      'label' => 'Georgian Standard Time (Asia/Tbilisi)',
+    ),
+    171 => 
+    array (
+      'value' => 'America/Godthab',
+      'label' => 'Greenland Standard Time (America/Godthab)',
+    ),
+    172 => 
+    array (
+      'value' => 'Africa/Abidjan',
+      'label' => 'Greenwich Standard Time (Africa/Abidjan)',
+    ),
+    173 => 
+    array (
+      'value' => 'Africa/Accra',
+      'label' => 'Greenwich Standard Time (Africa/Accra)',
+    ),
+    174 => 
+    array (
+      'value' => 'Africa/Bamako',
+      'label' => 'Greenwich Standard Time (Africa/Bamako)',
+    ),
+    175 => 
+    array (
+      'value' => 'Africa/Banjul',
+      'label' => 'Greenwich Standard Time (Africa/Banjul)',
+    ),
+    176 => 
+    array (
+      'value' => 'Africa/Bissau',
+      'label' => 'Greenwich Standard Time (Africa/Bissau)',
+    ),
+    177 => 
+    array (
+      'value' => 'Africa/Conakry',
+      'label' => 'Greenwich Standard Time (Africa/Conakry)',
+    ),
+    178 => 
+    array (
+      'value' => 'Africa/Dakar',
+      'label' => 'Greenwich Standard Time (Africa/Dakar)',
+    ),
+    179 => 
+    array (
+      'value' => 'Africa/Freetown',
+      'label' => 'Greenwich Standard Time (Africa/Freetown)',
+    ),
+    180 => 
+    array (
+      'value' => 'Africa/Lome',
+      'label' => 'Greenwich Standard Time (Africa/Lome)',
+    ),
+    181 => 
+    array (
+      'value' => 'Africa/Monrovia',
+      'label' => 'Greenwich Standard Time (Africa/Monrovia)',
+    ),
+    182 => 
+    array (
+      'value' => 'Africa/Nouakchott',
+      'label' => 'Greenwich Standard Time (Africa/Nouakchott)',
+    ),
+    183 => 
+    array (
+      'value' => 'Africa/Ouagadougou',
+      'label' => 'Greenwich Standard Time (Africa/Ouagadougou)',
+    ),
+    184 => 
+    array (
+      'value' => 'Africa/Sao_Tome',
+      'label' => 'Greenwich Standard Time (Africa/Sao_Tome)',
+    ),
+    185 => 
+    array (
+      'value' => 'Atlantic/Reykjavik',
+      'label' => 'Greenwich Standard Time (Atlantic/Reykjavik)',
+    ),
+    186 => 
+    array (
+      'value' => 'Atlantic/St_Helena',
+      'label' => 'Greenwich Standard Time (Atlantic/St_Helena)',
+    ),
+    187 => 
+    array (
+      'value' => 'Etc/GMT+10',
+      'label' => 'Hawaiian Standard Time (Etc/GMT+10)',
+    ),
+    188 => 
+    array (
+      'value' => 'Pacific/Honolulu',
+      'label' => 'Hawaiian Standard Time (Pacific/Honolulu)',
+    ),
+    189 => 
+    array (
+      'value' => 'Pacific/Johnston',
+      'label' => 'Hawaiian Standard Time (Pacific/Johnston)',
+    ),
+    190 => 
+    array (
+      'value' => 'Pacific/Rarotonga',
+      'label' => 'Hawaiian Standard Time (Pacific/Rarotonga)',
+    ),
+    191 => 
+    array (
+      'value' => 'Pacific/Tahiti',
+      'label' => 'Hawaiian Standard Time (Pacific/Tahiti)',
+    ),
+    192 => 
+    array (
+      'value' => 'Asia/Calcutta',
+      'label' => 'India Standard Time (Asia/Calcutta)',
+    ),
+    193 => 
+    array (
+      'value' => 'Asia/Tehran',
+      'label' => 'Iran Standard Time (Asia/Tehran)',
+    ),
+    194 => 
+    array (
+      'value' => 'Asia/Jerusalem',
+      'label' => 'Israel Standard Time (Asia/Jerusalem)',
+    ),
+    195 => 
+    array (
+      'value' => 'Asia/Amman',
+      'label' => 'Jordan Standard Time (Asia/Amman)',
+    ),
+    196 => 
+    array (
+      'value' => 'Europe/Kaliningrad',
+      'label' => 'Kaliningrad Standard Time (Europe/Kaliningrad)',
+    ),
+    197 => 
+    array (
+      'value' => 'Europe/Minsk',
+      'label' => 'Kaliningrad Standard Time (Europe/Minsk)',
+    ),
+    198 => 
+    array (
+      'value' => 'Asia/Pyongyang',
+      'label' => 'Korea Standard Time (Asia/Pyongyang)',
+    ),
+    199 => 
+    array (
+      'value' => 'Asia/Seoul',
+      'label' => 'Korea Standard Time (Asia/Seoul)',
+    ),
+    200 => 
+    array (
+      'value' => 'Africa/Tripoli',
+      'label' => 'Libya Standard Time (Africa/Tripoli)',
+    ),
+    201 => 
+    array (
+      'value' => 'Asia/Anadyr',
+      'label' => 'Magadan Standard Time (Asia/Anadyr)',
+    ),
+    202 => 
+    array (
+      'value' => 'Asia/Kamchatka',
+      'label' => 'Magadan Standard Time (Asia/Kamchatka)',
+    ),
+    203 => 
+    array (
+      'value' => 'Asia/Magadan',
+      'label' => 'Magadan Standard Time (Asia/Magadan)',
+    ),
+    204 => 
+    array (
+      'value' => 'Indian/Mahe',
+      'label' => 'Mauritius Standard Time (Indian/Mahe)',
+    ),
+    205 => 
+    array (
+      'value' => 'Indian/Mauritius',
+      'label' => 'Mauritius Standard Time (Indian/Mauritius)',
+    ),
+    206 => 
+    array (
+      'value' => 'Indian/Reunion',
+      'label' => 'Mauritius Standard Time (Indian/Reunion)',
+    ),
+    207 => 
+    array (
+      'value' => 'Asia/Beirut',
+      'label' => 'Middle East Standard Time (Asia/Beirut)',
+    ),
+    208 => 
+    array (
+      'value' => 'America/Montevideo',
+      'label' => 'Montevideo Standard Time (America/Montevideo)',
+    ),
+    209 => 
+    array (
+      'value' => 'Africa/Casablanca',
+      'label' => 'Morocco Standard Time (Africa/Casablanca)',
+    ),
+    210 => 
+    array (
+      'value' => 'Africa/El_Aaiun',
+      'label' => 'Morocco Standard Time (Africa/El_Aaiun)',
+    ),
+    211 => 
+    array (
+      'value' => 'America/Boise',
+      'label' => 'Mountain Standard Time (America/Boise)',
+    ),
+    212 => 
+    array (
+      'value' => 'America/Cambridge_Bay',
+      'label' => 'Mountain Standard Time (America/Cambridge_Bay)',
+    ),
+    213 => 
+    array (
+      'value' => 'America/Denver',
+      'label' => 'Mountain Standard Time (America/Denver)',
+    ),
+    214 => 
+    array (
+      'value' => 'America/Edmonton',
+      'label' => 'Mountain Standard Time (America/Edmonton)',
+    ),
+    215 => 
+    array (
+      'value' => 'America/Inuvik',
+      'label' => 'Mountain Standard Time (America/Inuvik)',
+    ),
+    216 => 
+    array (
+      'value' => 'America/Ojinaga',
+      'label' => 'Mountain Standard Time (America/Ojinaga)',
+    ),
+    217 => 
+    array (
+      'value' => 'America/Shiprock',
+      'label' => 'Mountain Standard Time (America/Shiprock)',
+    ),
+    218 => 
+    array (
+      'value' => 'America/Yellowknife',
+      'label' => 'Mountain Standard Time (America/Yellowknife)',
+    ),
+    219 => 
+    array (
+      'value' => 'MST7MDT',
+      'label' => 'Mountain Standard Time (MST7MDT)',
+    ),
+    220 => 
+    array (
+      'value' => 'America/Chihuahua',
+      'label' => 'Mountain Standard Time (Mexico) (America/Chihuahua)',
+    ),
+    221 => 
+    array (
+      'value' => 'America/Mazatlan',
+      'label' => 'Mountain Standard Time (Mexico) (America/Mazatlan)',
+    ),
+    222 => 
+    array (
+      'value' => 'Asia/Rangoon',
+      'label' => 'Myanmar Standard Time (Asia/Rangoon)',
+    ),
+    223 => 
+    array (
+      'value' => 'Indian/Cocos',
+      'label' => 'Myanmar Standard Time (Indian/Cocos)',
+    ),
+    224 => 
+    array (
+      'value' => 'Asia/Novokuznetsk',
+      'label' => 'N. Central Asia Standard Time (Asia/Novokuznetsk)',
+    ),
+    225 => 
+    array (
+      'value' => 'Asia/Novosibirsk',
+      'label' => 'N. Central Asia Standard Time (Asia/Novosibirsk)',
+    ),
+    226 => 
+    array (
+      'value' => 'Asia/Omsk',
+      'label' => 'N. Central Asia Standard Time (Asia/Omsk)',
+    ),
+    227 => 
+    array (
+      'value' => 'Africa/Windhoek',
+      'label' => 'Namibia Standard Time (Africa/Windhoek)',
+    ),
+    228 => 
+    array (
+      'value' => 'Asia/Katmandu',
+      'label' => 'Nepal Standard Time (Asia/Katmandu)',
+    ),
+    229 => 
+    array (
+      'value' => 'Antarctica/McMurdo',
+      'label' => 'New Zealand Standard Time (Antarctica/McMurdo)',
+    ),
+    230 => 
+    array (
+      'value' => 'Antarctica/South_Pole',
+      'label' => 'New Zealand Standard Time (Antarctica/South_Pole)',
+    ),
+    231 => 
+    array (
+      'value' => 'Pacific/Auckland',
+      'label' => 'New Zealand Standard Time (Pacific/Auckland)',
+    ),
+    232 => 
+    array (
+      'value' => 'America/St_Johns',
+      'label' => 'Newfoundland Standard Time (America/St_Johns)',
+    ),
+    233 => 
+    array (
+      'value' => 'Asia/Irkutsk',
+      'label' => 'North Asia East Standard Time (Asia/Irkutsk)',
+    ),
+    234 => 
+    array (
+      'value' => 'Asia/Krasnoyarsk',
+      'label' => 'North Asia Standard Time (Asia/Krasnoyarsk)',
+    ),
+    235 => 
+    array (
+      'value' => 'America/Santiago',
+      'label' => 'Pacific SA Standard Time (America/Santiago)',
+    ),
+    236 => 
+    array (
+      'value' => 'Antarctica/Palmer',
+      'label' => 'Pacific SA Standard Time (Antarctica/Palmer)',
+    ),
+    237 => 
+    array (
+      'value' => 'America/Dawson',
+      'label' => 'Pacific Standard Time (America/Dawson)',
+    ),
+    238 => 
+    array (
+      'value' => 'America/Los_Angeles',
+      'label' => 'Pacific Standard Time (America/Los_Angeles)',
+    ),
+    239 => 
+    array (
+      'value' => 'America/Tijuana',
+      'label' => 'Pacific Standard Time (America/Tijuana)',
+    ),
+    240 => 
+    array (
+      'value' => 'America/Vancouver',
+      'label' => 'Pacific Standard Time (America/Vancouver)',
+    ),
+    241 => 
+    array (
+      'value' => 'America/Whitehorse',
+      'label' => 'Pacific Standard Time (America/Whitehorse)',
+    ),
+    242 => 
+    array (
+      'value' => 'America/Santa_Isabel',
+      'label' => 'Pacific Standard Time (Mexico) (America/Santa_Isabel)',
+    ),
+    243 => 
+    array (
+      'value' => 'PST8PDT',
+      'label' => 'Pacific Standard Time (PST8PDT)',
+    ),
+    244 => 
+    array (
+      'value' => 'Asia/Karachi',
+      'label' => 'Pakistan Standard Time (Asia/Karachi)',
+    ),
+    245 => 
+    array (
+      'value' => 'America/Asuncion',
+      'label' => 'Paraguay Standard Time (America/Asuncion)',
+    ),
+    246 => 
+    array (
+      'value' => 'Africa/Ceuta',
+      'label' => 'Romance Standard Time (Africa/Ceuta)',
+    ),
+    247 => 
+    array (
+      'value' => 'Europe/Brussels',
+      'label' => 'Romance Standard Time (Europe/Brussels)',
+    ),
+    248 => 
+    array (
+      'value' => 'Europe/Copenhagen',
+      'label' => 'Romance Standard Time (Europe/Copenhagen)',
+    ),
+    249 => 
+    array (
+      'value' => 'Europe/Madrid',
+      'label' => 'Romance Standard Time (Europe/Madrid)',
+    ),
+    250 => 
+    array (
+      'value' => 'Europe/Paris',
+      'label' => 'Romance Standard Time (Europe/Paris)',
+    ),
+    251 => 
+    array (
+      'value' => 'Europe/Moscow',
+      'label' => 'Russian Standard Time (Europe/Moscow)',
+    ),
+    252 => 
+    array (
+      'value' => 'Europe/Samara',
+      'label' => 'Russian Standard Time (Europe/Samara)',
+    ),
+    253 => 
+    array (
+      'value' => 'Europe/Volgograd',
+      'label' => 'Russian Standard Time (Europe/Volgograd)',
+    ),
+    254 => 
+    array (
+      'value' => 'America/Araguaina',
+      'label' => 'SA Eastern Standard Time (America/Araguaina)',
+    ),
+    255 => 
+    array (
+      'value' => 'America/Belem',
+      'label' => 'SA Eastern Standard Time (America/Belem)',
+    ),
+    256 => 
+    array (
+      'value' => 'America/Cayenne',
+      'label' => 'SA Eastern Standard Time (America/Cayenne)',
+    ),
+    257 => 
+    array (
+      'value' => 'America/Fortaleza',
+      'label' => 'SA Eastern Standard Time (America/Fortaleza)',
+    ),
+    258 => 
+    array (
+      'value' => 'America/Maceio',
+      'label' => 'SA Eastern Standard Time (America/Maceio)',
+    ),
+    259 => 
+    array (
+      'value' => 'America/Paramaribo',
+      'label' => 'SA Eastern Standard Time (America/Paramaribo)',
+    ),
+    260 => 
+    array (
+      'value' => 'America/Recife',
+      'label' => 'SA Eastern Standard Time (America/Recife)',
+    ),
+    261 => 
+    array (
+      'value' => 'America/Santarem',
+      'label' => 'SA Eastern Standard Time (America/Santarem)',
+    ),
+    262 => 
+    array (
+      'value' => 'Antarctica/Rothera',
+      'label' => 'SA Eastern Standard Time (Antarctica/Rothera)',
+    ),
+    263 => 
+    array (
+      'value' => 'Atlantic/Stanley',
+      'label' => 'SA Eastern Standard Time (Atlantic/Stanley)',
+    ),
+    264 => 
+    array (
+      'value' => 'Etc/GMT+3',
+      'label' => 'SA Eastern Standard Time (Etc/GMT+3)',
+    ),
+    265 => 
+    array (
+      'value' => 'America/Bogota',
+      'label' => 'SA Pacific Standard Time (America/Bogota)',
+    ),
+    266 => 
+    array (
+      'value' => 'America/Cayman',
+      'label' => 'SA Pacific Standard Time (America/Cayman)',
+    ),
+    267 => 
+    array (
+      'value' => 'America/Coral_Harbour',
+      'label' => 'SA Pacific Standard Time (America/Coral_Harbour)',
+    ),
+    268 => 
+    array (
+      'value' => 'America/Eirunepe',
+      'label' => 'SA Pacific Standard Time (America/Eirunepe)',
+    ),
+    269 => 
+    array (
+      'value' => 'America/Guayaquil',
+      'label' => 'SA Pacific Standard Time (America/Guayaquil)',
+    ),
+    270 => 
+    array (
+      'value' => 'America/Jamaica',
+      'label' => 'SA Pacific Standard Time (America/Jamaica)',
+    ),
+    271 => 
+    array (
+      'value' => 'America/Lima',
+      'label' => 'SA Pacific Standard Time (America/Lima)',
+    ),
+    272 => 
+    array (
+      'value' => 'America/Panama',
+      'label' => 'SA Pacific Standard Time (America/Panama)',
+    ),
+    273 => 
+    array (
+      'value' => 'America/Rio_Branco',
+      'label' => 'SA Pacific Standard Time (America/Rio_Branco)',
+    ),
+    274 => 
+    array (
+      'value' => 'Etc/GMT+5',
+      'label' => 'SA Pacific Standard Time (Etc/GMT+5)',
+    ),
+    275 => 
+    array (
+      'value' => 'America/Anguilla',
+      'label' => 'SA Western Standard Time (America/Anguilla)',
+    ),
+    276 => 
+    array (
+      'value' => 'America/Antigua',
+      'label' => 'SA Western Standard Time (America/Antigua)',
+    ),
+    277 => 
+    array (
+      'value' => 'America/Aruba',
+      'label' => 'SA Western Standard Time (America/Aruba)',
+    ),
+    278 => 
+    array (
+      'value' => 'America/Barbados',
+      'label' => 'SA Western Standard Time (America/Barbados)',
+    ),
+    279 => 
+    array (
+      'value' => 'America/Blanc-Sablon',
+      'label' => 'SA Western Standard Time (America/Blanc-Sablon)',
+    ),
+    280 => 
+    array (
+      'value' => 'America/Boa_Vista',
+      'label' => 'SA Western Standard Time (America/Boa_Vista)',
+    ),
+    281 => 
+    array (
+      'value' => 'America/Curacao',
+      'label' => 'SA Western Standard Time (America/Curacao)',
+    ),
+    282 => 
+    array (
+      'value' => 'America/Dominica',
+      'label' => 'SA Western Standard Time (America/Dominica)',
+    ),
+    283 => 
+    array (
+      'value' => 'America/Grenada',
+      'label' => 'SA Western Standard Time (America/Grenada)',
+    ),
+    284 => 
+    array (
+      'value' => 'America/Guadeloupe',
+      'label' => 'SA Western Standard Time (America/Guadeloupe)',
+    ),
+    285 => 
+    array (
+      'value' => 'America/Guyana',
+      'label' => 'SA Western Standard Time (America/Guyana)',
+    ),
+    286 => 
+    array (
+      'value' => 'America/Kralendijk',
+      'label' => 'SA Western Standard Time (America/Kralendijk)',
+    ),
+    287 => 
+    array (
+      'value' => 'America/La_Paz',
+      'label' => 'SA Western Standard Time (America/La_Paz)',
+    ),
+    288 => 
+    array (
+      'value' => 'America/Lower_Princes',
+      'label' => 'SA Western Standard Time (America/Lower_Princes)',
+    ),
+    289 => 
+    array (
+      'value' => 'America/Manaus',
+      'label' => 'SA Western Standard Time (America/Manaus)',
+    ),
+    290 => 
+    array (
+      'value' => 'America/Marigot',
+      'label' => 'SA Western Standard Time (America/Marigot)',
+    ),
+    291 => 
+    array (
+      'value' => 'America/Martinique',
+      'label' => 'SA Western Standard Time (America/Martinique)',
+    ),
+    292 => 
+    array (
+      'value' => 'America/Montserrat',
+      'label' => 'SA Western Standard Time (America/Montserrat)',
+    ),
+    293 => 
+    array (
+      'value' => 'America/Port_of_Spain',
+      'label' => 'SA Western Standard Time (America/Port_of_Spain)',
+    ),
+    294 => 
+    array (
+      'value' => 'America/Porto_Velho',
+      'label' => 'SA Western Standard Time (America/Porto_Velho)',
+    ),
+    295 => 
+    array (
+      'value' => 'America/Puerto_Rico',
+      'label' => 'SA Western Standard Time (America/Puerto_Rico)',
+    ),
+    296 => 
+    array (
+      'value' => 'America/Santo_Domingo',
+      'label' => 'SA Western Standard Time (America/Santo_Domingo)',
+    ),
+    297 => 
+    array (
+      'value' => 'America/St_Barthelemy',
+      'label' => 'SA Western Standard Time (America/St_Barthelemy)',
+    ),
+    298 => 
+    array (
+      'value' => 'America/St_Kitts',
+      'label' => 'SA Western Standard Time (America/St_Kitts)',
+    ),
+    299 => 
+    array (
+      'value' => 'America/St_Lucia',
+      'label' => 'SA Western Standard Time (America/St_Lucia)',
+    ),
+    300 => 
+    array (
+      'value' => 'America/St_Thomas',
+      'label' => 'SA Western Standard Time (America/St_Thomas)',
+    ),
+    301 => 
+    array (
+      'value' => 'America/St_Vincent',
+      'label' => 'SA Western Standard Time (America/St_Vincent)',
+    ),
+    302 => 
+    array (
+      'value' => 'America/Tortola',
+      'label' => 'SA Western Standard Time (America/Tortola)',
+    ),
+    303 => 
+    array (
+      'value' => 'Etc/GMT+4',
+      'label' => 'SA Western Standard Time (Etc/GMT+4)',
+    ),
+    304 => 
+    array (
+      'value' => 'Antarctica/Davis',
+      'label' => 'SE Asia Standard Time (Antarctica/Davis)',
+    ),
+    305 => 
+    array (
+      'value' => 'Asia/Bangkok',
+      'label' => 'SE Asia Standard Time (Asia/Bangkok)',
+    ),
+    306 => 
+    array (
+      'value' => 'Asia/Hovd',
+      'label' => 'SE Asia Standard Time (Asia/Hovd)',
+    ),
+    307 => 
+    array (
+      'value' => 'Asia/Jakarta',
+      'label' => 'SE Asia Standard Time (Asia/Jakarta)',
+    ),
+    308 => 
+    array (
+      'value' => 'Asia/Phnom_Penh',
+      'label' => 'SE Asia Standard Time (Asia/Phnom_Penh)',
+    ),
+    309 => 
+    array (
+      'value' => 'Asia/Pontianak',
+      'label' => 'SE Asia Standard Time (Asia/Pontianak)',
+    ),
+    310 => 
+    array (
+      'value' => 'Asia/Saigon',
+      'label' => 'SE Asia Standard Time (Asia/Saigon)',
+    ),
+    311 => 
+    array (
+      'value' => 'Asia/Vientiane',
+      'label' => 'SE Asia Standard Time (Asia/Vientiane)',
+    ),
+    312 => 
+    array (
+      'value' => 'Etc/GMT-7',
+      'label' => 'SE Asia Standard Time (Etc/GMT-7)',
+    ),
+    313 => 
+    array (
+      'value' => 'Indian/Christmas',
+      'label' => 'SE Asia Standard Time (Indian/Christmas)',
+    ),
+    314 => 
+    array (
+      'value' => 'Pacific/Apia',
+      'label' => 'Samoa Standard Time (Pacific/Apia)',
+    ),
+    315 => 
+    array (
+      'value' => 'Asia/Brunei',
+      'label' => 'Singapore Standard Time (Asia/Brunei)',
+    ),
+    316 => 
+    array (
+      'value' => 'Asia/Kuala_Lumpur',
+      'label' => 'Singapore Standard Time (Asia/Kuala_Lumpur)',
+    ),
+    317 => 
+    array (
+      'value' => 'Asia/Kuching',
+      'label' => 'Singapore Standard Time (Asia/Kuching)',
+    ),
+    318 => 
+    array (
+      'value' => 'Asia/Makassar',
+      'label' => 'Singapore Standard Time (Asia/Makassar)',
+    ),
+    319 => 
+    array (
+      'value' => 'Asia/Manila',
+      'label' => 'Singapore Standard Time (Asia/Manila)',
+    ),
+    320 => 
+    array (
+      'value' => 'Asia/Singapore',
+      'label' => 'Singapore Standard Time (Asia/Singapore)',
+    ),
+    321 => 
+    array (
+      'value' => 'Etc/GMT-8',
+      'label' => 'Singapore Standard Time (Etc/GMT-8)',
+    ),
+    322 => 
+    array (
+      'value' => 'Africa/Blantyre',
+      'label' => 'South Africa Standard Time (Africa/Blantyre)',
+    ),
+    323 => 
+    array (
+      'value' => 'Africa/Bujumbura',
+      'label' => 'South Africa Standard Time (Africa/Bujumbura)',
+    ),
+    324 => 
+    array (
+      'value' => 'Africa/Gaborone',
+      'label' => 'South Africa Standard Time (Africa/Gaborone)',
+    ),
+    325 => 
+    array (
+      'value' => 'Africa/Harare',
+      'label' => 'South Africa Standard Time (Africa/Harare)',
+    ),
+    326 => 
+    array (
+      'value' => 'Africa/Johannesburg',
+      'label' => 'South Africa Standard Time (Africa/Johannesburg)',
+    ),
+    327 => 
+    array (
+      'value' => 'Africa/Kigali',
+      'label' => 'South Africa Standard Time (Africa/Kigali)',
+    ),
+    328 => 
+    array (
+      'value' => 'Africa/Lubumbashi',
+      'label' => 'South Africa Standard Time (Africa/Lubumbashi)',
+    ),
+    329 => 
+    array (
+      'value' => 'Africa/Lusaka',
+      'label' => 'South Africa Standard Time (Africa/Lusaka)',
+    ),
+    330 => 
+    array (
+      'value' => 'Africa/Maputo',
+      'label' => 'South Africa Standard Time (Africa/Maputo)',
+    ),
+    331 => 
+    array (
+      'value' => 'Africa/Maseru',
+      'label' => 'South Africa Standard Time (Africa/Maseru)',
+    ),
+    332 => 
+    array (
+      'value' => 'Africa/Mbabane',
+      'label' => 'South Africa Standard Time (Africa/Mbabane)',
+    ),
+    333 => 
+    array (
+      'value' => 'Etc/GMT-2',
+      'label' => 'South Africa Standard Time (Etc/GMT-2)',
+    ),
+    334 => 
+    array (
+      'value' => 'Asia/Colombo',
+      'label' => 'Sri Lanka Standard Time (Asia/Colombo)',
+    ),
+    335 => 
+    array (
+      'value' => 'Asia/Damascus',
+      'label' => 'Syria Standard Time (Asia/Damascus)',
+    ),
+    336 => 
+    array (
+      'value' => 'Asia/Taipei',
+      'label' => 'Taipei Standard Time (Asia/Taipei)',
+    ),
+    337 => 
+    array (
+      'value' => 'Australia/Currie',
+      'label' => 'Tasmania Standard Time (Australia/Currie)',
+    ),
+    338 => 
+    array (
+      'value' => 'Australia/Hobart',
+      'label' => 'Tasmania Standard Time (Australia/Hobart)',
+    ),
+    339 => 
+    array (
+      'value' => 'Asia/Dili',
+      'label' => 'Tokyo Standard Time (Asia/Dili)',
+    ),
+    340 => 
+    array (
+      'value' => 'Asia/Jayapura',
+      'label' => 'Tokyo Standard Time (Asia/Jayapura)',
+    ),
+    341 => 
+    array (
+      'value' => 'Asia/Tokyo',
+      'label' => 'Tokyo Standard Time (Asia/Tokyo)',
+    ),
+    342 => 
+    array (
+      'value' => 'Etc/GMT-9',
+      'label' => 'Tokyo Standard Time (Etc/GMT-9)',
+    ),
+    343 => 
+    array (
+      'value' => 'Pacific/Palau',
+      'label' => 'Tokyo Standard Time (Pacific/Palau)',
+    ),
+    344 => 
+    array (
+      'value' => 'Etc/GMT-13',
+      'label' => 'Tonga Standard Time (Etc/GMT-13)',
+    ),
+    345 => 
+    array (
+      'value' => 'Pacific/Enderbury',
+      'label' => 'Tonga Standard Time (Pacific/Enderbury)',
+    ),
+    346 => 
+    array (
+      'value' => 'Pacific/Fakaofo',
+      'label' => 'Tonga Standard Time (Pacific/Fakaofo)',
+    ),
+    347 => 
+    array (
+      'value' => 'Pacific/Tongatapu',
+      'label' => 'Tonga Standard Time (Pacific/Tongatapu)',
+    ),
+    348 => 
+    array (
+      'value' => 'Europe/Istanbul',
+      'label' => 'Turkey Standard Time (Europe/Istanbul)',
+    ),
+    349 => 
+    array (
+      'value' => 'America/Indiana/Marengo',
+      'label' => 'US Eastern Standard Time (America/Indiana/Marengo)',
+    ),
+    350 => 
+    array (
+      'value' => 'America/Indiana/Vevay',
+      'label' => 'US Eastern Standard Time (America/Indiana/Vevay)',
+    ),
+    351 => 
+    array (
+      'value' => 'America/Indianapolis',
+      'label' => 'US Eastern Standard Time (America/Indianapolis)',
+    ),
+    352 => 
+    array (
+      'value' => 'America/Creston',
+      'label' => 'US Mountain Standard Time (America/Creston)',
+    ),
+    353 => 
+    array (
+      'value' => 'America/Dawson_Creek',
+      'label' => 'US Mountain Standard Time (America/Dawson_Creek)',
+    ),
+    354 => 
+    array (
+      'value' => 'America/Hermosillo',
+      'label' => 'US Mountain Standard Time (America/Hermosillo)',
+    ),
+    355 => 
+    array (
+      'value' => 'America/Phoenix',
+      'label' => 'US Mountain Standard Time (America/Phoenix)',
+    ),
+    356 => 
+    array (
+      'value' => 'Etc/GMT+7',
+      'label' => 'US Mountain Standard Time (Etc/GMT+7)',
+    ),
+    357 => 
+    array (
+      'value' => 'America/Danmarkshavn',
+      'label' => 'UTC (America/Danmarkshavn)',
+    ),
+    358 => 
+    array (
+      'value' => 'Etc/GMT',
+      'label' => 'UTC (Etc/GMT)',
+    ),
+    359 => 
+    array (
+      'value' => 'Etc/GMT-12',
+      'label' => 'UTC+12 (Etc/GMT-12)',
+    ),
+    360 => 
+    array (
+      'value' => 'Pacific/Funafuti',
+      'label' => 'UTC+12 (Pacific/Funafuti)',
+    ),
+    361 => 
+    array (
+      'value' => 'Pacific/Kwajalein',
+      'label' => 'UTC+12 (Pacific/Kwajalein)',
+    ),
+    362 => 
+    array (
+      'value' => 'Pacific/Majuro',
+      'label' => 'UTC+12 (Pacific/Majuro)',
+    ),
+    363 => 
+    array (
+      'value' => 'Pacific/Nauru',
+      'label' => 'UTC+12 (Pacific/Nauru)',
+    ),
+    364 => 
+    array (
+      'value' => 'Pacific/Tarawa',
+      'label' => 'UTC+12 (Pacific/Tarawa)',
+    ),
+    365 => 
+    array (
+      'value' => 'Pacific/Wake',
+      'label' => 'UTC+12 (Pacific/Wake)',
+    ),
+    366 => 
+    array (
+      'value' => 'Pacific/Wallis',
+      'label' => 'UTC+12 (Pacific/Wallis)',
+    ),
+    367 => 
+    array (
+      'value' => 'America/Noronha',
+      'label' => 'UTC-02 (America/Noronha)',
+    ),
+    368 => 
+    array (
+      'value' => 'Atlantic/South_Georgia',
+      'label' => 'UTC-02 (Atlantic/South_Georgia)',
+    ),
+    369 => 
+    array (
+      'value' => 'Etc/GMT+2',
+      'label' => 'UTC-02 (Etc/GMT+2)',
+    ),
+    370 => 
+    array (
+      'value' => 'Etc/GMT+11',
+      'label' => 'UTC-11 (Etc/GMT+11)',
+    ),
+    371 => 
+    array (
+      'value' => 'Pacific/Midway',
+      'label' => 'UTC-11 (Pacific/Midway)',
+    ),
+    372 => 
+    array (
+      'value' => 'Pacific/Niue',
+      'label' => 'UTC-11 (Pacific/Niue)',
+    ),
+    373 => 
+    array (
+      'value' => 'Pacific/Pago_Pago',
+      'label' => 'UTC-11 (Pacific/Pago_Pago)',
+    ),
+    374 => 
+    array (
+      'value' => 'Asia/Choibalsan',
+      'label' => 'Ulaanbaatar Standard Time (Asia/Choibalsan)',
+    ),
+    375 => 
+    array (
+      'value' => 'Asia/Ulaanbaatar',
+      'label' => 'Ulaanbaatar Standard Time (Asia/Ulaanbaatar)',
+    ),
+    376 => 
+    array (
+      'value' => 'America/Caracas',
+      'label' => 'Venezuela Standard Time (America/Caracas)',
+    ),
+    377 => 
+    array (
+      'value' => 'Asia/Sakhalin',
+      'label' => 'Vladivostok Standard Time (Asia/Sakhalin)',
+    ),
+    378 => 
+    array (
+      'value' => 'Asia/Ust-Nera',
+      'label' => 'Vladivostok Standard Time (Asia/Ust-Nera)',
+    ),
+    379 => 
+    array (
+      'value' => 'Asia/Vladivostok',
+      'label' => 'Vladivostok Standard Time (Asia/Vladivostok)',
+    ),
+    380 => 
+    array (
+      'value' => 'Antarctica/Casey',
+      'label' => 'W. Australia Standard Time (Antarctica/Casey)',
+    ),
+    381 => 
+    array (
+      'value' => 'Australia/Perth',
+      'label' => 'W. Australia Standard Time (Australia/Perth)',
+    ),
+    382 => 
+    array (
+      'value' => 'Africa/Algiers',
+      'label' => 'W. Central Africa Standard Time (Africa/Algiers)',
+    ),
+    383 => 
+    array (
+      'value' => 'Africa/Bangui',
+      'label' => 'W. Central Africa Standard Time (Africa/Bangui)',
+    ),
+    384 => 
+    array (
+      'value' => 'Africa/Brazzaville',
+      'label' => 'W. Central Africa Standard Time (Africa/Brazzaville)',
+    ),
+    385 => 
+    array (
+      'value' => 'Africa/Douala',
+      'label' => 'W. Central Africa Standard Time (Africa/Douala)',
+    ),
+    386 => 
+    array (
+      'value' => 'Africa/Kinshasa',
+      'label' => 'W. Central Africa Standard Time (Africa/Kinshasa)',
+    ),
+    387 => 
+    array (
+      'value' => 'Africa/Lagos',
+      'label' => 'W. Central Africa Standard Time (Africa/Lagos)',
+    ),
+    388 => 
+    array (
+      'value' => 'Africa/Libreville',
+      'label' => 'W. Central Africa Standard Time (Africa/Libreville)',
+    ),
+    389 => 
+    array (
+      'value' => 'Africa/Luanda',
+      'label' => 'W. Central Africa Standard Time (Africa/Luanda)',
+    ),
+    390 => 
+    array (
+      'value' => 'Africa/Malabo',
+      'label' => 'W. Central Africa Standard Time (Africa/Malabo)',
+    ),
+    391 => 
+    array (
+      'value' => 'Africa/Ndjamena',
+      'label' => 'W. Central Africa Standard Time (Africa/Ndjamena)',
+    ),
+    392 => 
+    array (
+      'value' => 'Africa/Niamey',
+      'label' => 'W. Central Africa Standard Time (Africa/Niamey)',
+    ),
+    393 => 
+    array (
+      'value' => 'Africa/Porto-Novo',
+      'label' => 'W. Central Africa Standard Time (Africa/Porto-Novo)',
+    ),
+    394 => 
+    array (
+      'value' => 'Africa/Tunis',
+      'label' => 'W. Central Africa Standard Time (Africa/Tunis)',
+    ),
+    395 => 
+    array (
+      'value' => 'Etc/GMT-1',
+      'label' => 'W. Central Africa Standard Time (Etc/GMT-1)',
+    ),
+    396 => 
+    array (
+      'value' => 'Arctic/Longyearbyen',
+      'label' => 'W. Europe Standard Time (Arctic/Longyearbyen)',
+    ),
+    397 => 
+    array (
+      'value' => 'Europe/Amsterdam',
+      'label' => 'W. Europe Standard Time (Europe/Amsterdam)',
+    ),
+    398 => 
+    array (
+      'value' => 'Europe/Andorra',
+      'label' => 'W. Europe Standard Time (Europe/Andorra)',
+    ),
+    399 => 
+    array (
+      'value' => 'Europe/Berlin',
+      'label' => 'W. Europe Standard Time (Europe/Berlin)',
+    ),
+    400 => 
+    array (
+      'value' => 'Europe/Busingen',
+      'label' => 'W. Europe Standard Time (Europe/Busingen)',
+    ),
+    401 => 
+    array (
+      'value' => 'Europe/Gibraltar',
+      'label' => 'W. Europe Standard Time (Europe/Gibraltar)',
+    ),
+    402 => 
+    array (
+      'value' => 'Europe/Luxembourg',
+      'label' => 'W. Europe Standard Time (Europe/Luxembourg)',
+    ),
+    403 => 
+    array (
+      'value' => 'Europe/Malta',
+      'label' => 'W. Europe Standard Time (Europe/Malta)',
+    ),
+    404 => 
+    array (
+      'value' => 'Europe/Monaco',
+      'label' => 'W. Europe Standard Time (Europe/Monaco)',
+    ),
+    405 => 
+    array (
+      'value' => 'Europe/Oslo',
+      'label' => 'W. Europe Standard Time (Europe/Oslo)',
+    ),
+    406 => 
+    array (
+      'value' => 'Europe/Rome',
+      'label' => 'W. Europe Standard Time (Europe/Rome)',
+    ),
+    407 => 
+    array (
+      'value' => 'Europe/San_Marino',
+      'label' => 'W. Europe Standard Time (Europe/San_Marino)',
+    ),
+    408 => 
+    array (
+      'value' => 'Europe/Stockholm',
+      'label' => 'W. Europe Standard Time (Europe/Stockholm)',
+    ),
+    409 => 
+    array (
+      'value' => 'Europe/Vaduz',
+      'label' => 'W. Europe Standard Time (Europe/Vaduz)',
+    ),
+    410 => 
+    array (
+      'value' => 'Europe/Vatican',
+      'label' => 'W. Europe Standard Time (Europe/Vatican)',
+    ),
+    411 => 
+    array (
+      'value' => 'Europe/Vienna',
+      'label' => 'W. Europe Standard Time (Europe/Vienna)',
+    ),
+    412 => 
+    array (
+      'value' => 'Europe/Zurich',
+      'label' => 'W. Europe Standard Time (Europe/Zurich)',
+    ),
+    413 => 
+    array (
+      'value' => 'Antarctica/Mawson',
+      'label' => 'West Asia Standard Time (Antarctica/Mawson)',
+    ),
+    414 => 
+    array (
+      'value' => 'Asia/Aqtau',
+      'label' => 'West Asia Standard Time (Asia/Aqtau)',
+    ),
+    415 => 
+    array (
+      'value' => 'Asia/Aqtobe',
+      'label' => 'West Asia Standard Time (Asia/Aqtobe)',
+    ),
+    416 => 
+    array (
+      'value' => 'Asia/Ashgabat',
+      'label' => 'West Asia Standard Time (Asia/Ashgabat)',
+    ),
+    417 => 
+    array (
+      'value' => 'Asia/Dushanbe',
+      'label' => 'West Asia Standard Time (Asia/Dushanbe)',
+    ),
+    418 => 
+    array (
+      'value' => 'Asia/Oral',
+      'label' => 'West Asia Standard Time (Asia/Oral)',
+    ),
+    419 => 
+    array (
+      'value' => 'Asia/Samarkand',
+      'label' => 'West Asia Standard Time (Asia/Samarkand)',
+    ),
+    420 => 
+    array (
+      'value' => 'Asia/Tashkent',
+      'label' => 'West Asia Standard Time (Asia/Tashkent)',
+    ),
+    421 => 
+    array (
+      'value' => 'Etc/GMT-5',
+      'label' => 'West Asia Standard Time (Etc/GMT-5)',
+    ),
+    422 => 
+    array (
+      'value' => 'Indian/Kerguelen',
+      'label' => 'West Asia Standard Time (Indian/Kerguelen)',
+    ),
+    423 => 
+    array (
+      'value' => 'Indian/Maldives',
+      'label' => 'West Asia Standard Time (Indian/Maldives)',
+    ),
+    424 => 
+    array (
+      'value' => 'Antarctica/DumontDUrville',
+      'label' => 'West Pacific Standard Time (Antarctica/DumontDUrville)',
+    ),
+    425 => 
+    array (
+      'value' => 'Etc/GMT-10',
+      'label' => 'West Pacific Standard Time (Etc/GMT-10)',
+    ),
+    426 => 
+    array (
+      'value' => 'Pacific/Guam',
+      'label' => 'West Pacific Standard Time (Pacific/Guam)',
+    ),
+    427 => 
+    array (
+      'value' => 'Pacific/Port_Moresby',
+      'label' => 'West Pacific Standard Time (Pacific/Port_Moresby)',
+    ),
+    428 => 
+    array (
+      'value' => 'Pacific/Saipan',
+      'label' => 'West Pacific Standard Time (Pacific/Saipan)',
+    ),
+    429 => 
+    array (
+      'value' => 'Pacific/Truk',
+      'label' => 'West Pacific Standard Time (Pacific/Truk)',
+    ),
+    430 => 
+    array (
+      'value' => 'Asia/Khandyga',
+      'label' => 'Yakutsk Standard Time (Asia/Khandyga)',
+    ),
+    431 => 
+    array (
+      'value' => 'Asia/Yakutsk',
+      'label' => 'Yakutsk Standard Time (Asia/Yakutsk)',
+    ),
+  ),
+)

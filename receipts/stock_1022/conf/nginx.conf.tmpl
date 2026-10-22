@@ -1,0 +1,31 @@
+worker_processes 1;
+pid RUNDIR/nginx.pid;
+error_log LOGDIR/nginx-error.log notice;
+events { worker_connections 64; }
+http {
+    client_body_temp_path RUNDIR/nginxprefix/client_body;
+    proxy_temp_path RUNDIR/nginxprefix/proxy;
+    fastcgi_temp_path RUNDIR/nginxprefix/fastcgi;
+    uwsgi_temp_path RUNDIR/nginxprefix/uwsgi;
+    scgi_temp_path RUNDIR/nginxprefix/scgi;
+    include /opt/nginx-1.30.1/conf/mime.types;
+    default_type application/octet-stream;
+    access_log LOGDIR/nginx-access.log;
+    client_max_body_size 16m;
+    client_body_timeout 120s;
+    send_timeout 120s;
+    server {
+        listen 127.0.0.1:28895;
+        server_name 127.0.0.1;
+        root WWWDIR;
+        index index.php index.html;
+        location / { try_files $uri $uri/ /index.php?$args; }
+        location ~ \.php$ {
+            include /tmp/opencode/realapps/nginx/fastcgi_params;
+            fastcgi_pass unix:RUNDIR/php-fpm.sock;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            fastcgi_read_timeout 120s;
+            fastcgi_send_timeout 120s;
+        }
+    }
+}

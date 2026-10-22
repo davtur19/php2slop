@@ -1,0 +1,3 @@
+BG level=1 data=0x7f747ce82000
+last=0x7f747cfb9000 first_dtor=0x7f747cea0000 last_dtor=0x7f747cea0000 cur=3772 max=4096 entries.used=1018 entries.next=0x7f747cefa000
+dtor used=1 next=(nil)
