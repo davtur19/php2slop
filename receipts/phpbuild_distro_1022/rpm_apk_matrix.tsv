@@ -1,0 +1,10 @@
+fedora44	php-fpm	(cannot exec)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	canary=1	fortify=3	/lib64/ld-linux-x86-64.so.2
+rocky9_80	php-fpm	(cannot exec)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	canary=1	fortify=3	/lib64/ld-linux-x86-64.so.2
+rocky9_82	php-fpm	(cannot exec)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	canary=1	fortify=3	/lib64/ld-linux-x86-64.so.2
+rocky9_83	php-fpm	(cannot exec)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	canary=1	fortify=3	/lib64/ld-linux-x86-64.so.2
+opensuse_tw	php-fpm	(cannot exec)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	no	yes	no	canary=1	fortify=3	/lib64/ld-linux-x86-64.so.2
+alpine319_82	php-fpm82	(cannot exec)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	canary=1	fortify=0	/lib/ld-musl-x86_64.so.1
+alpine319_83	php-fpm83	(cannot exec)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	canary=1	fortify=0	/lib/ld-musl-x86_64.so.1
+alpine322_82	php-fpm82	(cannot exec)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	canary=1	fortify=0	/lib/ld-musl-x86_64.so.1
+alpine322_83	php-fpm83	(cannot exec)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	canary=1	fortify=0	/lib/ld-musl-x86_64.so.1
+alpine322_84	php-fpm84	(cannot exec)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	canary=1	fortify=0	/lib/ld-musl-x86_64.so.1

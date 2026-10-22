@@ -1,0 +1,9 @@
+package	binary	version	elf_type	first_load	stack	relro	bind_now	pie_flag	symtab	canary	fortify	interp
+php8.1-cli_8.1.2-1ubuntu2.28_amd64	php8.1	8.1.2-1ubuntu2.28 (cli) (built: Oct 19 2026 18:54:45) (NTS)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	yes	yes	/lib64/ld-linux-x86-64.so.2
+php8.1-fpm_8.1.2-1ubuntu2.28_amd64	php-fpm8.1	8.1.2-1ubuntu2.28 (fpm-fcgi) (built: Oct 19 2026 18:54:45)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	yes	yes	/lib64/ld-linux-x86-64.so.2
+php8.2-cli_8.2.32-1~deb12u1_amd64	php8.2	8.2.32 (cli) (built: Jul  3 2026 12:22:11) (NTS)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	yes	yes	/lib64/ld-linux-x86-64.so.2
+php8.2-fpm_8.2.32-1~deb12u1_amd64	php-fpm8.2	8.2.32 (fpm-fcgi) (built: Jul  3 2026 12:22:11)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	yes	yes	/lib64/ld-linux-x86-64.so.2
+php8.3-cli_8.3.6-0ubuntu0.24.04.13_amd64	php8.3	8.3.6 (cli) (built: Oct 19 2026 15:16:58) (NTS)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	yes	yes	/lib64/ld-linux-x86-64.so.2
+php8.3-fpm_8.3.6-0ubuntu0.24.04.13_amd64	php-fpm8.3	8.3.6 (fpm-fcgi) (built: Oct 19 2026 15:16:58)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	yes	yes	/lib64/ld-linux-x86-64.so.2
+php8.4-cli_8.4.27-1~deb13u1_amd64	php8.4	8.4.27 (cli) (built: Oct 21 2026 07:53:46) (NTS)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	yes	yes	/lib64/ld-linux-x86-64.so.2
+php8.4-fpm_8.4.27-1~deb13u1_amd64	php-fpm8.4	8.4.27 (fpm-fcgi) (built: Oct 21 2026 07:53:46) (NTS)	DYN (Position-Independent Executable file)	0x0000000000000000	RW 0x10	yes	yes	yes	no	yes	yes	/lib64/ld-linux-x86-64.so.2

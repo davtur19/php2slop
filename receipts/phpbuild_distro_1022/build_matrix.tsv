@@ -1,0 +1,29 @@
+build_class	distro_or_product	release	php_version	sapi	elf_type	image_base	relro	bind_now	pie	canary	fortify	symtab	session_save_path	evidence
+distro	Debian	13 trixie	8.4.27	fpm-fcgi	DYN	0x0	full	yes	yes	yes	yes	no	/tmp (empty default)	debs/php8.4-fpm_8.4.27-1~deb13u1
+distro	Debian	13 trixie	8.4.27	cli	DYN	0x0	full	yes	yes	yes	yes	no	/tmp	debs/php8.4-cli_8.4.27-1~deb13u1
+distro	Debian	12 bookworm	8.2.32	fpm-fcgi	DYN	0x0	full	yes	yes	yes	yes	no	/tmp	debs/php8.2-fpm_8.2.32-1~deb12u1
+distro	Debian	11 bullseye	7.4.33	fpm-fcgi	DYN	0x0	full	yes	yes	yes	yes	no	/tmp	debs/php7.4-fpm_7.4.33-1+deb11u5
+distro	Ubuntu	22.04 jammy	8.1.2	fpm-fcgi	DYN	0x0	full	yes	yes	yes	yes	no	/tmp	debs/php8.1-fpm_8.1.2-1ubuntu2.28
+distro	Ubuntu	24.04 noble	8.3.6	fpm-fcgi	DYN	0x0	full	yes	yes	yes	yes	no	/tmp	debs/php8.3-fpm_8.3.6-0ubuntu0.24.04.13
+distro	Fedora	44	8.5.4	fpm-fcgi	DYN	0x0	full	yes	yes	yes	yes	no	/var/lib/php/session (pool php_value)	rpms/php-fpm-8.5.4-1.fc44
+distro	Rocky Linux	9 (base module)	8.0.30	fpm-fcgi	DYN	0x0	full	yes	yes	yes	yes	no	/var/lib/php/session	rpms/php-fpm-8.0.30-8.el9_8.1
+distro	Rocky Linux	9 (8.2 module)	8.2.35	fpm-fcgi	DYN	0x0	full	yes	yes	yes	yes	no	/var/lib/php/session	rpms/php-fpm-8.2.35-1.module+el9
+distro	Rocky Linux	9 (8.3 module)	8.3.36	fpm-fcgi	DYN	0x0	full	yes	yes	yes	yes	no	/var/lib/php/session	rpms/php-fpm-8.3.36-1.module+el9
+distro	Alpine Linux	3.19	8.2.26	fpm-fcgi (musl)	DYN	0x0	full	yes	yes	yes	no	no	/tmp (no php.ini shipped)	apks/php82-fpm-8.2.26-r0.apk
+distro	Alpine Linux	3.19	8.3.14	fpm-fcgi (musl)	DYN	0x0	full	yes	yes	yes	no	no	/tmp	apks/php83-fpm-8.3.14-r0.apk
+distro	Alpine Linux	3.22	8.2.33	fpm-fcgi (musl)	DYN	0x0	full	yes	yes	yes	no	no	/tmp	apks/php82-fpm-8.2.33-r0.apk
+distro	Alpine Linux	3.22	8.3.29	fpm-fcgi (musl)	DYN	0x0	full	yes	yes	yes	no	no	/tmp	apks/php83-fpm-8.3.29-r0.apk
+distro	Alpine Linux	3.22	8.4.16	fpm-fcgi (musl)	DYN	0x0	full	yes	yes	yes	no	no	/tmp	apks/php84-fpm-8.4.16-r0.apk
+distro	Arch Linux	rolling	8.5.11	fpm-fcgi	DYN	0x0	full	yes	yes	yes	yes	no	/tmp	arch/php-fpm-8.5.11-1-x86_64.pkg.tar.zst
+distro	openSUSE	Tumbleweed	8.5.11	fpm-fcgi	DYN	0x0	yes	no	yes	yes	yes	no	/tmp	rpms/php8-fpm-8.5.11-2.1
+distro	Amazon Linux	2023	8.5.10	fpm-fcgi	DYN	0x0	full	yes	yes	yes	yes	no	/tmp (measured empty)	amazonlinux:2023 dnf php-fpm
+distro	Amazon Linux	2	5.4.16	fpm-fcgi	DYN	0x0	full	yes	yes	yes	yes	no	/tmp (measured empty)	amazonlinux:2 yum php-fpm
+third-party RPM	Remi (el9)	8.4 module	8.4.27	fpm-fcgi	DYN	0x0	full	yes	yes	yes	yes	no	/var/lib/php/session	rpms/php-fpm-8.4.27-1.module_php.8.4.el9.remi
+third-party RPM	Remi (el9)	8.2 module	8.2.35	fpm-fcgi	DYN	0x0	full	yes	yes	yes	yes	no	/var/lib/php/session	rpms/php-fpm-8.2.35-1.module_php.8.2.el9.remi
+third-party DEB	Sury (Debian 13)	8.4	8.4.27	fpm-fcgi	DYN	0x0	full	yes	yes	yes	yes	no	/tmp	debs/php8.4-fpm_8.4.27-1+0~20261021.57+debian13
+container	official Docker	php:8.4-fpm	8.4.27	fpm-fcgi	DYN	0x0	partial	no	yes	yes	no	no	/tmp (measured empty)	docker.io/library/php:8.4-fpm
+panel	cPanel EA4	11.130 el9	8.4.26	fpm-fcgi	EXEC	0x400000	partial	no	no	yes	yes	yes	/tmp per shipped php.ini	rpms/cpanel-php84-8.4.26
+panel	cPanel EA4	11.130 el9	8.4.27	fpm-fcgi	EXEC	0x400000	partial	no	no	yes	yes	yes	/tmp per shipped php.ini	rpms/cpanel-php84-8.4.27
+panel	Plesk	PHP84_17 el9	8.4.27	fpm-fcgi	EXEC	0x400000	partial	no	no	yes	yes	no	unknown (ini generated)	rpms/plesk-php84-fpm-8.4.27
+panel	Plesk	PHP83_17 el9	8.3.36	fpm-fcgi	EXEC	0x400000	partial	no	no	yes	yes	no	unknown	rpms/plesk-php83-fpm-8.3.36
+panel	DirectAdmin	custombuild	unknown	unknown	unknown	unknown	unknown	unknown	unknown	unknown	unknown	unknown	unknown	not retrievable in this session
