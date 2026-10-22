@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Server: nginx/1.30.1
+Date: Wed, 21 Oct 2026 23:12:48 GMT
+Content-Type: text/html; charset=UTF-8
+Content-Length: 29206
+Connection: keep-alive
+X-Powered-By: PHP/8.5.10
+X-Content-Type-Options: nosniff
+Content-language: en
+Vary: Accept-Encoding, Cookie
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+X-Request-Id: 51cef81ad55b138ba4e3f929
+

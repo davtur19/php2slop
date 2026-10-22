@@ -1,0 +1,1 @@
+{"error":{"code":"mustbeposted","info":"The \"login\" module requires a POST request.","*":"See http://127.0.0.1:28866/api.php for API usage. Subscribe to the mediawiki-api-announce mailing list at &lt;https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/&gt; for notice of API deprecations and breaking changes."}}

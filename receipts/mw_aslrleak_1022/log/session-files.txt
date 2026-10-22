@@ -1,0 +1,34 @@
+== new session files (mtime after 2026-10-22 01:10) ==
+0 2026-10-22 01:12:16.5455144590 sess_4f911jbuf5ti0432fpk3b0k6prg97r2t
+0 2026-10-22 01:14:17.5806858380 sess_49b4dtimr39kk0e8cb3gbv3bebnpugq0
+0 2026-10-22 01:14:17.7566847560 sess_ai2pgsqir022lrhqvht17r3p6gabcm7h
+0 2026-10-22 01:14:17.8806839950 sess_qgr2ugvdvn6u1ak8tm9k5g7scm8gtoul
+0 2026-10-22 01:14:18.0446829870 sess_ebv52hbb6es82amj307fup0tncqspqkd
+0 2026-10-22 01:14:57.3844471900 sess_5roppa1s9mrf3vlqok1o6917kt566i4c
+0 2026-10-22 01:14:58.3484415410 sess_nr69acdfme7c8i7ar6h42ahunkpiuqkh
+0 2026-10-22 01:17:00.2557607480 sess_jajqkmovfd2t2fgtldqd1badat8986j6
+0 2026-10-22 01:17:00.6957583780 sess_cftr0m7luvt8rsd35silh7h8l1ult2il
+0 2026-10-22 01:17:00.8317576460 sess_4c9dnsmaula0flnubchb5hqu5r2u6vch
+346 2026-10-22 01:15:19.4683191220 sess_bodyid123
+349 2026-10-22 01:12:15.7735204930 sess_leakprobe123
+351 2026-10-22 01:15:19.3163199940 sess_0x7fabcdef1234
+367 2026-10-22 01:15:19.1563209130 sess_chosenid1234567890abcdef123456
+2621 2026-10-22 01:19:54.0180242090 sess_06af8ccceb6865352c7ac683c960c0d6
+2621 2026-10-22 01:19:54.0900229320 sess_d5fe543299db3b3f7ca24d38ec50ea62
+2621 2026-10-22 01:20:16.4496363040 sess_10370ec454551b8e0cbccc3163263cf3
+2621 2026-10-22 01:20:16.5176351590 sess_e048066e83c3f7817f659ea760a00f5f
+
+== pointer-like scan of new session files ==
+/tmp/opencode/research/wikitype_20261021T212610Z/sessions/sess_0x7fabcdef1234:0x7fabcdef1234
+
+== note on sess_0x7fabcdef1234 ==
+This file exists because the client sent PHPSESSID=0x7fabcdef1234. The token in the file is attacker input, not a server heap pointer.
+
+== wikidb_session files ==
+0 /tmp/opencode/research/wikitype_20261021T212610Z/sessions/sess_4f911jbuf5ti0432fpk3b0k6prg97r2t
+0 /tmp/opencode/research/wikitype_20261021T212610Z/sessions/sess_49b4dtimr39kk0e8cb3gbv3bebnpugq0
+0 /tmp/opencode/research/wikitype_20261021T212610Z/sessions/sess_ai2pgsqir022lrhqvht17r3p6gabcm7h
+0 /tmp/opencode/research/wikitype_20261021T212610Z/sessions/sess_qgr2ugvdvn6u1ak8tm9k5g7scm8gtoul
+0 /tmp/opencode/research/wikitype_20261021T212610Z/sessions/sess_ebv52hbb6es82amj307fup0tncqspqkd
+0 /tmp/opencode/research/wikitype_20261021T212610Z/sessions/sess_5roppa1s9mrf3vlqok1o6917kt566i4c
+0 /tmp/opencode/research/wikitype_20261021T212610Z/sessions/sess_nr69acdfme7c8i7ar6h42ahunkpiuqkh

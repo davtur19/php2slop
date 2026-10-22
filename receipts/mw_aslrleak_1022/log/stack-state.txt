@@ -1,0 +1,66 @@
+== ps ==
+    PID    PPID                  STARTED STAT COMMAND
+  52393       1 Thu Oct 22 01:10:00 2026 Ssl  /tmp/opencode/realapps/mariadb-11.4.5-linux-systemd-x86_64/bin/mariadbd --datadir=/tmp/opencode/research/wikitype_20261021T212610Z/db --port=33309 --bind-address=127.0.0.1 --socket=/tmp/opencode/research/wikitype_20261021T212610Z/run/mysql.sock --pid-file=/tmp/opencode/research/wikitype_20261021T212610Z/run/mariadb.pid --log-error=/tmp/opencode/research/wikitype_20261021T212610Z/log/mariadb.err --skip-name-resolve
+  52926       1 Thu Oct 22 01:10:36 2026 Ss   php-fpm: master process (/tmp/opencode/research/wikitype_20261021T212610Z/conf/fpm.conf)
+  52927   52926 Thu Oct 22 01:10:36 2026 S    php-fpm: pool lab
+  52930       1 Thu Oct 22 01:10:36 2026 Ss   nginx: master process /opt/nginx-1.30.1/sbin/nginx -c /tmp/opencode/research/wikitype_20261021T212610Z/conf/nginx.conf
+  52931   52930 Thu Oct 22 01:10:36 2026 S    nginx: worker process
+
+== personality (0 = ASLR on) ==
+52393 00000000
+52926 00000000
+52927 00000000
+52930 00000000
+52931 00000000
+
+== shared PIDs ==
+    PID    PPID                  STARTED STAT COMMAND
+(no rows above means absent; none were signalled or inspected further)
+
+== final health ==
+HTTP/1.1 200 OK
+Content-Length: 35297
+X-Request-Id: 2d5137f1163cdd4c5a57a154
+
+== fpm log tail ==
+[22-Oct-2026 00:04:36] WARNING: [pool lab] child 1087492 exited on signal 11 (SIGSEGV) after 671.188327 seconds from start
+[22-Oct-2026 00:04:36] NOTICE: [pool lab] child 1245307 started
+[22-Oct-2026 00:08:34] WARNING: [pool lab] child 1245307 exited on signal 11 (SIGSEGV) after 238.054565 seconds from start
+[22-Oct-2026 00:08:34] NOTICE: [pool lab] child 1246030 started
+[22-Oct-2026 00:29:18] WARNING: [pool lab] child 1246030 exited on signal 11 (SIGSEGV) after 1243.303312 seconds from start
+[22-Oct-2026 00:29:18] NOTICE: [pool lab] child 1249940 started
+[22-Oct-2026 01:00:55] NOTICE: Terminating ...
+[22-Oct-2026 01:00:55] NOTICE: exiting, bye-bye!
+[22-Oct-2026 01:10:37] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 01:10:37] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 01:10:37] NOTICE: fpm is running, pid 52926
+[22-Oct-2026 01:10:37] NOTICE: ready to handle connections
+
+== fpm recycle lines ==
+[21-Oct-2026 23:28:22] NOTICE: ready to handle connections
+[21-Oct-2026 23:41:37] NOTICE: Terminating ...
+[21-Oct-2026 23:41:58] NOTICE: ready to handle connections
+[21-Oct-2026 23:46:37] NOTICE: Terminating ...
+[21-Oct-2026 23:46:38] NOTICE: ready to handle connections
+[21-Oct-2026 23:53:25] WARNING: [pool lab] child 1086117 exited on signal 11 (SIGSEGV) after 407.367996 seconds from start
+[22-Oct-2026 00:04:36] WARNING: [pool lab] child 1087492 exited on signal 11 (SIGSEGV) after 671.188327 seconds from start
+[22-Oct-2026 00:08:34] WARNING: [pool lab] child 1245307 exited on signal 11 (SIGSEGV) after 238.054565 seconds from start
+[22-Oct-2026 00:29:18] WARNING: [pool lab] child 1246030 exited on signal 11 (SIGSEGV) after 1243.303312 seconds from start
+[22-Oct-2026 00:29:18] NOTICE: [pool lab] child 1249940 started
+[22-Oct-2026 01:00:55] NOTICE: Terminating ...
+[22-Oct-2026 01:10:37] NOTICE: ready to handle connections
+
+== host ASLR ==
+randomize_va_space=2
+
+== old worker 1249940 ==
+    PID COMMAND
+absent
+
+== exact restart lines ==
+[22-Oct-2026 01:00:55] NOTICE: Terminating ...
+[22-Oct-2026 01:00:55] NOTICE: exiting, bye-bye!
+[22-Oct-2026 01:10:37] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 01:10:37] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 01:10:37] NOTICE: fpm is running, pid 52926
+[22-Oct-2026 01:10:37] NOTICE: ready to handle connections

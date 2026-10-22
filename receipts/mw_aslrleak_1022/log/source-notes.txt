@@ -1,0 +1,302 @@
+=== MediaWiki 1.46.2 wfRandomString (includes/GlobalFunctions.php:169) ===
+   169	function wfRandomString( $length = 32 ) {
+   170		$str = '';
+   171		for ( $n = 0; $n < $length; $n += 7 ) {
+   172			$str .= sprintf( '%07x', mt_rand() & 0xfffffff );
+   173		}
+   174		return substr( $str, 0, $length );
+   175	}
+
+=== WebRequest::getRequestId (includes/Request/WebRequest.php) ===
+352:	public static function getRequestId() {
+353-		return Telemetry::getInstance()->getRequestId();
+354-	}
+355-
+356-	/**
+357-	 * Override the unique request ID. This is for sub-requests, such as jobs,
+358-	 * that wish to use the same id but are not part of the same execution context.
+359-	 *
+360-	 * @param string|null $newId
+361-	 * @since 1.27
+362-	 */
+363-	public static function overrideRequestId( $newId ) {
+364-		$telemetry = Telemetry::getInstance();
+365-		if ( $newId === null ) {
+366-			$telemetry->regenerateRequestId();
+367-		} else {
+368-			$telemetry->overrideRequestId( $newId );
+369-		}
+370-	}
+371-
+372-	/**
+373-	 * Get the current URL protocol (http or https)
+374-	 * @return string
+375-	 */
+376-	public function getProtocol() {
+377-		$this->protocol ??= self::detectProtocol();
+378-		return $this->protocol;
+379-	}
+380-
+381-	/**
+382-	 * Check for title, action, and/or variant data in the URL
+
+=== PHPSessionHandler::install use_cookies=0 (includes/Session/PHPSessionHandler.php) ===
+94:	public static function install( SessionManagerInterface $manager ) {
+95-		/* @var SessionManager $manager*/'@phan-var SessionManager $manager';
+96-		if ( self::$instance ) {
+97-			$manager->setupPHPSessionHandler( self::$instance );
+98-			return;
+99-		}
+100-
+101-		// @codeCoverageIgnoreStart
+102-		if ( defined( 'MW_NO_SESSION_HANDLER' ) ) {
+103-			throw new \BadMethodCallException( 'MW_NO_SESSION_HANDLER is defined' );
+104-		}
+105-		// @codeCoverageIgnoreEnd
+106-
+107-		self::$instance = new self( $manager );
+108-
+109-		// Close any auto-started session, before we replace it
+110-		session_write_close();
+111-
+112-		// Tell PHP not to mess with cookies itself
+113-		// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
+114-		@ini_set( 'session.use_cookies', 0 );
+115-
+116-		// T124510: Disable automatic PHP session related cache headers.
+117-		// MediaWiki adds its own headers and the default PHP behavior may
+118-		// set headers such as 'Pragma: no-cache' that cause problems with
+119-		// some user agents.
+120-		// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
+121-		@session_cache_limiter( '' );
+122-
+123-		// Also set a serialization handler
+124-		PhpSessionSerializer::setSerializeHandler();
+125-
+126-		// Register this as the save handler, and register an appropriate
+127-		// shutdown function.
+128-		// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
+129-		@session_set_save_handler( self::$instance, true );
+
+=== LocalSettings effective settings ===
+82:$wgEnableUploads = false;
+105:$wgSecretKey = "[redacted]";
+147:$wgShowExceptionDetails = true;
+
+=== fpm.conf session lines ===
+32:php_admin_value[session.save_handler] = files
+33:php_admin_value[session.save_path] = /tmp/opencode/research/wikitype_20261021T212610Z/sessions
+34:php_admin_value[session.serialize_handler] = php
+35:php_admin_value[session.use_strict_mode] = 0
+36:php_admin_value[session.use_only_cookies] = 1
+37:php_admin_value[session.upload_progress.enabled] = 1
+38:php_admin_value[session.upload_progress.cleanup] = 0
+39:php_admin_value[session.upload_progress.prefix] = ""
+40:php_admin_value[session.upload_progress.name] = PHP_SESSION_UPLOAD_PROGRESS
+41:php_admin_value[session.upload_progress.freq] = 1
+42:php_admin_value[session.upload_progress.min_freq] = 0
+
+=== ext/session OnUpdateSaveDir (PHP 8.5.10) ===
+static PHP_INI_MH(OnUpdateSaveDir)
+{
+	SESSION_CHECK_ACTIVE_STATE;
+	SESSION_CHECK_OUTPUT_STATE;
+
+	/* Only do the open_basedir check at runtime */
+	if (stage == PHP_INI_STAGE_RUNTIME || stage == PHP_INI_STAGE_HTACCESS) {
+		char *p;
+
+		if (memchr(ZSTR_VAL(new_value), '\0', ZSTR_LEN(new_value)) != NULL) {
+			return FAILURE;
+		}
+
+		/* we do not use zend_memrchr() since path can contain ; itself */
+		if ((p = strchr(ZSTR_VAL(new_value), ';'))) {
+			char *p2;
+			p++;
+			if ((p2 = strchr(p, ';'))) {
+				p = p2 + 1;
+			}
+		} else {
+			p = ZSTR_VAL(new_value);
+		}
+
+		if (PG(open_basedir) && *p && php_check_open_basedir(p)) {
+			return FAILURE;
+		}
+	}
+
+	return OnUpdateStr(entry, new_value, mh_arg1, mh_arg2, mh_arg3, stage);
+}
+
+
+static PHP_INI_MH(OnUpdateName)
+{
+	SESSION_CHECK_ACTIVE_STATE;
+
+=== ext/session RSHUTDOWN (no PS(save_path) free) ===
+114:	/* TODO: These could be moved to MINIT and removed. These should be initialized by php_rshutdown_session_globals() always when execution is finished. */
+115-	PS(id) = NULL;
+116-	PS(session_status) = php_session_none;
+117-	PS(in_save_handler) = 0;
+118-	PS(set_handler) = 0;
+119-	PS(mod_data) = NULL;
+120-	PS(mod_user_is_open) = 0;
+121-	PS(define_sid) = 1;
+122-	PS(session_vars) = NULL;
+123-	PS(module_number) = my_module_number;
+124-	ZVAL_UNDEF(&PS(http_session_vars));
+125-}
+126-
+127-static inline void php_session_headers_already_sent_error(int severity, const char *message) {
+128-	const char *output_start_filename = php_output_get_start_filename();
+129-	int output_start_lineno = php_output_get_start_lineno();
+130-	if (output_start_filename != NULL) {
+131-		php_error_docref(NULL, severity, "%s (sent from %s on line %d)", message, output_start_filename, output_start_lineno);
+132-	} else {
+133-		php_error_docref(NULL, severity, "%s", message);
+134-	}
+135-}
+136-
+137-static inline void php_session_session_already_started_error(int severity, const char *message) {
+138-	if (PS(session_started_filename) != NULL) {
+139-		php_error_docref(NULL, severity, "%s (started from %s on line %"PRIu32")", message, ZSTR_VAL(PS(session_started_filename)), PS(session_started_lineno));
+140-	} else if (PS(auto_start)) {
+141-		/* This option can't be changed at runtime, so we can assume it's because of this */
+142-		php_error_docref(NULL, severity, "%s (session started automatically)", message);
+143-	} else {
+144-		php_error_docref(NULL, severity, "%s", message);
+145-	}
+146-}
+147-
+148-static inline void php_session_cleanup_filename(void)
+149-{
+150-	if (PS(session_started_filename)) {
+151-		zend_string_release(PS(session_started_filename));
+152-		PS(session_started_filename) = NULL;
+153-		PS(session_started_lineno) = 0;
+154-	}
+155-}
+156-
+157-/* Dispatched by RSHUTDOWN and by php_session_destroy */
+158:static void php_rshutdown_session_globals(void)
+159-{
+160-	/* Do NOT destroy PS(mod_user_names) here! */
+161-	if (!Z_ISUNDEF(PS(http_session_vars))) {
+162-		zval_ptr_dtor(&PS(http_session_vars));
+163-		ZVAL_UNDEF(&PS(http_session_vars));
+164-	}
+165-	if (PS(mod_data) || PS(mod_user_implemented)) {
+166-		zend_try {
+167-			PS(mod)->s_close(&PS(mod_data));
+168-		} zend_end_try();
+169-	}
+170-	if (PS(id)) {
+171-		zend_string_release_ex(PS(id), 0);
+172-		PS(id) = NULL;
+173-	}
+
+=== fastcgi_params: no UNIQUE_ID ===
+(no UNIQUE_ID/request_id line)
+
+=== Telemetry::getRequestId (includes/Http/Telemetry.php:57) ===
+    57		public function getRequestId(): string {
+    58			// This method is called from various error handlers and MUST be kept simple and stateless.
+    59			if ( $this->reqId === null ) {
+    60				if ( $this->allowExternalReqID ) {
+    61					$id = ( $this->server['HTTP_X_REQUEST_ID'] ?? $this->server['UNIQUE_ID'] ?? wfRandomString( 24 ) );
+    62				} else {
+    63					$id = ( $this->server['UNIQUE_ID'] ?? wfRandomString( 24 ) );
+    64				}
+    65	
+    66				$this->reqId = $id;
+    67			}
+    68	
+    69			return $this->reqId;
+    70		}
+
+=== MainConfigSchema AllowExternalReqID default ===
+	public const AllowExternalReqID = [
+		'default' => false,
+	];
+
+	/**
+	 * How to generate the request ID when MediaWiki generates it internally.
+	 * Must be one of: 'rand24', 'uuid4'
+	 *
+	 * Default: 'rand24'
+	 *
+	 * @since 1.46
+	 */
+	public const GenerateReqIDFormat = [
+		'default' => 'rand24',
+		'type' => 'string',
+	];
+
+=== upload-progress pre-RINIT session path (ext/session/session.c) ===
+61:static zend_result php_session_rfc1867_callback(unsigned int event, void *event_data, void **extra);
+62-static zend_result (*php_session_rfc1867_orig_callback)(unsigned int event, void *event_data, void **extra);
+63-static void php_session_track_init(void);
+64-
+65-/* SessionHandler class */
+66-zend_class_entry *php_session_class_entry;
+67-
+68-/* SessionHandlerInterface */
+69-zend_class_entry *php_session_iface_entry;
+70-
+71-/* SessionIdInterface */
+72-zend_class_entry *php_session_id_iface_entry;
+73-
+74-/* SessionUpdateTimestampInterface */
+75-zend_class_entry *php_session_update_timestamp_iface_entry;
+76-
+77-#define PS_MAX_SID_LENGTH 256
+78-
+79-/* ***********
+80-   * Helpers *
+81-   *********** */
+82-
+83-#define IF_SESSION_VARS() \
+84-	if (Z_ISREF_P(&PS(http_session_vars)) && Z_TYPE_P(Z_REFVAL(PS(http_session_vars))) == IS_ARRAY)
+85-
+86-#define SESSION_CHECK_ACTIVE_STATE	\
+87-	if (PS(session_status) == php_session_active) {	\
+88-		php_session_session_already_started_error(E_WARNING, "Session ini settings cannot be changed when a session is active");	\
+89-		return FAILURE;	\
+90-	}
+91-
+92-#define SESSION_CHECK_OUTPUT_STATE										\
+93-	if (SG(headers_sent) && stage != ZEND_INI_STAGE_DEACTIVATE) {												\
+94-		php_session_headers_already_sent_error(E_WARNING, "Session ini settings cannot be changed after headers have already been sent");	\
+95-		return FAILURE;													\
+96-	}
+--
+2981:	php_rfc1867_callback = php_session_rfc1867_callback;
+2982-
+2983-	/* Register interfaces */
+2984-	php_session_iface_entry = register_class_SessionHandlerInterface();
+2985-
+2986-	php_session_id_iface_entry = register_class_SessionIdInterface();
+2987-
+2988-	php_session_update_timestamp_iface_entry = register_class_SessionUpdateTimestampHandlerInterface();
+2989-
+2990-	/* Register base class */
+2991-	php_session_class_entry = register_class_SessionHandler(php_session_iface_entry, php_session_id_iface_entry);
+2992-
+2993-	register_session_symbols(module_number);
+2994-
+2995-	return SUCCESS;
+2996-}
+2997-
+2998-static PHP_MSHUTDOWN_FUNCTION(session)
+2999-{
+3000-	UNREGISTER_INI_ENTRIES();
+3001-
+3002-#ifdef HAVE_LIBMM
+3003-	PHP_MSHUTDOWN(ps_mm) (SHUTDOWN_FUNC_ARGS_PASSTHRU);
+
+=== note ===
+MediaWiki installs PHPSessionHandler and disables PHP session cookies (session.use_cookies=0).
+PHP's upload-progress handler runs before that install and reads PHPSESSID into a files-handler
+session buffer from session.save_path; that is the path used by the prior zif_passthru record.
+The MediaWiki login/token cookie (wikidb_session) is a different, MediaWiki-managed session ID.

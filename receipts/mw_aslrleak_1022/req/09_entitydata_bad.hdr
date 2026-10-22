@@ -1,0 +1,13 @@
+HTTP/1.1 400 Bad Request
+Server: nginx/1.30.1
+Date: Wed, 21 Oct 2026 23:12:46 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/8.5.10
+X-Content-Type-Options: nosniff
+Access-Control-Allow-Origin: *
+Content-Security-Policy: default-src 'self'; script-src 'none'; object-src 'none'
+Vary: Accept-Encoding
+X-Request-Id: 849f045555f527292a27ba5b
+

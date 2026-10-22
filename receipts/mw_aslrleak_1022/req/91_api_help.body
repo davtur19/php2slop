@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html class="client-nojs skin-theme-clientpref-thumb-standard" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>MediaWiki API help - WikiReal</title>
+<script>document.documentElement.className="client-js skin-theme-clientpref-thumb-standard";RLCONF={"wgBreakFrames":true,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"16b402fb8e96be1992d55f43","wgCanonicalNamespace":"Special","wgCanonicalSpecialPageName":"ApiHelp","wgNamespaceNumber":-1,"wgPageName":"Special:ApiHelp","wgTitle":"ApiHelp","wgCurRevisionId":0,"wgRevisionId":0,"wgArticleId":0,"wgIsArticle":false,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageViewLanguage":"en","wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Special:ApiHelp","wgRelevantArticleId":0,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false};RLSTATE={"mediawiki.hlist":"ready","mediawiki.apipretty":"ready","mediawiki.skinning.interface":"ready"};</script>
+<link rel="stylesheet" href="/load.php?lang=en&amp;modules=mediawiki.apipretty%2Chlist%7Cmediawiki.skinning.interface&amp;only=styles&amp;skin=apioutput">
+<script async="" src="/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;safemode=1&amp;skin=apioutput"></script>
+<meta name="generator" content="MediaWiki 1.46.2">
+<meta name="robots" content="noindex,nofollow,max-image-preview:standard">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=1120">
+<link rel="search" type="application/opensearchdescription+xml" href="/rest.php/v1/search" title="WikiReal (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://127.0.0.1:28866/api.php?action=rsd">
+<link rel="license" href="https://www.mediawiki.org/wiki/Special:MyLanguage/Copyright">
+<link rel="alternate" type="application/atom+xml" title="WikiReal Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom">
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns--1 ns-special mw-special-ApiHelp page-Special_ApiHelp rootpage-Special_ApiHelp skin-apioutput action-view">
+<div id="mw-aria-live-region" class="mw-aria-live-region" aria-live="polite"></div><div class="mw-body" role="main">
+	<h1 id="firstHeading">MediaWiki API help</h1>
+	<div class="mw-body-content">
+		<div id="mw-content-text" class="mw-body-content"><p>This is an auto-generated <a class="external text" href="https://www.mediawiki.org/wiki/Special:MyLanguage/API:Action_API">MediaWiki Action API</a> documentation page.
+</p><div class="apihelp-general">
+<h2 class="apihelp-header" id="main/general">General information</h2><div class="hlist plainlinks api-main-links">
+<ul><li><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/API:Action_API" class="extiw" title="mw:Special:MyLanguage/API:Action API">Documentation &amp; examples</a></li>
+<li><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/API:Etiquette" class="extiw" title="mw:Special:MyLanguage/API:Etiquette">Etiquette &amp; usage guidelines</a></li>
+<li><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/API:FAQ" class="extiw" title="mw:Special:MyLanguage/API:FAQ">FAQ</a></li>
+<li><a rel="nofollow" class="external text" href="https://lists.wikimedia.org/postorius/lists/mediawiki-api.lists.wikimedia.org/">Mailing list</a></li>
+<li><a rel="nofollow" class="external text" href="https://lists.wikimedia.org/postorius/lists/mediawiki-api-announce.lists.wikimedia.org/">API Announcements</a></li>
+<li><a rel="nofollow" class="external text" href="https://phabricator.wikimedia.org/tag/mediawiki-action-api/?order=updated">Bugs &amp; requests</a></li></ul>
+</div>
+<p><strong>Status:</strong> The MediaWiki API is a mature and stable interface that is actively supported and improved. While we try to avoid it, we may occasionally need to make breaking changes; subscribe to <a rel="nofollow" class="external text" href="https://lists.wikimedia.org/hyperkitty/list/mediawiki-api-announce@lists.wikimedia.org/">the mediawiki-api-announce mailing list</a> for notice of updates.
+</p><p><strong>Erroneous requests:</strong> When erroneous requests are sent to the API, an HTTP header will be sent with the key "MediaWiki-API-Error" and then both the value of the header and the error code sent back will be set to the same value. For more information see <a href="https://www.mediawiki.org/wiki/Special:MyLanguage/API:Errors_and_warnings" class="extiw" title="mw:Special:MyLanguage/API:Errors and warnings">API: Errors and warnings</a>.
+</p>
+<p class="mw-apisandbox-link"><strong>Testing:</strong> For ease of testing API requests, see <a href="/index.php?title=Special:ApiSandbox" title="Special:ApiSandbox">Special:ApiSandbox</a>.</p>
+<h3 class="apihelp-header" id="main/methods">Request methods</h3><p>Action API requests may use GET and POST methods. Prefer using the GET method, which allows requests to be routed to faster replica servers and responses to be cached, unless the length of the URL with parameters would exceed its length limit (commonly 8000 bytes), or a module only accepts POST requests.
+</p><p>Parameters for POST requests may be sent in the query part of the request URL (like in GET requests) and in the POST request body, and mixing both ways in one request is allowed. Certain parameters such as passwords must be sent in the request body. If the same parameter is sent as part of the URL and also in the request body, it must have the same value in both places.
+</p>
+<h3 class="apihelp-header" id="main/datatypes">Data types</h3><p>Input to MediaWiki should be NFC-normalized UTF-8. MediaWiki may attempt to convert other input, but this may cause some operations (such as <a href="/api.php?action=help&amp;modules=edit">edits</a> with MD5 checks) to fail.
+</p><p>Parameters that take multiple values are normally submitted with the values separated using the pipe character, e.g. <kbd>param=value1|value2</kbd> or <kbd>param=value1%7Cvalue2</kbd>. If a value must contain the pipe character, use U+001F (Unit Separator) as the separator <i>and</i> prefix the value with U+001F, e.g. <kbd>param=%1Fvalue1%1Fvalue2</kbd>.
+</p><p>Some parameter types in API requests need further explanation:
+</p><dl><dt id="main/datatype/boolean">boolean</dt><dd><p>Boolean parameters work like HTML checkboxes: if the parameter is specified, regardless of value, it is considered true. For a false value, omit the parameter entirely.
+</p></dd><dt id="main/datatype/expiry">expiry</dt><dd><p>Expiry values may be relative (e.g. <kbd>5 months</kbd> or <kbd>2 weeks</kbd>) or absolute (e.g. <kbd>2014-09-18T12:34:56Z</kbd>). For no expiry, use <kbd>infinite</kbd>, <kbd>indefinite</kbd>, <kbd>infinity</kbd> or <kbd>never</kbd>.
+</p></dd><dt id="main/datatype/timestamp">timestamp</dt><dd><p>Timestamps may be specified in several formats, see <a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Timestamp" class="extiw" title="mw:Special:MyLanguage/Timestamp">the Timestamp library input formats documented on mediawiki.org</a> for details. ISO 8601 date and time is recommended: <kbd><var>2001</var>-<var>01</var>-<var>15</var>T<var>14</var>:<var>56</var>:<var>00</var>Z</kbd>. The string <kbd>now</kbd> may be used to specify the current time.
+</p></dd></dl>
+<h3 class="apihelp-header" id="main/limits">Limits</h3><p>Most API modules can accept up to 50 inputs in multivalue parameters, and can return up to 500 results per query (50 results for slow queries).
+</p><p>For users with the <code>apihighlimits</code> right (Bots and Administrators), the limits are increased to 500 inputs and 5,000 results (500 results for slow queries).
+</p>
+<h3 class="apihelp-header" id="main/templatedparams">Templated parameters</h3><p>Templated parameters support cases where an API module needs a value for each value of some other parameter. For example, if there were an API module to request fruit, it might have a parameter <var>fruits</var> to specify which fruits are being requested and a templated parameter <var>{fruit}-quantity</var> to specify how many of each fruit to request. An API client that wants 1 apple, 5 bananas, and 20 strawberries could then make a request like <kbd>fruits=apples|bananas|strawberries&amp;apples-quantity=1&amp;bananas-quantity=5&amp;strawberries-quantity=20</kbd>.
+</p>
+</div>
+<h2 class="apihelp-header" id="main">Main module</h2>
+<div class="apihelp-block apihelp-flags"><ul><li><span class="apihelp-source">Source: <span dir="ltr" lang="en">MediaWiki</span></span></li><li><span class="apihelp-license">License: <a href="/index.php?title=Special:Version/License/MediaWiki" title="Special:Version/License/MediaWiki"><span dir="ltr" lang="en">GPL-2.0-or-later</span></a></span></li></ul></div>
+<p>Specify the action to perform, the format of the response, and options that apply to all API modules.
+</p>
+
+<div class="apihelp-block apihelp-parameters"><div class="apihelp-block-head">Specific parameters:</div><dl><dt><span dir="ltr" lang="en" id="main:action">action</span></dt><dd class="description"><p>Which action to perform. This parameter should be sent as part of the request URL (not the POST body) for ease of use in debugging, analytics, and request routing or filtering.
+</p><dl><dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=acquiretempusername">acquiretempusername</a></span></dt>
+<dd>Acquire a temporary user username and stash it in the current session, if temp account creation is enabled and the current user is logged out. If a name has already been stashed, returns the same name.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=block">block</a></span></dt>
+<dd>Block a user.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=changeauthenticationdata">changeauthenticationdata</a></span></dt>
+<dd>Change authentication data for the current user.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=changecontentmodel">changecontentmodel</a></span></dt>
+<dd>Change the content model of a page</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=checktoken">checktoken</a></span></dt>
+<dd>Check the validity of a token from <kbd><a href="/api.php?action=help&amp;modules=query%2Btokens">action=query&amp;meta=tokens</a></kbd>.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=clearhasmsg">clearhasmsg</a></span></dt>
+<dd>Clears the <code>hasmsg</code> flag for the current user.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=clientlogin">clientlogin</a></span></dt>
+<dd>Log in to the wiki using the interactive flow.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=compare">compare</a></span></dt>
+<dd>Get the difference between two pages.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=createaccount">createaccount</a></span></dt>
+<dd>Create a new user account.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=delete">delete</a></span></dt>
+<dd>Delete a page.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=edit">edit</a></span></dt>
+<dd>Create and edit pages.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=emailuser">emailuser</a></span></dt>
+<dd>Email a user.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=expandtemplates">expandtemplates</a></span></dt>
+<dd>Expands all templates within wikitext.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=feedcontributions">feedcontributions</a></span></dt>
+<dd>Returns a user's contributions feed.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=feedrecentchanges">feedrecentchanges</a></span></dt>
+<dd>Returns a recent changes feed.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=feedwatchlist">feedwatchlist</a></span></dt>
+<dd>Returns a watchlist feed.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=filerevert">filerevert</a></span></dt>
+<dd>Revert a file to an old version.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=help">help</a></span></dt>
+<dd>Display help for the specified modules.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=imagerotate">imagerotate</a></span></dt>
+<dd>Rotate one or more images.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=import">import</a></span></dt>
+<dd>Import a page from another wiki, or from an XML file.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=languagesearch">languagesearch</a></span></dt>
+<dd>Search for language names in any script.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=linkaccount">linkaccount</a></span></dt>
+<dd>Link an account from a third-party provider to the current user.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=login">login</a></span></dt>
+<dd>Log in and get authentication cookies.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=logout">logout</a></span></dt>
+<dd>Log out and clear session data.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=managetags">managetags</a></span></dt>
+<dd>Perform management tasks relating to change tags.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=mergehistory">mergehistory</a></span></dt>
+<dd>Merge page histories.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=move">move</a></span></dt>
+<dd>Move a page.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=opensearch">opensearch</a></span></dt>
+<dd>Search the wiki using the OpenSearch protocol.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=options">options</a></span></dt>
+<dd>Change preferences of the current user.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=paraminfo">paraminfo</a></span></dt>
+<dd>Obtain information about API modules.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=parse">parse</a></span></dt>
+<dd>Parses content and returns parser output.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=patrol">patrol</a></span></dt>
+<dd>Patrol a page or revision.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=protect">protect</a></span></dt>
+<dd>Change the protection level of a page.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=purge">purge</a></span></dt>
+<dd>Purge the cache for the given titles.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=query">query</a></span></dt>
+<dd>Fetch data from and about MediaWiki.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=removeauthenticationdata">removeauthenticationdata</a></span></dt>
+<dd>Remove authentication data for the current user.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=resetpassword">resetpassword</a></span></dt>
+<dd>Send a password reset email to a user.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=revisiondelete">revisiondelete</a></span></dt>
+<dd>Delete and undelete revisions.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=rollback">rollback</a></span></dt>
+<dd>Undo the last edit to the page.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=rsd">rsd</a></span></dt>
+<dd>Export an RSD (Really Simple Discovery) schema.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=setnotificationtimestamp">setnotificationtimestamp</a></span></dt>
+<dd>Update the notification timestamp for watched pages.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=setpagelanguage">setpagelanguage</a></span></dt>
+<dd>Change the language of a page.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=tag">tag</a></span></dt>
+<dd>Add or remove change tags from individual revisions or log entries.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=unblock">unblock</a></span></dt>
+<dd>Unblock a user.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=undelete">undelete</a></span></dt>
+<dd>Undelete revisions of a deleted page.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=unlinkaccount">unlinkaccount</a></span></dt>
+<dd>Remove a linked third-party account from the current user.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=upload">upload</a></span></dt>
+<dd>Upload a file, or get the status of pending uploads.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=userrights">userrights</a></span></dt>
+<dd>Change a user's group membership.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=validatepassword">validatepassword</a></span></dt>
+<dd>Validate a password against the wiki's password policies.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=watch">watch</a></span></dt>
+<dd>Add or remove pages from the current user's watchlist.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbavailablebadges">wbavailablebadges</a></span></dt>
+<dd>Queries available badge items.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbcreateclaim">wbcreateclaim</a></span></dt>
+<dd>Creates Wikibase claims.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbcreateredirect">wbcreateredirect</a></span></dt>
+<dd>Creates Entity redirects.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbeditentity">wbeditentity</a></span></dt>
+<dd>Creates a single new Wikibase entity and modifies it with serialised information.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbformatentities">wbformatentities</a></span></dt>
+<dd>Formats entity IDs to HTML or plain text.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbformatvalue">wbformatvalue</a></span></dt>
+<dd>Formats DataValues.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbgetclaims">wbgetclaims</a></span></dt>
+<dd>Gets Wikibase claims.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbgetentities">wbgetentities</a></span></dt>
+<dd>Gets the data for multiple Wikibase entities.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wblinktitles">wblinktitles</a></span></dt>
+<dd>Associates two pages on two different wikis with a Wikibase item.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbmergeitems">wbmergeitems</a></span></dt>
+<dd>Merges multiple items.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbparsevalue">wbparsevalue</a></span></dt>
+<dd>Parses values using a <code>ValueParser</code>.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbremoveclaims">wbremoveclaims</a></span></dt>
+<dd>Removes Wikibase claims.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbremovequalifiers">wbremovequalifiers</a></span></dt>
+<dd>Removes a qualifier from a claim.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbremovereferences">wbremovereferences</a></span></dt>
+<dd>Removes one or more references of the same statement.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbsearchentities">wbsearchentities</a></span></dt>
+<dd>Searches for entities using labels and aliases.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbsetaliases">wbsetaliases</a></span></dt>
+<dd>Sets the aliases for a Wikibase entity.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbsetclaim">wbsetclaim</a></span></dt>
+<dd>Creates or updates an entire Statement or Claim.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbsetclaimvalue">wbsetclaimvalue</a></span></dt>
+<dd>Sets the value of a Wikibase claim.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbsetdescription">wbsetdescription</a></span></dt>
+<dd>Sets a description for a single Wikibase entity.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbsetlabel">wbsetlabel</a></span></dt>
+<dd>Sets a label for a single Wikibase entity.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbsetqualifier">wbsetqualifier</a></span></dt>
+<dd>Creates a qualifier or sets the value of an existing one.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbsetreference">wbsetreference</a></span></dt>
+<dd>Creates a reference or sets the value of an existing one.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=wbsetsitelink">wbsetsitelink</a></span></dt>
+<dd>Associates a page on a wiki with a Wikibase item or removes an already made such association.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=cspreport">cspreport</a></span></dt>
+<dd><span class="apihelp-internal">Internal.</span> Used by browsers to report violations of the Content Security Policy. This module should never be used, except when used automatically by a CSP compliant web browser.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=stashedit">stashedit</a></span></dt>
+<dd><span class="apihelp-internal">Internal.</span> Prepare an edit in shared cache.</dd></dl></dd><dd class="info">One of the following values: <a href="/api.php?action=help&amp;modules=acquiretempusername"><span dir="ltr" lang="en">acquiretempusername</span></a>, <a href="/api.php?action=help&amp;modules=block"><span dir="ltr" lang="en">block</span></a>, <a href="/api.php?action=help&amp;modules=changeauthenticationdata"><span dir="ltr" lang="en">changeauthenticationdata</span></a>, <a href="/api.php?action=help&amp;modules=changecontentmodel"><span dir="ltr" lang="en">changecontentmodel</span></a>, <a href="/api.php?action=help&amp;modules=checktoken"><span dir="ltr" lang="en">checktoken</span></a>, <a href="/api.php?action=help&amp;modules=clearhasmsg"><span dir="ltr" lang="en">clearhasmsg</span></a>, <a href="/api.php?action=help&amp;modules=clientlogin"><span dir="ltr" lang="en">clientlogin</span></a>, <a href="/api.php?action=help&amp;modules=compare"><span dir="ltr" lang="en">compare</span></a>, <a href="/api.php?action=help&amp;modules=createaccount"><span dir="ltr" lang="en">createaccount</span></a>, <a href="/api.php?action=help&amp;modules=delete"><span dir="ltr" lang="en">delete</span></a>, <a href="/api.php?action=help&amp;modules=edit"><span dir="ltr" lang="en">edit</span></a>, <a href="/api.php?action=help&amp;modules=emailuser"><span dir="ltr" lang="en">emailuser</span></a>, <a href="/api.php?action=help&amp;modules=expandtemplates"><span dir="ltr" lang="en">expandtemplates</span></a>, <a href="/api.php?action=help&amp;modules=feedcontributions"><span dir="ltr" lang="en">feedcontributions</span></a>, <a href="/api.php?action=help&amp;modules=feedrecentchanges"><span dir="ltr" lang="en">feedrecentchanges</span></a>, <a href="/api.php?action=help&amp;modules=feedwatchlist"><span dir="ltr" lang="en">feedwatchlist</span></a>, <a href="/api.php?action=help&amp;modules=filerevert"><span dir="ltr" lang="en">filerevert</span></a>, <a href="/api.php?action=help&amp;modules=help"><span dir="ltr" lang="en">help</span></a>, <a href="/api.php?action=help&amp;modules=imagerotate"><span dir="ltr" lang="en">imagerotate</span></a>, <a href="/api.php?action=help&amp;modules=import"><span dir="ltr" lang="en">import</span></a>, <a href="/api.php?action=help&amp;modules=languagesearch"><span dir="ltr" lang="en">languagesearch</span></a>, <a href="/api.php?action=help&amp;modules=linkaccount"><span dir="ltr" lang="en">linkaccount</span></a>, <a href="/api.php?action=help&amp;modules=login"><span dir="ltr" lang="en">login</span></a>, <a href="/api.php?action=help&amp;modules=logout"><span dir="ltr" lang="en">logout</span></a>, <a href="/api.php?action=help&amp;modules=managetags"><span dir="ltr" lang="en">managetags</span></a>, <a href="/api.php?action=help&amp;modules=mergehistory"><span dir="ltr" lang="en">mergehistory</span></a>, <a href="/api.php?action=help&amp;modules=move"><span dir="ltr" lang="en">move</span></a>, <a href="/api.php?action=help&amp;modules=opensearch"><span dir="ltr" lang="en">opensearch</span></a>, <a href="/api.php?action=help&amp;modules=options"><span dir="ltr" lang="en">options</span></a>, <a href="/api.php?action=help&amp;modules=paraminfo"><span dir="ltr" lang="en">paraminfo</span></a>, <a href="/api.php?action=help&amp;modules=parse"><span dir="ltr" lang="en">parse</span></a>, <a href="/api.php?action=help&amp;modules=patrol"><span dir="ltr" lang="en">patrol</span></a>, <a href="/api.php?action=help&amp;modules=protect"><span dir="ltr" lang="en">protect</span></a>, <a href="/api.php?action=help&amp;modules=purge"><span dir="ltr" lang="en">purge</span></a>, <a href="/api.php?action=help&amp;modules=query"><span dir="ltr" lang="en">query</span></a>, <a href="/api.php?action=help&amp;modules=removeauthenticationdata"><span dir="ltr" lang="en">removeauthenticationdata</span></a>, <a href="/api.php?action=help&amp;modules=resetpassword"><span dir="ltr" lang="en">resetpassword</span></a>, <a href="/api.php?action=help&amp;modules=revisiondelete"><span dir="ltr" lang="en">revisiondelete</span></a>, <a href="/api.php?action=help&amp;modules=rollback"><span dir="ltr" lang="en">rollback</span></a>, <a href="/api.php?action=help&amp;modules=rsd"><span dir="ltr" lang="en">rsd</span></a>, <a href="/api.php?action=help&amp;modules=setnotificationtimestamp"><span dir="ltr" lang="en">setnotificationtimestamp</span></a>, <a href="/api.php?action=help&amp;modules=setpagelanguage"><span dir="ltr" lang="en">setpagelanguage</span></a>, <a href="/api.php?action=help&amp;modules=tag"><span dir="ltr" lang="en">tag</span></a>, <a href="/api.php?action=help&amp;modules=unblock"><span dir="ltr" lang="en">unblock</span></a>, <a href="/api.php?action=help&amp;modules=undelete"><span dir="ltr" lang="en">undelete</span></a>, <a href="/api.php?action=help&amp;modules=unlinkaccount"><span dir="ltr" lang="en">unlinkaccount</span></a>, <a href="/api.php?action=help&amp;modules=upload"><span dir="ltr" lang="en">upload</span></a>, <a href="/api.php?action=help&amp;modules=userrights"><span dir="ltr" lang="en">userrights</span></a>, <a href="/api.php?action=help&amp;modules=validatepassword"><span dir="ltr" lang="en">validatepassword</span></a>, <a href="/api.php?action=help&amp;modules=watch"><span dir="ltr" lang="en">watch</span></a>, <a href="/api.php?action=help&amp;modules=wbavailablebadges"><span dir="ltr" lang="en">wbavailablebadges</span></a>, <a href="/api.php?action=help&amp;modules=wbcreateclaim"><span dir="ltr" lang="en">wbcreateclaim</span></a>, <a href="/api.php?action=help&amp;modules=wbcreateredirect"><span dir="ltr" lang="en">wbcreateredirect</span></a>, <a href="/api.php?action=help&amp;modules=wbeditentity"><span dir="ltr" lang="en">wbeditentity</span></a>, <a href="/api.php?action=help&amp;modules=wbformatentities"><span dir="ltr" lang="en">wbformatentities</span></a>, <a href="/api.php?action=help&amp;modules=wbformatvalue"><span dir="ltr" lang="en">wbformatvalue</span></a>, <a href="/api.php?action=help&amp;modules=wbgetclaims"><span dir="ltr" lang="en">wbgetclaims</span></a>, <a href="/api.php?action=help&amp;modules=wbgetentities"><span dir="ltr" lang="en">wbgetentities</span></a>, <a href="/api.php?action=help&amp;modules=wblinktitles"><span dir="ltr" lang="en">wblinktitles</span></a>, <a href="/api.php?action=help&amp;modules=wbmergeitems"><span dir="ltr" lang="en">wbmergeitems</span></a>, <a href="/api.php?action=help&amp;modules=wbparsevalue"><span dir="ltr" lang="en">wbparsevalue</span></a>, <a href="/api.php?action=help&amp;modules=wbremoveclaims"><span dir="ltr" lang="en">wbremoveclaims</span></a>, <a href="/api.php?action=help&amp;modules=wbremovequalifiers"><span dir="ltr" lang="en">wbremovequalifiers</span></a>, <a href="/api.php?action=help&amp;modules=wbremovereferences"><span dir="ltr" lang="en">wbremovereferences</span></a>, <a href="/api.php?action=help&amp;modules=wbsearchentities"><span dir="ltr" lang="en">wbsearchentities</span></a>, <a href="/api.php?action=help&amp;modules=wbsetaliases"><span dir="ltr" lang="en">wbsetaliases</span></a>, <a href="/api.php?action=help&amp;modules=wbsetclaim"><span dir="ltr" lang="en">wbsetclaim</span></a>, <a href="/api.php?action=help&amp;modules=wbsetclaimvalue"><span dir="ltr" lang="en">wbsetclaimvalue</span></a>, <a href="/api.php?action=help&amp;modules=wbsetdescription"><span dir="ltr" lang="en">wbsetdescription</span></a>, <a href="/api.php?action=help&amp;modules=wbsetlabel"><span dir="ltr" lang="en">wbsetlabel</span></a>, <a href="/api.php?action=help&amp;modules=wbsetqualifier"><span dir="ltr" lang="en">wbsetqualifier</span></a>, <a href="/api.php?action=help&amp;modules=wbsetreference"><span dir="ltr" lang="en">wbsetreference</span></a>, <a href="/api.php?action=help&amp;modules=wbsetsitelink"><span dir="ltr" lang="en">wbsetsitelink</span></a>, <a href="/api.php?action=help&amp;modules=cspreport"><span dir="ltr" lang="en" class="apihelp-internal-value">cspreport</span></a>, <a href="/api.php?action=help&amp;modules=stashedit"><span dir="ltr" lang="en" class="apihelp-internal-value">stashedit</span></a></dd><dd class="info">Default: help</dd><dt><span dir="ltr" lang="en" id="main:format">format</span></dt><dd class="description"><p>The format of the output.
+</p><dl><dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=json">json</a></span></dt>
+<dd>Output data in JSON format.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=jsonfm">jsonfm</a></span></dt>
+<dd>Output data in JSON format (pretty-print in HTML).</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=none">none</a></span></dt>
+<dd>Output nothing.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=php">php</a></span></dt>
+<dd>Output data in serialized PHP format.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=phpfm">phpfm</a></span></dt>
+<dd>Output data in serialized PHP format (pretty-print in HTML).</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=rawfm">rawfm</a></span></dt>
+<dd>Output data, including debugging elements, in JSON format (pretty-print in HTML).</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=xml">xml</a></span></dt>
+<dd>Output data in XML format.</dd>
+<dt><span dir="ltr" lang="en"><a href="/api.php?action=help&amp;modules=xmlfm">xmlfm</a></span></dt>
+<dd>Output data in XML format (pretty-print in HTML).</dd></dl></dd><dd class="info">One of the following values: <a href="/api.php?action=help&amp;modules=json"><span dir="ltr" lang="en">json</span></a>, <a href="/api.php?action=help&amp;modules=jsonfm"><span dir="ltr" lang="en">jsonfm</span></a>, <a href="/api.php?action=help&amp;modules=none"><span dir="ltr" lang="en">none</span></a>, <a href="/api.php?action=help&amp;modules=php"><span dir="ltr" lang="en">php</span></a>, <a href="/api.php?action=help&amp;modules=phpfm"><span dir="ltr" lang="en">phpfm</span></a>, <a href="/api.php?action=help&amp;modules=rawfm"><span dir="ltr" lang="en">rawfm</span></a>, <a href="/api.php?action=help&amp;modules=xml"><span dir="ltr" lang="en">xml</span></a>, <a href="/api.php?action=help&amp;modules=xmlfm"><span dir="ltr" lang="en">xmlfm</span></a></dd><dd class="info">Default: jsonfm</dd><dt><span dir="ltr" lang="en" id="main:maxlag">maxlag</span></dt><dd class="description"><p>Maximum lag can be used when MediaWiki is installed on a database replicated cluster. To save actions causing any more site replication lag, this parameter can make the client wait until the replication lag is less than the specified value. In case of excessive lag, error code <samp>maxlag</samp> is returned with a message like <samp>Waiting for $host: $lag seconds lagged</samp>.<br>See <a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:Maxlag_parameter" class="extiw" title="mw:Special:MyLanguage/Manual:Maxlag parameter">Manual: Maxlag parameter</a> for more information.
+</p></dd><dd class="info">Type: integer</dd><dt><span dir="ltr" lang="en" id="main:smaxage">smaxage</span></dt><dd class="description"><p>Set the <code>s-maxage</code> HTTP cache control header to this many seconds. Errors are never cached.
+</p></dd><dd class="info">Type: integer</dd><dd class="info">The value must be no less than 0.</dd><dd class="info">Default: 0</dd><dt><span dir="ltr" lang="en" id="main:maxage">maxage</span></dt><dd class="description"><p>Set the <code>max-age</code> HTTP cache control header to this many seconds. Errors are never cached.
+</p></dd><dd class="info">Type: integer</dd><dd class="info">The value must be no less than 0.</dd><dd class="info">Default: 0</dd><dt><span dir="ltr" lang="en" id="main:assert">assert</span></dt><dd class="description"><p>Verify that the user is logged in (including possibly as a temporary user) if set to <kbd>user</kbd>, <em>not</em> logged in if set to <kbd>anon</kbd>, or has the bot user right if <kbd>bot</kbd>.
+</p></dd><dd class="info">One of the following values: anon, bot, user</dd><dt><span dir="ltr" lang="en" id="main:assertuser">assertuser</span></dt><dd class="description"><p>Verify the current user is the named user.
+</p></dd><dd class="info">Type: user, by any of username and Temporary user</dd><dt><span dir="ltr" lang="en" id="main:requestid">requestid</span></dt><dd class="description"><p>Any value given here will be included in the response. May be used to distinguish requests.
+</p></dd><dt><span dir="ltr" lang="en" id="main:servedby">servedby</span></dt><dd class="description"><p>Include the hostname that served the request in the results.
+</p></dd><dd class="info">Type: boolean (<a href="#main/datatype/boolean">details</a>)</dd><dt><span dir="ltr" lang="en" id="main:curtimestamp">curtimestamp</span></dt><dd class="description"><p>Include the current timestamp in the result.
+</p></dd><dd class="info">Type: boolean (<a href="#main/datatype/boolean">details</a>)</dd><dt><span dir="ltr" lang="en" id="main:responselanginfo">responselanginfo</span></dt><dd class="description"><p>Include the languages used for <var>uselang</var> and <var>errorlang</var> in the result.
+</p></dd><dd class="info">Type: boolean (<a href="#main/datatype/boolean">details</a>)</dd><dt><span dir="ltr" lang="en" id="main:origin">origin</span></dt><dd class="description"><p>When accessing the API using a cross-domain AJAX request (CORS), set this to the originating domain. This must be included in any pre-flight request, and therefore must be part of the request URL (not the POST body).
+</p><p>For authenticated requests, this must match one of the origins in the <code>Origin</code> header exactly, so it has to be set to something like <kbd><a rel="nofollow" class="external free" href="https://en.wikipedia.org">https://en.wikipedia.org</a></kbd> or <kbd><a rel="nofollow" class="external free" href="https://meta.wikimedia.org">https://meta.wikimedia.org</a></kbd>. If this parameter does not match the <code>Origin</code> header, a 403 response will be returned. If this parameter matches the <code>Origin</code> header and the origin is allowed, the <code>Access-Control-Allow-Origin</code> and <code>Access-Control-Allow-Credentials</code> headers will be set.
+</p><p>For non-authenticated requests, specify the value <kbd>*</kbd>. This will cause the <code>Access-Control-Allow-Origin</code> header to be set, but <code>Access-Control-Allow-Credentials</code> will be <code>false</code> and all user-specific data will be restricted.
+</p></dd><dt><span dir="ltr" lang="en" id="main:crossorigin">crossorigin</span></dt><dd class="description"><p>When accessing the API using a cross-domain AJAX request (CORS) and using a session provider that is safe against cross-site request forgery (CSRF) attacks (such as OAuth), use this instead of <code>origin=*</code> to make the request authenticated (i.e., not logged out). This must be included in any pre-flight request, and therefore must be part of the request URL (not the POST body).
+</p><p>Note that most session providers, including standard cookie-based sessions, do not support authenticated CORS and cannot be used with this parameter.
+</p></dd><dd class="info">Type: boolean (<a href="#main/datatype/boolean">details</a>)</dd><dt><span dir="ltr" lang="en" id="main:uselang">uselang</span></dt><dd class="description"><p>Language to use for message translations. <kbd><a href="/api.php?action=help&amp;modules=query%2Bsiteinfo">action=query&amp;meta=siteinfo&amp;siprop=languages</a></kbd> returns a list of language codes. You can specify <kbd>user</kbd> to use the current user's language preference or <kbd>content</kbd> to use this wiki's content language.
+</p></dd><dd class="info">Default: user</dd><dt><span dir="ltr" lang="en" id="main:variant">variant</span></dt><dd class="description"><p>Variant of the language. Only works if the base language supports variant conversion.
+</p></dd><dt><span dir="ltr" lang="en" id="main:errorformat">errorformat</span></dt><dd class="description"><p>Format to use for warning and error text output
+</p><dl><dt><span dir="ltr" lang="en">plaintext</span></dt>
+<dd>Wikitext with HTML tags removed and entities replaced.</dd>
+<dt><span dir="ltr" lang="en">wikitext</span></dt>
+<dd>Unparsed wikitext.</dd>
+<dt><span dir="ltr" lang="en">html</span></dt>
+<dd>HTML</dd>
+<dt><span dir="ltr" lang="en">raw</span></dt>
+<dd>Message key and parameters.</dd>
+<dt><span dir="ltr" lang="en">none</span></dt>
+<dd>No text output, only the error codes.</dd>
+<dt><span dir="ltr" lang="en">bc</span></dt>
+<dd>Format used prior to MediaWiki 1.29. <var>errorlang</var> and <var>errorsuselocal</var> are ignored.</dd></dl></dd><dd class="info">One of the following values: bc, html, none, plaintext, raw, wikitext</dd><dd class="info">Default: bc</dd><dt><span dir="ltr" lang="en" id="main:errorlang">errorlang</span></dt><dd class="description"><p>Language to use for warnings and errors. <kbd><a href="/api.php?action=help&amp;modules=query%2Bsiteinfo">action=query&amp;meta=siteinfo&amp;siprop=languages</a></kbd> returns a list of language codes. Specify <kbd>content</kbd> to use this wiki's content language or <kbd>uselang</kbd> to use the same value as the <var>uselang</var> parameter.
+</p></dd><dd class="info">Default: uselang</dd><dt><span dir="ltr" lang="en" id="main:errorsuselocal">errorsuselocal</span></dt><dd class="description"><p>If given, error texts will use locally-customized messages from the MediaWiki namespace.
+</p></dd><dd class="info">Type: boolean (<a href="#main/datatype/boolean">details</a>)</dd></dl></div>
+<div class="apihelp-block apihelp-examples"><div class="apihelp-block-head">Examples:</div><dl><dt>Help for the main module.</dt><dd><a href="/api.php?action=help" dir="ltr" rel="nofollow">api.php?action=help</a> <a href="/index.php?title=Special:ApiSandbox#action=help"><small>[open in sandbox]</small></a></dd><dt>All help in one page.</dt><dd><a href="/api.php?action=help&amp;recursivesubmodules=1&amp;toc" dir="ltr" rel="nofollow">api.php?action=help&amp;recursivesubmodules=1&amp;toc</a> <a href="/index.php?title=Special:ApiSandbox#action=help&amp;recursivesubmodules=1&amp;toc"><small>[open in sandbox]</small></a></dd></dl></div>
+
+<h2 class="apihelp-header" id="main/credits">Credits</h2><p>API developers:
+</p>
+<ul><li>Yuri Astrakhan (creator, lead developer Sep 2006–Sep 2007)</li>
+<li>Roan Kattouw (lead developer Sep 2007–2009)</li>
+<li>Victor Vasiliev</li>
+<li>Bryan Tong Minh</li>
+<li>Sam Reed</li>
+<li>Brad Jorsch (lead developer 2013–2020)</li></ul>
+<p>Please send your comments, suggestions and questions to mediawiki-api@lists.wikimedia.org
+or file a bug report at <a rel="nofollow" class="external free" href="https://phabricator.wikimedia.org/">https://phabricator.wikimedia.org/</a>.
+</p>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="http://127.0.0.1:28866/index.php?title=Special:ApiHelp">http://127.0.0.1:28866/index.php?title=Special:ApiHelp</a>"</div></div>
+	</div>
+</div>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.log.warn("This page is using the deprecated ResourceLoader module \"mediawiki.skinning.interface\".\n[1.43] The use of the `interface-message-box` feature with SkinModule is deprecated in favor of CodexModule. Please remove this feature.More information can be found at [[mw:Manual:ResourceLoaderSkinModule]]. ");mw.config.set({"wgBackendResponseTime":224});});</script>
+</body>
+</html>

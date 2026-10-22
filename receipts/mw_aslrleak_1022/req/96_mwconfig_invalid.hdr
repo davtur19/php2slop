@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Server: nginx/1.30.1
+Date: Wed, 21 Oct 2026 23:20:16 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/8.5.10
+X-Content-Type-Options: nosniff
+Set-Cookie: mw_installer_session=10370ec454551b8e0cbccc3163263cf3; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; object-src 'none'; script-src 'self' 'nonce-N5mmXLTMoIC8gbr2rQyV0LoG'; img-src 'self'; frame-src 'self'; base-uri 'none'
+X-Request-Id: 82c634c83a4268002448e343
+

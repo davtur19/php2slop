@@ -1,0 +1,16 @@
+HTTP/1.1 303 See Other
+Server: nginx/1.30.1
+Date: Wed, 21 Oct 2026 23:12:47 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/8.5.10
+X-Content-Type-Options: nosniff
+Access-Control-Allow-Origin: *
+Vary: Accept-Encoding, Cookie
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Cache-Control: private, must-revalidate, max-age=0
+Last-Modified: Wed, 21 Oct 2026 23:12:47 GMT
+Location: http://127.0.0.1:28866/index.php?title=Special:EntityData/Q1.json
+X-Request-Id: 366f18f0789c8ab39ee7771f
+

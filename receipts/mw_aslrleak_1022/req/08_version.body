@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html class="client-nojs vector-feature-language-in-header-enabled vector-feature-language-in-main-menu-disabled vector-feature-language-in-main-page-header-disabled vector-feature-page-tools-pinned-disabled vector-feature-toc-pinned-clientpref-1 vector-feature-main-menu-pinned-disabled vector-feature-limited-width-clientpref-1 vector-feature-limited-width-content-disabled vector-feature-custom-font-size-clientpref--excluded vector-feature-appearance-pinned-clientpref-1 skin-theme-clientpref-day vector-sticky-header-enabled vector-toc-available skin-theme-clientpref-thumb-standard" lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>Version - WikiReal</title>
+<script>(function(){var className="client-js vector-feature-language-in-header-enabled vector-feature-language-in-main-menu-disabled vector-feature-language-in-main-page-header-disabled vector-feature-page-tools-pinned-disabled vector-feature-toc-pinned-clientpref-1 vector-feature-main-menu-pinned-disabled vector-feature-limited-width-clientpref-1 vector-feature-limited-width-content-disabled vector-feature-custom-font-size-clientpref--excluded vector-feature-appearance-pinned-clientpref-1 skin-theme-clientpref-day vector-sticky-header-enabled vector-toc-available skin-theme-clientpref-thumb-standard";var cookie=document.cookie.match(/(?:^|; )wikidbmwclientpreferences=([^;]+)/);if(cookie){cookie[1].split('%2C').forEach(function(pref){className=className.replace(new RegExp('(^| )'+pref.replace(/-clientpref-\w+$|[^\w-]+/g,'')+'-clientpref-\\w+( |$)'),'$1'+pref+'$2');});}document.documentElement.className=className;}());RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"57fd1def9cb35af3debb8910","wgCanonicalNamespace":"Special","wgCanonicalSpecialPageName":"Version","wgNamespaceNumber":-1,"wgPageName":"Special:Version","wgTitle":"Version","wgCurRevisionId":0,"wgRevisionId":0,"wgArticleId":0,"wgIsArticle":false,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgPageViewLanguage":"en","wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgRelevantPageName":"Special:Version","wgRelevantArticleId":0,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false};
+RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","mediawiki.special":"ready","skins.vector.search.codex.styles":"ready","skins.vector.styles":"ready","skins.vector.icons":"ready"};RLPAGEMODULES=["site","mediawiki.page.ready","mediawiki.toc","skins.vector.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.impl(function(){return["user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+}];});});</script>
+<link rel="stylesheet" href="/load.php?lang=en&amp;modules=mediawiki.special%7Cskins.vector.icons%2Cstyles%7Cskins.vector.search.codex.styles&amp;only=styles&amp;skin=vector-2022">
+<script async="" src="/load.php?lang=en&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=vector-2022"></script>
+<meta name="generator" content="MediaWiki 1.46.2">
+<meta name="robots" content="noindex,nofollow,max-image-preview:standard">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=1120">
+<link rel="search" type="application/opensearchdescription+xml" href="/rest.php/v1/search" title="WikiReal (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://127.0.0.1:28866/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="WikiReal Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom">
+</head>
+<body class="skin--responsive skin-vector skin-vector-search-vue mediawiki ltr sitedir-ltr mw-hide-empty-elt ns--1 ns-special mw-special-Version page-Special_Version rootpage-Special_Version skin-vector-2022 action-view">
+<div id="mw-aria-live-region" class="mw-aria-live-region" aria-live="polite"></div><a class="mw-jump-link" href="#bodyContent">Jump to content</a>
+<div class="vector-header-container">
+	<header class="vector-header mw-header no-font-mode-scale">
+		<div class="vector-header-start">
+			<nav class="vector-main-menu-landmark" aria-label="Site">
+				
+<div id="vector-main-menu-dropdown" class="vector-dropdown vector-main-menu-dropdown vector-button-flush-left vector-button-flush-right"  title="Main menu" >
+	<input type="checkbox" id="vector-main-menu-dropdown-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-vector-main-menu-dropdown" class="vector-dropdown-checkbox "  aria-label="Main menu"  >
+	<label id="vector-main-menu-dropdown-label" for="vector-main-menu-dropdown-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only " aria-hidden="true"  ><span class="vector-icon mw-ui-icon-menu mw-ui-icon-wikimedia-menu"></span>
+
+<span class="vector-dropdown-label-text">Main menu</span>
+	</label>
+	<div class="vector-dropdown-content">
+
+
+				<div id="vector-main-menu-unpinned-container" class="vector-unpinned-container">
+		
+<div id="vector-main-menu" class="vector-main-menu vector-pinnable-element">
+	<div
+	class="vector-pinnable-header vector-main-menu-pinnable-header vector-pinnable-header-unpinned"
+	data-feature-name="main-menu-pinned"
+	data-pinnable-element-id="vector-main-menu"
+	data-pinned-container-id="vector-main-menu-pinned-container"
+	data-unpinned-container-id="vector-main-menu-unpinned-container"
+>
+	<div class="vector-pinnable-header-label">Main menu</div>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.vector-main-menu.pin">move to sidebar</button>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.vector-main-menu.unpin">hide</button>
+</div>
+
+	
+<div id="p-navigation" class="vector-menu mw-portlet mw-portlet-navigation"  >
+	<div class="vector-menu-heading">
+		Navigation
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="n-mainpage-description" class="mw-list-item"><a href="/index.php?title=Main_Page" title="Visit the main page [z]" accesskey="z"><span>Main page</span></a></li><li id="n-recentchanges" class="mw-list-item"><a href="/index.php?title=Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r"><span>Recent changes</span></a></li><li id="n-randompage" class="mw-list-item"><a href="/index.php?title=Special:Random" title="Load a random page [x]" accesskey="x"><span>Random page</span></a></li><li id="n-help-mediawiki" class="mw-list-item"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents"><span>Help about MediaWiki</span></a></li><li id="n-specialpages" class="mw-list-item"><a href="/index.php?title=Special:SpecialPages" title="A list of all special pages [q]" accesskey="q"><span>Special pages</span></a></li>
+		</ul>
+		
+	</div>
+</div>
+
+	
+</div>
+
+				</div>
+
+	</div>
+</div>
+
+		</nav>
+			
+<a href="/index.php?title=Main_Page" class="mw-logo">
+	<img class="mw-logo-icon" src="/resources/assets/change-your-logo-icon.svg" alt="" aria-hidden="true" height="50" width="50">
+	<span class="mw-logo-container skin-invert">
+		<strong class="mw-logo-wordmark">WikiReal</strong>
+	</span>
+</a>
+
+		</div>
+		<div class="vector-header-end">
+			
+<div id="p-search" role="search" class="vector-search-box-vue  vector-search-box-collapses vector-search-box-show-thumbnail vector-search-box-auto-expand-width vector-search-box">
+	<a href="/index.php?title=Special:Search" class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only search-toggle" title="Search WikiReal [f]" accesskey="f"><span class="vector-icon mw-ui-icon-search mw-ui-icon-wikimedia-search"></span>
+
+<span>Search</span>
+	</a>
+	<div class="vector-typeahead-search-container">
+		<div class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail cdx-typeahead-search--auto-expand-width">
+			<form action="/index.php" id="searchform" class="cdx-search-input cdx-search-input--has-end-button">
+				<div id="simpleSearch" class="cdx-search-input__input-wrapper"  data-search-loc="header-moved">
+					<div class="cdx-text-input cdx-text-input--has-start-icon">
+						<input
+							class="cdx-text-input__input mw-searchInput" autocomplete="off"
+							 type="search" name="search" placeholder="Search WikiReal" aria-label="Search WikiReal" autocapitalize="none" spellcheck="false" title="Search WikiReal [f]" accesskey="f" id="searchInput"
+							>
+						<span class="cdx-text-input__icon cdx-text-input__start-icon"></span>
+					</div>
+					<input type="hidden" name="title" value="Special:Search">
+				</div>
+				<button class="cdx-button cdx-search-input__end-button">Search</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+			<nav class="vector-user-links vector-user-links-wide" aria-label="Personal tools">
+	<div class="vector-user-links-main">
+	
+<div id="p-vector-user-menu-preferences" class="vector-menu mw-portlet emptyPortlet"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</div>
+
+	
+<div id="p-vector-user-menu-userpage" class="vector-menu mw-portlet emptyPortlet"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</div>
+
+	<nav class="vector-appearance-landmark" aria-label="Appearance">
+		
+<div id="vector-appearance-dropdown" class="vector-dropdown "  title="Change the appearance of the page&#039;s font size, width, and color" >
+	<input type="checkbox" id="vector-appearance-dropdown-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-vector-appearance-dropdown" class="vector-dropdown-checkbox "  aria-label="Appearance"  >
+	<label id="vector-appearance-dropdown-label" for="vector-appearance-dropdown-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only " aria-hidden="true"  ><span class="vector-icon mw-ui-icon-appearance mw-ui-icon-wikimedia-appearance"></span>
+
+<span class="vector-dropdown-label-text">Appearance</span>
+	</label>
+	<div class="vector-dropdown-content">
+
+
+			<div id="vector-appearance-unpinned-container" class="vector-unpinned-container">
+				
+			</div>
+		
+	</div>
+</div>
+
+	</nav>
+	
+<div id="p-vector-user-menu-notifications" class="vector-menu mw-portlet emptyPortlet"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</div>
+
+	
+<div id="p-vector-user-menu-overflow" class="vector-menu mw-portlet"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			<li id="pt-createaccount-2" class="mw-list-item user-links-collapsible-item"><a data-mw-interface  href="/index.php?title=Special:CreateAccount&amp;returnto=Special%3AVersion" title="You are encouraged to create an account and log in; however, it is not mandatory" class=""><span>Create account</span></a>
+</li>
+<li id="pt-login-2" class="mw-list-item user-links-collapsible-item"><a data-mw-interface  href="/index.php?title=Special:UserLogin&amp;returnto=Special%3AVersion" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o" class=""><span>Log in</span></a>
+</li>
+
+			
+		</ul>
+		
+	</div>
+</div>
+
+	</div>
+	
+<div id="vector-user-links-dropdown" class="vector-dropdown vector-user-menu vector-button-flush-right vector-user-menu-logged-out user-links-collapsible-item"  title="More options" >
+	<input type="checkbox" id="vector-user-links-dropdown-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-vector-user-links-dropdown" class="vector-dropdown-checkbox "  aria-label="Personal tools"  >
+	<label id="vector-user-links-dropdown-label" for="vector-user-links-dropdown-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only " aria-hidden="true"  ><span class="vector-icon mw-ui-icon-ellipsis mw-ui-icon-wikimedia-ellipsis"></span>
+
+<span class="vector-dropdown-label-text">Personal tools</span>
+	</label>
+	<div class="vector-dropdown-content">
+
+
+		
+<div id="p-personal" class="vector-menu mw-portlet mw-portlet-personal user-links-collapsible-item"  title="User menu" >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			<li id="pt-createaccount" class="mw-list-item user-links-collapsible-item"><a data-mw-interface  href="/index.php?title=Special:CreateAccount&amp;returnto=Special%3AVersion" title="You are encouraged to create an account and log in; however, it is not mandatory" class=""><span class="vector-icon mw-ui-icon-userAdd mw-ui-icon-wikimedia-userAdd"></span>
+
+<span>Create account</span></a>
+</li>
+<li id="pt-login" class="mw-list-item user-links-collapsible-item"><a data-mw-interface  href="/index.php?title=Special:UserLogin&amp;returnto=Special%3AVersion" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o" class=""><span class="vector-icon mw-ui-icon-logIn mw-ui-icon-wikimedia-logIn"></span>
+
+<span>Log in</span></a>
+</li>
+
+			
+		</ul>
+		
+	</div>
+</div>
+
+	
+	</div>
+</div>
+
+</nav>
+
+		</div>
+	</header>
+</div>
+<div class="mw-page-container">
+	<div class="mw-page-container-inner">
+		<div class="vector-sitenotice-container">
+			<div id="siteNotice"></div>
+		</div>
+		<div class="vector-column-start">
+			<div class="vector-main-menu-container">
+		<div id="mw-navigation">
+			<nav id="mw-panel" class="vector-main-menu-landmark" aria-label="Site">
+				<div id="vector-main-menu-pinned-container" class="vector-pinned-container">
+				
+				</div>
+		</nav>
+		</div>
+	</div>
+	<div class="vector-sticky-pinned-container">
+				<nav id="mw-panel-toc" aria-label="Contents" data-event-name="ui.sidebar-toc" class="mw-table-of-contents-container vector-toc-landmark">
+					<div id="vector-toc-pinned-container" class="vector-pinned-container">
+					<div id="vector-toc" class="vector-toc vector-pinnable-element">
+	<div
+	class="vector-pinnable-header vector-toc-pinnable-header vector-pinnable-header-pinned"
+	data-feature-name="toc-pinned"
+	data-pinnable-element-id="vector-toc"
+	data-pinned-container-id="vector-toc-pinned-container"
+	data-unpinned-container-id="vector-toc-unpinned-container"
+>
+	<h2 class="vector-pinnable-header-label">Contents</h2>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.vector-toc.pin">move to sidebar</button>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.vector-toc.unpin">hide</button>
+</div>
+
+
+	<ul class="vector-toc-contents" id="mw-panel-toc-list">
+		<li id="toc-mw-content-text"
+			class="vector-toc-list-item vector-toc-level-1">
+			<a href="#" class="vector-toc-link">
+				<div class="vector-toc-text">Beginning</div>
+			</a>
+		</li>
+		<li id="toc-mw-version-software"
+		class="vector-toc-list-item vector-toc-level-1 vector-toc-list-item-expanded">
+		<a class="vector-toc-link" href="#mw-version-software">
+			<div class="vector-toc-text">
+				<span class="vector-toc-numb">1</span>
+				<span>Installed software</span>
+			</div>
+		</a>
+		
+		<ul id="toc-mw-version-software-sublist" class="vector-toc-list">
+		</ul>
+	</li>
+	<li id="toc-mw-version-entrypoints"
+		class="vector-toc-list-item vector-toc-level-1 vector-toc-list-item-expanded">
+		<a class="vector-toc-link" href="#mw-version-entrypoints">
+			<div class="vector-toc-text">
+				<span class="vector-toc-numb">2</span>
+				<span>Entry point URLs</span>
+			</div>
+		</a>
+		
+		<ul id="toc-mw-version-entrypoints-sublist" class="vector-toc-list">
+		</ul>
+	</li>
+	<li id="toc-mw-version-skin"
+		class="vector-toc-list-item vector-toc-level-1 vector-toc-list-item-expanded">
+		<a class="vector-toc-link" href="#mw-version-skin">
+			<div class="vector-toc-text">
+				<span class="vector-toc-numb">3</span>
+				<span>Installed skins</span>
+			</div>
+		</a>
+		
+		<ul id="toc-mw-version-skin-sublist" class="vector-toc-list">
+		</ul>
+	</li>
+	<li id="toc-mw-version-ext"
+		class="vector-toc-list-item vector-toc-level-1 vector-toc-list-item-expanded">
+		<a class="vector-toc-link" href="#mw-version-ext">
+			<div class="vector-toc-text">
+				<span class="vector-toc-numb">4</span>
+				<span>Installed extensions</span>
+			</div>
+		</a>
+		
+			<button aria-controls="toc-mw-version-ext-sublist" class="cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-toc-toggle">
+				<span class="vector-icon mw-ui-icon-wikimedia-expand"></span>
+				<span>Toggle Installed extensions subsection</span>
+			</button>
+		
+		<ul id="toc-mw-version-ext-sublist" class="vector-toc-list">
+			<li id="toc-sv-credits-wikibase"
+			class="vector-toc-list-item vector-toc-level-2">
+			<a class="vector-toc-link" href="#sv-credits-wikibase">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">4.1</span>
+					<span>Wikibase</span>
+				</div>
+			</a>
+			
+			<ul id="toc-sv-credits-wikibase-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+	</ul>
+	</li>
+	<li id="toc-mw-version-libraries"
+		class="vector-toc-list-item vector-toc-level-1 vector-toc-list-item-expanded">
+		<a class="vector-toc-link" href="#mw-version-libraries">
+			<div class="vector-toc-text">
+				<span class="vector-toc-numb">5</span>
+				<span>Installed libraries</span>
+			</div>
+		</a>
+		
+			<button aria-controls="toc-mw-version-libraries-sublist" class="cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-toc-toggle">
+				<span class="vector-icon mw-ui-icon-wikimedia-expand"></span>
+				<span>Toggle Installed libraries subsection</span>
+			</button>
+		
+		<ul id="toc-mw-version-libraries-sublist" class="vector-toc-list">
+			<li id="toc-mw-version-libraries-server"
+			class="vector-toc-list-item vector-toc-level-2">
+			<a class="vector-toc-link" href="#mw-version-libraries-server">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">5.1</span>
+					<span>Installed server-side libraries</span>
+				</div>
+			</a>
+			
+			<ul id="toc-mw-version-libraries-server-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+		<li id="toc-mw-version-libraries-client"
+			class="vector-toc-list-item vector-toc-level-2">
+			<a class="vector-toc-link" href="#mw-version-libraries-client">
+				<div class="vector-toc-text">
+					<span class="vector-toc-numb">5.2</span>
+					<span>Installed client-side libraries</span>
+				</div>
+			</a>
+			
+			<ul id="toc-mw-version-libraries-client-sublist" class="vector-toc-list">
+			</ul>
+		</li>
+	</ul>
+	</li>
+	<li id="toc-mw-version-parser-extensiontags"
+		class="vector-toc-list-item vector-toc-level-1 vector-toc-list-item-expanded">
+		<a class="vector-toc-link" href="#mw-version-parser-extensiontags">
+			<div class="vector-toc-text">
+				<span class="vector-toc-numb">6</span>
+				<span>Parser extension tags</span>
+			</div>
+		</a>
+		
+		<ul id="toc-mw-version-parser-extensiontags-sublist" class="vector-toc-list">
+		</ul>
+	</li>
+	<li id="toc-mw-version-parser-function-hooks"
+		class="vector-toc-list-item vector-toc-level-1 vector-toc-list-item-expanded">
+		<a class="vector-toc-link" href="#mw-version-parser-function-hooks">
+			<div class="vector-toc-text">
+				<span class="vector-toc-numb">7</span>
+				<span>Parser function hooks</span>
+			</div>
+		</a>
+		
+		<ul id="toc-mw-version-parser-function-hooks-sublist" class="vector-toc-list">
+		</ul>
+	</li>
+	<li id="toc-mw-version-parsoid-modules"
+		class="vector-toc-list-item vector-toc-level-1 vector-toc-list-item-expanded">
+		<a class="vector-toc-link" href="#mw-version-parsoid-modules">
+			<div class="vector-toc-text">
+				<span class="vector-toc-numb">8</span>
+				<span>Parsoid extension modules</span>
+			</div>
+		</a>
+		
+		<ul id="toc-mw-version-parsoid-modules-sublist" class="vector-toc-list">
+		</ul>
+	</li>
+</ul>
+</div>
+
+					</div>
+		</nav>
+			</div>
+		</div>
+		<div class="mw-content-container">
+			<main id="content" class="mw-body">
+				<header class="mw-body-header vector-page-titlebar no-font-mode-scale">
+					<nav aria-label="Contents" class="vector-toc-landmark">
+						
+<div id="vector-page-titlebar-toc" class="vector-dropdown vector-page-titlebar-toc vector-button-flush-left"  title="Table of Contents" >
+	<input type="checkbox" id="vector-page-titlebar-toc-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-vector-page-titlebar-toc" class="vector-dropdown-checkbox "  aria-label="Toggle the table of contents"  >
+	<label id="vector-page-titlebar-toc-label" for="vector-page-titlebar-toc-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only " aria-hidden="true"  ><span class="vector-icon mw-ui-icon-listBullet mw-ui-icon-wikimedia-listBullet"></span>
+
+<span class="vector-dropdown-label-text">Toggle the table of contents</span>
+	</label>
+	<div class="vector-dropdown-content">
+
+
+							<div id="vector-page-titlebar-toc-unpinned-container" class="vector-unpinned-container">
+			</div>
+		
+	</div>
+</div>
+
+					</nav>
+					<h1 id="firstHeading" class="firstHeading mw-first-heading">Version</h1>
+						<div class="mw-indicators">
+		</div>
+</header>
+				<div class="vector-page-toolbar vector-feature-custom-font-size-clientpref--excluded">
+					<div class="vector-page-toolbar-container">
+						<div id="left-navigation">
+							<nav aria-label="Namespaces">
+								
+<div id="p-associated-pages" class="vector-menu vector-menu-tabs mw-portlet mw-portlet-associated-pages emptyPortlet"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</div>
+
+								
+<div id="vector-variants-dropdown" class="vector-dropdown emptyPortlet"  >
+	<input type="checkbox" id="vector-variants-dropdown-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-vector-variants-dropdown" class="vector-dropdown-checkbox " aria-label="Change language variant"   >
+	<label id="vector-variants-dropdown-label" for="vector-variants-dropdown-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet" aria-hidden="true"  ><span class="vector-dropdown-label-text">English</span>
+	</label>
+	<div class="vector-dropdown-content">
+
+
+					
+<div id="p-variants" class="vector-menu mw-portlet mw-portlet-variants emptyPortlet"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</div>
+
+				
+	</div>
+</div>
+
+							</nav>
+						</div>
+						<div id="right-navigation" class="vector-collapsible">
+							<nav aria-label="Views">
+								
+<div id="p-views" class="vector-menu vector-menu-tabs mw-portlet mw-portlet-views emptyPortlet"  >
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</div>
+
+							</nav>
+				
+							<nav class="vector-page-tools-landmark" aria-label="Page tools">
+								
+<div id="vector-page-tools-dropdown" class="vector-dropdown vector-page-tools-dropdown"  >
+	<input type="checkbox" id="vector-page-tools-dropdown-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-vector-page-tools-dropdown" class="vector-dropdown-checkbox "  aria-label="Tools"  >
+	<label id="vector-page-tools-dropdown-label" for="vector-page-tools-dropdown-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet" aria-hidden="true"  ><span class="vector-dropdown-label-text">Tools</span>
+	</label>
+	<div class="vector-dropdown-content">
+
+
+									<div id="vector-page-tools-unpinned-container" class="vector-unpinned-container">
+						
+<div id="vector-page-tools" class="vector-page-tools vector-pinnable-element">
+	<div
+	class="vector-pinnable-header vector-page-tools-pinnable-header vector-pinnable-header-unpinned"
+	data-feature-name="page-tools-pinned"
+	data-pinnable-element-id="vector-page-tools"
+	data-pinned-container-id="vector-page-tools-pinned-container"
+	data-unpinned-container-id="vector-page-tools-unpinned-container"
+>
+	<div class="vector-pinnable-header-label">Tools</div>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.vector-page-tools.pin">move to sidebar</button>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.vector-page-tools.unpin">hide</button>
+</div>
+
+	
+<div id="p-cactions" class="vector-menu mw-portlet mw-portlet-cactions emptyPortlet"  title="More options" >
+	<div class="vector-menu-heading">
+		Actions
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			
+		</ul>
+		
+	</div>
+</div>
+
+<div id="p-tb" class="vector-menu mw-portlet mw-portlet-tb"  >
+	<div class="vector-menu-heading">
+		General
+	</div>
+	<div class="vector-menu-content">
+		
+		<ul class="vector-menu-content-list">
+			
+			<li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [p]" accesskey="p"><span>Printable version</span></a></li>
+		</ul>
+		
+	</div>
+</div>
+
+</div>
+
+									</div>
+				
+	</div>
+</div>
+
+							</nav>
+						</div>
+					</div>
+				</div>
+				<div class="vector-column-end no-font-mode-scale">
+					<div class="vector-sticky-pinned-container">
+						<div class="wp25eastereggs-vector-sitenotice-landmark"></div>
+						<nav class="vector-page-tools-landmark" aria-label="Page tools">
+							<div id="vector-page-tools-pinned-container" class="vector-pinned-container">
+				
+							</div>
+		</nav>
+						<nav class="vector-appearance-landmark" aria-label="Appearance">
+							<div id="vector-appearance-pinned-container" class="vector-pinned-container">
+				<div id="vector-appearance" class="vector-appearance vector-pinnable-element">
+	<div
+	class="vector-pinnable-header vector-appearance-pinnable-header vector-pinnable-header-pinned"
+	data-feature-name="appearance-pinned"
+	data-pinnable-element-id="vector-appearance"
+	data-pinned-container-id="vector-appearance-pinned-container"
+	data-unpinned-container-id="vector-appearance-unpinned-container"
+>
+	<div class="vector-pinnable-header-label">Appearance</div>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-pin-button" data-event-name="pinnable-header.vector-appearance.pin">move to sidebar</button>
+	<button class="vector-pinnable-header-toggle-button vector-pinnable-header-unpin-button" data-event-name="pinnable-header.vector-appearance.unpin">hide</button>
+</div>
+
+
+</div>
+
+							</div>
+		</nav>
+					</div>
+				</div>
+				<div id="bodyContent" class="vector-body" aria-labelledby="firstHeading" data-mw-ve-target-container>
+					<div class="vector-body-before-content">
+					
+						
+					</div>
+					<div id="contentSub"><div id="mw-content-subtitle"></div></div>
+					
+					
+					<div id="mw-content-text" class="mw-body-content"><h2 id="mw-version-license">MediaWiki License</h2><div class="plainlinks"><p>This wiki is powered by <strong><a class="external text" href="https://www.mediawiki.org/">MediaWiki</a></strong>, copyright © 2001-2026 Magnus Manske, Brooke Vibber, Lee Daniel Crocker, Tim Starling, Erik Möller, Gabriel Wicke, Ævar Arnfjörð Bjarmason, Niklas Laxström, Domas Mituzas, Rob Church, Yuri Astrakhan, Aryeh Gregor, Aaron Schulz, Andrew Garrett, Raimond Spekking, Alexandre Emsenhuber, Siebrand Mazeland, Chad Horohoe, Roan Kattouw, Trevor Parscal, Bryan Tong Minh, Sam Reed, Victor Vasiliev, Rotem Liss, Platonides, Antoine Musso, Timo Tijhof, Daniel Kinzler, Jeroen De Dauw, Brad Jorsch, Bartosz Dziewoński, Ed Sanders, Moriel Schottlender, Kunal Mehta, James D. Forrester, Brian Wolff, Adam Shorland, DannyS712, Ori Livneh, Max Semenik, Amir Sarabadani, Derk-Jan Hartman, Petr Pchelko, Umherirrender, C. Scott Ananian, fomafix, Thiemo Kreuz, Gergő Tisza, Volker E., Jack Phoenix, Isarra Yos, <a href="/index.php?title=Special:Version/Credits" title="Special:Version/Credits">others</a> and <a rel="nofollow" class="external text" href="https://translatewiki.net/wiki/Translating:MediaWiki/Credits">translatewiki.net translators</a>.
+</p><div class="mw-version-license-info"><p>MediaWiki is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+</p><p>MediaWiki is distributed in the hope that it will be useful, but <em>WITHOUT ANY WARRANTY</em>; without even the implied warranty of <strong>MERCHANTABILITY</strong> or <strong>FITNESS FOR A PARTICULAR PURPOSE</strong>. See the GNU General Public License for more details.
+</p><p>You should have received <a rel="nofollow" class="external text" href="http://127.0.0.1:28866/COPYING">a copy of the GNU General Public License</a> along with this program; if not, <a rel="nofollow" class="external text" href="//www.gnu.org/licenses/old-licenses/gpl-2.0.html">read it online</a>.
+</p></div></div><meta property="mw:PageProp/toc" /><h2 id="mw-version-software">Installed software</h2><table class="wikitable plainlinks" id="sv-software"><thead><tr><th scope="col">Product</th><th scope="col">Version</th></tr></thead><tr><td><a class="external text" href="https://www.mediawiki.org/">MediaWiki</a></td><td dir="ltr">1.46.2</td></tr><tr><td><a rel="nofollow" class="external text" href="https://php.net/">PHP</a></td><td dir="ltr">8.5.10 (fpm-fcgi)</td></tr><tr><td><a rel="nofollow" class="external text" href="https://icu.unicode.org/">ICU</a></td><td dir="ltr">78.3</td></tr><tr><td><a rel="nofollow" class="external text" href="https://mariadb.org/">MariaDB</a></td><td dir="ltr">11.4.5-MariaDB</td></tr></table><h2 id="mw-version-entrypoints">Entry point URLs</h2><table class="wikitable plainlinks" id="mw-version-entrypoints-table" dir="ltr" lang="en"><thead><tr><th dir="ltr" lang="en" scope="col">Entry point</th><th dir="ltr" lang="en" scope="col">URL</th></tr></thead><tr><td><a class="external text" href="https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:$wgArticlePath">Article path</a></td><td><code><a rel="nofollow" class="external text" href="http://127.0.0.1:28866/index.php?title=$1">/index.php?title=$1</a></code></td></tr><tr><td><a class="external text" href="https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:$wgScriptPath">Script path</a></td><td><code><a rel="nofollow" class="external text" href="http://127.0.0.1:28866/">/</a></code></td></tr><tr><td><a class="external text" href="https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:index.php">index.php</a></td><td><code><a rel="nofollow" class="external text" href="http://127.0.0.1:28866/index.php">/index.php</a></code></td></tr><tr><td><a class="external text" href="https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:api.php">api.php</a></td><td><code><a rel="nofollow" class="external text" href="http://127.0.0.1:28866/api.php">/api.php</a></code></td></tr><tr><td><a class="external text" href="https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:rest.php">rest.php</a></td><td><code><a rel="nofollow" class="external text" href="http://127.0.0.1:28866/rest.php">/rest.php</a></code></td></tr></table><h2 id="mw-version-skin">Installed skins</h2><table class="wikitable plainlinks mw-installed-software" id="sv-credits-skin"><thead><tr><th scope="col">Skin</th><th scope="col">Version</th><th scope="col">License</th><th scope="col">Description</th><th scope="col">Authors</th></tr></thead><tr class="mw-version-ext" id="mw-version-ext-skin-MinervaNeue"><td><a class="mw-version-ext-name external" href="https://www.mediawiki.org/wiki/Skin:MinervaNeue">MinervaNeue</a></td><td><span class="mw-version-ext-version">&ndash;</span></td><td><a href="/index.php?title=Special:Version/License/MinervaNeue" class="mw-version-ext-license" title="Special:Version/License/MinervaNeue" dir="auto">GPL-2.0-or-later</a></td><td class="mw-version-ext-description">A responsive mobile first skin</td><td class="mw-version-ext-authors"><a class="external text" href="https://www.mediawiki.org/wiki/Readers/Web/Team">Readers Web Team</a>, Alex Hollender, Bahodir Mansurov, Florian Schmidt, Jan Drewniak, Joaquin Hernandez, Jon Robson, Juliusz Gonera, Piotr Miazga, Ryan Kaldari, Nick Ray, Sam Smith, Stephen Niedzielski and Volker E.</td></tr><tr class="mw-version-ext" id="mw-version-ext-skin-MonoBook"><td><a class="mw-version-ext-name external" href="https://www.mediawiki.org/wiki/Skin:MonoBook">MonoBook</a></td><td><span class="mw-version-ext-version">&ndash;</span></td><td><a href="/index.php?title=Special:Version/License/MonoBook" class="mw-version-ext-license" title="Special:Version/License/MonoBook" dir="auto">GPL-2.0-or-later</a></td><td class="mw-version-ext-description">The classic MediaWiki skin since 2004, named after the black-and-white photo of a book in the page background</td><td class="mw-version-ext-authors">Gabriel Wicke, Isarra Yos and others</td></tr><tr class="mw-version-ext" id="mw-version-ext-skin-Timeless"><td><a class="mw-version-ext-name external" href="https://www.mediawiki.org/wiki/Skin:Timeless">Timeless</a></td><td><span class="mw-version-ext-version">0.9.1</span></td><td><a href="/index.php?title=Special:Version/License/Timeless" class="mw-version-ext-license" title="Special:Version/License/Timeless" dir="auto">GPL-2.0-or-later</a></td><td class="mw-version-ext-description">A timeless skin designed after the Winter prototype by Brandon Harris, and various styles by the Wikimedia Foundation</td><td class="mw-version-ext-authors">Isarra Yos</td></tr><tr class="mw-version-ext" id="mw-version-ext-skin-Vector"><td><a class="mw-version-ext-name external" href="https://www.mediawiki.org/wiki/Skin:Vector">Vector</a></td><td><span class="mw-version-ext-version">1.0.0</span></td><td><a href="/index.php?title=Special:Version/License/Vector" class="mw-version-ext-license" title="Special:Version/License/Vector" dir="auto">GPL-2.0-or-later</a></td><td class="mw-version-ext-description"><p>Provides 2 Vector skins:
+</p>
+<ul><li>2011 - The Modern version of MonoBook with fresh look and many usability improvements.</li>
+<li>2022 - The Vector built as part of the WMF <a class="external text" href="https://www.mediawiki.org/wiki/Desktop_Improvements">Desktop Improvements</a> project.</li></ul></td><td class="mw-version-ext-authors"><a class="external text" href="https://www.mediawiki.org/wiki/Readers/Web/Team">Readers Web Team</a>, Trevor Parscal, Roan Kattouw, Alex Hollender, Bernard Wang, Clare Ming, Jan Drewniak, Jon Robson, Nick Ray, Sam Smith, Stephen Niedzielski and Volker E.</td></tr></table><h2 id="mw-version-ext">Installed extensions</h2><table class="wikitable plainlinks mw-installed-software" id="sv-credits-wikibase"><caption>Wikibase</caption><thead><tr><th scope="col">Extension</th><th scope="col">Version</th><th scope="col">License</th><th scope="col">Description</th><th scope="col">Authors</th></tr></thead><tr class="mw-version-ext" id="mw-version-ext-wikibase-WikibaseRepository"><td><a class="mw-version-ext-name external" href="https://www.mediawiki.org/wiki/Extension:Wikibase_Repository">WikibaseRepository</a></td><td><span class="mw-version-ext-version">&ndash;</span></td><td><a href="/index.php?title=Special:Version/License/WikibaseRepository" class="mw-version-ext-license" title="Special:Version/License/WikibaseRepository" dir="auto">GPL-2.0-or-later</a></td><td class="mw-version-ext-description">Structured data repository</td><td class="mw-version-ext-authors">The Wikidata team and <a href="/index.php?title=Special:Version/Credits/WikibaseRepository" title="Special:Version/Credits/WikibaseRepository">others</a></td></tr></table><h2 id="mw-version-libraries">Installed libraries</h2><h3 id="mw-version-libraries-server">Installed server-side libraries</h3><table class="wikitable plainlinks mw-installed-software" id="sv-libraries"><thead><tr><th scope="col">Library</th><th scope="col">Version</th><th scope="col">License</th><th scope="col">Description</th><th scope="col">Authors</th></tr></thead><tr id="mw-version-library-bacon/bacon-qr-code"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/bacon/bacon-qr-code">bacon/bacon-qr-code</a></td><td dir="auto">3.0.4</td><td dir="auto">BSD-2-Clause</td><td lang="en" dir="ltr">BaconQrCode is a QR code generator for PHP.</td><td><a href="https://dasprids.de/">Ben Scholzen 'DASPRiD'</a></td></tr><tr id="mw-version-library-brick/math"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/brick/math">brick/math</a></td><td dir="auto">0.14.8</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Arbitrary-precision arithmetic library</td><td></td></tr><tr id="mw-version-library-christian-riesen/base32"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/christian-riesen/base32">christian-riesen/base32</a></td><td dir="auto">1.6.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Base32 encoder/decoder according to RFC 4648</td><td><a href="http://christianriesen.com">Christian Riesen</a></td></tr><tr id="mw-version-library-composer/installers"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/composer/installers">composer/installers</a></td><td dir="auto">2.3.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">A multi-framework Composer library installer</td><td><a href="https://github.com/shama">Kyle Robinson Young</a></td></tr><tr id="mw-version-library-composer/semver"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/composer/semver">composer/semver</a></td><td dir="auto">3.4.4</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Semver library that offers utilities, version constraint parsing and validation.</td><td><a href="http://www.naderman.de">Nils Adermann</a>, <a href="http://seld.be">Jordi Boggiano</a> and <a href="http://robbast.nl">Rob Bast</a></td></tr><tr id="mw-version-library-dasprid/enum"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/dasprid/enum">dasprid/enum</a></td><td dir="auto">1.0.7</td><td dir="auto">BSD-2-Clause</td><td lang="en" dir="ltr">PHP 7.1 enum implementation</td><td><a href="https://dasprids.de/">Ben Scholzen 'DASPRiD'</a></td></tr><tr id="mw-version-library-data-values/common"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/data-values/common">data-values/common</a></td><td dir="auto">1.2.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Contains common implementations of the interfaces defined by DataValuesInterfaces</td><td><a href="http://jeroendedauw.com">Jeroen De Dauw</a></td></tr><tr id="mw-version-library-data-values/data-values"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/data-values/data-values">data-values/data-values</a></td><td dir="auto">3.1.1</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Defines the DataValue interface and some trivial implementations</td><td><a href="http://jeroendedauw.com">Jeroen De Dauw</a></td></tr><tr id="mw-version-library-data-values/geo"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/data-values/geo">data-values/geo</a></td><td dir="auto">4.6.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Geographical value objects, parsers and formatters</td><td><a href="http://jeroendedauw.com">Jeroen De Dauw</a> and The Wikidata team</td></tr><tr id="mw-version-library-data-values/interfaces"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/data-values/interfaces">data-values/interfaces</a></td><td dir="auto">1.2.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Defines interfaces for ValueParsers, ValueFormatters and ValueValidators</td><td><a href="http://jeroendedauw.com">Jeroen De Dauw</a></td></tr><tr id="mw-version-library-data-values/number"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/data-values/number">data-values/number</a></td><td dir="auto">0.13.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Numerical value objects, parsers and formatters</td><td>Daniel Kinzler and Thiemo Kreuz</td></tr><tr id="mw-version-library-data-values/serialization"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/data-values/serialization">data-values/serialization</a></td><td dir="auto">1.2.5</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Serializers and deserializers for DataValue implementations</td><td><a href="http://jeroendedauw.com">Jeroen De Dauw</a></td></tr><tr id="mw-version-library-data-values/time"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/data-values/time">data-values/time</a></td><td dir="auto">1.2.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Time value objects, parsers and formatters</td><td>The Wikidata team</td></tr><tr id="mw-version-library-diff/diff"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/diff/diff">diff/diff</a></td><td dir="auto">3.4.0</td><td dir="auto">BSD-3-Clause</td><td lang="en" dir="ltr">Small standalone library for representing differences between data structures, computing such differences, and applying them as patches</td><td><a href="https://www.entropywins.wtf">Jeroen De Dauw</a></td></tr><tr id="mw-version-library-endroid/qr-code"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/endroid/qr-code">endroid/qr-code</a></td><td dir="auto">6.0.9</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Endroid QR Code</td><td>Jeroen van den Enden</td></tr><tr id="mw-version-library-firebase/php-jwt"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/firebase/php-jwt">firebase/php-jwt</a></td><td dir="auto">7.0.3</td><td dir="auto">BSD-3-Clause</td><td lang="en" dir="ltr">A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.</td><td>Neuman Vong and Anant Narayanan</td></tr><tr id="mw-version-library-guzzlehttp/guzzle"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/guzzlehttp/guzzle">guzzlehttp/guzzle</a></td><td dir="auto">7.15.2</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Guzzle is a PHP HTTP client library</td><td><a href="https://github.com/GrahamCampbell">Graham Campbell</a>, <a href="https://github.com/mtdowling">Michael Dowling</a>, <a href="https://github.com/jeremeamia">Jeremy Lindblom</a>, <a href="https://github.com/gmponos">George Mponos</a>, <a href="https://github.com/Nyholm">Tobias Nyholm</a>, <a href="https://github.com/sagikazarmark">Márk Sági-Kazár</a> and <a href="https://github.com/Tobion">Tobias Schultze</a></td></tr><tr id="mw-version-library-guzzlehttp/promises"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/guzzlehttp/promises">guzzlehttp/promises</a></td><td dir="auto">2.5.1</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Guzzle promises library</td><td><a href="https://github.com/GrahamCampbell">Graham Campbell</a>, <a href="https://github.com/mtdowling">Michael Dowling</a>, <a href="https://github.com/Nyholm">Tobias Nyholm</a> and <a href="https://github.com/Tobion">Tobias Schultze</a></td></tr><tr id="mw-version-library-guzzlehttp/psr7"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/guzzlehttp/psr7">guzzlehttp/psr7</a></td><td dir="auto">2.13.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">PSR-7 message implementation that also provides common utility methods</td><td><a href="https://github.com/GrahamCampbell">Graham Campbell</a>, <a href="https://github.com/mtdowling">Michael Dowling</a>, <a href="https://github.com/gmponos">George Mponos</a>, <a href="https://github.com/Nyholm">Tobias Nyholm</a>, <a href="https://github.com/sagikazarmark">Márk Sági-Kazár</a>, <a href="https://github.com/Tobion">Tobias Schultze</a> and <a href="https://sagikazarmark.hu">Márk Sági-Kazár</a></td></tr><tr id="mw-version-library-jakobo/hotp-php"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/jakobo/hotp-php">jakobo/hotp-php</a></td><td dir="auto">2.0.0</td><td dir="auto">BSD-3-Clause</td><td lang="en" dir="ltr">HOTP simplifies One Time Password systems for PHP Authentication</td><td>Jakob Heuser</td></tr><tr id="mw-version-library-justinrainbow/json-schema"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/justinrainbow/json-schema">justinrainbow/json-schema</a></td><td dir="auto">5.3.4</td><td dir="auto">MIT</td><td lang="en" dir="ltr">A library to validate a json schema.</td><td>Bruno Prieto Reis, Justin Rainbow, Igor Wiedler and Robert Schönthal</td></tr><tr id="mw-version-library-lcobucci/jwt"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/lcobucci/jwt">lcobucci/jwt</a></td><td dir="auto">5.6.0</td><td dir="auto">BSD-3-Clause</td><td lang="en" dir="ltr">A simple library to work with JSON Web Token and JSON Web Signature</td><td>Luís Cobucci</td></tr><tr id="mw-version-library-liuggio/statsd-php-client"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/liuggio/statsd-php-client">liuggio/statsd-php-client</a></td><td dir="auto">1.0.18</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Statsd (Object Oriented) client library for PHP</td><td>Giulio De Donato</td></tr><tr id="mw-version-library-mck89/peast"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/mck89/peast">mck89/peast</a></td><td dir="auto">1.17.5</td><td dir="auto">BSD-3-Clause</td><td lang="en" dir="ltr">Peast is PHP library that generates AST for JavaScript code</td><td>Marco Marchiò</td></tr><tr id="mw-version-library-monolog/monolog"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/monolog/monolog">monolog/monolog</a></td><td dir="auto">2.11.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Sends your logs to files, sockets, inboxes, databases and various web services</td><td><a href="https://seld.be">Jordi Boggiano</a></td></tr><tr id="mw-version-library-okvpn/clock-lts"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/okvpn/clock-lts">okvpn/clock-lts</a></td><td dir="auto">1.0.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Adding support for a wider range of PHP versions to lcobucci/clock</td><td>Luís Cobucci and Uładzimir Tsykun</td></tr><tr id="mw-version-library-onoi/message-reporter"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/onoi/message-reporter">onoi/message-reporter</a></td><td dir="auto">1.4.2</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">An interface to report and relay arbitrary messages to registered handlers</td><td><a href="https://EntropyWins.wtf">Jeroen De Dauw</a> and James Hong Kong</td></tr><tr id="mw-version-library-oojs/oojs-ui"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/oojs/oojs-ui">oojs/oojs-ui</a></td><td dir="auto">0.53.2</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Provides library of common widgets, layouts, and windows.</td><td>Bartosz Dziewoński, Ed Sanders, James D. Forrester, Kirsten Menger-Anderson, Kunal Mehta, Moriel Schottlender, Prateek Saxena, Roan Kattouw, Thiemo Kreuz, Timo Tijhof, Trevor Parscal and Volker E.</td></tr><tr id="mw-version-library-paragonie/constant_time_encoding"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/paragonie/constant_time_encoding">paragonie/constant_time_encoding</a></td><td dir="auto">3.1.3</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Constant-time Implementations of RFC 4648 Encoding (Base-64, Base-32, Base-16)</td><td><a href="https://paragonie.com">Paragon Initiative Enterprises</a> and <a href="https://www.tobtu.com">Steve 'Sc00bz' Thomas</a></td></tr><tr id="mw-version-library-pear/console_getopt"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/pear/console_getopt">pear/console_getopt</a></td><td dir="auto">1.4.3</td><td dir="auto">BSD-2-Clause</td><td lang="en" dir="ltr">More info available on: http://pear.php.net/package/Console_Getopt</td><td>Andrei Zmievski, Stig Bakken and Greg Beaver</td></tr><tr id="mw-version-library-pear/mail"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/pear/mail">pear/mail</a></td><td dir="auto">2.0.0</td><td dir="auto">BSD-3-Clause</td><td lang="en" dir="ltr">Class that provides multiple interfaces for sending emails.</td><td>Chuck Hagenbuch, Armin Graefe, Richard Heyes and Aleksander Machniak</td></tr><tr id="mw-version-library-pear/mail_mime"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/pear/mail_mime">pear/mail_mime</a></td><td dir="auto">1.10.12</td><td dir="auto">BSD-3-Clause</td><td lang="en" dir="ltr">Mail_Mime provides classes to create MIME messages</td><td>Cipriano Groenendal and Aleksander Machniak</td></tr><tr id="mw-version-library-pear/net_smtp"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/pear/net_smtp">pear/net_smtp</a></td><td dir="auto">1.12.2</td><td dir="auto">BSD-2-Clause</td><td lang="en" dir="ltr">An implementation of the SMTP protocol</td><td><a href="https://www.indelible.org">Jon Parise</a>, Chuck Hagenbuch and Armin Graefe</td></tr><tr id="mw-version-library-pear/net_socket"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/pear/net_socket">pear/net_socket</a></td><td dir="auto">1.2.2</td><td dir="auto">PHP License</td><td lang="en" dir="ltr">More info available on: http://pear.php.net/package/Net_Socket</td><td>Chuck Hagenbuch, Aleksander Machniak and Stig Bakken</td></tr><tr id="mw-version-library-pear/net_url2"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/pear/net_url2">pear/net_url2</a></td><td dir="auto">2.2.3</td><td dir="auto">BSD-3-Clause</td><td lang="en" dir="ltr">Class for parsing and handling URL. Provides parsing of URLs into their constituent parts (scheme, host, path etc.), URL generation, and resolving of relative URLs.</td><td>Tom Klingenberg, David Coallier and Christian Schmidt</td></tr><tr id="mw-version-library-pear/pear-core-minimal"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/pear/pear-core-minimal">pear/pear-core-minimal</a></td><td dir="auto">1.10.18</td><td dir="auto">BSD-3-Clause</td><td lang="en" dir="ltr">Minimal set of PEAR core files to be used as composer dependency</td><td>Christian Weiske</td></tr><tr id="mw-version-library-pear/pear_exception"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/pear/pear_exception">pear/pear_exception</a></td><td dir="auto">1.0.2</td><td dir="auto">BSD-2-Clause</td><td lang="en" dir="ltr">The PEAR Exception base class.</td><td>Helgi Thormar and Greg Beaver</td></tr><tr id="mw-version-library-psr/clock"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/psr/clock">psr/clock</a></td><td dir="auto">1.0.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Common interface for reading the clock.</td><td><a href="https://www.php-fig.org/">PHP-FIG</a></td></tr><tr id="mw-version-library-psr/container"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/psr/container">psr/container</a></td><td dir="auto">2.0.2</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Common Container Interface (PHP FIG PSR-11)</td><td><a href="https://www.php-fig.org/">PHP-FIG</a></td></tr><tr id="mw-version-library-psr/event-dispatcher"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/psr/event-dispatcher">psr/event-dispatcher</a></td><td dir="auto">1.0.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Standard interfaces for event handling.</td><td><a href="http://www.php-fig.org/">PHP-FIG</a></td></tr><tr id="mw-version-library-psr/http-client"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/psr/http-client">psr/http-client</a></td><td dir="auto">1.0.3</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Common interface for HTTP clients</td><td><a href="https://www.php-fig.org/">PHP-FIG</a></td></tr><tr id="mw-version-library-psr/http-factory"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/psr/http-factory">psr/http-factory</a></td><td dir="auto">1.1.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">PSR-17: Common interfaces for PSR-7 HTTP message factories</td><td><a href="https://www.php-fig.org/">PHP-FIG</a></td></tr><tr id="mw-version-library-psr/http-message"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/psr/http-message">psr/http-message</a></td><td dir="auto">2.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Common interface for HTTP messages</td><td><a href="https://www.php-fig.org/">PHP-FIG</a></td></tr><tr id="mw-version-library-psr/log"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/psr/log">psr/log</a></td><td dir="auto">1.1.4</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Common interface for logging libraries</td><td><a href="https://www.php-fig.org/">PHP-FIG</a></td></tr><tr id="mw-version-library-psr/simple-cache"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/psr/simple-cache">psr/simple-cache</a></td><td dir="auto">1.0.1</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Common interfaces for simple caching</td><td><a href="http://www.php-fig.org/">PHP-FIG</a></td></tr><tr id="mw-version-library-ralouphie/getallheaders"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/ralouphie/getallheaders">ralouphie/getallheaders</a></td><td dir="auto">3.0.3</td><td dir="auto">MIT</td><td lang="en" dir="ltr">A polyfill for getallheaders.</td><td>Ralph Khattar</td></tr><tr id="mw-version-library-serialization/serialization"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/serialization/serialization">serialization/serialization</a></td><td dir="auto">4.1.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Library defining a Serializer and a Deserializer interface and basic utilities</td><td><a href="http://jeroendedauw.com">Jeroen De Dauw</a></td></tr><tr id="mw-version-library-spomky-labs/cbor-php"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/spomky-labs/cbor-php">spomky-labs/cbor-php</a></td><td dir="auto">3.2.2</td><td dir="auto">MIT</td><td lang="en" dir="ltr">CBOR Encoder/Decoder for PHP</td><td><a href="https://github.com/Spomky">Florent Morselli</a> and <a href="https://github.com/Spomky-Labs/cbor-php/contributors">All contributors</a></td></tr><tr id="mw-version-library-spomky-labs/pki-framework"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/spomky-labs/pki-framework">spomky-labs/pki-framework</a></td><td dir="auto">1.4.1</td><td dir="auto">MIT</td><td lang="en" dir="ltr">A PHP framework for managing Public Key Infrastructures. It comprises X.509 public key certificates, attribute certificates, certification requests and certification path validation.</td><td>Joni Eskelinen and Florent Morselli</td></tr><tr id="mw-version-library-swaggest/json-diff"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/swaggest/json-diff">swaggest/json-diff</a></td><td dir="auto">3.12.1</td><td dir="auto">MIT</td><td lang="en" dir="ltr">JSON diff/rearrange/patch/pointer library for PHP</td><td>Viacheslav Poturaev</td></tr><tr id="mw-version-library-symfony/clock"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/symfony/clock">symfony/clock</a></td><td dir="auto">7.4.8</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Decouples applications from the system clock</td><td>Nicolas Grekas and <a href="https://symfony.com/contributors">Symfony Community</a></td></tr><tr id="mw-version-library-symfony/deprecation-contracts"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/symfony/deprecation-contracts">symfony/deprecation-contracts</a></td><td dir="auto">3.6.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">A generic function and convention to trigger deprecation notices</td><td>Nicolas Grekas and <a href="https://symfony.com/contributors">Symfony Community</a></td></tr><tr id="mw-version-library-symfony/polyfill-php84"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/symfony/polyfill-php84">symfony/polyfill-php84</a></td><td dir="auto">1.37.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Symfony polyfill backporting some PHP 8.4+ features to lower PHP versions</td><td>Nicolas Grekas and <a href="https://symfony.com/contributors">Symfony Community</a></td></tr><tr id="mw-version-library-symfony/polyfill-php85"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/symfony/polyfill-php85">symfony/polyfill-php85</a></td><td dir="auto">1.37.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Symfony polyfill backporting some PHP 8.5+ features to lower PHP versions</td><td>Nicolas Grekas and <a href="https://symfony.com/contributors">Symfony Community</a></td></tr><tr id="mw-version-library-symfony/property-access"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/symfony/property-access">symfony/property-access</a></td><td dir="auto">7.4.8</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Provides functions to read and write from/to an object or array using a simple string notation</td><td>Fabien Potencier and <a href="https://symfony.com/contributors">Symfony Community</a></td></tr><tr id="mw-version-library-symfony/property-info"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/symfony/property-info">symfony/property-info</a></td><td dir="auto">7.4.8</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Extracts information about PHP class' properties using metadata of popular sources</td><td>Kévin Dunglas and <a href="https://symfony.com/contributors">Symfony Community</a></td></tr><tr id="mw-version-library-symfony/serializer"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/symfony/serializer">symfony/serializer</a></td><td dir="auto">7.4.10</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Handles serializing and deserializing data structures, including object graphs, into array structures or other formats like XML and JSON.</td><td>Fabien Potencier and <a href="https://symfony.com/contributors">Symfony Community</a></td></tr><tr id="mw-version-library-symfony/string"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/symfony/string">symfony/string</a></td><td dir="auto">7.4.11</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Provides an object-oriented API to strings and deals with bytes, UTF-8 code points and grapheme clusters in a unified way</td><td>Nicolas Grekas and <a href="https://symfony.com/contributors">Symfony Community</a></td></tr><tr id="mw-version-library-symfony/type-info"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/symfony/type-info">symfony/type-info</a></td><td dir="auto">7.4.9</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Extracts PHP types information.</td><td>Mathias Arlaud, Baptiste LEDUC and <a href="https://symfony.com/contributors">Symfony Community</a></td></tr><tr id="mw-version-library-symfony/uid"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/symfony/uid">symfony/uid</a></td><td dir="auto">7.4.9</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Provides an object-oriented API to generate and represent UIDs</td><td>Grégoire Pineau, Nicolas Grekas and <a href="https://symfony.com/contributors">Symfony Community</a></td></tr><tr id="mw-version-library-symfony/yaml"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/symfony/yaml">symfony/yaml</a></td><td dir="auto">7.4.12</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Loads and dumps YAML files</td><td>Fabien Potencier and <a href="https://symfony.com/contributors">Symfony Community</a></td></tr><tr id="mw-version-library-web-auth/cose-lib"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/web-auth/cose-lib">web-auth/cose-lib</a></td><td dir="auto">4.5.2</td><td dir="auto">MIT</td><td lang="en" dir="ltr">CBOR Object Signing and Encryption (COSE) For PHP</td><td><a href="https://github.com/Spomky">Florent Morselli</a> and <a href="https://github.com/web-auth/cose/contributors">All contributors</a></td></tr><tr id="mw-version-library-web-auth/webauthn-lib"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/web-auth/webauthn-lib">web-auth/webauthn-lib</a></td><td dir="auto">5.3.2</td><td dir="auto">MIT</td><td lang="en" dir="ltr">FIDO2/Webauthn Support For PHP</td><td><a href="https://github.com/Spomky">Florent Morselli</a> and <a href="https://github.com/web-auth/webauthn-library/contributors">All contributors</a></td></tr><tr id="mw-version-library-webonyx/graphql-php"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/webonyx/graphql-php">webonyx/graphql-php</a></td><td dir="auto">15.38.1</td><td dir="auto">MIT</td><td lang="en" dir="ltr">A PHP port of GraphQL reference implementation</td><td></td></tr><tr id="mw-version-library-wikimedia/assert"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/assert">wikimedia/assert</a></td><td dir="auto">0.5.1</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Provides runtime assertions</td><td>Daniel Kinzler and Thiemo Kreuz</td></tr><tr id="mw-version-library-wikimedia/at-ease"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/at-ease">wikimedia/at-ease</a></td><td dir="auto">3.0.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Safe replacement to @ for suppressing warnings.</td><td>Tim Starling and MediaWiki developers</td></tr><tr id="mw-version-library-wikimedia/base-convert"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/base-convert">wikimedia/base-convert</a></td><td dir="auto">2.0.2</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Convert an arbitrarily-long string from one numeric base to another, optionally zero-padding to a minimum column width.</td><td>Brion Vibber and Tyler Romeo</td></tr><tr id="mw-version-library-wikimedia/bcp-47-code"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/bcp-47-code">wikimedia/bcp-47-code</a></td><td dir="auto">2.0.3</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Simple interface representing languages which have a BCP 47 code</td><td><a href="https://cscott.net">C. Scott Ananian</a></td></tr><tr id="mw-version-library-wikimedia/cdb"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/cdb">wikimedia/cdb</a></td><td dir="auto">3.0.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Constant Database (CDB) wrapper library for PHP. Provides pure-PHP fallback when dba_* functions are absent.</td><td>Tim Starling, Chad Horohoe, Ori Livneh and Daniel Kinzler</td></tr><tr id="mw-version-library-wikimedia/cldr-plural-rule-parser"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/cldr-plural-rule-parser">wikimedia/cldr-plural-rule-parser</a></td><td dir="auto">3.0.1</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Evaluates plural rules specified in the CLDR project notation.</td><td>Tim Starling and Niklas Laxström</td></tr><tr id="mw-version-library-wikimedia/codex"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/codex">wikimedia/codex</a></td><td dir="auto">0.7.1</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">A PHP library for building HTML and CSS UI components using Codex, the Wikimedia design system.</td><td>Doğu Abaris</td></tr><tr id="mw-version-library-wikimedia/common-passwords"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/common-passwords">wikimedia/common-passwords</a></td><td dir="auto">0.5.1</td><td dir="auto">MIT</td><td lang="en" dir="ltr">List of the 100,000 most commonly used passwords</td><td>Sam Reed</td></tr><tr id="mw-version-library-wikimedia/composer-merge-plugin"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/composer-merge-plugin">wikimedia/composer-merge-plugin</a></td><td dir="auto">2.1.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Composer plugin to merge multiple composer.json files</td><td>Bryan Davis</td></tr><tr id="mw-version-library-wikimedia/css-sanitizer"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/css-sanitizer">wikimedia/css-sanitizer</a></td><td dir="auto">6.2.1</td><td dir="auto">Apache-2.0</td><td lang="en" dir="ltr">Classes to parse and sanitize CSS</td><td>Brad Jorsch</td></tr><tr id="mw-version-library-wikimedia/cssjanus"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/cssjanus">wikimedia/cssjanus</a></td><td dir="auto">2.3.0</td><td dir="auto">Apache-2.0</td><td lang="en" dir="ltr">Convert CSS stylesheets between left-to-right and right-to-left.</td><td>Roan Kattouw, Trevor Parscal and Timo Tijhof</td></tr><tr id="mw-version-library-wikimedia/equivset"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/equivset">wikimedia/equivset</a></td><td dir="auto">1.7.1</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Visually Equivalent Set of UTF-8 Characters</td><td>Brooke Vibber, David Barratt, Thiemo Kreuz and Umherirrender</td></tr><tr id="mw-version-library-wikimedia/html-formatter"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/html-formatter">wikimedia/html-formatter</a></td><td dir="auto">4.1.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Performs transformations of HTML by wrapping around libxml2 and working around its countless bugs.</td><td>MediaWiki contributors</td></tr><tr id="mw-version-library-wikimedia/idle-dom"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/idle-dom">wikimedia/idle-dom</a></td><td dir="auto">2.1.1</td><td dir="auto">MIT</td><td lang="en" dir="ltr">DOM interfaces automatically generated from WebIDL</td><td><a href="https://cscott.net">C. Scott Ananian</a></td></tr><tr id="mw-version-library-wikimedia/ip-utils"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/ip-utils">wikimedia/ip-utils</a></td><td dir="auto">6.0.1</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Parse, match, and analyze IP addresses and CIDR ranges</td><td>MediaWiki developers</td></tr><tr id="mw-version-library-wikimedia/json-codec"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/json-codec">wikimedia/json-codec</a></td><td dir="auto">4.0.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Interfaces to serialize and deserialize PHP objects to/from JSON</td><td>Petr Pchelko, Daniel Kinzler and <a href="https://cscott.net">C. Scott Ananian</a></td></tr><tr id="mw-version-library-wikimedia/language-data"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/language-data">wikimedia/language-data</a></td><td dir="auto">1.1.13</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Language data and utilities.</td><td>Amir E. Aharoni, Kartik Mistry, Niklas Laxström, Santhosh Thottingal and Abijeet Patro</td></tr><tr id="mw-version-library-wikimedia/less.php"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/less.php">wikimedia/less.php</a></td><td dir="auto">5.5.1</td><td dir="auto">Apache-2.0</td><td lang="en" dir="ltr">PHP port of the LESS processor</td><td><a href="https://timotijhof.net">Timo Tijhof</a>, <a href="https://github.com/oyejorge">Josh Schmidt</a>, <a href="https://github.com/agar">Matt Agar</a> and <a href="https://github.com/Mordred">Martin Jantošovič</a></td></tr><tr id="mw-version-library-wikimedia/minify"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/minify">wikimedia/minify</a></td><td dir="auto">2.10.0</td><td dir="auto">Apache-2.0</td><td lang="en" dir="ltr">Minification of JavaScript code and CSS stylesheets.</td><td>Paul Copperman, Trevor Parscal, Timo Tijhof and Roan Kattouw</td></tr><tr id="mw-version-library-wikimedia/normalized-exception"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/normalized-exception">wikimedia/normalized-exception</a></td><td dir="auto">2.1.1</td><td dir="auto">MIT</td><td lang="en" dir="ltr">A helper for making exceptions play nice with PSR-3 logging</td><td>Gergő Tisza</td></tr><tr id="mw-version-library-wikimedia/object-factory"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/object-factory">wikimedia/object-factory</a></td><td dir="auto">6.0.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Construct objects from configuration instructions</td><td>Bryan Davis</td></tr><tr id="mw-version-library-wikimedia/parsoid"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/parsoid">wikimedia/parsoid</a></td><td dir="auto">0.23.1</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Parsoid, a bidirectional parser between wikitext and HTML5</td><td><a href="https://www.mediawiki.org/wiki/Parsoid">Wikimedia Content Transform Team and the broader MediaWiki community</a></td></tr><tr id="mw-version-library-wikimedia/php-session-serializer"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/php-session-serializer">wikimedia/php-session-serializer</a></td><td dir="auto">3.0.2</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Provides methods like PHP's session_encode and session_decode that don't mess with $_SESSION</td><td>Brad Jorsch</td></tr><tr id="mw-version-library-wikimedia/purtle"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/purtle">wikimedia/purtle</a></td><td dir="auto">2.0.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Fast streaming RDF serializer</td><td>Daniel Kinzler, Stanislav Malyshev, Thiemo Kreuz and C. Scott Ananian</td></tr><tr id="mw-version-library-wikimedia/relpath"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/relpath">wikimedia/relpath</a></td><td dir="auto">4.1.1</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Work with file paths to join or find the relative path</td><td>Ori Livneh</td></tr><tr id="mw-version-library-wikimedia/remex-html"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/remex-html">wikimedia/remex-html</a></td><td dir="auto">6.0.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Fast HTML 5 parser</td><td>Tim Starling</td></tr><tr id="mw-version-library-wikimedia/request-timeout"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/request-timeout">wikimedia/request-timeout</a></td><td dir="auto">3.0.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Request timeout library for Excimer with plain PHP fallback</td><td>Tim Starling</td></tr><tr id="mw-version-library-wikimedia/running-stat"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/running-stat">wikimedia/running-stat</a></td><td dir="auto">2.2.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">PHP implementations of online statistical algorithms</td><td>Ori Livneh</td></tr><tr id="mw-version-library-wikimedia/scoped-callback"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/scoped-callback">wikimedia/scoped-callback</a></td><td dir="auto">5.0.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Make a callback run when a dummy object leaves the scope.</td><td>Aaron Schulz</td></tr><tr id="mw-version-library-wikimedia/services"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/services">wikimedia/services</a></td><td dir="auto">4.0.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Generic service to manage named services using lazy instantiation based on instantiator callback functions</td><td>Daniel Kinzler</td></tr><tr id="mw-version-library-wikimedia/shellbox"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/shellbox">wikimedia/shellbox</a></td><td dir="auto">4.4.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Library and server for containerized shell execution</td><td>Tim Starling, Kunal Mehta and Max Semenik</td></tr><tr id="mw-version-library-wikimedia/timestamp"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/timestamp">wikimedia/timestamp</a></td><td dir="auto">5.1.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Creation, parsing, and conversion of timestamps</td><td>Tyler Romeo</td></tr><tr id="mw-version-library-wikimedia/utfnormal"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/utfnormal">wikimedia/utfnormal</a></td><td dir="auto">4.0.0</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Contains Unicode normalization routines, including both pure PHP implementations and automatic use of the 'intl' PHP extension when present</td><td>Brion Vibber</td></tr><tr id="mw-version-library-wikimedia/wait-condition-loop"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/wait-condition-loop">wikimedia/wait-condition-loop</a></td><td dir="auto">2.0.2</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Wait loop that reaches a condition or times out</td><td>Aaron Schulz</td></tr><tr id="mw-version-library-wikimedia/wikipeg"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/wikipeg">wikimedia/wikipeg</a></td><td dir="auto">6.1.1</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Parser generator for JavaScript and PHP</td><td></td></tr><tr id="mw-version-library-wikimedia/wrappedstring"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/wrappedstring">wikimedia/wrappedstring</a></td><td dir="auto">4.1.0</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Automatically compact sequentially-outputted strings that share a common prefix / suffix pair.</td><td>Timo Tijhof</td></tr><tr id="mw-version-library-wikimedia/xmp-reader"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/xmp-reader">wikimedia/xmp-reader</a></td><td dir="auto">0.10.3</td><td dir="auto">GPL-2.0-or-later</td><td lang="en" dir="ltr">Reader for XMP data containing properties relevant to images</td><td>Brian Wolff</td></tr><tr id="mw-version-library-wikimedia/zest-css"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wikimedia/zest-css">wikimedia/zest-css</a></td><td dir="auto">4.1.1</td><td dir="auto">MIT</td><td lang="en" dir="ltr">Fast, lightweight, extensible CSS selector engine for PHP</td><td>Christopher Jeffrey and <a href="https://cscott.net">C. Scott Ananian</a></td></tr><tr id="mw-version-library-wmde/php-vuejs-templating"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/wmde/php-vuejs-templating">wmde/php-vuejs-templating</a></td><td dir="auto">2.2.0-beta.12</td><td dir="auto">LGPL-2.1-only</td><td lang="en" dir="ltr">PHP implementation of Vue.js templating engine</td><td>Aleksey Bekh-Ivanov</td></tr><tr id="mw-version-library-zordius/lightncandy"><td><a class="mw-version-library-name external" rel="nofollow" href="https://packagist.org/packages/zordius/lightncandy">zordius/lightncandy</a></td><td dir="auto">1.2.6</td><td dir="auto">MIT</td><td lang="en" dir="ltr">An extremely fast PHP implementation of handlebars ( http://handlebarsjs.com/ ) and mustache ( http://mustache.github.io/ ).</td><td>Zordius Chen</td></tr></table><h3 id="mw-version-libraries-client">Installed client-side libraries</h3><table class="wikitable plainlinks mw-installed-software" id="sv-libraries-client"><thead><tr><th scope="col">Library</th><th scope="col">Version</th><th scope="col">License</th><th scope="col">Authors</th><th scope="col">Source</th></tr></thead><tr id="mw-version-library-CLDRPluralRuleParser1.6.5"><td><a class="mw-version-library-name external" rel="nofollow" href="https://github.com/santhoshtr/CLDRPluralRuleParser">CLDRPluralRuleParser</a></td><td dir="auto">1.6.5</td><td dir="auto">MIT</td><td dir="auto">Santhosh Thottingal</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-codex-design-tokens2.5.1"><td><a class="mw-version-library-name external" rel="nofollow" href="https://doc.wikimedia.org/codex/">codex-design-tokens</a></td><td dir="auto">2.5.1</td><td dir="auto">GPL-2.0+</td><td dir="auto">Design System team, Wikimedia Foundation</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-codex-icons2.5.1"><td><a class="mw-version-library-name external" rel="nofollow" href="https://doc.wikimedia.org/codex/">codex-icons</a></td><td dir="auto">2.5.1</td><td dir="auto">MIT</td><td dir="auto">Design System team, Wikimedia Foundation</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-codex2.5.1"><td><a class="mw-version-library-name external" rel="nofollow" href="https://doc.wikimedia.org/codex/">codex</a></td><td dir="auto">2.5.1</td><td dir="auto">GPL-2.0+</td><td dir="auto">Design System team, Wikimedia Foundation</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-fetch-polyfill3.6.2"><td><a class="mw-version-library-name external" rel="nofollow" href="https://github.com/github/fetch#readme">fetch-polyfill</a></td><td dir="auto">3.6.2</td><td dir="auto">MIT</td><td dir="auto">GitHub, Inc.</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-intersection-observer0.12.0"><td><a class="mw-version-library-name external" rel="nofollow" href="https://github.com/GoogleChromeLabs/intersection-observer">intersection-observer</a></td><td dir="auto">0.12.0</td><td dir="auto">Apache-2.0</td><td dir="auto">Philip Walton</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-jquery.chosen1.8.2"><td><a class="mw-version-library-name external" rel="nofollow" href="https://harvesthq.github.io/chosen/">jquery.chosen</a></td><td dir="auto">1.8.2</td><td dir="auto">MIT</td><td dir="auto">Patrick Filler for Harvest, Matthew Lettini, Patrick Filler, Ken Earley, Christophe Coevoet, Koen Punt, and T.J. Schuck.</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-jquery.client3.0.0"><td><a class="mw-version-library-name external" rel="nofollow" href="https://www.npmjs.com/package/jquery-client">jquery.client</a></td><td dir="auto">3.0.0</td><td dir="auto">MIT</td><td dir="auto">Trevor Parscal, Timo Tijhof, and Roan Kattouw</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-jquery.i18n1.0.10"><td><a class="mw-version-library-name external" rel="nofollow" href="https://github.com/wikimedia/jquery.i18n">jquery.i18n</a></td><td dir="auto">1.0.10</td><td dir="auto">MIT OR GPL-2.0-or-later</td><td dir="auto">Language Engineering team, Wikimedia Foundation</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-jquery.ui1.9.2"><td><a class="mw-version-library-name external" rel="nofollow" href="https://jqueryui.com">jquery.ui</a></td><td dir="auto">1.9.2</td><td dir="auto">MIT</td><td dir="auto">OpenJS Foundation and other contributors</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-jquery3.7.1"><td><a class="mw-version-library-name external" rel="nofollow" href="https://jquery.com">jquery</a></td><td dir="auto">3.7.1</td><td dir="auto">MIT</td><td dir="auto">OpenJS Foundation and other contributors</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-moment2.30.1"><td><a class="mw-version-library-name external" rel="nofollow" href="https://momentjs.com">moment</a></td><td dir="auto">2.30.1</td><td dir="auto">MIT</td><td dir="auto">JS Foundation and other contributors</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-mustache4.2.0"><td><a class="mw-version-library-name external" rel="nofollow" href="https://github.com/janl/mustache.js">mustache</a></td><td dir="auto">4.2.0</td><td dir="auto">MIT</td><td dir="auto">Michael Jackson, Jan Lehnardt, Phillip Johnsen, and other contributors</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-oojs7.0.1"><td><a class="mw-version-library-name external" href="https://www.mediawiki.org/wiki/OOjs">oojs</a></td><td dir="auto">7.0.1</td><td dir="auto">MIT</td><td dir="auto">OOjs Team and other contributors</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-ooui0.53.2"><td><a class="mw-version-library-name external" href="https://www.mediawiki.org/wiki/OOUI">ooui</a></td><td dir="auto">0.53.2</td><td dir="auto">MIT</td><td dir="auto">OOUI Team and other contributors</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-pako2.1.0"><td><a class="mw-version-library-name external" rel="nofollow" href="https://github.com/nodeca/pako">pako</a></td><td dir="auto">2.1.0</td><td dir="auto">MIT AND Zlib</td><td dir="auto">Andrei Tuputcyn, Vitaly Puzrin, Friedel Ziegelmayer, Kirill Efimov, Jean-loup Gailly, and Mark Adler</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-pinia2.0.16"><td><a class="mw-version-library-name external" rel="nofollow" href="https://pinia.vuejs.org/">pinia</a></td><td dir="auto">2.0.16</td><td dir="auto">MIT</td><td dir="auto">Eduardo San Martin Morote</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-qunitjs2.24.1"><td><a class="mw-version-library-name external" rel="nofollow" href="https://qunitjs.com">qunitjs</a></td><td dir="auto">2.24.1</td><td dir="auto">MIT</td><td dir="auto">OpenJS Foundation and other contributors</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-sinonjs18.0.1"><td><a class="mw-version-library-name external" rel="nofollow" href="https://sinonjs.org/">sinonjs</a></td><td dir="auto">18.0.1</td><td dir="auto">BSD-3-Clause</td><td dir="auto">Christian Johansen and other contributors</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-url3.111.0-0ece79ce32"><td><a class="mw-version-library-name external" rel="nofollow" href="https://github.com/mrhenry/polyfill-library">url</a></td><td dir="auto">3.111.0-0ece79ce32</td><td dir="auto">MIT</td><td dir="auto">Financial Times</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-vue-compiler-dom3.5.13"><td><a class="mw-version-library-name external" rel="nofollow" href="https://vuejs.org/">vue-compiler-dom</a></td><td dir="auto">3.5.13</td><td dir="auto">MIT</td><td dir="auto">Yuxi (Evan) You</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-vue-demi0.14.7"><td><a class="mw-version-library-name external" rel="nofollow" href="https://github.com/vueuse/vue-demi/">vue-demi</a></td><td dir="auto">0.14.7</td><td dir="auto">MIT</td><td dir="auto">Anthony Fu</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-vue-test-utils2.4.6"><td><a class="mw-version-library-name external" rel="nofollow" href="https://test-utils.vuejs.org/">vue-test-utils</a></td><td dir="auto">2.4.6</td><td dir="auto">MIT</td><td dir="auto">Lachlan Miller</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-vue3.5.13"><td><a class="mw-version-library-name external" rel="nofollow" href="https://vuejs.org/">vue</a></td><td dir="auto">3.5.13</td><td dir="auto">MIT</td><td dir="auto">Yuxi (Evan) You</td><td dir="auto">MediaWiki</td></tr><tr id="mw-version-library-vuex4.0.2"><td><a class="mw-version-library-name external" rel="nofollow" href="https://vuex.vuejs.org/">vuex</a></td><td dir="auto">4.0.2</td><td dir="auto">MIT</td><td dir="auto">Yuxi (Evan) You</td><td dir="auto">MediaWiki</td></tr></table><h2 id="mw-version-parser-extensiontags"><span class="plainlinks"><a class="external" href="https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:Tag_extensions">Parser extension tags</a></span></h2><bdi style="white-space: nowrap;"><code>&lt;gallery></code></bdi>, <bdi style="white-space: nowrap;"><code>&lt;indicator></code></bdi>, <bdi style="white-space: nowrap;"><code>&lt;langconvert></code></bdi>, <bdi style="white-space: nowrap;"><code>&lt;nowiki></code></bdi> and <bdi style="white-space: nowrap;"><code>&lt;pre></code></bdi><h2 id="mw-version-parser-function-hooks"><span class="plainlinks"><a class="external" href="https://www.mediawiki.org/wiki/Special:MyLanguage/Manual:Parser_functions">Parser function hooks</a></span></h2><bdi><code>{{anchorencode}}</code></bdi>, <bdi><code>{{BASEPAGENAME}}</code></bdi>, <bdi><code>{{BASEPAGENAMEE}}</code></bdi>, <bdi><code>{{#bcp47}}</code></bdi>, <bdi><code>{{bidi}}</code></bdi>, <bdi><code>{{canonicalurl}}</code></bdi>, <bdi><code>{{canonicalurle}}</code></bdi>, <bdi><code>{{CASCADINGSOURCES}}</code></bdi>, <bdi><code>{{#commaseparatedlist}}</code></bdi>, <bdi><code>{{#contentmodel}}</code></bdi>, <bdi><code>{{DEFAULTSORT}}</code></bdi>, <bdi><code>{{#dir}}</code></bdi>, <bdi><code>{{DISPLAYTITLE}}</code></bdi>, <bdi><code>{{filepath}}</code></bdi>, <bdi><code>{{#FORMAL}}</code></bdi>, <bdi><code>{{#formatdate}}</code></bdi>, <bdi><code>{{formatnum}}</code></bdi>, <bdi><code>{{FULLPAGENAME}}</code></bdi>, <bdi><code>{{FULLPAGENAMEE}}</code></bdi>, <bdi><code>{{fullurl}}</code></bdi>, <bdi><code>{{fullurle}}</code></bdi>, <bdi><code>{{gender}}</code></bdi>, <bdi><code>{{grammar}}</code></bdi>, <bdi><code>{{int}}</code></bdi>, <bdi><code>{{#interlanguagelink}}</code></bdi>, <bdi><code>{{#interwikilink}}</code></bdi>, <bdi><code>{{#isbn}}</code></bdi>, <bdi><code>{{#language}}</code></bdi>, <bdi><code>{{lc}}</code></bdi>, <bdi><code>{{lcfirst}}</code></bdi>, <bdi><code>{{localurl}}</code></bdi>, <bdi><code>{{localurle}}</code></bdi>, <bdi><code>{{NAMESPACE}}</code></bdi>, <bdi><code>{{NAMESPACEE}}</code></bdi>, <bdi><code>{{NAMESPACENUMBER}}</code></bdi>, <bdi><code>{{ns}}</code></bdi>, <bdi><code>{{nse}}</code></bdi>, <bdi><code>{{NUMBERINGROUP}}</code></bdi>, <bdi><code>{{NUMBEROFACTIVEUSERS}}</code></bdi>, <bdi><code>{{NUMBEROFADMINS}}</code></bdi>, <bdi><code>{{NUMBEROFARTICLES}}</code></bdi>, <bdi><code>{{NUMBEROFEDITS}}</code></bdi>, <bdi><code>{{NUMBEROFFILES}}</code></bdi>, <bdi><code>{{NUMBEROFPAGES}}</code></bdi>, <bdi><code>{{NUMBEROFUSERS}}</code></bdi>, <bdi><code>{{padleft}}</code></bdi>, <bdi><code>{{padright}}</code></bdi>, <bdi><code>{{pageid}}</code></bdi>, <bdi><code>{{PAGENAME}}</code></bdi>, <bdi><code>{{PAGENAMEE}}</code></bdi>, <bdi><code>{{PAGESINCATEGORY}}</code></bdi>, <bdi><code>{{PAGESIZE}}</code></bdi>, <bdi><code>{{plural}}</code></bdi>, <bdi><code>{{PROTECTIONEXPIRY}}</code></bdi>, <bdi><code>{{PROTECTIONLEVEL}}</code></bdi>, <bdi><code>{{REVISIONDAY}}</code></bdi>, <bdi><code>{{REVISIONDAY2}}</code></bdi>, <bdi><code>{{REVISIONID}}</code></bdi>, <bdi><code>{{REVISIONMONTH}}</code></bdi>, <bdi><code>{{REVISIONMONTH1}}</code></bdi>, <bdi><code>{{REVISIONTIMESTAMP}}</code></bdi>, <bdi><code>{{REVISIONUSER}}</code></bdi>, <bdi><code>{{REVISIONYEAR}}</code></bdi>, <bdi><code>{{ROOTPAGENAME}}</code></bdi>, <bdi><code>{{ROOTPAGENAMEE}}</code></bdi>, <bdi><code>{{#special}}</code></bdi>, <bdi><code>{{#speciale}}</code></bdi>, <bdi><code>{{SUBJECTPAGENAME}}</code></bdi>, <bdi><code>{{SUBJECTPAGENAMEE}}</code></bdi>, <bdi><code>{{SUBJECTSPACE}}</code></bdi>, <bdi><code>{{SUBJECTSPACEE}}</code></bdi>, <bdi><code>{{SUBPAGENAME}}</code></bdi>, <bdi><code>{{SUBPAGENAMEE}}</code></bdi>, <bdi><code>{{#tag}}</code></bdi>, <bdi><code>{{TALKPAGENAME}}</code></bdi>, <bdi><code>{{TALKPAGENAMEE}}</code></bdi>, <bdi><code>{{TALKSPACE}}</code></bdi>, <bdi><code>{{TALKSPACEE}}</code></bdi>, <bdi><code>{{uc}}</code></bdi>, <bdi><code>{{ucfirst}}</code></bdi> and <bdi><code>{{urlencode}}</code></bdi><h2 id="mw-version-parsoid-modules"><span class="plainlinks"><a class="external" href="https://www.mediawiki.org/wiki/Special:MyLanguage/Parsoid">Parsoid extension modules</a></span></h2><code>JSON content</code>, <code>&lt;nowiki></code>, <code>&lt;pre></code>, <code>Gallery</code> and <code>Indicator</code><!-- visited from 127.0.0.1 -->
+<span style='display:none'>visited from 127.0.0.1</span>
+<div class="printfooter" data-nosnippet="">Retrieved from "<a dir="ltr" href="http://127.0.0.1:28866/index.php?title=Special:Version">http://127.0.0.1:28866/index.php?title=Special:Version</a>"</div></div>
+					<div id="catlinks" class="catlinks catlinks-allhidden" data-mw-interface=""></div>
+				</div>
+			</main>
+			
+		</div>
+		<div class="mw-footer-container">
+			
+<footer id="footer" class="mw-footer" >
+	<ul id="footer-info">
+</ul>
+
+	<ul id="footer-places">
+	<li id="footer-places-privacy"><a href="/index.php?title=WikiReal:Privacy_policy">Privacy policy</a></li>
+	<li id="footer-places-about"><a href="/index.php?title=WikiReal:About">About WikiReal</a></li>
+	<li id="footer-places-disclaimers"><a href="/index.php?title=WikiReal:General_disclaimer">Disclaimers</a></li>
+</ul>
+
+	<ul id="footer-icons" class="noprint">
+	<li id="footer-poweredbyico"><a href="https://www.mediawiki.org/" class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled"><picture><source media="(min-width: 500px)" srcset="/resources/assets/poweredby_mediawiki.svg" width="88" height="31"><img src="/resources/assets/mediawiki_compact.svg" alt="Powered by MediaWiki" lang="en" width="25" height="25" loading="lazy"></picture></a></li>
+</ul>
+
+</footer>
+
+		</div>
+	</div> 
+</div> 
+<div class="vector-header-container vector-sticky-header-container no-font-mode-scale">
+	<div id="vector-sticky-header" class="vector-sticky-header">
+		<div class="vector-sticky-header-start">
+			<div class="vector-sticky-header-icon-start vector-button-flush-left" aria-hidden="true">
+				<button class="cdx-button cdx-button--weight-quiet cdx-button--icon-only vector-sticky-header-search-toggle" tabindex="-1" data-event-name="ui.vector-sticky-search-form.icon"><span class="vector-icon mw-ui-icon-search mw-ui-icon-wikimedia-search"></span>
+
+<span>Search</span>
+			</button>
+		</div>
+			
+		<div role="search" class="vector-search-box-vue  vector-search-box-show-thumbnail vector-search-box">
+			<div class="vector-typeahead-search-container">
+				<div class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail">
+					<form action="/index.php" id="vector-sticky-search-form" class="cdx-search-input cdx-search-input--has-end-button">
+						<div  class="cdx-search-input__input-wrapper"  data-search-loc="header-moved">
+							<div class="cdx-text-input cdx-text-input--has-start-icon">
+								<input
+									class="cdx-text-input__input mw-searchInput" autocomplete="off"
+									
+									type="search" name="search" placeholder="Search WikiReal">
+								<span class="cdx-text-input__icon cdx-text-input__start-icon"></span>
+							</div>
+							<input type="hidden" name="title" value="Special:Search">
+						</div>
+						<button class="cdx-button cdx-search-input__end-button">Search</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="vector-sticky-header-context-bar">
+				<nav aria-label="Contents" class="vector-toc-landmark">
+						
+					<div id="vector-sticky-header-toc" class="vector-dropdown mw-portlet mw-portlet-sticky-header-toc vector-sticky-header-toc vector-button-flush-left"  >
+						<input type="checkbox" id="vector-sticky-header-toc-checkbox" role="button" aria-haspopup="true" data-event-name="ui.dropdown-vector-sticky-header-toc" class="vector-dropdown-checkbox "  aria-label="Toggle the table of contents"  >
+						<label id="vector-sticky-header-toc-label" for="vector-sticky-header-toc-checkbox" class="vector-dropdown-label cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only " aria-hidden="true"  ><span class="vector-icon mw-ui-icon-listBullet mw-ui-icon-wikimedia-listBullet"></span>
+
+<span class="vector-dropdown-label-text">Toggle the table of contents</span>
+						</label>
+						<div class="vector-dropdown-content">
+					
+						<div id="vector-sticky-header-toc-unpinned-container" class="vector-unpinned-container">
+						</div>
+					
+						</div>
+					</div>
+			</nav>
+				<div class="vector-sticky-header-context-bar-primary" aria-hidden="true" >Version</div>
+			</div>
+		</div>
+		<div class="vector-sticky-header-end" aria-hidden="true">
+			<div class="vector-sticky-header-icons">
+				<a href="#" class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only" id="ca-talk-sticky-header" tabindex="-1" data-event-name="talk-sticky-header"><span class="vector-icon mw-ui-icon-speechBubbles mw-ui-icon-wikimedia-speechBubbles"></span>
+
+<span></span>
+			</a>
+			<a href="#" class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only" id="ca-subject-sticky-header" tabindex="-1" data-event-name="subject-sticky-header"><span class="vector-icon mw-ui-icon-article mw-ui-icon-wikimedia-article"></span>
+
+<span></span>
+			</a>
+			<a href="#" class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only" id="ca-history-sticky-header" tabindex="-1" data-event-name="history-sticky-header"><span class="vector-icon mw-ui-icon-wikimedia-history mw-ui-icon-wikimedia-wikimedia-history"></span>
+
+<span></span>
+			</a>
+			<a href="#" class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only mw-watchlink" id="ca-watchstar-sticky-header" tabindex="-1" data-event-name="watch-sticky-header"><span class="vector-icon mw-ui-icon-wikimedia-star mw-ui-icon-wikimedia-wikimedia-star"></span>
+
+<span></span>
+			</a>
+			<a href="#" class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only" id="ca-edit-sticky-header" tabindex="-1" data-event-name="wikitext-edit-sticky-header"><span class="vector-icon mw-ui-icon-wikimedia-wikiText mw-ui-icon-wikimedia-wikimedia-wikiText"></span>
+
+<span></span>
+			</a>
+			<a href="#" class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only" id="ca-ve-edit-sticky-header" tabindex="-1" data-event-name="ve-edit-sticky-header"><span class="vector-icon mw-ui-icon-wikimedia-edit mw-ui-icon-wikimedia-wikimedia-edit"></span>
+
+<span></span>
+			</a>
+			<a href="#" class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--icon-only" id="ca-viewsource-sticky-header" tabindex="-1" data-event-name="ve-edit-protected-sticky-header"><span class="vector-icon mw-ui-icon-wikimedia-editLock mw-ui-icon-wikimedia-wikimedia-editLock"></span>
+
+<span></span>
+			</a>
+		</div>
+			<div class="vector-sticky-header-buttons">
+				<a href="#" class="cdx-button cdx-button--fake-button cdx-button--fake-button--enabled cdx-button--weight-quiet cdx-button--action-progressive" id="ca-addsection-sticky-header" tabindex="-1" data-event-name="addsection-sticky-header"><span class="vector-icon mw-ui-icon-speechBubbleAdd-progressive mw-ui-icon-wikimedia-speechBubbleAdd-progressive"></span>
+
+<span>Add topic</span>
+			</a>
+		</div>
+			<div class="vector-sticky-header-icon-end">
+				<div class="vector-user-links">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="mw-portlet mw-portlet-dock-bottom emptyPortlet" id="p-dock-bottom">
+	<ul>
+		
+	</ul>
+</div>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":188});});</script>
+</body>
+</html>

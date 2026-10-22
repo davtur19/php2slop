@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Server: nginx/1.30.1
+Date: Wed, 21 Oct 2026 23:12:47 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 4658
+Connection: keep-alive
+X-Powered-By: PHP/8.5.10
+X-Content-Type-Options: nosniff
+MediaWiki-API-Error: internal_api_error_MediaWiki\Content\ContentSerializationException
+Content-Security-Policy: default-src 'self'; script-src 'none'; object-src 'none'
+X-Frame-Options: DENY
+Content-Disposition: inline; filename=api-result.json
+Cache-Control: private, must-revalidate, max-age=0
+Vary: Accept-Encoding
+X-Request-Id: 934ab645294fa9a3c91b07e1
+

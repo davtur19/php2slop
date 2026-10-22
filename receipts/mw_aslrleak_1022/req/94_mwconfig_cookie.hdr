@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Server: nginx/1.30.1
+Date: Wed, 21 Oct 2026 23:19:54 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+X-Powered-By: PHP/8.5.10
+X-Content-Type-Options: nosniff
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+X-Frame-Options: DENY
+Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline'; object-src 'none'; script-src 'self' 'nonce-Xco4+9LZItvR6ROqI3CxM+Pm'; img-src 'self'; frame-src 'self'; base-uri 'none'
+X-Request-Id: 312979f5d89c536fe255cbda
+
