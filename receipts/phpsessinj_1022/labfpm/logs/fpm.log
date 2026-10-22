@@ -1,0 +1,9 @@
+[22-Oct-2026 03:49:39] NOTICE: [pool poolA] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:49:39] NOTICE: [pool poolA] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:49:39] NOTICE: [pool poolB] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:49:39] NOTICE: [pool poolB] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:49:39] NOTICE: fpm is running, pid 1671155
+[22-Oct-2026 03:49:39] NOTICE: ready to handle connections
+[22-Oct-2026 03:49:39] NOTICE: systemd monitor interval set to 10000ms
+[22-Oct-2026 03:50:12] NOTICE: Terminating ...
+[22-Oct-2026 03:50:12] NOTICE: exiting, bye-bye!

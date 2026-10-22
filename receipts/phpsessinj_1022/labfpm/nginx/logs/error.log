@@ -1,0 +1,4 @@
+2026/10/22 03:57:55 [error] 1684396#0: *2 client intended to send too large body: 2097384 bytes, client: 127.0.0.1, server: , request: "POST /index.php HTTP/1.1", host: "127.0.0.1:9186"
+2026/10/22 03:58:03 [emerg] 1684866#0: unexpected ";" in /tmp/opencode/research/phpsessinj_1792633613/labfpm/nginx/nginx.conf:11
+2026/10/22 03:58:19 [notice] 1685295#0: signal process started
+2026/10/22 04:00:18 [notice] 1688230#0: signal process started

@@ -1,0 +1,23 @@
+[22-Oct-2026 03:57:42] NOTICE: fpm is running, pid 1684327
+[22-Oct-2026 03:57:42] NOTICE: ready to handle connections
+[22-Oct-2026 03:57:42] NOTICE: systemd monitor interval set to 10000ms
+[22-Oct-2026 03:58:51] NOTICE: Reloading in progress ...
+[22-Oct-2026 03:58:51] NOTICE: reloading: execvp("lab/root/usr/sbin/php-fpm8.4", {"lab/root/usr/sbin/php-fpm8.4", "-y", "labfpm/fpm_race.conf", "-F"})
+[22-Oct-2026 03:58:51] NOTICE: using inherited socket fd=7, "127.0.0.1:9101"
+[22-Oct-2026 03:58:51] NOTICE: fpm is running, pid 1684327
+[22-Oct-2026 03:58:51] NOTICE: ready to handle connections
+[22-Oct-2026 03:58:51] NOTICE: systemd monitor interval set to 10000ms
+[22-Oct-2026 03:59:54] NOTICE: Reloading in progress ...
+[22-Oct-2026 03:59:54] NOTICE: reloading: execvp("lab/root/usr/sbin/php-fpm8.4", {"lab/root/usr/sbin/php-fpm8.4", "-y", "labfpm/fpm_race.conf", "-F"})
+[22-Oct-2026 03:59:54] NOTICE: using inherited socket fd=7, "127.0.0.1:9101"
+[22-Oct-2026 03:59:54] NOTICE: fpm is running, pid 1684327
+[22-Oct-2026 03:59:54] NOTICE: ready to handle connections
+[22-Oct-2026 03:59:54] NOTICE: systemd monitor interval set to 10000ms
+[22-Oct-2026 04:00:17] NOTICE: Reloading in progress ...
+[22-Oct-2026 04:00:17] NOTICE: reloading: execvp("lab/root/usr/sbin/php-fpm8.4", {"lab/root/usr/sbin/php-fpm8.4", "-y", "labfpm/fpm_race.conf", "-F"})
+[22-Oct-2026 04:00:17] NOTICE: using inherited socket fd=7, "127.0.0.1:9101"
+[22-Oct-2026 04:00:17] NOTICE: fpm is running, pid 1684327
+[22-Oct-2026 04:00:17] NOTICE: ready to handle connections
+[22-Oct-2026 04:00:17] NOTICE: systemd monitor interval set to 10000ms
+[22-Oct-2026 04:00:44] NOTICE: Terminating ...
+[22-Oct-2026 04:00:44] NOTICE: exiting, bye-bye!
