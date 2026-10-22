@@ -845,7 +845,8 @@ def main() -> int:
         help="--step g2: profile version (8.5.10, 8.4.25, 8.1.34, 7.4.33, "
              "realapps-8.5.10), binary md5, or .json path (default 8.5.10); "
              "offsets are md5 locked; realapps-8.5.10 carries the F12b "
-             "php-session record and is rejected by this php_binary builder",
+             "php-session record; --step g2 plans its php_binary entry "
+             "(0x22c54e0), and the php slot (0x22c54c8) uses mkrec.py",
     )
     parser.add_argument(
         "--g2-total",

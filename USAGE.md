@@ -95,10 +95,10 @@ realapps PHP 8.5.10 binary, whose active handler is `php` (not `php_binary`):
 the write lands on `ps_serializers[1].decode` (`0x22c54c8`) and the record is a
 `php`-format session. The profile is `addresses/g2_fpm_realapps_8510.json`,
 selectable with `--g2-profile realapps-8.5.10` or its md5. It carries
-`record_builder: php_session_zif`; the offline `--step g2` builder emits only
-the `php_binary` G6 shape and returns exit 2 with a pointer to the receipt's
-`scripts/mkrec.py`, so the profile is descriptive/selector data, not a
-generator input.
+`record_builder: php_binary_zif`, so the offline `--step g2` builder plans the
+`php_binary` entry (`ps_serializers[2].decode`, `0x22c54e0`); the F12b
+`php`-slot record (`0x22c54c8`, 8 mod 16) still comes from the receipt's
+`scripts/mkrec.py`.
 
 Inputs, all explicit:
 
@@ -133,7 +133,8 @@ The four lab profiles are ET_EXEC non PIE with image base 0x400000. The
 four. Each carries libc `system` offset 0x53090 and `popen` 0x7ff90. The
 realapps profile is ET_EXEC non PIE as well, but its F12b target is the
 `php` decode slot `0x22c54c8` (8 mod 16), reached through an 8 mod 16 fake B0f;
-its record shape is not accepted by the offline builder.
+the offline builder plans its `php_binary` entry (`0x22c54e0`), while the F12b
+`php`-slot record is still built by the receipt's `scripts/mkrec.py`.
 
 Handler choice matters for the generic builder. The builder resolves the target
 from the profile entry named `php_binary` (`_serializer_entry`), not from
@@ -419,9 +420,10 @@ ASLR-off proof; `P`/`B0` still came from a pre-final gdb calibration, the
 MediaWiki/Wikibase ASLR-on survey found no in-band leak, the boot2 candidate is
 lab-only, and no internet exploitation is claimed. The profile
 `addresses/g2_fpm_realapps_8510.json` is selectable with `--g2-profile
-realapps-8.5.10` (or its md5); `record_builder` is `php_session_zif`, so
-`--step g2` (php_binary G6 shape only) rejects it with a pointer to the
-receipt's `scripts/mkrec.py`. Receipt:
+realapps-8.5.10` (or its md5); `record_builder` is `php_binary_zif`, so the
+builder resolves the target by entry name and plans `0x22c54e0` rather than the
+profile's `default_target` (`0x22c54c8`). The F12b `php`-slot record still comes
+from the receipt's `scripts/mkrec.py`. Receipt:
 `/tmp/opencode/research/f12b_zif_20261021T222457Z/README.md`.
 
 ## modphp machinery lane
@@ -535,7 +537,7 @@ exploitation is claimed.
 | g2 zif target error | `--g2-value`/`--libc-base` used with a zif mode, or target not aligned | `result.json` error | let the zif mode write the profile address; use an aligned slot |
 | g2 zif_system worker crash | expected one-shot behavior: `php_exec type=1` writes `return_value=ZSTR_LEN(data)` | crash at `php_exec+450`, marker exists | use `zif_passthru` when worker survival matters |
 | g2 zif_passthru failure | fake call type or command pointer wrong; type=3 does not crash on return_value | gdb `ser2decode`, `arg1type=6`, `F+0x10/F+0x18` | rebuild the record from the selected profile |
-| g2 realapps profile rejected | the F12b profile uses the `php` session record shape (`record_builder=php_session_zif`); the offline builder emits the `php_binary` G6 shape only | `result.json` error names the builder and the F12b receipt | use the receipt's `scripts/mkrec.py`; do not fabricate a php_binary record for the `php` handler |
+| g2 realapps php-slot target | the F12b `php` slot `0x22c54c8` is 8 mod 16 and not emitted by this builder; `--step g2` plans the `php_binary` entry `0x22c54e0` | `result.json` `serializer_entry` shows index 2 (`php_binary`) | use the receipt's `scripts/mkrec.py` for the `php`-slot record; `--g2-target 0x22c54c8` is rejected as unaligned |
 | F12b crash at `php_exec+466` | expected one-shot: `type=1` writes the return zval through `return_value=ZSTR_LEN(data)=0x1d0230`, in the binary's `r--p` mapping | F12b `phase/consumer_02.txt`, marker exists, FPM respawn | none for this ABI; the clean gdb-free `zif_passthru` real-target run is in `receipts/realchain_20261022/` |
 | g2 generic target error | in the php_binary builder, target not 16 byte aligned, or not reachable from B0 | `result.json` error | use an aligned target below B0 + 0x10; the F12b php-slot route uses the receipt's `mkrec.py` instead |
 | g2 P or B0 outside payload | wrong X or total | check `p_off`, `b_off`, `payload_start` in `result.json` | re-measure X or the record length |
