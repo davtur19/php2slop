@@ -1,0 +1,8 @@
+2026/10/22 04:13:01 [notice] 1707604#0: using the "epoll" event method
+2026/10/22 04:13:01 [notice] 1707604#0: nginx/1.30.1
+2026/10/22 04:13:01 [notice] 1707604#0: built by gcc 14.2.0 (Debian 14.2.0-19) 
+2026/10/22 04:13:01 [notice] 1707604#0: OS: Linux 6.12.113+deb13-amd64
+2026/10/22 04:13:01 [notice] 1707604#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/10/22 04:13:01 [notice] 1707605#0: start worker processes
+2026/10/22 04:13:01 [notice] 1707605#0: start worker process 1707606
+2026/10/22 04:13:51 [error] 1707606#0: *9 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 127.0.0.1, server: 127.0.0.1, request: "POST /lab_upload_stock.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/opencode/research/openmage_pop_20261022T021222Z/run/writer_stock_np.sock:", host: "127.0.0.1:28896"

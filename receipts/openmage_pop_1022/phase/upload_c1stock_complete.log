@@ -1,0 +1,7 @@
+BODY prefix=252 file=65536 suffix=29 total=65817 payload_len=22
+before: MISSING
+t=0.000 sent headers+prefix
+after-prefix: MISSING
+t=0.000 sent suffix
+response: b'HTTP/1.1 200 OK'
+after-complete: size=0 sha256=e3b0c44298fc1c14 head=b''

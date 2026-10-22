@@ -1,0 +1,1 @@
+a:1:{s:38:"upload_progress_x|O:9:"TestClass":0:{}";a:5:{s:10:"start_time";i:1792635249;s:14:"content_length";i:1048857;s:15:"bytes_processed";i:5237;s:4:"done";b:0;s:5:"files";a:1:{i:0;a:7:{s:10:"field_name";s:4:"file";s:4:"name";s:8:"blob.bin";s:8:"tmp_name";N;s:5:"error";i:0;s:4:"done";b:0;s:10:"start_time";i:1792635249;s:15:"bytes_processed";i:5237;}}}}

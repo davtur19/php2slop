@@ -1,0 +1,1 @@
+<?php file_put_contents('/tmp/opencode/research/openmage_pop_20261022T021222Z/markers/MARK_PIE','PIE-ISO '.date('c').' pid='.getmypid().' sapi='.php_sapi_name().' bin='.(defined('PHP_BINARY')?PHP_BINARY:'').PHP_EOL,FILE_APPEND); echo 'PIE_OK'.PHP_EOL; ?>

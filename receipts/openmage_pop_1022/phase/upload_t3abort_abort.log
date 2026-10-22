@@ -1,0 +1,7 @@
+BODY prefix=252 file=1048576 suffix=29 total=1048857 payload_len=22
+before: MISSING
+t=0.000 sent headers+prefix
+after-prefix: MISSING
+t=0.000 ABORT sent=262144/1048576 (RST)
+after-abort: MISSING
+ABORTED

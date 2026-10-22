@@ -1,0 +1,2 @@
+SHARED 2026-10-22T02:30:18+00:00 pid=1707332 sapi=fpm-fcgi bin=/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm
+SHARED 2026-10-22T02:30:18+00:00 pid=1707339 sapi=fpm-fcgi bin=/tmp/opencode/realapps/install_realapps/sbin/php-fpm

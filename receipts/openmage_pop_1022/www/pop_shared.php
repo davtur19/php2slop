@@ -1,0 +1,1 @@
+<?php file_put_contents('/tmp/opencode/research/openmage_pop_20261022T021222Z/markers/MARK_SHARED','SHARED '.date('c').' pid='.getmypid().' sapi='.php_sapi_name().' bin='.PHP_BINARY.PHP_EOL,FILE_APPEND); echo 'SHARED_OK'.PHP_EOL; ?>

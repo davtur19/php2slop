@@ -1,0 +1,8 @@
+[22-Oct-2026 04:12:45] NOTICE: [pool app_np] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 04:12:45] NOTICE: [pool app_np] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 04:12:45] NOTICE: [pool writer_np] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 04:12:45] NOTICE: [pool writer_np] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 04:12:45] NOTICE: [pool writer_stock_np] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 04:12:45] NOTICE: [pool writer_stock_np] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 04:12:45] NOTICE: fpm is running, pid 1707330
+[22-Oct-2026 04:12:45] NOTICE: ready to handle connections

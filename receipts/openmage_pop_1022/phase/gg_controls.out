@@ -1,0 +1,17 @@
+===== fw1 (Magento/FW1 file-write) payload=465 session=467
+status=200 len=11459 t=0.023 body=b'<!DOCTYPE html>\n<html lang="en" id="top" class="no-js">\n<head>\n<meta http-equiv="Content-Type" content="text/html; chars'
+-- new php log lines:
+[22-Oct-2026 02:38:58 UTC] PHP Fatal error:  Uncaught Error: The script tried to call a method on an incomplete object. Please ensure that the class definition "Varien_Cache_Backend_Eaccelerator" of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide an autoloader to load the class definition in /tmp/opencode/research/openmage_pop_20261022T021222Z/www/vendor/shardj/zf1-future/library/Zend/Memory/Manager.php:200
+Stack trace:
+#0 [internal function]: Zend_Memory_Manager->__destruct()
+#1 {main}
+  thrown in /tmp/opencode/research/openmage_pop_20261022T021222Z/www/vendor/shardj/zf1-future/library/Zend/Memory/Manager.php on line 200
+   ls: cannot access 'www/gg_fw1.php': No such file or directory
+===== fd1 (ZendFramework/FD1 file-delete) payload=160 session=162
+status=200 len=11459 t=0.017 body=b'<!DOCTYPE html>\n<html lang="en" id="top" class="no-js">\n<head>\n<meta http-equiv="Content-Type" content="text/html; chars'
+-- new php log lines:
+   ls: cannot access 'www/gg_victim.txt': No such file or directory
+===== rce1 (ZendFramework/RCE1 /e) payload=551 session=553
+status=200 len=11459 t=0.022 body=b'<!DOCTYPE html>\n<html lang="en" id="top" class="no-js">\n<head>\n<meta http-equiv="Content-Type" content="text/html; chars'
+-- new php log lines:
+   ls: cannot access 'www/gg_rce1.php': No such file or directory

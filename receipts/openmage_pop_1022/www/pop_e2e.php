@@ -1,0 +1,1 @@
+<?php file_put_contents('/tmp/opencode/research/openmage_pop_20261022T021222Z/markers/MARK_E2E','E2E '.date('c').' pid='.getmypid().' sapi='.php_sapi_name().' uri='.($_SERVER['REQUEST_URI']??'').PHP_EOL,FILE_APPEND); echo 'E2E_OK'.PHP_EOL; ?>

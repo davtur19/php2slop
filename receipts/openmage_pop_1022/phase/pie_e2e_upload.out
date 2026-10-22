@@ -1,0 +1,11 @@
+BODY prefix=979 file=1048576 suffix=29 total=1049584 payload_len=749
+before: MISSING
+t=0.000 sent headers+prefix
+after-prefix: MISSING
+t=0.000 PAUSE sent=262144/1048576
+during-pause: MISSING
+t=12.000 RESUME sent=262144/1048576
+after-pause: MISSING
+t=12.000 sent suffix
+response: b'HTTP/1.1 200 OK'
+after-complete: size=6 sha256=35786c7117b4e38d head=b'a:0:{}'

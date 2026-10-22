@@ -1,0 +1,45 @@
+# magic-method inventory (OpenMage 20.10.0 copy)
+## www/app/code/core
+  __destruct files: 1
+  __wakeup files:   0
+## www/vendor/shardj/zf1-future/library
+  __destruct files: 30
+  __wakeup files:   16
+## www/vendor
+  __destruct files: 36
+  __wakeup files:   21
+
+# Mage_/Varien_ __destruct classes
+Mage/Core/Model/Resource/Session.php
+
+# Zend_ __destruct classes (zf1-future)
+Zend/Cache/Backend/Sqlite.php
+Zend/Http/Client/Adapter/Proxy.php
+Zend/Http/Client/Adapter/Socket.php
+Zend/Http/Response/Stream.php
+Zend/Ldap/Collection/Iterator/Default.php
+Zend/Ldap/Collection.php
+Zend/Ldap.php
+Zend/Log.php
+Zend/Mail/Protocol/Abstract.php
+Zend/Mail/Protocol/Imap.php
+Zend/Mail/Protocol/Pop3.php
+Zend/Mail/Storage/Abstract.php
+Zend/Mail/Transport/Smtp.php
+Zend/Memory/AccessController.php
+Zend/Memory/Manager.php
+Zend/Pdf/ElementFactory/Proxy.php
+Zend/Pdf/FileParserDataSource/File.php
+Zend/Pdf/FileParserDataSource.php
+Zend/Pdf/FileParserDataSource/String.php
+Zend/Pdf/FileParser.php
+Zend/Pdf/Parser.php
+Zend/ProgressBar/Adapter/Console.php
+Zend/Queue/Adapter/Activemq.php
+Zend/Queue/Adapter/Memcacheq.php
+Zend/Queue/Stomp/Client/Connection.php
+Zend/Queue/Stomp/Client.php
+Zend/Search/Lucene.php
+Zend/Search/Lucene/Proxy.php
+Zend/Service/LiveDocx.php
+Zend/Session/SaveHandler/DbTable.php

@@ -1,0 +1,16 @@
+binary=/tmp/opencode/realapps/install_realapps_np/bin/php
+PHP 8.5.10 (cli) (built: Oct 21 2026 12:24:37) (NTS)
+Copyright (c) The PHP Group
+session.serialize_handler='php'
+session.save_path=''
+session.use_strict_mode='0'
+session.use_only_cookies='1'
+session.name='PHPSESSID'
+session.upload_progress.enabled='1'
+session.upload_progress.cleanup='1'
+session.upload_progress.prefix='upload_progress_'
+session.upload_progress.name='PHP_SESSION_UPLOAD_PROGRESS'
+session.upload_progress.freq='1%'
+session.upload_progress.min_freq='1'
+session.gc_maxlifetime='1440'
+loaded_ini=(none)
