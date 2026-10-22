@@ -1,0 +1,16 @@
+{
+ "out": "/tmp/opencode/research/php8pie_20261022_0325/phase/rec_zif_final.bin",
+ "mode": "final",
+ "size": 131014,
+ "x2": "0x7f65f528d000",
+ "F": "0x7f65f528d196",
+ "target": "0x556e4b8c1980",
+ "used_slots": -2883979953001,
+ "injected_K": -2883979953001,
+ "Q": 126,
+ "L": 130886,
+ "rec1_len": 114,
+ "p_idx": 98154,
+ "b_idx": 110442,
+ "zif": "0x556e4ac64c15"
+}

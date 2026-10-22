@@ -1,0 +1,28 @@
+== binary ==
+/tmp/opencode/research/php8pie_20261022_0325/src/php-8.5.10/sapi/fpm/php-fpm: ELF 64-bit LSB pie executable, x86-64, version 1 (GNU/Linux), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=69ef9c150adebfd8c7409304eef1dc9ddabc2810, for GNU/Linux 3.2.0, with debug_info, not stripped
+size 42328800
+md5 605064570c308c1eaca5aa5911799ef0
+sha256 12eeaa235c959e139953dcefb06036b395b484b29fc63ed19b31079b8964c3be
+buildid 69ef9c150adebfd8c7409304eef1dc9ddabc2810
+
+== ELF ==
+  Type:                              DYN (Position-Independent Executable file)
+  Entry point address:               0x20ac70
+
+== symbols ==
+00000000004119de t php_session_decode
+0000000000411f36 t ps_srlzr_decode_php_binary
+0000000000412115 t ps_srlzr_decode_php
+0000000000464777 T php_exec
+0000000000464993 t php_exec_ex
+0000000000464c05 t zif_system
+0000000000464c15 t zif_passthru
+00000000006644e5 T zval_ptr_dtor
+00000000010c1940 d ps_serializers
+
+== ASLR ==
+2
+== master maps ==
+556e4a800000-556e4a928000 r--p 00000000 08:01 7141786                    /tmp/opencode/research/php8pie_20261022_0325/src/php-8.5.10/sapi/fpm/php-fpm
+556e4aa00000-556e4b001000 r-xp 00200000 08:01 7141786                    /tmp/opencode/research/php8pie_20261022_0325/src/php-8.5.10/sapi/fpm/php-fpm
+556e4b200000-556e4b484000 r--p 00a00000 08:01 7141786                    /tmp/opencode/research/php8pie_20261022_0325/src/php-8.5.10/sapi/fpm/php-fpm

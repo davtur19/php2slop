@@ -1,0 +1,65 @@
+2026/10/22 03:27:33 [notice] 1416116#0: using the "epoll" event method
+2026/10/22 03:27:33 [notice] 1416116#0: nginx/1.30.1
+2026/10/22 03:27:33 [notice] 1416116#0: built by gcc 14.2.0 (Debian 14.2.0-19) 
+2026/10/22 03:27:33 [notice] 1416116#0: OS: Linux 6.12.113+deb13-amd64
+2026/10/22 03:27:33 [notice] 1416116#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/10/22 03:27:33 [notice] 1416117#0: start worker processes
+2026/10/22 03:27:33 [notice] 1416117#0: start worker process 1416118
+2026/10/22 03:27:34 [info] 1416118#0: *1 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:27:34 [info] 1416118#0: *3 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:28:34 [info] 1416118#0: *5 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:28:48 [info] 1416118#0: *7 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:31:18 [info] 1416118#0: *9 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:31:28 [info] 1416118#0: *11 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:31:30 [error] 1416118#0: *13 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "POST /probe.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:28933", host: "127.0.0.1:28931"
+2026/10/22 03:31:30 [info] 1416118#0: *13 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:32:04 [info] 1416118#0: *15 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:32:16 [error] 1416118#0: *17 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "POST /probe.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:28933", host: "127.0.0.1:28931"
+2026/10/22 03:32:16 [info] 1416118#0: *17 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:32:56 [info] 1416118#0: *19 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:32:58 [error] 1416118#0: *21 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "POST /probe.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:28933", host: "127.0.0.1:28931"
+2026/10/22 03:32:58 [info] 1416118#0: *21 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:43:00 [info] 1416118#0: *23 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:43:05 [error] 1416118#0: *25 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "POST /probe.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:28933", host: "127.0.0.1:28931"
+2026/10/22 03:43:05 [info] 1416118#0: *25 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:45:15 [info] 1416118#0: *27 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:45:16 [error] 1416118#0: *29 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "POST /probe.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:28933", host: "127.0.0.1:28931"
+2026/10/22 03:45:16 [info] 1416118#0: *29 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:50:37 [info] 1416118#0: *31 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:51:33 [info] 1416118#0: *33 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:51:33 [error] 1416118#0: *35 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "POST /probe.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:28933", host: "127.0.0.1:28931"
+2026/10/22 03:51:33 [info] 1416118#0: *35 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:54:25 [info] 1416118#0: *37 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:54:25 [error] 1416118#0: *39 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "POST /probe.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:28933", host: "127.0.0.1:28931"
+2026/10/22 03:54:25 [info] 1416118#0: *39 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:54:52 [info] 1416118#0: *41 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:54:52 [error] 1416118#0: *43 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "POST /probe.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:28933", host: "127.0.0.1:28931"
+2026/10/22 03:54:52 [info] 1416118#0: *43 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:55:21 [info] 1416118#0: *45 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:55:21 [error] 1416118#0: *47 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "POST /probe.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:28933", host: "127.0.0.1:28931"
+2026/10/22 03:55:21 [info] 1416118#0: *47 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:56:08 [info] 1416118#0: *49 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:56:08 [error] 1416118#0: *51 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "POST /probe.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:28933", host: "127.0.0.1:28931"
+2026/10/22 03:56:08 [info] 1416118#0: *51 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:56:50 [info] 1416118#0: *53 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:56:50 [error] 1416118#0: *55 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "POST /probe.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:28933", host: "127.0.0.1:28931"
+2026/10/22 03:56:50 [info] 1416118#0: *55 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:57:07 [info] 1416118#0: *57 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:57:07 [error] 1416118#0: *59 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "POST /probe.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:28933", host: "127.0.0.1:28931"
+2026/10/22 03:57:07 [info] 1416118#0: *59 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:58:17 [info] 1416118#0: *61 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:58:17 [error] 1416118#0: *63 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "POST /probe.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:28933", host: "127.0.0.1:28931"
+2026/10/22 03:58:17 [info] 1416118#0: *63 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:58:29 [info] 1416118#0: *65 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:58:29 [error] 1416118#0: *67 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "POST /probe.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:28933", host: "127.0.0.1:28931"
+2026/10/22 03:58:29 [info] 1416118#0: *67 client 127.0.0.1 closed keepalive connection
+2026/10/22 03:58:38 [info] 1416118#0: *69 client 127.0.0.1 closed keepalive connection
+2026/10/22 04:04:21 [info] 1416118#0: *70 client 127.0.0.1 closed keepalive connection
+2026/10/22 04:07:01 [error] 1416118#0: *72 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost, request: "POST /probe.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:28933", host: "127.0.0.1:28931"
+2026/10/22 04:07:01 [info] 1416118#0: *72 client 127.0.0.1 closed keepalive connection
+2026/10/22 04:09:32 [info] 1416118#0: *74 client 127.0.0.1 closed keepalive connection
+2026/10/22 04:09:33 [info] 1416118#0: *76 client 127.0.0.1 closed keepalive connection
+2026/10/22 04:09:52 [info] 1416118#0: *78 client 127.0.0.1 closed keepalive connection
+2026/10/22 04:15:02 [info] 1416118#0: *80 client 127.0.0.1 closed keepalive connection
+2026/10/22 04:15:02 [info] 1416118#0: *82 client 127.0.0.1 closed keepalive connection
+2026/10/22 04:15:04 [info] 1416118#0: *84 client 127.0.0.1 closed keepalive connection

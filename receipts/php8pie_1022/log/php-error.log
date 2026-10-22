@@ -1,0 +1,126 @@
+[22-Oct-2026 01:28:34 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 01:28:34 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 01:31:28 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 01:31:28 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 01:32:04 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 01:32:04 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 01:32:56 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 01:32:56 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 01:43:00 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 01:43:00 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 01:45:15 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 01:45:15 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 01:51:33 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 01:51:33 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 01:54:25 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 01:54:25 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 01:54:52 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 01:54:52 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 01:55:21 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 01:55:21 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 01:56:08 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 01:56:08 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 01:56:50 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 01:56:50 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 01:57:07 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 01:57:07 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 01:58:17 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 01:58:17 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 01:58:29 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 01:58:29 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 02:04:21 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 02:04:21 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 02:09:32 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 02:09:32 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}
+[22-Oct-2026 02:15:02 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+[22-Oct-2026 02:15:02 UTC] PHP Fatal error:  stop in /tmp/opencode/research/php8pie_20261022_0325/www/unser.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(8): trigger_error('stop', 256)
+#1 [internal function]: {closure:/tmp/opencode/research/php8pie_20261022_0325/www/unser.php:8}(2, 'unserialize(): ...', '/tmp/opencode/r...', 11)
+#2 /tmp/opencode/research/php8pie_20261022_0325/www/unser.php(11): unserialize('a:2:{i:0;s:3:"a...')
+#3 {main}

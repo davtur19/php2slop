@@ -1,0 +1,65 @@
+[22-Oct-2026 03:27:32] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:27:32] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:27:32] NOTICE: fpm is running, pid 1416084
+[22-Oct-2026 03:27:32] NOTICE: ready to handle connections
+[22-Oct-2026 03:31:30] WARNING: [pool lab] child 1416085 exited on signal 11 (SIGSEGV) after 237.819541 seconds from start
+[22-Oct-2026 03:31:30] NOTICE: [pool lab] child 1423019 started
+[22-Oct-2026 03:32:16] WARNING: [pool lab] child 1423019 exited on signal 11 (SIGSEGV) after 45.492720 seconds from start
+[22-Oct-2026 03:32:16] NOTICE: [pool lab] child 1424245 started
+[22-Oct-2026 03:32:58] WARNING: [pool lab] child 1424245 exited on signal 11 (SIGSEGV) after 42.780486 seconds from start
+[22-Oct-2026 03:32:58] NOTICE: [pool lab] child 1426633 started
+[22-Oct-2026 03:43:00] WARNING: [pool lab] child 1426633 exited on signal 9 (SIGKILL) after 601.484185 seconds from start
+[22-Oct-2026 03:43:00] NOTICE: [pool lab] child 1660678 started
+[22-Oct-2026 03:43:05] WARNING: [pool lab] child 1660678 exited on signal 11 (SIGSEGV) after 5.046729 seconds from start
+[22-Oct-2026 03:43:05] NOTICE: [pool lab] child 1661005 started
+[22-Oct-2026 03:45:14] WARNING: [pool lab] child 1661005 exited on signal 9 (SIGKILL) after 129.404932 seconds from start
+[22-Oct-2026 03:45:14] NOTICE: [pool lab] child 1665286 started
+[22-Oct-2026 03:45:16] WARNING: [pool lab] child 1665286 exited on signal 11 (SIGSEGV) after 1.843346 seconds from start
+[22-Oct-2026 03:45:16] NOTICE: [pool lab] child 1665325 started
+[22-Oct-2026 03:51:29] WARNING: [pool lab] child 1665325 exited on signal 9 (SIGKILL) after 372.462743 seconds from start
+[22-Oct-2026 03:51:29] NOTICE: [pool lab] child 1673790 started
+[22-Oct-2026 03:51:33] WARNING: [pool lab] child 1673790 exited on signal 11 (SIGSEGV) after 4.870932 seconds from start
+[22-Oct-2026 03:51:33] NOTICE: [pool lab] child 1673985 started
+[22-Oct-2026 03:54:24] WARNING: [pool lab] child 1673985 exited on signal 9 (SIGKILL) after 170.387856 seconds from start
+[22-Oct-2026 03:54:24] NOTICE: [pool lab] child 1678204 started
+[22-Oct-2026 03:54:25] WARNING: [pool lab] child 1678204 exited on signal 11 (SIGSEGV) after 1.159502 seconds from start
+[22-Oct-2026 03:54:25] NOTICE: [pool lab] child 1678293 started
+[22-Oct-2026 03:54:51] WARNING: [pool lab] child 1678293 exited on signal 9 (SIGKILL) after 25.776269 seconds from start
+[22-Oct-2026 03:54:51] NOTICE: [pool lab] child 1679193 started
+[22-Oct-2026 03:54:52] WARNING: [pool lab] child 1679193 exited on signal 11 (SIGSEGV) after 1.135818 seconds from start
+[22-Oct-2026 03:54:52] NOTICE: [pool lab] child 1679225 started
+[22-Oct-2026 03:55:20] WARNING: [pool lab] child 1679225 exited on signal 9 (SIGKILL) after 28.446916 seconds from start
+[22-Oct-2026 03:55:20] NOTICE: [pool lab] child 1679917 started
+[22-Oct-2026 03:55:21] WARNING: [pool lab] child 1679917 exited on signal 11 (SIGSEGV) after 1.135025 seconds from start
+[22-Oct-2026 03:55:21] NOTICE: [pool lab] child 1679975 started
+[22-Oct-2026 03:56:07] WARNING: [pool lab] child 1679975 exited on signal 9 (SIGKILL) after 45.371268 seconds from start
+[22-Oct-2026 03:56:07] NOTICE: [pool lab] child 1681330 started
+zend_mm_heap corrupted
+[22-Oct-2026 03:56:08] WARNING: [pool lab] child 1681330 exited on signal 6 (SIGABRT) after 0.825547 seconds from start
+[22-Oct-2026 03:56:08] NOTICE: [pool lab] child 1681370 started
+[22-Oct-2026 03:56:49] WARNING: [pool lab] child 1681370 exited on signal 9 (SIGKILL) after 40.954574 seconds from start
+[22-Oct-2026 03:56:49] NOTICE: [pool lab] child 1682577 started
+[22-Oct-2026 03:56:50] WARNING: [pool lab] child 1682577 exited on signal 11 (SIGSEGV) after 1.137401 seconds from start
+[22-Oct-2026 03:56:50] NOTICE: [pool lab] child 1682622 started
+[22-Oct-2026 03:57:06] WARNING: [pool lab] child 1682622 exited on signal 9 (SIGKILL) after 16.174252 seconds from start
+[22-Oct-2026 03:57:06] NOTICE: [pool lab] child 1683483 started
+zend_mm_heap corrupted
+[22-Oct-2026 03:57:07] WARNING: [pool lab] child 1683483 exited on signal 6 (SIGABRT) after 1.130304 seconds from start
+[22-Oct-2026 03:57:07] NOTICE: [pool lab] child 1683511 started
+[22-Oct-2026 03:58:16] WARNING: [pool lab] child 1683511 exited on signal 9 (SIGKILL) after 69.035942 seconds from start
+[22-Oct-2026 03:58:16] NOTICE: [pool lab] child 1685215 started
+[22-Oct-2026 03:58:17] WARNING: [pool lab] child 1685215 exited on signal 11 (SIGSEGV) after 1.137344 seconds from start
+[22-Oct-2026 03:58:17] NOTICE: [pool lab] child 1685292 started
+[22-Oct-2026 03:58:28] WARNING: [pool lab] child 1685292 exited on signal 9 (SIGKILL) after 10.852942 seconds from start
+[22-Oct-2026 03:58:28] NOTICE: [pool lab] child 1685572 started
+zend_mm_heap corrupted
+[22-Oct-2026 03:58:29] WARNING: [pool lab] child 1685572 exited on signal 6 (SIGABRT) after 1.138069 seconds from start
+[22-Oct-2026 03:58:29] NOTICE: [pool lab] child 1685607 started
+[22-Oct-2026 04:04:20] WARNING: [pool lab] child 1685607 exited on signal 9 (SIGKILL) after 351.034546 seconds from start
+[22-Oct-2026 04:04:20] NOTICE: [pool lab] child 1693707 started
+[22-Oct-2026 04:07:01] WARNING: [pool lab] child 1693707 exited on signal 11 (SIGSEGV) after 161.047057 seconds from start
+[22-Oct-2026 04:07:01] NOTICE: [pool lab] child 1697762 started
+[22-Oct-2026 04:09:31] WARNING: [pool lab] child 1697762 exited on signal 9 (SIGKILL) after 149.895019 seconds from start
+[22-Oct-2026 04:09:31] NOTICE: [pool lab] child 1701090 started
+[22-Oct-2026 04:15:01] WARNING: [pool lab] child 1701090 exited on signal 9 (SIGKILL) after 329.947709 seconds from start
+[22-Oct-2026 04:15:01] NOTICE: [pool lab] child 1709897 started

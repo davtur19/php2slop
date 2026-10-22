@@ -1,0 +1,4 @@
+PID=1701090
+serializer=php_binary save_path=/tmp/opencode/research/php8pie_20261022_0325/www/sess
+up=1 freq=1% min=3600 cleanup=0 prefix=[]
+maps=no

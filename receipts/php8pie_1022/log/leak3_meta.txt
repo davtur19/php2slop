@@ -1,0 +1,15 @@
+wrote /tmp/opencode/research/php8pie_20261022_0325/phase/rec_leak3_repro.bin 131014
+  total=131014
+  val=0x7f65f526a018
+  P=0x7f65f5282000
+  B0=0x7f65f5285000
+  U0=-11223
+  reps=31
+  payload_start=113
+  L=130882
+  b_off=110455
+  head=101
+  khdr=12
+  slen=24
+  klen=25
+  xlen=24

@@ -1,0 +1,13 @@
+#! /bin/sh
+#
+# Created by configure
+
+CFLAGS='-g -O1 -fno-omit-frame-pointer -fPIE' \
+LDFLAGS='-pie' \
+'./configure' \
+'--prefix=/tmp/opencode/research/php8pie_20261022_0325/install' \
+'--disable-all' \
+'--enable-fpm' \
+'--enable-session' \
+'--without-pcre-jit' \
+"$@"
