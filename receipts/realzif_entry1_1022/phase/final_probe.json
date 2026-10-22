@@ -1,0 +1,10 @@
+{
+ "n": 7,
+ "kind": "probe",
+ "label": "liveness",
+ "status": "X-Powered-By: PHP/8.5.10",
+ "error": null,
+ "elapsed": 0.0005,
+ "stdout": "X-Powered-By: PHP/8.5.10\r\nContent-type: text/html; charset=UTF-8\r\n\r\nPID=153028\n",
+ "stderr": ""
+}

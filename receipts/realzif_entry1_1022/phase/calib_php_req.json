@@ -1,0 +1,10 @@
+{
+ "n": 4,
+ "kind": "calib",
+ "label": "pcal",
+ "status": "",
+ "error": "ConnectionResetError: [Errno 104] Connection reset by peer",
+ "elapsed": 0.0142,
+ "stdout": "",
+ "stderr": ""
+}

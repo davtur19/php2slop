@@ -1,0 +1,10 @@
+{
+ "n": 5,
+ "kind": "plant",
+ "label": "user_error",
+ "status": "X-Powered-By: PHP/8.5.10",
+ "error": null,
+ "elapsed": 0.0011,
+ "stdout": "X-Powered-By: PHP/8.5.10\r\nContent-type: text/html; charset=UTF-8\r\n\r\nPID=153028 MODE=user_error PAD=0 PLEN=35\n<br />\n<b>Deprecated</b>:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in <b>/tmp/opencode/research/realzif_php_20261022T014200Z/www/unser.php</b> on line <b>10</b><br />\n<br />\n<b>Fatal error</b>:  stop in <b>/tmp/opencode/research/realzif_php_20261022T014200Z/www/unser.php</b> on line <b>10</b><br />\nStack trace:\n#0 /tmp/opencode/research/realzif_php_20261022T014200Z/www/unser.php(10): trigger_error('stop', 256)\n#1 [internal function]: {closure:/tmp/opencode/research/realzif_php_20261022T014200Z/www/unser.php:10}(2, 'unserialize(): ...', '/tmp/opencode/r...', 13)\n#2 /tmp/opencode/research/realzif_php_20261022T014200Z/www/unser.php(13): unserialize('a:2:{i:0;s:3:\"a...')\n#3 {main}\n",
+ "stderr": ""
+}

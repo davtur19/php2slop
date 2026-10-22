@@ -1,0 +1,3 @@
+    PID    PPID STAT     ELAPSED CMD
+ 152643       1 Ss         04:48 php-fpm: master process (/tmp/opencode/research/realzif_php_20261022T014200Z/conf/fpm.conf)
+ 153028  152643 S          04:32 php-fpm: pool lab

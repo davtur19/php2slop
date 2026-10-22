@@ -1,0 +1,12 @@
+[22-Oct-2026 01:42:02] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 01:42:02] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 01:42:02] ERROR: unable to bind listening socket for address '127.0.0.1:28891': Address already in use (98)
+[22-Oct-2026 01:42:02] ERROR: FPM initialization failed
+[22-Oct-2026 01:42:12] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 01:42:12] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 01:42:12] NOTICE: fpm is running, pid 152643
+[22-Oct-2026 01:42:12] NOTICE: ready to handle connections
+[22-Oct-2026 01:42:28] WARNING: [pool lab] child 152644 exited on signal 11 (SIGSEGV) after 16.195131 seconds from start
+[22-Oct-2026 01:42:28] NOTICE: [pool lab] child 153028 started
+[22-Oct-2026 01:47:08] NOTICE: Terminating ...
+[22-Oct-2026 01:47:08] NOTICE: exiting, bye-bye!

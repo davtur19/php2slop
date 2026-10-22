@@ -1,0 +1,61 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff689b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/realapps/install_realapps_np/sbin/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x9e68b5: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 290.
+DECODE hit=1 data=0x7ffff466a000 val=0x7ffff466a018 len=131014 level=1 bgdata=0x7ffff4681000 pser=0x22c54b8 ser1decode=0x9e6fae ser1encode=0x9e7112 ser2decode=0x9e6dd5
+0x22c54a0 <ps_serializers>:	0x0000000001018ce1	0x00000000009e2078
+0x22c54b0 <ps_serializers+16>:	0x00000000009e20de	0x0000000001019353
+0x22c54c0 <ps_serializers+32>:	0x00000000009e7112	0x00000000009e6fae
+0x22c54d0 <ps_serializers+48>:	0x0000000001018cef	0x00000000009e6b15
+0x22c54e0 <ps_serializers+64>:	0x00000000009e6dd5
+VAL1 first 0x60:
+0x7ffff466a018:	0x4141414141414141	0x4141414141414141
+0x7ffff466a028:	0x4141414141414141	0x4141414141414141
+0x7ffff466a038:	0x4141414141414141	0x0000000141414141
+0x7ffff466a048:	0x4141414141414141	0x4141414141414141
+0x7ffff466a058:	0x4141414141414141	0x4141414141414141
+0x7ffff466a068:	0x0000000000000000	0x4141414141414106
+RAW 0x2c numargs=1 0x50 arg1=(nil) 0x58 type=6
+BG P:
+0x7ffff4681000:	0x00007ffff4681038	0x00007ffff4684000
+0x7ffff4681010:	0x00007ffff4684000	0x0000000000000000
+0x7ffff4681020:	0x0000000000000000	0x0000000000000000
+0x7ffff4681030:	0x000000007fffffff	0x00000000000003fa
+0x7ffff4681040:	0x0000000000000000
+BG B0:
+0x7ffff4684000:	0x0000000000000000	0x0000000000000000
+0x7ffff4684010:	0x0000000000000000	0x0000000000000000
+DECODE hit=2 data=0x7ffff468d000 val=0x7ffff468d018 len=131313 level=1 bgdata=0x7ffff4681000 pser=0x22c54b8 ser1decode=0x9e6fae ser1encode=0x9e7112 ser2decode=0x9e6dd5
+0x22c54a0 <ps_serializers>:	0x0000000001018ce1	0x00000000009e2078
+0x22c54b0 <ps_serializers+16>:	0x00000000009e20de	0x0000000001019353
+0x22c54c0 <ps_serializers+32>:	0x00000000009e7112	0x00000000009e6fae
+0x22c54d0 <ps_serializers+48>:	0x0000000001018cef	0x00000000009e6b15
+0x22c54e0 <ps_serializers+64>:	0x00000000009e6dd5
+VAL2 first 0x80:
+0x7ffff468d018:	0x4141414141414141	0x4141414141414141
+0x7ffff468d028:	0x4141414141414141	0x4141414141414141
+0x7ffff468d038:	0x4141414141414141	0x0000000141414141
+0x7ffff468d048:	0x4141414141414141	0x4141414141414141
+0x7ffff468d058:	0x4141414141414141	0x4141414141414141
+0x7ffff468d068:	0x0000000000000000	0x4141414141414106
+0x7ffff468d078:	0x31333730313a697c	0x3a737c7a3b363336
+0x7ffff468d088:	0x223a323938303331	0x0000000000000000
+VAL2 RAW 0x2c numargs=1 0x50 arg1=(nil) 0x58 type=6
+VAL2 key bytes 0x00..0x5f:
+0x7ffff468d018:	0x4141414141414141	0x4141414141414141
+0x7ffff468d028:	0x4141414141414141	0x4141414141414141
+0x7ffff468d038:	0x4141414141414141	0x0000000141414141
+0x7ffff468d048:	0x4141414141414141	0x4141414141414141
+0x7ffff468d058:	0x4141414141414141	0x4141414141414141
+0x7ffff468d068:	0x0000000000000000	0x4141414141414106
+[Inferior 1 (process 152644) detached]
