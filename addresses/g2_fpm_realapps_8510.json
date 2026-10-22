@@ -3,7 +3,7 @@
   "lane": "fpm",
   "stage": "G2",
   "route": "G6 zif serializer decode",
-  "status": "RCE confirmed on the private realapps 8.5.10 target (php session serializer, zif_system); ASLR off; one-shot worker crash; clean zif_passthru real-target run pending",
+  "status": "RCE confirmed on the private realapps 8.5.10 target (php session serializer, zif_system); ASLR off; one-shot worker crash; clean zif_passthru runs recorded for the php slot (receipts/realchain_20261022) and the php_binary slot (receipts/realzif_entry2_1022)",
   "php_version": "8.5.10",
   "binary": "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm",
   "build_id": "aa489b7c8674d3aa17ecc4e471b152c05bc960b2",
@@ -24,7 +24,7 @@
   "zif_passthru": "0xa3c074",
   "php_exec_ex": "0xa3bdfd",
   "php_exec": "0xa3bbd7",
-  "record_builder": "php_session_zif",
+  "record_builder": "php_binary_zif",
   "zif_route": {
     "decode_slot": "ps_serializers[1].decode",
     "target": "0x22c54c8",
@@ -44,7 +44,7 @@
     "zif_passthru": {
       "address": "0xa3c074",
       "php_exec_type": 3,
-      "behavior": "symbol verified; expected clean because type 3 never writes return_value. The realapps clean run is pending and is not claimed here.",
+      "behavior": "symbol verified; expected clean because type 3 never writes return_value. The clean php-slot run is recorded in receipts/realchain_20261022/.",
       "delta_from_zif_system": "+0x13 on this build, not the +0x10 seen on the four lab profiles"
     },
     "fake_execute_data": {
@@ -122,7 +122,7 @@
       "http": "nginx returned 502 (157 B); a later GET /index.php?title=Main_Page returned 200",
       "pool": "the pool survived; only the worker that ran the exploit died"
     },
-    "clean_run": "pending; zif_passthru is symbol verified at 0xa3c074 but no realapps clean run is claimed"
+    "clean_run": "recorded: the entry-1 php-slot zif_passthru request was gdb-free under ASLR on and created MARK_REAL with the worker alive (receipts/realchain_20261022/)"
   },
   "md5_lock": "select this profile only when the target binary md5 matches; a mismatch invalidates every offset",
   "structs": {
@@ -155,7 +155,7 @@
     "default_handler": "php",
     "default_php_decode": "0x22c54c8",
     "default_php_decode_16b_aligned": false,
-    "note": "the active handler is php (ps_serializers[1]). F12b writes zif_system into its decode field. The php decode slot is 8 mod 16, but the fake var_dtor_entries base B0f is also 8 mod 16, so the negative-K slot is exact. The generic G2/G6 php_binary builder assumes a 16 byte aligned target; this profile is descriptive for F12b and is rejected by --step g2.",
+    "note": "the active handler is php (ps_serializers[1]). F12b writes zif_system into its decode field. The php decode slot is 8 mod 16, but the fake var_dtor_entries base B0f is also 8 mod 16, so the negative-K slot is exact. The generic G2/G6 php_binary builder assumes a 16 byte aligned target, so this profile plans its entry-2 php_binary decode (0x22c54e0); the F12b php-slot route (0x22c54c8) stays with the receipt's mkrec.py.",
     "entries": [
       {
         "index": 0,
@@ -270,7 +270,7 @@
     "session.serialize_handler=php; session.upload_progress.enabled=1 with the forced END update in the same request",
     "record: 18 filler strings, one 768-byte forged-name variable with a 1.9 MB value, then z|i:10731617; exact total length 36101091",
     "single shot per plant: the static decode pointer stays poisoned; the worker must be restarted",
-    "zif_system is one-shot; a clean zif_passthru real-target run is pending",
+    "zif_system is one-shot; clean zif_passthru runs are recorded in receipts/realchain_20261022/ (php slot) and receipts/realzif_entry2_1022/ (php_binary slot)",
     "no ASLR capable heap leak is demonstrated; a real internet target still needs the leak"
   ],
   "receipts": {
@@ -290,8 +290,8 @@
     "the static decode pointer remains poisoned in the worker after the request; the next session decode would re-enter zif_system with a different length. Worker restart is required",
     "a direct PS(serializer) overwrite at 0x22d0f20 would put the zval type word at 0x22d0f28 (http_session_vars.value); F12b targets the static ps_serializers[1].decode field instead",
     "F+0xc8 is not used on this path; the measured zend_internal_function.handler is at +0x58, but the decode callback is invoked directly and never dereferences execute_data->func",
-    "the realapps clean zif_passthru run is pending; only the symbol at 0xa3c074 is verified. Do not claim a surviving realapps worker until that run is recorded",
-    "the generic --step g2 builder emits the php_binary G6 record and rejects this profile (record_builder=php_session_zif); the F12b record comes from the receipt's scripts/mkrec.py",
+    "the realapps clean zif_passthru runs are recorded: the php slot in receipts/realchain_20261022/ and the php_binary slot in receipts/realzif_entry2_1022/; P/B0 still came from a pre-final gdb calibration",
+    "the generic --step g2 builder plans this profile's php_binary entry (ps_serializers[2].decode, 0x22c54e0); the F12b php-slot record (0x22c54c8, 8 mod 16) comes from the receipt's scripts/mkrec.py",
     "no claim is made for other session savers, opcache, ZTS or shared pools"
   ]
 }

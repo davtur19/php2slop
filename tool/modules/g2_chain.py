@@ -20,12 +20,13 @@ The realapps 8.5.10 profile records the confirmed F12b route on the installed
 MediaWiki/Wikibase binary: the active `php` serializer decode slot
 (`ps_serializers[1].decode`, 0x22c54c8) is overwritten with `zif_system`
 (0xa3c061), and the session record is a `php`-format fake execute_data. That
-record shape differs from the php_binary G6 builder, so the profile carries
-`record_builder: php_session_zif` and is rejected by the offline builder with a
-pointer to the receipt's `scripts/mkrec.py`; `zif_passthru` 0xa3c074 is symbol
-verified, and its clean run on that `php` slot is in
-`receipts/realchain_20261022/` (the F12b record itself stays private ASLR-off).
-The separate realapps `php_binary` slot (0x22c54e0) has its own clean
+record shape differs from the php_binary G6 builder, so the `php`-slot record is
+still built by the receipt's `scripts/mkrec.py`; the profile itself carries
+`record_builder: php_binary_zif`, and the offline builder plans its entry-2
+`php_binary` slot (0x22c54e0), not the entry-1 `php` slot (0x22c54c8, 8 mod 16).
+`zif_passthru` 0xa3c074 is symbol verified, and its clean run on that `php` slot
+is in `receipts/realchain_20261022/` (the F12b record itself stays private
+ASLR-off). The separate realapps `php_binary` slot (0x22c54e0) has its own clean
 `zif_passthru` run in the realzif receipt (`receipts/realzif_entry2_1022/`).
 
 The writer always resolves its target by serializer entry name, `php_binary`,
@@ -963,7 +964,8 @@ def main() -> int:
                         help="profile version (8.5.10, 8.4.25, 8.1.34, "
                              "7.4.33, realapps-8.5.10), md5 or .json path "
                              "(default 8.5.10); realapps-8.5.10 carries the "
-                             "F12b php-session record and is rejected")
+                             "F12b php-session record; plans its php_binary "
+                             "entry, not the php slot")
     parser.add_argument("--g2-decode", choices=DECODE_MODES, default="php_binary",
                         help="php_binary (G2), zif_passthru (G6 clean) or "
                              "zif_system (G6 one-shot)")
