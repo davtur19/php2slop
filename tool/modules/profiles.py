@@ -157,7 +157,8 @@ def known_producers() -> tuple[str, ...]:
         for entry in TARGETS.values()
         for module in entry.get("producer_modules", ())
     }
-    names.update(("producer_fpmwiki", "producer_modphp", "producer_unser"))
+    names.update(("producer_fpmwiki", "producer_modphp", "producer_unser",
+                  "producer_flood"))
     return tuple(sorted(names))
 
 
