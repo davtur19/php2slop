@@ -68,12 +68,12 @@ The MediaWiki/Wikibase ASLR-on survey found no in-band heap pointer. Receipts:
 
 | step | sends | output |
 |---|---|---|
-| `recon` | one GET when `--live` is set | fingerprint and addresses |
-| `producer` | no, unless `--live` | request bytes and `result.json` |
+| `recon` | one GET | fingerprint and addresses |
+| `producer` | yes, to the supplied target | request bytes and `result.json` |
 | `write_stage` | never | final forged multipart bytes |
 | `leak` | never | dry modphp calibration plan |
 | `g2` | never | `g2-record.bin`, profile, md5, decode mode and plan JSON |
-| `chain` | modphp sequence dry by default; fpm legacy path is live | per-candidate receipt |
+| `chain` | modphp sequence: producer plus consumer arms; fpm legacy path | per-candidate receipt |
 
 ## G2 / G6 plan
 
@@ -529,7 +529,6 @@ exploitation is claimed.
 | same sid requests time out | session file flock queue | session save path lock holders | use a fresh sid except in the deliberate stale stage |
 | g2 exits 2, missing address | X, P or B0 not supplied; zif modes also need X2 | `result.json` error lists the missing flag | pass all required addresses; the plan never guesses |
 | g2 exits 2, unknown profile | version label, md5 or path not in the registry | `result.json` error lists valid labels | use a profile version, md5, or `.json` path |
-| g2 exits 2, no transport | `--live` passed to an offline step | `result.json` says no transport | drop `--live` |
 | g2 default php handler | php decode slot is not 16 byte aligned; a target at `table + 0x28` fails | `result.json` target and `ps_serializer_slot` | target `PS(serializer)` and write a fake struct pointer |
 | g2 command error | php_binary command does not end `#` or is longer than 32 bytes | `result.json` error | trim and end with `#` |
 | g2 zif missing X2 | zif_system/zif_passthru read the fake execute_data from the re-encoded second decode buffer | `result.json` error names `--g2-x2` | supply X2, not X1 |
