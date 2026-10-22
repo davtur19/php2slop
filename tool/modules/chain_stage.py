@@ -9,10 +9,10 @@ Chain semantics:
   3. reader arms: baseline and repeat GET probes with the same Cookie sid. The
      reader baseline body is the shape reference for the consumer response.
 
-Dry mode is the default: every request blob is built, hashed and written under
-the receipt dir, and no socket is opened. Live mode is explicit (--live) and
-requires both --unser-url (producer_unser endpoint) and --arm-url (consumer
-arms endpoint).
+The run sends every request blob to the operator-supplied endpoints: --unser-url
+(producer endpoint) and --arm-url (consumer arms endpoint). build() remains the
+offline assembler: every blob is built, hashed and written under the receipt dir,
+and no socket is opened.
 
 Worker affinity is operator work: the driver never parses pids. Correlate the
 httpd access log %P column across the sequence externally.
@@ -283,10 +283,6 @@ def _assemble(
         "path": path,
         "worker_affinity": "operator correlates httpd access log %P pids externally; "
                            "the driver does not parse pids",
-        "live_gate": {
-            "armed": False,
-            "requires": ["--live", "--unser-url", "--arm-url"],
-        },
         "steps": steps,
         "expected_receipts": {
             "producer": steps[0]["expected_receipt"],
@@ -345,7 +341,7 @@ def live(
     producer: str, memory_limit: str, body_bytes: int, sid: str,
     unser_url: str, arm_url: str, output: Path, timeout: float = 30.0,
 ) -> dict:
-    """Explicit live run: producer endpoint first, then the consumer arms."""
+    """Send the sequence: producer endpoint first, then the consumer arms."""
     from tool.modules import producer_modphp, producer_unser
 
     validate_sid(sid)
@@ -356,7 +352,6 @@ def live(
         unser_path, arm_path)
     summary["dry_run"] = False
     summary["sent"] = True
-    summary["live_gate"]["armed"] = True
 
     if producer == "producer_unser":
         producer_result = producer_unser.fire(

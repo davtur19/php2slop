@@ -19,7 +19,7 @@ build. Other profiles may still carry TBD_measure_live_probe; the dry plan
 surfaces an unknown offset as status unknown and never substitutes a guess.
 
 No transport: this module builds request shapes and the calibration algorithm
-description only. The driver rejects --live for this step.
+description only.
 """
 
 

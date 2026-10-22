@@ -102,12 +102,12 @@ TARGETS = {
         "producer_stage": "producer_modphp",
         # second producer (--producer unser): offline unserialize OOM class
         # ladder; needs a lab unser.php endpoint (not in the stock stack) and
-        # --live takes an explicit --unser-url. producer_modphp stays first.
+        # takes an explicit --unser-url. producer_modphp stays first.
         "producer_modules": ("producer_modphp", "producer_unser"),
         # receipt ladder (file part count fixed at 20 = max_file_uploads cap):
         # N=262144 -> body 4983500, alloc 266240; 330000 -> 6272764, alloc 331776;
         # 400000 -> 7602764, alloc 401408 (= producer_modphp.RECEIPT_LADDER)
-        "status": "run (producer wired, dry default; arm receipt "
+        "status": "run (producer wired; arm receipt "
             "run_20261021T155303Z_armoom; leak_offset 0x2188 measured "
             "build-specific on libphp md5 92f76e84a77bf8b56c45c3868fa29a6c; "
             "pDestructor superglobal teardown lane CLOSED: fast_shutdown=1 "
