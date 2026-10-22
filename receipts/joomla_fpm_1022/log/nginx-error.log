@@ -1,0 +1,11 @@
+2026/10/22 02:08:33 [notice] 174559#0: using the "epoll" event method
+2026/10/22 02:08:33 [notice] 174559#0: nginx/1.30.1
+2026/10/22 02:08:33 [notice] 174559#0: built by gcc 14.2.0 (Debian 14.2.0-19) 
+2026/10/22 02:08:33 [notice] 174559#0: OS: Linux 6.12.113+deb13-amd64
+2026/10/22 02:08:33 [notice] 174559#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/10/22 02:08:33 [notice] 174560#0: start worker processes
+2026/10/22 02:08:33 [notice] 174560#0: start worker process 174561
+2026/10/22 02:10:03 [error] 174561#0: *15 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: 127.0.0.1, request: "POST /exploit/sess.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/opencode/research/joomla_fpm_20261022T021000Z/run/joomla-lab.sock:", host: "127.0.0.1:28871"
+2026/10/22 02:11:07 [error] 174561#0: *20 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: 127.0.0.1, request: "POST /exploit/sess.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/opencode/research/joomla_fpm_20261022T021000Z/run/joomla-lab.sock:", host: "127.0.0.1:28871"
+2026/10/22 02:11:31 [error] 174561#0: *24 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: 127.0.0.1, request: "POST /exploit/sess.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/opencode/research/joomla_fpm_20261022T021000Z/run/joomla-lab.sock:", host: "127.0.0.1:28871"
+2026/10/22 02:12:18 [error] 174561#0: *29 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: 127.0.0.1, request: "POST /exploit/sess.php HTTP/1.1", upstream: "fastcgi://unix:/tmp/opencode/research/joomla_fpm_20261022T021000Z/run/joomla-lab.sock:", host: "127.0.0.1:28871"

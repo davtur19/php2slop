@@ -1,0 +1,36 @@
+{
+ "worker": 176053,
+ "size": 98304,
+ "armed": true,
+ "plant": {
+  "status": 200,
+  "head": "<br />\n<b>Fatal error</b>:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in <b>/tmp/op"
+ },
+ "trigger": {
+  "status": 502,
+  "head": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>ngin"
+ },
+ "plant_req": {
+  "heap": 139667070517312,
+  "decodes": [
+   [
+    139667071123456,
+    64946
+   ]
+  ],
+  "shutdown": {
+   "P": 139667071045632,
+   "last": 139667071107072
+  }
+ },
+ "trigger_req": {
+  "heap": 139667070517312,
+  "decodes": [
+   [
+    139667070955520,
+    98304
+   ]
+  ]
+ },
+ "worker_after": 177140
+}

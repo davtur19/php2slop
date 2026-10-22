@@ -1,0 +1,25 @@
+[22-Oct-2026 00:10:02 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/joomla5/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/joomla5/exploit/sess.php(2): session_start()
+#1 {main}
+[22-Oct-2026 00:10:02 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[22-Oct-2026 00:11:06 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/joomla5/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/joomla5/exploit/sess.php(2): session_start()
+#1 {main}
+[22-Oct-2026 00:11:06 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[22-Oct-2026 00:11:31 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/joomla5/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/joomla5/exploit/sess.php(2): session_start()
+#1 {main}
+[22-Oct-2026 00:11:31 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[22-Oct-2026 00:12:17 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/joomla5/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/joomla5/exploit/sess.php(2): session_start()
+#1 {main}
+[22-Oct-2026 00:12:17 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[22-Oct-2026 00:12:19 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/joomla5/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/joomla5/exploit/sess.php(2): session_start()
+#1 {main}
+[22-Oct-2026 00:12:19 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0

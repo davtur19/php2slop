@@ -1,0 +1,16 @@
+[22-Oct-2026 02:08:33] NOTICE: configuration file /tmp/opencode/research/joomla_fpm_20261022T021000Z/conf/fpm.conf test is successful
+[22-Oct-2026 02:08:33] NOTICE: [pool joomla] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:08:33] NOTICE: [pool joomla] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:08:33] NOTICE: [pool joomla_lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:08:33] NOTICE: [pool joomla_lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:08:33] NOTICE: fpm is running, pid 174553
+[22-Oct-2026 02:08:33] NOTICE: ready to handle connections
+[22-Oct-2026 02:10:03] WARNING: [pool joomla_lab] child 174555 exited on signal 11 (SIGSEGV) after 89.748879 seconds from start
+[22-Oct-2026 02:10:03] NOTICE: [pool joomla_lab] child 176053 started
+[22-Oct-2026 02:11:07] WARNING: [pool joomla_lab] child 176053 exited on signal 11 (SIGSEGV) after 64.266241 seconds from start
+[22-Oct-2026 02:11:07] NOTICE: [pool joomla_lab] child 177140 started
+[22-Oct-2026 02:11:31] WARNING: [pool joomla_lab] child 177140 exited on signal 11 (SIGSEGV) after 24.372481 seconds from start
+[22-Oct-2026 02:11:31] NOTICE: [pool joomla_lab] child 178035 started
+zend_mm_heap corrupted
+[22-Oct-2026 02:12:18] WARNING: [pool joomla_lab] child 178035 exited on signal 6 (SIGABRT) after 46.187037 seconds from start
+[22-Oct-2026 02:12:18] NOTICE: [pool joomla_lab] child 178847 started

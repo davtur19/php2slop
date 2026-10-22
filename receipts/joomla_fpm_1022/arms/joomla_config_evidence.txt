@@ -1,0 +1,26 @@
+=== configuration.php.default_database (installed default) ===
+16:	public $dbtype = 'mysqli';
+17:	public $host = '127.0.0.1:33318';
+18:	public $user = 'joomla';
+19:	public $password = '[redacted]';
+20:	public $db = 'joomla';
+45:	public $smtpuser = '';
+47:	public $smtphost = 'localhost';
+64:	public $log_path = '/tmp/opencode/joomla5/administrator/logs';
+65:	public $tmp_path = '/tmp/opencode/joomla5/tmp';
+67:	public $session_handler = 'database';
+69:	public $session_metadata = true;
+
+=== configuration.php (lab filesystem-session config) ===
+16:	public $dbtype = 'mysqli';
+17:	public $host = '127.0.0.1:33318';
+18:	public $user = 'joomla';
+19:	public $password = '[redacted]';
+20:	public $db = 'joomla';
+45:	public $smtpuser = '';
+47:	public $smtphost = 'localhost';
+64:	public $log_path = '/tmp/opencode/joomla5/administrator/logs';
+65:	public $tmp_path = '/tmp/opencode/joomla5/tmp';
+67:	public $session_handler = 'filesystem';
+68:	public $session_filesystem_path = '/tmp/opencode/joomla5/tmp';
+70:	public $session_metadata = true;

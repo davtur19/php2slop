@@ -1,0 +1,33 @@
+=== jos_session rows (default DB rows have data; lab filesystem rows have NULL data) ===
+session_id	client_id	guest	time	userid	data_len
+0d38e64ef2c6fe081a9778b784d144ff	0	1	1792627714	0	716
+2baf7b2dccc9618ead14e6f77c790582	0	1	1792627719	0	716
+a789df811b23763cf8e3265add0db4e8	0	1	1792627737	0	NULL
+a4f3ffebf37c2589a5ba73e3bc5a72f9	0	1	1792627742	0	NULL
+
+=== tmp listing after lab filesystem config ===
+total 28
+drwxr-xr-x  2 davide davide 4096 Oct 22 02:12 .
+drwxr-xr-x 19 davide davide 4096 Oct 22 02:09 ..
+-rw-r--r--  1 davide davide   88 Oct 22 02:08 .htaccess
+-rw-r--r--  1 davide davide   31 Oct  2 19:52 index.html
+-rw-------  1 davide davide  644 Oct 22 02:09 sess_a4f3ffebf37c2589a5ba73e3bc5a72f9
+-rw-------  1 davide davide  716 Oct 22 02:08 sess_a789df811b23763cf8e3265add0db4e8
+-rw-r--r--  1 davide davide  327 Oct 22 02:12 sess_tb1
+
+=== package tmp/ contents from original zip ===
+Archive:  /tmp/opencode/joomla_dl/joomla5.zip
+        0  2026-10-02 19:52   tmp/
+       31  2026-10-02 19:52   tmp/index.html
+htaccess status=200 size=88
+session status=200 size=716
+7195681a86bfec51ca7145c8653897cca74fea2b  /tmp/opencode/research/joomla_fpm_20261022T021000Z/arms/joomla_sess_fetch.bin
+7195681a86bfec51ca7145c8653897cca74fea2b  /tmp/opencode/joomla5/tmp/sess_a789df811b23763cf8e3265add0db4e8
+
+=== lab tmp/.htaccess content ===
+# Lab test: Apache deny, deliberately ignored by nginx
+Require all denied
+Deny from all
+
+=== default DB-session file absence ===
+ls: cannot access '/tmp/opencode/joomla5/tmp/sess_2baf7b2dccc9618ead14e6f77c790582': No such file or directory
