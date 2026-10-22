@@ -1,0 +1,18 @@
+===== ROT RUN 1 =====
+rc=1
+[-] heap leak missed
+[-] heap leak missed
+HEAP_LEAK_FAILED
+NO PROOF FILE
+===== ROT RUN 2 =====
+rc=1
+[-] heap leak missed
+[-] heap leak missed
+HEAP_LEAK_FAILED
+NO PROOF FILE
+===== ROT RUN 3 =====
+rc=1
+[-] heap leak missed
+[-] heap leak missed
+HEAP_LEAK_FAILED
+NO PROOF FILE

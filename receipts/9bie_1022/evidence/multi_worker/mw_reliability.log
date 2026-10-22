@@ -1,0 +1,41 @@
+===== MW RUN 1 =====
+rc=0
+[-] heap leak missed
+[+] chunk base = 0x7f75eec00000
+[-] libphp leak missed
+[+] libphp base = 0x7f75f0959000
+[-] stage 3 attempt 1 no proof yet
+[-] stage 3 attempt 2 no proof yet
+[+] W3 attempt 3
+PROOF: uid=33(www-data) gid=33(www-data) groups=33(www-data)
+PROOF_FILE: uid=33(www-data) gid=33(www-data) groups=33(www-data)
+===== MW RUN 2 =====
+rc=1
+[-] heap leak missed
+[+] chunk base = 0x7f75eec00000
+[-] libphp leak missed
+[-] libphp leak missed
+[-] libphp leak missed
+LIBPHP_LEAK_FAILED
+NO PROOF FILE
+===== MW RUN 3 =====
+rc=1
+[-] heap leak missed
+[-] heap leak missed
+[-] heap leak missed
+HEAP_LEAK_FAILED
+NO PROOF FILE
+===== MW RUN 4 =====
+rc=1
+[-] heap leak missed
+[-] heap leak missed
+[-] heap leak missed
+HEAP_LEAK_FAILED
+NO PROOF FILE
+===== MW RUN 5 =====
+rc=1
+[-] heap leak missed
+[-] heap leak missed
+[-] heap leak missed
+HEAP_LEAK_FAILED
+NO PROOF FILE

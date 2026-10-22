@@ -1,0 +1,41 @@
+receipt: 9bie_20261022T024258Z
+generated_utc: 2026-10-22T02:43:52+00:00
+generated_local: 2026-10-22T04:43:52+02:00
+host_kernel: 6.12.113+deb13-amd64
+host_arch: x86_64
+aslr_randomize_va_space: 2
+
+poc_repo: https://github.com/9bie/php2shell-bypass-aslr-exp
+poc_commit: 4586f5cc120c82fd468b17469202bac629810ad9
+poc_commit_date: 2026-10-21T22:53:37+08:00
+poc_worktree_status: clean (git status --porcelain empty)
+
+image: php:8.4.26-apache
+image_id: sha256:46b195b6378e712d1a65cd3f853242bebd7f3cb4cafe137fd592b365909d2c17
+image_digest: php@sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a
+image_created: 2026-10-21T00:32:27.545208424Z
+php_version: 8.4.26
+php_nts: NTS
+apache: Server version: Apache/2.4.69 (Debian)
+libphp_sha256: 51663cf883b1223436d4c99f31dd0225735ea5573665e4242621eee7f4ee679c
+
+symbols (nm --defined-only libphp.so):
+  00000000006138f0 T zend_hash_destroy
+  0000000000465370 t zif_system
+  000000000065eb60 T zval_ptr_dtor
+  PT_LOAD min vaddr = 0x0 (readelf -lW), so st_value == offset
+
+offsets_used:
+  zif_system     0x465370
+  zval_ptr_dtor  0x65eb60
+  htdata (bookworm calibration) 0x690d8
+
+containers (all localhost-only, created for this receipt):
+9bie-lab-rot  127.0.0.1:18091->80/tcp  id=93249a4cc76c  image=php:8.4.26-apache
+9bie-lab-mw  127.0.0.1:18090->80/tcp  id=a7efbab92762  image=php:8.4.26-apache
+9bie-lab-off  127.0.0.1:18089->80/tcp  id=b7c40e3b1616  image=php:8.4.26-apache
+9bie-lab  127.0.0.1:18088->80/tcp  id=afd4500e89c6  image=php:8.4.26-apache
+
+shared services: not modified; no existing container stopped/restarted.
+no repo commit/push performed.
+post_capture: the four 9bie-lab containers were stopped; evidence and image retained.

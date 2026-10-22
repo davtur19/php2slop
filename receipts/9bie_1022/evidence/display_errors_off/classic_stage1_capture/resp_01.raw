@@ -1,0 +1,9 @@
+HTTP/1.0 500 Internal Server Error
+Date: Thu, 22 Oct 2026 02:36:51 GMT
+Server: Apache/2.4.69 (Debian)
+X-Powered-By: PHP/8.4.26
+Set-Cookie: PHPSESSID=9585f2382f74e1ea2cdbc621118a2a46; path=/
+Content-Length: 0
+Connection: close
+Content-Type: text/html; charset=UTF-8
+

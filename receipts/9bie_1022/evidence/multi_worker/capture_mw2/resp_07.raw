@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Date: Thu, 22 Oct 2026 02:40:04 GMT
+Server: Apache/2.4.69 (Debian)
+X-Powered-By: PHP/8.4.26
+Vary: Accept-Encoding
+Content-Length: 476
+Connection: close
+Content-Type: text/html; charset=UTF-8
+
+<br />
+<b>Warning</b>:  PHP Request Startup: Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in <b>Unknown</b> on line <b>0</b><br />
+<br />
+<b>Warning</b>:  PHP Request Startup: Session cookie cannot be sent after headers have already been sent in <b>Unknown</b> on line <b>0</b><br />
+<br />
+<b>Fatal error</b>:  Allowed memory size of 8388608 bytes exhausted (tried to allocate 3004854 bytes) in <b>Unknown</b> on line <b>0</b><br />

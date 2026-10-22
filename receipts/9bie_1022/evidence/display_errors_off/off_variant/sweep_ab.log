@@ -1,0 +1,32 @@
+===== NB=236 =====
+pre-worker=35
+RESP_LEN 259
+SETCOOKIE Set-Cookie: PHPSESSID=08734e8aca7522219dd6a1e814a8bf26; path=/
+HEAD HTTP/1.1 200 OK | Date: Thu, 22 Oct 2026 02:37:56 GMT | Server: Apache/2.4.69 (Debian) | X-Powered-By: PHP/8.4.26 | Set-Cookie: PHPSESSID=08734e8aca7522219dd6a1e814a8bf26; path=/ | Content-Length: 3 | Connection: close | Content-Type: text/html; charset=UTF-8
+status 200 resp 259 cookies [62]
+decoded_cookie_len 32 head 303837333465386163613735323232313964643661316538
+post-worker=35
+===== NB=238 =====
+pre-worker=35
+RESP_LEN 259
+SETCOOKIE Set-Cookie: PHPSESSID=7a1d0c76774a835800f5ba596a0ecd56; path=/
+HEAD HTTP/1.1 200 OK | Date: Thu, 22 Oct 2026 02:37:56 GMT | Server: Apache/2.4.69 (Debian) | X-Powered-By: PHP/8.4.26 | Set-Cookie: PHPSESSID=7a1d0c76774a835800f5ba596a0ecd56; path=/ | Content-Length: 3 | Connection: close | Content-Type: text/html; charset=UTF-8
+status 200 resp 259 cookies [62]
+decoded_cookie_len 32 head 376131643063373637373461383335383030663562613539
+post-worker=35
+===== NB=242 =====
+pre-worker=35
+RESP_LEN 259
+SETCOOKIE Set-Cookie: PHPSESSID=de51167171bd3c4faec0301354e248fa; path=/
+HEAD HTTP/1.1 200 OK | Date: Thu, 22 Oct 2026 02:37:57 GMT | Server: Apache/2.4.69 (Debian) | X-Powered-By: PHP/8.4.26 | Set-Cookie: PHPSESSID=de51167171bd3c4faec0301354e248fa; path=/ | Content-Length: 3 | Connection: close | Content-Type: text/html; charset=UTF-8
+status 200 resp 259 cookies [62]
+decoded_cookie_len 32 head 646535313136373137316264336334666165633033303133
+post-worker=35
+===== NB=250 =====
+pre-worker=35
+RESP_LEN 259
+SETCOOKIE Set-Cookie: PHPSESSID=a5d4195e7e36f18484d0e67fd019b781; path=/
+HEAD HTTP/1.1 200 OK | Date: Thu, 22 Oct 2026 02:37:58 GMT | Server: Apache/2.4.69 (Debian) | X-Powered-By: PHP/8.4.26 | Set-Cookie: PHPSESSID=a5d4195e7e36f18484d0e67fd019b781; path=/ | Content-Length: 3 | Connection: close | Content-Type: text/html; charset=UTF-8
+status 200 resp 259 cookies [62]
+decoded_cookie_len 32 head 613564343139356537653336663138343834643065363766
+post-worker=35

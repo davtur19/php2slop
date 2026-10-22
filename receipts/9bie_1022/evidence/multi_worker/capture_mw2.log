@@ -1,0 +1,16 @@
+[*] rotating worker over HTTP
+[capture] #1 len=15657436 parts=1005 resp=693 workers=[18, 21, 22, 143, 206, 207]->[18, 21, 22, 143, 206, 207] cookie=0B ptrs=0
+[capture] #2 len=192 parts=2 resp=0 workers=[18, 21, 22, 143, 206, 207]->[18, 21, 22, 143, 206, 207] cookie=0B ptrs=0
+[capture] #3 len=12655437 parts=1005 resp=693 workers=[18, 22, 143, 206, 207]->[18, 22, 143, 206, 207] cookie=0B ptrs=0
+[capture] #4 len=93685 parts=844 resp=0 workers=[18, 22, 143, 206, 207]->[18, 22, 143, 206, 207] cookie=0B ptrs=0
+[+] chunk = 0
+[*] rotating worker over HTTP
+[capture] #5 len=15657436 parts=1005 resp=693 workers=[18, 22, 143, 206, 207]->[18, 22, 143, 206, 207] cookie=0B ptrs=0
+[capture] #6 len=192 parts=2 resp=259 workers=[22, 143, 206, 207, 296]->[22, 143, 206, 207, 296] cookie=32B ptrs=0
+[capture] #7 len=12693475 parts=1005 resp=693 workers=[22, 143, 206, 207, 296]->[22, 143, 206, 207, 296] cookie=0B ptrs=0
+[capture] #8 len=83032 parts=1000 resp=921 workers=[22, 143, 206, 207, 296]->[22, 143, 206, 207, 296] cookie=262B ptrs=5
+[+] libphp = 0
+[*] rotating worker over HTTP
+[capture] #9 len=15657436 parts=1005 resp=693 workers=[22, 143, 206, 207, 296]->[22, 143, 206, 207, 296] cookie=0B ptrs=0
+[capture] #10 len=192 parts=2 resp=259 workers=[22, 143, 206, 207, 296]->[22, 143, 206, 207, 296] cookie=32B ptrs=0
+NO PROOF

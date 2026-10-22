@@ -1,0 +1,5 @@
+[probe] req#1 body=12655437 resp=275 set-cookie=[62] warning=False fatal=False
+        Set-Cookie: PHPSESSID=9585f2382f74e1ea2cdbc621118a2a46; path=/
+[probe] req#2 body=93685 resp=195 set-cookie=[] warning=False fatal=False
+stage1 chunk = 0
+files: ['resp_01.raw', 'resp_02.raw']
