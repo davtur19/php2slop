@@ -12,35 +12,40 @@ Install, layout and run one-liners: see `README.md`. This file is the lane matri
 | fpm app fatal | php-fpm 8.5.10 static pool | post startup app level fatal inside the unserialize family | none | worker exits 70, no access row | measured, not a route by itself |
 | fpm G2 decode hijack | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC, ASLR off | `E_USER_ERROR` bailout inside `unserialize` | multipart session record plus forced END decode | marker created, worker survives, decode pointer overwritten | 8.5.10 confirmed lab; other profiles derived, offline `--step g2` |
 | fpm G6 zif decode | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC, ASLR off | same G2 plant | the G2 write points `ps_serializers[2].decode` at `zif_system` / `zif_passthru`; the record is a fake `zend_execute_data` | `zif_system`: marker created, then SIGSEGV at `php_exec+450`; `zif_passthru`: HTTP 200, marker recreated, worker survives | 8.5.10 live lab G6; other profiles binary-derived; offline `--step g2 --g2-decode ...` |
-| F12b realapps zif decode | installed php-fpm 8.5.10 ET_EXEC, MediaWiki/Wikibase, ASLR off | anonymous `/api.php` Wikibase OOM (`application/vnd.php.serialized`, 500 KB probe) | the `php` session record overwrites `ps_serializers[1].decode` (`0x22c54c8`) with `zif_system` (`0xa3c061`); the record is the fake `execute_data` | marker `WIKI_ZIF` created at `00:29:18`; worker SIGSEGV at `php_exec+466`; FPM respawn; nginx 502 then health 200 | **confirmed private ASLR-off RCE**; `zif_passthru` (`0xa3c074`) symbol verified, clean run pending |
+| F12b realapps zif decode | installed php-fpm 8.5.10 ET_EXEC, MediaWiki/Wikibase, ASLR off | anonymous `/api.php` Wikibase OOM (`application/vnd.php.serialized`, 500 KB probe) | the `php` session record overwrites `ps_serializers[1].decode` (`0x22c54c8`) with `zif_system` (`0xa3c061`); the record is the fake `execute_data` | marker `WIKI_ZIF` created at `00:29:18`; worker SIGSEGV at `php_exec+466`; FPM respawn; nginx 502 then health 200 | **confirmed private ASLR-off RCE**; `zif_passthru` (`0xa3c074`) clean gdb-free run in `receipts/realchain_20261022/` |
 | modphp in band leak | libphp.so PHP 8.5.10 NTS PIE | M5 plant and trigger | `sidlen` / `sidhex` overread | live session array pointer over HTTP, 4 of 4 runs | measured, `leak_offset` build specific; boot2 HTTP candidate (`K_dest` at `sidhex[8:16]`, `B0 = K_dest - 0x1000`) lab-only |
-| static session file leak | libphp.so PHP 8.5.10 NTS PIE, mod_php | failed `ini_set` save_path restore, 54 B GET reclaim | M11 encode overread, static GET of `sess_tb1` | 77,842 B seed served with matching sha1; overread crashed in `tmp_var` | **attempted-negative (F14)**: save_path control and static serving proven; no pointer or `B0`; controls partial; real target untested |
+| static session file leak | libphp.so PHP 8.5.10 NTS PIE, mod_php | failed `ini_set` save_path restore, 54 B GET reclaim | M11 encode overread, static GET of `sess_tb1` | 77,842 B seed served with matching sha1; overread crashed in `tmp_var` | **reproduced on real target (F14)**: the mod_php lane was attempted-negative; the WP/WooCommerce FPM 8.5.10 stack under ASLR on served the leaked `K_dest` and a gdb-free `zif_passthru` marker; `receipts/realchain_20261022/` |
 | real apps | MediaWiki/Wikibase, WordPress/WooCommerce | anonymous app request | app specific | Wikibase fatal and worker survival, WP 1 of 4 consumers SIGSEGV | reachability and availability; F12b separately confirms RCE on the private realapps 8.5.10 target |
 
 ## F14 leak status
 
-F14 is **attempted-negative**, not open. The static session file route proved the
-M6 save path control (failed `ini_set`/deactivate restore, dangling
-`PS(save_path)`, 54 B GET reclaim, `ps_files_open` on the attacker directory)
-and static serving (`GET /u/sess_tb1` returned the seeded 77,842 bytes with a
-matching sha1), but the M11 encode overread failed: the 64,946 B plant
-(`0x10000` class) and 77,842 B trigger (`0x14000` class) put the trigger
-`+0x2000` away, stale `P` landed in filler, and the worker took SIGSEGV in
-`tmp_var` (`last_dtor=0x4141414141414141`). There was no `PS_WRITE`, no overread,
-no heap pointer and no `B0`; the gdb measured `P`/`B0` are not leaks. The full
-chain is not demonstrated. Controls are partial: 21 exchanges against a bound of
-20 and 3 of 3 restarts, with the formal no-save-path, file-not-present and
-different-sid controls not executed.
+F14 is **reproduced on a real target**. The mod_php lane proved the M6 save path
+control (failed `ini_set`/deactivate restore, dangling `PS(save_path)`, 54 B GET
+reclaim, `ps_files_open` on the attacker directory) and static serving
+(`GET /u/sess_tb1` returned the seeded 77,842 bytes with a matching sha1), but
+its M11 encode overread failed: the 64,946 B plant (`0x10000` class) and 77,842 B
+trigger (`0x14000` class) put the trigger `+0x2000` away, stale `P` landed in
+filler, and the worker took SIGSEGV in `tmp_var`
+(`last_dtor=0x4141414141414141`). That lane's controls are partial: 21 exchanges
+against a bound of 20 and 3 of 3 restarts, with the formal no-save-path,
+file-not-present and different-sid controls not executed.
 
-The real-target list is requirements only, not a target test: PHP-writable
-directory, URL mapped and statically served by the same server, attacker
-controlled `sess_<sid>` name and bytes, readable mode/owner, reclaiming
-`save_path` in the same allocator bin class, per-request save_path restore, OOM
-reachable under `memory_limit` with upload progress, app `session_start` with an
-attacker-controlled sid, and a separate heap address source for `P` and `B0`.
-`fpmboot` is fixed-layout ASLR-off (`B0 = K_dest1 - 0x9000`). The live gdb-free
-candidate is the mod_php boot2 HTTP leak (`K_dest` at `sidhex[8:16]`,
-`B0 = K_dest - 0x1000`), lab-only so far. Receipts:
+The realapps WordPress/WooCommerce + HexCoupon FPM 8.5.10 stack then reproduced
+the route under ASLR on (`randomize_va_space=2`): PHP-writable upload directory
+served by the same server, attacker controlled `sess_<sid>` name and bytes,
+`save_path` restored per request, OOM under `memory_limit` with upload progress,
+and app-level `session_start` with an attacker-chosen sid. The free MultiStep
+Forms for Contact Form 7 plugin wrote a 388,350 B native session file through an
+unauthenticated form; the real `LoyaltyProgramHelpers::start_session()` OOM left
+the stale state; the static session file served the leaked `K_dest` (1,052,954 B,
+4,096 B `S` value); and the final gdb-free request created `MARK_REAL` through
+`zif_passthru` with worker `572531` alive. `P` and `B0` still came from a gdb
+calibration before the final request; the final request itself attached nothing.
+Receipt: `receipts/realchain_20261022/`.
+
+`fpmboot` is fixed-layout ASLR-off (`B0 = K_dest1 - 0x9000`). The mod_php boot2
+HTTP leak (`K_dest` at `sidhex[8:16]`, `B0 = K_dest - 0x1000`) remains lab-only.
+The MediaWiki/Wikibase ASLR-on survey found no in-band heap pointer. Receipts:
 `/tmp/opencode/research/staticleak_20261021T214538Z/README.md` (with
 `SHA256SUMS`) and `/tmp/opencode/research/boot2_20261021T214428Z/README.md`.
 
@@ -121,7 +126,7 @@ in the table has no profile.
 | 8.4.25 | `95cca39b95cb5f2d5b897fc5cc6e8628` | 0xe01180 | 0xe03a60 | 0x873790 | ET_EXEC | built non PIE FPM binary, offsets derived, no live run |
 | 8.1.34 | `6ea2762ef76f44674805736e19570bb1` | 0xe01140 | 0xe02fb0 | 0x7ec4d5 | ET_EXEC | built non PIE FPM binary, offsets derived, no live run |
 | 7.4.33 | `9c7b5c2287fdebe6b3324223034715da` | 0xe010a0 | 0xe02df0 | 0x7cd5ab | ET_EXEC | built non PIE FPM binary offsets, no live G2; write shape reproduced 4/4 |
-| realapps 8.5.10 | `4ee099823b75e16ea36f93c71d57bfd8` | `0x22c54c8` (`php` decode) | `0x22d0f20` | not recorded | ET_EXEC | live F12b real-target: `zif_system` marker and one-shot SIGSEGV; `zif_passthru` `0xa3c074` symbol verified, clean run pending |
+| realapps 8.5.10 | `4ee099823b75e16ea36f93c71d57bfd8` | `0x22c54c8` (`php` decode) | `0x22d0f20` | not recorded | ET_EXEC | live F12b real-target: `zif_system` marker and one-shot SIGSEGV; `zif_passthru` `0xa3c074` clean gdb-free run in `receipts/realchain_20261022/` |
 
 The four lab profiles are ET_EXEC non PIE with image base 0x400000. The
 `ps_serializers[2].decode` and `PS(serializer)` slots are 16 byte aligned in all
@@ -221,11 +226,11 @@ G2 preconditions and limits:
 | libc | base for `system`, or a fixed target that accepts `(char *, size_t)`; the fixed target route is not demonstrated |
 | heap | X, P, B0 and the exact record length |
 | G6 zif decode | X1 and X2 plus P and B0; profile `zif_system`/`zif_passthru`; `zif_passthru` is the clean control, `zif_system` is one-shot |
-| F12b realapps (php) | md5 `4ee099823b75e16ea36f93c71d57bfd8`; `php` handler; target `ps_serializers[1].decode` `0x22c54c8` reached through the 8 mod 16 `B0f=0x7ffff2002018`; record shape `php_session_zif` is built by the receipt's `mkrec.py`, not by `--step g2`; `zif_passthru` `0xa3c074` clean run pending |
+| F12b realapps (php) | md5 `4ee099823b75e16ea36f93c71d57bfd8`; `php` handler; target `ps_serializers[1].decode` `0x22c54c8` reached through the 8 mod 16 `B0f=0x7ffff2002018`; record shape `php_session_zif` is built by the receipt's `mkrec.py`, not by `--step g2`; `zif_passthru` `0xa3c074` clean gdb-free run in `receipts/realchain_20261022/` |
 | FPM setup | upload progress on with the forced END update in the same request |
 | ordering | the plant request must be the immediately preceding request on the same worker |
 | retries | single shot per plant; the corrupt decode pointer persists until worker restart |
-| ASLR | off in the lab; no ASLR capable heap leak is demonstrated (F14 attempted-negative); boot2 HTTP candidate is lab-only; `fpmboot` is fixed-layout ASLR-off |
+| ASLR | on in the realchain target (`randomize_va_space=2`): the served session file supplies `K_dest` (F14) and the final `zif_passthru` request is gdb-free; `P`/`B0` still come from a pre-final gdb calibration. The FPM lab G2/G6 lanes remain ASLR off; boot2 HTTP candidate is lab-only; `fpmboot` is fixed-layout ASLR-off |
 
 Confirmed on 8.5.10 in two plant runs (n=7, n=11), same worker, marker created.
 The 8.4.25, 8.1.34 and 7.4.33 profiles are derived from built non PIE FPM
@@ -369,10 +374,11 @@ that ran the exploit did not.
 
 The `zif_passthru` symbol on this binary is `0xa3c074` (verified with `nm -an`
 and `readelf -sW`; `zif_system + 0x13`, not the lab `+0x10`). Its clean
-real-target run is **pending** and is not claimed. F12b is a private ASLR-off
-proof: the producer geometry is fixed, no ASLR-capable heap leak is
-demonstrated (F14 attempted-negative; boot2 lab-only), and no ASLR-on or
-internet exploitation is claimed. The profile
+real-target run is `receipts/realchain_20261022/`: ASLR on, `MARK_REAL` created
+by a gdb-free request, worker `572531` alive. F12b itself remains a private
+ASLR-off proof; `P`/`B0` still came from a pre-final gdb calibration, the
+MediaWiki/Wikibase ASLR-on survey found no in-band leak, the boot2 candidate is
+lab-only, and no internet exploitation is claimed. The profile
 `addresses/g2_fpm_realapps_8510.json` is selectable with `--g2-profile
 realapps-8.5.10` (or its md5); `record_builder` is `php_session_zif`, so
 `--step g2` (php_binary G6 shape only) rejects it with a pointer to the
@@ -443,14 +449,17 @@ with `used_slots` at `+0x2000` and `next` at `+0x2008`, the bound is equality, a
 |---|---|---|
 | MediaWiki 1.46.2 + Wikibase REL1_46 | anonymous `action=parse`, `contentmodel=wikibase-item`, `contentformat=application/vnd.php.serialized` | 52,065 B blob exhausts 1 GiB inside `php_var_unserialize_internal` at depth 1,533; HTTP 500; the FPM child survives and serves the next request on the same PID; `BG(unserialize).level=1` and the dtor chain survive into the next request |
 | WordPress 7.1.3 + WooCommerce 11.2.1 | guest classic checkout, 12 address fields, 84 MiB synthetic pressure, WCS sink replica | producer OOM inside `unserialize`; the next multipart consumer writes into the stale dtor block; 1 of 4 consumers died with SIGSEGV (502), 3 of 4 returned 200; the sink is a labeled replica because paid WCS 9.0.0 was not on disk; no RCE claimed |
-| MediaWiki 1.46.2 + Wikibase REL1_46, realapps 8.5.10 F12b | anonymous `POST /api.php`, `contentmodel=wikibase-item`, `contentformat=application/vnd.php.serialized`, 500,000 B probe | 1024 MiB OOM leaves `BG(unserialize).level=1`; the next request overwrites `ps_serializers[1].decode` (`0x22c54c8`) with `zif_system` (`0xa3c061`); marker `WIKI_ZIF` created, worker SIGSEGV at `php_exec+466`, FPM respawn, nginx 502 then health 200; **RCE confirmed** on the private ASLR-off target; `zif_passthru` clean run pending; no ASLR-on or internet claim |
+| MediaWiki 1.46.2 + Wikibase REL1_46, realapps 8.5.10 F12b | anonymous `POST /api.php`, `contentmodel=wikibase-item`, `contentformat=application/vnd.php.serialized`, 500,000 B probe | 1024 MiB OOM leaves `BG(unserialize).level=1`; the next request overwrites `ps_serializers[1].decode` (`0x22c54c8`) with `zif_system` (`0xa3c061`); marker `WIKI_ZIF` created, worker SIGSEGV at `php_exec+466`, FPM respawn, nginx 502 then health 200; **RCE confirmed** on the private ASLR-off target; clean gdb-free `zif_passthru` run on the ASLR-on WP stack in `receipts/realchain_20261022/`; no internet claim |
 
 F12b is the real-target evaluation result: **confirmed** on the private
 ASLR-off realapps 8.5.10 target (`zif_system` one-shot, marker created, worker
-respawned); the clean `zif_passthru` real-target run is **pending**. F14
-remains **attempted-negative** (no ASLR-capable heap leak and no `B0`); the
-boot2 HTTP leak candidate is **lab-only**. No ASLR-on or internet exploitation
-is claimed.
+respawned). F14 is now **reproduced on a real target**: the WordPress/WooCommerce +
+HexCoupon FPM stack under ASLR on served `K_dest` from the session file and the
+gdb-free final request created `MARK_REAL` through `zif_passthru` with worker
+`572531` alive (`receipts/realchain_20261022/`); `P`/`B0` still required a
+pre-final gdb calibration. The MediaWiki/Wikibase ASLR-on survey found no in-band
+pointer and the boot2 HTTP leak candidate remains **lab-only**. No internet
+exploitation is claimed.
 
 ## Fingerprint and profile pack
 
@@ -464,7 +473,7 @@ is claimed.
 | address profile | `addresses/apache_libphp.json`, per binary offsets and lane | 40492240 B, md5 `92f76e84a77bf8b56c45c3868fa29a6c`, p_align 0x1000 |
 | five resolved symbols | `zif_system` 0x40cc80, `zif_passthru` 0x40cc90, `zend_call_function` 0x540500, `zend_llist_remove_tail` 0x5d39a0, `zval_ptr_dtor` 0x5f0980 | deltas 0xb0480 and 0x1c6d10 |
 | engine symbols | `php_url_encode` 0x460d70, `ps_globals` 0xa3b020, `basic_globals` 0xa3bdc0, `php_apache_sapi_ub_write` 0x5f7ee0, `zend_rc_dtor_func` 0x96f760 | PS(id) offset 16, PS(http_session_vars) offset 360 |
-| G2/G6 profiles | `addresses/g2_fpm_8510.json`, `g2_fpm_8425.json`, `g2_fpm_8134.json`, `g2_fpm_7433.json`, `g2_fpm_realapps_8510.json` | 8.5.10 table 0x14c1b20, decode 0x14c1b60; 8.4.25 0xe01180; 8.1.34 0xe01140; 7.4.33 0xe010a0; realapps 8.5.10 `php` decode 0x22c54c8, zif_system 0xa3c061, zif_passthru 0xa3c074 (F12b, clean run pending); the four lab profiles use passthru = system + 0x10, all md5 locked, libc system 0x53090 |
+| G2/G6 profiles | `addresses/g2_fpm_8510.json`, `g2_fpm_8425.json`, `g2_fpm_8134.json`, `g2_fpm_7433.json`, `g2_fpm_realapps_8510.json` | 8.5.10 table 0x14c1b20, decode 0x14c1b60; 8.4.25 0xe01180; 8.1.34 0xe01140; 7.4.33 0xe010a0; realapps 8.5.10 `php` decode 0x22c54c8, zif_system 0xa3c061, zif_passthru 0xa3c074 (F12b; clean gdb-free run in `receipts/realchain_20261022/`); the four lab profiles use passthru = system + 0x10, all md5 locked, libc system 0x53090 |
 | profile pack build | `universal/profile_builder.py` reads `nm` and `readelf` and writes `addresses/*.json` | new target needs `profiles.py` TARGETS plus BINARY_PROFILES |
 
 ## Failure diagnosis
@@ -488,7 +497,7 @@ is claimed.
 | g2 zif_system worker crash | expected one-shot behavior: `php_exec type=1` writes `return_value=ZSTR_LEN(data)` | crash at `php_exec+450`, marker exists | use `zif_passthru` when worker survival matters |
 | g2 zif_passthru failure | fake call type or command pointer wrong; type=3 does not crash on return_value | gdb `ser2decode`, `arg1type=6`, `F+0x10/F+0x18` | rebuild the record from the selected profile |
 | g2 realapps profile rejected | the F12b profile uses the `php` session record shape (`record_builder=php_session_zif`); the offline builder emits the `php_binary` G6 shape only | `result.json` error names the builder and the F12b receipt | use the receipt's `scripts/mkrec.py`; do not fabricate a php_binary record for the `php` handler |
-| F12b crash at `php_exec+466` | expected one-shot: `type=1` writes the return zval through `return_value=ZSTR_LEN(data)=0x1d0230`, in the binary's `r--p` mapping | F12b `phase/consumer_02.txt`, marker exists, FPM respawn | none for this ABI; the clean `zif_passthru` real-target run is pending |
+| F12b crash at `php_exec+466` | expected one-shot: `type=1` writes the return zval through `return_value=ZSTR_LEN(data)=0x1d0230`, in the binary's `r--p` mapping | F12b `phase/consumer_02.txt`, marker exists, FPM respawn | none for this ABI; the clean gdb-free `zif_passthru` real-target run is in `receipts/realchain_20261022/` |
 | g2 generic target error | in the php_binary builder, target not 16 byte aligned, or not reachable from B0 | `result.json` error | use an aligned target below B0 + 0x10; the F12b php-slot route uses the receipt's `mkrec.py` instead |
 | g2 P or B0 outside payload | wrong X or total | check `p_off`, `b_off`, `payload_start` in `result.json` | re-measure X or the record length |
 | g2 record checks fail | second slot above B0 or length does not converge | `result.json` checks | re-check the direction and total |

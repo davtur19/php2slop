@@ -1,0 +1,9 @@
+2026-10-22T00:29:58Z
+plugin: Webheadcoder Multi-Step Forms for Contact Form 7 4.7.1
+form: Contact Form 7 6.2.3 form ID 26, unauthenticated page /plugin-step1/
+request body: 380270 bytes
+response: HTTP 302, Location http://127.0.0.1:28893/plugin-step2/
+session file: www/wp-content/uploads/sessions/sess_plugI, 388350 bytes
+plant: Cookie PHPSESSID=plugI, real HexCoupon start_session() OOM at line 85
+plant response: HTTP 500, worker survived
+plant deleted the plugin session file
