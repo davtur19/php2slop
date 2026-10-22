@@ -135,7 +135,11 @@ realapps profile is ET_EXEC non PIE as well, but its F12b target is the
 `php` decode slot `0x22c54c8` (8 mod 16), reached through an 8 mod 16 fake B0f;
 its record shape is not accepted by the offline builder.
 
-Handler choice matters for the generic builder. The lab uses `php_binary`,
+Handler choice matters for the generic builder. The builder resolves the target
+from the profile entry named `php_binary` (`_serializer_entry`), not from
+`ps_serializers.default_target`: on the four lab profiles both point at the same
+slot, while on realapps `default_target` is the F12b `php` slot `0x22c54c8` and
+the `php_binary` slot is `0x22c54e0`. The lab uses `php_binary`,
 whose decode slot is `table + 0x40` and 16 byte aligned. The default `php`
 serializer decode slot is `table + 0x28` and is 8 mod 16. The generic builder
 places the fake B0 at the 16 byte aligned stale B0, so its write slot is 0 mod
@@ -274,13 +278,20 @@ re-encoder. With the 8.5.10 receipt geometry (`X1=0x7ffff7a6a000`,
 `X2=0x7ffff7aae000`, `P=0x7ffff7a81000`, `B0=0x7ffff7a84000`, total 131014):
 
 ```
-rec1_len      = 107
-Q             = payload_start = 0x77
+rec1_len      = 107             # 1 + 96-byte key + i:8976055;
+Q             = payload_start  # 0x77 (L has 6 decimal digits)
 L             = 130893
 F             = X2 + 0x18 + Q + 0x100 = 0x7ffff7aae18f
 command       = X2 + 0x18 + Q + 0x118 = 0x7ffff7aae1a7
 used_slots K  = (0x14c1b60 - (B0 + 0x10)) / 16 = -8796082913867
 ```
+
+Q is derived from the record geometry, not fixed: the decimal width of the
+serialized zif address changes rec1. The lab zif values have 7 digits
+(`Q=0x77`); realapps `zif_passthru` `0xa3c074` is 10731636, 8 digits, so
+`Q=0x78`. The arg1 pointer F is always `X2 + 0x18 + Q + 0x100`; a hardcoded
+`0x77` would point one byte before F. The builder asserts this derivation on
+the assembled key1.
 
 The record is `[0x60][96-byte key][i:<zif decimal address>;]` plus
 `\x01zs:<L>:"<payload>";`; the fake P and B0 sit in the payload relative to X1,
@@ -298,6 +309,28 @@ HTTP 200 (`PID=1249787`), recreated the marker and kept the worker alive.
 at `php_exec+450` is unconditionally non-canonical. There is no parameterless
 way to avoid it for `zif_system`. `zif_passthru` is the preferred clean target.
 
+### Poison and worker recycling
+
+The overwrite is a write into `ps_serializers[...].decode` in the worker's
+private `.data` mapping. It is worker-local: the FPM master's copy is unchanged
+and other workers do not see it.
+
+- A non-crashing decode (for example `num_args=0` -> PHP `ArgumentCountError`)
+  leaves the slot patched. The worker stays alive and keeps serving with the
+  poisoned decode pointer.
+- With `pm.max_requests=0` the poison persists for the worker lifetime. A finite
+  limit only delays recycling until the request count is reached.
+- Only worker recycle/restart clears it. A crafted crashing decode (for example
+  `num_args=1` with an invalid arg pointer -> SIGSEGV in
+  `zend_str_has_nul_byte`) makes FPM respawn from the pristine master; the new
+  worker has the real decode pointer again.
+- A crash respawn is not remediation: any non-crashing request in between keeps
+  the backdoor. Kill/reload the pool workers explicitly after compromise.
+
+Receipt: `receipts/realzif_entry2_1022/README.md` (worker slot stayed `0xa3c074`
+after the clean and `num_args=0` decodes; the `num_args=1` crash respawned
+worker 143459 with `0x9e6dd5`).
+
 | version | target slot | `zif_system` | `zif_passthru` | `php_exec_ex` | `php_exec` | state |
 |---|---|---|---|---|---|---|
 | 8.5.10 | `0x14c1b60` | `0x88f6a7` | `0x88f6b7` | `0x88f435` | `0x88f21f` | live G6, ASLR off |
@@ -305,9 +338,12 @@ way to avoid it for `zif_system`. `zif_passthru` is the preferred clean target.
 | 8.1.34 | `0xe01140` | `0x7348f9` | `0x734909` | `0x73467d` | `0x734467` | binary-derived |
 | 7.4.33 | `0xe010a0` | `0x71dd66` | `0x71dd76` | `0x71daf7` | `0x71d7fc` | binary-derived |
 
-`zif_passthru = zif_system + 0x10` on all four lab binaries, verified with
-`nm -an` and `readelf -sW`. Only 8.5.10 is a live G6 run; the other symbols are
-binary-derived profile data. G6 still needs X1, X2, P and B0, and no
+The delta is profile data, never a builder constant: `+0x10` on the four lab
+binaries, `+0x13` on realapps (`0xa3c061`/`0xa3c074`, both 19-byte symbols).
+The builder reads `zif_passthru` from the selected profile and cross-checks any
+`zif_route` delta; it never synthesizes `zif_system + 0x10`. Only 8.5.10 is a
+live G6 run; the other symbols are binary-derived profile data. G6 still needs
+X1, X2, P and B0, and no
 ASLR-capable heap leak is demonstrated. The G6 proof is a private ASLR-off lab
 run, not a real-target claim. Receipt:
 `/tmp/opencode/research/g6zif_20261021T222434Z/README.md`.
@@ -375,7 +411,10 @@ that ran the exploit did not.
 The `zif_passthru` symbol on this binary is `0xa3c074` (verified with `nm -an`
 and `readelf -sW`; `zif_system + 0x13`, not the lab `+0x10`). Its clean
 real-target run is `receipts/realchain_20261022/`: ASLR on, `MARK_REAL` created
-by a gdb-free request, worker `572531` alive. F12b itself remains a private
+by a gdb-free request, worker `572531` alive. That run used the entry-1 `php`
+slot; the separate `php_binary` entry (`ps_serializers[2]`, decode `0x22c54e0`)
+has its own clean `zif_passthru` run in `receipts/realzif_entry2_1022/README.md`.
+F12b itself remains a private
 ASLR-off proof; `P`/`B0` still came from a pre-final gdb calibration, the
 MediaWiki/Wikibase ASLR-on survey found no in-band leak, the boot2 candidate is
 lab-only, and no internet exploitation is claimed. The profile

