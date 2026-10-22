@@ -1,0 +1,8 @@
+{
+ "target": "/exploit/detach.php",
+ "status": 200,
+ "sent": 80,
+ "ms": 80,
+ "err": null,
+ "body_head": "detach-marker\n"
+}

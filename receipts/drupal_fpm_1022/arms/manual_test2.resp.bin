@@ -1,0 +1,9 @@
+sid=tmanual
+sl=/tmp/opencode/drupaldx/sites/default/files/php/sessions
+mem=2M
+files=1
+S.type=string len=3 hex=616263
+J=absent
+K=absent
+x.type=array keys=5
+ok

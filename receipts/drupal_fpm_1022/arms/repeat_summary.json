@@ -1,0 +1,200 @@
+{
+ "drupal_repeats": [
+  {
+   "label": "r0",
+   "master": 167756,
+   "heap": 140715310972992,
+   "P_plant": 140715311505408,
+   "B0_plant": 140715311562752,
+   "K_dest": 140715311517696,
+   "X_measured": 140715311431680,
+   "S_dest_measured": 140715311423552,
+   "offsets": {
+    "K-P": 12288,
+    "K-B0": -45056,
+    "B0-K": 45056,
+    "K-X": 86016,
+    "K-S_dest": 94144,
+    "P-K": -12288,
+    "X-K": -86016,
+    "S_dest-K": -94144
+   },
+   "formula_check": {
+    "P_formula": 140715311505408,
+    "P_match": true,
+    "X_formula": 140715311431680,
+    "X_match": true,
+    "S_dest_formula": 140715311423552,
+    "S_dest_match": true,
+    "B0_formula": 140715311562752,
+    "B0_match": true
+   },
+   "leak_len": 86282,
+   "leak_sha1": "453c04acc28ddf6086e17b5afeff0d58b30ce678",
+   "worker0": 167760,
+   "worker_before_final": 171102,
+   "worker_after_final_trigger": 171102,
+   "worker_after_health": 171102,
+   "marker_after": true,
+   "marker_path": "/tmp/opencode/research/drupal_fpm_20261022T013000Z/MARKER_PASSTHRU_r0",
+   "success": true
+  },
+  {
+   "label": "r1",
+   "master": 171921,
+   "heap": 139959998611520,
+   "P_plant": 139959999143936,
+   "B0_plant": 139959999201280,
+   "K_dest": 139959999156224,
+   "X_measured": 139959999070208,
+   "S_dest_measured": 139959999062080,
+   "offsets": {
+    "K-P": 12288,
+    "K-B0": -45056,
+    "B0-K": 45056,
+    "K-X": 86016,
+    "K-S_dest": 94144,
+    "P-K": -12288,
+    "X-K": -86016,
+    "S_dest-K": -94144
+   },
+   "formula_check": {
+    "P_formula": 139959999143936,
+    "P_match": true,
+    "X_formula": 139959999070208,
+    "X_match": true,
+    "S_dest_formula": 139959999062080,
+    "S_dest_match": true,
+    "B0_formula": 139959999201280,
+    "B0_match": true
+   },
+   "leak_len": 86282,
+   "leak_sha1": "48968aaf45dbf4bbe87c18725a037916c955d140",
+   "worker0": 171923,
+   "worker_before_final": 171977,
+   "worker_after_final_trigger": 171977,
+   "worker_after_health": 171977,
+   "marker_after": true,
+   "marker_path": "/tmp/opencode/research/drupal_fpm_20261022T013000Z/MARKER_PASSTHRU_r1",
+   "success": true
+  },
+  {
+   "label": "r2",
+   "master": 172056,
+   "heap": 139674135822400,
+   "P_plant": 139674136354816,
+   "B0_plant": 139674136412160,
+   "K_dest": 139674136367104,
+   "X_measured": 139674136281088,
+   "S_dest_measured": 139674136272960,
+   "offsets": {
+    "K-P": 12288,
+    "K-B0": -45056,
+    "B0-K": 45056,
+    "K-X": 86016,
+    "K-S_dest": 94144,
+    "P-K": -12288,
+    "X-K": -86016,
+    "S_dest-K": -94144
+   },
+   "formula_check": {
+    "P_formula": 139674136354816,
+    "P_match": true,
+    "X_formula": 139674136281088,
+    "X_match": true,
+    "S_dest_formula": 139674136272960,
+    "S_dest_match": true,
+    "B0_formula": 139674136412160,
+    "B0_match": true
+   },
+   "leak_len": 86282,
+   "leak_sha1": "66238634e197fa13cd9f9429e7e4695df3caca34",
+   "worker0": 172058,
+   "worker_before_final": 172088,
+   "worker_after_final_trigger": 172088,
+   "worker_after_health": 172088,
+   "marker_after": true,
+   "marker_path": "/tmp/opencode/research/drupal_fpm_20261022T013000Z/MARKER_PASSTHRU_r2",
+   "success": true
+  }
+ ],
+ "joomla": {
+  "label": "j2",
+  "master": 174553,
+  "heap": 139667070517312,
+  "P_plant": 139667071045632,
+  "B0_plant": 139667071107072,
+  "K_dest": 139667071057920,
+  "X_measured": 139667070955520,
+  "S_dest_measured": 139667070947392,
+  "offsets": {
+   "K-P": 12288,
+   "K-B0": -49152,
+   "B0-K": 49152,
+   "K-X": 102400,
+   "K-S_dest": 110528,
+   "P-K": -12288,
+   "X-K": -102400,
+   "S_dest-K": -110528
+  },
+  "formula_check": {
+   "P_minus_K": -12288,
+   "X_minus_K": -102400,
+   "S_dest_minus_K": -110528,
+   "B0_minus_K": 49152,
+   "P_minus_X": 90112
+  },
+  "leak_len": 102666,
+  "leak_sha1": "d41c2665672a322950548b94df950573d172ad80",
+  "worker0": 178035,
+  "worker_before_final": 178847,
+  "worker_after_final_trigger": 178847,
+  "worker_after_health": 178847,
+  "marker_after": true,
+  "marker_path": "/tmp/opencode/research/joomla_fpm_20261022T021000Z/MARKER_PASSTHRU_j2",
+  "success": true,
+  "total": 98304,
+  "used": -6149
+ },
+ "joomla_default": {
+  "version": "5.4.10",
+  "session_handler": "database",
+  "tmp_path": "/tmp/opencode/joomla5/tmp",
+  "db_session_rows": {
+   "2baf7b2dccc9618ead14e6f77c790582": 716
+  },
+  "session_file_in_tmp": false,
+  "tmp_htaccess_shipped": false,
+  "package_tmp_contents": [
+   "tmp/",
+   "tmp/index.html"
+  ]
+ },
+ "joomla_lab_filesystem": {
+  "session_handler": "filesystem",
+  "session_filesystem_path": "/tmp/opencode/joomla5/tmp",
+  "app_session_file": "sess_a789df811b23763cf8e3265add0db4e8",
+  "app_session_bytes": 716,
+  "app_session_sha1": "7195681a86bfec51ca7145c8653897cca74fea2b",
+  "fetch_status": 200,
+  "htaccess_created_for_test": true,
+  "htaccess_fetch_status": 200,
+  "htaccess_bytes": 88,
+  "f14_total": 98304,
+  "f14_used": -6149,
+  "b0_minus_k": 49152,
+  "final_worker": 178847,
+  "marker": "MARKER_PASSTHRU_j2"
+ },
+ "current_private": {
+  "drupal_master": 172056,
+  "drupal_lab_worker": 172088,
+  "joomla_master": 174553,
+  "joomla_lab_worker": 178847,
+  "nginx_ports": [
+   28870,
+   28871
+  ],
+  "mariadb_port": 33318
+ }
+}

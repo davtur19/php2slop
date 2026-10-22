@@ -1,0 +1,25 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f5e6cc9b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/realapps/install_realapps_np/sbin/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0xaeaa4c: file /home/davide/ailocal/php/zerodays_1020/build_plain/main/main.c, line 1873.
+Breakpoint 2 at 0x9e8c16: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 432.
+Breakpoint 3 at 0x9eb447: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/mod_files.c, line 153.
+Breakpoint 4 at 0x9e68b5: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 290.
+Breakpoint 5 at 0xa9479c: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/var_unserializer.c, line 189.
+Breakpoint 6 at 0x9e9a20: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 1754.
+Breakpoint 7 at 0x9eb8bb: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/mod_files.c, line 541.
+Breakpoint 8 at 0x9e1f3a: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 272.
+Breakpoint 9 at 0xc59840: file /home/davide/ailocal/php/zerodays_1020/build_plain/Zend/zend.c, line 1257.
+Breakpoint 10 at 0xaeac62: file /home/davide/ailocal/php/zerodays_1020/build_plain/main/main.c, line 1957.
+Breakpoint 11 at 0xb7510c: file /home/davide/ailocal/php/zerodays_1020/build_plain/Zend/zend_builtin_functions.c, line 147.
+[Inferior 1 (process 144757) exited with code 0106]

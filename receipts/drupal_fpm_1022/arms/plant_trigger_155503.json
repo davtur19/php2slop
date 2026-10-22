@@ -1,0 +1,105 @@
+{
+ "worker0": 155503,
+ "gdb": "/tmp/opencode/research/drupal_fpm_20261022T013000Z/gdb/gb_cal.gdb",
+ "gdb_armed": true,
+ "plant_seed": {
+  "path": "/tmp/opencode/drupaldx/sites/default/files/php/sessions/sess_pl1",
+  "len": 64946,
+  "sha1": "98a78b4ac579ac102ea712e7bcd0b7c7a60014bc"
+ },
+ "plant": {
+  "status": 200,
+  "head": "<br />\n<b>Fatal error</b>:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in <b>/tmp/opencode/research/drupal_fpm_20261022T0130"
+ },
+ "plant_req": {
+  "heap": 140043492524096,
+  "basedir_ptr": 140043492540576,
+  "basedir_len": 55,
+  "basedir_val": "b'/tmp/opencode/drupaldx/sites/default/files/php/sessions'",
+  "key_ptr": 140043492528672,
+  "key_len": 3,
+  "key_val": "b'pl1'",
+  "X": 140043493134336,
+  "Xlen": 64946,
+  "P": 140043493056512,
+  "last_dtor": 0,
+  "used_slots": 0,
+  "next": 0,
+  "ret_slots": [
+   {
+    "slot": 140043493113872,
+    "dtor": 140043493113856,
+    "off": 16,
+    "used_now": 1
+   }
+  ],
+  "bailouts": [
+   [
+    140043493056512,
+    1
+   ],
+   [
+    140043493056512,
+    1
+   ],
+   [
+    140043493056512,
+    1
+   ]
+  ],
+  "shutdown_P": 140043493056512,
+  "shutdown_dtor": 140043493113856
+ },
+ "worker_after_plant": 155503,
+ "trigger_seed": {
+  "path": "/tmp/opencode/drupaldx/sites/default/files/php/sessions/sess_tb1",
+  "len": 65000,
+  "sha1": "36a181607145b3444ef3ff1dbd37d145bd5dd626"
+ },
+ "trigger": {
+  "status": 200,
+  "head": "sid=tb1\nsl=/tmp/opencode/drupaldx/sites/default/files/php/sessions\nmem=2M\nfiles=1\nS=absent\nJ=absent\nK=absent\nx.type=array keys=5\nok\n"
+ },
+ "trigger_req": {
+  "heap": 140043492524096,
+  "basedir_ptr": 140043492532384,
+  "basedir_len": 55,
+  "basedir_val": "b'/tmp/opencode/drupaldx/sites/default/files/php/sessions'",
+  "key_ptr": 140043492884928,
+  "key_len": 3,
+  "key_val": "b'tb1'",
+  "X": 140043493048320,
+  "Xlen": 327,
+  "P": 140043493093376,
+  "last_dtor": 0,
+  "used_slots": 0,
+  "next": 0,
+  "ret_slots": [
+   {
+    "slot": 140043493060624,
+    "dtor": 140043493060608,
+    "off": 16,
+    "used_now": 1
+   },
+   {
+    "slot": 140043492995088,
+    "dtor": 140043492995072,
+    "off": 16,
+    "used_now": 1
+   },
+   {
+    "slot": 140043493105680,
+    "dtor": 140043493105664,
+    "off": 16,
+    "used_now": 1
+   }
+  ],
+  "write_val": 140043492982784,
+  "write_len": 327,
+  "write_head": "787c613a353a7b733a31303a2273746172745f74696d65223b693a313739323632363335383b733a31343a22636f6e74656e745f6c656e677468223b693a3232"
+ },
+ "worker_after_trigger": 155503,
+ "file": {
+  "len": 327
+ }
+}

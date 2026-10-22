@@ -1,0 +1,8 @@
+{
+ "target": "/exploit/trigger.php",
+ "status": 200,
+ "sent": 222,
+ "ms": 1,
+ "err": null,
+ "body_head": "trigger-ok\n"
+}

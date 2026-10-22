@@ -1,0 +1,4 @@
+K_dest=0x7f5e6aa85000
+P=0x7f5e6aa82000
+X=0x7f5e6aa70000
+S=0x7f5e6aa85018

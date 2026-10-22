@@ -1,0 +1,16 @@
+=== Drupal repeat verification ===
+r0 {'leak_len': True, 'leak_sha1': True, 'P_formula': True, 'B0_formula': True, 'X_formula': True, 'S_formula': True, 'marker_exists': True, 'same_worker': True, 'health_200': True, 'trigger_200': True, 'success': True} master 167756 final 171102
+r1 {'leak_len': True, 'leak_sha1': True, 'P_formula': True, 'B0_formula': True, 'X_formula': True, 'S_formula': True, 'marker_exists': True, 'same_worker': True, 'health_200': True, 'trigger_200': True, 'success': True} master 171921 final 171977
+r2 {'leak_len': True, 'leak_sha1': True, 'P_formula': True, 'B0_formula': True, 'X_formula': True, 'S_formula': True, 'marker_exists': True, 'same_worker': True, 'health_200': True, 'trigger_200': True, 'success': True} master 172056 final 172088
+DRUPAL_REPEAT_VERIFIED=3/3
+=== Joomla verification ===
+j2 {'total_0x18000': True, 'used_-0x1805': True, 'leak_len': True, 'leak_sha1': True, 'leak_prefix': True, 'P_formula': True, 'B0_delta_0xC000': True, 'X_formula': True, 'S_formula': True, 'marker_exists': True, 'same_worker': True, 'health_200': True, 'trigger_200': True, 'survived': True, 'success': True, 'app_sess_716': True, 'app_sess_sha1': True, 'htaccess_200': True} master 174553 final 178847
+JOOMLA_VERIFIED
+=== config / package evidence ===
+joomla_config_evidence.txt 1037
+joomla_session_evidence.txt 1303
+joomla_sess_fetch.headers 253
+joomla_htaccess_fetch.headers 251
+=== receipt sizes ===
+/tmp/opencode/research/drupal_fpm_20261022T013000Z/FINAL_RECEIPT.md 19192 bytes
+/tmp/opencode/research/joomla_fpm_20261022T021000Z/JOOMLA_RECEIPT.md 10338 bytes

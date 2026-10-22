@@ -1,0 +1,80 @@
+[02:05:38] === staticleak gdb harness armed ===
+[02:05:38] REQ1 PHPRQ_START heap=0x7f086b400040 ps=0x22d0dc0
+[02:05:38] REQ1 START save_path ZSTR ptr=0x336f5830 rc=1 ti=0x3d6 h=0x8000000000001505 len=0 val=b''
+[02:05:38] REQ1 START id ZSTR none
+[02:05:38] REQ1 START save_path=0 status=1 id=0
+[02:05:38] REQ1 SESSION_INITIALIZE entry
+[02:05:38] REQ1 SI save_path ZSTR ptr=0x7f086b404000 rc=1 ti=0x16 h=0x0 len=55 val=b'/tmp/opencode/drupaldx/sites/default/files/php/sessions'
+[02:05:38] REQ1 SI status=1 save_path=55
+[02:05:38] REQ1 PSFILES_OPEN basedir ZSTR ptr=0x7f086b4040a0 rc=1 ti=0x16 h=0x0 len=55 val=b'/tmp/opencode/drupaldx/sites/default/files/php/sessions'
+[02:05:38] REQ1 PSFILES_OPEN data=0x7f086b405230 basedir=55
+[02:05:38] REQ1 PSFILES_OPEN key ZSTR ptr=0x7f086b460200 rc=2 ti=0x16 h=0x0 len=3 val=b'pl1'
+[02:05:38] REQ1 SESSION_DECODE str=0x7f086b495000 len=64946 hdr=02000000160000000000000000000000b2fd000000000000787c613a313a7b69
+[02:05:38] REQ1 TMPVAR entry P=0x7f086b482000 last_dtor=0x0 used_slots=0 next=0x0
+[02:05:38] REQ1 TMPVAR ret slot=0x7f086b490010 dtor=0x7f086b490000 off=16 used_now=1 pre_val=0x0 pre_type=0x0
+[02:05:38] REQ1 UVAR entry cur=0x7f086b490010
+[02:05:38] REQ1 ZEND_BAILOUT bg=0x7f086b482000/1
+[02:05:38] REQ1 ZEND_BAILOUT bg=0x7f086b482000/1
+[02:05:38] REQ1 ZEND_BAILOUT bg=0x7f086b482000/1
+[02:05:38] REQ1 REQUEST_SHUTDOWN bg=0x7f086b482000/1
+[02:05:38] REQ1 SHUTDOWN DAT P=0x7f086b482000 last_dtor=0x7f086b490000 first_dtor=0x7f086b490000 used_slots=1 next=0x0 level=1
+[02:05:38] REQ1 SHUTDOWN PSVARS slot=0x22d0f28 type=0x30a value=0x7f086b460560
+[02:05:39] REQ2 PHPRQ_START heap=0x7f086b400040 ps=0x22d0dc0
+[02:05:39] REQ2 START save_path ZSTR ptr=0x408aa258 rc=2 ti=0x356 h=0x8000000000001505 len=0 val=b''
+[02:05:39] REQ2 START id ZSTR none
+[02:05:39] REQ2 START save_path=0 status=1 id=0
+[02:05:39] REQ2 SESSION_INITIALIZE entry
+[02:05:39] REQ2 SI save_path ZSTR ptr=0x7f086b402000 rc=1 ti=0x16 h=0x0 len=55 val=b'/tmp/opencode/drupaldx/sites/default/files/php/sessions'
+[02:05:39] REQ2 SI status=1 save_path=55
+[02:05:39] REQ2 PSFILES_OPEN basedir ZSTR ptr=0x7f086b4020a0 rc=1 ti=0x16 h=0x0 len=55 val=b'/tmp/opencode/drupaldx/sites/default/files/php/sessions'
+[02:05:39] REQ2 PSFILES_OPEN data=0x7f086b403208 basedir=55
+[02:05:39] REQ2 PSFILES_OPEN key ZSTR ptr=0x7f086b4581e0 rc=3 ti=0x16 h=0x0 len=3 val=b'tb1'
+[02:05:39] REQ2 SESSION_DECODE str=0x7f086b470000 len=81920 hdr=020000001600000000000000000000000040010000000000537c733a33323a22
+[02:05:39] REQ2 TMPVAR entry P=0x7f086b482000 last_dtor=0x7f086b482080 used_slots=-5125 next=0x0
+[02:05:39] REQ2 TMPVAR ret slot=0x7f086b46e040 dtor=0x7f086b482080 off=-81984 used_now=-5124 pre_val=0x7f086b46e080 pre_type=0x0
+[02:05:39] REQ2 UVAR entry cur=0x7f086b46e040
+[02:05:39] REQ2 UVAR ret=1 cur=0x7f086b46e040 val=0x7f086b46e040 ti=0x106
+[02:05:39] REQ2 UVAR STR ZSTR ptr=0x7f086b46e040 rc=1799807040 ti=0x7f08 h=0x106 len=32 val=b'SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'
+[02:05:39] REQ2 TMPVAR entry P=0x7f086b482000 last_dtor=0x7f086b482080 used_slots=-5124 next=0x0
+[02:05:39] REQ2 TMPVAR ret slot=0x7f086b46e050 dtor=0x7f086b482080 off=-81968 used_now=-5123 pre_val=0x20 pre_type=0x0
+[02:05:39] REQ2 UVAR entry cur=0x7f086b46e050
+[02:05:39] REQ2 UVAR ret=1 cur=0x7f086b46e050 val=0x1000 ti=0x4
+[02:05:39] REQ2 TMPVAR entry P=0x7f086b482000 last_dtor=0x7f086b482080 used_slots=-5123 next=0x0
+[02:05:39] REQ2 TMPVAR ret slot=0x7f086b46e060 dtor=0x7f086b482080 off=-81952 used_now=-5122 pre_val=0x5353535353535353 pre_type=0x0
+[02:05:39] REQ2 UVAR entry cur=0x7f086b46e060
+[02:05:39] REQ2 UVAR ret=1 cur=0x7f086b46e060 val=0x7f086b485000 ti=0x106
+[02:05:39] REQ2 UVAR STR ZSTR ptr=0x7f086b485000 rc=1 ti=0x16 h=0x0 len=81856 val=b'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+[02:05:39] REQ2 SESSION_FLUSH status=2
+[02:05:39] REQ2 FLUSH PSVARS slot=0x22d0f28 type=0x30a value=0x7f086b4582e0
+[02:05:39] REQ2 ENCODE ret=0x7f086b499000 len=86282 head=537c733a343039363a2200000000000000000050486b087f000000000000000000005353535353535353000b6f5cdec2
+[02:05:39] REQ2 PS_WRITE val=0x7f086b499000 len=86282 head=537c733a343039363a2200000000000000000050486b087f000000000000000000005353535353535353000b6f5cdec2d84d010000000700000008000000feff
+[02:05:39] REQ2 PSFILES_OPEN basedir ZSTR ptr=0x7f086b4020a0 rc=1 ti=0x16 h=0x0 len=55 val=b'/tmp/opencode/drupaldx/sites/default/files/php/sessions'
+[02:05:39] REQ2 PSFILES_OPEN data=0x7f086b403208 basedir=55
+[02:05:39] REQ2 PSFILES_OPEN key ZSTR ptr=0x7f086b4581e0 rc=4 ti=0x16 h=0x0 len=3 val=b'tb1'
+[02:05:39] REQ2 SESSION_INITIALIZE entry
+[02:05:39] REQ2 SI save_path ZSTR ptr=0x7f086b402000 rc=1 ti=0x16 h=0x0 len=55 val=b'/tmp/opencode/drupaldx/sites/default/files/php/sessions'
+[02:05:39] REQ2 SI status=1 save_path=55
+[02:05:39] REQ2 PSFILES_OPEN basedir ZSTR ptr=0x7f086b4020a0 rc=1 ti=0x16 h=0x0 len=55 val=b'/tmp/opencode/drupaldx/sites/default/files/php/sessions'
+[02:05:39] REQ2 PSFILES_OPEN data=0x7f086b4030c8 basedir=55
+[02:05:39] REQ2 PSFILES_OPEN key ZSTR ptr=0x7f086b4581e0 rc=3 ti=0x16 h=0x0 len=3 val=b'tb1'
+[02:05:39] REQ2 SESSION_DECODE str=0x7f086b485000 len=86282 hdr=020000001600000000000000000000000a51010000000000537c733a34303936
+[02:05:39] REQ2 TMPVAR entry P=0x7f086b482000 last_dtor=0x7f086b482080 used_slots=-5122 next=0x0
+[02:05:39] REQ2 TMPVAR ret slot=0x7f086b46e070 dtor=0x7f086b482080 off=-81936 used_now=-5121 pre_val=0x5353535353535353 pre_type=0x0
+[02:05:39] REQ2 UVAR entry cur=0x7f086b46e070
+[02:05:39] REQ2 UVAR ret=1 cur=0x7f086b46e070 val=0x7f086b470000 ti=0x106
+[02:05:39] REQ2 UVAR STR ZSTR ptr=0x7f086b470000 rc=1 ti=0x16 h=0x0 len=4096 val=b'\x00\x00\x00\x00\x00\x00\x00\x00\x00PHk\x08\x7f\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00SSSSSSSS\x00\x0bo\\\xde\xc2\xd8M\x01\x00\x00\x00\x07\x00\x00\x00\x08\x00\x00\x00\xfe\xff\xff\xff\xc0G\xdc\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x10\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x80e<\xc5\x00\x00\x00\x00\x00'
+[02:05:39] REQ2 TMPVAR entry P=0x7f086b482000 last_dtor=0x7f086b482080 used_slots=-5121 next=0x0
+[02:05:39] REQ2 TMPVAR ret slot=0x7f086b46e080 dtor=0x7f086b482080 off=-81920 used_now=-5120 pre_val=0x7f086b46e0c0 pre_type=0x0
+[02:05:39] REQ2 UVAR entry cur=0x7f086b46e080
+[02:05:39] REQ2 UVAR ret=1 cur=0x7f086b46e080 val=0x1000 ti=0x4
+[02:05:39] REQ2 TMPVAR entry P=0x7f086b482000 last_dtor=0x7f086b482080 used_slots=-5120 next=0x0
+[02:05:39] REQ2 TMPVAR ret slot=0x7f086b46e090 dtor=0x7f086b482080 off=-81904 used_now=-5119 pre_val=0x1dc47c0 pre_type=0x0
+[02:05:39] REQ2 UVAR entry cur=0x7f086b46e090
+[02:05:39] REQ2 UVAR ret=1 cur=0x7f086b46e090 val=0x7f086b49b000 ti=0x106
+[02:05:39] REQ2 UVAR STR ZSTR ptr=0x7f086b49b000 rc=1 ti=0x16 h=0x0 len=81856 val=b'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+[02:05:39] REQ2 TMPVAR entry P=0x7f086b482000 last_dtor=0x7f086b482080 used_slots=-5119 next=0x0
+[02:05:39] REQ2 TMPVAR ret slot=0x7f086b46e0a0 dtor=0x7f086b482080 off=-81888 used_now=-5118 pre_val=0x10 pre_type=0x0
+[02:05:39] REQ2 UVAR entry cur=0x7f086b46e0a0
+[02:05:39] REQ2 UVAR ret=1 cur=0x7f086b46e0a0 val=0x7f086b459268 ti=0x307
+[02:05:39] REQ2 SESSION_FLUSH status=2
+[02:05:39] REQ2 FLUSH PSVARS slot=0x22d0f28 type=0x30a value=0x7f086b4582e0

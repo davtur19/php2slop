@@ -1,0 +1,8 @@
+{
+ "target": "/exploit/sess.php",
+ "status": 200,
+ "sent": 80,
+ "ms": 32,
+ "err": null,
+ "body_head": "<br />\n<b>Fatal error</b>:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in <b>/tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php</b> on line <b>2</b><br />\n<br />\n<b>Warning</b>:  Unknown: Failed to decode session object. Session has been destroyed in <b>Unknown</b> on line <b>0</b><br />\n"
+}

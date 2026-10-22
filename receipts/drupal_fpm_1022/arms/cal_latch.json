@@ -1,0 +1,8 @@
+{
+ "target": "/exploit/sess.php",
+ "status": 200,
+ "sent": 293,
+ "ms": 1,
+ "err": null,
+ "body_head": "<br />\n<b>Fatal error</b>:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 4985024 bytes) in <b>Unknown</b> on line <b>0</b><br />\n"
+}

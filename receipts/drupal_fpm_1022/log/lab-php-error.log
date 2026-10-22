@@ -1,0 +1,96 @@
+[21-Oct-2026 23:38:24 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21-Oct-2026 23:38:24 UTC] PHP Warning:  PHP Request Startup: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[21-Oct-2026 23:38:25 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 4985024 bytes) in Unknown on line 0
+Stack trace:
+#0 {main}
+[21-Oct-2026 23:38:54 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[21-Oct-2026 23:38:54 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[21-Oct-2026 23:39:12 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[21-Oct-2026 23:39:12 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[21-Oct-2026 23:39:13 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 4985024 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[21-Oct-2026 23:45:58 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[21-Oct-2026 23:45:58 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[21-Oct-2026 23:46:44 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[21-Oct-2026 23:46:44 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[21-Oct-2026 23:48:14 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[21-Oct-2026 23:48:14 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[21-Oct-2026 23:49:00 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[21-Oct-2026 23:49:00 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[21-Oct-2026 23:50:00 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[21-Oct-2026 23:50:00 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[21-Oct-2026 23:53:56 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[21-Oct-2026 23:53:56 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[21-Oct-2026 23:54:50 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[21-Oct-2026 23:54:50 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[21-Oct-2026 23:54:51 UTC] PHP Fatal error:  Uncaught ArgumentCountError: session_start() expects at least 1 argument, 0 given in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php:2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+  thrown in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+[21-Oct-2026 23:55:28 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[21-Oct-2026 23:55:28 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[22-Oct-2026 00:03:57 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[22-Oct-2026 00:03:57 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[22-Oct-2026 00:05:17 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[22-Oct-2026 00:05:17 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[22-Oct-2026 00:05:31 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[22-Oct-2026 00:05:31 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[22-Oct-2026 00:05:32 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[22-Oct-2026 00:05:32 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[22-Oct-2026 00:05:38 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[22-Oct-2026 00:05:38 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[22-Oct-2026 00:05:40 UTC] PHP Fatal error:  Allowed memory size of 2097152 bytes exhausted (tried to allocate 20480 bytes) in /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php on line 2
+Stack trace:
+#0 /tmp/opencode/research/drupal_fpm_20261022T013000Z/www/exploit/sess.php(2): session_start()
+#1 {main}
+[22-Oct-2026 00:05:40 UTC] PHP Warning:  Unknown: Failed to decode session object. Session has been destroyed in Unknown on line 0
