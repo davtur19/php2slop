@@ -5,7 +5,6 @@ every success needs a specific build and lab configuration (PHP `session.upload_
 
 **Works (lab-verified):**
 - mod_php, PIE + ASLR, `display_errors=On`, single worker: PHP 8.3.35/8.4.26/8.5.11 — two-stage `Set-Cookie` leak → `zif_system`, one-shot.
-- FPM serializer-decode route: reported on PHP 8.5.10 (profiles 8.4.25/8.1.34/7.4.33); **end-to-end verification running** — not yet confirmed in the README.
 - OpenMage 20.10.0 PIE POP with a second `php_serialize` writer + slow-upload race.
 
 **Does not work / blocked:**
@@ -15,7 +14,9 @@ every success needs a specific build and lab configuration (PHP `session.upload_
 
 **Lab-only:** non-PIE 7.0–8.0 serializer/decode; PHP 5.4/5.6 served-file/GOT.
 
-**Pending:** FPM serializer-decode E2E verification; PHP 8.1/8.0/7.2/7.3; FPM 8.4.26; `display_errors=Off` alternative trigger.
+**Pending / reported, not yet verified:** FPM serializer-decode route — reported on PHP 8.5.10 (profiles 8.4.25/8.1.34/7.4.33); E2E verification running, not claimed working.
+
+**Also pending:** PHP 8.1/8.0/7.2/7.3; FPM 8.4.26; `display_errors=Off` alternative trigger.
 
 ## Requirements
 
