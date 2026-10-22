@@ -1,0 +1,17 @@
+{
+ "n": 3,
+ "kind": "plant",
+ "label": "user_error",
+ "script": "unser.php",
+ "body_len": 41,
+ "body_sha256": "6fb22b123539f453b0cab16e23dd8a76226406c19d9620aa02031e35f9ee0223",
+ "ctype": "application/x-www-form-urlencoded",
+ "cookie": null,
+ "elapsed": 0.0005,
+ "status": "X-Powered-By: PHP/8.1.34",
+ "error": null,
+ "stdout": "X-Powered-By: PHP/8.1.34\r\nContent-type: text/html; charset=UTF-8\r\n\r\nPID=133417 MODE=user_error PAD=0 PLEN=33\n<br />\n<b>Fatal error</b>:  stop in <b>/tmp/opencode/research/verzif_20261022T004500Z/v8134/www/unser.php</b> on line <b>10</b><br />\n",
+ "stderr": "",
+ "payload": "a:2:{i:0;s:3:\"aaa\";i:0;s:3:\"bbb\";",
+ "pad": 0
+}

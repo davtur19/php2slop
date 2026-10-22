@@ -1,0 +1,15 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+0xe01060 <ps_serializers>:	0x0000000000a21243	0x00000000006d2214
+0xe01070 <ps_serializers+16>:	0x00000000006d2274	0x0000000000a2153a
+0xe01080 <ps_serializers+32>:	0x00000000006d5fcc	0x00000000006d5e5f
+0xe01090 <ps_serializers+48>:	0x0000000000a21251	0x00000000006d5a77
+0xe010a0 <ps_serializers+64>:	0x000000000071dd76
+$1 = {name = 0xa21243 "php_serialize", encode = 0x6d2214 <ps_srlzr_encode_php_serialize>, decode = 0x6d2274 <ps_srlzr_decode_php_serialize>}
+$2 = {name = 0xa2153a "php", encode = 0x6d5fcc <ps_srlzr_encode_php>, decode = 0x6d5e5f <ps_srlzr_decode_php>}
+$3 = {name = 0xa21251 "php_binary", encode = 0x6d5a77 <ps_srlzr_encode_php_binary>, decode = 0x71dd76 <zif_passthru>}
+$4 = {name = 0x0, encode = 0x7ffff7a97000, decode = 0x0}
+$5 = 0
+$6 = (struct php_unserialize_data *) 0x0
+[Inferior 1 (process 134719) detached]

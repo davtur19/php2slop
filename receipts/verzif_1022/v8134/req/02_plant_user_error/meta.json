@@ -1,0 +1,17 @@
+{
+ "n": 2,
+ "kind": "plant",
+ "label": "user_error",
+ "script": "unser.php",
+ "body_len": 43,
+ "body_sha256": "810b92beb6290f010edcc3481b3b947d3eaa6586b5128858979d289e06915da6",
+ "ctype": "application/x-www-form-urlencoded",
+ "cookie": null,
+ "elapsed": 0.0003,
+ "status": "X-Powered-By: PHP/8.1.34",
+ "error": null,
+ "stdout": "X-Powered-By: PHP/8.1.34\r\nContent-type: text/html; charset=UTF-8\r\n\r\nPID=133417 MODE=user_error PAD=0 PLEN=35\nAFTER type=array\n",
+ "stderr": "",
+ "payload": "a:2:{i:0;s:3:\"aaa\";i:0;s:3:\"bbb\";}X",
+ "pad": 0
+}

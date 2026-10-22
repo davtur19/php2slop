@@ -1,0 +1,15 @@
+{
+ "n": 7,
+ "kind": "trigger",
+ "label": "g74",
+ "script": "probe.php",
+ "body_len": 318,
+ "body_sha256": "74e062ea638d236147088a235fb189b7efd10be9596d139ce6cb814985d4b4c7",
+ "ctype": "multipart/form-data; boundary=----fpmgadgetboundary7MA4YWxkTrZu0gW",
+ "cookie": "PHPSESSID=g74",
+ "elapsed": 0.008,
+ "status": "X-Powered-By: PHP/7.4.33",
+ "error": null,
+ "stdout": "X-Powered-By: PHP/7.4.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\nPID=134719\n",
+ "stderr": ""
+}

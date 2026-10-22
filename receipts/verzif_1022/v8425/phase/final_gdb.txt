@@ -1,0 +1,63 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/research/veroff_20261021_215718/build/php-8.4.25/sapi/fpm/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/research/veroff_20261021_215718/build/php-8.4.25/sapi/fpm/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x7037b4: file /tmp/opencode/research/veroff_20261021_215718/build/php-8.4.25/ext/session/session.c, line 275.
+Breakpoint 2 at 0x753d30: file /tmp/opencode/research/veroff_20261021_215718/build/php-8.4.25/ext/standard/exec.c, line 266.
+Breakpoint 3 at 0x753aa3: file /tmp/opencode/research/veroff_20261021_215718/build/php-8.4.25/ext/standard/exec.c, line 205.
+Breakpoint 4 at 0x75388d: file /tmp/opencode/research/veroff_20261021_215718/build/php-8.4.25/ext/standard/exec.c, line 113.
+Breakpoint 5 at 0x753be1: file /tmp/opencode/research/veroff_20261021_215718/build/php-8.4.25/ext/standard/exec.c, line 242.
+DECODE hit=1 data=0x7ffff7a73000 val=0x7ffff7a73018 len=131014 level=1 bgdata=0x7ffff7a79000 ser2decode=0x703cf4 ser2encode=0x703a3c
+0xe01140 <ps_serializers>:	0x0000000000a05c3f	0x00000000006ff410
+0xe01150 <ps_serializers+16>:	0x00000000006ff470	0x0000000000a060e8
+0xe01160 <ps_serializers+32>:	0x0000000000704027	0x0000000000703eca
+0xe01170 <ps_serializers+48>:	0x0000000000a05c4d	0x0000000000703a3c
+0xe01180 <ps_serializers+64>:	0x0000000000703cf4
+0x7ffff7a73018:	0x4141414141414160	0x4141414141414141
+0x7ffff7a73028:	0x4141414141414141	0x4141414141414141
+0x7ffff7a73038:	0x4141414141414141	0x0000000141414141
+0x7ffff7a73048:	0x4141414141414141	0x4141414141414141
+0x7ffff7a79000:	0x00007ffff7a79038	0x00007ffff7a7c000
+0x7ffff7a79010:	0x00007ffff7a7c000	0x0000000000000000
+0x7ffff7a79020:	0x0000000000000000	0x0000000000000000
+0x7ffff7a79030:	0x000000007fffffff	0x00000000000003fa
+0x7ffff7a79040:	0x0000000000000000
+DECODE hit=2 data=0x7ffff7ab7000 val=0x7ffff7ab7018 len=131313 level=1 bgdata=0x7ffff7a79000 ser2decode=0x753d30 ser2encode=0x703a3c
+0xe01140 <ps_serializers>:	0x0000000000a05c3f	0x00000000006ff410
+0xe01150 <ps_serializers+16>:	0x00000000006ff470	0x0000000000a060e8
+0xe01160 <ps_serializers+32>:	0x0000000000704027	0x0000000000703eca
+0xe01170 <ps_serializers+48>:	0x0000000000a05c4d	0x0000000000703a3c
+0xe01180 <ps_serializers+64>:	0x0000000000753d30
+VAL2 first 0x80:
+0x7ffff7ab7018:	0x4141414141414160	0x4141414141414141
+0x7ffff7ab7028:	0x4141414141414141	0x4141414141414141
+0x7ffff7ab7038:	0x4141414141414141	0x0000000141414141
+0x7ffff7ab7048:	0x4141414141414141	0x4141414141414141
+0x7ffff7ab7058:	0x4141414141414141	0x4141414141414141
+0x7ffff7ab7068:	0x00007ffff7ab718f	0x4141414141414106
+0x7ffff7ab7078:	0x33333836373a6941	0x313a737a013b3637
+0x7ffff7ab7088:	0x00223a3339383033	0x0000000000000000
+ZIF_PASSTHRU hit rdi=0x7ffff7ab7018 rsi=0x200f1 rdx=0x91b31ad18c90494a
+0x7ffff7ab7018:	0x4141414141414160	0x4141414141414141
+0x7ffff7ab7028:	0x4141414141414141	0x4141414141414141
+0x7ffff7ab7038:	0x4141414141414141	0x0000000141414141
+0x7ffff7ab7048:	0x4141414141414141	0x4141414141414141
+0x7ffff7ab7058:	0x4141414141414141	0x4141414141414141
+0x7ffff7ab7068:	0x00007ffff7ab718f	0x4141414141414106
+PHP_EXEC_EX rdi=0x7ffff7ab7018 rsi=0x200f1 rdx=0x3 numargs=1 arg1val=0x7ffff7ab718f arg1type=6
+F=0x7ffff7ab718f F+0x10(len)=72
+0x7ffff7ab71a7:	"touch /tmp/opencode/research/verzif_20261022T004500Z/v8425/PASSTHRU_8425"
+PHP_EXEC type=3 cmd=0x7ffff7ab71a7 array=(nil) retval=0x200f1
+0x7ffff7ab71a7:	"touch /tmp/opencode/research/verzif_20261022T004500Z/v8425/PASSTHRU_8425"
+[Detaching after vfork from child process 132756]
+[Inferior 1 (process 132385) detached]
+GDB_EXIT=124

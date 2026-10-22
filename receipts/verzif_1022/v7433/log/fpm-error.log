@@ -1,0 +1,10 @@
+[22-Oct-2026 01:16:19] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 01:16:19] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 01:16:19] NOTICE: fpm is running, pid 134476
+[22-Oct-2026 01:16:19] NOTICE: ready to handle connections
+[22-Oct-2026 01:16:31] WARNING: [pool lab] child 134477 exited on signal 11 (SIGSEGV) after 11.597054 seconds from start
+[22-Oct-2026 01:16:31] NOTICE: [pool lab] child 134587 started
+[22-Oct-2026 01:16:42] WARNING: [pool lab] child 134587 exited on signal 11 (SIGSEGV) after 11.171553 seconds from start
+[22-Oct-2026 01:16:42] NOTICE: [pool lab] child 134719 started
+[22-Oct-2026 01:17:12] NOTICE: Terminating ...
+[22-Oct-2026 01:17:12] NOTICE: exiting, bye-bye!

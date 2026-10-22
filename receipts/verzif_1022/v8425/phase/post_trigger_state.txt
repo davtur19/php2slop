@@ -1,0 +1,25 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/research/veroff_20261021_215718/build/php-8.4.25/sapi/fpm/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/research/veroff_20261021_215718/build/php-8.4.25/sapi/fpm/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+0xe01140 <ps_serializers>:	0x0000000000a05c3f	0x00000000006ff410
+0xe01150 <ps_serializers+16>:	0x00000000006ff470	0x0000000000a060e8
+0xe01160 <ps_serializers+32>:	0x0000000000704027	0x0000000000703eca
+0xe01170 <ps_serializers+48>:	0x0000000000a05c4d	0x0000000000703a3c
+0xe01180 <ps_serializers+64>:	0x0000000000753d30
+$1 = {name = 0xa05c3f "php_serialize", encode = 0x6ff410 <ps_srlzr_encode_php_serialize>, decode = 0x6ff470 <ps_srlzr_decode_php_serialize>}
+$2 = {name = 0xa060e8 "php", encode = 0x704027 <ps_srlzr_encode_php>, decode = 0x703eca <ps_srlzr_decode_php>}
+$3 = {name = 0xa05c4d "php_binary", encode = 0x703a3c <ps_srlzr_encode_php_binary>, decode = 0x753d30 <zif_passthru>}
+$4 = {name = 0x0, encode = 0x7ffff7a96000, decode = 0x0}
+$5 = 0
+$6 = (struct php_unserialize_data *) 0x0
+[Inferior 1 (process 132385) detached]

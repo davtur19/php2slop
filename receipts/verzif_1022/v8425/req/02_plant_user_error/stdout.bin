@@ -1,0 +1,8 @@
+X-Powered-By: PHP/8.4.25
+Content-type: text/html; charset=UTF-8
+
+PID=95538 MODE=user_error PAD=0 PLEN=35
+<br />
+<b>Deprecated</b>:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in <b>/tmp/opencode/research/verzif_20261022T004500Z/v8425/www/unser.php</b> on line <b>10</b><br />
+<br />
+<b>Fatal error</b>:  stop in <b>/tmp/opencode/research/verzif_20261022T004500Z/v8425/www/unser.php</b> on line <b>10</b><br />

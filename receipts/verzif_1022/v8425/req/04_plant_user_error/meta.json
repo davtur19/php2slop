@@ -1,0 +1,17 @@
+{
+ "n": 4,
+ "kind": "plant",
+ "label": "user_error",
+ "script": "unser.php",
+ "body_len": 43,
+ "body_sha256": "810b92beb6290f010edcc3481b3b947d3eaa6586b5128858979d289e06915da6",
+ "ctype": "application/x-www-form-urlencoded",
+ "cookie": null,
+ "elapsed": 0.0005,
+ "status": "X-Powered-By: PHP/8.4.25",
+ "error": null,
+ "stdout": "X-Powered-By: PHP/8.4.25\r\nContent-type: text/html; charset=UTF-8\r\n\r\nPID=122186 MODE=user_error PAD=0 PLEN=35\n<br />\n<b>Deprecated</b>:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in <b>/tmp/opencode/research/verzif_20261022T004500Z/v8425/www/unser.php</b> on line <b>10</b><br />\n<br />\n<b>Fatal error</b>:  stop in <b>/tmp/opencode/research/verzif_20261022T004500Z/v8425/www/unser.php</b> on line <b>10</b><br />\n",
+ "stderr": "",
+ "payload": "a:2:{i:0;s:3:\"aaa\";i:0;s:3:\"bbb\";}X",
+ "pad": 0
+}
