@@ -1,0 +1,3 @@
+ptrace: No such process.
+/tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.0.33/gdb/ser.gdb:3: Error in sourced command file:
+No symbol table is loaded.  Use the "file" command.

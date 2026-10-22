@@ -1,0 +1,15 @@
+master=1423548 child=1423549
+PID=1423549
+{  "n": 16,  "kind": "plant",  "label": "user_error",  "status": "X-Powered-By: PHP/7.1.33",  "error": null,  "elapsed": 0.0004,  "stdout": "X-Powered-By: PHP/7
+P=0x7ffff7a55230 B0=0x7ffff7a6a000 plast=0x7ffff7a6f000 level=1 used=3
+rec={'rec1_len': 127, 'L': 130873, 'payload_start': 139, 'K': -8796083734814}
+DECODE hit=1 data=0x7ffff7a65000 val=0x7ffff7a65018 len=131014 level=1 bgdata=0x7ffff7a55230 ser2decode=0x4b0088 ser2name=php_binary
+0x7ffff7a65018:	0x742f206863756f74	0x636e65706f2f706d
+0x7ffff7a65028:	0x657365722f65646f	0x7265762f68637261
+0x7ffff7a65038:	0x325f78697274616d	0x5432323031363230
+0x7ffff7a65048:	0x2f5a353233343030	0x312e372f7362616c
+FLUSH n=1 ser2=0x4b0088
+DECODE hit=2 data=0x7ffff7a86000 val=0x7ffff7a86018 len=131014 level=0 bgdata=(nil) ser2decode=0x4b0088 ser2name=php_binary
+FLUSH n=2 ser2=0x4b0088
+resp=b'X-Powered-By: PHP/7.1.33\r\nSet-Cookie: PHPSESSID=f7133; path=/\r\nExpires: Thu, 19 Nov 1981 08:52:00 GMT\r\nCache-Control: no-store, no-cache, must-revalidate\r\nPragma: no-cache\r\nContent-type: text/html; ch'
+marker=False worker_alive=True master_alive=True

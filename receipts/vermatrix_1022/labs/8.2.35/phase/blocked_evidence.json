@@ -1,0 +1,38 @@
+{
+ "version": "8.2.35",
+ "port": 28905,
+ "marker": "/tmp/opencode/research/vermatrix_20261022T004325Z/labs/8.2.35/PASSTHRU_8235",
+ "plant_payload": "a:2:{i:0;s:3:\"aaa\";i:0;C:4:\"Nope\":0:{}}",
+ "master": 1710167,
+ "worker": 1710168,
+ "plant_bailed": true,
+ "state_after_plant": {
+  "BG_LEVEL": "1",
+  "BG_DATA": "0x7ffff7a76000",
+  "P_LAST_DTOR": "0x7ffff7a79000",
+  "P_FIRST_DTOR": "0x7ffff7a79000",
+  "DTOR_USED": "1"
+ },
+ "trigger_decodes": [
+  {
+   "hit": 1,
+   "data": "0x7ffff7a6b000",
+   "val": "0x7ffff7a6b018",
+   "len": 131014,
+   "level": 0,
+   "bgdata": "(nil)"
+  },
+  {
+   "hit": 2,
+   "data": "0x7ffff7a8f000",
+   "val": "0x7ffff7a8f018",
+   "len": 131014,
+   "level": 0,
+   "bgdata": "(nil)"
+  }
+ ],
+ "ser2decode": "0x6f7df8",
+ "worker_alive": true,
+ "master_alive": true,
+ "marker_exists": false
+}

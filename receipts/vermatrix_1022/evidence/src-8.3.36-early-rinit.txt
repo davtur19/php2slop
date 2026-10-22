@@ -1,0 +1,35 @@
+# 8.3.36 ext/standard/basic_functions.c:482
+	return SUCCESS;
+}
+/* }}} */
+
+/* Called from php_request_startup(), before any request data is processed. */
+PHPAPI void php_basic_early_rinit(void)
+{
+	/* The session upload progress handler (un)serializes the session and
+	 * registers the session id with the URL rewriter from
+	 * php_hash_environment(), before RINIT. */
+	BG(serialize_lock) = 0;
+	memset(&BG(serialize), 0, sizeof(BG(serialize)));
+	memset(&BG(unserialize), 0, sizeof(BG(unserialize)));
+	php_url_scanner_early_rinit();
+}
+
+PHP_MINFO_FUNCTION(basic) /* {{{ */
+
+# 8.3.36 main/main.c:1829 call site
+
+		/* initialize global variables */
+		PG(modules_activated) = 0;
+		PG(header_is_being_sent) = 0;
+		PG(connection_status) = PHP_CONNECTION_NORMAL;
+		PG(in_user_include) = 0;
+
+		zend_activate();
+		php_basic_early_rinit();
+		sapi_activate();
+
+#ifdef ZEND_SIGNALS
+		zend_signal_activate();
+#endif
+

@@ -1,0 +1,29 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Breakpoint 1 at 0x6dee97: file /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.0.30/ext/session/session.c, line 244.
+Breakpoint 2 at 0x727689: file /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.0.30/ext/standard/exec.c, line 268.
+Breakpoint 3 at 0x727408: file /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.0.30/ext/standard/exec.c, line 207.
+Breakpoint 4 at 0x7271f2: file /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.0.30/ext/standard/exec.c, line 115.
+Breakpoint 5 at 0x727697: file /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.0.30/ext/standard/exec.c, line 270.
+DECODE hit=1 data=0x7ffff7a6f000 val=0x7ffff7a6f018 len=131014 level=1 bgdata=0x7ffff7a76000 ser2decode=0x6df2ec ser2name=php_binary
+0x7ffff7a6f018:	0x4141414141414160	0x4141414141414141
+0x7ffff7a6f028:	0x4141414141414141	0x4141414141414141
+0x7ffff7a6f038:	0x4141414141414141	0x0000000141414141
+0x7ffff7a6f048:	0x4141414141414141	0x4141414141414141
+DECODE hit=2 data=0x7ffff7a92000 val=0x7ffff7a92018 len=131014 level=0 bgdata=(nil) ser2decode=0x727689 ser2name=php_binary
+ZIF_PASSTHRU hit rdi=0x7ffff7a92018 rsi=0x1ffc6 rdx=0x2
+0x7ffff7a92018:	0x4141414141414160	0x4141414141414141
+0x7ffff7a92028:	0x4141414141414141	0x4141414141414141
+0x7ffff7a92038:	0x4141414141414141	0x0000000141414141
+0x7ffff7a92048:	0x4141414141414141	0x4141414141414141
+0x7ffff7a92058:	0x4141414141414141	0x4141414141414141
+0x7ffff7a92068:	0x00007ffff7a9218f	0x4141414141414106
+PHP_EXEC_EX rdi=0x7ffff7a92018 rsi=0x1ffc6 rdx=0x3 numargs=1 arg1val=0x7ffff7a9218f arg1type=6
+F=0x7ffff7a9218f F_PLUS_10_LEN=81
+0x7ffff7a921a7:	"touch /tmp/opencode/research/vermatrix_20261022T004325Z/labs/8.0.30/PASSTHRU_8030"
+PHP_EXEC type=3 cmd=0x7ffff7a921a7 array=(nil) retval=0x1ffc6
+0x7ffff7a921a7:	"touch /tmp/opencode/research/vermatrix_20261022T004325Z/labs/8.0.30/PASSTHRU_8030"
+[Detaching after vfork from child process 1696869]
+AFTER_PHP_EXEC eax=0
+[Inferior 1 (process 1696800) detached]

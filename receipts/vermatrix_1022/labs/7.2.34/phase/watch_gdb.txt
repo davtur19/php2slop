@@ -1,0 +1,30 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Hardware watchpoint 1: *(long*)0x7ffff7a5e220
+WATCH addr=0x7ffff7a5e220 rip=0x5962f9
+#0  zend_mm_alloc_small_slow (heap=heap@entry=0x7ffff7a00040, bin_num=3) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/Zend/zend_alloc.c:1247
+#1  0x000000000059891e in zend_mm_alloc_small (heap=0x7ffff7a00040, size=25, bin_num=<optimized out>) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/Zend/zend_alloc.c:1278
+#2  zend_mm_alloc_heap (heap=0x7ffff7a00040, size=25) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/Zend/zend_alloc.c:1346
+#3  _emalloc (size=size@entry=25) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/Zend/zend_alloc.c:2440
+#4  0x0000000000598be8 in _estrndup (s=0x6a242e "X-Powered-By: PHP/7.2.34", length=length@entry=24) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/Zend/zend_alloc.c:2544
+#5  0x0000000000566601 in sapi_header_op (op=op@entry=SAPI_HEADER_REPLACE, arg=arg@entry=0x7fffffffdff0) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/main/SAPI.c:710
+#6  0x0000000000566cfd in sapi_add_header_ex (header_line=header_line@entry=0x6a242e "X-Powered-By: PHP/7.2.34", header_line_len=header_line_len@entry=24, duplicate=duplicate@entry=1 '\001', replace=replace@entry=1 '\001') at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/main/SAPI.c:629
+#7  0x000000000055cee5 in php_request_startup () at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/main/main.c:1675
+#8  0x0000000000670ee6 in main (argc=<optimized out>, argv=<optimized out>) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/sapi/fpm/fpm/fpm_main.c:1904
+rip            0x5962f9            0x5962f9 <zend_mm_alloc_small_slow+196>
+rdi            0x20                32
+rsi            0x7ffff7a5e000      140737348231168
+rdx            0x7ffff7a5e220      140737348231712
+rcx            0x7ffff7a5efe0      140737348235232
+rax            0x7ffff7a5e240      140737348231744
+rbx            0x3                 3
+rbp            0x7fffffffdf10      0x7fffffffdf10
+rsp            0x7fffffffdef0      0x7fffffffdef0
+   0x5962ed <zend_mm_alloc_small_slow+184>:	add    %ah,-0x70(%rsi)
+   0x5962f0 <zend_mm_alloc_small_slow+187>:	mov    %rax,%rdx
+   0x5962f3 <zend_mm_alloc_small_slow+190>:	add    %rdi,%rax
+   0x5962f6 <zend_mm_alloc_small_slow+193>:	mov    %rax,(%rdx)
+=> 0x5962f9 <zend_mm_alloc_small_slow+196>:	cmp    %rcx,%rax
+   0x5962fc <zend_mm_alloc_small_slow+199>:	jne    0x5962f0 <zend_mm_alloc_small_slow+187>
+[Inferior 1 (process 1667259) detached]

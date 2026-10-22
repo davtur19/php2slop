@@ -1,0 +1,17 @@
+{
+ "n": 11,
+ "kind": "plant",
+ "label": "user_error",
+ "script": "unser.php",
+ "body_len": 51,
+ "body_sha256": "5d81765148c53626ab7f916fda80829f3e347f7a0f0d8032f600765cd7984dc1",
+ "ctype": "application/x-www-form-urlencoded",
+ "cookie": null,
+ "elapsed": 0.0005,
+ "status": "X-Powered-By: PHP/7.1.33",
+ "error": null,
+ "stdout": "X-Powered-By: PHP/7.1.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\nPID=1420032 MODE=user_error PAD=32768 PLEN=39\n<br />\n<b>Fatal error</b>:  stop in <b>/tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.1.33/www/unser.php</b> on line <b>10</b><br />\n",
+ "stderr": "",
+ "payload": "a:2:{i:0;s:3:\"aaa\";i:0;C:4:\"Nope\":0:{}}",
+ "pad": 32768
+}

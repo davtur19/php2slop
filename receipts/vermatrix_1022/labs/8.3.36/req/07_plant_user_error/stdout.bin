@@ -1,0 +1,10 @@
+X-Powered-By: PHP/8.3.36
+Set-Cookie: PHPSESSID=99c03034718a4bb3a30d694d28b2f667; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Content-type: text/html; charset=UTF-8
+
+PID=1709991 MODE=user_error PAD=0 PLEN=39
+<br />
+<b>Fatal error</b>:  stop in <b>/tmp/opencode/research/vermatrix_20261022T004325Z/labs/8.3.36/www/unser.php</b> on line <b>17</b><br />

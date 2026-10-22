@@ -1,0 +1,7 @@
+6812e50332ad03312a1deb5e6971e1ad7b3823390048c13984ad3db689b39c77  build/php-7.0.33/sapi/fpm/php-fpm
+90943958e750a0bf327bdc7b4199b608c7f5076a170ee4065fac19521061afa9  build/php-7.1.33/sapi/fpm/php-fpm
+6b87603aeb39b603e18f4f3029e1f259ed389efe12bcb2229e623bd385cde6d9  build/php-7.2.34/sapi/fpm/php-fpm
+1bada80c5d26e07cec36b2ca184bff62c5b6bf886dcd3bb640609d80d3fc19e9  build/php-7.3.33/sapi/fpm/php-fpm
+f8e63dd65678b9455da0c449e1b685c420a34664df88436284dcfab13ed7b964  build/php-8.0.30/sapi/fpm/php-fpm
+1f2c1ef1a5d09a2dad71763eaf8a79d4d9429f727d6e35aae4793d2bc3f79246  build/php-8.2.35/sapi/fpm/php-fpm
+bd8116fdce0527a743e36924dc787150880a3ac936085d8fa53195975be3160c  build/php-8.3.36/sapi/fpm/php-fpm

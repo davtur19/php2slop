@@ -1,0 +1,16 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+BG_LEVEL=1
+BG_DATA=0x7ffff7a55118
+P_FIRST=0x7ffff7a6e000
+P_LAST=0x7ffff7a6e000
+P_FIRST_DTOR=0x7ffff7a69000
+P_LAST_DTOR=0x7ffff7a69000
+0x7ffff7a55118:	0x00007ffff7a6e000	0x00007ffff7a6e000
+0x7ffff7a55128:	0x00007ffff7a69000	0x00007ffff7a69000
+DTOR_USED=3
+DTOR_NEXT=(nil)
+0x7ffff7a69000:	0x00007ffff7a5f0e0	0x0000000000001c07
+0x7ffff7a69010:	0x00007ffff7a5e4c0	0x0000000000001406
+[Inferior 1 (process 1298598) detached]

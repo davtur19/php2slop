@@ -1,0 +1,15 @@
+{
+ "n": 7,
+ "kind": "calib",
+ "label": "k1_7033",
+ "script": "probe.php",
+ "body_len": 318,
+ "body_sha256": "74e062ea638d236147088a235fb189b7efd10be9596d139ce6cb814985d4b4c7",
+ "ctype": "multipart/form-data; boundary=----fpmgadgetboundary7MA4YWxkTrZu0gW",
+ "cookie": "PHPSESSID=k1_7033",
+ "elapsed": 0.0006,
+ "status": "X-Powered-By: PHP/7.0.33",
+ "error": null,
+ "stdout": "X-Powered-By: PHP/7.0.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\n<br />\n<b>Warning</b>:  Unknown: The session id is too long or contains illegal characters, valid characters are a-z, A-Z, 0-9 and '-,' in <b>Unknown</b> on line <b>0</b><br />\n<br />\n<b>Warning</b>:  Unknown: The session id is too long or contains illegal characters, valid characters are a-z, A-Z, 0-9 and '-,' in <b>Unknown</b> on line <b>0</b><br />\n<br />\n<b>Warning</b>:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.0.33/sessions) in <b>Unknown</b> on line <b>0</b><br />\n<br />\n<b>Warning</b>:  Unknown: The session id is too long or contains illegal characters, valid characters are a-z, A-Z, 0-9 and '-,' in <b>Unknown</b> on line <b>0</b><br />\n<br />\n<b>Warning</b>:  Unknown: The session id is too long or contains illegal characters, valid characters are a-z, A-Z, 0-9 and '-,' in <b>Unknown</b> on line <b>0</b><br />\n<br />\n<b>Warning</b>:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.0.33/sessions) in <b>Unknown</b> on line <b>0</b><br />\nPID=954219\n",
+ "stderr": ""
+}

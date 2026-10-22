@@ -1,0 +1,11 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+PSER0=php_serialize|0x6db8f1|0x6db951
+PSER1=php|0x6df62c|0x6df4cc
+PSER2=php_binary|0x6df0e4|0x727689
+PSER3NAME=(nil)
+PSER3ENC=0x7ffff7a92000
+BG_LEVEL=0
+BG_DATA=(nil)
+[Inferior 1 (process 1696800) detached]

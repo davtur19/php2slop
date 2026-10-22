@@ -1,0 +1,19 @@
+{
+ "n": 94,
+ "kind": "plant",
+ "label": "user_error",
+ "script": "unser.php",
+ "body_len": 64,
+ "body_sha256": "7586a23527d77930a9aa465e8c65222357cec76f614ca1bda34d7c8921165157",
+ "ctype": "application/x-www-form-urlencoded",
+ "cookie": null,
+ "elapsed": 0.0005,
+ "status": "Set-Cookie: PHPSESSID=7ec05b238efaaa097e7aebb9c5b331e6; path=/",
+ "error": null,
+ "stdout": "Set-Cookie: PHPSESSID=7ec05b238efaaa097e7aebb9c5b331e6; path=/\r\nExpires: Thu, 19 Nov 1981 08:52:00 GMT\r\nCache-Control: no-store, no-cache, must-revalidate\r\nPragma: no-cache\r\nContent-type: text/html; charset=UTF-8\r\n\r\nPID=1691857 MODE=user_error PAD=0 PLEN=39\n<br />\n<b>Fatal error</b>:  stop in <b>/tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.2.34/www/unser.php</b> on line <b>17</b><br />\n",
+ "stderr": "",
+ "payload": "a:2:{i:0;s:3:\"aaa\";i:0;C:4:\"Nope\":0:{}}",
+ "pad": 0,
+ "shape": 96,
+ "kfree": 1
+}

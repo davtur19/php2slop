@@ -1,0 +1,18 @@
+[22-Oct-2026 04:05:59] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 04:05:59] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 04:05:59] NOTICE: fpm is running, pid 1696196
+[22-Oct-2026 04:05:59] NOTICE: ready to handle connections
+[22-Oct-2026 04:06:06] WARNING: [pool lab] child 1696197 exited on signal 9 (SIGKILL) after 6.399893 seconds from start
+[22-Oct-2026 04:06:06] NOTICE: [pool lab] child 1696383 started
+[22-Oct-2026 04:06:06] WARNING: [pool lab] child 1696383 exited on signal 9 (SIGKILL) after 0.720514 seconds from start
+[22-Oct-2026 04:06:06] NOTICE: [pool lab] child 1696404 started
+[22-Oct-2026 04:06:07] WARNING: [pool lab] child 1696404 exited on signal 9 (SIGKILL) after 0.719850 seconds from start
+[22-Oct-2026 04:06:07] NOTICE: [pool lab] child 1696428 started
+[22-Oct-2026 04:06:08] WARNING: [pool lab] child 1696428 exited on signal 9 (SIGKILL) after 0.719850 seconds from start
+[22-Oct-2026 04:06:08] NOTICE: [pool lab] child 1696446 started
+[22-Oct-2026 04:06:17] WARNING: [pool lab] child 1696446 exited on signal 9 (SIGKILL) after 9.337076 seconds from start
+[22-Oct-2026 04:06:17] NOTICE: [pool lab] child 1696645 started
+[22-Oct-2026 04:06:23] WARNING: [pool lab] child 1696645 exited on signal 9 (SIGKILL) after 5.658343 seconds from start
+[22-Oct-2026 04:06:23] NOTICE: [pool lab] child 1696800 started
+[22-Oct-2026 04:37:23] NOTICE: Terminating ...
+[22-Oct-2026 04:37:23] NOTICE: exiting, bye-bye!

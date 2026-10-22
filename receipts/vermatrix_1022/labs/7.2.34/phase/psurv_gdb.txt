@@ -1,0 +1,26 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Breakpoint 1 at 0x4b568a: file /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/ext/session/session.c, line 248.
+DECODE n=1 len=131014 level=1 bg=0x7ffff7a5e208
+PFIELDS 0x7ffff7a5e208 0x7ffff7a78000 0x7ffff7a5e370 0x7ffff7a5e4b0 0x7ffff7a5e5f0 0x7ffff7a5e730
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000000000054b0d5 in var_tmp_var (var_hashx=var_hashx@entry=0x7fffffffc870) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/ext/standard/var_unserializer.c:144
+144	    ZVAL_UNDEF(&var_hash->data[var_hash->used_slots]);
+STOPPED rip=0x54b0d5
+#0  0x000000000054b0d5 in var_tmp_var (var_hashx=var_hashx@entry=0x7fffffffc870) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/ext/standard/var_unserializer.c:144
+#1  0x00000000004b5b8a in ps_srlzr_decode_php_binary (val=<optimized out>, vallen=<optimized out>) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/ext/session/session.c:931
+#2  0x00000000004b56aa in php_session_decode (data=<optimized out>) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/ext/session/session.c:253
+#3  0x00000000004b78e9 in php_session_initialize () at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/ext/session/session.c:458
+#4  0x00000000004b89ca in php_session_rfc1867_update (progress=progress@entry=0x7ffff7a68000, force_update=force_update@entry=0) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/ext/session/session.c:3041
+#5  0x00000000004b9138 in php_session_rfc1867_callback (event=<optimized out>, event_data=0x7fffffffcac0, extra=<optimized out>) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/ext/session/session.c:3180
+#6  0x0000000000569851 in rfc1867_post_handler (content_type_dup=<optimized out>, arg=0x7fffffffdf80) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/main/rfc1867.c:989
+#7  0x0000000000565d11 in sapi_handle_post (arg=arg@entry=0x7fffffffdf80) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/main/SAPI.c:174
+#8  0x000000000056b9fa in php_default_treat_data (arg=0, str=0x0, destArray=<optimized out>) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/main/php_variables.c:431
+#9  0x000000000056ab52 in php_auto_globals_create_post (name=0x89f020) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/main/php_variables.c:728
+#10 0x000000000059c9f5 in zend_activate_auto_globals () at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/Zend/zend_compile.c:1706
+#11 0x000000000056c21c in php_hash_environment () at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/main/php_variables.c:698
+#12 0x000000000055ce83 in php_request_startup () at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/main/main.c:1693
+#13 0x0000000000670ee6 in main (argc=<optimized out>, argv=<optimized out>) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/sapi/fpm/fpm/fpm_main.c:1904
+[Inferior 1 (process 1663076) detached]

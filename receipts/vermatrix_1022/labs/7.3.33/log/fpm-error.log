@@ -1,0 +1,32 @@
+[22-Oct-2026 04:04:33] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 04:04:33] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 04:04:33] NOTICE: fpm is running, pid 1693992
+[22-Oct-2026 04:04:33] NOTICE: ready to handle connections
+[22-Oct-2026 04:04:40] WARNING: [pool lab] child 1693993 exited on signal 9 (SIGKILL) after 7.133986 seconds from start
+[22-Oct-2026 04:04:40] NOTICE: [pool lab] child 1694169 started
+[22-Oct-2026 04:04:41] WARNING: [pool lab] child 1694169 exited on signal 9 (SIGKILL) after 0.728537 seconds from start
+[22-Oct-2026 04:04:41] NOTICE: [pool lab] child 1694221 started
+[22-Oct-2026 04:04:42] WARNING: [pool lab] child 1694221 exited on signal 9 (SIGKILL) after 0.724328 seconds from start
+[22-Oct-2026 04:04:42] NOTICE: [pool lab] child 1694272 started
+[22-Oct-2026 04:04:42] WARNING: [pool lab] child 1694272 exited on signal 9 (SIGKILL) after 0.723779 seconds from start
+[22-Oct-2026 04:04:42] NOTICE: [pool lab] child 1694313 started
+[22-Oct-2026 04:04:43] WARNING: [pool lab] child 1694313 exited on signal 9 (SIGKILL) after 0.723828 seconds from start
+[22-Oct-2026 04:04:43] NOTICE: [pool lab] child 1694333 started
+[22-Oct-2026 04:04:44] WARNING: [pool lab] child 1694333 exited on signal 9 (SIGKILL) after 0.726993 seconds from start
+[22-Oct-2026 04:04:44] NOTICE: [pool lab] child 1694375 started
+[22-Oct-2026 04:04:50] NOTICE: Terminating ...
+[22-Oct-2026 04:04:50] NOTICE: exiting, bye-bye!
+[22-Oct-2026 04:04:50] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 04:04:50] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 04:04:50] NOTICE: fpm is running, pid 1694537
+[22-Oct-2026 04:04:50] NOTICE: ready to handle connections
+[22-Oct-2026 04:04:52] WARNING: [pool lab] child 1694538 exited on signal 9 (SIGKILL) after 1.481871 seconds from start
+[22-Oct-2026 04:04:52] NOTICE: [pool lab] child 1694612 started
+[22-Oct-2026 04:04:53] WARNING: [pool lab] child 1694612 exited on signal 9 (SIGKILL) after 0.718270 seconds from start
+[22-Oct-2026 04:04:53] NOTICE: [pool lab] child 1694658 started
+[22-Oct-2026 04:05:04] WARNING: [pool lab] child 1694658 exited on signal 9 (SIGKILL) after 11.397682 seconds from start
+[22-Oct-2026 04:05:04] NOTICE: [pool lab] child 1694984 started
+[22-Oct-2026 04:05:09] WARNING: [pool lab] child 1694984 exited on signal 9 (SIGKILL) after 5.164865 seconds from start
+[22-Oct-2026 04:05:09] NOTICE: [pool lab] child 1695119 started
+[22-Oct-2026 04:37:23] NOTICE: Terminating ...
+[22-Oct-2026 04:37:23] NOTICE: exiting, bye-bye!

@@ -1,0 +1,1569 @@
+/bin/bash /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/libtool --silent --preserve-dup-deps --tag=CC --mode=compile cc -std=gnu23 -Iext/date/ -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/ -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/include -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/main -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35 -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/TSRM -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend  -D_GNU_SOURCE  -fno-common -Wstrict-prototypes -Wformat-truncation -Wlogical-op -Wduplicated-cond -Wno-clobbered -Wall -Wextra -Wno-strict-aliasing -Wno-unused-parameter -Wno-sign-compare -g -O1 -fno-omit-frame-pointer -fno-pie -DCOOKIE_SEEKER_USES_OFF64_T=1 -ffp-contract=off -fvisibility=hidden -Wimplicit-fallthrough=1 -DZEND_SIGNALS    -Wno-implicit-fallthrough -Iext/date/lib -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1 -DHAVE_TIMELIB_CONFIG_H=1 -c /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c -o ext/date/php_date.lo  -MMD -MF ext/date/php_date.dep -MT ext/date/php_date.lo
+/bin/bash /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/libtool --silent --preserve-dup-deps --tag=CC --mode=compile cc -std=gnu23 -Iext/date/ -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/ -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/include -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/main -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35 -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/TSRM -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend  -D_GNU_SOURCE  -fno-common -Wstrict-prototypes -Wformat-truncation -Wlogical-op -Wduplicated-cond -Wno-clobbered -Wall -Wextra -Wno-strict-aliasing -Wno-unused-parameter -Wno-sign-compare -g -O1 -fno-omit-frame-pointer -fno-pie -DCOOKIE_SEEKER_USES_OFF64_T=1 -ffp-contract=off -fvisibility=hidden -Wimplicit-fallthrough=1 -DZEND_SIGNALS    -Wno-implicit-fallthrough -Iext/date/lib -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1 -DHAVE_TIMELIB_CONFIG_H=1 -c /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/astro.c -o ext/date/lib/astro.lo  -MMD -MF ext/date/lib/astro.dep -MT ext/date/lib/astro.lo
+/bin/bash /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/libtool --silent --preserve-dup-deps --tag=CC --mode=compile cc -std=gnu23 -Iext/date/ -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/ -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/include -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/main -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35 -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/TSRM -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend  -D_GNU_SOURCE  -fno-common -Wstrict-prototypes -Wformat-truncation -Wlogical-op -Wduplicated-cond -Wno-clobbered -Wall -Wextra -Wno-strict-aliasing -Wno-unused-parameter -Wno-sign-compare -g -O1 -fno-omit-frame-pointer -fno-pie -DCOOKIE_SEEKER_USES_OFF64_T=1 -ffp-contract=off -fvisibility=hidden -Wimplicit-fallthrough=1 -DZEND_SIGNALS    -Wno-implicit-fallthrough -Iext/date/lib -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1 -DHAVE_TIMELIB_CONFIG_H=1 -c /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/dow.c -o ext/date/lib/dow.lo  -MMD -MF ext/date/lib/dow.dep -MT ext/date/lib/dow.lo
+/bin/bash /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/libtool --silent --preserve-dup-deps --tag=CC --mode=compile cc -std=gnu23 -Iext/date/ -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/ -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/include -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/main -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35 -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/TSRM -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend  -D_GNU_SOURCE  -fno-common -Wstrict-prototypes -Wformat-truncation -Wlogical-op -Wduplicated-cond -Wno-clobbered -Wall -Wextra -Wno-strict-aliasing -Wno-unused-parameter -Wno-sign-compare -g -O1 -fno-omit-frame-pointer -fno-pie -DCOOKIE_SEEKER_USES_OFF64_T=1 -ffp-contract=off -fvisibility=hidden -Wimplicit-fallthrough=1 -DZEND_SIGNALS    -Wno-implicit-fallthrough -Iext/date/lib -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1 -DHAVE_TIMELIB_CONFIG_H=1 -c /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/parse_date.c -o ext/date/lib/parse_date.lo  -MMD -MF ext/date/lib/parse_date.dep -MT ext/date/lib/parse_date.lo
+/bin/bash /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/libtool --silent --preserve-dup-deps --tag=CC --mode=compile cc -std=gnu23 -Iext/date/ -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/ -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/include -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/main -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35 -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/TSRM -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend  -D_GNU_SOURCE  -fno-common -Wstrict-prototypes -Wformat-truncation -Wlogical-op -Wduplicated-cond -Wno-clobbered -Wall -Wextra -Wno-strict-aliasing -Wno-unused-parameter -Wno-sign-compare -g -O1 -fno-omit-frame-pointer -fno-pie -DCOOKIE_SEEKER_USES_OFF64_T=1 -ffp-contract=off -fvisibility=hidden -Wimplicit-fallthrough=1 -DZEND_SIGNALS    -Wno-implicit-fallthrough -Iext/date/lib -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1 -DHAVE_TIMELIB_CONFIG_H=1 -c /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/parse_tz.c -o ext/date/lib/parse_tz.lo  -MMD -MF ext/date/lib/parse_tz.dep -MT ext/date/lib/parse_tz.lo
+/bin/bash /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/libtool --silent --preserve-dup-deps --tag=CC --mode=compile cc -std=gnu23 -Iext/date/ -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/ -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/include -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/main -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35 -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/TSRM -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend  -D_GNU_SOURCE  -fno-common -Wstrict-prototypes -Wformat-truncation -Wlogical-op -Wduplicated-cond -Wno-clobbered -Wall -Wextra -Wno-strict-aliasing -Wno-unused-parameter -Wno-sign-compare -g -O1 -fno-omit-frame-pointer -fno-pie -DCOOKIE_SEEKER_USES_OFF64_T=1 -ffp-contract=off -fvisibility=hidden -Wimplicit-fallthrough=1 -DZEND_SIGNALS    -Wno-implicit-fallthrough -Iext/date/lib -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1 -DHAVE_TIMELIB_CONFIG_H=1 -c /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/parse_posix.c -o ext/date/lib/parse_posix.lo  -MMD -MF ext/date/lib/parse_posix.dep -MT ext/date/lib/parse_posix.lo
+/bin/bash /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/libtool --silent --preserve-dup-deps --tag=CC --mode=compile cc -std=gnu23 -Iext/date/ -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/ -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/include -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/main -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35 -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/TSRM -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend  -D_GNU_SOURCE  -fno-common -Wstrict-prototypes -Wformat-truncation -Wlogical-op -Wduplicated-cond -Wno-clobbered -Wall -Wextra -Wno-strict-aliasing -Wno-unused-parameter -Wno-sign-compare -g -O1 -fno-omit-frame-pointer -fno-pie -DCOOKIE_SEEKER_USES_OFF64_T=1 -ffp-contract=off -fvisibility=hidden -Wimplicit-fallthrough=1 -DZEND_SIGNALS    -Wno-implicit-fallthrough -Iext/date/lib -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1 -DHAVE_TIMELIB_CONFIG_H=1 -c /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/timelib.c -o ext/date/lib/timelib.lo  -MMD -MF ext/date/lib/timelib.dep -MT ext/date/lib/timelib.lo
+/bin/bash /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/libtool --silent --preserve-dup-deps --tag=CC --mode=compile cc -std=gnu23 -Iext/date/ -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/ -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/include -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/main -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35 -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/TSRM -I/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend  -D_GNU_SOURCE  -fno-common -Wstrict-prototypes -Wformat-truncation -Wlogical-op -Wduplicated-cond -Wno-clobbered -Wall -Wextra -Wno-strict-aliasing -Wno-unused-parameter -Wno-sign-compare -g -O1 -fno-omit-frame-pointer -fno-pie -DCOOKIE_SEEKER_USES_OFF64_T=1 -ffp-contract=off -fvisibility=hidden -Wimplicit-fallthrough=1 -DZEND_SIGNALS    -Wno-implicit-fallthrough -Iext/date/lib -DZEND_ENABLE_STATIC_TSRMLS_CACHE=1 -DHAVE_TIMELIB_CONFIG_H=1 -c /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/tm2unixtime.c -o ext/date/lib/tm2unixtime.lo  -MMD -MF ext/date/lib/tm2unixtime.dep -MT ext/date/lib/tm2unixtime.lo
+In file included from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend.h:30,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/timelib_config.h:9,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/timelib.h:30,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/timelib.c:31:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:30:3: error: #error "ZEND_MM_ALIGNMENT was not defined during configure"
+   30 | # error "ZEND_MM_ALIGNMENT was not defined during configure"
+      |   ^~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_falloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:257:37: note: in definition of macro ‘fpemalloc’
+  257 |         ((persistent)?__zend_malloc(size):femalloc(size, fallible))
+      |                                     ^~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:154:53: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  154 |         zend_string *ret = (zend_string *)fpemalloc(ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(len)), persistent, fallible);
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: note: each undeclared identifier is reported only once for each function it appears in
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:257:37: note: in definition of macro ‘fpemalloc’
+  257 |         ((persistent)?__zend_malloc(size):femalloc(size, fallible))
+      |                                     ^~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:154:53: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  154 |         zend_string *ret = (zend_string *)fpemalloc(ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(len)), persistent, fallible);
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_safe_falloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:261:49: note: in definition of macro ‘safe_fpemalloc’
+  261 |         ((persistent)?_safe_malloc(nmemb, size, offset):safe_femalloc(nmemb, size, offset, fallible))
+      |                                                 ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:174:64: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  174 |         zend_string *ret = (zend_string *)safe_fpemalloc(n, m, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(l)), persistent, fallible);
+      |                                                                ^~~~~~~~~~~~~~~~~~~~
+In file included from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend.h:30,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/timelib_config.h:9,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/timelib.h:30,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/parse_tz.c:26:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:30:3: error: #error "ZEND_MM_ALIGNMENT was not defined during configure"
+   30 | # error "ZEND_MM_ALIGNMENT was not defined during configure"
+      |   ^~~~~
+In file included from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend.h:30,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/timelib_config.h:9,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/timelib.h:30,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/parse_posix.c:25:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:30:3: error: #error "ZEND_MM_ALIGNMENT was not defined during configure"
+   30 | # error "ZEND_MM_ALIGNMENT was not defined during configure"
+      |   ^~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_frealloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:264:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  264 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_falloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:257:37: note: in definition of macro ‘fpemalloc’
+  257 |         ((persistent)?__zend_malloc(size):femalloc(size, fallible))
+      |                                     ^~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:154:53: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  154 |         zend_string *ret = (zend_string *)fpemalloc(ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(len)), persistent, fallible);
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: note: each undeclared identifier is reported only once for each function it appears in
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:257:37: note: in definition of macro ‘fpemalloc’
+  257 |         ((persistent)?__zend_malloc(size):femalloc(size, fallible))
+      |                                     ^~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:154:53: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  154 |         zend_string *ret = (zend_string *)fpemalloc(ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(len)), persistent, fallible);
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_falloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:257:37: note: in definition of macro ‘fpemalloc’
+  257 |         ((persistent)?__zend_malloc(size):femalloc(size, fallible))
+      |                                     ^~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:154:53: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  154 |         zend_string *ret = (zend_string *)fpemalloc(ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(len)), persistent, fallible);
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_fextend’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:296:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  296 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: note: each undeclared identifier is reported only once for each function it appears in
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:257:37: note: in definition of macro ‘fpemalloc’
+  257 |         ((persistent)?__zend_malloc(size):femalloc(size, fallible))
+      |                                     ^~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:154:53: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  154 |         zend_string *ret = (zend_string *)fpemalloc(ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(len)), persistent, fallible);
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+In file included from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend.h:30,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/timelib_config.h:9,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/timelib.h:30,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/astro.c:29:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:30:3: error: #error "ZEND_MM_ALIGNMENT was not defined during configure"
+   30 | # error "ZEND_MM_ALIGNMENT was not defined during configure"
+      |   ^~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_safe_falloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_ftruncate’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:261:49: note: in definition of macro ‘safe_fpemalloc’
+  261 |         ((persistent)?_safe_malloc(nmemb, size, offset):safe_femalloc(nmemb, size, offset, fallible))
+      |                                                 ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:174:64: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  174 |         zend_string *ret = (zend_string *)safe_fpemalloc(n, m, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(l)), persistent, fallible);
+      |                                                                ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:328:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  328 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_safe_falloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:261:49: note: in definition of macro ‘safe_fpemalloc’
+  261 |         ((persistent)?_safe_malloc(nmemb, size, offset):safe_femalloc(nmemb, size, offset, fallible))
+      |                                                 ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:174:64: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  174 |         zend_string *ret = (zend_string *)safe_fpemalloc(n, m, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(l)), persistent, fallible);
+      |                                                                ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_safe_frealloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:359:71: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  359 |                         ret = (zend_string *)safe_fperealloc(s, n, m, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(l)), persistent, fallible);
+      |                                                                       ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_frealloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:264:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  264 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_frealloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:264:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  264 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_falloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:257:37: note: in definition of macro ‘fpemalloc’
+  257 |         ((persistent)?__zend_malloc(size):femalloc(size, fallible))
+      |                                     ^~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:154:53: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  154 |         zend_string *ret = (zend_string *)fpemalloc(ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(len)), persistent, fallible);
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: note: each undeclared identifier is reported only once for each function it appears in
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:257:37: note: in definition of macro ‘fpemalloc’
+  257 |         ((persistent)?__zend_malloc(size):femalloc(size, fallible))
+      |                                     ^~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:154:53: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  154 |         zend_string *ret = (zend_string *)fpemalloc(ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(len)), persistent, fallible);
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_fextend’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:296:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  296 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_fextend’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:296:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  296 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_ftruncate’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:328:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  328 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_safe_falloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:261:49: note: in definition of macro ‘safe_fpemalloc’
+  261 |         ((persistent)?_safe_malloc(nmemb, size, offset):safe_femalloc(nmemb, size, offset, fallible))
+      |                                                 ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:174:64: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  174 |         zend_string *ret = (zend_string *)safe_fpemalloc(n, m, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(l)), persistent, fallible);
+      |                                                                ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_ftruncate’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:328:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  328 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_safe_frealloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:359:71: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  359 |                         ret = (zend_string *)safe_fperealloc(s, n, m, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(l)), persistent, fallible);
+      |                                                                       ^~~~~~~~~~~~~~~~~~~~
+In file included from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend.h:30,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/timelib_config.h:9,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/timelib.h:30,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/dow.c:25:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:30:3: error: #error "ZEND_MM_ALIGNMENT was not defined during configure"
+   30 | # error "ZEND_MM_ALIGNMENT was not defined during configure"
+      |   ^~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_frealloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:264:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  264 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_safe_frealloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:359:71: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  359 |                         ret = (zend_string *)safe_fperealloc(s, n, m, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(l)), persistent, fallible);
+      |                                                                       ^~~~~~~~~~~~~~~~~~~~
+In file included from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend.h:30,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/main/php.h:31,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:17:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:30:3: error: #error "ZEND_MM_ALIGNMENT was not defined during configure"
+   30 | # error "ZEND_MM_ALIGNMENT was not defined during configure"
+      |   ^~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_fextend’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:296:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  296 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+In file included from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend.h:30,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/timelib_config.h:9,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/timelib.h:30,
+                 from ext/date/lib/parse_date.re:26:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:30:3: error: #error "ZEND_MM_ALIGNMENT was not defined during configure"
+   30 | # error "ZEND_MM_ALIGNMENT was not defined during configure"
+      |   ^~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_falloc’:
+In file included from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend.h:30,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/timelib_config.h:9,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/timelib.h:30,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/lib/tm2unixtime.c:25:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:30:3: error: #error "ZEND_MM_ALIGNMENT was not defined during configure"
+   30 | # error "ZEND_MM_ALIGNMENT was not defined during configure"
+      |   ^~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:257:37: note: in definition of macro ‘fpemalloc’
+  257 |         ((persistent)?__zend_malloc(size):femalloc(size, fallible))
+      |                                     ^~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:154:53: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  154 |         zend_string *ret = (zend_string *)fpemalloc(ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(len)), persistent, fallible);
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: note: each undeclared identifier is reported only once for each function it appears in
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:257:37: note: in definition of macro ‘fpemalloc’
+  257 |         ((persistent)?__zend_malloc(size):femalloc(size, fallible))
+      |                                     ^~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:154:53: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  154 |         zend_string *ret = (zend_string *)fpemalloc(ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(len)), persistent, fallible);
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_ftruncate’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:328:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  328 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_falloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:257:37: note: in definition of macro ‘fpemalloc’
+  257 |         ((persistent)?__zend_malloc(size):femalloc(size, fallible))
+      |                                     ^~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:154:53: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  154 |         zend_string *ret = (zend_string *)fpemalloc(ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(len)), persistent, fallible);
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_safe_frealloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: note: each undeclared identifier is reported only once for each function it appears in
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:257:37: note: in definition of macro ‘fpemalloc’
+  257 |         ((persistent)?__zend_malloc(size):femalloc(size, fallible))
+      |                                     ^~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:154:53: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  154 |         zend_string *ret = (zend_string *)fpemalloc(ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(len)), persistent, fallible);
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:359:71: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  359 |                         ret = (zend_string *)safe_fperealloc(s, n, m, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(l)), persistent, fallible);
+      |                                                                       ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_safe_falloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:261:49: note: in definition of macro ‘safe_fpemalloc’
+  261 |         ((persistent)?_safe_malloc(nmemb, size, offset):safe_femalloc(nmemb, size, offset, fallible))
+      |                                                 ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:174:64: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  174 |         zend_string *ret = (zend_string *)safe_fpemalloc(n, m, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(l)), persistent, fallible);
+      |                                                                ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_falloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:257:37: note: in definition of macro ‘fpemalloc’
+  257 |         ((persistent)?__zend_malloc(size):femalloc(size, fallible))
+      |                                     ^~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:154:53: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  154 |         zend_string *ret = (zend_string *)fpemalloc(ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(len)), persistent, fallible);
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: note: each undeclared identifier is reported only once for each function it appears in
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:257:37: note: in definition of macro ‘fpemalloc’
+  257 |         ((persistent)?__zend_malloc(size):femalloc(size, fallible))
+      |                                     ^~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:154:53: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  154 |         zend_string *ret = (zend_string *)fpemalloc(ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(len)), persistent, fallible);
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_falloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:257:37: note: in definition of macro ‘fpemalloc’
+  257 |         ((persistent)?__zend_malloc(size):femalloc(size, fallible))
+      |                                     ^~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:154:53: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  154 |         zend_string *ret = (zend_string *)fpemalloc(ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(len)), persistent, fallible);
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: note: each undeclared identifier is reported only once for each function it appears in
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:257:37: note: in definition of macro ‘fpemalloc’
+  257 |         ((persistent)?__zend_malloc(size):femalloc(size, fallible))
+      |                                     ^~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:154:53: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  154 |         zend_string *ret = (zend_string *)fpemalloc(ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(len)), persistent, fallible);
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_safe_falloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_frealloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:261:49: note: in definition of macro ‘safe_fpemalloc’
+  261 |         ((persistent)?_safe_malloc(nmemb, size, offset):safe_femalloc(nmemb, size, offset, fallible))
+      |                                                 ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:174:64: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  174 |         zend_string *ret = (zend_string *)safe_fpemalloc(n, m, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(l)), persistent, fallible);
+      |                                                                ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:264:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  264 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_safe_falloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:261:49: note: in definition of macro ‘safe_fpemalloc’
+  261 |         ((persistent)?_safe_malloc(nmemb, size, offset):safe_femalloc(nmemb, size, offset, fallible))
+      |                                                 ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:174:64: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  174 |         zend_string *ret = (zend_string *)safe_fpemalloc(n, m, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(l)), persistent, fallible);
+      |                                                                ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_safe_falloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:261:49: note: in definition of macro ‘safe_fpemalloc’
+  261 |         ((persistent)?_safe_malloc(nmemb, size, offset):safe_femalloc(nmemb, size, offset, fallible))
+      |                                                 ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:174:64: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  174 |         zend_string *ret = (zend_string *)safe_fpemalloc(n, m, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(l)), persistent, fallible);
+      |                                                                ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_fextend’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:296:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  296 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_frealloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:264:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  264 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_frealloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:264:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  264 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_frealloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:264:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  264 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_ftruncate’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:328:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  328 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_fextend’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:296:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  296 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_fextend’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:296:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  296 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_fextend’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:296:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  296 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_safe_frealloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:359:71: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  359 |                         ret = (zend_string *)safe_fperealloc(s, n, m, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(l)), persistent, fallible);
+      |                                                                       ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_ftruncate’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:328:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  328 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_ftruncate’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:328:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  328 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_ftruncate’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:328:73: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  328 |                         ret = (zend_string *)safe_fperealloc(s, 1, len, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(0)), persistent, fallible);
+      |                                                                         ^~~~~~~~~~~~~~~~~~~~
+make: *** [Makefile:659: ext/date/lib/timelib.lo] Error 1
+make: *** Waiting for unfinished jobs....
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_safe_frealloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:359:71: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  359 |                         ret = (zend_string *)safe_fperealloc(s, n, m, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(l)), persistent, fallible);
+      |                                                                       ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_safe_frealloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h: In function ‘zend_string_safe_frealloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:359:71: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  359 |                         ret = (zend_string *)safe_fperealloc(s, n, m, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(l)), persistent, fallible);
+      |                                                                       ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:263:55: note: in definition of macro ‘safe_fperealloc’
+  263 |         ((persistent)?_safe_realloc(ptr, nmemb, size, offset):safe_ferealloc(ptr, nmemb, size, offset, fallible))
+      |                                                       ^~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_string.h:359:71: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  359 |                         ret = (zend_string *)safe_fperealloc(s, n, m, ZEND_MM_ALIGNED_SIZE(_ZSTR_STRUCT_SIZE(l)), persistent, fallible);
+      |                                                                       ^~~~~~~~~~~~~~~~~~~~
+make: *** [Makefile:656: ext/date/lib/parse_posix.lo] Error 1
+make: *** [Makefile:644: ext/date/lib/astro.lo] Error 1
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_arena.h: In function ‘zend_arena_create’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_arena.h:38:38: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+   38 |         arena->ptr = (char*) arena + ZEND_MM_ALIGNED_SIZE(sizeof(zend_arena));
+      |                                      ^~~~~~~~~~~~~~~~~~~~
+make: *** [Makefile:647: ext/date/lib/dow.lo] Error 1
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_arena.h: In function ‘zend_arena_alloc’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_arena.h:58:16: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+   58 |         size = ZEND_MM_ALIGNED_SIZE(size);
+      |                ^~~~~~~~~~~~~~~~~~~~
+make: *** [Makefile:662: ext/date/lib/tm2unixtime.lo] Error 1
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_execute.h: In function ‘zend_vm_stack_new_page’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_execute.h:187:11: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  187 |         ((ZEND_MM_ALIGNED_SIZE(sizeof(struct _zend_vm_stack)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval)))
+      |           ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_execute.h:190:29: note: in expansion of macro ‘ZEND_VM_STACK_HEADER_SLOTS’
+  190 |         (((zval*)(stack)) + ZEND_VM_STACK_HEADER_SLOTS)
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_execute.h:215:21: note: in expansion of macro ‘ZEND_VM_STACK_ELEMENTS’
+  215 |         page->top = ZEND_VM_STACK_ELEMENTS(page);
+      |                     ^~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_execute.h: In function ‘zend_vm_calc_used_stack’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_execute.h:250:31: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  250 |         uint32_t used_stack = ZEND_CALL_FRAME_SLOT + num_args + func->common.T;
+      |                               ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_execute.h: In function ‘zend_vm_stack_free_extra_args_ex’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_execute.h:270:27: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  270 |                 zval *p = ZEND_CALL_VAR_NUM(call, call->func->op_array.last_var + call->func->op_array.T);
+      |                           ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_execute.h: In function ‘zend_vm_stack_free_args’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_execute.h:288:27: note: in expansion of macro ‘ZEND_CALL_ARG’
+  288 |                 zval *p = ZEND_CALL_ARG(call, 1);
+      |                           ^~~~~~~~~~~~~
+In file included from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_types.h:25,
+                 from /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend.h:27:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_execute.h: In function ‘zend_vm_stack_free_call_frame_ex’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_portability.h:94:40: note: in definition of macro ‘ZEND_ASSUME’
+   94 |                 if (__builtin_expect(!(c), 0)) __builtin_unreachable(); \
+      |                                        ^
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_execute.h:305:17: note: in expansion of macro ‘ZEND_ASSERT’
+  305 |                 ZEND_ASSERT(call == (zend_execute_data*)ZEND_VM_STACK_ELEMENTS(EG(vm_stack)));
+      |                 ^~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_execute.h:187:11: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  187 |         ((ZEND_MM_ALIGNED_SIZE(sizeof(struct _zend_vm_stack)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval)))
+      |           ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_execute.h:190:29: note: in expansion of macro ‘ZEND_VM_STACK_HEADER_SLOTS’
+  190 |         (((zval*)(stack)) + ZEND_VM_STACK_HEADER_SLOTS)
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_execute.h:305:57: note: in expansion of macro ‘ZEND_VM_STACK_ELEMENTS’
+  305 |                 ZEND_ASSERT(call == (zend_execute_data*)ZEND_VM_STACK_ELEMENTS(EG(vm_stack)));
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘php_date’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:836:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+  836 |         ZEND_PARSE_PARAMETERS_START(1, 2)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_idate’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:995:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+  995 |         ZEND_PARSE_PARAMETERS_START(1, 2)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_strtotime’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:1067:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 1067 |         ZEND_PARSE_PARAMETERS_START(1, 2)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘php_mktime’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:1125:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 1125 |         ZEND_PARSE_PARAMETERS_START(1, 6)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_checkdate’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:1218:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 1218 |         ZEND_PARSE_PARAMETERS_START(3, 3)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘php_strftime’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:1245:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 1245 |         ZEND_PARSE_PARAMETERS_START(1, 2)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_localtime’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:1365:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 1365 |         ZEND_PARSE_PARAMETERS_START(0, 2)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_getdate’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:1420:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 1420 |         ZEND_PARSE_PARAMETERS_START(0, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_date_create’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:2488:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 2488 |         ZEND_PARSE_PARAMETERS_START(0, 2)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_date_create_immutable’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:2509:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 2509 |         ZEND_PARSE_PARAMETERS_START(0, 2)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_date_create_from_format’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:2530:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 2530 |         ZEND_PARSE_PARAMETERS_START(2, 3)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_date_create_immutable_from_format’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:2552:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 2552 |         ZEND_PARSE_PARAMETERS_START(2, 3)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DateTime___construct’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:2574:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 2574 |         ZEND_PARSE_PARAMETERS_START(0, 2)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DateTimeImmutable___construct’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:2591:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 2591 |         ZEND_PARSE_PARAMETERS_START(0, 2)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DateTime_createFromImmutable’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:2608:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 2608 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DateTime_createFromInterface’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:2629:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 2629 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DateTimeImmutable_createFromMutable’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:2650:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 2650 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DateTimeImmutable_createFromInterface’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:2671:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 2671 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DateTime___set_state’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:2749:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 2749 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DateTimeImmutable___set_state’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:2771:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 2771 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DateTime___unserialize’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:2859:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 2859 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DateTimeImmutable___unserialize’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:2883:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 2883 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_date_parse’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:3055:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 3055 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_date_parse_from_format’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:3071:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 3071 |         ZEND_PARSE_PARAMETERS_START(2, 2)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Makefile:650: ext/date/lib/parse_date.lo] Error 1
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_timezone_open’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:3755:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 3755 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DateTimeZone___construct’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:3774:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 3774 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DateTimeZone___set_state’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:3815:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 3815 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DateTimeZone___unserialize’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:3902:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 3902 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_timezone_name_from_abbr’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:3941:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 3941 |         ZEND_PARSE_PARAMETERS_START(1, 3)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DateInterval___construct’:
+make: *** [Makefile:653: ext/date/lib/parse_tz.lo] Error 1
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:4317:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 4317 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DateInterval___set_state’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:4458:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 4458 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DateInterval___unserialize’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:4532:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 4532 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_date_interval_create_from_date_string’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:4569:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 4569 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_timezone_identifiers_list’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:4968:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 4968 |         ZEND_PARSE_PARAMETERS_START(0, 2)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_date_default_timezone_set’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:5051:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 5051 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘php_do_date_sunrise_sunset’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:5097:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 5097 |         ZEND_PARSE_PARAMETERS_START(1, 6)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zif_date_sun_info’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:5207:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 5207 |         ZEND_PARSE_PARAMETERS_START(3, 3)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DatePeriod___set_state’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:5477:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 5477 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c: In function ‘zim_DatePeriod___unserialize’:
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_alloc.h:35:52: error: ‘ZEND_MM_ALIGNMENT’ undeclared (first use in this function); did you mean ‘ZEND_MM_ALIGNMENT_MASK’?
+   35 | #define ZEND_MM_ALIGNED_SIZE(size)      (((size) + ZEND_MM_ALIGNMENT - 1) & ZEND_MM_ALIGNMENT_MASK)
+      |                                                    ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:610:17: note: in expansion of macro ‘ZEND_MM_ALIGNED_SIZE’
+  610 |         ((int)((ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data)) + ZEND_MM_ALIGNED_SIZE(sizeof(zval)) - 1) / ZEND_MM_ALIGNED_SIZE(sizeof(zval))))
+      |                 ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:616:29: note: in expansion of macro ‘ZEND_CALL_FRAME_SLOT’
+  616 |         (((zval*)(call)) + (ZEND_CALL_FRAME_SLOT + ((int)(n))))
+      |                             ^~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_compile.h:619:9: note: in expansion of macro ‘ZEND_CALL_VAR_NUM’
+  619 |         ZEND_CALL_VAR_NUM(call, ((int)(n)) - 1)
+      |         ^~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1561:37: note: in expansion of macro ‘ZEND_CALL_ARG’
+ 1561 |                         _real_arg = ZEND_CALL_ARG(execute_data, 0);
+      |                                     ^~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/Zend/zend_API.h:1564:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START_EX’
+ 1564 |         ZEND_PARSE_PARAMETERS_START_EX(0, min_num_args, max_num_args)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/date/php_date.c:5554:9: note: in expansion of macro ‘ZEND_PARSE_PARAMETERS_START’
+ 5554 |         ZEND_PARSE_PARAMETERS_START(1, 1)
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+make: *** [Makefile:641: ext/date/php_date.lo] Error 1

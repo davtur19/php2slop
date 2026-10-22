@@ -1,0 +1,130 @@
+[22-Oct-2026 02:51:07] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:51:07] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:51:07] NOTICE: fpm is running, pid 948822
+[22-Oct-2026 02:51:07] NOTICE: ready to handle connections
+[22-Oct-2026 02:51:15] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:51:15] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:51:15] ERROR: unable to bind listening socket for address '127.0.0.1:28900': Address already in use (98)
+[22-Oct-2026 02:51:15] ERROR: FPM initialization failed
+[22-Oct-2026 02:51:37] NOTICE: Terminating ...
+[22-Oct-2026 02:51:37] NOTICE: exiting, bye-bye!
+[22-Oct-2026 02:51:37] ERROR: Unable to remove the PID file (/tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.0.33/run/php-fpm.pid).: No such file or directory (2)
+[22-Oct-2026 02:51:47] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:51:47] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:51:47] NOTICE: fpm is running, pid 949516
+[22-Oct-2026 02:51:47] NOTICE: ready to handle connections
+[22-Oct-2026 02:55:14] NOTICE: Terminating ...
+[22-Oct-2026 02:55:14] NOTICE: exiting, bye-bye!
+[22-Oct-2026 02:55:14] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:55:14] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:55:14] NOTICE: fpm is running, pid 953222
+[22-Oct-2026 02:55:14] NOTICE: ready to handle connections
+[22-Oct-2026 02:56:05] NOTICE: Terminating ...
+[22-Oct-2026 02:56:05] NOTICE: exiting, bye-bye!
+[22-Oct-2026 02:56:06] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:56:06] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:56:06] NOTICE: fpm is running, pid 954218
+[22-Oct-2026 02:56:06] NOTICE: ready to handle connections
+[22-Oct-2026 02:57:22] NOTICE: Terminating ...
+[22-Oct-2026 02:57:22] NOTICE: exiting, bye-bye!
+[22-Oct-2026 02:57:23] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:57:23] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 02:57:23] NOTICE: fpm is running, pid 955416
+[22-Oct-2026 02:57:23] NOTICE: ready to handle connections
+[22-Oct-2026 03:01:35] NOTICE: Terminating ...
+[22-Oct-2026 03:01:35] NOTICE: exiting, bye-bye!
+[22-Oct-2026 03:01:36] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:01:36] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:01:36] NOTICE: fpm is running, pid 959914
+[22-Oct-2026 03:01:36] NOTICE: ready to handle connections
+[22-Oct-2026 03:03:57] WARNING: [pool lab] child 959915 exited on signal 11 (SIGSEGV) after 140.812450 seconds from start
+[22-Oct-2026 03:03:57] NOTICE: [pool lab] child 962685 started
+[22-Oct-2026 03:04:07] NOTICE: Terminating ...
+[22-Oct-2026 03:04:07] NOTICE: exiting, bye-bye!
+[22-Oct-2026 03:04:07] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:04:07] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:04:07] NOTICE: fpm is running, pid 962902
+[22-Oct-2026 03:04:07] NOTICE: ready to handle connections
+[22-Oct-2026 03:04:10] WARNING: [pool lab] child 962903 exited with code 70 after 2.966754 seconds from start
+[22-Oct-2026 03:04:10] NOTICE: [pool lab] child 962955 started
+[22-Oct-2026 03:04:35] NOTICE: Terminating ...
+[22-Oct-2026 03:04:35] NOTICE: exiting, bye-bye!
+[22-Oct-2026 03:04:35] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:04:35] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:04:35] NOTICE: fpm is running, pid 963415
+[22-Oct-2026 03:04:35] NOTICE: ready to handle connections
+[22-Oct-2026 03:04:38] WARNING: [pool lab] child 963416 exited with code 70 after 2.571838 seconds from start
+[22-Oct-2026 03:04:38] NOTICE: [pool lab] child 963540 started
+[22-Oct-2026 03:06:08] NOTICE: Terminating ...
+[22-Oct-2026 03:06:08] NOTICE: exiting, bye-bye!
+[22-Oct-2026 03:06:09] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:06:09] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:06:09] NOTICE: fpm is running, pid 965302
+[22-Oct-2026 03:06:09] NOTICE: ready to handle connections
+[22-Oct-2026 03:06:23] NOTICE: Terminating ...
+[22-Oct-2026 03:06:23] NOTICE: exiting, bye-bye!
+[22-Oct-2026 03:06:24] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:06:24] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:06:24] NOTICE: fpm is running, pid 966068
+[22-Oct-2026 03:06:24] NOTICE: ready to handle connections
+[22-Oct-2026 03:06:26] WARNING: [pool lab] child 966069 exited on signal 9 (SIGKILL) after 1.898626 seconds from start
+[22-Oct-2026 03:06:26] NOTICE: [pool lab] child 966180 started
+[22-Oct-2026 03:08:27] NOTICE: Terminating ...
+[22-Oct-2026 03:08:27] NOTICE: exiting, bye-bye!
+[22-Oct-2026 03:08:27] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:08:27] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:08:27] NOTICE: fpm is running, pid 968346
+[22-Oct-2026 03:08:27] NOTICE: ready to handle connections
+[22-Oct-2026 03:08:52] NOTICE: Terminating ...
+[22-Oct-2026 03:08:52] NOTICE: exiting, bye-bye!
+[22-Oct-2026 03:08:53] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:08:53] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:08:53] NOTICE: fpm is running, pid 968796
+[22-Oct-2026 03:08:53] NOTICE: ready to handle connections
+[22-Oct-2026 03:08:54] WARNING: [pool lab] child 968797 exited with code 70 after 1.888754 seconds from start
+[22-Oct-2026 03:08:54] NOTICE: [pool lab] child 968901 started
+[22-Oct-2026 03:09:48] NOTICE: Terminating ...
+[22-Oct-2026 03:09:48] NOTICE: exiting, bye-bye!
+[22-Oct-2026 03:09:48] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:09:48] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:09:48] NOTICE: fpm is running, pid 984958
+[22-Oct-2026 03:09:48] NOTICE: ready to handle connections
+[22-Oct-2026 03:09:51] WARNING: [pool lab] child 984959 exited with code 70 after 2.991840 seconds from start
+[22-Oct-2026 03:09:51] NOTICE: [pool lab] child 985017 started
+[22-Oct-2026 03:14:15] WARNING: [pool lab] child 985017 said into stderr: "zend_mm_heap corrupted"
+[22-Oct-2026 03:14:15] WARNING: [pool lab] child 985017 exited with code 1 after 263.304441 seconds from start
+[22-Oct-2026 03:14:15] NOTICE: [pool lab] child 1101764 started
+[22-Oct-2026 03:15:34] WARNING: [pool lab] child 1101764 said into stderr: "zend_mm_heap corrupted"
+[22-Oct-2026 03:15:34] WARNING: [pool lab] child 1101764 exited with code 1 after 79.491328 seconds from start
+[22-Oct-2026 03:15:34] NOTICE: [pool lab] child 1195817 started
+[22-Oct-2026 03:15:45] WARNING: [pool lab] child 1195817 said into stderr: "zend_mm_heap corrupted"
+[22-Oct-2026 03:15:45] WARNING: [pool lab] child 1195817 exited with code 1 after 10.929887 seconds from start
+[22-Oct-2026 03:15:45] NOTICE: [pool lab] child 1196924 started
+[22-Oct-2026 03:16:22] WARNING: [pool lab] child 1196924 exited on signal 11 (SIGSEGV) after 37.135205 seconds from start
+[22-Oct-2026 03:16:22] NOTICE: [pool lab] child 1197535 started
+[22-Oct-2026 03:21:21] NOTICE: Terminating ...
+[22-Oct-2026 03:21:21] NOTICE: exiting, bye-bye!
+[22-Oct-2026 03:21:23] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:21:23] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:21:23] NOTICE: fpm is running, pid 1277492
+[22-Oct-2026 03:21:23] NOTICE: ready to handle connections
+[22-Oct-2026 03:21:25] WARNING: [pool lab] child 1277493 exited with code 70 after 2.290619 seconds from start
+[22-Oct-2026 03:21:25] NOTICE: [pool lab] child 1277656 started
+[22-Oct-2026 03:23:44] NOTICE: Terminating ...
+[22-Oct-2026 03:23:44] NOTICE: exiting, bye-bye!
+[22-Oct-2026 03:23:44] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:23:44] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 03:23:44] NOTICE: fpm is running, pid 1297850
+[22-Oct-2026 03:23:44] NOTICE: ready to handle connections
+[22-Oct-2026 03:23:46] WARNING: [pool lab] child 1297851 exited with code 70 after 2.302080 seconds from start
+[22-Oct-2026 03:23:46] NOTICE: [pool lab] child 1297991 started
+[22-Oct-2026 04:14:08] NOTICE: Terminating ...
+[22-Oct-2026 04:14:08] NOTICE: exiting, bye-bye!
+[22-Oct-2026 04:14:09] NOTICE: [pool lab] 'user' directive is ignored when FPM is not running as root
+[22-Oct-2026 04:14:09] NOTICE: [pool lab] 'group' directive is ignored when FPM is not running as root
+[22-Oct-2026 04:14:09] NOTICE: fpm is running, pid 1708940
+[22-Oct-2026 04:14:09] NOTICE: ready to handle connections
+[22-Oct-2026 04:14:10] WARNING: [pool lab] child 1708941 exited on signal 9 (SIGKILL) after 1.467830 seconds from start
+[22-Oct-2026 04:14:10] NOTICE: [pool lab] child 1708976 started
+[22-Oct-2026 04:37:23] NOTICE: Terminating ...
+[22-Oct-2026 04:37:23] NOTICE: exiting, bye-bye!

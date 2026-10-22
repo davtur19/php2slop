@@ -1,0 +1,10 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Breakpoint 1 at 0x6f78a8: file /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/session/session.c, line 258.
+Breakpoint 2 at 0x6faab2: file /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-8.2.35/ext/session/session.c, line 1641.
+DECODE hit=1 data=0x7ffff7a6b000 val=0x7ffff7a6b018 len=131014 level=0 bgdata=(nil) ser2decode=0x6f7df8
+FLUSH n=1 ser2=0x6f7df8
+DECODE hit=2 data=0x7ffff7a95000 val=0x7ffff7a95018 len=131014 level=0 bgdata=(nil) ser2decode=0x6f7df8
+FLUSH n=2 ser2=0x6f7df8
+[Inferior 1 (process 1698068) detached]

@@ -1,0 +1,15 @@
+{
+ "n": 7,
+ "kind": "probe",
+ "label": "liveness",
+ "script": "probe.php",
+ "body_len": 0,
+ "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+ "ctype": "application/x-www-form-urlencoded",
+ "cookie": null,
+ "elapsed": 0.0005,
+ "status": "X-Powered-By: PHP/7.1.33",
+ "error": null,
+ "stdout": "X-Powered-By: PHP/7.1.33\r\nContent-type: text/html; charset=UTF-8\r\n\r\nPID=1419900\n",
+ "stderr": ""
+}

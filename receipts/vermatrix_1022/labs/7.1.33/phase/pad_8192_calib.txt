@@ -1,0 +1,9 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Breakpoint 1 at 0x4af766: file /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/ext/session/session.c, line 241.
+Breakpoint 2 at 0x5394fa: file /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.1.33/ext/standard/var_unserializer.c, line 122.
+DECODE hit=1 data=0x7ffff7a69000 val=0x7ffff7a69018 len=131014 level=1 ser2=0x4b0088
+VT n=1 P=0x7ffff7a55118 ld=0x5 used=/tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.1.33/gdb/watch2.gdb:26: Error in sourced command file:
+Cannot access memory at address 0x4005
+[Inferior 1 (process 1419900) detached]

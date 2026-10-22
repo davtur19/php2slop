@@ -1,0 +1,36 @@
+{
+ "version": "8.2.35",
+ "port": 28905,
+ "A": "0xe01260",
+ "zif_passthru": "0x746b20",
+ "target_kind": "zif",
+ "X1": "0x7ffff7a6b000",
+ "X2": "0x7ffff7a8f000",
+ "P": "0x7ffff7a76000",
+ "B0": "0x7ffff7a79000",
+ "p_last": "0x7ffff7a76040",
+ "K": -8796083353563,
+ "F": "0x7ffff7a8f18f",
+ "target": "0x746b20",
+ "rec1_len": 107,
+ "payload_start": 119,
+ "total": 131014,
+ "final_gdb": [
+  "DECODE hit=1 data=0x7ffff7a6b000 val=0x7ffff7a6b018 len=131014 level=0 bgdata=(nil) ser2decode=0x6f7df8",
+  "FLUSH n=1 ser2=0x6f7df8",
+  "DECODE hit=2 data=0x7ffff7a95000 val=0x7ffff7a95018 len=131014 level=0 bgdata=(nil) ser2decode=0x6f7df8",
+  "FLUSH n=2 ser2=0x6f7df8"
+ ],
+ "marker": false,
+ "worker_alive": true,
+ "response_pid": 1698068,
+ "same_worker": true,
+ "master_alive": true,
+ "ser": {
+  "PSER2": "php_binary|0x6f7b60|0x6f7df8",
+  "PSER3NAME": "(nil)",
+  "PSER3ENC": "(nil)",
+  "BG_LEVEL": "0",
+  "BG_DATA": "(nil)"
+ }
+}

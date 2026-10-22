@@ -1,0 +1,8 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Breakpoint 1 at 0x4b568a: file /tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/ext/session/session.c, line 248.
+DECODE n=1 data=0x7ffff7a6e000 val=0x7ffff7a6e018 len=131014 level=1 bg=0x7ffff7a5e280
+PFIELDS 0x7ffff7a5e280 0x7ffff7ab7000 0x7ffff7a5e3e8 0x7ffff7a5e528 0x7ffff7a5e668
+DECODE n=2 data=0x7ffff7a8f000 val=0x7ffff7a8f018 len=131014 level=0 bg=(nil)
+[Inferior 1 (process 1673659) detached]

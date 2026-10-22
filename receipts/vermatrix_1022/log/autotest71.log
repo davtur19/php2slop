@@ -1,0 +1,11 @@
+master=1423267 child=1423268
+PID=1423268
+{  "n": 14,  "kind": "plant",  "label": "user_error",  "status": "X-Powered-By: PHP/7.1.33",  "error": null,  "elapsed": 0.0005,  "stdout": "X-Powered-By: PHP/7
+P=0x7ffff7a55230 B0=0x7ffff7a6a000 plast=0x7ffff7a6f000 level=1 used=3
+Traceback (most recent call last):
+  File "/tmp/opencode/research/vermatrix_20261022T004325Z/scripts/autotest71.py", line 34, in <module>
+    m = lab.build(v, 'f7133', opts)
+  File "/tmp/opencode/research/vermatrix_20261022T004325Z/scripts/lab.py", line 376, in build
+    cmd += ['--x2', hex(opts['x2']), '--cmd', opts['cmd']]
+                        ~~~~^^^^^^
+KeyError: 'x2'

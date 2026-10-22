@@ -1,0 +1,15 @@
+=== 7.0.33 00:45:06
+OK 7.0.33 md5=e2dbe259be9ded4834159faa01fc5c6f size=15627832 type=EXEC banner=PHP 7.0.33 (fpm-fcgi) (built: Oct 22 2026 02:45:26)
+=== 7.1.33 00:45:32
+OK 7.1.33 md5=a4188d663dfbcf85b1f8c0425dbd7500 size=16424384 type=EXEC banner=PHP 7.1.33 (fpm-fcgi) (built: Oct 22 2026 02:45:52)
+=== 7.2.34 00:45:59
+OK 7.2.34 md5=a0abf1001456796e77f0009fef95a80b size=17714656 type=EXEC banner=PHP 7.2.34 (fpm-fcgi) (built: Oct 22 2026 02:46:20)
+=== 7.3.33 00:46:28
+OK 7.3.33 md5=d3c963068cb7d9f4089fc2fea0ccb1d9 size=18193328 type=EXEC banner=PHP 7.3.33 (fpm-fcgi) (built: Oct 22 2026 02:46:51)
+=== 8.0.30 00:46:58
+OK 8.0.30 md5=243c04f1a297ebef06e64a926d012a99 size=23552272 type=EXEC banner=PHP 8.0.30 (fpm-fcgi) (built: Oct 22 2026 02:47:19)
+=== 8.2.35 00:47:26
+MAKE FAIL 8.2.35 rc=2
+=== 8.3.36 00:47:37
+OK 8.3.36 md5=b57aeae53156e63aaa12141e9e2f82fd size=27721160 type=EXEC banner=PHP 8.3.36 (fpm-fcgi) (built: Oct 22 2026 02:48:01)
+DONE 00:48:07

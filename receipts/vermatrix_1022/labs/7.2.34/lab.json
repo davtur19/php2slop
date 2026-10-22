@@ -1,0 +1,20 @@
+{
+ "version": "7.2.34",
+ "port": 28902,
+ "lab": "/tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.2.34",
+ "bin": "/tmp/opencode/research/vermatrix_20261022T004325Z/build/php-7.2.34/sapi/fpm/php-fpm",
+ "md5": "a0abf1001456796e77f0009fef95a80b",
+ "A": "0x847ee0",
+ "zif_system": "0x5024cf",
+ "zif_passthru": "0x5024df",
+ "target_kind": "zif",
+ "plant_payload": "a:2:{i:0;s:3:\"aaa\";i:0;C:4:\"Nope\":0:{}}",
+ "marker": "/tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.2.34/PASSTHRU_7234",
+ "key_len": 96,
+ "arg1_off": "0x50",
+ "type_off": "0x58",
+ "old_dtor": true,
+ "real_p": false,
+ "decode2": "0x4b5af0",
+ "exec_size": 80
+}

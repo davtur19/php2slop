@@ -1,0 +1,40 @@
+[global]
+pid = /tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.2.34/run/php-fpm.pid
+error_log = /tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.2.34/log/fpm-error.log
+daemonize = yes
+log_level = notice
+process_control_timeout = 5s
+
+[lab]
+listen = 127.0.0.1:28902
+user = davide
+group = davide
+pm = static
+pm.max_children = 1
+pm.max_requests = 0
+catch_workers_output = yes
+clear_env = no
+
+request_terminate_timeout = 60s
+php_admin_value[memory_limit] = 128M
+php_admin_value[precision] = 11
+php_admin_value[error_reporting] = 32767
+php_admin_value[display_errors] = 1
+php_admin_value[display_startup_errors] = 1
+php_admin_value[log_errors] = 1
+php_admin_value[error_log] = /tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.2.34/log/php-error.log
+php_admin_value[session.save_handler] = files
+php_admin_value[session.save_path] = /tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.2.34/sessions
+php_admin_value[session.serialize_handler] = php_binary
+php_admin_value[session.auto_start] = 1
+php_admin_value[session.use_strict_mode] = 0
+php_admin_value[session.use_only_cookies] = 1
+php_admin_value[session.upload_progress.enabled] = 1
+php_admin_value[session.upload_progress.cleanup] = 0
+php_admin_value[session.upload_progress.prefix] = ""
+php_admin_value[session.upload_progress.name] = PHP_SESSION_UPLOAD_PROGRESS
+php_admin_value[session.upload_progress.freq] = 1%
+php_admin_value[session.upload_progress.min_freq] = 3600
+php_admin_value[upload_max_filesize] = 64M
+php_admin_value[post_max_size] = 128M
+php_admin_value[max_file_uploads] = 20

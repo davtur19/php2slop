@@ -1,0 +1,18 @@
+{
+ "n": 39,
+ "kind": "plant",
+ "label": "user_error",
+ "script": "unser.php",
+ "body_len": 51,
+ "body_sha256": "30fad84f7dd910978f55cd7ecf5b31d3729ba668c0fbcde38c4190dbd7c2402d",
+ "ctype": "application/x-www-form-urlencoded",
+ "cookie": null,
+ "elapsed": 0.0023,
+ "status": "Set-Cookie: PHPSESSID=02264944166845186410b4c1e5899776; path=/",
+ "error": null,
+ "stdout": "Set-Cookie: PHPSESSID=02264944166845186410b4c1e5899776; path=/\r\nExpires: Thu, 19 Nov 1981 08:52:00 GMT\r\nCache-Control: no-store, no-cache, must-revalidate\r\nPragma: no-cache\r\nContent-type: text/html; charset=UTF-8\r\n\r\nPID=1684237 MODE=user_error PAD=0 PLEN=35\nAFTER type=array\n",
+ "stderr": "",
+ "payload": "a:2:{i:0;s:3:\"aaa\";i:0;s:3:\"bbb\";}X",
+ "pad": 0,
+ "shape": 0
+}

@@ -1,0 +1,17 @@
+{
+ "version": "7.2.34",
+ "shape": 80,
+ "kfree": 1,
+ "pad": 0,
+ "P": "0x7ffff7a5ee38",
+ "B0": "0x7ffff7a8e000",
+ "p_last": "0x7ffff7a93000",
+ "used": "3",
+ "worker": 1690601,
+ "alive": true,
+ "x1": "0x7ffff7a6e000",
+ "p_off": "-0xf1e0",
+ "covered": false,
+ "b0_covered": false,
+ "p_last_covered": false
+}

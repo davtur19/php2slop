@@ -1,0 +1,11 @@
+# absence of php_basic_early_rinit in the preceding patch releases
+## php-8.2.34
+  (no match in basic_functions.c or main.c)
+## php-8.3.35
+  (no match in basic_functions.c or main.c)
+
+# presence in later branches
+## /tmp/opencode/cvefetch/php-8.4.27/ext/standard/basic_functions.c
+491:PHPAPI void php_basic_early_rinit(void)
+## /tmp/opencode/phpbuild_docker_20261022T013110Z/srcbuild/php-8.5.12/ext/standard/basic_functions.c
+492:PHPAPI void php_basic_early_rinit(void)

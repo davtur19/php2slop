@@ -1,0 +1,24 @@
+master=1429526 child=1429527
+PID=1429527
+{  "n": 20,  "kind": "plant",  "label": "user_error",  "status": "X-Powered-By: PHP/7.1.33",  "error": null,  "elapsed": 0.0005,  "stdout": "X-Powered-By: PHP/7
+P=0x7ffff7a55230 B0=0x7ffff7a6a000 plast=0x7ffff7a6f000 level=1 used=3
+rec={'rec1_len': 127, 'L': 130873, 'payload_start': 139, 'K': -8796083734814}
+Traceback (most recent call last):
+  File "/tmp/opencode/research/vermatrix_20261022T004325Z/scripts/autotest71.py", line 49, in <module>
+    txt, res = lab.gdb(v, 'final_system.gdb', get, phase='auto_final.txt', timeout=90)
+               ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/opencode/research/vermatrix_20261022T004325Z/scripts/lab.py", line 142, in gdb
+    res = action()
+  File "/tmp/opencode/research/vermatrix_20261022T004325Z/scripts/autotest71.py", line 44, in get
+    return fcgi.request('trig.php', b'', None, cookie='PHPSESSID=f7133',
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        timeout=30, extra_params={'REQUEST_METHOD': 'GET',
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                                  'CONTENT_LENGTH': '0'})
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.1.33/scripts/fcgi.py", line 114, in request
+    out, err = read_records(s, t0 + timeout)
+               ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/tmp/opencode/research/vermatrix_20261022T004325Z/labs/7.1.33/scripts/fcgi.py", line 76, in read_records
+    chunk = s.recv(65536)
+ConnectionResetError: [Errno 104] Connection reset by peer

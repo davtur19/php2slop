@@ -1,0 +1,15 @@
+{
+ "n": 55,
+ "kind": "probe",
+ "label": "liveness",
+ "script": "probe.php",
+ "body_len": 0,
+ "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+ "ctype": "application/x-www-form-urlencoded",
+ "cookie": null,
+ "elapsed": 0.0005,
+ "status": "Set-Cookie: PHPSESSID=681262e5a3c44a0457aaeaa98f762274; path=/",
+ "error": null,
+ "stdout": "Set-Cookie: PHPSESSID=681262e5a3c44a0457aaeaa98f762274; path=/\r\nExpires: Thu, 19 Nov 1981 08:52:00 GMT\r\nCache-Control: no-store, no-cache, must-revalidate\r\nPragma: no-cache\r\nContent-type: text/html; charset=UTF-8\r\n\r\nPID=1687698\n",
+ "stderr": ""
+}
