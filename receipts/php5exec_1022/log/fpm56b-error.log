@@ -1,0 +1,43 @@
+[22-Oct-2026 01:56:55] NOTICE: fpm is running, pid 164972
+[22-Oct-2026 01:56:55] NOTICE: ready to handle connections
+[22-Oct-2026 01:58:53] WARNING: [pool www] child 164975 exited on signal 11 (SIGSEGV) after 118.029666 seconds from start
+[22-Oct-2026 01:58:53] NOTICE: [pool www] child 167066 started
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: upload_progress_1a:5:{s:10:start_time: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: i:1792627202: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: s:14:content_length: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: i:314: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: s:15:bytes_processed: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: i:314: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: s:4:done: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: b:0: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: s:5:files: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: a:1:{i:0: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: a:7:{s:10:field_name: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: s:4:file: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: s:4:name: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: s:4:blob: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: s:8:tmp_name: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: N: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: s:5:error: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: i:0: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: s:4:done: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: ""
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: b:0: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: s:10:start_time: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: i:1792627202: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: s:15:bytes_processed: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: i:0: not found"
+[22-Oct-2026 02:00:02] WARNING: [pool www] child 167066 said into stderr: "sh: 1: }}}p™: not found"
+[22-Oct-2026 02:02:45] WARNING: [pool www] child 167066 exited on signal 11 (SIGSEGV) after 231.751397 seconds from start
+[22-Oct-2026 02:02:45] NOTICE: [pool www] child 170397 started
+[22-Oct-2026 02:03:00] WARNING: [pool www] child 170397 exited on signal 11 (SIGSEGV) after 14.935063 seconds from start
+[22-Oct-2026 02:03:00] NOTICE: [pool www] child 170560 started
+[22-Oct-2026 02:07:57] WARNING: [pool www] child 170560 exited on signal 11 (SIGSEGV) after 297.451291 seconds from start
+[22-Oct-2026 02:07:57] NOTICE: [pool www] child 173777 started
+[22-Oct-2026 02:08:31] WARNING: [pool www] child 173777 said into stderr: "sh: 1: Syntax error: Unterminated quoted string"
+[22-Oct-2026 02:08:31] WARNING: [pool www] child 173777 exited on signal 11 (SIGSEGV) after 33.896729 seconds from start
+[22-Oct-2026 02:08:31] NOTICE: [pool www] child 174540 started
+[22-Oct-2026 02:09:27] WARNING: [pool www] child 174540 exited on signal 11 (SIGSEGV) after 55.663592 seconds from start
+[22-Oct-2026 02:09:27] NOTICE: [pool www] child 175538 started
+[22-Oct-2026 02:17:52] WARNING: [pool www] child 175538 exited on signal 9 (SIGKILL) after 504.826246 seconds from start
+[22-Oct-2026 02:17:52] NOTICE: [pool www] child 185617 started

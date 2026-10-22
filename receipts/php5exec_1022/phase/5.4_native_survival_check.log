@@ -1,0 +1,19 @@
+== 5.4 native two-record chain, ASLR-off, survival check Thu Oct 22 02:55:27 AM CEST 2026 ==
+worker:
+    PID STAT CMD
+ 589497 S    php-fpm: pool www
+marker (/tmp/p54n_v2):
+-rw-r--r-- 1 davide davide 0 2026-10-22 02:42:29.989974606 +0200 /tmp/p54n_v2
+session file sess54/sess_nat54v1 (post-run, expected 0 bytes):
+-rw-r--r-- 1 davide davide 0 2026-10-22 02:42:29.989974606 +0200 sess54/sess_nat54v1
+access log tail:
+127.0.0.1 -  22/Oct/2026:02:41:50 +0200 "GET /plant54.php" 200
+127.0.0.1 -  22/Oct/2026:02:42:15 +0200 "GET /plant54.php" 200
+127.0.0.1 -  22/Oct/2026:02:42:29 +0200 "POST /trigger54.php" 200
+globals read via gdb attach (observation only):
+$1 = 0x7ffff7cbc620
+$2 = 0x0
+$3 = 0
+$4 = 0x4ae189
+note: gdb shows PS(serializer)=fake F1 in the second s_read buffer (0x7ffff7cbc620),
+BG(unserialize)=NULL (RINIT reset), table decode unchanged at 0x4ae189.

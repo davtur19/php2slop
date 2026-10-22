@@ -1,0 +1,10 @@
+set pagination off
+set confirm off
+b *0x4aad85
+commands
+ silent
+ printf "HIT val=%p vallen=%d P=%p level=%d ser=%p\n", $rdi, $esi, *(void**)0x7b7708, *(int*)0x7b7710, *(void**)0x7b6038
+ detach
+ quit
+end
+continue

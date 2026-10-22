@@ -1,0 +1,10 @@
+set pagination off
+set confirm off
+b *0x4ace04
+commands
+ silent
+ printf "HIT decode val=%p vallen=%d level=%d P=%p ser=%p\n", $rdi, $esi, *(int*)0x82fd30, *(void**)0x82fd28, *(void**)0x82e5c0
+ x/4gx 0x7ffff7cbb880
+ continue
+end
+c

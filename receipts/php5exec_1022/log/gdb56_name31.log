@@ -1,0 +1,14 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Breakpoint 1 at 0x4ace04: file /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/ext/session/session.c, line 220.
+Breakpoint 2 at 0x531b18: file /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/ext/standard/var_unserializer.c, line 509.
+DECODE val=0x7ffff7cbb5b0 vallen=36 level=1 P=0x7ffff7cbb710 ser=0x816df0
+UNSER varhx=0x7fffffffa728 P=0x7ffff7cbb710
+0x7ffff7cbb710:	0x00007ffff7cbbfb8	0x00007ffff7cbbfb8
+0x7ffff7cbb720:	0x0000000000000000	0x0000000000000000
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000000531968 in var_push_dtor_no_addref (var_hashx=var_hashx@entry=0x7fffffffa728, rval=rval@entry=0x7fffffffa730) at /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/ext/standard/var_unserializer.c:123
+123				((var_entries *) (*var_hashx)->last_dtor)->next = var_hash;
+[Inferior 1 (process 167066) detached]

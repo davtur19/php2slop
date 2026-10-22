@@ -1,0 +1,36 @@
+=== 5.6.40 native chain post-execution state ===
+worker: 185617
+markers:
+-rw-r--r-- 1 davide davide 0 Oct 22 02:17 /tmp/p5n
+-rw-r--r-- 1 davide davide 0 Oct 22 02:17 /tmp/p5r
+session file sess_psys5 (should be 0 after the empty-session flush):
+-rw-r--r-- 1 davide davide 0 Oct 22 02:17 /tmp/opencode/research/php5exec_20261022_0131/sess56/sess_psys5
+worker process:
+    PID    PPID STAT CMD
+ 185617  164972 S    php-fpm: pool www
+
+--- globals after survival ---
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+PS(mod_user_implemented/is_open) @0x82e5b8:
+0x82e5b8 <ps_globals+216>:	0x0000000000000000	0x00007ffff7cbc638
+PS(serializer) @0x82e5c0:
+0x82e5c0 <ps_globals+224>:	0x00007ffff7cbc638
+PS(http_session_vars) @0x82e5c8:
+0x82e5c8 <ps_globals+232>:	0x0000000000000000
+PS(mod_data) @0x82e548:
+0x82e548 <ps_globals+104>:	0x0000000000000000	0x0000000000000001
+ps_serializers[2] @0x816df0 (must be untouched original):
+0x816df0 <ps_serializers+48>:	0x000000000065f32c	0x00000000004afaff
+0x816e00 <ps_serializers+64>:	0x00000000004af399
+[Inferior 1 (process 185617) detached]
+
+--- follow-up request on the same worker ---
+X-Powered-By: PHP/5.6.40
+Content-type: text/html; charset=UTF-8
+
+SID= STATUS=1
+SER=php_binary UP=1
+    PID    PPID STAT CMD
+ 185617  164972 S    php-fpm: pool www

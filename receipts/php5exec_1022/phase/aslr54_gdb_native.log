@@ -1,0 +1,13 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f62abe243a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Breakpoint 1 at 0x4aad85: file /tmp/opencode/research/php5geo_20261022_0045/build/php-5.4.45/ext/session/session.c, line 214.
+HIT 1 val=0x7f62abd875c0 vallen=1024 P=0x7f62abd87768 level=1 ser=0x79edb8
+0x7f62abd87768:	0x00007f62abd857c0	0x00007f62abd857e0
+0x7f62abd87778:	0x0000000000000000	0x00007f62abd85940
+HIT 2 val=0x7f62abd88330 vallen=1024 P=0x7f62abd87768 level=1 ser=0x7f62abd88630
+0x7f62abd87768:	0x0000000000000000	0x0000000000000061
+0x7f62abd87778:	0x0000000000000051	0x000000310f702fc5
+0x7f62abd88630:	0x00007f62abd88630	0x00000000004b16b1
+0x7f62abd88640:	0x00007f62abde8090	0x4141414141414141
+[Inferior 1 (process 952659) detached]

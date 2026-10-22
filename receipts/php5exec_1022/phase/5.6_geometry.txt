@@ -1,0 +1,130 @@
+=== PHP 5.6.40 geometry (non-PIE ET_EXEC) ===
+
+sha256:
+b9261e1cb91672c6a297bde724db3cd26833d329b832bc4bcbe0183af3703723  /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/sapi/fpm/php-fpm
+
+key symbols (nm -n):
+00000000004ac6e3 t php_session_encode
+00000000004ac76a t php_session_flush
+00000000004ace04 t php_session_decode
+00000000004b1e87 t php_session_initialize
+00000000004f14ec T php_exec
+00000000004f195f t zif_system
+00000000004f1970 t zif_passthru
+0000000000531840 T var_push_dtor
+00000000005318e7 T var_push_dtor_no_addref
+0000000000531b18 T php_var_unserialize
+0000000000591cf5 T zend_eval_stringl
+0000000000592000 T zend_eval_string
+0000000000816dc0 d ps_serializers
+000000000082e4e0 B ps_globals
+
+ps_serializers table (live gdb dump; entry 2 = php_binary):
+  0x816df0: name=0x65f32c ("php_binary"), encode=0x4afaff, decode=0x4af399
+  entry 0 (php_serialize) at 0x816dc0; entry 1 (php) at 0x816dd8; entry 2 (php_binary) at 0x816df0
+  decode slot = 0x816e00
+
+ps_globals (0x82e4e0) key fields:
+  save_path +0x00; id +0x10; mod +0x58 (0x82e538); mod_data +0x68 (0x82e548);
+  session_status +0x70 (0x82e550); mod_user_implemented +0xd8 (0x82e5b8);
+  serializer +0xe0 (0x82e5c0); http_session_vars +0xe8 (0x82e5c8)
+
+zif_system @ 0x4f195f:
+Disassembly of section .text:
+
+00000000004f195f <zif_system>:
+  4f195f:	55                   	push   %rbp
+  4f1960:	48 89 e5             	mov    %rsp,%rbp
+  4f1963:	41 b9 01 00 00 00    	mov    $0x1,%r9d
+  4f1969:	e8 5c fe ff ff       	call   4f17ca <php_exec_ex>
+  4f196e:	5d                   	pop    %rbp
+  4f196f:	c3                   	ret
+
+zif_passthru @ 0x4f1970:
+Disassembly of section .text:
+
+00000000004f1970 <zif_passthru>:
+  4f1970:	55                   	push   %rbp
+  4f1971:	48 89 e5             	mov    %rsp,%rbp
+  4f1974:	41 b9 03 00 00 00    	mov    $0x3,%r9d
+  4f197a:	e8 4b fe ff ff       	call   4f17ca <php_exec_ex>
+  4f197f:	5d                   	pop    %rbp
+  4f1980:	c3                   	ret
+
+00000000004f1981 <php_escape_shell_cmd>:
+  4f1981:	55                   	push   %rbp
+  4f1982:	48 89 e5             	mov    %rsp,%rbp
+  4f1985:	41 57                	push   %r15
+  4f1987:	41 56                	push   %r14
+  4f1989:	41 55                	push   %r13
+  4f198b:	41 54                	push   %r12
+  4f198d:	53                   	push   %rbx
+  4f198e:	48                   	rex.W
+  4f198f:	83                   	.byte 0x83
+
+php_exec @ 0x4f14ec (first 40 bytes):
+Disassembly of section .text:
+
+00000000004f14ec <php_exec>:
+  4f14ec:	55                   	push   %rbp
+  4f14ed:	48 89 e5             	mov    %rsp,%rbp
+  4f14f0:	41 57                	push   %r15
+  4f14f2:	41 56                	push   %r14
+  4f14f4:	41 55                	push   %r13
+  4f14f6:	41 54                	push   %r12
+  4f14f8:	53                   	push   %rbx
+  4f14f9:	48 83 ec 48          	sub    $0x48,%rsp
+  4f14fd:	41 89 ff             	mov    %edi,%r15d
+  4f1500:	48 89 f3             	mov    %rsi,%rbx
+  4f1503:	48 89 55 a0          	mov    %rdx,-0x60(%rbp)
+  4f1507:	48 89 4d a8          	mov    %rcx,-0x58(%rbp)
+  4f150b:	48 c7 45 c8 00 00 00 	movq   $0x0,-0x38(%rbp)
+  4f1512:	00 
+  4f1513:	be                   	.byte 0xbe
+
+encode-survival gadget @ 0x4b4728 (inside ps_close_user, 5.6.40):
+Disassembly of section .text:
+
+00000000004b46c6 <ps_close_user+0x7e>:
+  4b46c6:	be 7a 00 00 00       	mov    $0x7a,%esi
+  4b46cb:	bf 68 3b 64 00       	mov    $0x643b68,%edi
+  4b46d0:	e8 5e 77 0e 00       	call   59be33 <_zend_bailout>
+  4b46d5:	48 8b 7d f8          	mov    -0x8(%rbp),%rdi
+  4b46d9:	48 85 ff             	test   %rdi,%rdi
+  4b46dc:	74 1a                	je     4b46f8 <ps_close_user+0xb0>
+  4b46de:	e8 74 05 0e 00       	call   594c57 <convert_to_long>
+  4b46e3:	48 8b 45 f8          	mov    -0x8(%rbp),%rax
+  4b46e7:	8b 00                	mov    (%rax),%eax
+  4b46e9:	89 85 2c ff ff ff    	mov    %eax,-0xd4(%rbp)
+  4b46ef:	48 8d 7d f8          	lea    -0x8(%rbp),%rdi
+  4b46f3:	e8 e1 a6 0d 00       	call   58edd9 <_zval_ptr_dtor>
+  4b46f8:	8b 85 2c ff ff ff    	mov    -0xd4(%rbp),%eax
+  4b46fe:	c9                   	leave
+  4b46ff:	c3                   	ret
+  4b4700:	ba 00 00 00 00       	mov    $0x0,%edx
+  4b4705:	be 00 00 00 00       	mov    $0x0,%esi
+  4b470a:	48 8b 3d 77 9e 37 00 	mov    0x379e77(%rip),%rdi        # 82e588 <ps_globals+0xa8>
+  4b4711:	e8 a6 fa ff ff       	call   4b41bc <ps_call_handler>
+  4b4716:	48 89 45 f8          	mov    %rax,-0x8(%rbp)
+  4b471a:	48 8b 85 20 ff ff ff 	mov    -0xe0(%rbp),%rax
+  4b4721:	48 89 05 70 d1 37 00 	mov    %rax,0x37d170(%rip)        # 831898 <executor_globals+0x1f8>
+  4b4728:	c7 05 86 9e 37 00 00 	movl   $0x0,0x379e86(%rip)        # 82e5b8 <ps_globals+0xd8>
+  4b472f:	00 00 00 
+  4b4732:	eb a1                	jmp    4b46d5 <ps_close_user+0x8d>
+
+00000000004b4734 <ps_create_sid_user>:
+  4b4734:	55                   	push   %rbp
+  4b4735:	48 89 e5             	mov    %rsp,%rbp
+
+popen@plt / GOT:
+Disassembly of section .plt:
+
+0000000000417f30 <popen@plt>:
+  417f30:	ff 25 4a e8 3f 00    	jmp    *0x3fe84a(%rip)        # 816780 <popen@GLIBC_2.2.5>
+  417f36:	68 f0 00 00 00       	push   $0xf0
+  417f3b:	e9 e0 f0 ff ff       	jmp    417020 <_init+0x20>
+GOT slot 0x816780 (runtime-filled; initial resolver stub):
+ 816780 367f4100 00000000 467f4100 00000000  6.A.....F.A.....
+
+libc system (live worker, ASLR off): 0x7ffff7d1c090 (libc base 0x7ffff7cc9000, offset 0x53090)
+binary imports system/execve? no; only popen@GLIBC_2.2.5 (see imports_5.6.txt)

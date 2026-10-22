@@ -1,0 +1,28 @@
+Attaching to process 144266
+Reading symbols from /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/sapi/fpm/php-fpm...
+Reading symbols from /lib/x86_64-linux-gnu/libm.so.6...
+(No debugging symbols found in /lib/x86_64-linux-gnu/libm.so.6)
+Reading symbols from /lib/x86_64-linux-gnu/libc.so.6...
+(No debugging symbols found in /lib/x86_64-linux-gnu/libc.so.6)
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+(No debugging symbols found in /lib64/ld-linux-x86-64.so.2)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Breakpoint 1 at 0x4ace04: file /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/ext/session/session.c, line 220.
+Breakpoint 2 at 0x531b18: file /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/ext/standard/var_unserializer.c, line 509.
+DECODE val=0x7ffff7cbb580 vallen=36 level=1 P=0x7ffff7cbb8d0 ser=0x816df0
+UNSER varhx=0x7fffffffa728 P=0x7ffff7cbb8d0
+0x7ffff7cbb8d0:	0x00007ffff7cbc128	0x00007ffff7cbc128
+0x7ffff7cbb8e0:	0x0000000000000000	0x0000000000000000
+DECODE val=0x7ffff7cbe878 vallen=348 level=1 P=0x7ffff7cbb8d0 ser=0x816df0
+UNSER varhx=0x7fffffffa728 P=0x7ffff7cbb8d0
+0x7ffff7cbb8d0:	0x00007ffff7cbc128	0x00007ffff7cbc128
+0x7ffff7cbb8e0:	0x00007ffff7cbb6e0	0x00007ffff7cbb6e0
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000000531b9b in var_push (var_hashx=0x7fffffffa728, rval=0x7fffffffa730)
+    at /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/ext/standard/var_unserializer.c:62
+62		var_hash->data[var_hash->used_slots++] = *rval;
+(gdb) Detaching from program: /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/sapi/fpm/php-fpm, process 144266
+[Inferior 1 (process 144266) detached]

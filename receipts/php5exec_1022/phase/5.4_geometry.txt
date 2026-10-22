@@ -1,0 +1,93 @@
+=== PHP 5.4.45 geometry (non-PIE ET_EXEC) ===
+
+sha256:
+60e225762c90d24912b70b3ef5105db848f57b663182bc8eaee09f567224abaf  /tmp/opencode/research/php5geo_20261022_0045/build/php-5.4.45/sapi/fpm/php-fpm
+
+key symbols (nm -n):
+00000000004aaa5a t php_session_encode
+00000000004aaae1 t php_session_flush
+00000000004aad85 t php_session_decode
+00000000004aadec t php_session_initialize
+00000000004ed775 T php_exec
+00000000004edbdb t zif_system
+00000000004edbec t zif_passthru
+000000000052bdba T var_push_dtor
+000000000052bfb2 T php_var_unserialize
+000000000058aaf4 T zend_eval_stringl
+000000000058ae00 T zend_eval_string
+000000000079eda0 d ps_serializers
+00000000007b5f60 B ps_globals
+
+ps_serializers table (live gdb dump; entry 1 = php_binary):
+  0x79edb8: name=0x655a70, encode=0x4ae6fa, decode=0x4ae189
+  entry 0 (php) at 0x79eda0: name=0x655c7c, encode=0x4aeb05, decode=0x4ae3ed
+  decode slot for php_binary = 0x79edc8
+
+ps_globals (0x7b5f60) key fields from geometry receipt:
+  PS(serializer)=0x7b6038; PS(http_session_vars)=0x7b6040; ps_serializers=0x79eda0
+
+zif_system @ 0x4edbdb:
+Disassembly of section .text:
+
+00000000004edbdb <zif_system>:
+  4edbdb:	55                   	push   %rbp
+  4edbdc:	48 89 e5             	mov    %rsp,%rbp
+  4edbdf:	41 b9 01 00 00 00    	mov    $0x1,%r9d
+  4edbe5:	e8 5c fe ff ff       	call   4eda46 <php_exec_ex>
+  4edbea:	5d                   	pop    %rbp
+  4edbeb:	c3                   	ret
+
+zif_passthru @ 0x4edbec:
+Disassembly of section .text:
+
+00000000004edbec <zif_passthru>:
+  4edbec:	55                   	push   %rbp
+  4edbed:	48 89 e5             	mov    %rsp,%rbp
+  4edbf0:	41 b9 03 00 00 00    	mov    $0x3,%r9d
+  4edbf6:	e8 4b fe ff ff       	call   4eda46 <php_exec_ex>
+  4edbfb:	5d                   	pop    %rbp
+  4edbfc:	c3                   	ret
+
+00000000004edbfd <php_escape_shell_cmd>:
+  4edbfd:	55                   	push   %rbp
+  4edbfe:	48 89 e5             	mov    %rsp,%rbp
+  4edc01:	41 57                	push   %r15
+  4edc03:	41 56                	push   %r14
+  4edc05:	41 55                	push   %r13
+  4edc07:	41 54                	push   %r12
+  4edc09:	53                   	push   %rbx
+  4edc0a:	48                   	rex.W
+  4edc0b:	83                   	.byte 0x83
+
+php_exec @ 0x4ed775 (first 40 bytes):
+Disassembly of section .text:
+
+00000000004ed775 <php_exec>:
+  4ed775:	55                   	push   %rbp
+  4ed776:	48 89 e5             	mov    %rsp,%rbp
+  4ed779:	41 57                	push   %r15
+  4ed77b:	41 56                	push   %r14
+  4ed77d:	41 55                	push   %r13
+  4ed77f:	41 54                	push   %r12
+  4ed781:	53                   	push   %rbx
+  4ed782:	48 83 ec 48          	sub    $0x48,%rsp
+  4ed786:	41 89 ff             	mov    %edi,%r15d
+  4ed789:	48 89 f3             	mov    %rsi,%rbx
+  4ed78c:	48 89 55 a0          	mov    %rdx,-0x60(%rbp)
+  4ed790:	48 89 4d a8          	mov    %rcx,-0x58(%rbp)
+  4ed794:	48 c7 45 c8 00 00 00 	movq   $0x0,-0x38(%rbp)
+  4ed79b:	00 
+  4ed79c:	be                   	.byte 0xbe
+
+popen@plt / GOT:
+Disassembly of section .plt:
+
+0000000000417ee0 <popen@plt>:
+  417ee0:	ff 25 72 68 38 00    	jmp    *0x386872(%rip)        # 79e758 <popen@GLIBC_2.2.5>
+  417ee6:	68 eb 00 00 00       	push   $0xeb
+  417eeb:	e9 30 f1 ff ff       	jmp    417020 <_init+0x20>
+GOT slot 0x79e758:
+ 79e758 e67e4100 00000000 f67e4100 00000000  .~A......~A.....
+
+libc system (live worker, ASLR off): 0x7ffff7d1c090 (libc base 0x7ffff7cc9000, offset 0x53090)
+binary imports system/execve? no; only popen@GLIBC_2.2.5 (see imports_5.4.txt)

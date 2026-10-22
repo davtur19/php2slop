@@ -1,0 +1,92 @@
+=== readelf -h (5.6.40) ===
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           Advanced Micro Devices X86-64
+  Version:                           0x1
+  Entry point address:               0x4180c0
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          14763224 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         14
+  Size of section headers:           64 (bytes)
+  Number of section headers:         39
+  Section header string table index: 38
+
+=== file / sha256 ===
+/tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/sapi/fpm/php-fpm: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=5797f2496b6e44903cc68a83047c17664fba6d09, for GNU/Linux 3.2.0, with debug_info, not stripped
+b9261e1cb91672c6a297bde724db3cd26833d329b832bc4bcbe0183af3703723  /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/sapi/fpm/php-fpm
+
+=== nm -D undefined imports matching system/exec/popen/spawn ===
+                 U execl@GLIBC_2.2.5
+                 U execvp@GLIBC_2.2.5
+                 U fork@GLIBC_2.2.5
+                 U popen@GLIBC_2.2.5
+
+=== readelf -Ws imports (UND) matching system/exec/popen/spawn ===
+    48: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND execvp@GLIBC_2.2.5 (2)
+    61: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND execl@GLIBC_2.2.5 (2)
+   239: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND popen@GLIBC_2.2.5 (2)
+  8307: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND execvp@GLIBC_2.2.5
+  8378: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND execl@GLIBC_2.2.5
+  9578: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND popen@GLIBC_2.2.5
+
+=== readelf -Ws defined system-ish symbols ===
+   239: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND popen@GLIBC_2.2.5 (2)
+   341: 00000000004f14ec   734 FUNC    GLOBAL DEFAULT   13 php_exec
+  1104: 0000000000591cf5   779 FUNC    GLOBAL DEFAULT   13 zend_eval_stringl
+  1188: 0000000000592000    54 FUNC    GLOBAL DEFAULT   13 zend_eval_string
+  6550: 00000000004f195f    17 FUNC    LOCAL  DEFAULT   13 zif_system
+  7623: 00000000004f1970    17 FUNC    LOCAL  DEFAULT   13 zif_passthru
+  8372: 00000000004f14ec   734 FUNC    GLOBAL DEFAULT   13 php_exec
+  9101: 0000000000592000    54 FUNC    GLOBAL DEFAULT   13 zend_eval_string
+  9214: 0000000000591cf5   779 FUNC    GLOBAL DEFAULT   13 zend_eval_stringl
+  9578: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND popen@GLIBC_2.2.5
+
+=== objdump popen@plt and neighbours ===
+
+/tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/sapi/fpm/php-fpm:     file format elf64-x86-64
+
+
+Disassembly of section .plt:
+
+0000000000417f00 <strftime@plt>:
+  417f00:	ff 25 62 e8 3f 00    	jmp    *0x3fe862(%rip)        # 816768 <strftime@GLIBC_2.2.5>
+  417f06:	68 ed 00 00 00       	push   $0xed
+  417f0b:	e9 10 f1 ff ff       	jmp    417020 <_init+0x20>
+
+0000000000417f10 <stat@plt>:
+  417f10:	ff 25 5a e8 3f 00    	jmp    *0x3fe85a(%rip)        # 816770 <stat@GLIBC_2.33>
+  417f16:	68 ee 00 00 00       	push   $0xee
+  417f1b:	e9 00 f1 ff ff       	jmp    417020 <_init+0x20>
+
+0000000000417f20 <accept@plt>:
+  417f20:	ff 25 52 e8 3f 00    	jmp    *0x3fe852(%rip)        # 816778 <accept@GLIBC_2.2.5>
+  417f26:	68 ef 00 00 00       	push   $0xef
+  417f2b:	e9 f0 f0 ff ff       	jmp    417020 <_init+0x20>
+
+0000000000417f30 <popen@plt>:
+  417f30:	ff 25 4a e8 3f 00    	jmp    *0x3fe84a(%rip)        # 816780 <popen@GLIBC_2.2.5>
+  417f36:	68 f0 00 00 00       	push   $0xf0
+  417f3b:	e9 e0 f0 ff ff       	jmp    417020 <_init+0x20>
+
+0000000000417f40 <pow@plt>:
+  417f40:	ff 25 42 e8 3f 00    	jmp    *0x3fe842(%rip)        # 816788 <pow@GLIBC_2.29>
+  417f46:	68 f1 00 00 00       	push   $0xf1
+  417f4b:	e9 d0 f0 ff ff       	jmp    417020 <_init+0x20>
+
+0000000000417f50 <sqrt@plt>:
+  417f50:	ff 25 3a e8 3f 00    	jmp    *0x3fe83a(%rip)        # 816790 <sqrt@GLIBC_2.2.5>
+  417f56:	68 f2 00 00 00       	push   $0xf2
+  417f5b:	e9 c0 f0 ff ff       	jmp    417020 <_init+0x20>
+
+=== PLT entries: system/execve absent? ===
+0000000000417f30 <popen@plt>:
+  417f30:	ff 25 4a e8 3f 00    	jmp    *0x3fe84a(%rip)        # 816780 <popen@GLIBC_2.2.5>

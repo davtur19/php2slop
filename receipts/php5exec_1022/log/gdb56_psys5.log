@@ -1,0 +1,22 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Breakpoint 1 at 0x4ace04: file /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/ext/session/session.c, line 220.
+HIT decode val=0x7ffff7cbb580 vallen=1024 level=1 P=0x7ffff7cbb710 ser=0x816df0
+0x7ffff7cbc638:	0x0000000000000000	0x0000000000000000
+0x7ffff7cbc648:	0x0000000000000000	0x0000000000000000
+0x7ffff7cbb580:	32 ' '	32 ' '	32 ' '	32 ' '	32 ' '	32 ' '	32 ' '	32 ' '
+0x7ffff7cbb588:	32 ' '	32 ' '	32 ' '	32 ' '	32 ' '	32 ' '	32 ' '	32 ' '
+0x7ffff7cbb590:	32 ' '	116 't'	111 'o'	117 'u'	99 'c'	104 'h'	32 ' '	47 '/'
+0x7ffff7cbb598:	116 't'	109 'm'	112 'p'	47 '/'	112 'p'	53 '5'	114 'r'	32 ' '
+0x7ffff7cbb5a0:	35 '#'	82 'R'	58 ':'	49 '1'	48 '0'	53 '5'	55 '7'	59 ';'
+HIT decode val=0x7ffff7cbc338 vallen=1024 level=1 P=0x7ffff7cbb710 ser=0x7ffff7cbc638
+0x7ffff7cbc638:	0x00007ffff7cbc638	0x00000000004b4728
+0x7ffff7cbc648:	0x00007ffff7d1c090	0x4141414141414141
+0x7ffff7cbc338:	32 ' '	32 ' '	32 ' '	32 ' '	32 ' '	32 ' '	32 ' '	32 ' '
+0x7ffff7cbc340:	32 ' '	32 ' '	32 ' '	32 ' '	32 ' '	32 ' '	32 ' '	32 ' '
+0x7ffff7cbc348:	32 ' '	116 't'	111 'o'	117 'u'	99 'c'	104 'h'	32 ' '	47 '/'
+0x7ffff7cbc350:	116 't'	109 'm'	112 'p'	47 '/'	112 'p'	53 '5'	114 'r'	32 ' '
+0x7ffff7cbc358:	35 '#'	82 'R'	58 ':'	49 '1'	48 '0'	53 '5'	55 '7'	59 ';'
+[Detaching after vfork from child process 185715]
+[Inferior 1 (process 185617) detached]

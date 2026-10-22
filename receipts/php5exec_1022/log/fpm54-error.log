@@ -1,0 +1,16 @@
+[22-Oct-2026 02:16:23] NOTICE: fpm is running, pid 183820
+[22-Oct-2026 02:16:23] NOTICE: ready to handle connections
+[22-Oct-2026 02:29:22] WARNING: [pool www] child 183822 exited on signal 11 (SIGSEGV) after 778.653334 seconds from start
+[22-Oct-2026 02:29:22] NOTICE: [pool www] child 571529 started
+[22-Oct-2026 02:29:44] WARNING: [pool www] child 571529 exited on signal 11 (SIGSEGV) after 22.323445 seconds from start
+[22-Oct-2026 02:29:44] NOTICE: [pool www] child 572238 started
+[22-Oct-2026 02:31:09] WARNING: [pool www] child 572238 exited on signal 11 (SIGSEGV) after 85.259052 seconds from start
+[22-Oct-2026 02:31:09] NOTICE: [pool www] child 574226 started
+[22-Oct-2026 02:38:32] NOTICE: Terminating ...
+[22-Oct-2026 02:38:32] NOTICE: exiting, bye-bye!
+[22-Oct-2026 02:38:36] NOTICE: fpm is running, pid 585207
+[22-Oct-2026 02:38:36] NOTICE: ready to handle connections
+[22-Oct-2026 02:41:19] WARNING: [pool www] child 585209 exited on signal 11 (SIGSEGV) after 163.055828 seconds from start
+[22-Oct-2026 02:41:19] NOTICE: [pool www] child 588579 started
+[22-Oct-2026 02:42:04] WARNING: [pool www] child 588579 exited on signal 11 (SIGSEGV) after 45.004164 seconds from start
+[22-Oct-2026 02:42:04] NOTICE: [pool www] child 589497 started

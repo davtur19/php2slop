@@ -1,0 +1,354 @@
+{
+  "receipt": "php5geo_20261022_0045",
+  "date": "2026-10-22",
+  "scope": "PHP 5.6.40 and 5.4.45 non-PIE FPM: 5.x geometry for the PHP 8.5 G2 (stale BG(unserialize) dtor-slot write) and G6 (session decode slot -> zif_system) chains, plus transfer verdict. Offline binary + DWARF + source analysis; no service started, no live exploit.",
+  "build": {
+    "configure_common": "CFLAGS='-g -O1 -fno-omit-frame-pointer -fno-pie -fcommon -fgnu89-inline -DHAVE_POSIX_READDIR_R=1 -Wno-error=implicit-function-declaration -Wno-error=int-conversion -Wno-error=incompatible-pointer-types -Wno-error=return-mismatch' LDFLAGS='-no-pie' ./configure --disable-all --enable-fpm --enable-session --without-pear --disable-cgi",
+    "make_target": "make sapi/fpm/php-fpm",
+    "result": "FPM target rc=0 for both trees; full make rc=2 on an unrelated link target",
+    "notes": [
+      "-DHAVE_POSIX_READDIR_R=1 is mandatory: configure misdetects glibc's 3-arg readdir_r as legacy HAVE_OLD_READDIR_R.",
+      "Both binaries are ELF64 ET_EXEC (non-PIE) x86-64 with DWARF debug info.",
+      "5.4.45 source is the .tar.gz; the .tar.xz URL served an HTML error page."
+    ]
+  },
+  "binaries": {
+    "php-5.6.40": {
+      "path": "build/php-5.6.40/sapi/fpm/php-fpm",
+      "size": 14765720,
+      "md5": "4e3442202208f8555f8b0cfeb06c0dc4",
+      "sha256": "b9261e1cb91672c6a297bde724db3cd26833d329b832bc4bcbe0183af3703723",
+      "elf": "ELF64 ET_EXEC x86-64, debug_info"
+    },
+    "php-5.4.45": {
+      "path": "build/php-5.4.45/sapi/fpm/php-fpm",
+      "size": 14279328,
+      "md5": "d42eb89c746be77149edc42980b6441b",
+      "sha256": "60e225762c90d24912b70b3ef5105db848f57b663182bc8eaee09f567224abaf",
+      "elf": "ELF64 ET_EXEC x86-64, debug_info"
+    }
+  },
+  "sources": {
+    "php-5.6.40": {
+      "path": "src/php56.tar.gz",
+      "md5": "0f0e1372510dbcda1cb671c72d17c009",
+      "sha256": "56fb9878d12fdd921f6a0897e919f4e980d930160e154cbde2cc6d9206a27cac"
+    },
+    "php-5.4.45": {
+      "path": "src/php-5.4.45.tar.gz",
+      "md5": "ba580e774ed1ab256f22d1fa69a59311",
+      "sha256": "25bc4723955f4e352935258002af14a14a9810b491a19400d76fcdfa9d04b28f"
+    }
+  },
+  "targets": {
+    "php-5.6.40": {
+      "symbols": {
+        "zif_system": "0x4f195f",
+        "zif_passthru": "0x4f1970",
+        "php_exec": "0x4f14ec",
+        "php_exec_ex": "0x4f17ca",
+        "php_session_decode": "0x4ace04",
+        "php_session_start": "0x4b260e",
+        "ps_serializers": "0x816dc0",
+        "ps_globals": "0x82e4e0",
+        "basic_globals": "0x82ef40",
+        "var_push_dtor": "0x531840",
+        "var_push_dtor_no_addref": "0x5318e7",
+        "php_var_unserialize": "0x531b18",
+        "ps_srlzr_encode_php_serialize": "0x4ac885",
+        "ps_srlzr_decode_php_serialize": "0x4ac9ab",
+        "ps_srlzr_encode_php": "0x4affbd",
+        "ps_srlzr_decode_php": "0x4af726",
+        "ps_srlzr_encode_php_binary": "0x4afaff",
+        "ps_srlzr_decode_php_binary": "0x4af399"
+      },
+      "ps_serializers": {
+        "base": "0x816dc0",
+        "entry_size": 24,
+        "fields": {"name": 0, "encode": 8, "decode": 16},
+        "entries": [
+          {"index": 0, "name": "php_serialize", "name_ptr": "0x65f31e", "encode": "0x4ac885", "decode": "0x4ac9ab"},
+          {"index": 1, "name": "php", "name_ptr": "0x65f56c", "encode": "0x4affbd", "decode": "0x4af726"},
+          {"index": 2, "name": "php_binary", "name_ptr": "0x65f32c", "encode": "0x4afaff", "decode": "0x4af399"}
+        ],
+        "sentinel_index": 3,
+        "php_binary_decode_slot": "0x816e00"
+      },
+      "ps_globals": {
+        "base": "0x82e4e0",
+        "serializer_offset": "0xe0",
+        "serializer_address": "0x82e5c0",
+        "serializer_type": "const struct ps_serializer_struct *"
+      },
+      "session_decode_call_site": {
+        "function": "php_session_decode @ 0x4ace04",
+        "instructions": [
+          "0x4ace0d: mov 0x3817ac(%rip),%rax   # 0x82e5c0 (ps_globals+0xe0)",
+          "0x4ace14: test %rax,%rax",
+          "0x4ace19: call *0x10(%rax)"
+        ],
+        "args": {"rdi": "val (session data pointer)", "rsi": "vallen (int, zero-extended)"}
+      },
+      "bg_unserialize": {
+        "basic_globals_base": "0x82ef40",
+        "offset": "0xde8 (3560)",
+        "address": "0x82fd28",
+        "var_hash": "0x82fd28",
+        "level": "0x82fd30",
+        "size": "0x10",
+        "layout": "struct { void *var_hash; unsigned int level; } (level is 4 bytes + 4 bytes padding)"
+      },
+      "php_unserialize_data": {
+        "size": "0x20",
+        "fields": [
+          {"name": "first", "offset": 0},
+          {"name": "last", "offset": 8},
+          {"name": "first_dtor", "offset": 16},
+          {"name": "last_dtor", "offset": 24}
+        ]
+      },
+      "var_entries": {
+        "data": {"offset": 0, "type": "zval *[1024]", "element_size": 8},
+        "used_slots": {"offset": "0x2000 (8192)", "type": "long"},
+        "next": {"offset": "0x2008 (8200)", "type": "void *"},
+        "size": "0x2010 (8208)"
+      },
+      "zval": {
+        "size": 24,
+        "refcount_offset": "0x10",
+        "type_offset": "0x14",
+        "is_ref_offset": "0x15"
+      },
+      "g2": {
+        "php_binary_decode_target": "0x816e00",
+        "P": "BG(unserialize).var_hash when level != 0 (address 0x82fd28)",
+        "B0": "*(void**)(P + 0x18) = ((php_unserialize_data*)P)->last_dtor",
+        "K": "*(int64_t*)(B0 + 0x2000) = var_entries.used_slots",
+        "slot_address": "A = B0 + 8*K (data[K]; data[0] at B0+0)",
+        "bound": "cmpq $0x400,0x2000(%rax); je 0x53193a -> _emalloc(0x2010), used_slots=0, next=0, link as last_dtor. The check is equality, not a range: every K except exactly 1024 writes at B0 + 8*K, so K < 0 (before data) and K > 1024 (past data) are both accepted.",
+        "store": "mov (%r12),%rcx; mov %rcx,(%rax,%rdx,8)  ->  *(uint64_t*)(B0 + 8*K) = *rval, an 8-byte zval* store",
+        "addref_variant": "var_push_dtor: addl $1,0x10(%rax) on *rval (refcount at zval+0x10), then the same 8-byte store",
+        "disassembly_5_6_40": {
+          "var_push_dtor_no_addref_bound": "0x53190e cmpq $0x400,0x2000(%rax)",
+          "var_push_dtor_no_addref_store": "0x53192d mov (%r12),%rcx; 0x531931 mov %rcx,(%rax,%rdx,8)",
+          "var_push_dtor_addref": "0x53188e addl $0x1,0x10(%rax)",
+          "var_push_dtor_store": "0x531896 mov %rax,(%rbx)  (rbx = lea (%rax,%rdx,8))",
+          "allocation": "0x53189e mov $0x2010,%edi; call _emalloc; used_slots/next cleared"
+        },
+        "source_shape": "ALLOC_INIT_ZVAL(current); php_var_unserialize(&current, ...); ... var_push_dtor_no_addref(&var_hash, &current) after the value (session.c php_binary decode). current is a separately allocated heap zval; the slot receives its address, not the zval contents.",
+        "transfers": false,
+        "blocker": "The slot receives an 8-byte pointer to a separately allocated zval. The 8.x G2 wrote the parsed typed 16-byte zval itself into the slot (var_tmp_var returns the slot). The value written by the 5.x G2 is therefore always a heap pointer, never an arbitrary 64-bit value such as zif_system."
+      },
+      "g6": {
+        "decode_signature": "int (*)(const char *val, int vallen)",
+        "zif_signature": "void zif_system(int ht, zval *return_value, zval **return_value_ptr, zval *this_ptr, int return_value_used)",
+        "abi_source": "Zend/zend.h:290 (5.6.40)",
+        "arg_mapping": {
+          "ht": "(int)val: edi = low 32 bits of the session buffer address",
+          "return_value": "(zval*)vallen: rsi = session data length (int, zero-extended)",
+          "return_value_ptr": "rdx (caller leftover; not supplied by decode)",
+          "this_ptr": "rcx (caller leftover)",
+          "return_value_used": "r8d (caller leftover)"
+        },
+        "wrapper": "zif_system @ 0x4f195f: mov $0x1,%r9d; call php_exec_ex @ 0x4f17ca. zif_passthru @ 0x4f1970: mov $0x3,%r9d; call php_exec_ex.",
+        "php_exec_ex": {
+          "prologue": "0x4f17d9 mov %rsi,%rbx  (rbx = return_value = (zval*)vallen)",
+          "parse_call": "0x4f180e call zend_parse_parameters with edi=ht (untouched from decode) and esi=0x662fee (format s|z/)",
+          "failure_branch": "0x4f1813 cmp $0xffffffff,%eax; 0x4f1816 je 0x4f1908",
+          "failure_body": "0x4f1908 movq $0x0,(%rbx); 0x4f190f movb $0x3,0x14(%rbx)  -> RETURN_FALSE writes to address vallen"
+        },
+        "parse_rejection": "zend_parse_va_args (Zend/zend_API.c:729) checks num_args < min_num_args || num_args > max_num_args (5.6 :811; 5.4 :782). num_args = ht = low32(val), which for any realistic session buffer address is far outside 1..2. Even if it passed, the args are read from zend_vm_stack_top()-1 (5.6 :827) and the outer C frame has no matching argument zvals.",
+        "verdict": "No command execution. zend_parse_parameters fails, then RETURN_FALSE writes to address vallen (the session data length) and SIGSEGVs before exec. zif_passthru (mode 3) takes the same path."
+      }
+    },
+    "php-5.4.45": {
+      "symbols": {
+        "zif_system": "0x4edbdb",
+        "zif_passthru": "0x4edbec",
+        "php_exec": "0x4ed775",
+        "php_exec_ex": "0x4eda46",
+        "php_session_decode": "0x4aad85",
+        "php_session_start": "0x4af7e2",
+        "ps_serializers": "0x79eda0",
+        "ps_globals": "0x7b5f60",
+        "basic_globals": "0x7b6920",
+        "var_push_dtor": "0x52bdba",
+        "var_push_dtor_no_addref": "0x52be5a",
+        "php_var_unserialize": "0x52bfb2",
+        "ps_srlzr_encode_php": "0x4aeb05",
+        "ps_srlzr_decode_php": "0x4ae3ed",
+        "ps_srlzr_encode_php_binary": "0x4ae6fa",
+        "ps_srlzr_decode_php_binary": "0x4ae189"
+      },
+      "ps_serializers": {
+        "base": "0x79eda0",
+        "entry_size": 24,
+        "fields": {"name": 0, "encode": 8, "decode": 16},
+        "entries": [
+          {"index": 0, "name": "php", "name_ptr": "0x655c7c", "encode": "0x4aeb05", "decode": "0x4ae3ed"},
+          {"index": 1, "name": "php_binary", "name_ptr": "0x655a70", "encode": "0x4ae6fa", "decode": "0x4ae189"}
+        ],
+        "sentinel_index": 2,
+        "php_binary_decode_slot": "0x79edc8",
+        "note": "5.4 has no php_serialize entry; php_binary is index 1 (index 2 in 5.6.40)."
+      },
+      "ps_globals": {
+        "base": "0x7b5f60",
+        "serializer_offset": "0xd8",
+        "serializer_address": "0x7b6038",
+        "serializer_type": "const struct ps_serializer_struct *"
+      },
+      "session_decode_call_site": {
+        "function": "php_session_decode @ 0x4aad85",
+        "instructions": [
+          "0x4aad8e: mov 0x30b2a3(%rip),%rax   # 0x7b6038 (ps_globals+0xd8)",
+          "0x4aad95: test %rax,%rax",
+          "0x4aad9a: call *0x10(%rax)"
+        ],
+        "args": {"rdi": "val (session data pointer)", "rsi": "vallen (int, zero-extended)"}
+      },
+      "bg_unserialize": {
+        "basic_globals_base": "0x7b6920",
+        "offset": "0xde8 (3560)",
+        "address": "0x7b7708",
+        "var_hash": "0x7b7708",
+        "level": "0x7b7710",
+        "size": "0x10",
+        "layout": "struct { void *var_hash; unsigned int level; }"
+      },
+      "php_unserialize_data": {
+        "size": "0x20",
+        "fields": [
+          {"name": "first", "offset": 0},
+          {"name": "last", "offset": 8},
+          {"name": "first_dtor", "offset": 16},
+          {"name": "last_dtor", "offset": 24}
+        ]
+      },
+      "var_entries": {
+        "data": {"offset": 0, "type": "zval *[1024]", "element_size": 8},
+        "used_slots": {"offset": "0x2000 (8192)", "type": "long"},
+        "next": {"offset": "0x2008 (8200)", "type": "void *"},
+        "size": "0x2010 (8208)"
+      },
+      "zval": {
+        "size": 24,
+        "refcount_offset": "0x10",
+        "type_offset": "0x14",
+        "is_ref_offset": "0x15"
+      },
+      "g2": {
+        "php_binary_decode_target": "0x79edc8",
+        "P": "BG(unserialize).var_hash when level != 0 (address 0x7b7708)",
+        "B0": "*(void**)(P + 0x18) = ((php_unserialize_data*)P)->last_dtor",
+        "K": "*(int64_t*)(B0 + 0x2000) = var_entries.used_slots",
+        "slot_address": "A = B0 + 8*K (data[K]; data[0] at B0+0)",
+        "bound": "cmpq $0x400,0x2000(%rax); je 0x52bead -> _emalloc(0x2010), used_slots=0, next=0, link as last_dtor. The check is equality, not a range: every K except exactly 1024 writes at B0 + 8*K, so K < 0 (before data) and K > 1024 (past data) are both accepted.",
+        "store": "mov (%r12),%rcx; mov %rcx,(%rax,%rdx,8)  ->  *(uint64_t*)(B0 + 8*K) = *rval, an 8-byte zval* store",
+        "addref_variant": "var_push_dtor: addl $1,0x10(%rax) on *rval, then the same 8-byte store",
+        "disassembly_5_4_45": {
+          "var_push_dtor_no_addref_bound": "0x52be81 cmpq $0x400,0x2000(%rax)",
+          "var_push_dtor_no_addref_store": "0x52bea0 mov (%r12),%rcx; 0x52bea4 mov %rcx,(%rax,%rdx,8)",
+          "var_push_dtor_addref": "0x52bdf2 addl $0x1,0x10(%rdx)",
+          "var_push_dtor_store": "0x52be0c mov %rcx,(%rax,%rdx,8)",
+          "allocation": "0x52be15 mov $0x2010,%edi; call _emalloc; used_slots/next cleared"
+        },
+        "source_shape": "Same as 5.6: ALLOC_INIT_ZVAL(current) + php_var_unserialize(&current, ...) + var_push_dtor_no_addref(&var_hash, &current). The slot receives the heap zval pointer, not the parsed contents.",
+        "transfers": false,
+        "blocker": "Same as 5.6.40: 8-byte pointer slot vs 8.x typed 16-byte zval slot; no arbitrary 64-bit value can be written."
+      },
+      "g6": {
+        "decode_signature": "int (*)(const char *val, int vallen)",
+        "zif_signature": "void zif_system(int ht, zval *return_value, zval **return_value_ptr, zval *this_ptr, int return_value_used)",
+        "abi_source": "Zend/zend.h:275 (5.4.45)",
+        "arg_mapping": {
+          "ht": "(int)val: edi = low 32 bits of the session buffer address",
+          "return_value": "(zval*)vallen: rsi = session data length",
+          "return_value_ptr": "rdx (caller leftover)",
+          "this_ptr": "rcx (caller leftover)",
+          "return_value_used": "r8d (caller leftover)"
+        },
+        "wrapper": "zif_system @ 0x4edbdb: mov $0x1,%r9d; call php_exec_ex @ 0x4eda46. zif_passthru @ 0x4edbec: mov $0x3,%r9d; call php_exec_ex.",
+        "php_exec_ex": {
+          "prologue": "0x4eda55 mov %rsi,%rbx  (rbx = return_value = (zval*)vallen)",
+          "parse_call": "0x4eda8a call zend_parse_parameters with edi=ht and esi=0x6595e7 (format s|z/)",
+          "failure_branch": "0x4eda8f cmp $0xffffffff,%eax; 0x4eda92 je 0x4edb84",
+          "failure_body": "0x4edb84 movq $0x0,(%rbx); 0x4edb8b movb $0x3,0x14(%rbx)  -> RETURN_FALSE writes to address vallen"
+        },
+        "parse_rejection": "zend_parse_va_args checks num_args < min_num_args || num_args > max_num_args (5.4 :782); num_args = ht = low32(val) fails 1..2. Args would be read from zend_vm_stack_top()-1 of the real VM frame, not from val.",
+        "verdict": "No command execution; same SIGSEGV-before-exec as 5.6.40. zif_passthru (mode 3) identical."
+      }
+    }
+  },
+  "request_order": {
+    "plant": "unserialize() with a value that triggers the user error handler -> E_USER_ERROR -> zend_bailout inside php_var_unserialize. PHP_VAR_UNSERIALIZE_DESTROY is not reached, so BG(unserialize).var_hash=P and BG(unserialize).level=1 survive the request.",
+    "next_request": "php_hash_environment() runs before zend_activate_modules(); the rfc1867 session decode inside php_hash_environment calls PHP_VAR_UNSERIALIZE_INIT, sees level != 0, reuses P, and increments level to 2.",
+    "main_order": {
+      "5.6.40": "main/main.c:1685 php_hash_environment(TSRMLS_C); :1686 zend_activate_modules(TSRMLS_C);",
+      "5.4.45": "same order (php_hash_environment before zend_activate_modules)",
+      "8.5.10": "main/main.c:1942 php_hash_environment(); :1943 zend_activate_modules();"
+    },
+    "rinit_memset": {
+      "5.6.40": "PHP_RINIT_FUNCTION(basic) starts at ext/standard/basic_functions.c:3714; memset(&BG(unserialize),0,...) at :3720",
+      "5.4.45": "PHP_RINIT_FUNCTION(basic) starts at :3685; memset at :3691",
+      "8.5.10": "PHP_RINIT_FUNCTION(basic) starts at :387; memset at :393"
+    },
+    "rfc1867_update": {
+      "5.6.40": "php_session_rfc1867_update: php_session_initialize at ext/session/session.c:2645; php_session_flush at :2651. Each callback update re-initializes, so a second same-request decode occurs, still pre-RINIT.",
+      "5.4.45": "php_session_rfc1867_update: php_session_initialize at :2448; php_session_flush at :2454."
+    },
+    "conclusion": "The stale-P primitive exists in 5.x and is consumed before RINIT, exactly like 8.x. The RINIT memset is not a blocker; it makes each plant single-shot (one pre-RINIT window)."
+  },
+  "comparison_8x": {
+    "slot_layout": {
+      "8.5": "var_dtor_entries { zend_long used_slots; void *next; zval data[255]; } -> data at +0x10, 16-byte typed zvals; slot = B0 + 0x10 + 16*K",
+      "5.x": "var_entries { zval *data[1024]; long used_slots; void *next; } -> data at +0, 8-byte pointers; slot = B0 + 8*K"
+    },
+    "bound": {
+      "8.5": "used_slots + num > VAR_DTOR_ENTRIES_MAX (255)",
+      "5.x": "used_slots == 1024 (equality); negative K accepted"
+    },
+    "value_semantics": {
+      "8.5": "php_binary decode: current = var_tmp_var(&var_hash) returns &B0->data[used_slots]; php_var_unserialize(current, ...) writes the parsed typed zval directly into the slot. An IS_LONG with an arbitrary 64-bit value (e.g. libc system) lands in the slot.",
+      "5.x": "php_binary decode: ALLOC_INIT_ZVAL(current); php_var_unserialize(&current, ...); var_push_dtor_no_addref(&var_hash, &current). The parsed typed zval lives in a separate heap allocation; the slot receives current (an 8-byte zval*)."
+    },
+    "consequence": "The 8.x G2 write value (arbitrary typed zval / arbitrary 64-bit value) does not exist in 5.x. The 5.x G2 is a heap-pointer write only."
+  },
+  "verdict": {
+    "g2": "NO for the 8.x G2 shape (value transfer). The address arithmetic transfers with changed constants: A = B0 + 8*K, data[0] at B0, and an equality check that only special-cases K == 1024 (K < 0 and K > 1024 are accepted). But the slot store is an 8-byte zval* to a separately allocated zval, never an arbitrary 64-bit value. The 8.x ability to write IS_LONG = zif_system into the slot has no 5.x analogue.",
+    "g6": "NO. 5.x decode => zif_system maps ht=(int)val, return_value=(zval*)vallen. zend_parse_parameters sees num_args = low32(session buffer address), fails the 1..2 check, and RETURN_FALSE writes 8 bytes to address vallen (the session data length) -> SIGSEGV before any exec. zif_passthru (mode 3) takes the same path. There is no execute_data parameter and no attacker-controlled VM frame; argument zvals come from the real VM stack.",
+    "stale_chain": "YES as a primitive, not a blocker: pre-RINIT rfc1867 decode consumes the stale BG(unserialize) level=1/P exactly as in 8.x; single-shot per plant.",
+    "overall": "The 5.x chain cannot reuse the 8.x G2 value write or the 8.x G6 decode-call shape. A 5.x-specific chain would need a different primitive (e.g. dereferencing the stored heap zval pointer), which is outside both shapes."
+  },
+  "evidence": {
+    "phase": [
+      "phase/build-info.txt",
+      "phase/md5sums.txt",
+      "phase/sha256sums.txt",
+      "phase/nm-5.6.40.txt",
+      "phase/nm-5.4.45.txt",
+      "phase/symbols-5.6.40.txt",
+      "phase/symbols-5.4.45.txt",
+      "phase/types-5.6.40.txt",
+      "phase/types-5.4.45.txt",
+      "phase/ps_serializers-5.6.40.txt",
+      "phase/ps_serializers-5.4.45.txt",
+      "phase/disasm-session_decode-5.6.40.txt",
+      "phase/disasm-session_decode-5.4.45.txt",
+      "phase/disasm-zif-5.6.40.txt",
+      "phase/disasm-zif-5.4.45.txt",
+      "phase/disasm-varpush-5.6.40.txt",
+      "phase/disasm-varpush-5.4.45.txt"
+    ],
+    "source_references": [
+      "Zend/zend.h:290 (5.6.40) / :275 (5.4.45) INTERNAL_FUNCTION_PARAMETERS",
+      "Zend/zend_API.c:811 (5.6.40) / :782 (5.4.45) num_args check; :827 arg_count from zend_vm_stack_top()-1",
+      "ext/session/session.c:2645/2651 (5.6.40) and :2448/:2454 (5.4.45) rfc1867 update initialize+flush",
+      "ext/standard/basic_functions.c:3720 (5.6.40), :3691 (5.4.45), :393 (8.5.10) RINIT memset",
+      "main/main.c:1685/1686 (5.6.40), :1942/1943 (8.5.10) hash_environment before activate_modules",
+      "ext/standard/php_var.h PHP_VAR_UNSERIALIZE_INIT/DESTROY (level reuse; free only at level 0)",
+      "PHP 8.5.10 ext/session/session.c:1042/1123 current = var_tmp_var(&var_hash)",
+      "PHP 8.5.10 ext/standard/var_unserializer.re var_dtor_entries/var_tmp_var"
+    ]
+  }
+}

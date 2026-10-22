@@ -1,0 +1,17 @@
+set pagination off
+set confirm off
+set $n = 0
+b *0x4ace04
+commands
+ silent
+ set $n = $n + 1
+ printf "HIT %d val=%p vallen=%d P=%p level=%d ser=%p\n", $n, $rdi, $esi, *(void**)0x82fd28, *(int*)0x82fd30, *(void**)0x82e5c0
+ x/4gx *(void**)0x82fd28
+ if $n >= 2
+  x/4gx *(void**)0x82e5c0
+  detach
+  quit
+ end
+ continue
+end
+continue

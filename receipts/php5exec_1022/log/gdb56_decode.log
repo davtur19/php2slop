@@ -1,0 +1,24 @@
+Attaching to process 143041
+Reading symbols from /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/sapi/fpm/php-fpm...
+Reading symbols from /lib/x86_64-linux-gnu/libm.so.6...
+(No debugging symbols found in /lib/x86_64-linux-gnu/libm.so.6)
+Reading symbols from /lib/x86_64-linux-gnu/libc.so.6...
+(No debugging symbols found in /lib/x86_64-linux-gnu/libc.so.6)
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+(No debugging symbols found in /lib64/ld-linux-x86-64.so.2)
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Breakpoint 1 at 0x4ace04: file /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/ext/session/session.c, line 220.
+HIT decode val=0x7ffff7cbb580 vallen=340 level=1 P=0x7ffff7cbb760 ser=0x816df0
+0x7ffff7cbb580:	0x75113b313a696101	0x72705f64616f6c70
+0x7ffff7cbb590:	0x315f73736572676f	0x313a737b3a353a61
+0x7ffff7cbb5a0:	0x7472617473223a30	0x693b22656d69745f
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000000000053190e in var_push_dtor_no_addref (
+    var_hashx=var_hashx@entry=0x7fffffffa728, rval=rval@entry=0x7fffffffa730)
+    at /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/ext/standard/var_unserializer.c:115
+115		if (!var_hash || var_hash->used_slots == VAR_ENTRIES_MAX) {
+(gdb) Detaching from program: /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/sapi/fpm/php-fpm, process 143041
+[Inferior 1 (process 143041) detached]

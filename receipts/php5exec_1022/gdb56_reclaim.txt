@@ -1,0 +1,17 @@
+set pagination off
+set confirm off
+b *0x4ace04
+commands
+ silent
+ printf "DECODE val=%p vallen=%d level=%d P=%p ser=%p\n", $rdi, $esi, *(int*)0x82fd30, *(void**)0x82fd28, *(void**)0x82e5c0
+ continue
+end
+b *0x531b18
+commands
+ silent
+ set $P=*(void**)$rcx
+ printf "UNSER varhx=%p P=%p\n", $rcx, $P
+ x/4gx $P
+ continue
+end
+c

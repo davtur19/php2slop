@@ -1,0 +1,6 @@
+set pagination off
+set confirm off
+printf "BG level=%d P=%p\n", *(int*)0x82fd30, *(void**)0x82fd28
+x/4gx 0x82fd28
+detach
+quit

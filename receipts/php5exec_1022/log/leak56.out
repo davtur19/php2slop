@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/tmp/opencode/research/php5exec_20261022_0131/fcgi_client.py", line 98, in <module>
+    main()
+    ~~~~^^
+  File "/tmp/opencode/research/php5exec_20261022_0131/fcgi_client.py", line 91, in main
+    out,err=read_records(s)
+            ~~~~~~~~~~~~^^^
+  File "/tmp/opencode/research/php5exec_20261022_0131/fcgi_client.py", line 26, in read_records
+    c=sock.recv(8-len(hdr))
+ConnectionResetError: [Errno 104] Connection reset by peer

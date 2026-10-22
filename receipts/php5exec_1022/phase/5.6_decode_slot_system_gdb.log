@@ -1,0 +1,32 @@
+=== 5.6.40 gdb-assisted decode-slot system test ===
+binary: /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/sapi/fpm/php-fpm
+worker: 185617
+table ps_serializers[2] at 0x816df0; decode slot 0x816e00
+--- set decode=system ---
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+$1 = 0x7ffff7d1c090
+0x816df0 <ps_serializers+48>:	0x000000000065f32c	0x00000000004afaff
+0x816e00 <ps_serializers+64>:	0x00007ffff7d1c090
+[Inferior 1 (process 185617) detached]
+--- trigger PHPSESSID=sys56b ---
+X-Powered-By: PHP/5.6.40
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+Content-type: text/html; charset=UTF-8
+
+SID=sys56b STATUS=2 SER=php_binary
+--- marker ---
+-rw-r--r-- 1 davide davide 0 Oct 22 02:18 /tmp/php5_system56_marker
+--- worker survival ---
+    PID    PPID STAT CMD
+ 185617  164972 S    php-fpm: pool www
+--- restore decode ---
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+0x816df0 <ps_serializers+48>:	0x000000000065f32c	0x00000000004afaff
+0x816e00 <ps_serializers+64>:	0x00000000004af399
+[Inferior 1 (process 185617) detached]

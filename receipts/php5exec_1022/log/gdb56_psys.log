@@ -1,0 +1,14 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff7d583a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+Breakpoint 1 at 0x4ace04: file /tmp/opencode/research/php5geo_20261022_0045/build/php-5.6.40/ext/session/session.c, line 220.
+HIT decode val=0x7ffff7cbb580 vallen=1024 level=1 P=0x7ffff7cbb710 ser=0x816df0
+0x7ffff7cbb880:	0x00007ffff7cbb880	0x00000000004afaff
+0x7ffff7cbb890:	0x00007ffff7d1c090	0x4141414141414141
+HIT decode val=0x7ffff7cbc338 vallen=1024 level=1 P=0x7ffff7cbb710 ser=0x7ffff7cbb880
+0x7ffff7cbb880:	0x00007ffff7cbb888	0x00007ffff7cbb7f0
+0x7ffff7cbb890:	0x00007ffff7cbb930	0x0000000000000000
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00007ffff7cbb930 in ?? ()
+[Inferior 1 (process 170560) detached]
