@@ -1,0 +1,24 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff689b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/realapps/install_realapps_np/sbin/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x9e702c: file /home/davide/ailocal/php/zerodays_1020/build_plain/Zend/zend_string.h, line 167.
+Breakpoint 2 at 0x9e68b5: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 290.
+DECODE data=0x7ffff0400000 val=0x7ffff0400018 len=52101379 level=1 pser=0x22c54b8 ser1decode=0x9e6fae
+BIGKEY C=0x7ffff3801000 val=0x7ffff3801018 len=1700000 P=0x7ffff3987000 off=1597416
+0x7ffff3987000:	0x00007ffff3987038	0x00007ffff398a000
+0x7ffff3987010:	0x00007ffff398a000	0x0000000000000000
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000000000a94a47 in var_push (var_hashx=0x7fffffffc790, rval=0x7ffff4673010) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/var_unserializer.c:133
+133		var_hash->data[var_hash->used_slots++] = rval;
+[Inferior 1 (process 170170) detached]

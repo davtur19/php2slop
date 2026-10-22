@@ -1,0 +1,19 @@
+{
+ "path": "/tmp/opencode/research/wprealhex_20261022T011837Z/sessions/sess_hexbig",
+ "size": 60000000,
+ "keylen": 1700000,
+ "P": "0x7ffff3d88000",
+ "B0": "0x7ffff3d88088",
+ "dtor": "0x7ffff3d88088",
+ "K": -8796077998781,
+ "L": 58299965,
+ "Q": 1700033,
+ "rec1_len": 1700012,
+ "x2": "0x7fffec800000",
+ "F": "0x7fffec99f1d9",
+ "arg1": "0x7fffec99f1d9",
+ "F_off": 1700289,
+ "cmd_off": 1700313,
+ "cmd_len": 192,
+ "key7c": false
+}

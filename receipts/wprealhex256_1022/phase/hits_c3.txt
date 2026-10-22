@@ -1,0 +1,25 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff689b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/realapps/install_realapps_np/sbin/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x9e68b5: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 290.
+Breakpoint 2 at 0x9e702c: file /home/davide/ailocal/php/zerodays_1020/build_plain/Zend/zend_string.h, line 167.
+DECODE #1 data=0x7ffff3c01000 val=0x7ffff3c01018 len=1900000 level=1 ser1=0x9e6fae
+BIGKEY C=0x7ffff4001000 len=1899972 P=0x7ffff3d88000 off=-2592792
+DECODE #2 data=0x7ffff4001000 val=0x7ffff4001018 len=1900315 level=1 ser1=0x9e6fae
+BIGKEY C=0x7ffff3c01000 len=1899972 P=0x7ffff3d88000 off=1601512
+DECODE #3 data=0x7ffff3c01000 val=0x7ffff3c01018 len=1900346 level=0 ser1=0x9e6fae
+BIGKEY C=0x7ffff3601000 len=1899972 P=0x7ffff3968000 off=3567592
+
+Program received signal SIGTERM, Terminated.
+0x00007ffff689b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+[Inferior 1 (process 438081) detached]

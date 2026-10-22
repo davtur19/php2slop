@@ -1,0 +1,20 @@
+before: Array
+(
+    [0] => contact-form-7-multi-step-module/contact-form-7-multi-step-module.php
+    [1] => contact-form-7/wp-contact-form-7.php
+    [2] => hex-coupon-for-woocommerce/hex-coupon-for-woocommerce.php
+    [3] => woocommerce/woocommerce.php
+)
+
+ultimate-member/ultimate-member.php => ok
+forminator/forminator.php => ok
+after: Array
+(
+    [0] => contact-form-7-multi-step-module/contact-form-7-multi-step-module.php
+    [1] => contact-form-7/wp-contact-form-7.php
+    [2] => forminator/forminator.php
+    [3] => hex-coupon-for-woocommerce/hex-coupon-for-woocommerce.php
+    [4] => ultimate-member/ultimate-member.php
+    [5] => woocommerce/woocommerce.php
+)
+

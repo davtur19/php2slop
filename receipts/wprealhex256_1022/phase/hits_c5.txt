@@ -1,0 +1,45 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff689b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/realapps/install_realapps_np/sbin/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x9e68b5: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 290.
+Breakpoint 2 at 0x9e702c: file /home/davide/ailocal/php/zerodays_1020/build_plain/Zend/zend_string.h, line 167.
+DECODE #1 data=0x7ffff0200000 val=0x7ffff0200018 len=60000000 level=1 ser1=0x9e6fae
+RAW2c=00000001 RAW50=(nil) RAW58=6
+HEAD 0x7ffff0200018:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+0x7ffff0200020:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+PAY100 0x7ffff039f1d9:	0x56	0x56	0x56	0x56	0x56	0x56	0x56	0x56
+PBYTES 0x7ffff3d75000:	0x00007ffff3d75038	0x00007ffff4751000
+0x7ffff3d75010:	0x00007ffff4751000	0x0000000000000000
+0x7ffff3d75020:	0x0000000000000000	0x0000000000000000
+0x7ffff3d75030:	0x0000000000001000	0x0000000000000005
+0x7ffff3d75040:	0x0000000000000000	0x00007ffff4751010
+BIGKEY C=0x7ffff3c01000 len=1700000 P=0x7ffff3d75000 off=1523688
+DECODE #2 data=0x7fffec800000 val=0x7fffec800018 len=60000315 level=1 ser1=0x9e6fae
+RAW2c=00000001 RAW50=(nil) RAW58=6
+HEAD 0x7fffec800018:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+0x7fffec800020:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+PAY100 0x7fffec99f1d9:	0x56	0x56	0x56	0x56	0x56	0x56	0x56	0x56
+PBYTES 0x7ffff3d75000:	0x00007ffff466a000	0x00007ffff3d88088
+0x7ffff3d75010:	0x00007ffff3d88088	0x0000000000000000
+0x7ffff3d75020:	0x0000000000000000	0x0000000000000000
+0x7ffff3d75030:	0x000000007fffffff	0x00000000000003fa
+0x7ffff3d75040:	0x0000000100000000	0x4141414141414141
+BIGKEY C=0x7ffff3c01000 len=1700000 P=0x7ffff3d75000 off=1523688
+DECODE #3 data=0x7fffec600000 val=0x7fffec600018 len=60000346 level=0 ser1=0x9e6fae
+RAW2c=00000001 RAW50=(nil) RAW58=6
+HEAD 0x7fffec600018:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+0x7fffec600020:	0x00	0x00	0x00	0x00	0x00	0x00	0x00	0x00
+PAY100 0x7fffec79f1d9:	0x56	0x56	0x56	0x56	0x56	0x56	0x56	0x56
+PBYTES 0x0:	scripts/cal2.gdb:36: Error in sourced command file:
+Cannot access memory at address 0x0
+[Inferior 1 (process 577041) detached]

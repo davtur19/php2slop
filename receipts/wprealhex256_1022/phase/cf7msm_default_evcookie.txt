@@ -1,0 +1,11 @@
+== CF7MSM default cookie mode, 100-byte field, SID=evcookie ==
+GET 200 POST bytes 513 marker CF7MARK_evcookie
+POST status 302 resp bytes 0 location http://127.0.0.1:28891/oc-cf7-step2/
+HDR Content-Type text/html; charset=UTF-8 text/html; charset=UTF-8
+HDR Set-Cookie 27 cf7msm-first-step=1; path=/
+HDR Set-Cookie 66 cf7msm_pipe_flow_id=%22de166c8e6744cfcc14580b9c31463d0c%22; path=/
+HDR Set-Cookie 27 cf7msm_big_cookie=0; path=/
+HDR Set-Cookie 489 cf7msm_posted_data=%7B%22cf7msm_options%22%3A%22%7B%5C%22first_step%5C%22%3A1%2C...
+HDR Location http://127.0.0.1:28891/oc-cf7-step2/ http://127.0.0.1:28891/oc-cf7-step2/
+session size 0 marker False head b''
+session bytes: 0

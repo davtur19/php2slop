@@ -1,0 +1,6 @@
+== CF7MSM default cookie mode, 100000-byte field, SID=evcookiebig ==
+GET 200 POST bytes 100416 marker CF7MARK_evcookiebig
+POST status 502 resp bytes 157 location None
+HDR Content-Type text/html text/html
+session size 0 marker False head b''
+session bytes: 0

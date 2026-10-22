@@ -1,0 +1,2 @@
+option_name	option_value
+active_plugins	a:2:{i:0;s:27:"woocommerce/woocommerce.php";i:1;s:57:"hex-coupon-for-woocommerce/hex-coupon-for-woocommerce.php";}

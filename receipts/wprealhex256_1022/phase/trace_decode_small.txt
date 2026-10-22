@@ -1,0 +1,30 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff689b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/realapps/install_realapps_np/sbin/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x9e68b5: file /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c, line 290.
+DECODE data=0x7ffff466b000 len=352 level=0
+#0  php_session_decode (data=0x7ffff466b000) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:290
+#1  0x00000000009e8d76 in php_session_initialize () at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:514
+#2  0x00000000009ea3f4 in php_session_rfc1867_update (progress=progress@entry=0x7ffff4662000, force_update=force_update@entry=false) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:3147
+#3  0x00000000009eaafe in php_session_rfc1867_callback (event=<optimized out>, event_data=0x7fffffffcab0, extra=<optimized out>) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:3285
+DECODE data=0x7ffff466b180 len=321 level=0
+#0  php_session_decode (data=0x7ffff466b180) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:290
+#1  0x00000000009e8d76 in php_session_initialize () at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:514
+#2  0x00000000009ea3f4 in php_session_rfc1867_update (progress=progress@entry=0x7ffff4662000, force_update=force_update@entry=true) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:3147
+#3  0x00000000009eac58 in php_session_rfc1867_callback (event=<optimized out>, event_data=0x7fffffffcab0, extra=<optimized out>) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:3331
+DECODE data=0x7ffff40ef000 len=352 level=0
+#0  php_session_decode (data=0x7ffff40ef000) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:290
+#1  0x00000000009e8d76 in php_session_initialize () at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:514
+#2  0x00000000009e95be in php_session_start () at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:1739
+#3  0x00000000009ea12d in zif_session_start (execute_data=<optimized out>, return_value=0x7fffffffbde0) at /home/davide/ailocal/php/zerodays_1020/build_plain/ext/session/session.c:2698
+[Inferior 1 (process 181845) detached]

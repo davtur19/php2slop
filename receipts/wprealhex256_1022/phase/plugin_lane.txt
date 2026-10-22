@@ -1,0 +1,74 @@
+Ultimate Member 2.14.0 unauthenticated registration test
+=========================================================
+Endpoint: GET/POST http://127.0.0.1:28891/um-register/ (page id 35, form id 30)
+GET status 200, nonce 1d0baa670d, form_id 30.
+POST body 3,000,268 bytes (urlencoded), fields:
+  user_login=umtestvpqggf, user_email=umtestvpqggf@example.com,
+  first_name-30 = "FIRST_UMMARK_wbvpqggf_" + 3,000,000 Q bytes
+Result: HTTP 302 Location http://127.0.0.1:28891/um-register/umtestvpqggf/
+Native session file: /tmp/opencode/research/wprealhex_20261022T011837Z/sessions/sess_umreg = 0 bytes.
+DB verification:
+  user_id=2 login=umtestvpqggf
+  first_name_len=3,000,022 prefix=FIRST_UMMARK_wbvpqggf_QQQQQQQQ
+  option um_cache_userdata_2 length=6,002,411 contains_marker=yes
+Conclusion: the large user-controlled field is stored in user meta and a wp_options object-cache row, not in native $_SESSION. UM calls session_start(), but the session payload stays empty/small.
+
+HexCoupon for WooCommerce 1.2.4 unauthenticated referrer test
+=============================================================
+Session handler: native files, php serialize_handler.
+GET /?ref=12345 with Cookie PHPSESSID=hexref2
+  -> session file 20 bytes: referrer_id|i:12345;
+GET /?ref=<2000 digits 9> with Cookie PHPSESSID=hexref
+  -> session file 16 bytes: referrer_id|i:0;
+Code path writes only intval($_GET['ref']) to $_SESSION['referrer_id'].
+Conclusion: user-controlled bytes cannot be carried into the session; each request contributes a small integer.
+
+Forminator 1.58.2 negative control
+===================================
+Activated successfully; POSTTYPE forminator_forms count = 0 (no form exists).
+Native $_SESSION references outside vendor code: none.
+The only $_SESSION references are in:
+- addons/pro/googlesheet/lib/external/vendor-prefixed/guzzlehttp/guzzle/src/Cookie/SessionCookieJar.php
+- addons/pro/googlesheet/lib/external/vendor-prefixed/phpseclib/phpseclib/phpseclib/Crypt/Random.php
+Forminator's own submissions use its custom tables, not native PHP sessions.
+Conclusion: no unauthenticated large-field native-session write path in this installed/configured state.
+
+Contact Form 7 6.2.3 + Multi-Step Forms for CF7 4.7.1 boundary
+==============================================================
+Test form: id 36 "OC session step 1", page id 37 /oc-cf7-step1/
+Form tag: [textarea* bigfield maxlength:99999999]
+Multistep tag: [multistep multistep-1 first_step "http://127.0.0.1:28891/oc-cf7-step2/"]
+Plugin write path: cf7msm_set() -> $_SESSION[$var_name] = $var_value, only when cf7msm_activate_php_session(true) returns true.
+Default state: cf7msm_force_session and cf7msm_allow_session are false -> JSON cookie path.
+To force native sessions during the test only:
+  wp-content/mu-plugins/oc-cf7msm-force.php:
+  <?php add_filter('cf7msm_force_session', '__return_true');
+The filter file was removed after the test; it is site config, not a data producer.
+
+Measurements (unauthenticated client, no login):
+1) default cookie mode, 100-byte field, SID=evcookie
+   HTTP 302; Set-Cookie cf7msm_posted_data 489 bytes; sess_evcookie = 0 bytes.
+2) default cookie mode, 100,000-byte field, SID=evcookiebig
+   HTTP 502; nginx error: upstream sent too big header while reading response header; sess_evcookiebig = 0 bytes.
+3) forced native session, 3,000,000-byte field, SID=evforce3
+   HTTP 302; sess_evforce3 = 3,000,392 bytes; marker CF7MARK_evforce3 present.
+4) forced native session, 7,500,000-byte field, SID=evforce75
+   HTTP 302; sess_evforce75 = 7,500,393 bytes; marker CF7MARK_evforce75 present.
+5) 8,500,000-byte field, SID=evforce85
+   HTTP 413; nginx client_max_body_size 8m; sess_evforce85 = 0 bytes.
+
+Hard caps in the live app:
+- nginx client_max_body_size 8m -> 413 above 8,388,608 bytes.
+- php post_max_size 8M / upload_max_filesize 8M.
+- default CF7 textarea maxlength is 2000; the form must set maxlength explicitly.
+- stock CF7MSM uses cookies and fails the nginx fastcgi header buffer well below 1MB (100KB test = 502).
+
+Conclusion: this is the only tested free plugin that can put the whole posted field into native $_SESSION, but only after a site-added filter, and the app body limits cap a request below 8MiB. It cannot produce a 48.1MB (50,441,421-byte) unauthenticated seed.
+
+Consolidated plugin lane conclusion
+===================================
+No tested free public plugin produced a 48.1MiB (50,436,506 byte) unauthenticated native-session seed.
+Ultimate Member writes the large registration field to user meta and a wp_options object-cache row.
+HexCoupon writes only intval(ref).
+Forminator has no forms and no native-session form path.
+CF7MSM writes the whole posted field to native $_SESSION only with a site-added force_session filter, and the live nginx/PHP body limits cap the request below 8MiB.

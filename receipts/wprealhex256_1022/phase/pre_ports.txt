@@ -1,0 +1,2 @@
+LISTEN 0      511        127.0.0.1:28891      0.0.0.0:*    users:(("nginx",pid=136377,fd=5),("nginx",pid=136376,fd=5))    
+LISTEN 0      80         127.0.0.1:33317      0.0.0.0:*    users:(("mariadbd",pid=136070,fd=77))                          

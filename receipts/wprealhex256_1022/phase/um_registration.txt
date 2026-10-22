@@ -1,0 +1,14 @@
+Ultimate Member 2.14.0 unauthenticated registration test
+=========================================================
+Endpoint: GET/POST http://127.0.0.1:28891/um-register/ (page id 35, form id 30)
+GET status 200, nonce 1d0baa670d, form_id 30.
+POST body 3,000,268 bytes (urlencoded), fields:
+  user_login=umtestvpqggf, user_email=umtestvpqggf@example.com,
+  first_name-30 = "FIRST_UMMARK_wbvpqggf_" + 3,000,000 Q bytes
+Result: HTTP 302 Location http://127.0.0.1:28891/um-register/umtestvpqggf/
+Native session file: /tmp/opencode/research/wprealhex_20261022T011837Z/sessions/sess_umreg = 0 bytes.
+DB verification:
+  user_id=2 login=umtestvpqggf
+  first_name_len=3,000,022 prefix=FIRST_UMMARK_wbvpqggf_QQQQQQQQ
+  option um_cache_userdata_2 length=6,002,411 contains_marker=yes
+Conclusion: the large user-controlled field is stored in user meta and a wp_options object-cache row, not in native $_SESSION. UM calls session_start(), but the session payload stays empty/small.

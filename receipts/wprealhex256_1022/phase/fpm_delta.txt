@@ -1,0 +1,24 @@
+FPM memory-limit change and geometry reset
+==========================================
+Live config: /tmp/opencode/research/wprealhex_20261022T011837Z/conf/fpm.conf
+Pre-change copy: phase/fpm.conf.128M.orig
+
+Delta:
+- php_admin_value[memory_limit] = 128M -> 256M
+- post_max_size = 8M
+- upload_max_filesize = 8M
+- session.upload_progress.cleanup = 0
+- session.save_path = /tmp/opencode/research/wprealhex_20261022T011837Z/sessions
+- session.serialize_handler = php
+
+Restart:
+- master PID 170169 (unchanged after restart)
+- worker lineage observed: 181845 -> 438081 -> 510348 -> 571938 -> 574233 -> 575723 -> 577041 -> 577724 -> 578505
+- ASLR off for the pool
+- probe: http://127.0.0.1:28891/oc_probe.php -> PID=578505 MEM=256M
+
+Geometry consequence:
+- stale P=0x7ffff35d6000 from 128M does not transfer
+- measured fresh-worker P: 0x7ffff3d88000 or 0x7ffff3d75000
+- key allocation C=0x7ffff3c01000 covers both:
+  P-(C+0x18) = 1,601,512 or 1,523,688 (< keylen 1,700,000)

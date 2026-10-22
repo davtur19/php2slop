@@ -1,0 +1,37 @@
+Active plugins and versions after plugin lane
+============================================
+ultimate-member 2.14.0
+forminator 1.58.2
+hex-coupon-for-woocommerce 1.2.4
+contact-form-7 6.2.3
+contact-form-7-multi-step-module 4.7.1
+
+Relevant posts/forms
+active_plugins:
+  contact-form-7-multi-step-module/contact-form-7-multi-step-module.php
+  contact-form-7/wp-contact-form-7.php
+  forminator/forminator.php
+  hex-coupon-for-woocommerce/hex-coupon-for-woocommerce.php
+  ultimate-member/ultimate-member.php
+  woocommerce/woocommerce.php
+posts of type wpcf7_contact_form:
+  23 Contact form 1 publish
+  26 Plugin huge step 1 publish
+  27 Plugin huge step 2 publish
+  36 OC session step 1 publish
+pages:
+  2 sample-page
+  5 shop
+  6 cart
+  7 checkout
+  8 my-account
+  12 classic-checkout
+  24 plugin-step1
+  25 plugin-step2
+  34 um-directory
+  35 um-register
+  37 oc-cf7-step1
+um forms:
+  30 Default Registration publish
+  31 Default Login publish
+  32 Default Profile publish

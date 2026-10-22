@@ -1,0 +1,31 @@
+Contact Form 7 6.2.3 + Multi-Step Forms for CF7 4.7.1 boundary
+==============================================================
+Test form: id 36 "OC session step 1", page id 37 /oc-cf7-step1/
+Form tag: [textarea* bigfield maxlength:99999999]
+Multistep tag: [multistep multistep-1 first_step "http://127.0.0.1:28891/oc-cf7-step2/"]
+Plugin write path: cf7msm_set() -> $_SESSION[$var_name] = $var_value, only when cf7msm_activate_php_session(true) returns true.
+Default state: cf7msm_force_session and cf7msm_allow_session are false -> JSON cookie path.
+To force native sessions during the test only:
+  wp-content/mu-plugins/oc-cf7msm-force.php:
+  <?php add_filter('cf7msm_force_session', '__return_true');
+The filter file was removed after the test; it is site config, not a data producer.
+
+Measurements (unauthenticated client, no login):
+1) default cookie mode, 100-byte field, SID=evcookie
+   HTTP 302; Set-Cookie cf7msm_posted_data 489 bytes; sess_evcookie = 0 bytes.
+2) default cookie mode, 100,000-byte field, SID=evcookiebig
+   HTTP 502; nginx error: upstream sent too big header while reading response header; sess_evcookiebig = 0 bytes.
+3) forced native session, 3,000,000-byte field, SID=evforce3
+   HTTP 302; sess_evforce3 = 3,000,392 bytes; marker CF7MARK_evforce3 present.
+4) forced native session, 7,500,000-byte field, SID=evforce75
+   HTTP 302; sess_evforce75 = 7,500,393 bytes; marker CF7MARK_evforce75 present.
+5) 8,500,000-byte field, SID=evforce85
+   HTTP 413; nginx client_max_body_size 8m; sess_evforce85 = 0 bytes.
+
+Hard caps in the live app:
+- nginx client_max_body_size 8m -> 413 above 8,388,608 bytes.
+- php post_max_size 8M / upload_max_filesize 8M.
+- default CF7 textarea maxlength is 2000; the form must set maxlength explicitly.
+- stock CF7MSM uses cookies and fails the nginx fastcgi header buffer well below 1MB (100KB test = 502).
+
+Conclusion: this is the only tested free plugin that can put the whole posted field into native $_SESSION, but only after a site-added filter, and the app body limits cap a request below 8MiB. It cannot produce a 48.1MB (50,441,421-byte) unauthenticated seed.

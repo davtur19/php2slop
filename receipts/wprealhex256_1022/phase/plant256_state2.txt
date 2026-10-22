@@ -1,0 +1,27 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ffff689b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/realapps/install_realapps_np/sbin/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+BG level=1 data=0x7ffff3987000
+last=0x7ffff3987038 first_dtor=0x7ffff398a000 last_dtor=0x7ffff398a000 cur=0 max=4096 entries.used=4 entries.next=(nil)
+0x7ffff3987000:	0x00007ffff3987038	0x00007ffff398a000
+0x7ffff3987010:	0x00007ffff398a000	0x0000000000000000
+0x7ffff3987020:	0x0000000000000000	0x0000000000000000
+0x7ffff3987030:	0x0000000000001000	0x0000000000000004
+0x7ffff3987040:	0x0000000000000000
+dtor used=2 next=(nil)
+0x7ffff398a000:	0x0000000000000002	0x0000000000000000
+0x7ffff398a010:	0x0000000000000001	0x0000000000000004
+pser=0x22c54b8 ser1decode=0x9e6fae ser1encode=0x9e7112
+/tmp/opencode/research/wprealhex256_20261022T000209Z/scripts/state256.gdb:17: Error in sourced command file:
+There is no member named cached_chunks_number.
+[Inferior 1 (process 170170) detached]

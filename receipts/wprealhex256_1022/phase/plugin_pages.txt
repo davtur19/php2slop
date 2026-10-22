@@ -1,0 +1,2 @@
+um-directory id=34 url=http://127.0.0.1:28891/um-directory/
+um-register id=35 url=http://127.0.0.1:28891/um-register/

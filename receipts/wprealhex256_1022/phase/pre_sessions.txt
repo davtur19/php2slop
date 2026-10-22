@@ -1,0 +1,14 @@
+total 225372
+drwxr-xr-x  2 davide davide     4096 Oct 22 01:41 .
+drwxr-xr-x 12 davide davide     4096 Oct 22 01:21 ..
+-rw-------  1 davide davide        0 Oct 22 01:28 sess_63a420d5a88bf2b48bd791cda0b8163f
+-rw-------  1 davide davide        0 Oct 22 01:26 sess_7186e7b6be71cf1964df0caec5fbd05c
+-rw-------  1 davide davide        0 Oct 22 01:41 sess_d0a80b75e03cc80d633fc15df26c772e
+-rw-------  1 davide davide        0 Oct 22 01:40 sess_fb26d1d6043421323522811e06eea3b5
+-rw-r--r--  1 davide davide 32000347 Oct 22 01:40 sess_hex32
+-rw-r--r--  1 davide davide 44000000 Oct 22 01:41 sess_hexc
+-rw-r--r--  1 davide davide 62750000 Oct 22 01:36 sess_hexcons
+-rw-r--r--  1 davide davide 52000000 Oct 22 01:37 sess_hexcons2
+-rw-------  1 davide davide  1000373 Oct 22 01:26 sess_hexone
+-rw-------  1 davide davide 39002074 Oct 22 01:27 sess_hexplant
+-rw-------  1 davide davide      372 Oct 22 01:21 sess_hexprobe4

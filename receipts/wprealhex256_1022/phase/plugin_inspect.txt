@@ -1,0 +1,25 @@
+PAGE 25 plugin-step2 status=publish title=Plugin Step 2
+  shortcode: [contact-form-7 id="27" title="Plugin huge step 2"]
+PAGE 24 plugin-step1 status=publish title=Plugin Step 1
+  shortcode: [contact-form-7 id="26" title="Plugin huge step 1"]
+PAGE 12 classic-checkout status=publish title=Classic Checkout
+  shortcode: [woocommerce_checkout]
+PAGE 8 my-account status=publish title=My account
+  shortcode: [woocommerce_my_account]
+PAGE 7 checkout status=publish title=Checkout
+PAGE 6 cart status=publish title=Cart
+  shortcode: ["instock","outofstock","onbackorder"]
+PAGE 5 shop status=publish title=Shop
+PAGE 9 refund_returns status=draft title=Refund and Returns Policy
+PAGE 2 sample-page status=publish title=Sample Page
+PAGE 3 privacy-policy status=draft title=Privacy Policy
+POSTTYPE um_form count=3
+  30 default-registration Default Registration
+  31 default-login Default Login
+  32 default-profile Default Profile
+POSTTYPE forminator_forms count=0
+POSTTYPE wpcf7_contact_form count=3
+  26 plugin-huge-step-1 Plugin huge step 1
+  27 plugin-huge-step-2 Plugin huge step 2
+  23 contact-form-1 Contact form 1
+um_pages={"core_user":"","core_login":"","core_register":"","core_members":"","core_logout":"","core_account":""}

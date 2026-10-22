@@ -1,0 +1,13 @@
+total 48
+drwxr-xr-x 12 davide davide 4096 Oct 22 01:21 .
+drwxr-xr-x 67 davide davide 4096 Oct 22 02:02 ..
+drwxr-xr-x  2 davide davide 4096 Oct 22 01:20 conf
+drwxr-xr-x  6 davide davide 4096 Oct 22 01:18 db
+drwxr-xr-x  2 davide davide 4096 Oct 22 01:21 extra
+drwxr-xr-x  2 davide davide 4096 Oct 22 01:41 log
+drwxr-xr-x  2 davide davide 4096 Oct 22 01:18 quarantine
+drwxr-xr-x  2 davide davide 4096 Oct 22 01:18 req
+drwxr-xr-x  3 davide davide 4096 Oct 22 01:41 run
+drwxr-xr-x  2 davide davide 4096 Oct 22 01:36 scripts
+drwxr-xr-x  2 davide davide 4096 Oct 22 01:41 sessions
+drwxr-xr-x  3 davide davide 4096 Oct 21 22:54 www

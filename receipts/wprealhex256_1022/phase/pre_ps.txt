@@ -1,0 +1,39 @@
+  52393       1 davide         52:19 /tmp/opencode/realapps/mariadb-11.4.5-linux-systemd-x86_64/bin/mariadbd --datadir=/tmp/opencode/research/wikitype_20261021T212610Z/db --port=33309 --bind-address=127.0.0.1 --socket=/tmp/opencode/research/wikitype_20261021T212610Z/run/mysql.sock --pid-file=/tmp/opencode/research/wikitype_20261021T212610Z/run/mariadb.pid --log-error=/tmp/opencode/research/wikitype_20261021T212610Z/log/mariadb.err --skip-name-resolve
+  52926       1 davide         51:43 php-fpm: master process (/tmp/opencode/research/wikitype_20261021T212610Z/conf/fpm.conf)
+  52927   52926 davide         51:43 php-fpm: pool lab
+  52930       1 davide         51:43 nginx: master process /opt/nginx-1.30.1/sbin/nginx -c /tmp/opencode/research/wikitype_20261021T212610Z/conf/nginx.conf
+  52931   52930 davide         51:43 nginx: worker process
+ 136070       1 davide         43:25 /tmp/opencode/realapps/mariadb-11.4.5-linux-systemd-x86_64/bin/mariadbd --datadir=/tmp/opencode/research/wprealhex_20261022T011837Z/db --port=33317 --bind-address=127.0.0.1 --socket=/tmp/opencode/research/wprealhex_20261022T011837Z/run/mysql.sock --pid-file=/tmp/opencode/research/wprealhex_20261022T011837Z/run/mariadb.pid --log-error=/tmp/opencode/research/wprealhex_20261022T011837Z/log/mariadb.err --skip-name-resolve
+ 136376       1 davide         42:45 nginx: master process /opt/nginx-1.30.1/sbin/nginx -c /tmp/opencode/research/wprealhex_20261022T011837Z/conf/nginx.conf
+ 136377  136376 davide         42:45 nginx: worker process
+ 142894       1 davide         29:17 nginx: master process /opt/nginx-1.30.1/sbin/nginx -c /tmp/opencode/research/aslrsame_20261021T233243Z/conf/nginx.conf
+ 142895  142894 davide         29:17 nginx: worker process
+ 143038       1 davide         29:07 php-fpm: master process (/tmp/opencode/research/php5exec_20261022_0131/conf/fpm56.conf)
+ 143977       1 davide         27:45 /tmp/opencode/realapps/mariadb-11.4.5-linux-systemd-x86_64/bin/mariadbd --datadir=/tmp/opencode/research/drupal_fpm_20261022T013000Z/db --port=33318 --bind-address=127.0.0.1 --socket=/tmp/opencode/research/drupal_fpm_20261022T013000Z/run/mysql.sock --pid-file=/tmp/opencode/research/drupal_fpm_20261022T013000Z/run/mariadb.pid --log-error=/tmp/opencode/research/drupal_fpm_20261022T013000Z/log/mariadb.err --skip-name-resolve --innodb-buffer-pool-size=64M
+ 144760       1 davide         26:48 nginx: master process /opt/nginx-1.30.1/sbin/nginx -c /tmp/opencode/research/drupal_fpm_20261022T013000Z/conf/nginx.conf
+ 144761  144760 davide         26:48 nginx: worker process
+ 150457       1 davide         22:01 php-fpm: master process (/tmp/opencode/research/aslrsame_20261021T233243Z/conf/fpm.conf)
+ 151452  143038 davide         21:21 php-fpm: pool www
+ 151650       1 davide         21:15 php-fpm: master process (/tmp/opencode/research/wprealhex_20261022T011837Z/conf/fpm.conf)
+ 151734  151650 davide         21:12 php-fpm: pool wp
+ 158145  150457 davide         12:20 php-fpm: pool lab
+ 160458       1 davide         09:40 nginx: master process /opt/nginx-1.30.1/sbin/nginx -c /tmp/opencode/research/realchain_20261022T015900Z/conf/nginx.conf
+ 160459  160458 davide         09:40 nginx: worker process
+ 160462       1 davide         09:39 php-fpm: master process (/tmp/opencode/research/realchain_20261022T015900Z/conf/fpm.conf)
+ 164972       1 davide         05:24 php-fpm: master process (/tmp/opencode/research/php5exec_20261022_0131/conf/fpm56b.conf)
+ 165219  165193 davide         05:18 nginx: master process nginx -g daemon off;
+ 165273  165219 100100         05:18 nginx: worker process
+ 165274  165219 100100         05:18 nginx: worker process
+ 165275  165219 100100         05:18 nginx: worker process
+ 165276  165219 100100         05:18 nginx: worker process
+ 165277  165219 100100         05:18 nginx: worker process
+ 165278  165219 100100         05:18 nginx: worker process
+ 165279  165219 100100         05:18 nginx: worker process
+ 165280  165219 100100         05:18 nginx: worker process
+ 167066  164972 davide         03:26 php-fpm: pool www
+ 167756       1 davide         02:38 php-fpm: master process (/tmp/opencode/research/drupal_fpm_20261022T013000Z/conf/fpm.conf)
+ 167757  167756 davide         02:38 php-fpm: pool www
+ 167760  167756 davide         02:38 php-fpm: pool lab
+ 169841  160462 davide         00:10 php-fpm: pool wp
+ 169945  169938 davide         00:00 timeout 20 gdb -q -batch -p 169841 -ex file /tmp/opencode/realapps/install_realapps_np/sbin/php-fpm -x /tmp/opencode/research/aslrsame_20261021T233243Z/scripts/logone.gdb
+ 169947  169945 davide         00:00 gdb -q -batch -p 169841 -ex file /tmp/opencode/realapps/install_realapps_np/sbin/php-fpm -x /tmp/opencode/research/aslrsame_20261021T233243Z/scripts/logone.gdb

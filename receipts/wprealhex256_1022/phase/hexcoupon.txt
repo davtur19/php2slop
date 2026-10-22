@@ -1,0 +1,9 @@
+HexCoupon for WooCommerce 1.2.4 unauthenticated referrer test
+=============================================================
+Session handler: native files, php serialize_handler.
+GET /?ref=12345 with Cookie PHPSESSID=hexref2
+  -> session file 20 bytes: referrer_id|i:12345;
+GET /?ref=<2000 digits 9> with Cookie PHPSESSID=hexref
+  -> session file 16 bytes: referrer_id|i:0;
+Code path writes only intval($_GET['ref']) to $_SESSION['referrer_id'].
+Conclusion: user-controlled bytes cannot be carried into the session; each request contributes a small integer.
