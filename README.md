@@ -440,7 +440,7 @@ A1 OOMs allocating 4,096 B and A2 20,480 B, both in `Unknown on line 0`;
 
 ### Coverage gaps
 
-51 numbered entries; every row is `—` (no qualifying RCE or untested), never ❌.
+50 numbered entries; every row is `—` (no qualifying RCE or untested), never ❌.
 
 | ID | Status | Lane | Untested cell | Existing evidence / note | Priority |
 |---|---|---|---|---|---|
@@ -468,7 +468,6 @@ A1 OOMs allocating 4,096 B and A2 20,480 B, both in `Unknown on line 0`;
 | G22 | — | Build | FPM `8.4.27` fixed control | source only | P1 |
 | G23 | — | Build | mod_php `8.4.9` | between 0/8 and 17/17 | P1 |
 | G24 | — | Build | mod_php `8.4.0` | none | P2 |
-| G25 | — | Build | mod_php `8.1.34` | 8.1.33 and FPM 8.1.34 tested | P2 |
 | G26 | — | Build | 5.6.0 / 7.0.0 / 7.1.0 runtime | tips only | P3 |
 | G27 | — | SAPI/OS | nginx+mod_php `8.4.10` | mod_php warm chain | P2 |
 | G28 | — | SAPI/OS | nginx+mod_php `8.4.20` | mod_php warm chain | P2 |
