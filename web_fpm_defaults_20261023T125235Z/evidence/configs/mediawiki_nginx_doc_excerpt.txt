@@ -1,0 +1,24 @@
+### MediaWiki nginx doc excerpt
+server {
+	# [...]
+
+	# Location for wiki's entry points
+	location ~ ^/w/(mw-config/)?(index|load|api|thumb|opensearch_desc|rest|img_auth)\.php$ {
+        # Use the following "location", instead, to disable the MediaWiki web installer/updater.
+	    # location ~ ^/w/(index|load|api|thumb|opensearch_desc|rest|img_auth)\.php$ {
+		include /etc/nginx/fastcgi_params;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+		fastcgi_pass 127.0.0.1:9000; # or whatever port your PHP-FPM listens on
+		# fastcgi_pass unix:/run/php-fpm/www.sock;     # Default for RHEL & derivatives
+        # fastcgi_pass unix:/run/php/php8.1-fpm.sock;  # Default for Debian & derivatives
+--- fallback ---
+	## Also add "deny all;" in the location for /w/images above
+	#location /w/img_auth.php/ {
+	#	try_files $uri $uri/ /w/img_auth.php?$query_string;
+	#}
+
+	# Handling for the article path (pretty URLs)
+	location /wiki/ {
+		rewrite ^/wiki/(?<pagename>.*)$ /w/index.php;
+	}
+

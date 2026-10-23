@@ -1,0 +1,55 @@
+### WordPress nginx doc excerpt (captured HTML -> text)
+
+events {
+    worker_connections  1024;
+}
+
+http {
+    #rewrite_log on;
+
+    include mime.types;
+    default_type       application/octet-stream;
+    access_log         /var/log/nginx/access.log;
+    sendfile           on;
+    #tcp_nopush         on;
+    keepalive_timeout  3;
+    #tcp_nodelay        on;
+    #gzip               on;
+    #php max upload limit cannot be larger than this
+    client_max_body_size 13m;
+    index              index.php index.html index.htm;
+
+    # Upstream to abstract backend connection(s) for PHP.
+    upstream php {
+        #this should match value of "listen" directive in php-fpm pool
+        server unix:/tmp/php-fpm.sock;
+        # server 127.0.0.1:9000;
+    }
+
+    include sites-enabled/*;
+}
+
+--- php location ---
+    location / {
+        # This is cool because no php is touched for static content.
+        # include the "?$args" part so non-default permalinks doesn't break when using query string
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+        #NOTE: You should have "cgi.fix_pathinfo = 0;" in php.ini
+        include fastcgi.conf;
+        fastcgi_intercept_errors on;
+        fastcgi_pass php;
+--- cache variant ---
+location ~ [^/]\.php(/|$) {
+    fastcgi_split_path_info ^(.+?\.php)(/.*)$;
+    if (!-f $document_root$fastcgi_script_name) {
+        return 404;
+    }
+    # This is a robust solution for path info security issue and works with "cgi.fix_pathinfo = 1" in /etc/php.ini (default)
+
+    include fastcgi.conf;
+    fastcgi_index index.php;
+    # fastcgi_intercept_errors on;
+    fastcgi_pass php;

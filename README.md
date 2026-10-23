@@ -59,15 +59,53 @@ This is a measured snapshot, not a claim that every version is solved. Reports a
 
 ### Table 3 — Defaults catalog
 
-**🧪 catalog running.** Values are not asserted for distro families until measured; see [^1] for the official-image failure already established.
+**Web/FPM defaults are measured.** Full audit: [report](web_fpm_defaults_20261023T125235Z/report.md) · [matrix](web_fpm_defaults_20261023T125235Z/matrix.md) · [Apache CSV](web_fpm_defaults_20261023T125235Z/matrix_apache.csv) · [nginx CSV](web_fpm_defaults_20261023T125235Z/matrix_nginx.csv) · [FPM CSV](web_fpm_defaults_20261023T125235Z/matrix_fpm.csv) · [SHA256SUMS](web_fpm_defaults_20261023T125235Z/SHA256SUMS) (40/40 OK). The PHP ini catalog is separate and still 🧪 running (3d).
 
-| Target family | Defaults to catalog | Status | Notes |
+#### 3a — Apache MPM defaults
+
+| Family | Default MPM | Default tuple [^7] | mod_php | Evidence |
+|---|---|---|---|---|
+| Debian 12/13; Ubuntu 22.04/24.04 | event | `2/25/75/25/150/0` | not enabled; installing `libapache2-mod-phpX` switches to prefork | [report §2](web_fpm_defaults_20261023T125235Z/report.md), [CSV](web_fpm_defaults_20261023T125235Z/matrix_apache.csv) |
+| Debian/Ubuntu with mod_php | prefork | `5/5/10/150/0` | enabled by `libapache2-mod-phpX` | [report §2](web_fpm_defaults_20261023T125235Z/report.md), [CSV](web_fpm_defaults_20261023T125235Z/matrix_apache.csv) |
+| RHEL/Rocky/Alma 8 | event | `3/75/250/25/400/0` | libphp7 only under prefork; default event does not load it | [report §2](web_fpm_defaults_20261023T125235Z/report.md), [CSV](web_fpm_defaults_20261023T125235Z/matrix_apache.csv) |
+| RHEL/Rocky/Alma 9 | event | `3/75/250/25/400/0` | no libphp; `php-fpm` proxies to FPM | [report §2](web_fpm_defaults_20261023T125235Z/report.md), [CSV](web_fpm_defaults_20261023T125235Z/matrix_apache.csv) |
+| Alpine 3.22 | prefork | `5/5/10/250/0` | optional `php83-apache2`; not part of `apache2` | [report §2](web_fpm_defaults_20261023T125235Z/report.md), [CSV](web_fpm_defaults_20261023T125235Z/matrix_apache.csv) |
+| Arch | event | `3/75/250/25/400/0` | `php-apache` ships `libphp.so`; `php_module.conf` is not included by default | [report §2](web_fpm_defaults_20261023T125235Z/report.md), [CSV](web_fpm_defaults_20261023T125235Z/matrix_apache.csv) |
+| Official `php:*-apache` | prefork | `5/5/10/150/0` | `libphp.so` enabled | [report §2](web_fpm_defaults_20261023T125235Z/report.md), [CSV](web_fpm_defaults_20261023T125235Z/matrix_apache.csv) |
+
+#### 3b — nginx defaults
+
+| Family | Body / buffering | PATH_INFO / 11043 | Evidence |
 |---|---|---|---|
-| Official image / compiled | `output_buffering`, `memory_limit`, `display_errors`, session handler, worker model | 🧪 catalog running | Official image `output_buffering=0` is the known failure mode; other values pending. |
-| Debian / Ubuntu | same fields | 🧪 catalog running | Debian 8.4.24 package defaults include the required values [^2]; other versions pending. |
-| RHEL / Rocky | same fields | 🧪 catalog running | Pending; no values asserted. |
-| Alpine | same fields | 🧪 catalog running | Pending; no values asserted. |
-| Arch | same fields | 🧪 catalog running | Pending; no values asserted. |
+| nginx upstream | `client_max_body_size 1m`; `fastcgi_request_buffering on`; no default `fastcgi_split_path_info` or `try_files` | `fastcgi_params` sets neither `PATH_INFO` nor `SCRIPT_FILENAME`; no trigger by default | [report §3](web_fpm_defaults_20261023T125235Z/report.md), [CSV](web_fpm_defaults_20261023T125235Z/matrix_nginx.csv) |
+| Debian/Ubuntu packaged | 1m/on (neither is set in the packaged tree) | `fastcgi-php.conf` splits URI and forwards `PATH_INFO $path_info`, but first runs `try_files $fastcgi_script_name =404`; trigger blocked | [report §3](web_fpm_defaults_20261023T125235Z/report.md), [CSV](web_fpm_defaults_20261023T125235Z/matrix_nginx.csv) |
+| `nginx:alpine` | 1m/on; no PHP location | no FastCGI defaults | [report §3](web_fpm_defaults_20261023T125235Z/report.md), [CSV](web_fpm_defaults_20261023T125235Z/matrix_nginx.csv) |
+
+#### 3c — PHP-FPM defaults
+
+| Family | Pool tuple [^8] | Listen / user | Verified defaults | Evidence |
+|---|---|---|---|---|
+| Debian 12/13; Ubuntu 22.04/24.04 | `5/2/1/3` | unix socket; `www-data` | `clear_env=yes`; `security.limit_extensions=.php .phar`; `listen.backlog=-1`; `catch_workers_output=no` | [report §4](web_fpm_defaults_20261023T125235Z/report.md), [CSV](web_fpm_defaults_20261023T125235Z/matrix_fpm.csv) |
+| RHEL/Rocky/Alma 8/9 | `50/5/5/35` | unix `/run/php-fpm/www.sock`; `apache` | same compiled defaults; `listen.acl_users=apache,nginx` | [report §4](web_fpm_defaults_20261023T125235Z/report.md), [CSV](web_fpm_defaults_20261023T125235Z/matrix_fpm.csv) |
+| Alpine 3.22 | `5/2/1/3` | TCP `127.0.0.1:9000`; `nobody` | same compiled defaults | [report §4](web_fpm_defaults_20261023T125235Z/report.md), [CSV](web_fpm_defaults_20261023T125235Z/matrix_fpm.csv) |
+| Arch | `5/2/1/3` | unix `/run/php-fpm/php-fpm.sock`; `http` | same compiled defaults | [report §4](web_fpm_defaults_20261023T125235Z/report.md), [CSV](web_fpm_defaults_20261023T125235Z/matrix_fpm.csv) |
+| Official `php:*-fpm` | `5/2/1/3` | TCP `[::]:9000`; `www-data` | `clear_env=no`; no `php.ini`; compiled `cgi.fix_pathinfo=1`; `catch_workers_output=yes` | [report §4](web_fpm_defaults_20261023T125235Z/report.md), [CSV](web_fpm_defaults_20261023T125235Z/matrix_fpm.csv) |
+
+**Compiled-vs-template correction:** `listen.backlog=-1` (SOMAXCONN) and `security.limit_extensions=.php .phar` are effective compiled defaults. The commented template values (`511`; `.php .php3 .php4 .php5 .php7`) are not defaults.
+
+**`cgi.fix_pathinfo`:** effective `1` everywhere in this audit; every audited `php.ini` keeps `;cgi.fix_pathinfo=1` commented, and the official images load no `php.ini`, so the compiled default applies.
+
+#### 3d — PHP ini defaults — 🧪 running
+
+| Target family | Fields to catalog | Status |
+|---|---|---|
+| Official image / compiled | `output_buffering`, `memory_limit`, `display_errors`, `post_max_size`, `upload_max_filesize`, session handler | 🧪 running |
+| Debian / Ubuntu | same fields | 🧪 running |
+| RHEL / Rocky | same fields | 🧪 running |
+| Alpine | same fields | 🧪 running |
+| Arch | same fields | 🧪 running |
+
+No PHP ini values are asserted here beyond the official-image `output_buffering=0` failure already recorded in [^1]; the full PHP ini catalog remains running.
 
 [^1]: **Upstream 8.4.10–8.4.26 default fit is FAIL:** official image default `output_buffering=0`; the chain requires `php.ini-production` / `output_buffering=4096`. Without it A1 is 275 B with a normal cookie and no leak. The “no target-config change” claim is false for the official-image lane.
 [^2]: **Debian 13 8.4.24 package (mod_php, not FPM):** package defaults include the required values. `S = main + 0xF7398`, `fillers=116` (not upstream `0xF8398`), `zif_system=lib+0x24cdd0`; 4/4 blind with `uid=33(www-data)` + `DEB116R1..R4`, B2 hit attempt 4. Controls: `fillers=115` + same `S` → all B2 200, no proof; wrong anchor `S=main+0xF8398` → no proof. `SHA256SUMS` 73/73; report hash `bfdca47ec217b4fc2c35430becd27371d03208ccccc78ca2435b346810b491f7`; `/out` 777 is a lab oracle; a remote target needs an out-of-band callback.
@@ -75,6 +113,8 @@ This is a measured snapshot, not a claim that every version is solved. Reports a
 [^4]: **FPM 11043:** config-induced only in 7.1.32/7.2.23/7.3.10 (and Debian 10 7.3.9) with the canonical non-stock nginx PHP-FPM pattern. Debian 10 7.3.9 is vulnerable under that pattern: unauthenticated RCE as `uid=33(www-data)`, verified with WordPress 5.3.2, MediaWiki 1.33.1 and a plain probe. Stock Debian `snippets/fastcgi-php.conf` (`try_files $fastcgi_script_name =404;`) blocks; WordPress recommended config 301/no `PATH_INFO`; MediaWiki end-anchored location 404. Fixed 7.2.24/7.3.11/8.4.26; 7.4 unaffected.
 [^5]: **FPM 109618:** source-positive but same-worker primitive only, no RCE; BG/T1 are strictly per-worker, zero cross-worker; ASLR/no known target.
 [^6]: **FPM 8.0–8.3 109619:** negative (A2 OOM/exit 70; 8.0 size-threshold; B1 413; no state inheritance); 109618 is a same-worker primitive, no RCE. Fixed 8.2.35/8.3.36.
+[^7]: Apache event tuple: `StartServers / MinSpareThreads / MaxSpareThreads / ThreadsPerChild / MaxRequestWorkers / MaxConnectionsPerChild`; prefork tuple: `StartServers / MinSpareServers / MaxSpareServers / MaxRequestWorkers / MaxConnectionsPerChild`.
+[^8]: FPM tuple: `pm.max_children / pm.start_servers / pm.min_spare_servers / pm.max_spare_servers`.
 
 ### No-cheat assessment (2026-10-23)
 

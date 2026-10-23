@@ -1,0 +1,46 @@
+=== apache2ctl -V ===
+Server version: Apache/2.4.69 (Debian)
+Server built:   2026-10-01T16:54:08
+Server's Module Magic Number: 20120211:142
+Server loaded:  APR 1.7.5, APR-UTIL 1.6.3, PCRE 10.46 2025-08-27
+Compiled using: APR 1.7.5, APR-UTIL 1.6.3, PCRE 10.46 2025-08-27
+Architecture:   64-bit
+Server MPM:     prefork
+  threaded:     no
+    forked:     yes (variable process count)
+Server compiled with....
+ -D APR_HAS_SENDFILE
+ -D APR_HAS_MMAP
+ -D APR_HAVE_IPV6 (IPv4-mapped addresses enabled)
+ -D APR_USE_PROC_PTHREAD_SERIALIZE
+ -D APR_USE_PTHREAD_SERIALIZE
+ -D SINGLE_LISTEN_UNSERIALIZED_ACCEPT
+ -D APR_HAS_OTHER_CHILD
+ -D AP_HAVE_RELIABLE_PIPED_LOGS
+ -D DYNAMIC_MODULE_LIMIT=256
+ -D HTTPD_ROOT="/etc/apache2"
+ -D SUEXEC_BIN="/usr/lib/apache2/suexec"
+ -D DEFAULT_PIDLOG="/run/apache2.pid"
+ -D DEFAULT_SCOREBOARD="logs/apache_runtime_status"
+ -D DEFAULT_ERRORLOG="logs/error_log"
+ -D AP_TYPES_CONFIG_FILE="mime.types"
+ -D SERVER_CONFIG_FILE="apache2.conf"
+=== mpm loads ===
+mpm_prefork.conf
+mpm_prefork.load
+=== prefork conf ===
+# prefork MPM
+# StartServers: number of server processes to start
+# MinSpareServers: minimum number of server processes which are kept spare
+# MaxSpareServers: maximum number of server processes which are kept spare
+# MaxRequestWorkers: maximum number of server processes allowed to start
+# MaxConnectionsPerChild: maximum number of requests a server process serves
+
+StartServers            5
+MinSpareServers         5
+MaxSpareServers         10
+MaxRequestWorkers       150
+MaxConnectionsPerChild  0
+=== event conf ===
+=== php module ===
+/usr/lib/apache2/modules/libphp.so

@@ -1,0 +1,23 @@
+=== version ===
+PHP 8.4.26 (fpm-fcgi) (built: Oct 21 2026 00:31:28) (NTS)
+=== www.conf ACTIVE ===
+[www]
+user = www-data
+group = www-data
+pm = dynamic
+pm.max_children = 5
+pm.start_servers = 2
+pm.min_spare_servers = 1
+pm.max_spare_servers = 3
+=== global ACTIVE in php-fpm.conf ===
+[global]
+include=/usr/local/etc/php-fpm.d/*.conf
+=== php.ini key values ===
+display_errors => STDOUT => STDOUT
+expose_php => On => On
+max_execution_time => 0 => 0
+max_file_uploads => 20 => 20
+max_input_vars => 1000 => 1000
+memory_limit => 128M => 128M
+post_max_size => 8M => 8M
+upload_max_filesize => 2M => 2M

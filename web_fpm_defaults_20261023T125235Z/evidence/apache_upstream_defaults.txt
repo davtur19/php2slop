@@ -1,0 +1,26 @@
+# Apache 2.4.62 upstream compiled defaults (source)
+## server/mpm/event/mpm_default.h
+#define APACHE_MPM_DEFAULT_H
+#define DEFAULT_START_DAEMON 3
+#define DEFAULT_MAX_FREE_DAEMON 10
+#define DEFAULT_MIN_FREE_DAEMON 3
+#define DEFAULT_THREADS_PER_CHILD 25
+## server/mpm/prefork/mpm_default.h
+#define APACHE_MPM_DEFAULT_H
+#define DEFAULT_START_DAEMON 5
+#define DEFAULT_MAX_FREE_DAEMON 10
+#define DEFAULT_MIN_FREE_DAEMON 5
+## include/mpm_common.h
+#define APACHE_MPM_COMMON_H
+#define DEFAULT_LISTENBACKLOG 511
+#define AP_SIG_GRACEFUL SIGUSR1
+#define AP_SIG_GRACEFUL_SHORT USR1
+#define AP_SIG_GRACEFUL_STRING "SIGUSR1"
+#define AP_SIG_GRACEFUL_STOP SIGWINCH
+#define AP_SIG_GRACEFUL_STOP_SHORT WINCH
+#define AP_SIG_GRACEFUL_STOP_STRING "SIGWINCH"
+#define ap_sock_disable_nagle(s)        /* NOOP */
+#define AP_MPM_PODX_RESTART_CHAR '$'
+#define AP_MPM_PODX_GRACEFUL_CHAR '!'
+#define AP_GRACEFUL_SHUTDOWN_TIMEOUT_COMMAND \
+#define AP_ACCEPT_MUTEX_TYPE "mpm-accept"

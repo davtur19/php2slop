@@ -1,0 +1,6 @@
+display_errors => On => On
+expose_php => On => On
+max_execution_time => 30 => 30
+memory_limit => 128M => 128M
+post_max_size => 8M => 8M
+upload_max_filesize => 2M => 2M

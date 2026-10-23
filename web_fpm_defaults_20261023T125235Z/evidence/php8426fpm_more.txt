@@ -1,0 +1,34 @@
+=== docker.conf ===
+[global]
+error_log = /proc/self/fd/2
+log_limit = 8192
+[www]
+access.log = /proc/self/fd/2
+clear_env = no
+catch_workers_output = yes
+decorate_workers_output = no
+listen = 9000
+=== zz-docker.conf ===
+[global]
+daemonize = no
+[www]
+=== php --ini ===
+Configuration File (php.ini) Path: /usr/local/etc/php
+Loaded Configuration File:         (none)
+Scan for additional .ini files in: /usr/local/etc/php/conf.d
+Additional .ini files parsed:      /usr/local/etc/php/conf.d/docker-fpm.ini,
+/usr/local/etc/php/conf.d/docker-php-ext-opcache.ini,
+/usr/local/etc/php/conf.d/docker-php-ext-sodium.ini
+
+=== fix_pathinfo ===
+=== ini file values ===
+/usr/local/etc/php/php.ini-development:398:expose_php = On
+/usr/local/etc/php/php.ini-development:433:memory_limit = 128M
+/usr/local/etc/php/php.ini-development:502:display_errors = On
+/usr/local/etc/php/php.ini-development:697:post_max_size = 8M
+/usr/local/etc/php/php.ini-development:849:upload_max_filesize = 2M
+/usr/local/etc/php/php.ini-production:400:expose_php = On
+/usr/local/etc/php/php.ini-production:435:memory_limit = 128M
+/usr/local/etc/php/php.ini-production:504:display_errors = Off
+/usr/local/etc/php/php.ini-production:699:post_max_size = 8M
+/usr/local/etc/php/php.ini-production:851:upload_max_filesize = 2M
