@@ -27,15 +27,15 @@ Legend: ✅ works (RCE) · ❌ does not work (no RCE) · 🚫 patched/fixed.
 | Arch mod_php | 8.4.26 | ✅ | shipped Arch ini; opcache baseline |
 | mod_php | 8.4.27 | 🚫 | patched/fixed |
 | mod_php | 8.0–8.3 | ❌ | 109619 negative; 109618 no controlled destructor |
-| mod_php | 8.5.0/5/11 | ❌ | leak only; no code pointer; 8.5.12 fixed |
-| FPM | 8.0–8.3 | ❌ | 109619 negative; 109618 primitive only; 8.2.35/8.3.36 fixed |
-| FPM | 8.4.26 | ❌ | 109618 primitive; no controlled destructor; 8.4.27 fixed |
-| FPM | 8.5.11 | ❌ | PIE leak/reclaim only; 8.5.12 fixed |
+| mod_php | 8.5.0/5/11 | ❌ | leak only; no code pointer |
+| FPM | 8.0–8.3 | ❌ | 109619 negative; 109618 primitive only |
+| FPM | 8.4.26 | ❌ | 109618 primitive; no controlled destructor |
+| FPM | 8.5.11 | ❌ | PIE leak/reclaim only |
 | FPM | 7.1/7.2/7.3 | ❌ | CVE-2019-11043 only non-stock PATH_INFO/no script check; stock Debian/WordPress/MediaWiki blocked |
 | FPM | 5.6–7.4 | ❌ | B1 leak; stock A1 blocked by nginx 1 MiB; no B2 |
 | nginx + mod_php | 8.4.24/26 stock | ❌ | nginx 1 MiB → 413; PHP `post_max_size=8M` blocks B1 |
 | nginx + FastCGI | stock FPM | ❌ | params fixed to `HTTP_*`; framing 400/501 |
-| SOAP | 8.4.20/8.5.5 | ❌ | UAF/crash only; 8.4.21/8.5.6 fixed |
+| SOAP | 8.4.20/8.5.5 | ❌ | UAF/crash only |
 | Ubuntu 24.04 | 8.3 | 🚫 | patched |
 | Alpine 3.20 | 8.3.15 | ❌ | 8.3 branch behavior; B1 0/3 |
 | Alpine 3.21 | 8.4.27 | 🚫 | patched/fixed |
