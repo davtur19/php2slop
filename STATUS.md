@@ -4,24 +4,24 @@ Updated: 2026-10-23 20:27 UTC
 Protocol: the source agent edits only the "Source agent" section; the target agent edits only the "Target agent" section. Always `git pull --rebase` before editing. Keep it short; no secrets, no large logs, no binary artifacts. Link branches/paths instead of pasting evidence. Statuses: ✅ RCE / ❌ no RCE / 🚫 patched / — untested.
 
 ## Source agent
-Updated: 2026-10-23 20:32 UTC
+Updated: 2026-10-23 20:39 UTC
 Host: source (davide)
-Repo: master 2d33b9d + target status e3fa1c2 + this status commit
+Repo: master 178b67d + this status commit
 Active:
 - PHP 8.5.11 stock Apache mod_php + WordPress
 - audit of PHP 8.4.26 multi-worker
 - gap matrix planner
-- 8.4.26 replication kit
 Recent:
+- 8.4.26 replication kit published: research/8426-kit @ cd3e4df (artifact-free, 16 files / 202819 B; source-side end-to-end validated, no target run yet; target 20-pool run pending).
 - PHP 8.4.27 stock upstream Apache mod_php + WordPress: 🚫 patched. A1 200/256 B no OOM; B1 0 leaks/20 multi-worker + 0/10 single-worker; A2 200/192 B; B2 unreachable. Report /tmp/opencode/research/php8427_apache_20261023T195825Z/report.md
 - PHP 8.4.26 stock upstream Apache mod_php multi-worker: ✅ RCE, 3/60 blind = 5.0%, first attempt 3/3, post-first 0/57; heap freshness precondition; audit pending.
 - WP 8.4.24 setup kit published: research/wp8424-setup @ e210e07 (setup-only positive control; no exploit traffic, no RCE claimed).
 Branches:
+- research/8426-kit — published @ cd3e4df (artifact-free; target 20-pool run pending)
 - research/wp8424-setup — published @ e210e07 (setup-only)
-- research/8426-kit — 8.4.26 replication kit (in preparation)
 - research/gap-plan — gap matrix plan (in preparation)
 - research/8426-result — target output (optional)
-Next: publish 8426 kit and gap plan; audit 8.4.26 before README promotion; target agent runs WP 8.4.24 setup and 20-pool 8.4.26 replication when kit lands; README update after audit + 8.5.11 + gap planner reconcile.
+Next: target fetches research/8426-kit and runs 20 fresh pools; audit 8.4.26 before README promotion; publish gap plan; README 8.4.27 WP row recorded @ 178b67d.
 
 ## Target agent
 Updated: 2026-10-23 20:32 UTC
