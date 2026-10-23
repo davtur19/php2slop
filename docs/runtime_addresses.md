@@ -263,6 +263,66 @@ Flavor "default+debug" of section 1 (the default lab install tree).
 - delta `zval_ptr_dtor − zend_call_function` = **0x6ce57b**
 - delta `zend_llist_remove_tail − zif_passthru` = **0xe862c5**
 
+### 2.11 plain_modphp — `/home/davide/ailocal/php/zerodays_1020/build_plain/libs/libphp.so` (mod_php DSO, plain)
+
+Naming mapping (`universal/profile_builder.py`): build flavor dir `build_plain` → tag
+`plain`, module binary `libphp.so` → SAPI tag `modphp`, so the profile is
+`addresses/plain_modphp.json` (curated schema). This is a different link unit than the
+plain SAPI binaries (no SAPI main, different link order/segments), so its per-link deltas
+are its own (see section 3).
+
+| field | value |
+|---|---|
+| ELF type | DYN (Shared object — loaded by httpd, PIE-style randomized base at runtime) |
+| image base (first LOAD p_vaddr) | 0x0 — runtime base randomized per load |
+| p_align | 0x1000 |
+| md5 | 92f76e84a77bf8b56c45c3868fa29a6c |
+| sha256 | a4811300e2963d84c2825762bba1607c22979554da8234b6f965940157825102 |
+| size | 40492240 |
+
+| symbol | binding | vaddr (= offset from base, file-relative) |
+|---|---|---|
+| zif_system | local t | 0x40cc80 |
+| zif_passthru | local t | 0x40cc90 |
+| zend_call_function | global T (+dynsym) | 0x540500 |
+| zend_llist_remove_tail | global T (+dynsym) | 0x5d39a0 |
+| zval_ptr_dtor | global T (+dynsym) | 0x5f0980 |
+
+- delta `zval_ptr_dtor − zend_call_function` = **0xb0480**
+- delta `zend_llist_remove_tail − zif_passthru` = **0x1c6d10**
+
+Symbol-visibility note: the same rules as section 2 apply — nothing is fake-hidden here;
+`zif_*` are `.symtab`-local (`t`), the three `zend_*` are global `T` and are the only ones
+of the five exported in `.dynsym` (addresses equal symtab addresses). Local look-alikes
+(`zval_ptr_dtor_nogc`, `zend_unclean_zval_ptr_dtor`) resolve below the public `T` symbol
+and must not be confused with it.
+
+**Live-stack match check (stack B, CVE-2026-109619 forged-consumer next step):**
+
+- 2026-10-21 (pre-restart, verified): stack B ran `httpd 2.4.66 -f
+  /tmp/opencode/modphp_redo_1021/conf_httpd_min.conf` on 127.0.0.1:28850 with
+  `LoadModule php_module /tmp/opencode/apache/modules/libphp.so`. That DSO was
+  **byte-identical** to `build_plain/libs/libphp.so` (same md5/sha256/BuildID
+  `07fb818145445915ed4ec44292324a9db92d4beb`) and live-mapped into the running master
+  (pid 4041485, r--p base 0x7f6f28400000, r-xp at file offset 0x137000).
+  → file-level match = **true**; profile valid for that stack.
+- 2026-10-23 (post-environment-restart re-check): the stack-B DSO path was
+  re-materialized and re-verified byte-identical (same md5/sha256/BuildID). However the
+  served stack changed behind the rootlesskit forward on 28850: the endpoint answers
+  `Server: Apache/2.4.69 (Debian)`, the restored `bin/httpd` is itself a Debian 2.4.69
+  binary, and the visible apache2 processes load a distro mod_php
+  (`/usr/lib/apache2/modules/libphp.so`, 16938000 bytes, md5 `ce1f3c48ba22f8f17834ac791aead613`,
+  PHP 8.2.x) — not this profile. The stack-B conf
+  (`modphp_redo_1021/conf_httpd_min.conf`) was not restored.
+  → live-stack match = **false as of 2026-10-23**.
+
+**GO/NO-GO:** the *file-level* profile is valid (byte-identical DSO, twice verified), but
+the *currently running* 28850 stack is a different binary → the forged-consumer
+experiment is gated **NO-GO vs today's 28850**; GO once an Apache 2.4.66 + this exact
+`libphp.so` (md5 `92f76e84…`) stack is redeployed — re-verify then by hashing the
+`LoadModule` target and confirming the live mapping (any 2.4.69 banner = different
+stack).
+
 ## 3. Cross-build delta summary
 
 Both deltas are exactly constant per build and were measured identical across all three
@@ -277,6 +337,12 @@ SAPI variants (php-fpm / php-cgi / cli) of the same link. All 21 unique binaries
 | asan (fpm + cgi + cli) | 0x2c3f49 | 0x637840 | DYN |
 | O0 (fpm + cgi + cli) | 0x201e03 | 0x4a516a | DYN |
 | default+debug (fpm + cgi + cli) | 0x6ce57b | 0xe862c5 | DYN |
+| plain mod_php DSO (libphp.so) | 0xb0480 | 0x1c6d10 | DYN |
+
+The mod_php row is a **different link unit** of the plain source tree (shared object
+without a SAPI main, different link-order/segment layout), so its deltas legitimately
+differ from the plain SAPI constants in the table above; the per-build-constant rule
+applies across SAPI executables of one link, not across link units.
 
 (All seven flavors now carry a JSON artifact for their profile member: realapps_np_fpm,
 plainpie_cgi, plainpie_fpm, plain_cgi, plain_fpm, asan_cgi, asan_fpm, O0_fpm,
@@ -346,7 +412,14 @@ observed):
   `/tmp/opencode/realapps/side/runtime_addresses.md`)
 - JSON per profile build (curated schema, hand-ordered):
   `addresses/{realapps_np_fpm, plainpie_cgi, plain_cgi, asan_cgi, realapps_fpm,
-  plainpie_fpm, plain_fpm, asan_fpm, O0_fpm, default_debug_fpm}.json`
+  plainpie_fpm, plain_fpm, asan_fpm, O0_fpm, default_debug_fpm,
+  plain_modphp}.json`
+- Naming convention: `<flavor>_<sapi>.json` where flavor = build/install flavor dir
+  (build_asan→asan, install→default_debug, phb→realapps, ...) and sapi = binary stem
+  (php→cli, php-cgi→cgi, php-fpm→fpm, libphp→modphp). E.g. the plain mod_php DSO
+  `build_plain/libs/libphp.so` maps to `plain_modphp.json`; for the libphp tree layout
+  the in-tree copy lives under `libs/` and no install-tree modphp counterpart exists
+  (`duplicate_of` omitted there).
 - Full batch tool output, one file per unique binary, collision-safe names:
   `addresses/generated/*.json` (+ `batch.log` from the pre-fix run, `batch_fixed.log`
   from the collision-fixed re-run)

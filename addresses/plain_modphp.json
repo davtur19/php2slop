@@ -1,0 +1,26 @@
+{
+  "binary": "/home/davide/ailocal/php/zerodays_1020/build_plain/libs/libphp.so",
+  "duplicate_of": "/tmp/opencode/apache/modules/libphp.so",
+  "md5": "92f76e84a77bf8b56c45c3868fa29a6c",
+  "size_bytes": 40492240,
+  "elf_type": "DYN",
+  "image_base": "0x0",
+  "p_align": "0x1000",
+  "symbols": {
+    "zend_call_function": "0x540500",
+    "zend_llist_remove_tail": "0x5d39a0",
+    "zif_passthru": "0x40cc90",
+    "zif_system": "0x40cc80",
+    "zval_ptr_dtor": "0x5f0980"
+  },
+  "offsets_from_base": {
+    "zend_call_function": "0x540500",
+    "zend_llist_remove_tail": "0x5d39a0",
+    "zif_passthru": "0x40cc90",
+    "zif_system": "0x40cc80",
+    "zval_ptr_dtor": "0x5f0980"
+  },
+  "delta_dtor_call": "0xb0480",
+  "delta_llist_passthru": "0x1c6d10",
+  "dynsym_exported": ["zend_call_function", "zend_llist_remove_tail", "zval_ptr_dtor"]
+}

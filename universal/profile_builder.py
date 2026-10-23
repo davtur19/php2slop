@@ -61,7 +61,7 @@ FLAVOR_TAGS = {
     "install_realapps_np": "realapps_np",
 }
 
-SAPI_TAGS = {"php-fpm": "fpm", "php-cgi": "cgi", "php": "cli"}
+SAPI_TAGS = {"php-fpm": "fpm", "php-cgi": "cgi", "php": "cli", "libphp": "modphp"}
 
 
 def lab_root_of(binary: Path) -> tuple:
@@ -97,8 +97,10 @@ def name_and_counterpart(binary: Path) -> tuple:
         raise ValueError(f"unrecognized SAPI binary name: {binary}")
     name = f"{flavor}_{sapi}.json"
 
-    sapi_install_layout = {"cgi": "bin", "cli": "bin", "fpm": "sbin"}
-    sapi_build_layout = {"cgi": "sapi/cgi", "cli": "sapi/cli", "fpm": "sapi/fpm"}
+    sapi_install_layout = {"cgi": "bin", "cli": "bin", "fpm": "sbin",
+                           "modphp": "modules"}
+    sapi_build_layout = {"cgi": "sapi/cgi", "cli": "sapi/cli", "fpm": "sapi/fpm",
+                         "modphp": "libs"}
     prefix_map = {
         "build": "install", "build_asan": "install_asan", "build_O0": "install_O0",
         "build_plain": "install_plain", "build_plainpie": "install_plainpie",
