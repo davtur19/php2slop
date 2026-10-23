@@ -17,7 +17,7 @@ profiles, and this documentation.
 ## Status: what works / what does not
 
 RCE: the per-build 8.4.10–8.4.26 mod_php chain, the audited stock WordPress
-7.1.3 + Debian 13.7 Apache 2.4.69 prefork mod_php 8.4.24 cell (first
+7.1.3 docroot (core silence file) + Debian 13.7 Apache 2.4.69 prefork mod_php 8.4.24 cell (first
 stock-compliant ✅ in this document; direct mod_php only, rate caveat below),
 Ubuntu 25.04 8.4.5-1ubuntu1.2, and the non-stock `cleanup=0`
 CVE-2026-115560 gadget chain on 8.4.26/8.5.11. The 8.5.11 FPM result is
@@ -296,6 +296,10 @@ stock MPM and stock package INI, official WordPress 7.1.3 core file,
 target-written proofs. It is direct Apache mod_php only; it does not extend to
 nginx/FPM.
 
+The WordPress 7.1.3 rows in the Applications table that target
+`/wp-content/index.php` use a core silence file; WordPress is not bootstrapped,
+so those results are engine-level, not an app-level WordPress RCE.
+
 | Condition | Audited value |
 |---|---|
 | OS / package | Debian 13.7 (trixie); `libapache2-mod-php8.4 8.4.24-1~deb13u1`; `apache2 2.4.69-1~deb13u1` |
@@ -355,8 +359,8 @@ is not part of the exploit path.
 
 | App / version | PHP + SAPI | Endpoint / config | Status | Class / qualifier |
 |---|---|---|---|---|
-| WordPress 7.1.3 | Apache 2.4.69 prefork + mod_php 8.4.24 (Debian 13.7 `8.4.24-1~deb13u1`) | stock prefork 5/150; `/wp-content/index.php` 28-B core file; official docroot minus inactive bundled plugins, read-only | ✅ | **stock-compliant**, direct mod_php; target-written `MW001`/`MW006`/`PR001`/`PR002`; blind 2/20, pooled 4/40 lab-assisted; retries; see section above |
-| WordPress 7.1.3 | 8.4.26 mod_php | `/wp-content/index.php` (silence file) | ✅ | engine-level, lab-conditioned; 6/6; the audited stock-compliant cell is the Debian 8.4.24 row above |
+| WordPress 7.1.3 | Apache 2.4.69 prefork + mod_php 8.4.24 (Debian 13.7 `8.4.24-1~deb13u1`) | stock prefork 5/150; `/wp-content/index.php` 28-B core file; official docroot minus inactive bundled plugins, read-only | ✅ | **stock-compliant**: stock PHP/Apache/docroot defaults; core silence file; WordPress not bootstrapped; direct mod_php; target-written `MW001`/`MW006`/`PR001`/`PR002`; blind 2/20, pooled 4/40 lab-assisted; retries; see section above |
+| WordPress 7.1.3 | 8.4.26 mod_php | `/wp-content/index.php` (silence file) | ✅ | engine-level, lab-conditioned; audit 2026-10-23: 3/60 blind on 993,911-B A1 shrink (first 3/3; post-first 0/57; 4 target-written proofs); core silence file, WordPress not bootstrapped; php.ini-production mounted; G51 remains conditional; the 8.4.24 cell above is the stock-defaults docroot control, not a WP-bootstrap cell |
 | WordPress 7.1.3 | Apache 2.4.69 prefork + mod_php 8.4.27 (stock upstream `php:8.4.27-apache`, Debian 13.7) | stock prefork 5/150 (observed 5→15); `/wp-content/index.php` 28-B core file, read-only | 🚫 | fixed upstream in 8.4.27; A1 200/256 B no OOM; B1 0/20 multi-worker + 0/10 single-worker; A2 200/192 B; B2 unreachable (no B1 leak); per-build only, no range extrapolation |
 | WordPress 7.1.3 | 8.4.26 nginx+mod_php non-stock | `/index.php` front controller | ✅ | engine-level; 6/6 OOB; pre-app — WP not installed (`mysqli` missing), HTTP 500 |
 | WordPress 7.1.3 | 8.4.26 nginx+mod_php non-stock | `/wp-content/index.php` | ✅ | engine-level; non-stock 64M; 6/6 |
@@ -487,7 +491,7 @@ A1 OOMs allocating 4,096 B and A2 20,480 B, both in `Unknown on line 0`;
 | G48 | — | App | OpenCart 4.x | optional; version unverified | P3 |
 | G49 | — | App | Laravel 12 / Symfony 7.x/6.4 / Nextcloud 34/33 | secondary versions | P3 |
 | G50 | — | SAPI/OS | OpenLiteSpeed 1.9.3 + lsphp `8.5.11` (LSAPI) | no exact local `lsphp85` build or LSAPI-specific trigger; upstream `sapi/litespeed/lsapi_main.c` has the same early return at `php_request_startup()` failure, so expected 500/exit 255, not a shutdown crash; **not measured**; `—`, not ❌ | P1 |
-| G51 | — | App | WordPress 7.1.3 + upstream `php:8.4.26-apache` stock multi-worker | the audited stock prefork 5/150 WordPress proof is Debian 8.4.24; 8.4.26 is documented as an engine-level lab chain, so no audit-grade stock multi-worker WordPress cell exists on 8.4.26 | P1 |
+| G51 | — | App | WordPress 7.1.3 + upstream `php:8.4.26-apache` stock multi-worker | the audited stock prefork 5/150 WordPress proof is Debian 8.4.24; 8.4.26 is documented as an engine-level lab chain, so no audit-grade stock multi-worker WordPress cell exists on 8.4.26; 8.4.26 audit confirms engine-level only; WP not bootstrapped; php.ini-production mounted; closure conditional on a stock multi-worker WordPress-bootstrap cell | P1 |
 
 The tested stock WordPress-on-Apache cell is no longer a gap. The remaining
 WordPress cells are the installed front controller (G35), stock nginx+FPM
