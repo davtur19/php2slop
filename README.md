@@ -20,8 +20,9 @@ lab-only and conditional on the row's configuration. No stock/all-version
 claim.
 
 The newly added distro-package and real-app rows below are negative: no
-full-chain RCE or OOB, only crash/DoS, because the B1 leak/address-recovery
-step did not reproduce. They do not extend the lab RCE claims above.
+full-chain RCE, OOB write, or proof; the vulnerable rows show crash/DoS, and
+the 26.04 release B1 leak is heap-only with no `libphp`/`S` anchor. They do not
+extend the lab RCE claims above.
 
 Legend: ✅ RCE in that exact cell · ❌ tested negative in that exact cell ·
 🚫 patched build (basis stated) · — no qualifying RCE / untested (coverage gaps only).
@@ -80,7 +81,7 @@ Stock `php:<v>-fpm` images fronted by nginx; stock production INI,
 | 8.3.35 | 8.3 | ❌ | A2 502/exit 70 | runtime |
 | 8.3.36 | 8.3 | 🚫 | fixed control; A2 200, `PEAK=46137344` | runtime |
 | 8.4.26 | 8.4 | ❌ | 109618 primitive; no controlled destructor | runtime |
-| 8.4.27 | 8.4 | 🚫 | upstream fix; FPM runtime control not run (G16) | upstream fix |
+| 8.4.27 | 8.4 | 🚫 | upstream fix; FPM runtime control not run (G11) | upstream fix |
 | 8.5.11 | 8.5 | ✅ | lab: plain full-extension build, `pm=static`, `max_children=1`, same-worker known target + trigger script; blind leak-derived `C`/`PIE`; fake dtor → `zif_system`; 3/3 | runtime |
 | 8.5.11 | 8.5 | ❌ | stock `pm=dynamic` pool: leak only | runtime |
 | 8.5.12 | 8.5 | 🚫 | fixed; plain full-extension build + stock nginx | runtime |
@@ -111,7 +112,7 @@ Stock nginx front, stock FPM pool.
 | 8.3.35 | ❌ | same 502/exit-70 shape |
 | 8.3.36 | 🚫 | fixed; A2 200 |
 | 8.4.26 | ❌ | stock 1m 413; 64M diag 502/OOM; no chain |
-| 8.4.27 | 🚫 | upstream fix; runtime control missing (G16) |
+| 8.4.27 | 🚫 | upstream fix; runtime control missing (G11) |
 | 8.5.11 | ❌ | B1 leak only under stock `pm=dynamic`; the single-worker 3/3 result is in the FPM table, not this pool |
 | 8.5.12 | 🚫 | plain full-extension build + stock nginx; A1 200 |
 
@@ -128,8 +129,10 @@ Tested rows only; exact package strings.
 | Ubuntu 25.04 (plucky) | `8.4.5-1ubuntu1.2` | mod_php | ✅ | package-specific; 2/2 full-chain RCE; symbol offsets `0x245810`/`0x424fc0`; `fillers=116`; `S=main+0xF7398`; upstream 8.4.5 not claimed vulnerable |
 | Ubuntu 22.04 LTS | `8.1.2-1ubuntu2.28` | mod_php + FPM | 🚫 | fixed control; A1 200 (no cookie), A2 200, 0 FPM exit-70; package revision carries the branch fix |
 | Ubuntu 22.04 LTS | `8.1.2-1ubuntu2` | mod_php + FPM | ❌ | A1 500 parse-OOM, A2 500, 2 FPM exit-70; B1 no leak; crash/DoS only; B1 leak/address recovery blocker |
-| Ubuntu 24.04 LTS | `8.3.6-0ubuntu0.24.04.13` | mod_php + FPM | 🚫 | fixed; A1 200, FPM A2 200, 0 FPM exit-70; fixed mod_php A2/B2 not run |
-| Ubuntu 24.04 LTS | `8.3.6-0maysync1` | mod_php + FPM | ❌ | A1 500 parse-OOM, A2 500, 2 FPM exit-70; B1 no leak; crash/DoS only; no chain |
+| Ubuntu 24.04 LTS | `8.3.6-0maysync1` (release `8.3.6`, pre-update) | mod_php + FPM | ❌ | 109618 CL body: mod_php SIGSEGV 4/4 (OOM 12,288 B); Apache+FPM HTTP 200 empty, OOM 12,288 B, child exit 70, no SIGSEGV, next GET 200; CL A1 OOM 4,096 logged; nginx 64 MiB A1 child exit 70/request; no RCE/OOB/proof; crash/DoS only |
+| Ubuntu 24.04 LTS | `8.3.6-0ubuntu0.24.04.13` | mod_php + FPM | 🚫 | fixed control; mod_php 14,497,878 B chunked body -> 200 `OK`, PHP warning `Actual POST length does not match Content-Length, and exceeds 8388608 bytes`, no OOM; A1 200, 0 FPM exit-70; fixed mod_php A2/B2 not run |
+| Ubuntu 26.04 LTS | `8.5.4-0ubuntu1` (release) | mod_php + FPM | ❌ | 109618 CL body: mod_php SIGSEGV 4/4 (OOM 12,288 B); Apache+FPM HTTP 200 empty, OOM 12,288 B, child exit 70, no SIGSEGV, next GET 200; CL A1 OOM 4,096 logged; nginx 64 MiB A1 child exit 70/request; B1 819,208 B heap leak 1/8, no libphp/S anchor; no ASLR break; no RCE/OOB/proof; crash/DoS only |
+| Ubuntu 26.04 LTS | `8.5.4-0ubuntu1.5` | mod_php + FPM | 🚫 | fixed control; mod_php 14,497,878 B chunked body -> 200 `OK`, PHP warning `Actual POST length does not match Content-Length, and exceeds 8388608 bytes`, no OOM; A1 200, 0 FPM exit-70 |
 | Alpine 3.20 | `8.3.15-r0` | mod_php (apache2) | ❌ | 8.3 A1 parse-phase OOM 500; B1 0/3, 34-byte cookies |
 | Alpine 3.21 | `8.4.27-r0` | mod_php (apache2) | 🚫 | fixed; A1 200, B1 normal cookie |
 | Arch Linux rolling | `8.5.12-1`; `php-legacy 8.3.36-1` | mod_php | 🚫 | fixed versions; no vulnerable package in repos |
@@ -138,10 +141,23 @@ Tested rows only; exact package strings.
 
 Positive control in the same run: official `8.4.26` mod_php reproduced the
 full chain (A1 500, B1 819,208-byte leak, A2 500, B2 `uid=33(www-data)`), so
-the distro negatives are measured against a working harness. No distro package
-produced a full-chain RCE or an OOB leak; the vulnerable revisions show only
-crash/DoS (mod_php A1/A2 OOM; FPM `exit 70`). The B1 body geometry is
+the distro negatives are measured against a working harness. None of the newly
+tested negative distro packages produced a full-chain RCE or an OOB write; the
+vulnerable revisions show only crash/DoS (mod_php A1/A2 OOM and 109618 worker
+SIGSEGV; FPM `exit 70`). The 26.04 release B1 leak is heap-only with no
+`libphp`/`S` anchor, so no ASLR break was obtained. The B1 body geometry is
 8.4-derived, so a build-specific leak offset cannot be excluded.
+
+**Ubuntu 24.04/26.04 gap closure (2026-10-23).** Release `8.3.6`
+(`8.3.6-0maysync1`) and `8.5.4-0ubuntu1` are crash/DoS-only: the Apache+FPM
+Content-Length 109618 body returns HTTP 200 empty, OOM 12,288 B, FPM child
+exit 70, no SIGSEGV, next GET 200; the CL A1 OOM 4,096 is logged; nginx
+64 MiB A1 loses one child (exit 70) per request. Fixed
+`8.3.6-0ubuntu0.24.04.13` and `8.5.4-0ubuntu1.5` return 200 `OK` for the
+14,497,878 B chunked body with the PHP warning `Actual POST length does not
+match Content-Length, and exceeds 8388608 bytes` and no OOM. No RCE, OOB write,
+or proof was obtained; the release rows are ❌ with a crash/DoS-only blocker. No
+ASLR break and no `/tmp/dc_*` proof file on any target.
 
 Debian-family packages use a different geometry from upstream: `fillers=116`
 and `S=main+0xF7398` (upstream: `fillers=115`, `S=main+0xF8398`).
@@ -190,7 +206,7 @@ not a memory-corruption primitive.
 
 ### Coverage gaps
 
-44 numbered entries; every row is `—` (no qualifying RCE or untested), never ❌.
+39 numbered entries; every row is `—` (no qualifying RCE or untested), never ❌.
 
 | ID | Status | Lane | Untested cell | Existing evidence / note | Priority |
 |---|---|---|---|---|---|
@@ -203,41 +219,36 @@ not a memory-corruption primitive.
 | G07 | — | Distro | Ubuntu 20.04 `7.4.3` + FPM | upstream 7.4.33 | P2 |
 | G08 | — | Distro | Ubuntu 22.04 pre-update `8.1.2` + mod_php | tested ❌; A1/A2 500 parse-OOM, 0/13 B1 leaks; fixed at `8.1.2-1ubuntu2.28` | P0 |
 | G09 | — | Distro | Ubuntu 22.04 `8.1.2` + FPM | base FPM: A1/A2 502, 2 exit-70, no B1 leak; fixed at `.28` | P0 |
-| G10 | — | Distro | Ubuntu 24.04 pre-update `8.3.6` + mod_php | tested ❌; A1/A2 500 parse-OOM, 0/10 B1 leaks; fixed at `.13` | P1 |
-| G11 | — | Distro | Ubuntu 24.04 `8.3.6` + FPM | base FPM: A1/A2 502, 2 exit-70, no B1 leak; fixed at `.13` | P1 |
-| G12 | — | Distro | Ubuntu 26.04 `8.5.4-0ubuntu1` release + mod_php | predates the fix; vulnerable by version, no RCE claim | P0 |
-| G13 | — | Distro | Ubuntu 26.04 `8.5.4-0ubuntu1.5` updated + mod_php | changelog-fixed; runtime not run | P0 |
-| G14 | — | Distro | Ubuntu 26.04 `php8.5-fpm` (`8.5.4`) | universe package; none | P1 |
-| G15 | — | Build | FPM `8.2.35` fixed control | runtime: A1/A2 200, 0 exit-70; no qualifying RCE | P0 |
-| G16 | — | Build | FPM `8.4.27` fixed control | source only | P1 |
-| G17 | — | Build | mod_php `8.4.9` | between 0/8 and 17/17 | P1 |
-| G18 | — | Build | mod_php `8.4.0` | none | P2 |
-| G19 | — | Build | mod_php `8.1.34` | 8.1.33 and FPM 8.1.34 tested | P2 |
-| G20 | — | Build | 5.6.0 / 7.0.0 / 7.1.0 runtime | tips only | P3 |
-| G21 | — | SAPI/OS | nginx+mod_php `8.4.10` | mod_php warm chain | P2 |
-| G22 | — | SAPI/OS | nginx+mod_php `8.4.20` | mod_php warm chain | P2 |
-| G23 | — | SAPI/OS | nginx+mod_php `8.5.11` | mod_php leak only | P2 |
-| G24 | — | SAPI/OS | direct FastCGI full chain `8.4.26` / `8.5.11` | framing tests only | P3 |
-| G25 | — | SAPI/OS | FreeBSD 13/14 + Apache + mod_php (ports) | build-specific offsets | P2 |
-| G26 | — | SAPI/OS | FreeBSD 13/14 + nginx + FPM (ports) | build-specific offsets | P2 |
-| G27 | — | SAPI/OS | Windows Server + IIS 10 + FastCGI (8.3/8.4/8.5 NTS) | no FPM on Windows | P2 |
-| G28 | — | SAPI/OS | Windows + Apache + mod_php | optional | P3 |
-| G29 | — | App | WordPress 7.1.3 installed with `mysqli`/DB | `/index.php` 6/6 pre-app; tree was 500/no DB | P1 |
-| G30 | — | App | WordPress 7.1.3 nginx+FPM full chain | OOM only | P1 |
-| G31 | — | App | WordPress 7.1.3 mod_php 8.3.35 / 8.5.11 | only 8.4.26 tested | P2 |
-| G32 | — | App | Drupal 11.4.11 **stock** DB sessions | tested ❌ at 8.4.26 FPM 64M; A1 exit-70, no B1 leak | P1 |
-| G33 | — | App | Drupal 10.6.20 | none | P2 |
-| G34 | — | App | Joomla 5.4.10 **stock** DB sessions | lab file-session only | P1 |
-| G35 | — | App | Joomla 6.2.0 | none | P2 |
-| G36 | — | App | MediaWiki 1.46.2 mod_php / other FPM | FPM OOM only | P2 |
-| G37 | — | App | Laravel 13 | none | P1 |
-| G38 | — | App | Symfony 8.1 | none | P1 |
-| G39 | — | App | Roundcube 1.7.4 | 1.7.5 tested ❌ (DB sessions, no B1 leak); 1.7.4 not run | P0 |
-| G40 | — | App | Nextcloud 35 | 35.0.2 tested ❌ (512M no OOM, 128M exit-70, no B1 leak); 34/33 in G44 | P1 |
-| G41 | — | App | phpMyAdmin 5.2.3 | none | P2 |
-| G42 | — | App | Magento 2.4.9 | optional | P3 |
-| G43 | — | App | OpenCart 4.x | optional; version unverified | P3 |
-| G44 | — | App | Laravel 12 / Symfony 7.x/6.4 / Nextcloud 34/33 | secondary versions | P3 |
+| G10 | — | Build | FPM `8.2.35` fixed control | runtime: A1/A2 200, 0 exit-70; no qualifying RCE | P0 |
+| G11 | — | Build | FPM `8.4.27` fixed control | source only | P1 |
+| G12 | — | Build | mod_php `8.4.9` | between 0/8 and 17/17 | P1 |
+| G13 | — | Build | mod_php `8.4.0` | none | P2 |
+| G14 | — | Build | mod_php `8.1.34` | 8.1.33 and FPM 8.1.34 tested | P2 |
+| G15 | — | Build | 5.6.0 / 7.0.0 / 7.1.0 runtime | tips only | P3 |
+| G16 | — | SAPI/OS | nginx+mod_php `8.4.10` | mod_php warm chain | P2 |
+| G17 | — | SAPI/OS | nginx+mod_php `8.4.20` | mod_php warm chain | P2 |
+| G18 | — | SAPI/OS | nginx+mod_php `8.5.11` | mod_php leak only | P2 |
+| G19 | — | SAPI/OS | direct FastCGI full chain `8.4.26` / `8.5.11` | framing tests only | P3 |
+| G20 | — | SAPI/OS | FreeBSD 13/14 + Apache + mod_php (ports) | build-specific offsets | P2 |
+| G21 | — | SAPI/OS | FreeBSD 13/14 + nginx + FPM (ports) | build-specific offsets | P2 |
+| G22 | — | SAPI/OS | Windows Server + IIS 10 + FastCGI (8.3/8.4/8.5 NTS) | no FPM on Windows | P2 |
+| G23 | — | SAPI/OS | Windows + Apache + mod_php | optional | P3 |
+| G24 | — | App | WordPress 7.1.3 installed with `mysqli`/DB | `/index.php` 6/6 pre-app; tree was 500/no DB | P1 |
+| G25 | — | App | WordPress 7.1.3 nginx+FPM full chain | OOM only | P1 |
+| G26 | — | App | WordPress 7.1.3 mod_php 8.3.35 / 8.5.11 | only 8.4.26 tested | P2 |
+| G27 | — | App | Drupal 11.4.11 **stock** DB sessions | tested ❌ at 8.4.26 FPM 64M; A1 exit-70, no B1 leak | P1 |
+| G28 | — | App | Drupal 10.6.20 | none | P2 |
+| G29 | — | App | Joomla 5.4.10 **stock** DB sessions | lab file-session only | P1 |
+| G30 | — | App | Joomla 6.2.0 | none | P2 |
+| G31 | — | App | MediaWiki 1.46.2 mod_php / other FPM | FPM OOM only | P2 |
+| G32 | — | App | Laravel 13 | none | P1 |
+| G33 | — | App | Symfony 8.1 | none | P1 |
+| G34 | — | App | Roundcube 1.7.4 | 1.7.5 tested ❌ (DB sessions, no B1 leak); 1.7.4 not run | P0 |
+| G35 | — | App | Nextcloud 35 | 35.0.2 tested ❌ (512M no OOM, 128M exit-70, no B1 leak); 34/33 in G39 | P1 |
+| G36 | — | App | phpMyAdmin 5.2.3 | none | P2 |
+| G37 | — | App | Magento 2.4.9 | optional | P3 |
+| G38 | — | App | OpenCart 4.x | optional; version unverified | P3 |
+| G39 | — | App | Laravel 12 / Symfony 7.x/6.4 / Nextcloud 34/33 | secondary versions | P3 |
 
 No evidence artifacts (receipts, bodies, binaries, dumps or per-run reports)
 are shipped in this repository; only the tool, its offset profiles and this
