@@ -1,0 +1,2 @@
+# php2slop has no third-party dependencies.
+# The tool targets the Python standard library (3.8+); nothing to install.

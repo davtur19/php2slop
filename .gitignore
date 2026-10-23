@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+
+# generated receipts / run output
+files/
+runs/
+receipts/raw/
+tmp/
+sess/
+
+# binaries and build/download residue
+*.so
+*.bin
+*.tar.gz
+*.ibdata1
+*/work/*
+*/bodies/*
+*/src/*
+*/build/*
+*/dl/*
