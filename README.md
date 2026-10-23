@@ -16,7 +16,7 @@ profiles, and this documentation.
 Only the 8.4.10–8.4.26 mod_php chain and Debian 8.4.24 have lab RCE; no
 stock/all-version claim.
 
-Legend: ✅ works (RCE) · ❌ does not work (no RCE).
+Legend: ✅ works (RCE) · ❌ does not work (no RCE) · 🚫 patched/fixed.
 
 | Target / SAPI | PHP | RCE? | Conditions / blocker |
 |---|---|---|---|
@@ -25,7 +25,7 @@ Legend: ✅ works (RCE) · ❌ does not work (no RCE).
 | mod_php | 8.4.26 session handlers | ✅ | `php`/`php_binary`/`php_serialize` 3/3 |
 | nginx + mod_php | 8.4.24/26, non-stock | ✅ | 64 MB body + `post_max_size=64M` + 4 MB buffers + keepalive; WordPress 6/6 |
 | Arch mod_php | 8.4.26 | ✅ | shipped Arch ini; opcache baseline |
-| mod_php | 8.4.27 | ❌ | fixed |
+| mod_php | 8.4.27 | 🚫 | patched/fixed |
 | mod_php | 8.0–8.3 | ❌ | 109619 negative; 109618 no controlled destructor |
 | mod_php | 8.5.0/5/11 | ❌ | leak only; no code pointer; 8.5.12 fixed |
 | FPM | 8.0–8.3 | ❌ | 109619 negative; 109618 primitive only; 8.2.35/8.3.36 fixed |
@@ -36,9 +36,9 @@ Legend: ✅ works (RCE) · ❌ does not work (no RCE).
 | nginx + mod_php | 8.4.24/26 stock | ❌ | nginx 1 MiB → 413; PHP `post_max_size=8M` blocks B1 |
 | nginx + FastCGI | stock FPM | ❌ | params fixed to `HTTP_*`; framing 400/501 |
 | SOAP | 8.4.20/8.5.5 | ❌ | UAF/crash only; 8.4.21/8.5.6 fixed |
-| Ubuntu 24.04 | 8.3 | ❌ | patched |
+| Ubuntu 24.04 | 8.3 | 🚫 | patched |
 | Alpine 3.20 | 8.3.15 | ❌ | 8.3 branch behavior; B1 0/3 |
-| Alpine 3.21 | 8.4.27 | ❌ | fixed |
+| Alpine 3.21 | 8.4.27 | 🚫 | patched/fixed |
 | Rocky 9 | 8.0.30 | ❌ | no mod_php; FPM only |
 
 No evidence artifacts (receipts, bodies, binaries, dumps or per-run reports)
