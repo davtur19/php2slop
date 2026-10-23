@@ -17,8 +17,18 @@ no forged call target. Full-byte pacing transport for HTTP targets is the
 sender's job; the historical lab jigs live in lab/ (sender_fpm.py, feeder_f618.py,
 slowfeed.py).
 
-Not implemented (chain stage producer): producers are not wired into the
-driver's --step recon/chain yet (tool/php2shell.py).
+Wired into the driver as the producer stage (tool/stages/produce.py,
+--step produce and --step chain --with-producer): the 618/619 bodies travel
+over the paced staged transport receipted on the lab stack.
+
+Hard-required (FPM, from the advisory + receipts): an APP-LEVEL fatal after a
+successful request startup (worker must survive). The receipted producer for
+MediaWiki targets is the anon-edit OOM producer (tool/stages/produce.py
+"edit" mode); applications without a receipted anon-fatal shape still need
+their own producer — in that case the produce stage refuses with the
+registry's explicit TODO (tool/modules/profiles.py producer_step) instead of
+shipping a placeholder.
+
 TODO (missing module): mod_php SAPI producer and modphp target constants
 (tool/modules/profiles.py TARGETS["modphp"]).
 """

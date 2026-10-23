@@ -47,9 +47,9 @@ Line-level provenance for each step is in
 
 | path | contents |
 |---|---|
-| `tool/` | take-and-run driver: `php2shell.py` (CLI, `--step recon|chain`), `run` (sh wrapper), `__main__.py` (`python -m tool`) |
-| `tool/modules/` | `arm.py` (multipart `PHP_SESSION_UPLOAD_PROGRESS` builders + HTTP framing + 14-byte disclosure analyzer), author-provided reconstructed `native-output-leak-stock-arm.py` (STOCK arm) and `compact-stock-tail.py` (COMPACT rearm/final forged multipart), `producer*.py` (618/619 shape builders + facade), `write_stage.py` (stub), `profiles.py` (registry), one-line index in `modules/README.md` |
-| `tool/stages/` | `probe.py` — pre-flight worker-alive + header/status fingerprint |
+| `tool/` | take-and-run driver: `php2shell.py` (CLI, `--step recon|chain|produce`), `run` (sh wrapper), `__main__.py` (`python -m tool`) |
+| `tool/modules/` | `arm.py` (multipart `PHP_SESSION_UPLOAD_PROGRESS` builders + HTTP framing + disclosure analyzer), author-provided reconstructed `native-output-leak-stock-arm.py` (STOCK arm) and `compact-stock-tail.py` (COMPACT rearm/final forged multipart), `producer*.py` (618/619 shape builders + facade), `write_stage.py` (stub), `profiles.py` (registry), one-line index in `modules/README.md` |
+| `tool/stages/` | `probe.py` — pre-flight worker-alive + header/status fingerprint; `produce.py` — producer stage (`--step produce`, `--with-producer`): the receipted anon-edit OOM producer + inert staged 618/619 over the receipted paced transport |
 | `addresses/` | per-binary symbol/offset profiles (`realapps_fpm.json`, `realapps_np_fpm.json`, CGI flavors, `generated/`) + `runtime_addresses.md` notes |
 | `universal/` | profile builder (`profile_builder.py`: read-only `nm`/`readelf` → per-binary constants), freeze battery + run captures (wiki/wp fullflow, leakprobe, probeonly) |
 | `fuzzing/` | offline CGI-SAPI fuzz harness, deterministic ASAN heap-UAF crashes and minimizations, `fuzz_findings.md` |
@@ -79,24 +79,49 @@ and per-build constants are those measured on the lab stack (nginx → php-fpm
 # same, package entry point
 python3 -m tool --target wiki --step recon
 
-# 2. chain: blocker-hold + per-DSO-candidate attempt (rearm + forged staged multipart)
+# 2. produce: the receipted FPM producer stage (wiki default: the MediaWiki
+#    anon-edit OOM producer; staged inert 618/619 shapes via --producer 618|619)
+./tool/php2shell.py --target wiki --step produce
+# also orderable before the chain attempt loop:
+./tool/php2shell.py --target wiki --step chain --with-producer
+
+# 3. chain: blocker-hold + per-DSO-candidate attempt (rearm + forged staged multipart)
 ./tool/php2shell.py --target wiki --step chain
 # non-interactive proof command (default: id); listener needed for revshell
 ./tool/php2shell.py --target wp --step chain --command id
+# strict exact-14-byte derivation only (pre-scan receipts, reproducible)
+./tool/php2shell.py --target wiki --step chain --strict-derive
 
 # one-off URL target (no registered profile; per-build constants mandatory)
 ./tool/php2shell.py --url http://127.0.0.1:28840/index.php --profile realapps-pie --step recon
 ```
 
-Not implemented (chain stage producer): producer orchestration is not wired
-into `--step recon/chain` — stub/facade at `tool/modules/producer.py`; the
-proven shape builders already live at `tool/modules/producer_618.py` /
-`tool/modules/producer_619.py`, and the parameterized producer plan (ranked
-MW producers, step recipes) is
-`/tmp/opencode/realapps/side/php2shell/runs/UNIVERSAL_PLAN.md`.
+Not implemented (chain stage producer): producers are wired as a stage
+(`--step produce`, `--step chain --with-producer`) but only over receipted
+shapes: the MediaWiki anon-edit OOM producer (app-level fatal, the
+hard-required FPM producer class; parameterized plan in
+`docs/UNIVERSAL_PLAN_1021.md`, provenance: copied 2026-10-21 from
+`/tmp/opencode/realapps/side/php2shell/runs/UNIVERSAL_PLAN.md`, a tmpfs
+lab directory — the wrapper plan doc points to the same file there) and the
+inert staged 618 shape. Producers without a receipted outcome stay explicit
+TODO in `tool/modules/profiles.py:TARGETS[*]["producer_step"]` (no
+placeholder producers) — `--step produce` refuses them with the TODO text.
+TODO (missing producer): the forged staged 618/619 call target stays inert
+(call=0).
 
 Not implemented (chain stage targets): `--target modphp` — no measured
 addresses, no producer (`tool/modules/profiles.py`: `TARGETS["modphp"]`).
+
+Driver E2E note (2026-10-23, lab stack nginx→fpm 8.5.10, `--url` form to the
+scratch listener): the exact-14-byte derivation ValueError is gone from the
+default path — `--step chain` completes the probe + freeze-re-grab exchanges
+with full receipts and skips the forged write (hard-required derived address)
+when the probe response carries no derivable disclosure; `--strict-derive`
+reproduces the pre-scan behavior verbatim. `--step produce --producer edit`
+reproduced the receipted 6M OOM fatal byte-shape (alloc 2098791) and
+`--producer 618` reproduced the receipted 200 OK (36 924 B) + sess-record
+result with all FPM workers alive. Raw run artifacts stay in the untracked
+/tmp scratch intended for these runs (see the receipt scheme below).
 
 Not implemented (chain stage write_stage): negative-`used_slots` extraction
 into profiles and stage-write receipt checks — stub at
@@ -141,8 +166,13 @@ arm/freeze receipts rely on timing, not on a disabled cleanup).
 Each `--step` run writes a receipt directory: per-exchange
 `<label>-request.bin` / `-response.bin` / `-body.bin`, a `result.json` with
 status/headers/sha256 per artifact, and (recon/chain) derived addresses
-(`main`, `target`, `stage`, `dso_candidates`) plus the `uid=` id-line match for
-chain success. Default output directory:
+(`main`, `target`, `stage`, `dso_candidates`, plus the derivation
+mode/hit-offset evidence: `exact-14`, `scan@<offset>`, `hex-text@<offset>`
+or `plain-response`) plus the `uid=` id-line match for
+chain success. `produce` receipts carry the producer outcome
+(edit: the fatal marker receipt; staged: phase1/tail/response artifacts and
+the target's `sess_*` record evidence).
+Default output directory:
 `files/io/<target>-<step>-<UTC stamp>/` (override with `--output`; the
 directory is local and git-ignored). Published, curated evidence lives under
 `receipts/<name>/` with a describing README — see `receipts/README.md` for the

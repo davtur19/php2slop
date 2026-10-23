@@ -20,6 +20,29 @@ TARGETS registers the loopback lab targets used by the driver --target flag:
                      preconditions, not driver-controlled settings.
   producer_modules   producer shape builders applicable to the target
                      (tool/modules/producer_618.py / producer_619.py)
+  producer_step      --step produce / --with-producer wiring
+                     (tool/stages/produce.py): the target-bound default
+                     producer kind plus the per-kind verification status,
+                     mined from the run receipts. Journal:
+                     - wiki `"edit"`: VERIFIED — receipted app-level OOM
+                       fatal on this target (MediaWiki 1.46.2, anon edit
+                       POST): prod ladder 3M/6M -> the 150-byte
+                       "Allowed memory size ... Fatal error" receipt,
+                       <=2M no fatal, 9M = post_max_size pre-parser ceiling
+                       (NOT a producer);
+                       /tmp/opencode/realapps/side/php2shell/runs/
+                       run_fpmwiki_20261021_173406/prod/.
+                     - wiki/wp `"618"`: receipted over HTTP FPM through the
+                       staged sender (200 OK + sess record, workers alive,
+                       inert forge);
+                       docs/reports_realapps_validation_1021.md.
+                     - `"619"`: CGI lab-jig receipts only; the HTTP FPM
+                       paced transport is wired but UNVERIFIED.
+                     - wp `"edit"`: TODO — no app-level anon-edit OOM
+                       producer verified for WordPress 7.1.3 (the FPM
+                       exploitable sequence hard-requires an app-level
+                       fatal after a successful request startup; another
+                       application needs its own receipted producer).
 
 Not implemented (chain stage targets): the modphp target carries no measured
 addresses yet and no producer is wired for it; TARGETS["modphp"] is a stub on
@@ -76,7 +99,20 @@ TARGETS = {
         },
         "workers": "php-fpm pool [wiki], pm=static, single worker",
         "producer_modules": ("producer_618", "producer_619"),
-        "status": "available (probe + chain)",
+        "producer_step": {
+            # --step produce / --with-producer (tool/stages/produce.py)
+            "default": "edit",
+            "kinds": {
+                "edit": "verified on this target: anon-edit OOM fatal, "
+                    "prod ladder receipts 3M/6M -> 150-B fatal; <=2M no fatal; "
+                    "9M = post_max_size ceiling (not a producer)",
+                "618": "receipted over HTTP FPM via the staged sender: 200 OK, "
+                    "sess record, workers alive (inert forge)",
+                "619": "TODO (CGI lab-jig receipts only; HTTP FPM paced "
+                    "transport wired but UNVERIFIED)",
+            },
+        },
+        "status": "available (probe + chain + produce)",
     },
     "wp": {
         "name": "wp",
@@ -96,7 +132,19 @@ TARGETS = {
         },
         "workers": "php-fpm pool, pm=static",
         "producer_modules": ("producer_618", "producer_619"),
-        "status": "available (probe + chain)",
+        "producer_step": {
+            # --step produce / --with-producer (tool/stages/produce.py)
+            "default": None,  # no default: --producer required explicitly
+            "kinds": {
+                "edit": "TODO (WordPress 7.1.3: no receipted anon-edit "
+                    "app-level OOM producer)",
+                "618": "receipted over HTTP FPM via the staged sender: 200 OK, "
+                    "sess record, workers alive (inert forge)",
+                "619": "TODO (CGI lab-jig receipts only; HTTP FPM paced "
+                    "transport wired but UNVERIFIED)",
+            },
+        },
+        "status": "available (probe + chain + produce)",
     },
     "modphp": {
         "name": "modphp",
@@ -108,6 +156,10 @@ TARGETS = {
         "ini": {},
         "workers": None,
         "producer_modules": (),
+        "producer_step": {
+            "default": None,
+            "kinds": {},
+        },
         # TODO (missing module): no measured per-build constants and no
         # producer wired for a mod_php SAPI target. Fill in after the
         # per-binary profile run creates the needed addresses/ entry

