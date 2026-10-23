@@ -5,10 +5,11 @@
 project's own 109618/109619 work in the original write-up. Results are split by
 whether they satisfy the chain validity rules below.
 
-**2026-10-22 reconciliation (appended).** A stock-default chain is now measured
-conditionally for one target: the external 9bie two-CVE chain on fresh PHP
-8.4.26 + Apache prefork 5/150 + stock `php.ini-production` + WordPress 7.1.3,
-with B1 on the stock core `/wp-content/index.php` and A2/B2 on `/` or
+**2026-10-22 reconciliation (appended).** A chain on stock binaries is now
+measured under lab conditions for one target: the external 9bie two-CVE chain
+on fresh PHP 8.4.26 + Apache prefork 5/150 + stock `php.ini-production` + WordPress 7.1.3,
+with B1 on the stock core silence file `/wp-content/index.php` (not the
+WordPress app) and A2/B2 on `/` or
 `/index.php`. It is the old, patched CVE-2026-109618 + CVE-2026-109619 pair, not
 a new vulnerability. It fails on warm state, MediaWiki, and 8.5.11 with the
 stock A1; 8.4.27/8.5.12 are fixed. See "2026-10-22 full-chain reconciliation"
@@ -27,9 +28,9 @@ This table is a measured status snapshot, not a claim that every version is solv
 | 5.6 / 7.0 / 7.1 / 7.2 / 7.3 / 7.4 | 🧪 active | Full-chain matrix active; prior 109619 probes negative/no heap corruption; no RCE yet. [modphp_109619](modphp_109619_20261023T010232Z/report.md), [php75_exploit](php75_exploit_20261023T022509Z/report.md) |
 | 8.0.30 | ❌ | 109619 no A1 producer; 109618 active. [report](modphp_109619_20261023T010232Z/report.md) |
 | 8.1.33 / 8.2.34 / 8.3.35 | ❌ | 109619 parse-OOM; 109618 active; 8.3.36 fixed control. [report](modphp_109619_20261023T010232Z/report.md) |
-| 8.4.0–8.4.9 | 🧪 active | Early-8.4 gap; 8.4.1–8.4.8 blocked (early cleanup/no stale `PS(id)`); 8.4.0/8.4.9 under test. [report](modphp_84_matrix_20261023T074116Z/report.md) |
-| 8.4.10–8.4.26 (upstream) | ✅ | 17/17 full-chain RCE; per-build offsets; generic session endpoint. **Endpoint prerequisite:** the target must expose/accept the generic session endpoint used by the upload-progress request; the WordPress 7.1.3 proof exists, but the stock-WordPress/no-cheat audit is pending, so this is not yet a stock-WordPress-only claim. [report](modphp_84_matrix_20261023T074116Z/report.md) |
-| 8.4.24 Debian 13 package (`8.4.24-1~deb13u1`, mod_php) | ✅ full blind RCE (4/4) | Distro build, not FPM. `S = main + 0xF7398`, `fillers=116`, `zif_system=lib+0x24cdd0`; 4/4 blind successes with `uid=33(www-data)` + `DEB116R1..R4`, B2 hit at attempt 4. Controls fail: `fillers=115` + same `S` → all B2 200, no proof; wrong anchor `S=main+0xF8398` → no proof. `SHA256SUMS` 73/73; report hash `bfdca47ec217b4fc2c35430becd27371d03208ccccc78ca2435b346810b491f7`. [report](modphp_84_matrix_20261023T074116Z/report.md), [proofs](modphp_84_matrix_20261023T074116Z/out/proofs/) |
+| 8.4.0–8.4.9 | 🧪 active | Early-8.4 gap; 8.4.1–8.4.8 blocked, **0/8** (early cleanup/no stale `PS(id)`); 8.4.0/8.4.9 under test. [report](modphp_84_matrix_20261023T074116Z/report.md) |
+| 8.4.10–8.4.26 (upstream) | ✅ engine-level RCE (lab-conditioned) | 17/17 on stock upstream `libphp`; ASLR on, no pinning, no helper files in docroot, negative controls fail; no attacker file-write prerequisite. Lab-conditioned: 22-byte probe docroot, official-image `output_buffering=4096`/`php.ini-production` requirement, cold restart only, exact per-build offsets, 8.4.1–8.4.8 0/8, 8.4.27 fixed; WordPress-tree proof is the `wp-content/index.php` silence file, not the app. [report](modphp_84_matrix_20261023T074116Z/report.md) |
+| 8.4.24 Debian 13 package (`8.4.24-1~deb13u1`, mod_php) | ✅ Debian package 4/4 (lab-conditioned) | Distro build, not FPM; package defaults include the required values. `S = main + 0xF7398`, `fillers=116` (not upstream `0xF8398`), `zif_system=lib+0x24cdd0`; 4/4 blind successes with `uid=33(www-data)` + `DEB116R1..R4`, B2 hit at attempt 4. Controls fail: `fillers=115` + same `S` → all B2 200, no proof; wrong anchor `S=main+0xF8398` → no proof. `SHA256SUMS` 73/73; report hash `bfdca47ec217b4fc2c35430becd27371d03208ccccc78ca2435b346810b491f7`; `/out` 777 is a lab oracle. [report](modphp_84_matrix_20261023T074116Z/report.md), [proofs](modphp_84_matrix_20261023T074116Z/out/proofs/) |
 | 8.4.27 | ❌ | Fixed control. [report](modphp_84_matrix_20261023T074116Z/report.md) |
 | 8.5.0 / 8.5.5 / 8.5.11 | ⚠️ | 109619 leak-only (819,208 B, sparse, no libphp code pointers); 109618 active. [report](build_coverage_20261023T074532Z/report.md) |
 | 8.5.12 | ❌ | Fixed control. [report](build_coverage_20261023T074532Z/report.md) |
@@ -48,9 +49,9 @@ This table is a measured status snapshot, not a claim that every version is solv
 
 ### Bottom line
 
-- Only reliable full-chain family: **mod_php 8.4.10–8.4.26** (upstream), plus the calibrated **Debian 13 mod_php 8.4.24** package at 4/4 blind.
+- Only reliable full-chain family: **mod_php 8.4.10–8.4.26** (upstream), plus the calibrated **Debian 13 mod_php 8.4.24** package at 4/4. Both are **engine-level, lab-conditioned**; neither is a default-deployment/real-application RCE.
 - No stock FPM RCE; 109618 remains a same-worker primitive, and 11043 is config-induced/EOL only.
-- “All versions” is not achieved; the active matrices are 5.6–7.4 mod_php/FPM and the early-8.4 gap.
+- “All 8.4.x” is per-build, not universal; “all versions” is not achieved. Active matrices are 5.6–7.4 mod_php/FPM and the early-8.4 gap.
 - Last updated 2026-10-23.
 
 ### Public PoC status (2026-10-23)
@@ -61,6 +62,32 @@ This table is a measured status snapshot, not a claim that every version is solv
 - **No public FPM RCE code:** public FPM results are DoS/crash only; ikow Chain E is paid/unverified; GHSA-6wmf-4rv5-p3rp states the FPM startup-failure sequence does not survive.
 - **EDB 52704 caveats:** hardcodes the `0x7F0000000000–0x800000000000` pointer range; worker rotation only with `MaxRequestWorkers=1`; its “official image” profile needs `display_errors=1` and `memory_limit=8M`, not `php.ini-production`.
 - Details: [public_poc_search report](public_poc_search_20261023T122956Z/report.md).
+
+### No-cheat assessment (2026-10-23)
+
+**Verdict: MIXED — engine-level exploit real, lab-conditioned proof; not “default deployment/real application.”**
+
+**What is real**
+
+- Stock upstream `libphp` binaries; ASLR on; no pinning; no helper files in the docroot; negative controls fail.
+- 17/17 official 8.4.10–8.4.26 and 4/4 on the Debian 13 8.4.24 package.
+- No attacker file-write prerequisite.
+
+**What is lab-conditioned**
+
+- The target docroot is a 22-byte probe (`<?php echo "OK\n"; ?>` plus a trailing newline), not a real application. No `session_start()` is needed: the engine starts the session from multipart `FILE_START`.
+- The official image default is `output_buffering=0`; the chain requires `php.ini-production` / `output_buffering=4096`. Without it A1 is 275 B with a normal cookie and no leak. The “no target-config change” claim is false for the official-image lane. Debian package defaults do include the required values.
+- Every success uses a cold `docker restart`; warm reliability was 0/1 and 1/4.
+- Exact per-build offsets; 8.4.1–8.4.8 are 0/8; 8.4.27 is fixed. Debian needs `S = main + 0xF7398`, `fillers=116`, not upstream `0xF8398`.
+- `/out` mode 777 is a lab proof oracle; a remote target needs an out-of-band callback.
+
+**WordPress**
+
+The exploited file is the stock `wp-content/index.php` silence file (`<?php // Silence is golden.`), not the WordPress application. The actual WordPress front controller fails A1/B1; MediaWiki fails. This is not “WordPress RCE.”
+
+**Bottom line**
+
+Engine-level RCE on stock binaries: **yes**. Default deployment/real application without special conditions: **no**. “All 8.4.x” is per-build, not universal.
 
 ## Chain validity rules
 
@@ -197,16 +224,20 @@ state corruption via bailout") and released in PHP 8.2.35, 8.3.36, 8.4.27 and
 fake `zif_system`/`zval_ptr_dtor` engineering are new work; the underlying
 defects are not. **No new CVE/0-day claim is supported.**
 
-### Full chain on stock WordPress 7.1.3
+### Full chain on the stock WordPress 7.1.3 silence file (not the WordPress app)
 
 Target: `php:8.4.26-apache` (mod_php, Apache 2.4.69), stock prefork 5/150, stock
-`php.ini-production` (`128M`/`8M`), WordPress 7.1.3 with no active plugins. The
-only target-side changes are a per-child-PID access-log format and a stock core
-endpoint; no `php_value`, no single worker, no LFI, no host calibration.
+`php.ini-production` (`128M`/`8M`), WordPress 7.1.3 tree with no active plugins.
+The exploited B1 endpoint is the stock silence file
+`wp-content/index.php` (`<?php // Silence is golden.`), not the WordPress front
+controller. The target uses `php.ini-production`/`output_buffering=4096`, not
+the official image default `output_buffering=0`; no `php_value`, no single
+worker, no LFI, no host calibration.
 
-- **Fresh WordPress: 3/3** in the controlled addendum series (6/6 including the
-  earlier fresh variants 900/901/903 and 930–932). Base report: 5/5 broadcast
-  plus 4/4 single-A2 on fresh 5-worker targets.
+- **Fresh WordPress-tree target: 3/3** in the controlled addendum series (6/6
+  including the earlier fresh variants 900/901/903 and 930–932). B1 is the
+  silence file, not the WordPress app. Base report: 5/5 broadcast plus 4/4
+  single-A2 on fresh 5-worker targets.
 - **Path dependency:** B1 must run on the stock core silence file
   `/wp-content/index.php`; A2/B2 then work on `/` or `/index.php`. B1 on the
   front controller `/index.php` is 0/1 and does not leak.
@@ -216,8 +247,9 @@ endpoint; no `php_value`, no single worker, no LFI, no host calibration.
 - **Leak/proof:** 1.65–1.69 MB raw B1 response, 819,208 decoded bytes;
   `zdtor -> libphp`, `S = main + 0xF8398`; `uid=33(www-data)` proof in
   `/tmp/p1_a903` and an HTTP callback to `p2s-cb:19090`. No `/out` mount.
-- **Warm, no restart: 0/4.** Attempt 940's 1.69 MB B1 was an
-  `implausible_delta` false positive (wrong `lib-main` delta), not a leak.
+- **Warm, no restart: 0/4 in this series; broader audit 0/1 and 1/4.**
+  Attempt 940's 1.69 MB B1 was an `implausible_delta` false positive
+  (wrong `lib-main` delta), not a leak.
 - **Single-worker no-retry control: 5/6.** A single worker is a diagnostic, not
   a prerequisite; per-child targeting is required.
 - **MediaWiki 1.46.2: 0.** Front controller, `action=render` and
@@ -234,14 +266,15 @@ endpoint; no `php_value`, no single worker, no LFI, no host calibration.
 | unauthenticated | **PASS** | no credentials/cookies/login |
 | no LFI | **PASS** | core multipart/session only; B1 on stock core file |
 | no third-party write (same-chain allowed) | **PASS** | no plugin/theme/webroot write |
-| stock defaults | **PASS (qualified)** | stock prefork 5/150 and `php.ini-production`; only vhost log format changed |
+| stock defaults | **FAIL (needs `php.ini-production`)** | official image default `output_buffering=0` fails; chain requires `output_buffering=4096`; stock prefork 5/150 otherwise |
 | ASLR on | **PASS** | distinct lib/main bases per fresh attempt; leak-derived `S`/`zif` |
 | no single/sticky worker | **PASS (qualified)** | five workers; B1 i=4 rotation; per-child targeting required |
 | all requested PHP versions | **FAIL** | 8.4.26 works; 8.5.11 not reproducible; 8.4.27/8.5.12 fixed |
-| WordPress real app | **PASS (qualified)** | B1 on `/wp-content/index.php`, A2/B2 on `/` or `/index.php` |
+| WordPress front controller | **FAIL** | B1 on `/index.php` 0/1; no leak |
+| WordPress silence file | **PASS (lab-conditioned)** | B1 on `/wp-content/index.php`; not the WordPress app |
 | MediaWiki real app | **FAIL** | no leak at the tested endpoints |
 | new vulnerability | **FAIL** | both CVEs known and patched |
-| warm/no-restart | **FAIL (0/4)** | fresh restart required for this build |
+| warm/no-restart | **FAIL (0/4 in this series; broader 0/1 and 1/4)** | fresh restart required for this build |
 
 ### FPM 8.5.10 stock bar (CVE-2026-109619)
 
@@ -293,5 +326,6 @@ Receipt: `php8234_20261022T082540Z/receipt/REPORT.md`.
 
 ### Still not claimed
 
-No MediaWiki RCE, no warm/no-restart reliability, no 8.5.11 chain, no stock
-multi-worker FPM chain, and no new vulnerability.
+No MediaWiki RCE, no WordPress front-controller RCE, no warm/no-restart
+reliability, no 8.5.11 chain, no stock multi-worker FPM chain, and no new
+vulnerability.
