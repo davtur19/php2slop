@@ -13,13 +13,14 @@ profiles, and this documentation.
 
 ## Status: what works / what does not
 
-Lab RCE: the 8.4.10–8.4.26 mod_php chain, Debian 13 8.4.24, and the
-non-stock `cleanup=0` CVE-2026-115560 gadget chain on 8.4.26/8.5.11. The
-8.5.11 FPM result is lab-only and conditional on the row's configuration. No
-stock/all-version claim.
+Lab RCE: the per-build 8.4.10–8.4.26 mod_php chain, Debian 13 8.4.24,
+Ubuntu 25.04 8.4.5-1ubuntu1.2, and the non-stock `cleanup=0`
+CVE-2026-115560 gadget chain on 8.4.26/8.5.11. The 8.5.11 FPM result is
+lab-only and conditional on the row's configuration. No stock/all-version
+claim.
 
 Legend: ✅ RCE in that exact cell · ❌ tested negative in that exact cell ·
-🚫 patched build (basis stated) · — untested (coverage gaps only).
+🚫 patched build (basis stated) · — no qualifying RCE / untested (coverage gaps only).
 
 ### mod_php
 
@@ -48,7 +49,7 @@ exact per-build offsets.
 | 8.3.35 | 8.3 | ❌ | no RCE; last vulnerable 8.3 |
 | 8.3.36 | 8.3 | 🚫 | fixed control; runtime (A1 200, no OOM) |
 | 8.4.1–8.4.8 | 8.4 | ❌ | 0/8; no leak-capable A1 state |
-| 8.4.10–8.4.26 | 8.4 | ✅ | engine-level lab chain; 17/17; exact offsets; handler-independent |
+| 8.4.10–8.4.26 | 8.4 | ✅ | per-build tested, not a single-build extrapolation; 17/17 RCE (engine-level lab chain); 5/5 representative re-validation (8.4.10, 8.4.15, 8.4.20, 8.4.24, 8.4.26) with distinct `uid=33(www-data)` proofs; exact offsets; handler-independent |
 | 8.4.27 | 8.4 | 🚫 | fixed; runtime (A1 200, B1 no leak) |
 | 8.5.0 | 8.5 | ❌ | leak only; no libphp code pointer |
 | 8.5.5 | 8.5 | ❌ | leak only |
@@ -116,13 +117,23 @@ Tested rows only; exact package strings.
 
 | Distro / release | Exact package | SAPI | Status | Result / qualifier |
 |---|---|---|---|---|
-| Debian 13 (trixie) | `8.4.24-1~deb13u1` | mod_php | ✅ | engine-level lab chain; 4/4 blind; package default; warm 25/25 |
+| Debian 13 (trixie) | `8.4.24-1~deb13u1` | mod_php | ✅ | engine-level lab chain; 6/6 total (2/2 fresh + prior 4/4); package-specific constants; package default; warm 25/25 |
+| Debian 13 (trixie) | `8.4.27-1~deb13u1` | mod_php | 🚫 | fixed control; package revision includes the 109618/109619 fix |
+| Debian 12 (bookworm) | `8.2.35-1~deb12u1` | mod_php | 🚫 | fixed control; package revision includes the 109618/109619 fix |
+| Ubuntu 25.04 (plucky) | `8.4.5-1ubuntu1.2` | mod_php | ✅ | package-specific; 2/2 full-chain RCE; symbol offsets `0x245810`/`0x424fc0`; `fillers=116`; `S=main+0xF7398`; upstream 8.4.5 not claimed vulnerable |
+| Ubuntu 22.04 LTS | `8.1.2-1ubuntu2.28` | mod_php | 🚫 | fixed control; package revision carries the branch fix; pre-update `8.1.2` untested (G08) |
 | Ubuntu 24.04 LTS | `8.3.6-0ubuntu0.24.04.13` | mod_php | 🚫 | fixed; A1 200, B1 normal cookie, 0/3 leak; pre-update `8.3.6` untested (G10) |
 | Alpine 3.20 | `8.3.15-r0` | mod_php (apache2) | ❌ | 8.3 A1 parse-phase OOM 500; B1 0/3, 34-byte cookies |
 | Alpine 3.21 | `8.4.27-r0` | mod_php (apache2) | 🚫 | fixed; A1 200, B1 normal cookie |
 | Arch Linux rolling | `8.5.12-1`; `php-legacy 8.3.36-1` | mod_php | 🚫 | fixed versions; no vulnerable package in repos |
 | Arch ini transplant | Arch `php.ini` on official `8.4.26` | mod_php | ✅ | **not an Arch package**; shipped ini is chain-compatible |
 | Rocky Linux 9 | `8.0.30-8.el9_8.1` | FPM only | ❌ | no `libphp.so`; no `Set-Cookie`; 8.0 resets `send_cookie` |
+
+Debian-family packages use a different geometry from upstream: `fillers=116`
+and `S=main+0xF7398` (upstream: `fillers=115`, `S=main+0xF8398`).
+`zif_system`/`zval_ptr_dtor` also move per build: Debian 13 8.4.24 is
+`0x24cdd0`/`0x424ff0`, Ubuntu 25.04 8.4.5-1ubuntu1.2 is
+`0x245810`/`0x424fc0`. Do not transplant offsets between builds.
 
 ### Applications
 
@@ -156,20 +167,20 @@ Tested rows only; exact package strings.
 
 ### Coverage gaps
 
-44 numbered entries; every row is `—` (untested), never ❌.
+44 numbered entries; every row is `—` (no qualifying RCE or untested), never ❌.
 
 | ID | Status | Lane | Untested cell | Existing evidence / note | Priority |
 |---|---|---|---|---|---|
 | G01 | — | Distro | Debian 11 `7.4.33` + mod_php | none for package | P2 |
 | G02 | — | Distro | Debian 11 `7.4.33` + FPM | none | P2 |
-| G03 | — | Distro | Debian 12 `8.2.x` + mod_php | upstream 8.2.34/35 only | P0 |
+| G03 | — | Distro | Debian 12 `8.2.32` + mod_php (other 8.2.x untested) | A1 500 but 0/5 B1 leaks; primitive/A1 blocker, not an offset miss | P0 |
 | G04 | — | Distro | Debian 12 `8.2.x` + FPM | upstream 8.2.34 only | P0 |
 | G05 | — | Distro | Debian 13 `8.4.24-1~deb13u1` + FPM | mod_php tested | P1 |
 | G06 | — | Distro | Ubuntu 20.04 `7.4.3` + mod_php | upstream 7.4.33 | P2 |
 | G07 | — | Distro | Ubuntu 20.04 `7.4.3` + FPM | upstream 7.4.33 | P2 |
-| G08 | — | Distro | Ubuntu 22.04 `8.1.2` + mod_php | upstream 8.1.33 | P0 |
+| G08 | — | Distro | Ubuntu 22.04 pre-update `8.1.2` + mod_php | fixed at `8.1.2-1ubuntu2.28`; base revision untested | P0 |
 | G09 | — | Distro | Ubuntu 22.04 `8.1.2` + FPM | upstream 8.1.34 | P0 |
-| G10 | — | Distro | Ubuntu 24.04 pre-update `8.3.6` + mod_php | updated package fixed at `.13`; exact suffix not audited | P1 |
+| G10 | — | Distro | Ubuntu 24.04 pre-update `8.3.6` + mod_php | fixed at `8.3.6-0ubuntu0.24.04.13`; pre-update base not audited | P1 |
 | G11 | — | Distro | Ubuntu 24.04 `8.3.6` + FPM | none | P1 |
 | G12 | — | Distro | Ubuntu 26.04 `8.5.4-0ubuntu1` release + mod_php | predates the fix; vulnerable by version, no RCE claim | P0 |
 | G13 | — | Distro | Ubuntu 26.04 `8.5.4-0ubuntu1.5` updated + mod_php | changelog-fixed; runtime not run | P0 |
