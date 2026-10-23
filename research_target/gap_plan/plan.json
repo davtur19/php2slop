@@ -1,0 +1,1431 @@
+{
+  "generated_utc": "2026-10-23T20:40:53Z",
+  "plan_id": "gap_plan_20261023T202856Z",
+  "repository": {
+    "root": "/home/davide/ailocal/php2slop",
+    "readme_commit": "6bf1d184c99a2567e58c1c72f38e63e4a3dfbe36",
+    "readme_short": "6bf1d18",
+    "readme_sha256": "8ee5188060455b745063d979b953bfd5532bbd17692c76debc8e05433194bfe1"
+  },
+  "research_root": "/tmp/opencode/research",
+  "constraints": {
+    "environment": "Debian 13 rootless Docker",
+    "docker_host": "unix:///run/user/1000/docker.sock",
+    "no_sudo": true,
+    "no_windows": true,
+    "no_freebsd": true,
+    "no_app_lfi": true,
+    "local_traffic_only": true,
+    "port_range": "33100-33179",
+    "excluded_active_workers": [
+      "php81_83_modphp_20261023T191948Z",
+      "php81_83_leak_20261023T174709Z",
+      "wp_stock_multi_20261023T175947Z",
+      "local_run_8424_20261023T160013Z"
+    ]
+  },
+  "body_hashes": {
+    "endpoint_22B": "1b97dc5177b5c4f4a53023a6c72629ce360e466f627d98cdf1d75113450faf23",
+    "A1": {
+      "bytes": 1060211,
+      "sha256": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6"
+    },
+    "B1": {
+      "bytes": 33128677,
+      "sha256": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2"
+    },
+    "A2_upstream": {
+      "bytes": 279369,
+      "sha256": "7af66c8f35c5fa6b47a539da6dca361d19543d9f62d61e4af891c2802bd5e236"
+    },
+    "A2_debian": {
+      "bytes": 279432,
+      "sha256": "7d3e674eed2cad578362a9177c93d67d37b02781a32878be7ea599a3c13ad3c6"
+    },
+    "B2": {
+      "bytes": 451384,
+      "sha256": "address-dependent"
+    }
+  },
+  "disposition_summary": {
+    "covered": 22,
+    "assigned": 14,
+    "blocked": 15
+  },
+  "gaps": [
+    {
+      "id": "G01",
+      "priority": "P0",
+      "lane": "Distro",
+      "cell": "Debian 12 8.2.32 + mod_php (other 8.2.x untested)",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/distro_gap_20261023T153629Z/report.md \u00a74",
+      "reason": "A1/A2 500 parse-OOM, 0/13 B1 (34 B); 8.2.35 fixed"
+    },
+    {
+      "id": "G02",
+      "priority": "P0",
+      "lane": "Distro",
+      "cell": "Debian 12 8.2.x + FPM",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/distro_gap_20261023T153629Z/report.md \u00a75",
+      "reason": "8.2.32 FPM A1/A2 502, 2 exit-70, no B1; 8.2.35 fixed"
+    },
+    {
+      "id": "G03",
+      "priority": "P1",
+      "lane": "Distro",
+      "cell": "Debian 13 8.4.24-1~deb13u1 + FPM",
+      "disposition": "assigned",
+      "task": "T04",
+      "evidence": null,
+      "reason": "mod_php tested; FPM not run"
+    },
+    {
+      "id": "G04",
+      "priority": "P2",
+      "lane": "Distro",
+      "cell": "Ubuntu 20.04 7.4.3 + mod_php",
+      "disposition": "assigned",
+      "task": "T05",
+      "evidence": null,
+      "reason": "upstream 7.4.33 only"
+    },
+    {
+      "id": "G05",
+      "priority": "P2",
+      "lane": "Distro",
+      "cell": "Ubuntu 20.04 7.4.3 + FPM",
+      "disposition": "assigned",
+      "task": "T05",
+      "evidence": null,
+      "reason": "upstream 7.4.33 only"
+    },
+    {
+      "id": "G06",
+      "priority": "P0",
+      "lane": "Distro",
+      "cell": "Ubuntu 22.04 pre-update 8.1.2 + mod_php",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/distro_gap_20261023T153629Z/report.md \u00a74",
+      "reason": "A1/A2 500, 0/13 B1; .28 fixed 200"
+    },
+    {
+      "id": "G07",
+      "priority": "P0",
+      "lane": "Distro",
+      "cell": "Ubuntu 22.04 8.1.2 + FPM",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/distro_gap_20261023T153629Z/report.md \u00a75",
+      "reason": "A1/A2 502, 2 exit-70, no B1; .28 fixed"
+    },
+    {
+      "id": "G08",
+      "priority": "P1",
+      "lane": "Distro",
+      "cell": "Rocky 9.3 8.0.30-8.el9_8.1 FPM only",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/distro_rest_20261023T163207Z/report.md \u00a75.5",
+      "reason": "no mod_php, B1 8M-gated, no primitive"
+    },
+    {
+      "id": "G09",
+      "priority": "P1",
+      "lane": "Distro",
+      "cell": "FPM B1 on Debian 11/13.7, Rocky 9.3, Amazon 2023.12, Fedora 44, Alma 9.8",
+      "disposition": "blocked",
+      "task": null,
+      "evidence": null,
+      "reason": "33,128,677 B B1 exceeds stock post_max_size=8M; B1 needs 16x2 MB parts, so a sub-8M B1 does not exist; declared length is rejected before session code"
+    },
+    {
+      "id": "G10",
+      "priority": "P0",
+      "lane": "Distro",
+      "cell": "PHP 7.4/8.0 B1 negatives (Debian 11, Rocky 9.3)",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/distro_rest_20261023T163207Z \u00a74.1; R/fpm_pre8_chain_20261023T091239Z",
+      "reason": "1,020-part cap truncates the 8.4 A1; prior B1 negatives are invalid; 974-part body 200/no OOM"
+    },
+    {
+      "id": "G11",
+      "priority": "P1",
+      "lane": "Distro",
+      "cell": "Debian 11 7.4.33 sub-1,020-part A1 tuning",
+      "disposition": "blocked",
+      "task": null,
+      "evidence": null,
+      "reason": "974-part body 200/no OOM; direct 7.4 mod_php has no B1 primitive in the tested geometry; no valid 7.4 A1 constructor exists without a new groom"
+    },
+    {
+      "id": "G12",
+      "priority": "P2",
+      "lane": "Distro",
+      "cell": "Arch Linux rolling 8.5.12-1 / php-legacy 8.3.36-1",
+      "disposition": "assigned",
+      "task": "T12",
+      "evidence": null,
+      "reason": "metadata only; no native package run"
+    },
+    {
+      "id": "G13",
+      "priority": "P3",
+      "lane": "Distro",
+      "cell": "Alpine edge",
+      "disposition": "blocked",
+      "task": null,
+      "evidence": null,
+      "reason": "fixed metadata only (8.4.27/8.5.12/8.3.36); all shipped lines fixed, no vulnerable package"
+    },
+    {
+      "id": "G14",
+      "priority": "P1",
+      "lane": "Distro",
+      "cell": "Amazon 2023.12 8.4.26 A1 exact onset",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/distro_meta_20261023T171143Z/report.md \u00a73.5",
+      "reason": "onset between 860 and 870 big-value parts; a1_p880 500/OOM"
+    },
+    {
+      "id": "G15",
+      "priority": "P1",
+      "lane": "Distro",
+      "cell": "Amazon 2023.12 8.4.26 B1 build-tuned read spec",
+      "disposition": "assigned",
+      "task": "T06",
+      "evidence": null,
+      "reason": "0/5 stock and 0/5 single-child is the 8.4-derived geometry; no per-build filler sweep"
+    },
+    {
+      "id": "G16",
+      "priority": "P1",
+      "lane": "Distro",
+      "cell": "Amazon 2023.12 8.4.26 A2/B2",
+      "disposition": "assigned",
+      "task": "T06",
+      "evidence": null,
+      "reason": "A2 sent on FPM only; B2 unreachable without B1"
+    },
+    {
+      "id": "G17",
+      "priority": "P1",
+      "lane": "Distro",
+      "cell": "Amazon 2023.12 8.4.26 109618 S2 band",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/distro_meta_20261023T171143Z/report.md \u00a73.6",
+      "reason": "S1 at H=427343; 38 H points, 33 below S1; no S2, 0 SIGSEGV"
+    },
+    {
+      "id": "G18",
+      "priority": "P3",
+      "lane": "Distro",
+      "cell": "Amazon 2023.12 8.3.36 / 8.5.12 live",
+      "disposition": "blocked",
+      "task": null,
+      "evidence": null,
+      "reason": "both are fixed builds; only metadata, no vulnerable package"
+    },
+    {
+      "id": "G19",
+      "priority": "P3",
+      "lane": "Distro",
+      "cell": "Fedora 44 php-fpm 8.5.12-1.fc44 109618 producer",
+      "disposition": "blocked",
+      "task": null,
+      "evidence": null,
+      "reason": "fixed build, FPM-only, no mod_php; no vulnerable artifact"
+    },
+    {
+      "id": "G20",
+      "priority": "P1",
+      "lane": "Distro",
+      "cell": "B2 on any distro package",
+      "disposition": "blocked",
+      "task": null,
+      "evidence": null,
+      "reason": "requires a B1 leak plus per-build offsets; no distro B1 leak exists in any measured lane"
+    },
+    {
+      "id": "G21",
+      "priority": "P0",
+      "lane": "Build",
+      "cell": "FPM 8.2.35 fixed control",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/distro_gap_20261023T153629Z/report.md \u00a75",
+      "reason": "A1/A2 200, 0 exit-70, no RCE"
+    },
+    {
+      "id": "G22",
+      "priority": "P1",
+      "lane": "Build",
+      "cell": "FPM 8.4.27 fixed control",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/apps_gap_20261023T163831Z/report.md",
+      "reason": "A1/A2/B1/B2 200, no OOM, no exit-70"
+    },
+    {
+      "id": "G23",
+      "priority": "P1",
+      "lane": "Build",
+      "cell": "mod_php 8.4.9",
+      "disposition": "assigned",
+      "task": "T01",
+      "evidence": null,
+      "reason": "only patch between the measured 8.4.1-8.4.8 block and 8.4.10 RCE"
+    },
+    {
+      "id": "G24",
+      "priority": "P2",
+      "lane": "Build",
+      "cell": "mod_php 8.4.0",
+      "disposition": "assigned",
+      "task": "T02",
+      "evidence": null,
+      "reason": "no measurement before 8.4.1"
+    },
+    {
+      "id": "G25",
+      "priority": "P2",
+      "lane": "Build",
+      "cell": "mod_php 8.1.34",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/php81_83_modphp_20261023T191948Z (active worker)",
+      "reason": "active worker; do not duplicate"
+    },
+    {
+      "id": "G26",
+      "priority": "P3",
+      "lane": "Build",
+      "cell": "5.6.0 / 7.0.0 / 7.1.0 runtime",
+      "disposition": "blocked",
+      "task": null,
+      "evidence": null,
+      "reason": "official schema1 images unavailable; README row is tips-only"
+    },
+    {
+      "id": "G27",
+      "priority": "P2",
+      "lane": "SAPI/OS",
+      "cell": "nginx+mod_php 8.4.10",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/modphp_warm_20261023T131308Z (4/4); R/nginx_modphp_20261023T132940Z",
+      "reason": "warm chain + proxy invariance; exact combined cell not re-run"
+    },
+    {
+      "id": "G28",
+      "priority": "P2",
+      "lane": "SAPI/OS",
+      "cell": "nginx+mod_php 8.4.20",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/modphp_warm_20261023T131308Z (17/17); R/nginx_modphp_20261023T132940Z",
+      "reason": "warm chain + proxy invariance"
+    },
+    {
+      "id": "G29",
+      "priority": "P2",
+      "lane": "SAPI/OS",
+      "cell": "nginx+mod_php 8.5.11",
+      "disposition": "blocked",
+      "task": null,
+      "evidence": null,
+      "reason": "direct 8.5.11 mod_php is leak-only (53 pointers, no zval_ptr_dtor, no 87-bucket); nginx adds only the transport gate"
+    },
+    {
+      "id": "G30",
+      "priority": "P3",
+      "lane": "SAPI/OS",
+      "cell": "direct FastCGI full chain 8.4.26 / 8.5.11",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/fastcgi_smuggle_20261023T131351Z/report.md",
+      "reason": "config-injection full chain on both; the A1/B1 body path is post_max_size-gated"
+    },
+    {
+      "id": "G31",
+      "priority": "P2",
+      "lane": "SAPI/OS",
+      "cell": "FreeBSD 13/14 + Apache + mod_php (ports)",
+      "disposition": "blocked",
+      "task": null,
+      "evidence": null,
+      "reason": "no FreeBSD host or VM available"
+    },
+    {
+      "id": "G32",
+      "priority": "P2",
+      "lane": "SAPI/OS",
+      "cell": "FreeBSD 13/14 + nginx + FPM (ports)",
+      "disposition": "blocked",
+      "task": null,
+      "evidence": null,
+      "reason": "no FreeBSD host or VM available"
+    },
+    {
+      "id": "G33",
+      "priority": "P2",
+      "lane": "SAPI/OS",
+      "cell": "Windows Server + IIS 10 + FastCGI (8.3/8.4/8.5 NTS)",
+      "disposition": "blocked",
+      "task": null,
+      "evidence": null,
+      "reason": "no Windows host; no FPM on Windows"
+    },
+    {
+      "id": "G34",
+      "priority": "P3",
+      "lane": "SAPI/OS",
+      "cell": "Windows + Apache + mod_php",
+      "disposition": "blocked",
+      "task": null,
+      "evidence": null,
+      "reason": "no Windows host"
+    },
+    {
+      "id": "G35",
+      "priority": "P1",
+      "lane": "App",
+      "cell": "WordPress 7.1.3 installed with mysqli/DB",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/apps_modphp_20261023T164153Z/report.md \u00a71",
+      "reason": "WP dev/prod installed on MariaDB; front controller A1 SIGABRT, no chain; /wp-content/index.php is the engine-level success"
+    },
+    {
+      "id": "G36",
+      "priority": "P1",
+      "lane": "App",
+      "cell": "WordPress 7.1.3 nginx+FPM full chain",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/oom109618_wp_20261022T101958Z; R/apps_gap_20261023T163831Z",
+      "reason": "stock nginx 1 MiB and FPM post_max_size=8M gate B1; A1 is OOM/exit-70 only, no state; app layer adds no primitive"
+    },
+    {
+      "id": "G37",
+      "priority": "P2",
+      "lane": "App",
+      "cell": "WordPress 7.1.3 mod_php 8.3.35 / 8.5.11",
+      "disposition": "assigned",
+      "task": "T13",
+      "evidence": null,
+      "reason": "only 8.4.24/8.4.26 tested"
+    },
+    {
+      "id": "G38",
+      "priority": "P1",
+      "lane": "App",
+      "cell": "Drupal 11.4.11 stock DB sessions",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/apps_gap_20261023T163831Z; R/apps_modphp_20261023T164153Z",
+      "reason": "64M A1 exit-70, B1 no leak"
+    },
+    {
+      "id": "G39",
+      "priority": "P1",
+      "lane": "App",
+      "cell": "Joomla 5.4.10 stock DB sessions",
+      "disposition": "assigned",
+      "task": "T09",
+      "evidence": null,
+      "reason": "lab file-session only"
+    },
+    {
+      "id": "G40",
+      "priority": "P2",
+      "lane": "App",
+      "cell": "Joomla 6.2.0",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/apps_frameworks_20261023T154615Z/report.md",
+      "reason": "FPM 8.4.26 OOM/502, no RCE"
+    },
+    {
+      "id": "G41",
+      "priority": "P2",
+      "lane": "App",
+      "cell": "MediaWiki 1.46.2 mod_php / other FPM",
+      "disposition": "assigned",
+      "task": "T10",
+      "evidence": null,
+      "reason": "FPM OOM only; mod_php untested"
+    },
+    {
+      "id": "G42",
+      "priority": "P1",
+      "lane": "App",
+      "cell": "Laravel 13",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/apps_modphp_20261023T164153Z; R/apps_frameworks_20261023T154615Z",
+      "reason": "mod_php static /assets/index.php RCE + front-controller no; FPM negative"
+    },
+    {
+      "id": "G43",
+      "priority": "P1",
+      "lane": "App",
+      "cell": "Symfony 8.1",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/apps_modphp_20261023T164153Z; R/apps_frameworks_20261023T154615Z",
+      "reason": "mod_php static RCE, front-controller/FPM negative"
+    },
+    {
+      "id": "G44",
+      "priority": "P0",
+      "lane": "App",
+      "cell": "Roundcube 1.7.4",
+      "disposition": "assigned",
+      "task": "T08",
+      "evidence": null,
+      "reason": "1.7.5 tested; 1.7.4 not run"
+    },
+    {
+      "id": "G45",
+      "priority": "P1",
+      "lane": "App",
+      "cell": "Nextcloud 35",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/apps_roundcube_nextcloud_20261023T153529Z/report.md",
+      "reason": "35.0.2 512M no OOM, 128M exit-70, no leak"
+    },
+    {
+      "id": "G46",
+      "priority": "P2",
+      "lane": "App",
+      "cell": "phpMyAdmin 5.2.3",
+      "disposition": "assigned",
+      "task": "T11",
+      "evidence": null,
+      "reason": "none under mod_php"
+    },
+    {
+      "id": "G47",
+      "priority": "P3",
+      "lane": "App",
+      "cell": "Magento 2.4.9",
+      "disposition": "blocked",
+      "task": null,
+      "evidence": null,
+      "reason": "optional; heavy stack, no engine discriminator, no artifact path"
+    },
+    {
+      "id": "G48",
+      "priority": "P3",
+      "lane": "App",
+      "cell": "OpenCart 4.x",
+      "disposition": "blocked",
+      "task": null,
+      "evidence": null,
+      "reason": "optional; version unverified"
+    },
+    {
+      "id": "G49",
+      "priority": "P3",
+      "lane": "App",
+      "cell": "Laravel 12 / Symfony 7.x/6.4 / Nextcloud 34/33",
+      "disposition": "blocked",
+      "task": null,
+      "evidence": null,
+      "reason": "secondary versions; same PHP engines, no new engine delta"
+    },
+    {
+      "id": "G50",
+      "priority": "P1",
+      "lane": "SAPI/OS",
+      "cell": "OpenLiteSpeed 1.9.3 + lsphp 8.5.11 (LSAPI)",
+      "disposition": "assigned",
+      "task": "T03",
+      "evidence": null,
+      "reason": "only 8.4.26/8.4.27 measured; 8.5.11 binary absent"
+    },
+    {
+      "id": "G51",
+      "priority": "P1",
+      "lane": "App",
+      "cell": "WordPress 7.1.3 + upstream php:8.4.26-apache stock multi-worker",
+      "disposition": "covered",
+      "task": null,
+      "evidence": "R/php8426_multiw_20261023T191822Z/report.md",
+      "reason": "3 blind + 1 extra target-written proof"
+    }
+  ],
+  "unnumbered_rows": [
+    {
+      "id": "U01",
+      "row": "Roundcube 1.7.5 + 8.4.27 FPM (Applications table \u2014)",
+      "disposition": "assigned",
+      "task": "T08",
+      "reason": "README says not rebuilt on 8.4.27; T08 supplies the control"
+    },
+    {
+      "id": "U02",
+      "row": "lighttpd 1.4.79 + FPM 8.4.26 chain",
+      "disposition": "assigned",
+      "task": "T07",
+      "reason": "R/alt_sapi measured body limits only; no A1\u2192B2 chain"
+    },
+    {
+      "id": "U03",
+      "row": "Apache 2.4 + mod_proxy_fcgi + Debian 13 8.4.24 FPM",
+      "disposition": "assigned",
+      "task": "T04",
+      "reason": "G03 only says FPM not run; Apache+FPM is a separate transport shape"
+    },
+    {
+      "id": "U04",
+      "row": "OpenResty 1.31.1.1 + FPM 8.4.26 with raised client_max_body_size",
+      "disposition": "covered",
+      "task": null,
+      "reason": "stock 1 MiB returns 413 at 1,048,577 B; with override byte-equivalent to nginx+FPM, covered by apps_gap/nginx_modphp"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T01",
+      "gap_ids": [
+        "G23"
+      ],
+      "priority": "P1",
+      "batch": 1,
+      "title": "PHP 8.4.9 mod_php source build",
+      "image": "php:8.4.8-apache@sha256:432ae092a1aafd4b8c7817070edfc47b620a6ceac8ac1829cf6d2c699e3c988f",
+      "images": [
+        "php:8.4.8-apache@sha256:432ae092a1aafd4b8c7817070edfc47b620a6ceac8ac1829cf6d2c699e3c988f"
+      ],
+      "packages": [
+        "php-8.4.9.tar.gz sha256:1068de4448d77cd44cc15b96984f1f9accf4dbc883b793aea6d02846ef8b1ba1",
+        "apache2-dev",
+        "libxml2-dev",
+        "libsqlite3-dev",
+        "libssl-dev",
+        "libcurl4-openssl-dev",
+        "libonig-dev",
+        "libpng-dev",
+        "libjpeg62-turbo-dev",
+        "libfreetype6-dev",
+        "libzip-dev",
+        "libargon2-dev",
+        "libsodium-dev",
+        "libreadline-dev"
+      ],
+      "build": "exact php:8.4.8-apache Configure Command; make -j; make install; php.ini-production; apache2ctl -k graceful",
+      "endpoint": "22-byte /index.php sha256:1b97dc5177b5c4f4a53023a6c72629ce360e466f627d98cdf1d75113450faf23",
+      "expected_chain": "8.4.9 is the only untested patch between 8.4.8 (blocked) and 8.4.10 (RCE). Either it stays blocked (A1 parse-OOM no stale PS(id) or clean 200; B1 normal 34/40-B; no A2/B2) or END-cleanup send_cookie OOM appears and B1 > 4096 B becomes possible. Decide empirically; if leak, derive per-build S/zif_system/zval_ptr_dtor and attempt A2/B2.",
+      "artifacts": [
+        "report.md",
+        "bodies/",
+        "conf/",
+        "evidence/",
+        "logs/",
+        "out/",
+        "proof/ (only if RCE)",
+        "scripts/"
+      ],
+      "acceptance": "php -v reports exactly PHP 8.4.9 and the run ends with either no decoded B1 > 4096 B and no proof, or a per-build leak + target-written proof.",
+      "ports": [
+        33100,
+        33101
+      ],
+      "network": "p2s-gap1",
+      "container_prefix": "p2sg1-",
+      "containers": [
+        {
+          "name": "p2sg1-php849",
+          "image": "php:8.4.8-apache@sha256:432ae092a1aafd4b8c7817070edfc47b620a6ceac8ac1829cf6d2c699e3c988f + PHP 8.4.9 build",
+          "port": 33100,
+          "role": "PHP 8.4.9 mod_php"
+        },
+        {
+          "name": "p2sg1-php848",
+          "image": "php:8.4.8-apache@sha256:432ae092a1aafd4b8c7817070edfc47b620a6ceac8ac1829cf6d2c699e3c988f",
+          "port": 33101,
+          "role": "PHP 8.4.8 control"
+        }
+      ]
+    },
+    {
+      "id": "T02",
+      "gap_ids": [
+        "G24"
+      ],
+      "priority": "P2",
+      "batch": 3,
+      "title": "PHP 8.4.0 mod_php source build",
+      "image": "php:8.4.8-apache@sha256:432ae092a1aafd4b8c7817070edfc47b620a6ceac8ac1829cf6d2c699e3c988f",
+      "images": [
+        "php:8.4.8-apache@sha256:432ae092a1aafd4b8c7817070edfc47b620a6ceac8ac1829cf6d2c699e3c988f"
+      ],
+      "packages": [
+        "php-8.4.0.tar.gz sha256:9597b2054c4698bbfde637389ca1dcba570d5df28d26e3b5674b409c4f857b23",
+        "apache2-dev",
+        "libxml2-dev",
+        "libsqlite3-dev",
+        "libssl-dev",
+        "libcurl4-openssl-dev",
+        "libonig-dev",
+        "libpng-dev",
+        "libjpeg62-turbo-dev",
+        "libfreetype6-dev",
+        "libzip-dev",
+        "libargon2-dev",
+        "libsodium-dev",
+        "libreadline-dev"
+      ],
+      "build": "identical recipe/configure line as T01 with php-8.4.0.tar.gz",
+      "endpoint": "22-byte /index.php sha256:1b97dc5177b5c4f4a53023a6c72629ce360e466f627d98cdf1d75113450faf23",
+      "expected_chain": "pre-8.4.1: A1 likely 200 (no OOM) or parse abort; no END-cleanup send_cookie OOM; B1 normal cookie; no A2/B2.",
+      "artifacts": [
+        "report.md",
+        "bodies/",
+        "conf/",
+        "evidence/",
+        "logs/",
+        "out/",
+        "proof/ (only if RCE)",
+        "scripts/"
+      ],
+      "acceptance": "php -v reports PHP 8.4.0, A1 is 200-or-parse-abort and B1 decodes to <= 4096 B with no proof; any leak triggers per-build offsets.",
+      "ports": [
+        33140,
+        33141
+      ],
+      "network": "p2s-gap3",
+      "container_prefix": "p2sg3-",
+      "containers": [
+        {
+          "name": "p2sg3-php840",
+          "image": "php:8.4.8-apache@sha256:432ae092a1aafd4b8c7817070edfc47b620a6ceac8ac1829cf6d2c699e3c988f + PHP 8.4.0 build",
+          "port": 33140,
+          "role": "PHP 8.4.0 mod_php"
+        },
+        {
+          "name": "p2sg3-php841",
+          "image": "php:8.4.1-apache (optional control)",
+          "port": 33141,
+          "role": "optional 8.4.1 control"
+        }
+      ]
+    },
+    {
+      "id": "T03",
+      "gap_ids": [
+        "G50"
+      ],
+      "priority": "P1",
+      "batch": 2,
+      "title": "OpenLiteSpeed 1.9.3 + lsphp 8.5.11 (LSAPI)",
+      "image": "debian:13-slim",
+      "images": [
+        "debian:13-slim",
+        "openlitespeed 1.9.3-1+trixie",
+        "PHP 8.5.11 source build"
+      ],
+      "packages": [
+        "openlitespeed 1.9.3-1+trixie",
+        "build-essential",
+        "libxml2-dev",
+        "libsqlite3-dev",
+        "libssl-dev",
+        "libcurl4-openssl-dev",
+        "libonig-dev",
+        "libzip-dev",
+        "pkg-config"
+      ],
+      "build": "./configure --disable-all --enable-litespeed --enable-session --without-pear --disable-cgi --with-config-file-path=/usr/local/lsws/lsphp8511/etc/php/8.5/litespeed --prefix=/usr/local/lsws/lsphp8511; make -j; make install",
+      "endpoint": "22-byte /index.php + /health.php (sapi=litespeed php=8.5.11)",
+      "expected_chain": "LSAPI skips php_request_shutdown on startup failure: A1/109618 OOM -> HTTP 500, wait4 WIFEXITED 255, no SIGSEGV/SIGABRT/SIGBUS; OLS respawns, health 200; B1 no leak; no RCE.",
+      "artifacts": [
+        "report.md",
+        "bodies/",
+        "conf/",
+        "evidence/",
+        "logs/",
+        "out/",
+        "proof/ (only if RCE)",
+        "scripts/"
+      ],
+      "acceptance": "lsphp -i reports PHP 8.5.11 and Server API => LiteSpeed V8.3; OOM is HTTP 500 + exit 255 with zero signal deaths, no >4096-B B1 and no proof.",
+      "ports": [
+        33120
+      ],
+      "network": "p2s-gap2",
+      "container_prefix": "p2sg2-",
+      "containers": [
+        {
+          "name": "p2sg2-ols8511",
+          "image": "debian:13-slim + OLS 1.9.3 + lsphp 8.5.11",
+          "port": 33120,
+          "role": "OLS/LSAPI"
+        }
+      ]
+    },
+    {
+      "id": "T04",
+      "gap_ids": [
+        "G03",
+        "U03"
+      ],
+      "priority": "P1",
+      "batch": 1,
+      "title": "Debian 13 8.4.24 FPM: nginx stock/raised + Apache mod_proxy_fcgi",
+      "image": "debian:13-slim",
+      "images": [
+        "debian:13-slim",
+        "nginx 1.26.3-3+deb13u10",
+        "apache2 2.4.69-1~deb13u1",
+        "php8.4 8.4.24-1~deb13u1"
+      ],
+      "packages": [
+        "php8.4-fpm_8.4.24-1~deb13u1_amd64.deb",
+        "php8.4-common_8.4.24-1~deb13u1_amd64.deb",
+        "php8.4-cli_8.4.24-1~deb13u1_amd64.deb",
+        "php8.4-opcache_8.4.24-1~deb13u1_amd64.deb",
+        "php8.4-fpm_8.4.27-1~deb13u1_amd64.deb (control)",
+        "nginx 1.26.3-3+deb13u10",
+        "apache2 2.4.69-1~deb13u1"
+      ],
+      "build": "dpkg -i exact .debs + apt-mark hold; stock www.conf; nginx stock 1m and 64m arms; Apache a2enmod proxy_fcgi + SetHandler proxy:unix:/run/php/php8.4-fpm.sock|fcgi://localhost",
+      "endpoint": "22-byte /index.php sha256:1b97dc5177b5c4f4a53023a6c72629ce360e466f627d98cdf1d75113450faf23",
+      "expected_chain": "stock nginx: A1 1,060,211 and B1 33,128,677 -> 413 before PHP. Raised nginx: A1 reaches FPM, OOM 4096, exit 70/502. Apache FCGI: A1 reaches FPM, exit 70; B1 declared refused by post_max_size=8M (200/warning); no B1 leak, no A2/B2. 8.4.27: A1/A2 200, no exit 70.",
+      "artifacts": [
+        "report.md",
+        "bodies/",
+        "conf/",
+        "evidence/",
+        "logs/",
+        "out/",
+        "proof/ (only if RCE)",
+        "scripts/"
+      ],
+      "acceptance": "exact 8.4.24 is installed on at least one arm, A1 reaches FPM and yields exit 70/502, no B1 > 4096 B on any arm, and 8.4.27 control A1/A2 200 with zero exit 70.",
+      "ports": [
+        33102,
+        33103,
+        33104,
+        33105
+      ],
+      "network": "p2s-gap1",
+      "container_prefix": "p2sg1-",
+      "containers": [
+        {
+          "name": "p2sg1-deb13-ngx-stock",
+          "image": "debian:13-slim + php8.4-fpm 8.4.24 + nginx 1.26.3",
+          "port": 33102,
+          "role": "stock 1 MiB nginx"
+        },
+        {
+          "name": "p2sg1-deb13-ngx-64m",
+          "image": "debian:13-slim + php8.4-fpm 8.4.24 + nginx 1.26.3",
+          "port": 33103,
+          "role": "64 MiB nginx"
+        },
+        {
+          "name": "p2sg1-deb13-apache-fcgi",
+          "image": "debian:13-slim + apache2 2.4.69 + php8.4-fpm 8.4.24",
+          "port": 33104,
+          "role": "Apache mod_proxy_fcgi"
+        },
+        {
+          "name": "p2sg1-deb13-ngx-8427",
+          "image": "debian:13-slim + php8.4-fpm 8.4.27 + nginx 1.26.3",
+          "port": 33105,
+          "role": "8.4.27 control"
+        }
+      ]
+    },
+    {
+      "id": "T05",
+      "gap_ids": [
+        "G04",
+        "G05"
+      ],
+      "priority": "P2",
+      "batch": 2,
+      "title": "Ubuntu 20.04 7.4.3 mod_php + FPM",
+      "image": "ubuntu:20.04@sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214",
+      "images": [
+        "ubuntu:20.04@sha256:8feb4d8ca5354def3d8fce243717141ce31e2c428701f6682bd2fafe15388214"
+      ],
+      "packages": [
+        "libapache2-mod-php7.4_7.4.3-4ubuntu2.29_amd64.deb",
+        "php7.4-fpm_7.4.3-4ubuntu2.29_amd64.deb",
+        "php7.4-cli_7.4.3-4ubuntu2.29_amd64.deb",
+        "php7.4-opcache_7.4.3-4ubuntu2.29_amd64.deb",
+        "nginx 1.18.0"
+      ],
+      "build": "apt install exact versions; Apache prefork + php7.4_module; nginx stock 1 MiB and 64 MiB arms; stock www.conf",
+      "endpoint": "22-byte /index.php sha256:1b97dc5177b5c4f4a53023a6c72629ce360e466f627d98cdf1d75113450faf23",
+      "expected_chain": "mod_php: A1 200/parse-OOM, B1 0/5 34-B cookie, A2 200; FPM: A1 OOM/exit 70, B1 33 MB declared refused by post_max_size=8M; 7.4 effective 1,020-part cap; no RCE/OOB leak.",
+      "artifacts": [
+        "report.md",
+        "bodies/",
+        "conf/",
+        "evidence/",
+        "logs/",
+        "out/",
+        "proof/ (only if RCE)",
+        "scripts/"
+      ],
+      "acceptance": "both SAPIs report PHP 7.4.3-4ubuntu2.29, the 974-part A1/S1 result is recorded with the 1,020-part cap, B1 <= 4096 B or transport-gated, and no proof exists.",
+      "ports": [
+        33121,
+        33122
+      ],
+      "network": "p2s-gap2",
+      "container_prefix": "p2sg2-",
+      "containers": [
+        {
+          "name": "p2sg2-u2004-modphp",
+          "image": "ubuntu:20.04 + libapache2-mod-php7.4 7.4.3-4ubuntu2.29",
+          "port": 33121,
+          "role": "7.4.3 mod_php"
+        },
+        {
+          "name": "p2sg2-u2004-fpm",
+          "image": "ubuntu:20.04 + php7.4-fpm 7.4.3-4ubuntu2.29 + nginx 1.18.0",
+          "port": 33122,
+          "role": "7.4.3 FPM"
+        }
+      ]
+    },
+    {
+      "id": "T06",
+      "gap_ids": [
+        "G15",
+        "G16"
+      ],
+      "priority": "P1",
+      "batch": 1,
+      "title": "Amazon Linux 2023.12 8.4.26 B1 build tuning + A2/B2",
+      "image": "amazonlinux:2023.12.20261021.0",
+      "images": [
+        "amazonlinux:2023.12.20261021.0"
+      ],
+      "packages": [
+        "php8.4-modphp-8.4.26-1.amzn2023.0.1",
+        "php8.4-fpm-8.4.26-1.amzn2023.0.1",
+        "php8.4-common-8.4.26-1.amzn2023.0.1",
+        "httpd",
+        "php8.4-modphp-8.4.27-1.amzn2023.0.1 (control)"
+      ],
+      "build": "dnf install exact NEVRA set; switch 00-mpm.conf to prefork for mod_php (declared fixture); stock php.ini; FPM arm stock www.conf",
+      "endpoint": "22-byte /index.php sha256:1b97dc5177b5c4f4a53023a6c72629ce360e466f627d98cdf1d75113450faf23",
+      "expected_chain": "B1 sweep fillers 100-140, parts 900-1000, stock 5-child and single-child: 0/N leak (normal 34-B cookie); A2 279,432 mod_php OOM 20,480; no B2/RCE; 8.4.27 a1_p880 200.",
+      "artifacts": [
+        "report.md",
+        "bodies/",
+        "conf/",
+        "evidence/",
+        "logs/",
+        "out/",
+        "proof/ (only if RCE)",
+        "scripts/"
+      ],
+      "acceptance": "every decoded B1 <= 4096 B across the full filler/part sweep and both pool shapes, A2 OOM recorded on mod_php, no proof; if a leak appears, B2 attempted with locally derived offsets.",
+      "ports": [
+        33106,
+        33107,
+        33108
+      ],
+      "network": "p2s-gap1",
+      "container_prefix": "p2sg1-",
+      "containers": [
+        {
+          "name": "p2sg1-amzn-modphp",
+          "image": "amazonlinux:2023.12 + php8.4-modphp 8.4.26",
+          "port": 33106,
+          "role": "Amazon mod_php"
+        },
+        {
+          "name": "p2sg1-amzn-fpm",
+          "image": "amazonlinux:2023.12 + php8.4-fpm 8.4.26",
+          "port": 33107,
+          "role": "Amazon FPM"
+        },
+        {
+          "name": "p2sg1-amzn-8427",
+          "image": "amazonlinux:2023.12 + php8.4-modphp 8.4.27",
+          "port": 33108,
+          "role": "8.4.27 control"
+        }
+      ]
+    },
+    {
+      "id": "T07",
+      "gap_ids": [
+        "U02"
+      ],
+      "priority": "P2",
+      "batch": 4,
+      "title": "lighttpd 1.4.79 + FPM 8.4.26 chain",
+      "image": "debian:13-slim",
+      "images": [
+        "debian:13-slim",
+        "php:8.4.26-fpm@sha256:f5431b57bda75455d5271967cc6b67df8f0d0b943832756e0c78eccdc98767dd",
+        "php:8.4.27-fpm@sha256:e2d8e787dc775bdbd9d7e0c5e8f2f9ddb41ce5977c8bbaf99a2ba2e7d90fd8ae"
+      ],
+      "packages": [
+        "lighttpd 1.4.79-2",
+        "php:8.4.26-fpm",
+        "php:8.4.27-fpm (control)"
+      ],
+      "build": "lighttpd fastcgi.server -> php8426-fpm:9000; stock post_max_size=8M arm and 64M documented delta arm",
+      "endpoint": "22-byte /index.php sha256:1b97dc5177b5c4f4a53023a6c72629ce360e466f627d98cdf1d75113450faf23",
+      "expected_chain": "stock: A1 reaches PHP, OOM/exit 70 -> 502; B1 33,128,677 forwarded with declared length, refused by post_max_size before session; no leak. 64M: B1 reaches session, record leak status, no RCE. 8.4.27: A1 200, no exit 70.",
+      "artifacts": [
+        "report.md",
+        "bodies/",
+        "conf/",
+        "evidence/",
+        "logs/",
+        "out/",
+        "proof/ (only if RCE)",
+        "scripts/"
+      ],
+      "acceptance": "lighttpd 1.4.79-2 is the front end, stock A1 produces one exit 70, stock B1 is post_max_size-gated (no >4096-B cookie), raised-INI leak status recorded, no proof.",
+      "ports": [
+        33165,
+        33166
+      ],
+      "network": "p2s-gap4",
+      "container_prefix": "p2sg4-",
+      "containers": [
+        {
+          "name": "p2sg4-lighttpd",
+          "image": "debian:13-slim + lighttpd 1.4.79-2",
+          "port": 33165,
+          "role": "lighttpd"
+        },
+        {
+          "name": "p2sg4-php8426-fpm",
+          "image": "php:8.4.26-fpm@sha256:f5431b57bda75455d5271967cc6b67df8f0d0b943832756e0c78eccdc98767dd",
+          "port": 33166,
+          "role": "FPM 8.4.26"
+        },
+        {
+          "name": "p2sg4-php8427-fpm",
+          "image": "php:8.4.27-fpm@sha256:e2d8e787dc775bdbd9d7e0c5e8f2f9ddb41ce5977c8bbaf99a2ba2e7d90fd8ae",
+          "port": null,
+          "role": "FPM 8.4.27 control"
+        }
+      ]
+    },
+    {
+      "id": "T08",
+      "gap_ids": [
+        "G44",
+        "U01"
+      ],
+      "priority": "P0",
+      "batch": 1,
+      "title": "Roundcube 1.7.4 mod_php/FPM + 1.7.5/8.4.27 control",
+      "image": "php:8.4.26-apache@sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a",
+      "images": [
+        "php:8.4.26-apache@sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a",
+        "php:8.4.26-fpm@sha256:f5431b57bda75455d5271967cc6b67df8f0d0b943832756e0c78eccdc98767dd",
+        "php:8.4.27-fpm@sha256:e2d8e787dc775bdbd9d7e0c5e8f2f9ddb41ce5977c8bbaf99a2ba2e7d90fd8ae",
+        "nginx:alpine",
+        "mariadb:11.4"
+      ],
+      "packages": [
+        "docker-php-ext-install intl",
+        "pdo_sqlite (built-in)",
+        "roundcubemail-1.7.4-complete.tar.gz sha256:2c6c878f0093f1bf7fb6086781d2dd9269d652c016b86939c157c5f1729139a2",
+        "roundcubemail-1.7.5-complete.tar.gz sha256:93a66c94e3efff7db93187c1c9d7f35546647a3e1e7b9327cc87911564edf9d1"
+      ],
+      "build": "unpack + config.inc.php; SQLite db_dsnw; Arm A stock session_storage=db + PHPSESSID; Arm B session_storage=php + file sessions; control 1.7.5 + 8.4.27 FPM",
+      "endpoint": "/, /?_task=login, /static.php",
+      "expected_chain": "A1 OOM/SIGABRT (mod_php) or exit 70 (FPM); B1 normal 5,400-B page, no pointer leak; A2/B2 normal; no auth bypass. 1.7.5/8.4.27 control: A1/A2/B1/B2 200, no OOM/exit 70.",
+      "artifacts": [
+        "report.md",
+        "bodies/",
+        "conf/",
+        "evidence/",
+        "logs/",
+        "out/",
+        "proof/ (only if RCE)",
+        "scripts/"
+      ],
+      "acceptance": "RCMAIL_VERSION reports 1.7.4 in both arms, valid login works before/after, no decoded B1 > 4096 B, and 1.7.5/8.4.27 control returns 200 for all four stages.",
+      "ports": [
+        33109,
+        33110,
+        33111
+      ],
+      "network": "p2s-gap1",
+      "container_prefix": "p2sg1-",
+      "containers": [
+        {
+          "name": "p2sg1-rc174-modphp",
+          "image": "php:8.4.26-apache + Roundcube 1.7.4",
+          "port": 33109,
+          "role": "1.7.4 mod_php"
+        },
+        {
+          "name": "p2sg1-rc174-fpm",
+          "image": "php:8.4.26-fpm + nginx:alpine + Roundcube 1.7.4",
+          "port": 33110,
+          "role": "1.7.4 FPM"
+        },
+        {
+          "name": "p2sg1-rc175-fpm",
+          "image": "php:8.4.27-fpm + nginx:alpine + Roundcube 1.7.5",
+          "port": 33111,
+          "role": "1.7.5/8.4.27 control"
+        },
+        {
+          "name": "p2sg1-db",
+          "image": "mariadb:11.4",
+          "port": null,
+          "role": "DB"
+        }
+      ]
+    },
+    {
+      "id": "T09",
+      "gap_ids": [
+        "G39"
+      ],
+      "priority": "P1",
+      "batch": 2,
+      "title": "Joomla 5.4.10 stock DB sessions + mod_php 8.4.26",
+      "image": "php:8.4.26-apache@sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a",
+      "images": [
+        "php:8.4.26-apache@sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a",
+        "mariadb:11.4"
+      ],
+      "packages": [
+        "docker-php-ext-install intl gd mysqli",
+        "Joomla_5-4-10-Stable-Full_Package.tar.gz sha256:aa72c425105cf775312f9610598b9f1c8866c7f3219a729b59d29a56ff7f76c4",
+        "mysqli"
+      ],
+      "build": "CLI install; $session_handler='database'; stock configuration.php otherwise",
+      "endpoint": "/index.php, /administrator/index.php",
+      "expected_chain": "A1 1,060,211 -> child SIGABRT/500 (pre-app); B1 normal cookie/no leak; A2 OOM; no B2/RCE; #__session table present and populated by a login.",
+      "artifacts": [
+        "report.md",
+        "bodies/",
+        "conf/",
+        "evidence/",
+        "logs/",
+        "out/",
+        "proof/ (only if RCE)",
+        "scripts/"
+      ],
+      "acceptance": "/administrator/index.php shows Joomla 5.4.10, #__session exists, a login writes a DB session row, and A1->B2 yields no >4096-B B1 and no proof.",
+      "ports": [
+        33123,
+        33124
+      ],
+      "network": "p2s-gap2",
+      "container_prefix": "p2sg2-",
+      "containers": [
+        {
+          "name": "p2sg2-joomla",
+          "image": "php:8.4.26-apache + Joomla 5.4.10",
+          "port": 33123,
+          "role": "Joomla mod_php"
+        },
+        {
+          "name": "p2sg2-joomla-db",
+          "image": "mariadb:11.4",
+          "port": null,
+          "role": "DB"
+        }
+      ]
+    },
+    {
+      "id": "T10",
+      "gap_ids": [
+        "G41"
+      ],
+      "priority": "P2",
+      "batch": 3,
+      "title": "MediaWiki 1.46.2 + mod_php 8.4.26",
+      "image": "php:8.4.26-apache@sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a",
+      "images": [
+        "php:8.4.26-apache@sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a",
+        "mariadb:11.4"
+      ],
+      "packages": [
+        "docker-php-ext-install intl mysqli",
+        "mediawiki-1.46.2.tar.gz sha256:8f7f937f8bbc1acd4cef1c5362a95f248dcd242020f2588798eb2f73ac2e69ba",
+        "mysqli"
+      ],
+      "build": "maintenance/run.php install --dbtype=mysql; stock LocalSettings.php",
+      "endpoint": "/index.php/Main_Page, /api.php",
+      "expected_chain": "A1 OOM/500 (mod_php child abort), B1 no leak, A2 200/500; no RCE.",
+      "artifacts": [
+        "report.md",
+        "bodies/",
+        "conf/",
+        "evidence/",
+        "logs/",
+        "out/",
+        "proof/ (only if RCE)",
+        "scripts/"
+      ],
+      "acceptance": "Special:Version reports MediaWiki 1.46.2, main page 200, A1->B2 has no >4096-B B1 and no proof.",
+      "ports": [
+        33142,
+        33143
+      ],
+      "network": "p2s-gap3",
+      "container_prefix": "p2sg3-",
+      "containers": [
+        {
+          "name": "p2sg3-mw",
+          "image": "php:8.4.26-apache + MediaWiki 1.46.2",
+          "port": 33142,
+          "role": "MediaWiki mod_php"
+        },
+        {
+          "name": "p2sg3-mw-db",
+          "image": "mariadb:11.4",
+          "port": null,
+          "role": "DB"
+        }
+      ]
+    },
+    {
+      "id": "T11",
+      "gap_ids": [
+        "G46"
+      ],
+      "priority": "P2",
+      "batch": 3,
+      "title": "phpMyAdmin 5.2.3 + mod_php 8.4.26",
+      "image": "php:8.4.26-apache@sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a",
+      "images": [
+        "php:8.4.26-apache@sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a",
+        "mariadb:11.4",
+        "php:8.4.27-apache@sha256:a0b75cee7023ba2c127138dcad2ecc6ec7e09435534645e70450f29f24ea2a5a"
+      ],
+      "packages": [
+        "docker-php-ext-install intl mysqli zip",
+        "phpMyAdmin-5.2.3-all-languages.tar.gz sha256:12ba1c425fa4071abbd4e7668c9ebdeac0b0755a467a6d6d5026122bb47c102b",
+        "mysqli"
+      ],
+      "build": "config.inc.php cookie auth + 32-B blowfish_secret + host p2sg3-pma-db; /setup/ left disabled",
+      "endpoint": "/index.php",
+      "expected_chain": "A1 OOM/child abort, B1 no leak, A2 200; no auth bypass; no RCE.",
+      "artifacts": [
+        "report.md",
+        "bodies/",
+        "conf/",
+        "evidence/",
+        "logs/",
+        "out/",
+        "proof/ (only if RCE)",
+        "scripts/"
+      ],
+      "acceptance": "login page reports phpMyAdmin 5.2.3, a correct login reaches the DB, A1->B2 yields no >4096-B B1 and no proof.",
+      "ports": [
+        33144,
+        33145,
+        33146
+      ],
+      "network": "p2s-gap3",
+      "container_prefix": "p2sg3-",
+      "containers": [
+        {
+          "name": "p2sg3-pma",
+          "image": "php:8.4.26-apache + phpMyAdmin 5.2.3",
+          "port": 33144,
+          "role": "phpMyAdmin mod_php"
+        },
+        {
+          "name": "p2sg3-pma-db",
+          "image": "mariadb:11.4",
+          "port": null,
+          "role": "DB"
+        },
+        {
+          "name": "p2sg3-php8427",
+          "image": "php:8.4.27-apache",
+          "port": 33146,
+          "role": "optional control"
+        }
+      ]
+    },
+    {
+      "id": "T12",
+      "gap_ids": [
+        "G12"
+      ],
+      "priority": "P2",
+      "batch": 4,
+      "title": "Arch native php-apache 8.5.12 / php-legacy 8.3.36",
+      "image": "archlinux:latest",
+      "images": [
+        "archlinux:latest"
+      ],
+      "packages": [
+        "apache",
+        "php-apache 8.5.12-1",
+        "php-legacy-apache 8.3.36-1"
+      ],
+      "build": "pacman -Syu --noconfirm apache php-apache=8.5.12-1 (container A) and apache php-legacy-apache=8.3.36-1 (container B); if repo moved, record new pkgver and mark metadata-only; load each libphp.so separately",
+      "endpoint": "22-byte /index.php sha256:1b97dc5177b5c4f4a53023a6c72629ce360e466f627d98cdf1d75113450faf23",
+      "expected_chain": "both packages are fixed: A1/A2 200, normal cookie, B1 <= 4096 B, no OOM/exit 70, no RCE.",
+      "artifacts": [
+        "report.md",
+        "bodies/",
+        "conf/",
+        "evidence/",
+        "logs/",
+        "out/",
+        "proof/ (only if RCE)",
+        "scripts/"
+      ],
+      "acceptance": "php -v reports 8.5.12 (php-apache) and 8.3.36 (php-legacy-apache), A1 200 no OOM, B1 no >4096-B cookie.",
+      "ports": [
+        33160,
+        33161
+      ],
+      "network": "p2s-gap4",
+      "container_prefix": "p2sg4-",
+      "containers": [
+        {
+          "name": "p2sg4-arch8512",
+          "image": "archlinux:latest + apache + php-apache 8.5.12",
+          "port": 33160,
+          "role": "Arch 8.5.12"
+        },
+        {
+          "name": "p2sg4-arch8336",
+          "image": "archlinux:latest + apache + php-legacy-apache 8.3.36",
+          "port": 33161,
+          "role": "Arch 8.3.36"
+        }
+      ]
+    },
+    {
+      "id": "T13",
+      "gap_ids": [
+        "G37"
+      ],
+      "priority": "P2",
+      "batch": 4,
+      "title": "WordPress 7.1.3 + mod_php 8.3.35 / 8.5.11",
+      "image": "php:8.3.35-apache@sha256:c59c808172ee3672cd334f8f2a5d7b1480a9d7273a368f412b8ee9b4ef418184",
+      "images": [
+        "php:8.3.35-apache@sha256:c59c808172ee3672cd334f8f2a5d7b1480a9d7273a368f412b8ee9b4ef418184",
+        "php:8.5.11-apache@sha256:47e6d8849049375e0d19e81f1b391ed88828d4653e0d1b00822185b66b564e8b",
+        "mariadb:11.4"
+      ],
+      "packages": [
+        "docker-php-ext-install intl gd mysqli",
+        "wordpress-7.1.3.zip sha256:eb58a90ed55147f90f7bd55d0d3334960a69b7e8a4cc142c8ddfea8965218227",
+        "mysqli"
+      ],
+      "build": "docker-php-ext-install mysqli; wp-config.php against p2sg4-db; official docroot",
+      "endpoint": "/index.php, /wp-content/index.php",
+      "expected_chain": "8.3.35: A1 parse-OOM (0/8 family), B1 normal 34-B cookie, no leak. 8.5.11: A1 500/OOM, B1 leak-only (53 pointers, no zval_ptr_dtor, no 87-bucket), no B2/RCE.",
+      "artifacts": [
+        "report.md",
+        "bodies/",
+        "conf/",
+        "evidence/",
+        "logs/",
+        "out/",
+        "proof/ (only if RCE)",
+        "scripts/"
+      ],
+      "acceptance": "both sites report WordPress 7.1.3 with an installed DB, /index.php 200, neither build yields a proof; 8.5.11 B1 leak recorded but not counted as RCE.",
+      "ports": [
+        33162,
+        33163,
+        33164
+      ],
+      "network": "p2s-gap4",
+      "container_prefix": "p2sg4-",
+      "containers": [
+        {
+          "name": "p2sg4-wp8335",
+          "image": "php:8.3.35-apache + WordPress 7.1.3",
+          "port": 33162,
+          "role": "WP 8.3.35"
+        },
+        {
+          "name": "p2sg4-wp8511",
+          "image": "php:8.5.11-apache + WordPress 7.1.3",
+          "port": 33163,
+          "role": "WP 8.5.11"
+        },
+        {
+          "name": "p2sg4-db",
+          "image": "mariadb:11.4",
+          "port": null,
+          "role": "DB"
+        }
+      ]
+    }
+  ],
+  "batches": [
+    {
+      "id": 1,
+      "network": "p2s-gap1",
+      "subnet": "10.240.1.0/24",
+      "ports": "33100-33119",
+      "prefix": "p2sg1-",
+      "tasks": [
+        "T08",
+        "T01",
+        "T04",
+        "T06"
+      ]
+    },
+    {
+      "id": 2,
+      "network": "p2s-gap2",
+      "subnet": "10.240.2.0/24",
+      "ports": "33120-33139",
+      "prefix": "p2sg2-",
+      "tasks": [
+        "T03",
+        "T09",
+        "T05"
+      ]
+    },
+    {
+      "id": 3,
+      "network": "p2s-gap3",
+      "subnet": "10.240.3.0/24",
+      "ports": "33140-33159",
+      "prefix": "p2sg3-",
+      "tasks": [
+        "T02",
+        "T10",
+        "T11"
+      ]
+    },
+    {
+      "id": 4,
+      "network": "p2s-gap4",
+      "subnet": "10.240.4.0/24",
+      "ports": "33160-33179",
+      "prefix": "p2sg4-",
+      "tasks": [
+        "T12",
+        "T13",
+        "T07"
+      ]
+    }
+  ]
+}
