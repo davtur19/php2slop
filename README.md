@@ -53,6 +53,15 @@ This table is a measured status snapshot, not a claim that every version is solv
 - “All versions” is not achieved; the active matrices are 5.6–7.4 mod_php/FPM and the early-8.4 gap.
 - Last updated 2026-10-23.
 
+### Public PoC status (2026-10-23)
+
+- **Public full chain exists for PHP 8.4.26 mod_php only:** Exploit-DB 52704 (OffSec, 2026-10-22; credited 9bie/eness) is a full Python chain. 9bie is the reference implementation; ports exist from eness, godylockz, 78ResearchLab and devploit.
+- **Public ASLR solution:** two `Set-Cookie` leaks (Zend-MM chunk base, then libphp base), demonstrated only on the 8.4.26 default heap.
+- **No public stock WordPress/MediaWiki PoC:** 9bie issue #1 says “还不行” (“not yet”); Wiz uses CVE-2026-109619 and ships no code.
+- **No public FPM RCE code:** public FPM results are DoS/crash only; ikow Chain E is paid/unverified; GHSA-6wmf-4rv5-p3rp states the FPM startup-failure sequence does not survive.
+- **EDB 52704 caveats:** hardcodes the `0x7F0000000000–0x800000000000` pointer range; worker rotation only with `MaxRequestWorkers=1`; its “official image” profile needs `display_errors=1` and `memory_limit=8M`, not `php.ini-production`.
+- Details: [public_poc_search report](public_poc_search_20261023T122956Z/report.md).
+
 ## Chain validity rules
 
 - **Allowed:** a file written by the exploit chain itself (e.g. the session
