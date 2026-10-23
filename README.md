@@ -34,7 +34,7 @@ Legend: ✅ works (RCE) · ❌ does not work (no RCE) · 🚫 patched/fixed.
 | FPM | 7.1/7.2/7.3 | ❌ | CVE-2019-11043 only non-stock PATH_INFO/no script check; stock Debian/WordPress/MediaWiki blocked |
 | FPM | 5.6–7.4 | ❌ | B1 leak; stock A1 blocked by nginx 1 MiB; no B2 |
 | nginx + mod_php | 8.4.24/26 stock | ❌ | nginx 1 MiB → 413; PHP `post_max_size=8M` blocks B1 |
-| nginx + FastCGI | stock FPM | ❌ | params fixed to `HTTP_*`; framing 400/501 |
+| nginx + FastCGI | stock FPM | ❌ | params pinned to `HTTP_*`; framing 400/501 |
 | SOAP | 8.4.20/8.5.5 | ❌ | UAF/crash only |
 | Ubuntu 24.04 | 8.3 | 🚫 | patched |
 | Alpine 3.20 | 8.3.15 | ❌ | 8.3 branch behavior; B1 0/3 |
