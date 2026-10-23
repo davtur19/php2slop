@@ -29,6 +29,14 @@ and not package-tested. No crash, OOM or HTTP 500 is counted as RCE. Distro
 negatives remain conditioned on the tested geometry; see the 7.4/8.0 multipart
 cap and FPM `post_max_size` caveat below.
 
+OpenLiteSpeed 1.9.3 + lsphp is a separate SAPI lane and does not change the
+lab RCE list: on the locally built 8.4.26 LSAPI binary the 109618 carrier
+reaches the poisoned `$_FILES` bucket, but `lsapi_module_main()` skips
+`php_request_shutdown()`, so the worker exits 255 (a normal LSAPI failure, not
+a signal) and OLS respawns it; packaged 8.4.27 is 11/11 clean. LSAPI is
+standalone (no `libphp*.so`, no mod_php), so the 8.4 mod_php chain does not
+apply, and 8.5.11 remains a gap rather than a negative. No RCE.
+
 Legend: ✅ RCE in that exact cell · ❌ tested negative in that exact cell ·
 🚫 patched build (basis stated) · — no qualifying RCE / untested (coverage gaps only).
 
@@ -122,6 +130,39 @@ Stock nginx front, stock FPM pool.
 | 8.4.27 | 🚫 | upstream fix; runtime control missing (G22) |
 | 8.5.11 | ❌ | B1 leak only under stock `pm=dynamic`; the single-worker 3/3 result is in the FPM table, not this pool |
 | 8.5.12 | 🚫 | plain full-extension build + stock nginx; A1 200 |
+
+### OpenLiteSpeed + lsphp (LSAPI)
+
+OpenLiteSpeed 1.9.3 Open, stock-like config, 22-byte endpoint
+(`<?php echo "OK\n"; ?>`), PHP `memory_limit=128M`, `post_max_size=8M`,
+`upload_max_filesize=2M`, `output_buffering=4096`. `lsphp` is a standalone
+LSAPI executable, not a shared module; there is no Apache `php_module`, and
+`lsphp -i` reports `Server API => LiteSpeed V8.3`.
+
+| PHP build | LSAPI | Status | Result / qualifier | Basis |
+|---|---|---|---|---|
+| 8.4.26 (local source build) | V8.3 | ❌ | 22-byte `/index.php` and `/health.php` return 200 normally; instrumented build reproduces the poisoned `$_FILES` bucket at H=427344 (5,026,036 B; bucket 0 pad bytes, `type_info 0x0106`) then OOM 12,288 B; untouched binary: HTTP 500, `wait4` `WIFEXITED` status 255, no SIGSEGV/SIGABRT/SIGBUS, OLS respawns the worker and health stays 200; H=427620 and 6.5 MB flood also OOM 4,096/exit 255; no RCE | runtime |
+| 8.4.27 (`lsphp84 8.4.27-1+trixie`) | V8.3 | 🚫 | fixed control: 11/11 HTTP 200 (carrier H=427344, H=427620, flood, raw/multipart 1/8/16/33 MiB), no request-time worker exits or signals, no OOM | runtime |
+| 8.5.11 | V8.3 (upstream) | — | no exact local `lsphp` build; upstream `sapi/litespeed/lsapi_main.c` has the same early return, so the expected shape is the same 500/exit 255, but **not measured**; gap G50, not a negative | source only |
+
+**Why LSAPI does not reach the destructor (2026-10-23).**
+`lsapi_module_main()` returns `-1` immediately when `php_request_startup()`
+fails; `processReq()` breaks the accept loop, only `php_module_shutdown()`
+runs, and `main()` returns `-1` (OS exit status 255). `php_request_shutdown()`
+— where `$_FILES` is destroyed — is skipped, so the poisoned bucket is never
+destructed through the request path. The 8.4.26 producer therefore ends in
+OOM plus worker recycle, not in the mod_php shutdown-time crash chain.
+
+**LSAPI is not mod_php.** `lsphp` is a standalone PIE executable (`ldd`:
+`libm`, `libc`, loader only); there is no `libphp*.so` in the rootfs and no
+Apache `php_module`. OLS runs `lscgid -> lsphp master -> workers`, so the 8.4
+mod_php chain's libphp addresses and handlers do not apply. The engine-level
+bug is SAPI-agnostic, but the observable consequence is SAPI-specific.
+
+**Impact.** Exit 255 is a normal LSAPI failure return (`main()` returning
+`-1`), not a crash signal; there is no SIGSEGV/SIGABRT/SIGBUS. OLS respawns
+the worker and health stays 200. No code-execution indicators were observed;
+a crash would still not be RCE.
 
 ### Distro packages
 
@@ -321,7 +362,7 @@ A1 OOMs allocating 4,096 B and A2 20,480 B, both in `Unknown on line 0`;
 
 ### Coverage gaps
 
-49 numbered entries; every row is `—` (no qualifying RCE or untested), never ❌.
+50 numbered entries; every row is `—` (no qualifying RCE or untested), never ❌.
 
 | ID | Status | Lane | Untested cell | Existing evidence / note | Priority |
 |---|---|---|---|---|---|
@@ -374,6 +415,7 @@ A1 OOMs allocating 4,096 B and A2 20,480 B, both in `Unknown on line 0`;
 | G47 | — | App | Magento 2.4.9 | optional | P3 |
 | G48 | — | App | OpenCart 4.x | optional; version unverified | P3 |
 | G49 | — | App | Laravel 12 / Symfony 7.x/6.4 / Nextcloud 34/33 | secondary versions | P3 |
+| G50 | — | SAPI/OS | OpenLiteSpeed 1.9.3 + lsphp `8.5.11` (LSAPI) | no exact local `lsphp85` build or LSAPI-specific trigger; upstream `sapi/litespeed/lsapi_main.c` has the same early return at `php_request_startup()` failure, so expected 500/exit 255, not a shutdown crash; **not measured**; `—`, not ❌ | P1 |
 
 No evidence artifacts (receipts, bodies, binaries, dumps or per-run reports)
 are shipped in this repository; only the tool, its offset profiles and this
