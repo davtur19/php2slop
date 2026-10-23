@@ -195,21 +195,60 @@ and `S=main+0xF7398` (upstream: `fillers=115`, `S=main+0xF8398`).
 | WordPress 7.1.3 | 8.4.26 FPM | `/index.php` | ❌ | multipart OOM only (502/exit 70) |
 | WordPress 7.1.3 | 8.5.11 FPM | `/index.php` | ❌ | OOM only |
 | WordPress 7.1.3 | 8.3.35 FPM | `/index.php` | ❌ | OOM only |
-| Roundcube 1.7.5 | 8.4.26 FPM | nginx 1m/25m/64m; `/` and `/static.php` | ❌ | no chain/RCE; DB sessions (not file); `/static.php` allowlisted but still enters PHP; `PHPSESSID` POST ignored; A1 at 128M exits 70, no session file; B1 no leak; stock 1 MiB 413; 25/64M still no leak |
+| Roundcube 1.7.5 | 8.4.26 FPM | **stock DB-session row** (`session_storage=db`); nginx 1m/25m/64m; `/` and `/static.php` | ❌ | no chain/RCE; DB sessions, kept separate from the explicit file-session row below; `/static.php` allowlisted but still enters PHP; `PHPSESSID` POST ignored; A1 at 128M exits 70, no session file; B1 no leak; stock 1 MiB 413; 25/64M still no leak |
+| Roundcube 1.7.5 | 8.4.26 nginx+FPM | **explicit file sessions** (`session_storage=php`, `/tmp/sess_<id>`) | ❌ | app session 490 B; A2 adds 515-B `upload_progress_k0`; `PHPSESSID` variant merges progress + app keys to 1,005 B; B1/B2 normal pages only (5,400 B; `/static.php` 387,438 B JS); no leak; no auth bypass; **B1 leak/address recovery blocker** |
 | Nextcloud 35.0.2 | 8.4.26 FPM | docs 10G/512M; 10G/128M | ❌ | no chain/RCE; documented 512M stack removes OOM; 10G/128M A1 exits 70, no session file; B1 no leak |
 | Drupal 11.4.11 | 8.5.10 FPM (lab build) | file sessions + `.user.ini` + 2M + `static1` | ✅ | app-assisted, **not stock**; 3/3 fresh ASLR |
 | Drupal 11.4.11 | 8.4.26 FPM | 64M; stock DB sessions | ❌ | no chain/RCE; 64M A1 exits 70, no session file; B1 no leak |
+| Drupal 10.6.20 | 8.4.26 nginx+FPM | native PHP files (`/tmp/sess_<id>`, 175 B) | ❌ | no `sessions` table (75-table SQLite); login 303 → 175-B file (mode 600); A1/A2 502/`exit 70` once nginx admits (A1 OOM 4,096 B, A2 OOM 20,480 B, `Unknown on line 0`); B1/B2 normal; no leak; no auth bypass; **B1 leak/address recovery blocker** |
+| Drupal 10.6.20 | 8.3.26 nginx+FPM | native PHP files (48-char SID) | ❌ | same A1/A2 502/`exit 70`; 175-B login file; B1/B2 normal; no leak; **B1 leak/address recovery blocker** |
+| Drupal 10.6.20 | 8.4.27 nginx+FPM | native PHP files | 🚫 | fixed control: A1/A2/B1/B2 all 200; no OOM, no `exit 70`, no leak; 175-B file intact |
 | Joomla 5.4.10 | 8.5.10 FPM (lab build) | file sessions + 2M + `cleanup=0` | ✅ | app-assisted, **not stock** |
 | MediaWiki 1.46.2 | 8.4.26 FPM | `/index.php` | ❌ | OOM only |
 | MediaWiki 1.46.2 | 8.5.11 FPM | `/index.php` | ❌ | OOM only |
 | MediaWiki 1.46.2 | 8.3.35 FPM | `/index.php` | ❌ | OOM only |
 | Moodle 5.0.10 | 8.5.11 FPM | normal request | ❌ | fresh serializer at RINIT |
 
-App controls: PHP 8.4.27 at 64M returned 200 with no OOM, and disabling
-`session.upload_progress` moved the failure to an app-level 500 (worker
-survives) but still produced no B1 leak. B2 was not attempted after a negative
-B1. The app rows above therefore show reachability and availability failures,
-not a memory-corruption primitive.
+App controls (2026-10-23 file-session run): Drupal wrong password returned
+200/18,778 with no 303 and no `Set-Cookie`; anonymous `/user/1` and `/admin`
+were 403. A valid Drupal login (303 → `/user/1?check_logged_in=1`, 175-B file)
+survived A1→B1→A2→B2: `/user/1` remained 200 with "Log out" and B1 returned
+302 instead of a login page. Roundcube wrong login returned 401/5,515 with a
+valid CSRF token and 401/5,498 without; `?_task=mail` rendered the login form;
+the DB has 0 users. **No authentication bypass was observed on either app.**
+
+PHP 8.4.27 at 64M returned 200 for A1/A2/B1/B2 on the Drupal/diag vhosts
+with no OOM and no `exit 70`; disabling `session.upload_progress` on 8.4.26
+moved A1's failure to an app-level 500 (worker survives), but A2 still exited
+70 and no B1 leak appeared. The full A1→B1→A2→B2 sequence returned normal
+B1/B2 pages. The app rows above therefore show reachability and availability
+failures, not a memory-corruption primitive.
+
+**Drupal 10.6 file-session root cause.** `Drupal\Core\Session\SessionHandler`
+extends `AbstractProxy`; Symfony only wraps/registers a non-`AbstractProxy`
+handler or a `SessionHandlerProxy`, so `session_set_save_handler()` is never
+called and PHP's native `files` handler stays active. The installed 10.6.20
+SQLite has 75 tables and no `sessions`; login writes a 175-B
+`/tmp/sess_<id>` (mode 600). Drupal 11.4.11 extends `AbstractSessionHandler`,
+is wrapped, and uses the `sessions` table - hence the separate DB row.
+
+**Body-limit boundary.** 113 matrix cases were executed and 112 are valid;
+the one invalid case is `ctrl_noprogress_a1`, a `/info.php` request sent to the
+Roundcube-rooted port 19910 (404/153 B, wrong document root). It never reached
+PHP, is flagged `valid:false`, and is excluded from every count and from the
+evidence. Roundcube on 8.4.27 is `—` not tested (not rebuilt).
+
+| Body (bytes) | stock 1 MiB | 25 MiB | 64 MiB |
+|---|---|---|---|
+| A1 (1,060,211) | 413/183 | 502/157 `exit 70` | 502/157 `exit 70` (8.4.27: 200) |
+| A2 (279,369) | 502/157 `exit 70` | 502/157 `exit 70` | 502/157 `exit 70` (8.4.27: 200) |
+| B1 (33,128,677) | 413/183 | 413/183 | 200 normal |
+| B2 (451,384) | 200 normal | 200 normal | 200 normal |
+
+The stock 1 MiB cap blocks **A1 and B1 only**; A2/B2 fit and still exercise the
+engine. 25 MiB admits A1/A2/B2 but **not B1**; only 64 MiB admits all four.
+A1 OOMs allocating 4,096 B and A2 20,480 B, both in `Unknown on line 0`;
+8.4.27 removes the OOM and `exit 70` on the Drupal/diag vhosts.
 
 ### Other CVEs
 
@@ -226,7 +265,7 @@ not a memory-corruption primitive.
 
 ### Coverage gaps
 
-46 numbered entries; every row is `—` (no qualifying RCE or untested), never ❌.
+45 numbered entries; every row is `—` (no qualifying RCE or untested), never ❌.
 
 | ID | Status | Lane | Untested cell | Existing evidence / note | Priority |
 |---|---|---|---|---|---|
@@ -263,19 +302,18 @@ not a memory-corruption primitive.
 | G31 | — | App | WordPress 7.1.3 installed with `mysqli`/DB | `/index.php` 6/6 pre-app; tree was 500/no DB | P1 |
 | G32 | — | App | WordPress 7.1.3 nginx+FPM full chain | OOM only | P1 |
 | G33 | — | App | WordPress 7.1.3 mod_php 8.3.35 / 8.5.11 | only 8.4.26 tested | P2 |
-| G34 | — | App | Drupal 11.4.11 **stock** DB sessions | tested ❌ at 8.4.26 FPM 64M; A1 exit-70, no B1 leak | P1 |
-| G35 | — | App | Drupal 10.6.20 | none | P2 |
-| G36 | — | App | Joomla 5.4.10 **stock** DB sessions | lab file-session only | P1 |
-| G37 | — | App | Joomla 6.2.0 | none | P2 |
-| G38 | — | App | MediaWiki 1.46.2 mod_php / other FPM | FPM OOM only | P2 |
-| G39 | — | App | Laravel 13 | none | P1 |
-| G40 | — | App | Symfony 8.1 | none | P1 |
-| G41 | — | App | Roundcube 1.7.4 | 1.7.5 tested ❌ (DB sessions, no B1 leak); 1.7.4 not run | P0 |
-| G42 | — | App | Nextcloud 35 | 35.0.2 tested ❌ (512M no OOM, 128M exit-70, no B1 leak); 34/33 in G46 | P1 |
-| G43 | — | App | phpMyAdmin 5.2.3 | none | P2 |
-| G44 | — | App | Magento 2.4.9 | optional | P3 |
-| G45 | — | App | OpenCart 4.x | optional; version unverified | P3 |
-| G46 | — | App | Laravel 12 / Symfony 7.x/6.4 / Nextcloud 34/33 | secondary versions | P3 |
+| G34 | — | App | Drupal 11.4.11 **stock** DB sessions | tested ❌ at 8.4.26 FPM 64M; A1 exit-70, no B1 leak; Drupal 10.6 file-session rows are in Applications | P1 |
+| G35 | — | App | Joomla 5.4.10 **stock** DB sessions | lab file-session only | P1 |
+| G36 | — | App | Joomla 6.2.0 | none | P2 |
+| G37 | — | App | MediaWiki 1.46.2 mod_php / other FPM | FPM OOM only | P2 |
+| G38 | — | App | Laravel 13 | none | P1 |
+| G39 | — | App | Symfony 8.1 | none | P1 |
+| G40 | — | App | Roundcube 1.7.4 | 1.7.5 tested ❌ (stock DB and explicit file sessions, no B1 leak); 1.7.4 not run | P0 |
+| G41 | — | App | Nextcloud 35 | 35.0.2 tested ❌ (512M no OOM, 128M exit-70, no B1 leak); 34/33 in G45 | P1 |
+| G42 | — | App | phpMyAdmin 5.2.3 | none | P2 |
+| G43 | — | App | Magento 2.4.9 | optional | P3 |
+| G44 | — | App | OpenCart 4.x | optional; version unverified | P3 |
+| G45 | — | App | Laravel 12 / Symfony 7.x/6.4 / Nextcloud 34/33 | secondary versions | P3 |
 
 No evidence artifacts (receipts, bodies, binaries, dumps or per-run reports)
 are shipped in this repository; only the tool, its offset profiles and this
