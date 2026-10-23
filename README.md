@@ -48,7 +48,7 @@ Legend: ✅ RCE in that exact cell · ❌ tested negative in that exact cell ·
 
 ### mod_php
 
-Stock `php:<v>-apache` images, `php.ini-production`, 22-byte endpoint, ASLR on,
+Stock `php:<v>-apache` images, `php.ini-production`, **22-byte lab endpoint** for engine-level rows; **28-byte stock silence file** for the WordPress-docroot rows (8.1.34/8.2.34/8.3.35, 8.5.11), ASLR on,
 exact per-build offsets.
 
 | PHP build | Branch | Status | Result / qualifier |
@@ -62,16 +62,17 @@ exact per-build offsets.
 | 7.4.0 | 7.4 | ❌ | no RCE; early 7.4 |
 | 7.4.33 | 7.4 | ❌ | no RCE; last 7.4 |
 | 8.0.30 | 8.0 | ❌ | no RCE; last 8.0 |
-| 8.1.33 | 8.1 | ❌ | no RCE; last tested 8.1 mod_php |
+| 8.1.33 | 8.1 | ❌ | no RCE; pre-8.1.34 |
+| 8.1.34 | 8.1 | ❌ | no RCE; last tested 8.1 mod_php; A1 OOM, request-2 SIGSEGV in _efree, no leak |
 | 8.2.0 | 8.2 | ❌ | no RCE; early 8.2 |
 | 8.2.15 | 8.2 | ❌ | no RCE; mid 8.2 |
-| 8.2.34 | 8.2 | ❌ | no RCE; last vulnerable 8.2 |
-| 8.2.35 | 8.2 | 🚫 | fixed control; runtime (A1 200, no OOM) |
+| 8.2.34 | 8.2 | ❌ | no RCE; last vulnerable 8.2; 819,208 B B1 leak 4/4, A2 stale hsv, B2 blocked |
+| 8.2.35 | 8.2 | 🚫 | fixed control; runtime (A1 200, no OOM; 4/4 bodies) |
 | 8.3.0 | 8.3 | ❌ | no RCE; early 8.3 |
 | 8.3.10 | 8.3 | ❌ | no RCE; mid 8.3 |
 | 8.3.20 | 8.3 | ❌ | no RCE; mid 8.3 |
-| 8.3.35 | 8.3 | ❌ | no RCE; last vulnerable 8.3 |
-| 8.3.36 | 8.3 | 🚫 | fixed control; runtime (A1 200, no OOM) |
+| 8.3.35 | 8.3 | ❌ | no RCE; last vulnerable 8.3; 819,208 B B1 leak 7/7, A2/B2 not calibrated |
+| 8.3.36 | 8.3 | 🚫 | fixed control; runtime (A1 200, no OOM; 4/4 bodies) |
 | 8.4.1–8.4.8 | 8.4 | ❌ | 0/8; no leak-capable A1 state |
 | 8.4.10–8.4.26 | 8.4 | ✅ | per-build tested, not a single-build extrapolation; 17/17 RCE (engine-level lab chain); 5/5 representative re-validation (8.4.10, 8.4.15, 8.4.20, 8.4.24, 8.4.26) with distinct `uid=33(www-data)` proofs; exact offsets; handler-independent |
 | 8.4.27 | 8.4 | 🚫 | fixed; runtime (A1 200, B1 no leak) |
@@ -79,6 +80,8 @@ exact per-build offsets.
 | 8.5.5 | 8.5 | ❌ | leak only |
 | 8.5.11 | 8.5 | ❌ | leak only; 53 pointers, 0 `zval_ptr_dtor`, no 87-bucket |
 | 8.5.12 | 8.5 | 🚫 | fixed; runtime (A1 200, normal cookie) |
+
+8.1.34/8.2.34/8.3.35 rows: forced single-worker prefork (MaxRequestWorkers 1); POST `/wp-content/index.php` (28-byte official silence file, MD5 `67442c5615eba73d105c0715c6620850`); `php.ini-production`; multi-worker not audited.
 
 ### FPM
 
