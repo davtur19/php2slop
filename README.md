@@ -19,6 +19,10 @@ CVE-2026-115560 gadget chain on 8.4.26/8.5.11. The 8.5.11 FPM result is
 lab-only and conditional on the row's configuration. No stock/all-version
 claim.
 
+The distro-package and real-app rows below are negative: no full-chain RCE or
+OOB, only crash/DoS, because the B1 leak/address-recovery step did not
+reproduce. They do not extend the lab RCE claims above.
+
 Legend: ✅ RCE in that exact cell · ❌ tested negative in that exact cell ·
 🚫 patched build (basis stated) · — no qualifying RCE / untested (coverage gaps only).
 
@@ -72,7 +76,7 @@ Stock `php:<v>-fpm` images fronted by nginx; stock production INI,
 | 8.0.30 | 8.0 | ❌ | A2 200 under 128M; A1 64M 200, no OOM | runtime |
 | 8.1.34 | 8.1 | ❌ | A2 502/exit 70; no state carry-over | runtime |
 | 8.2.34 | 8.2 | ❌ | A2 502/exit 70; no chain | runtime |
-| 8.2.35 | 8.2 | 🚫 | upstream fix; FPM runtime control not run (G15) | upstream fix |
+| 8.2.35 | 8.2 | 🚫 | fixed control; Debian package runtime (A1/A2 200, 0 exit-70) | runtime (distro) |
 | 8.3.35 | 8.3 | ❌ | A2 502/exit 70 | runtime |
 | 8.3.36 | 8.3 | 🚫 | fixed control; A2 200, `PEAK=46137344` | runtime |
 | 8.4.26 | 8.4 | ❌ | 109618 primitive; no controlled destructor | runtime |
@@ -103,7 +107,7 @@ Stock nginx front, stock FPM pool.
 | 8.0.30 | ❌ | A2 200; A1 64M 200, no OOM |
 | 8.1.34 | ❌ | A2 502/exit 70; no state carry-over |
 | 8.2.34 | ❌ | same 502/exit-70 shape |
-| 8.2.35 | 🚫 | upstream fix; runtime control missing (G15) |
+| 8.2.35 | 🚫 | fixed control; 64M diag A1/A2 200, 0 exit-70 |
 | 8.3.35 | ❌ | same 502/exit-70 shape |
 | 8.3.36 | 🚫 | fixed; A2 200 |
 | 8.4.26 | ❌ | stock 1m 413; 64M diag 502/OOM; no chain |
@@ -119,15 +123,25 @@ Tested rows only; exact package strings.
 |---|---|---|---|---|
 | Debian 13 (trixie) | `8.4.24-1~deb13u1` | mod_php | ✅ | engine-level lab chain; 6/6 total (2/2 fresh + prior 4/4); package-specific constants; package default; warm 25/25 |
 | Debian 13 (trixie) | `8.4.27-1~deb13u1` | mod_php | 🚫 | fixed control; package revision includes the 109618/109619 fix |
-| Debian 12 (bookworm) | `8.2.35-1~deb12u1` | mod_php | 🚫 | fixed control; package revision includes the 109618/109619 fix |
+| Debian 12 (bookworm) | `8.2.35-1~deb12u1` | mod_php + FPM | 🚫 | fixed control; A1 200, A2 200, 0 FPM exit-70; package revision includes the 109618/109619 fix |
+| Debian 12 (bookworm) | `8.2.32-1~deb12u1` | mod_php + FPM | ❌ | A1 500 parse-OOM, A2 500, 2 FPM exit-70; B1 no leak; crash/DoS only; B1 leak/address recovery blocker |
 | Ubuntu 25.04 (plucky) | `8.4.5-1ubuntu1.2` | mod_php | ✅ | package-specific; 2/2 full-chain RCE; symbol offsets `0x245810`/`0x424fc0`; `fillers=116`; `S=main+0xF7398`; upstream 8.4.5 not claimed vulnerable |
-| Ubuntu 22.04 LTS | `8.1.2-1ubuntu2.28` | mod_php | 🚫 | fixed control; package revision carries the branch fix; pre-update `8.1.2` untested (G08) |
-| Ubuntu 24.04 LTS | `8.3.6-0ubuntu0.24.04.13` | mod_php | 🚫 | fixed; A1 200, B1 normal cookie, 0/3 leak; pre-update `8.3.6` untested (G10) |
+| Ubuntu 22.04 LTS | `8.1.2-1ubuntu2.28` | mod_php + FPM | 🚫 | fixed control; A1 200 (no cookie), A2 200, 0 FPM exit-70; package revision carries the branch fix |
+| Ubuntu 22.04 LTS | `8.1.2-1ubuntu2` | mod_php + FPM | ❌ | A1 500 parse-OOM, A2 500, 2 FPM exit-70; B1 no leak; crash/DoS only; B1 leak/address recovery blocker |
+| Ubuntu 24.04 LTS | `8.3.6-0ubuntu0.24.04.13` | mod_php + FPM | 🚫 | fixed; A1 200, FPM A2 200, 0 FPM exit-70; fixed mod_php A2/B2 not run |
+| Ubuntu 24.04 LTS | `8.3.6-0maysync1` | mod_php + FPM | ❌ | A1 500 parse-OOM, A2 500, 2 FPM exit-70; B1 no leak; crash/DoS only; no chain |
 | Alpine 3.20 | `8.3.15-r0` | mod_php (apache2) | ❌ | 8.3 A1 parse-phase OOM 500; B1 0/3, 34-byte cookies |
 | Alpine 3.21 | `8.4.27-r0` | mod_php (apache2) | 🚫 | fixed; A1 200, B1 normal cookie |
 | Arch Linux rolling | `8.5.12-1`; `php-legacy 8.3.36-1` | mod_php | 🚫 | fixed versions; no vulnerable package in repos |
 | Arch ini transplant | Arch `php.ini` on official `8.4.26` | mod_php | ✅ | **not an Arch package**; shipped ini is chain-compatible |
 | Rocky Linux 9 | `8.0.30-8.el9_8.1` | FPM only | ❌ | no `libphp.so`; no `Set-Cookie`; 8.0 resets `send_cookie` |
+
+Positive control in the same run: official `8.4.26` mod_php reproduced the
+full chain (A1 500, B1 819,208-byte leak, A2 500, B2 `uid=33(www-data)`), so
+the distro negatives are measured against a working harness. No distro package
+produced a full-chain RCE or an OOB leak; the vulnerable revisions show only
+crash/DoS (mod_php A1/A2 OOM; FPM `exit 70`). The B1 body geometry is
+8.4-derived, so a build-specific leak offset cannot be excluded.
 
 Debian-family packages use a different geometry from upstream: `fillers=116`
 and `S=main+0xF7398` (upstream: `fillers=115`, `S=main+0xF8398`).
@@ -145,12 +159,21 @@ and `S=main+0xF7398` (upstream: `fillers=115`, `S=main+0xF8398`).
 | WordPress 7.1.3 | 8.4.26 FPM | `/index.php` | ❌ | multipart OOM only (502/exit 70) |
 | WordPress 7.1.3 | 8.5.11 FPM | `/index.php` | ❌ | OOM only |
 | WordPress 7.1.3 | 8.3.35 FPM | `/index.php` | ❌ | OOM only |
+| Roundcube 1.7.5 | 8.4.26 FPM | nginx 1m/25m/64m; `/` and `/static.php` | ❌ | no chain/RCE; DB sessions (not file); `/static.php` allowlisted but still enters PHP; `PHPSESSID` POST ignored; A1 at 128M exits 70, no session file; B1 no leak; stock 1 MiB 413; 25/64M still no leak |
+| Nextcloud 35.0.2 | 8.4.26 FPM | docs 10G/512M; 10G/128M | ❌ | no chain/RCE; documented 512M stack removes OOM; 10G/128M A1 exits 70, no session file; B1 no leak |
 | Drupal 11.4.11 | 8.5.10 FPM (lab build) | file sessions + `.user.ini` + 2M + `static1` | ✅ | app-assisted, **not stock**; 3/3 fresh ASLR |
+| Drupal 11.4.11 | 8.4.26 FPM | 64M; stock DB sessions | ❌ | no chain/RCE; 64M A1 exits 70, no session file; B1 no leak |
 | Joomla 5.4.10 | 8.5.10 FPM (lab build) | file sessions + 2M + `cleanup=0` | ✅ | app-assisted, **not stock** |
 | MediaWiki 1.46.2 | 8.4.26 FPM | `/index.php` | ❌ | OOM only |
 | MediaWiki 1.46.2 | 8.5.11 FPM | `/index.php` | ❌ | OOM only |
 | MediaWiki 1.46.2 | 8.3.35 FPM | `/index.php` | ❌ | OOM only |
 | Moodle 5.0.10 | 8.5.11 FPM | normal request | ❌ | fresh serializer at RINIT |
+
+App controls: PHP 8.4.27 at 64M returned 200 with no OOM, and disabling
+`session.upload_progress` moved the failure to an app-level 500 (worker
+survives) but still produced no B1 leak. B2 was not attempted after a negative
+B1. The app rows above therefore show reachability and availability failures,
+not a memory-corruption primitive.
 
 ### Other CVEs
 
@@ -173,19 +196,19 @@ and `S=main+0xF7398` (upstream: `fillers=115`, `S=main+0xF8398`).
 |---|---|---|---|---|---|
 | G01 | — | Distro | Debian 11 `7.4.33` + mod_php | none for package | P2 |
 | G02 | — | Distro | Debian 11 `7.4.33` + FPM | none | P2 |
-| G03 | — | Distro | Debian 12 `8.2.32` + mod_php (other 8.2.x untested) | A1 500 but 0/5 B1 leaks; primitive/A1 blocker, not an offset miss | P0 |
-| G04 | — | Distro | Debian 12 `8.2.x` + FPM | upstream 8.2.34 only | P0 |
+| G03 | — | Distro | Debian 12 `8.2.32` + mod_php (other 8.2.x untested) | tested ❌; A1/A2 500 parse-OOM, 0/13 B1 leaks (34 B); B1 blocker, not an offset miss | P0 |
+| G04 | — | Distro | Debian 12 `8.2.x` + FPM | 8.2.32 FPM: A1/A2 502, 2 exit-70, no B1 leak; other 8.2.x untested | P0 |
 | G05 | — | Distro | Debian 13 `8.4.24-1~deb13u1` + FPM | mod_php tested | P1 |
 | G06 | — | Distro | Ubuntu 20.04 `7.4.3` + mod_php | upstream 7.4.33 | P2 |
 | G07 | — | Distro | Ubuntu 20.04 `7.4.3` + FPM | upstream 7.4.33 | P2 |
-| G08 | — | Distro | Ubuntu 22.04 pre-update `8.1.2` + mod_php | fixed at `8.1.2-1ubuntu2.28`; base revision untested | P0 |
-| G09 | — | Distro | Ubuntu 22.04 `8.1.2` + FPM | upstream 8.1.34 | P0 |
-| G10 | — | Distro | Ubuntu 24.04 pre-update `8.3.6` + mod_php | fixed at `8.3.6-0ubuntu0.24.04.13`; pre-update base not audited | P1 |
-| G11 | — | Distro | Ubuntu 24.04 `8.3.6` + FPM | none | P1 |
+| G08 | — | Distro | Ubuntu 22.04 pre-update `8.1.2` + mod_php | tested ❌; A1/A2 500 parse-OOM, 0/13 B1 leaks; fixed at `8.1.2-1ubuntu2.28` | P0 |
+| G09 | — | Distro | Ubuntu 22.04 `8.1.2` + FPM | base FPM: A1/A2 502, 2 exit-70, no B1 leak; fixed at `.28` | P0 |
+| G10 | — | Distro | Ubuntu 24.04 pre-update `8.3.6` + mod_php | tested ❌; A1/A2 500 parse-OOM, 0/10 B1 leaks; fixed at `.13` | P1 |
+| G11 | — | Distro | Ubuntu 24.04 `8.3.6` + FPM | base FPM: A1/A2 502, 2 exit-70, no B1 leak; fixed at `.13` | P1 |
 | G12 | — | Distro | Ubuntu 26.04 `8.5.4-0ubuntu1` release + mod_php | predates the fix; vulnerable by version, no RCE claim | P0 |
 | G13 | — | Distro | Ubuntu 26.04 `8.5.4-0ubuntu1.5` updated + mod_php | changelog-fixed; runtime not run | P0 |
 | G14 | — | Distro | Ubuntu 26.04 `php8.5-fpm` (`8.5.4`) | universe package; none | P1 |
-| G15 | — | Build | FPM `8.2.35` fixed control | no FPM runtime test | P0 |
+| G15 | — | Build | FPM `8.2.35` fixed control | runtime: A1/A2 200, 0 exit-70; no qualifying RCE | P0 |
 | G16 | — | Build | FPM `8.4.27` fixed control | source only | P1 |
 | G17 | — | Build | mod_php `8.4.9` | between 0/8 and 17/17 | P1 |
 | G18 | — | Build | mod_php `8.4.0` | none | P2 |
@@ -202,15 +225,15 @@ and `S=main+0xF7398` (upstream: `fillers=115`, `S=main+0xF8398`).
 | G29 | — | App | WordPress 7.1.3 installed with `mysqli`/DB | `/index.php` 6/6 pre-app; tree was 500/no DB | P1 |
 | G30 | — | App | WordPress 7.1.3 nginx+FPM full chain | OOM only | P1 |
 | G31 | — | App | WordPress 7.1.3 mod_php 8.3.35 / 8.5.11 | only 8.4.26 tested | P2 |
-| G32 | — | App | Drupal 11.4.11 **stock** DB sessions | lab file-session only | P1 |
+| G32 | — | App | Drupal 11.4.11 **stock** DB sessions | tested ❌ at 8.4.26 FPM 64M; A1 exit-70, no B1 leak | P1 |
 | G33 | — | App | Drupal 10.6.20 | none | P2 |
 | G34 | — | App | Joomla 5.4.10 **stock** DB sessions | lab file-session only | P1 |
 | G35 | — | App | Joomla 6.2.0 | none | P2 |
 | G36 | — | App | MediaWiki 1.46.2 mod_php / other FPM | FPM OOM only | P2 |
 | G37 | — | App | Laravel 13 | none | P1 |
 | G38 | — | App | Symfony 8.1 | none | P1 |
-| G39 | — | App | Roundcube 1.7.4 | none | P0 |
-| G40 | — | App | Nextcloud 35 | none | P1 |
+| G39 | — | App | Roundcube 1.7.4 | 1.7.5 tested ❌ (DB sessions, no B1 leak); 1.7.4 not run | P0 |
+| G40 | — | App | Nextcloud 35 | 35.0.2 tested ❌ (512M no OOM, 128M exit-70, no B1 leak); 34/33 in G44 | P1 |
 | G41 | — | App | phpMyAdmin 5.2.3 | none | P2 |
 | G42 | — | App | Magento 2.4.9 | optional | P3 |
 | G43 | — | App | OpenCart 4.x | optional; version unverified | P3 |
