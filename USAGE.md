@@ -20,7 +20,7 @@ Install, layout and run one-liners: see `README.md`.
 | fpm app fatal | php-fpm 8.5.10 static pool | post startup app level fatal inside the unserialize family | none | worker exits 70, no access row | measured, not a route by itself |
 | fpm G2 decode hijack | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC, ASLR off | `E_USER_ERROR` bailout inside `unserialize` | multipart session record plus forced END decode | marker created, worker survives, decode pointer overwritten | 8.5.10 reported lab, E2E verification running; other profiles derived, offline `--step g2` |
 | fpm G6 zif decode | php-fpm 8.5.10, 8.4.25, 8.1.34, 7.4.33 ET_EXEC, ASLR off | same G2 plant | the G2 write points `ps_serializers[2].decode` at `zif_system` / `zif_passthru`; the record is a fake `zend_execute_data` | `zif_system`: marker created, then SIGSEGV at `php_exec+450`; `zif_passthru`: HTTP 200, marker recreated, worker survives | 8.5.10 reported lab G6; other profiles binary-derived; offline `--step g2 --g2-decode ...` |
-| F12b realapps zif decode | installed php-fpm 8.5.10 ET_EXEC, MediaWiki/Wikibase, ASLR off | anonymous `/api.php` Wikibase OOM (`application/vnd.php.serialized`, 500 KB probe) | the `php` session record overwrites `ps_serializers[1].decode` (`0x22c54c8`) with `zif_system` (`0xa3c061`); the record is the fake `execute_data` | marker `WIKI_ZIF` created at `00:29:18`; worker SIGSEGV at `php_exec+466`; FPM respawn; nginx 502 then health 200 | **confirmed private ASLR-off RCE**; `zif_passthru` (`0xa3c074`) clean gdb-free run in `receipts/realchain_20261022/` |
+| F12b realapps zif decode | installed php-fpm 8.5.10 ET_EXEC, MediaWiki/Wikibase, ASLR off | anonymous `/api.php` Wikibase OOM (`application/vnd.php.serialized`, 500 KB probe) | the `php` session record overwrites `ps_serializers[1].decode` (`0x22c54c8`) with `zif_system` (`0xa3c061`) or `zif_passthru` (`0xa3c074`); the record is the fake `execute_data` | `zif_system`: marker `WIKI_ZIF` at `00:29:18`, SIGSEGV at `php_exec+466`, FPM respawn, nginx 502 then health 200. `zif_passthru` (ASLR off): `WIKI_PASSTHRU` at `00:46:33`, worker `1249940` survived, HTTP 200, same-PID health 200 at `00:48:10` | **confirmed private ASLR-off RCE**; first clean php-slot survivor `/tmp/opencode/research/f12b_passthru_20261021T224157Z/`; later ASLR-on runs in `receipts/realchain_20261022/` and `receipts/realzif_entry2_1022/` |
 | modphp in band leak | libphp.so PHP 8.5.10 NTS PIE | M5 plant and trigger | `sidlen` / `sidhex` overread | live session array pointer over HTTP, 4 of 4 runs | measured, `leak_offset` build specific; boot2 HTTP candidate (`K_dest` at `sidhex[8:16]`, `B0 = K_dest - 0x1000`) lab-only |
 | static session file leak | libphp.so PHP 8.5.10 NTS PIE, mod_php | failed `ini_set` save_path restore, 54 B GET reclaim | M11 encode overread, static GET of `sess_tb1` | 77,842 B seed served with matching sha1; overread crashed in `tmp_var` | **reproduced on real target (F14)**: the mod_php lane was attempted-negative; the WP/WooCommerce FPM 8.5.10 stack under ASLR on served the leaked `K_dest` and a gdb-free `zif_passthru` marker; `receipts/realchain_20261022/` |
 | real apps | MediaWiki/Wikibase, WordPress/WooCommerce | anonymous app request | app specific | Wikibase fatal and worker survival, WP 1 of 4 consumers SIGSEGV | reachability and availability; F12b separately confirms RCE on the private realapps 8.5.10 target |
@@ -262,7 +262,7 @@ G2 preconditions and limits:
 | libc | base for `system`, or a fixed target that accepts `(char *, size_t)`; the fixed target route is not demonstrated |
 | heap | X, P, B0 and the exact record length |
 | G6 zif decode | X1 and X2 plus P and B0; profile `zif_system`/`zif_passthru`; `zif_passthru` is the clean control, `zif_system` is one-shot |
-| F12b realapps (php) | md5 `4ee099823b75e16ea36f93c71d57bfd8`; `php` handler; target `ps_serializers[1].decode` `0x22c54c8` reached through the 8 mod 16 `B0f=0x7ffff2002018`; record shape `php_session_zif` is built by the receipt's `mkrec.py`, not by `--step g2`; `zif_passthru` `0xa3c074` clean gdb-free run in `receipts/realchain_20261022/` |
+| F12b realapps (php) | md5 `4ee099823b75e16ea36f93c71d57bfd8`; `php` handler; target `ps_serializers[1].decode` `0x22c54c8` reached through a per-run 8 mod 16 `B0f` (`0x7ffff2002018` for `zif_system`, `0x7ffff3402018` for the ASLR-off `zif_passthru` run); record shape `php_session_zif` is built by the receipt's `mkrec.py`/`mkrec_pt.py`, not by `--step g2`; first clean php-slot `zif_passthru` survivor is the ASLR-off `f12b_passthru_20261021T224157Z` run (worker `1249940`, `WIKI_PASSTHRU`, HTTP 200); the static decode stays poisoned; later ASLR-on run in `receipts/realchain_20261022/` |
 | FPM setup | upload progress on with the forced END update in the same request |
 | ordering | the plant request must be the immediately preceding request on the same worker |
 | retries | single shot per plant; the corrupt decode pointer persists until worker restart |
@@ -440,21 +440,58 @@ respawned worker 1249940; nginx returned 502 (157 B), and a later
 `GET /index.php?title=Main_Page` returned 200. The pool survived; the worker
 that ran the exploit did not.
 
+### First clean `zif_passthru` run (ASLR off)
+
+The first clean php-slot survivor was measured on the respawned worker
+`1249940` at `2026-10-22 00:46:33 +0200` (receipt
+`/tmp/opencode/research/f12b_passthru_20261021T224157Z/README.md`). The static
+decode was written with `i:10731636;` = `0xa3c074`, and decode #2 called
+`zif_passthru` with the session buffer as `execute_data`.
+
+The producer was the same request shape, but the worker-history-dependent
+geometry moved after the `zif_system` crash/respawn: `P=0x7ffff358c000`,
+`B0=0x7ffff359e000`, `chunk=0x7ffff3400000`, shutdown cache index 15 (16 cached
+chunks). The record is 30,401,040 bytes (sha256
+`7fbf8d7181db4f07b72b240032d4052cb3ef5f2eec66036501d2f6436054310f`; 15
+fillers, NW=16): `S=0x7ffff3401018`, `F=0x7ffff3401218`,
+`B0f=0x7ffff3402018`, `K=-8,796,077,374,646`, `L=1,900,000`, `S+0x2c=1`,
+`S+0x50=F`, `S+0x58=6`, `F+0x10=74`, and the 74-byte command
+`touch /tmp/opencode/research/f12b_passthru_20261021T224157Z/WIKI_PASSTHRU;`.
+
+The marker `WIKI_PASSTHRU` was created (size 0, mtime
+`00:46:33.579731155`), the consumer returned HTTP 200 with 35,297 B, and the
+same worker `1249940` answered health `GET /index.php?title=Main_Page` with HTTP
+200 at `00:48:10`. There was no SIGSEGV and no respawn. Survival is explained by
+the type-3 path: `php_exec` takes the `PHPWRITE`/`pclose` branch and never
+executes `RETVAL`, and `php_exec_ex` leaves `ret_code=NULL` for `num_args=1`, so
+the invalid `return_value=ZSTR_LEN(data)` is never dereferenced.
+
+Caveats: this run is ASLR off (`setarch x86_64 -R`) and does not establish
+ASLR-on or internet exploitation; the static `ps_serializers[1].decode` remains
+`0xa3c074` in worker `1249940`, so recycle the worker before normal native
+session tests; the geometry must be re-measured per worker; and the gdb capture
+stopped at a cosmetic `cmd->val` print after the type-3 call, so the second
+decode `eax` was not captured (marker, PID, HTTP and FPM log are ground truth).
+`0xa3c071` is not a `zif_passthru` entry: it lands inside `zif_system`'s
+`add rsp,8` at `0xa3c06f`.
+
 The `zif_passthru` symbol on this binary is `0xa3c074` (verified with `nm -an`
-and `readelf -sW`; `zif_system + 0x13`, not the lab `+0x10`). Its clean
-real-target run is `receipts/realchain_20261022/`: ASLR on, `MARK_REAL` created
-by a gdb-free request, worker `572531` alive. That run used the entry-1 `php`
-slot; the separate `php_binary` entry (`ps_serializers[2]`, decode `0x22c54e0`)
-has its own clean `zif_passthru` run in `receipts/realzif_entry2_1022/README.md`.
-F12b itself remains a private
-ASLR-off proof; `P`/`B0` still came from a pre-final gdb calibration, the
-MediaWiki/Wikibase ASLR-on survey found no in-band leak, the boot2 candidate is
-lab-only, and no internet exploitation is claimed. The profile
-`addresses/g2_fpm_realapps_8510.json` is selectable with `--g2-profile
-realapps-8.5.10` (or its md5); `record_builder` is `php_binary_zif`, so the
-builder resolves the target by entry name and plans `0x22c54e0` rather than the
-profile's `default_target` (`0x22c54c8`). The F12b `php`-slot record still comes
-from the receipt's `scripts/mkrec.py`. Receipt:
+and `readelf -sW`; `zif_system + 0x13`, not the lab `+0x10`). The first clean
+real-target run is the ASLR-off run above. A later, separate ASLR-on run is
+`receipts/realchain_20261022/`: `MARK_REAL` created by a gdb-free request,
+worker `572531` alive. That run used the entry-1 `php` slot; the separate
+`php_binary` entry (`ps_serializers[2]`, decode `0x22c54e0`) has its own clean
+`zif_passthru` run in `receipts/realzif_entry2_1022/README.md`.
+
+F12b itself remains a private ASLR-off proof; `P`/`B0` still came from a
+pre-final gdb calibration, the MediaWiki/Wikibase ASLR-on survey found no
+in-band leak, the boot2 candidate is lab-only, and no internet exploitation is
+claimed. The profile `addresses/g2_fpm_realapps_8510.json` is selectable with
+`--g2-profile realapps-8.5.10` (or its md5); `record_builder` is
+`php_binary_zif`, so the builder resolves the target by entry name and plans
+`0x22c54e0` rather than the profile's `default_target` (`0x22c54c8`). The F12b
+`php`-slot record still comes from the receipt's `scripts/mkrec.py` and the
+passthru run's from `scripts/mkrec_pt.py`. Receipt:
 `/tmp/opencode/research/f12b_zif_20261021T222457Z/README.md`.
 
 ## modphp machinery lane

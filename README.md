@@ -262,6 +262,20 @@ The stock 1 MiB cap blocks **A1 and B1 only**; A2/B2 fit and still exercise the 
   static; see the reconciliation section.)*
 - **FPM synthetic-session lane:** synthetic session, `php_binary`, `/sessions`
   path and non-PIE binary; no stock target.
+- **F12b realapps php-slot `zif_passthru` (private ASLR-off):** on the installed
+  8.5.10 FPM binary, the first clean php-slot survivor wrote `0xa3c074` to
+  `ps_serializers[1].decode`; worker `1249940` created
+  `/tmp/opencode/research/f12b_passthru_20261021T224157Z/WIKI_PASSTHRU`,
+  returned HTTP 200 (35,297 B), and served health 200 at `00:48:10` from the
+  same PID. It survives because `php_exec` type 3 takes the `PHPWRITE`/`pclose`
+  branch and never runs `RETVAL`. The static decode pointer remains poisoned, so
+  recycle the worker before normal session tests; geometry is worker-history
+  dependent (`P=0x7ffff358c000`, cache index 15 here versus
+  `P=0x7ffff218c000`, index 18 for `zif_system`); and the gdb capture stopped
+  at a cosmetic `cmd->val` print. ASLR off only; no internet claim. Receipt:
+  `/tmp/opencode/research/f12b_passthru_20261021T224157Z/README.md`. Later
+  ASLR-on runs are separate (`receipts/realchain_20261022/`,
+  `receipts/realzif_entry2_1022/`).
 - **Karasawa phar:** 14/15 RCE on PHP 8.5.4 with `display_errors=Off`, but the
   `.phar` is pre-staged and its stub calls `Phar::webPhar()`; there is no
   remote planting.

@@ -24,10 +24,15 @@ record shape differs from the php_binary G6 builder, so the `php`-slot record is
 still built by the receipt's `scripts/mkrec.py`; the profile itself carries
 `record_builder: php_binary_zif`, and the offline builder plans its entry-2
 `php_binary` slot (0x22c54e0), not the entry-1 `php` slot (0x22c54c8, 8 mod 16).
-`zif_passthru` 0xa3c074 is symbol verified, and its clean run on that `php` slot
-is in `receipts/realchain_20261022/` (the F12b record itself stays private
-ASLR-off). The separate realapps `php_binary` slot (0x22c54e0) has its own clean
-`zif_passthru` run in the realzif receipt (`receipts/realzif_entry2_1022/`).
+`zif_passthru` 0xa3c074 is symbol verified (entry `sub rsp,8; mov edx,3; call
+php_exec_ex`; 0xa3c071 lands inside zif_system's `add rsp,8`). The first clean
+realapps php-slot run was ASLR off and is in
+`/tmp/opencode/research/f12b_passthru_20261021T224157Z/`: worker 1249940 created
+`WIKI_PASSTHRU`, returned HTTP 200, and served health 200 from the same PID.
+The static decode pointer remains poisoned after that non-crashing passthru, so
+recycle the worker before normal session tests. Later ASLR-on clean runs are
+`receipts/realchain_20261022/` (php slot) and `receipts/realzif_entry2_1022/`
+(php_binary slot).
 
 The writer always resolves its target by serializer entry name, `php_binary`,
 rather than by a fixed index or by `ps_serializers.default_target`: the lab
