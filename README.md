@@ -3,31 +3,37 @@
 Research exploit tooling for the PHP `session.upload_progress` use-after-free
 (CVE-2026-109618 / CVE-2026-109619).
 
-**Status: WIP research code.** This is not a universal or stock-default
-exploit. Chains that were measured under lab conditions required specific
-build offsets, pool shapes and, in some lanes, non-default configuration. Treat
-every result as lab-conditioned until reproduced on your own target.
+**Status: WIP research code.** This is not a universal exploit. Most chains
+were measured under lab conditions and required specific build offsets, pool
+shapes and, in some lanes, non-default configuration. The exception is the
+audited stock WordPress 7.1.3 + Apache prefork mod_php 8.4.24 cell below
+(stock MPM and INI, official core file, target-written proofs); it still needs
+retries and is scoped to direct mod_php. Treat every other result as
+lab-conditioned until reproduced on your own target.
 
 This repository contains only the exploitation tool, its per-build offset
 profiles, and this documentation.
 
 ## Status: what works / what does not
 
-Lab RCE: the per-build 8.4.10–8.4.26 mod_php chain, Debian 13 8.4.24,
+RCE: the per-build 8.4.10–8.4.26 mod_php chain, the audited stock WordPress
+7.1.3 + Debian 13.7 Apache 2.4.69 prefork mod_php 8.4.24 cell (first
+stock-compliant ✅ in this document; direct mod_php only, rate caveat below),
 Ubuntu 25.04 8.4.5-1ubuntu1.2, and the non-stock `cleanup=0`
 CVE-2026-115560 gadget chain on 8.4.26/8.5.11. The 8.5.11 FPM result is
-lab-only and conditional on the row's configuration. No stock/all-version
-claim.
+lab-only and conditional on the row's configuration. No all-version claim.
 
-The distro-package and real-app rows below are negative: no full-chain RCE,
-OOB write, or proof; where a primitive fires it is crash/DoS only, and the
-26.04 release B1 leak is heap-only with no `libphp`/`S` anchor. They do not
-extend the lab RCE claims above. The Amazon/Fedora/Alma additions do not change
-that: Amazon 8.4.26 is A1/S1-only with no B1 leak, Fedora is fixed and
-FPM-only, and Alma is vendor-patched and FPM-only. Arch remains metadata-only
-and not package-tested. No crash, OOM or HTTP 500 is counted as RCE. Distro
-negatives remain conditioned on the tested geometry; see the 7.4/8.0 multipart
-cap and FPM `post_max_size` caveat below.
+The distro-package and real-app rows below are otherwise negative: no
+full-chain RCE, OOB write, or proof; where a primitive fires it is crash/DoS
+only, and the 26.04 release B1 leak is heap-only with no `libphp`/`S` anchor.
+The one exception is the stock WordPress/Apache cell below, which is a direct
+mod_php RCE and does not extend to nginx/FPM or other SAPIs. The
+Amazon/Fedora/Alma additions do not change the negative picture: Amazon 8.4.26
+is A1/S1-only with no B1 leak, Fedora is fixed and FPM-only, and Alma is
+vendor-patched and FPM-only. Arch remains metadata-only and not
+package-tested. No crash, OOM or HTTP 500 is counted as RCE. Distro negatives
+remain conditioned on the tested geometry; see the 7.4/8.0 multipart cap and
+FPM `post_max_size` caveat below.
 
 OpenLiteSpeed 1.9.3 + lsphp is a separate SAPI lane and does not change the
 lab RCE list: on the locally built 8.4.26 LSAPI binary the 109618 carrier
@@ -171,7 +177,7 @@ metadata-only candidates are listed in the coverage-gap table.
 
 | Distro / release | Exact package | SAPI | Status | Result / qualifier |
 |---|---|---|---|---|
-| Debian 13 (trixie) | `8.4.24-1~deb13u1` | mod_php | ✅ | engine-level lab chain; 6/6 total (2/2 fresh + prior 4/4); package-specific constants; package default; warm 25/25 |
+| Debian 13 (trixie) | `8.4.24-1~deb13u1` | mod_php | ✅ | engine-level lab chain 6/6 total (2/2 fresh + prior 4/4); **stock-compliant multi-worker WordPress 7.1.3** on stock prefork 5/150, 4 target-written proofs (blind 2/20; pooled 4/40 lab-assisted); package-specific constants; package default; warm 25/25 |
 | Debian 13.7 (trixie) | `8.4.27-1~deb13u1` | mod_php + FPM | 🚫 | explicit changelog fix for CVE-2026-109618/109619; mod_php A1 200, B1 0/5, A2 200; FPM A1 200, 33 MB B1 rejected by stock `post_max_size=8M` (not a valid negative) |
 | Debian 12 (bookworm) | `8.2.35-1~deb12u1` | mod_php + FPM | 🚫 | fixed control; A1 200, A2 200, 0 FPM exit-70; package revision includes the 109618/109619 fix |
 | Debian 12 (bookworm) | `8.2.32-1~deb12u1` | mod_php + FPM | ❌ | A1 500 parse-OOM, A2 500, 2 FPM exit-70; B1 no leak; crash/DoS only; B1 leak/address recovery blocker |
@@ -282,11 +288,75 @@ and `S=main+0xF7398` (upstream: `fillers=115`, `S=main+0xF8398`).
 `0x24cdd0`/`0x424ff0`, Ubuntu 25.04 8.4.5-1ubuntu1.2 is
 `0x245810`/`0x424fc0`. Do not transplant offsets between builds.
 
+### WordPress 7.1.3 + Apache mod_php (stock)
+
+This is the first ✅ cell in this document that is stock-compliant end to end
+(audited 2026-10-23): Debian 13.7 Apache 2.4.69 prefork + mod_php 8.4.24,
+stock MPM and stock package INI, official WordPress 7.1.3 core file,
+target-written proof. It is direct Apache mod_php only; it does not extend to
+nginx/FPM.
+
+| Condition | Audited value |
+|---|---|
+| OS / package | Debian 13.7 (trixie); `libapache2-mod-php8.4 8.4.24-1~deb13u1`; `apache2 2.4.69-1~deb13u1` |
+| SAPI | `mpm_prefork_module` + `php_module` (mod_php); no FPM, no proxy |
+| MPM | stock `StartServers 5`, `MinSpareServers 5`, `MaxSpareServers 10`, `MaxRequestWorkers 150`, `MaxConnectionsPerChild 0`; no worker pinning, no custom MPM, no `mod_unique_id`, no restart/kill |
+| php.ini | stock package conffile, `dpkg -V` clean: `post_max_size=8M`, `memory_limit=128M`, `display_errors=Off`, `output_buffering=4096`, `expose_php=Off`, `upload_max_filesize=2M` |
+| ASLR | `randomize_va_space=2` |
+| Endpoint | `/wp-content/index.php`, official 28-byte core file, mode 644; MD5 `67442c5615eba73d105c0715c6620850`, SHA-256 `bd48c24ce4500e60d2524571756787283f0d3fbfa50b116331309c09773f0cd1` |
+| Docroot | official WordPress 7.1.3 ZIP (`eb58a90ed55147f90f7bd55d0d3334960a69b7e8a4cc142c8ddfea8965218227`) minus 48 inactive bundled files (47 `wp-content/plugins/akismet/*` + `wp-content/plugins/hello.php`), plus default `wp-config.php` byte-identical to `wp-config-sample.php`; 3,735 files / 109,646,539 B; no plugins (only the official 28-byte `wp-content/plugins/index.php`), uploads, mu-plugins, `.htaccess`, `.user.ini` or lab endpoints; mounted read-only |
+| Integrity | pre/post manifest identical; `docker diff` clean under `/var/www/html`; read-only `touch` fails; target hash unchanged |
+
+The endpoint is a standalone silence file. It does not include `wp-config.php`,
+plugins or themes, so this is a SAPI/heap primitive on an official core file,
+not an application LFI, upload or docroot-write chain.
+
+**Request stages.** A1 993,911 B and B1 33,128,677 B are chunked
+(`Transfer-Encoding: chunked`, no `Content-Length`); A2 279,432 B and B2
+451,384 B are plain. The stock Apache `LimitRequestBody` default (1 GiB)
+admits B1. The stock `post_max_size=8M` gate is driven by a declared length:
+the same 33,128,677-B body with `Content-Length: 33128677` returns 200/166 B
+and logs `POST Content-Length of 33128677 bytes exceeds the limit of 8388608
+bytes`, while the chunked B1 reaches PHP and leaks. The INI is not raised;
+only the chunked/no-`Content-Length` path bypasses the gate (a proxy that
+buffers and supplies `Content-Length` re-imposes it). A2 is 279,432 B; B2 is
+451,384 B (the 451,384-B stage is B2, not A2).
+
+**Target-written proofs.** Four counted proofs: `MW001` and `MW006` (Protocol
+A), `PR001` and `PR002` (Protocol B). Each `/out/p1_<marker>` contains
+`uid=33(www-data) gid=33(www-data) groups=33(www-data)` and the marker. The
+host owner is `100032:100032`, the rootless-Docker mapping of container
+`33:33` (`/proc/self/uid_map`: `1 -> 100000`, so `33 -> 100032`); the driver
+only unlinks/reads the proof path. B2 embeds
+`id>/out/p1_<marker>;echo <marker>>>/out/p1_<marker>;id>&2;echo <marker>&2`
+and executes `zif_system`; the proof-writing child then dies with SIGSEGV
+(11), the client sees status 0, and the error log records the child signal.
+No 200/500, OOM or crash is counted as RCE.
+
+**Rate caveat.** The clean blind stock series is Protocol A **2/20 = 10.0%**
+(Wilson 95% CI 2.8–30.1). Protocol B is also 2/20, but its driver derives the
+attempt width from a worker-count observation (`docker exec ps`), so the
+pooled **4/40 = 10.0%** (95% CI 4.0–23.1) is lab-assisted, not fully blind;
+do not quote 4/40 as a blind rate. The primitive is stochastic and needs
+retries: A1 must be followed by a B1 that reaches the same child, and a child
+that has already served a B1 is no longer a reliable A1 target. The
+same-container A→B control was 2/40 = 5.0% (1.4–16.5) because the B phase
+began on a fully polluted pool; a fresh-pool B-first series produced 2/20.
+
+**Scope.** Direct Apache mod_php only. Stock nginx/FPM and MediaWiki remain
+❌/gaps; nginx-proxied mod_php, lsphp/LSAPI and other SAPIs are unchanged.
+There is no application LFI or upload: B2 has no `filename=` parts and the
+only target-side write used for success is `/out/p1_<marker>` via the
+same-chain B2 `zif_system` payload; the docroot is never written. `p2s` is a
+lab-added logging-only `LogFormat` (`%P ...`), not a stock Apache format; it
+is not part of the exploit path.
+
 ### Applications
 
 | App / version | PHP + SAPI | Endpoint / config | Status | Class / qualifier |
 |---|---|---|---|---|
-| WordPress 7.1.3 | 8.4.26 mod_php | `/wp-content/index.php` (silence file) | ✅ | engine-level, lab-conditioned; 6/6 |
+| WordPress 7.1.3 | Apache 2.4.69 prefork + mod_php 8.4.24 (Debian 13.7 `8.4.24-1~deb13u1`) | stock prefork 5/150; `/wp-content/index.php` 28-B core file; official docroot minus inactive bundled plugins, read-only | ✅ | **stock-compliant**, direct mod_php; target-written `MW001`/`MW006`/`PR001`/`PR002`; blind 2/20, pooled 4/40 lab-assisted; retries; see section above |
+| WordPress 7.1.3 | 8.4.26 mod_php | `/wp-content/index.php` (silence file) | ✅ | engine-level, lab-conditioned; 6/6; the audited stock-compliant cell is the Debian 8.4.24 row above |
 | WordPress 7.1.3 | 8.4.26 nginx+mod_php non-stock | `/index.php` front controller | ✅ | engine-level; 6/6 OOB; pre-app — WP not installed (`mysqli` missing), HTTP 500 |
 | WordPress 7.1.3 | 8.4.26 nginx+mod_php non-stock | `/wp-content/index.php` | ✅ | engine-level; non-stock 64M; 6/6 |
 | WordPress 7.1.3 | 8.4.26 FPM | `/index.php` | ❌ | multipart OOM only (502/exit 70) |
@@ -362,13 +432,13 @@ A1 OOMs allocating 4,096 B and A2 20,480 B, both in `Unknown on line 0`;
 
 ### Coverage gaps
 
-50 numbered entries; every row is `—` (no qualifying RCE or untested), never ❌.
+51 numbered entries; every row is `—` (no qualifying RCE or untested), never ❌.
 
 | ID | Status | Lane | Untested cell | Existing evidence / note | Priority |
 |---|---|---|---|---|---|
 | G01 | — | Distro | Debian 12 `8.2.32` + mod_php (other 8.2.x untested) | tested ❌; A1/A2 500 parse-OOM, 0/13 B1 leaks (34 B); B1 blocker, not an offset miss | P0 |
 | G02 | — | Distro | Debian 12 `8.2.x` + FPM | 8.2.32 FPM: A1/A2 502, 2 exit-70, no B1 leak; other 8.2.x untested | P0 |
-| G03 | — | Distro | Debian 13 `8.4.24-1~deb13u1` + FPM | mod_php tested | P1 |
+| G03 | — | Distro | Debian 13 `8.4.24-1~deb13u1` + FPM | mod_php tested, including the stock multi-worker WordPress 7.1.3 cell; FPM not run | P1 |
 | G04 | — | Distro | Ubuntu 20.04 `7.4.3` + mod_php | upstream 7.4.33 | P2 |
 | G05 | — | Distro | Ubuntu 20.04 `7.4.3` + FPM | upstream 7.4.33 | P2 |
 | G06 | — | Distro | Ubuntu 22.04 pre-update `8.1.2` + mod_php | tested ❌; A1/A2 500 parse-OOM, 0/13 B1 leaks; fixed at `8.1.2-1ubuntu2.28` | P0 |
@@ -400,9 +470,9 @@ A1 OOMs allocating 4,096 B and A2 20,480 B, both in `Unknown on line 0`;
 | G32 | — | SAPI/OS | FreeBSD 13/14 + nginx + FPM (ports) | build-specific offsets | P2 |
 | G33 | — | SAPI/OS | Windows Server + IIS 10 + FastCGI (8.3/8.4/8.5 NTS) | no FPM on Windows | P2 |
 | G34 | — | SAPI/OS | Windows + Apache + mod_php | optional | P3 |
-| G35 | — | App | WordPress 7.1.3 installed with `mysqli`/DB | `/index.php` 6/6 pre-app; tree was 500/no DB | P1 |
-| G36 | — | App | WordPress 7.1.3 nginx+FPM full chain | OOM only | P1 |
-| G37 | — | App | WordPress 7.1.3 mod_php 8.3.35 / 8.5.11 | only 8.4.26 tested | P2 |
+| G35 | — | App | WordPress 7.1.3 installed with `mysqli`/DB | core-file stock cell tested; installed `/index.php` front controller still 6/6 pre-app; tree was 500/no DB | P1 |
+| G36 | — | App | WordPress 7.1.3 nginx+FPM full chain | only FPM OOM/`exit 70`; stock nginx 1 MiB and FPM `post_max_size=8M` gate B1; no stock nginx+FPM chain | P1 |
+| G37 | — | App | WordPress 7.1.3 mod_php 8.3.35 / 8.5.11 | only 8.4.24 (stock) and 8.4.26 (engine-level) tested; 8.3.35/8.5.11 untested | P2 |
 | G38 | — | App | Drupal 11.4.11 **stock** DB sessions | tested ❌ at 8.4.26 FPM 64M; A1 exit-70, no B1 leak; Drupal 10.6 file-session rows are in Applications | P1 |
 | G39 | — | App | Joomla 5.4.10 **stock** DB sessions | lab file-session only | P1 |
 | G40 | — | App | Joomla 6.2.0 | none | P2 |
@@ -416,6 +486,11 @@ A1 OOMs allocating 4,096 B and A2 20,480 B, both in `Unknown on line 0`;
 | G48 | — | App | OpenCart 4.x | optional; version unverified | P3 |
 | G49 | — | App | Laravel 12 / Symfony 7.x/6.4 / Nextcloud 34/33 | secondary versions | P3 |
 | G50 | — | SAPI/OS | OpenLiteSpeed 1.9.3 + lsphp `8.5.11` (LSAPI) | no exact local `lsphp85` build or LSAPI-specific trigger; upstream `sapi/litespeed/lsapi_main.c` has the same early return at `php_request_startup()` failure, so expected 500/exit 255, not a shutdown crash; **not measured**; `—`, not ❌ | P1 |
+| G51 | — | App | WordPress 7.1.3 + upstream `php:8.4.26-apache` stock multi-worker | the audited stock prefork 5/150 WordPress proof is Debian 8.4.24; 8.4.26 is documented as an engine-level lab chain, so no audit-grade stock multi-worker WordPress cell exists on 8.4.26 | P1 |
+
+The tested stock WordPress-on-Apache cell is no longer a gap. The remaining
+WordPress cells are the installed front controller (G35), stock nginx+FPM
+(G36) and upstream 8.4.26 stock multi-worker (G51).
 
 No evidence artifacts (receipts, bodies, binaries, dumps or per-run reports)
 are shipped in this repository; only the tool, its offset profiles and this
@@ -486,7 +561,10 @@ build-specific.
 
 Dry-run is the default and sends no traffic; `--live` sends one exact
 A1 → B1 → A2 → B2 sequence. A1/B1/A2/B2 are 1,060,211 / 33,128,677 /
-279,432 / 451,384 bytes and are hash-checked before sending.
+279,432 / 451,384 bytes and are hash-checked before sending. The stock
+multi-worker audit above used a separate driver and the 993,911-B A1 shrink;
+this runner keeps the 1,060,211-B A1 and does not implement multi-worker pool
+sampling.
 
 ```sh
 # offline: generate and verify bodies, no socket
