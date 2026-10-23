@@ -293,7 +293,7 @@ and `S=main+0xF7398` (upstream: `fillers=115`, `S=main+0xF8398`).
 This is the first ✅ cell in this document that is stock-compliant end to end
 (audited 2026-10-23): Debian 13.7 Apache 2.4.69 prefork + mod_php 8.4.24,
 stock MPM and stock package INI, official WordPress 7.1.3 core file,
-target-written proof. It is direct Apache mod_php only; it does not extend to
+target-written proofs. It is direct Apache mod_php only; it does not extend to
 nginx/FPM.
 
 | Condition | Audited value |
@@ -304,7 +304,7 @@ nginx/FPM.
 | php.ini | stock package conffile, `dpkg -V` clean: `post_max_size=8M`, `memory_limit=128M`, `display_errors=Off`, `output_buffering=4096`, `expose_php=Off`, `upload_max_filesize=2M` |
 | ASLR | `randomize_va_space=2` |
 | Endpoint | `/wp-content/index.php`, official 28-byte core file, mode 644; MD5 `67442c5615eba73d105c0715c6620850`, SHA-256 `bd48c24ce4500e60d2524571756787283f0d3fbfa50b116331309c09773f0cd1` |
-| Docroot | official WordPress 7.1.3 ZIP (`eb58a90ed55147f90f7bd55d0d3334960a69b7e8a4cc142c8ddfea8965218227`) minus 48 inactive bundled files (47 `wp-content/plugins/akismet/*` + `wp-content/plugins/hello.php`), plus default `wp-config.php` byte-identical to `wp-config-sample.php`; 3,735 files / 109,646,539 B; no plugins (only the official 28-byte `wp-content/plugins/index.php`), uploads, mu-plugins, `.htaccess`, `.user.ini` or lab endpoints; mounted read-only |
+| Docroot | official WordPress 7.1.3 ZIP (`eb58a90ed55147f90f7bd55d0d3334960a69b7e8a4cc142c8ddfea8965218227`) minus 48 inactive bundled files (47 `wp-content/plugins/akismet/*` + `wp-content/plugins/hello.php`), plus default `wp-config.php` byte-identical to `wp-config-sample.php`; 3,735 files / 109,646,539 B; no plugins (only the official 28-byte `wp-content/plugins/index.php`), no uploads, no mu-plugins, no `.htaccess`, no `.user.ini` and no lab endpoints; mounted read-only |
 | Integrity | pre/post manifest identical; `docker diff` clean under `/var/www/html`; read-only `touch` fails; target hash unchanged |
 
 The endpoint is a standalone silence file. It does not include `wp-config.php`,
