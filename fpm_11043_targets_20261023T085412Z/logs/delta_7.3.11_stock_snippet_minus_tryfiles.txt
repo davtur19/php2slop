@@ -1,0 +1,2 @@
+2026/10/23 11:11:48 Base status code is 301
+2026/10/23 11:11:49 Detect() returned error: no qsl candidates found, invulnerable or something wrong

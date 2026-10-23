@@ -1,0 +1,17 @@
+[Thu Oct 22 13:28:34.386320 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:46222] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+[Thu Oct 22 13:28:34.713505 2026] [php:warn] [pid 19:tid 19] [client 172.17.0.1:46278] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Thu Oct 22 13:28:34.713518 2026] [php:warn] [pid 19:tid 19] [client 172.17.0.1:46278] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: ) in Unknown on line 0
+[Thu Oct 22 13:28:34.713522 2026] [php:warn] [pid 19:tid 19] [client 172.17.0.1:46278] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct () in Unknown on line 0
+[Thu Oct 22 13:28:34.824102 2026] [php:error] [pid 20:tid 20] [client 172.17.0.1:46286] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Thu Oct 22 13:28:34.906248 2026] [php:error] [pid 64:tid 64] [client 172.17.0.1:46288] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Thu Oct 22 13:28:34.972396 2026] [php:error] [pid 30:tid 30] [client 172.17.0.1:46298] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Thu Oct 22 13:28:35.036193 2026] [php:error] [pid 22:tid 22] [client 172.17.0.1:46308] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Thu Oct 22 13:28:35.097734 2026] [php:error] [pid 23:tid 23] [client 172.17.0.1:46312] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Thu Oct 22 13:28:35.149189 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:46318] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Thu Oct 22 13:28:35.194700 2026] [php:error] [pid 20:tid 20] [client 172.17.0.1:46328] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Thu Oct 22 13:28:35.248032 2026] [php:error] [pid 64:tid 64] [client 172.17.0.1:46340] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Thu Oct 22 13:28:35.296138 2026] [php:error] [pid 30:tid 30] [client 172.17.0.1:46356] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Thu Oct 22 13:28:35.341602 2026] [php:error] [pid 22:tid 22] [client 172.17.0.1:46358] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+9BIE_MW_20261022T130520Z_A6_b0
+[Thu Oct 22 13:28:35.500697 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 23 exit signal Segmentation fault (11)

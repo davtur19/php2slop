@@ -1,0 +1,48 @@
+[23-Oct-2026 02:13:43 UTC] PRODUCER_START pid=2751987 inc=/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer.php
+[23-Oct-2026 02:13:43 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer.php on line 4
+[23-Oct-2026 02:13:43 UTC] PHP Fatal error:  BGBOMB_E_USER_ERROR in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer.php on line 4
+[23-Oct-2026 02:14:20 UTC] PRODUCER_START pid=2751987 inc=/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer.php
+[23-Oct-2026 02:14:20 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer.php on line 4
+[23-Oct-2026 02:14:20 UTC] PHP Fatal error:  BGBOMB_E_USER_ERROR in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer.php on line 4
+[23-Oct-2026 02:14:20 UTC] PRODUCER_START pid=2751987 inc=/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer.php
+[23-Oct-2026 02:14:20 UTC] PHP Deprecated:  Passing E_USER_ERROR to trigger_error() is deprecated since 8.4, throw an exception or call exit with a string message instead in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer.php on line 4
+[23-Oct-2026 02:14:20 UTC] PHP Fatal error:  BGBOMB_E_USER_ERROR in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer.php on line 4
+[23-Oct-2026 02:15:26 UTC] PRODUCER_OOM_START pid=2751987
+[23-Oct-2026 02:15:26 UTC] PRODUCER_OOM_PAYLOAD pid=2751987 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:15:26 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 02:15:55 UTC] PRODUCER_OOM_START pid=2774900
+[23-Oct-2026 02:15:55 UTC] PRODUCER_OOM_PAYLOAD pid=2774900 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:15:55 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 02:15:55 UTC] PRODUCER_OOM_START pid=2774900
+[23-Oct-2026 02:15:55 UTC] PRODUCER_OOM_PAYLOAD pid=2774900 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:15:55 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 02:25:48 UTC] PRODUCER_TIMEOUT_START pid=2775308 n=5 len=76
+[23-Oct-2026 02:25:48 UTC] PHP Warning:  unserialize(): Error at offset 5 of 76 bytes in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_timeout.php on line 16
+[23-Oct-2026 02:25:48 UTC] PRODUCER_TIMEOUT_AFTER pid=2775308
+[23-Oct-2026 02:26:00 UTC] PRODUCER_TIMEOUT_START pid=2775308 n=5 len=96
+[23-Oct-2026 02:26:00 UTC] BG_CB_ENTER pid=2775308 name=Nop t=1792722360.8534
+[23-Oct-2026 02:26:02 UTC] PHP Fatal error:  Maximum execution time of 2 seconds exceeded in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_timeout.php on line 8
+[23-Oct-2026 02:42:43 UTC] PRODUCER_SER_START pid=2775308
+[23-Oct-2026 02:42:44 UTC] PRODUCER_SER_PRE pid=2775308 n=300000 mem=10489856
+[23-Oct-2026 02:42:44 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php on line 8
+[23-Oct-2026 02:43:10 UTC] PRODUCER_SER_START pid=2880499
+[23-Oct-2026 02:43:10 UTC] PRODUCER_SER_PRE pid=2880499 n=300000 mem=10489856
+[23-Oct-2026 02:43:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php on line 8
+[23-Oct-2026 03:02:45 UTC] PRODUCER_OOM_START pid=2881192
+[23-Oct-2026 03:02:45 UTC] PRODUCER_OOM_PAYLOAD pid=2881192 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 03:02:45 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 03:07:54 UTC] T1_PRE pid=2881192 mem=23072768 limit=32M
+[23-Oct-2026 03:07:54 UTC] T1_DTOR_START pid=2881192 mem=23072768 limit=24M
+[23-Oct-2026 03:07:54 UTC] PHP Fatal error:  Allowed memory size of 25165824 bytes exhausted (tried to allocate 20975616 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/t1_producer.php on line 14
+[23-Oct-2026 03:11:25 UTC] T1_SAME_DTOR pid=2881192 mem=23072768 limit=24M
+[23-Oct-2026 03:11:25 UTC] PHP Fatal error:  Allowed memory size of 25165824 bytes exhausted (tried to allocate 20975616 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/t1_same.php on line 24
+[23-Oct-2026 03:13:55 UTC] T2_WRITE_BAIL pid=2881192 id=t2prod1 len=1036
+[23-Oct-2026 03:15:29 UTC] T2_CLOSE_BAIL pid=2881192
+[23-Oct-2026 08:27:08 UTC] PHP Warning:  PHP Request Startup: Multipart body parts limit exceeded 1. To increase the limit change max_multipart_body_parts in php.ini. in Unknown on line 0
+[23-Oct-2026 08:29:07 UTC] PHP Warning:  PHP Request Startup: Multipart body parts limit exceeded 1. To increase the limit change max_multipart_body_parts in php.ini. in Unknown on line 0
+[23-Oct-2026 08:29:38 UTC] PHP Warning:  PHP Request Startup: Multipart body parts limit exceeded 1. To increase the limit change max_multipart_body_parts in php.ini. in Unknown on line 0
+[23-Oct-2026 08:31:16 UTC] PHP Warning:  PHP Request Startup: Multipart body parts limit exceeded 1. To increase the limit change max_multipart_body_parts in php.ini. in Unknown on line 0
+[23-Oct-2026 08:31:17 UTC] PHP Warning:  PHP Request Startup: Multipart body parts limit exceeded 1. To increase the limit change max_multipart_body_parts in php.ini. in Unknown on line 0
+[23-Oct-2026 08:31:39 UTC] PHP Warning:  PHP Request Startup: Multipart body parts limit exceeded 1. To increase the limit change max_multipart_body_parts in php.ini. in Unknown on line 0
+[23-Oct-2026 08:58:51 UTC] PHP Warning:  PHP Request Startup: Multipart body parts limit exceeded 1. To increase the limit change max_multipart_body_parts in php.ini. in Unknown on line 0
+[23-Oct-2026 08:59:02 UTC] PHP Warning:  PHP Request Startup: Multipart body parts limit exceeded 1. To increase the limit change max_multipart_body_parts in php.ini. in Unknown on line 0

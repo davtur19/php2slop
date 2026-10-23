@@ -1,0 +1,23 @@
+ext/pcre/pcre2lib/pcre2_jit_compile.lo: \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/pcre2_jit_compile.c \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/config.h \
+ /tmp/opencode/php-8.4.26/main/php_compat.h \
+ /tmp/opencode/research/fpm_bg_20261023T021053Z/build/sym8426/main/php_config.h \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/pcre2_internal.h \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/pcre2.h \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/pcre2_ucp.h \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/pcre2_intmodedep.h \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/sljit/sljitLir.c \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/sljit/sljitLir.h \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/sljit/sljitConfigCPU.h \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/sljit/sljitConfig.h \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/sljit/sljitConfigInternal.h \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/sljit/sljitUtils.c \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/sljit/allocator_src/sljitExecAllocatorPosix.c \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/sljit/allocator_src/sljitExecAllocatorCore.c \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/sljit/sljitNativeX86_common.c \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/sljit/sljitNativeX86_64.c \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/sljit/sljitSerialize.c \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/pcre2_jit_simd_inc.h \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/pcre2_jit_match.c \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/pcre2_jit_misc.c

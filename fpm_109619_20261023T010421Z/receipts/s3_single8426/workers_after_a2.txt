@@ -1,0 +1,2 @@
+1 php-fpm: master process (/usr/local/etc/php-fpm.conf) 
+27 php-fpm: pool www 

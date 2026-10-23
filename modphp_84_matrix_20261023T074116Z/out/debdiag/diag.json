@@ -1,0 +1,273 @@
+{
+ "phases": {
+  "A1": {
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 185,
+   "log": [
+    "10 1792745951.588898 POST /index.php 500 - 84295"
+   ]
+  },
+  "B1": {
+   "log": [
+    "10 1792745953.729976 POST /index.php 200 3 99911",
+    "11 1792745953.734308 POST /index.php 200 3 115038",
+    "14 1792745953.752368 POST /index.php 200 3 112328",
+    "13 1792745953.757717 POST /index.php 200 3 114467",
+    "12 1792745953.752238 POST /index.php 200 3 131516"
+   ],
+   "0": {
+    "i": 0,
+    "bytes": 233,
+    "status": "HTTP/1.1 200 OK",
+    "leak": "err:no pointers"
+   },
+   "1": {
+    "i": 1,
+    "bytes": 233,
+    "status": "HTTP/1.1 200 OK",
+    "leak": "err:no pointers"
+   },
+   "2": {
+    "i": 2,
+    "bytes": 233,
+    "status": "HTTP/1.1 200 OK",
+    "leak": "err:no pointers"
+   },
+   "3": {
+    "i": 3,
+    "bytes": 233,
+    "status": "HTTP/1.1 200 OK",
+    "leak": "err:no pointers"
+   },
+   "4": {
+    "i": 4,
+    "bytes": 1662653,
+    "status": "HTTP/1.1 200 OK",
+    "decoded": 819208,
+    "lib": "0x7f6e56737000",
+    "cands": {
+     "0x7f6e55600000": 88,
+     "0x7f6e48600000": 79,
+     "0x7f6e48e00000": 6
+    },
+    "main0": "0x7f6e55600000"
+   }
+  },
+  "A2": {
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 185,
+   "log": [
+    "10 1792745955.935921 POST /index.php 500 - 55279"
+   ]
+  }
+ },
+ "A1_state": {
+  "10": {
+   "heap": "0x7f6e55600040",
+   "main": "0x7f6e55600000",
+   "lib": "0x7f6e56737000",
+   "sid": "0x7f6e48937000",
+   "sidoff": "-0xccc9000",
+   "md": "0x7f6e5565c208",
+   "hsv": "0x0",
+   "hsvoff": "NULL",
+   "hsvtype": "0x0",
+   "send_cookie": "1",
+   "status": "2"
+  },
+  "11": {
+   "heap": "0x7f6e55600040",
+   "main": "0x7f6e55600000",
+   "lib": "0x7f6e56737000",
+   "sid": "0x0",
+   "sidoff": "NULL",
+   "md": "0x0",
+   "hsv": "0x0",
+   "hsvoff": "NULL",
+   "hsvtype": "0x0",
+   "send_cookie": "0",
+   "status": "1"
+  },
+  "12": {
+   "heap": "0x7f6e55600040",
+   "main": "0x7f6e55600000",
+   "lib": "0x7f6e56737000",
+   "sid": "0x0",
+   "sidoff": "NULL",
+   "md": "0x0",
+   "hsv": "0x0",
+   "hsvoff": "NULL",
+   "hsvtype": "0x0",
+   "send_cookie": "0",
+   "status": "1"
+  },
+  "13": {
+   "heap": "0x7f6e55600040",
+   "main": "0x7f6e55600000",
+   "lib": "0x7f6e56737000",
+   "sid": "0x0",
+   "sidoff": "NULL",
+   "md": "0x0",
+   "hsv": "0x0",
+   "hsvoff": "NULL",
+   "hsvtype": "0x0",
+   "send_cookie": "0",
+   "status": "1"
+  },
+  "14": {
+   "heap": "0x7f6e55600040",
+   "main": "0x7f6e55600000",
+   "lib": "0x7f6e56737000",
+   "sid": "0x0",
+   "sidoff": "NULL",
+   "md": "0x0",
+   "hsv": "0x0",
+   "hsvoff": "NULL",
+   "hsvtype": "0x0",
+   "send_cookie": "0",
+   "status": "1"
+  }
+ },
+ "B1_state": {
+  "10": {
+   "heap": "0x7f6e55600040",
+   "main": "0x7f6e55600000",
+   "lib": "0x7f6e56737000",
+   "sid": "0x0",
+   "sidoff": "NULL",
+   "md": "0x0",
+   "hsv": "0x7f6e46027ee0",
+   "hsvoff": "-0xf5d8120",
+   "hsvtype": "0x0",
+   "send_cookie": "0",
+   "status": "1"
+  },
+  "11": {
+   "heap": "0x7f6e55600040",
+   "main": "0x7f6e55600000",
+   "lib": "0x7f6e56737000",
+   "sid": "0x0",
+   "sidoff": "NULL",
+   "md": "0x0",
+   "hsv": "0x7f6e42427ee0",
+   "hsvoff": "-0x131d8120",
+   "hsvtype": "0x0",
+   "send_cookie": "0",
+   "status": "1"
+  },
+  "12": {
+   "heap": "0x7f6e55600040",
+   "main": "0x7f6e55600000",
+   "lib": "0x7f6e56737000",
+   "sid": "0x0",
+   "sidoff": "NULL",
+   "md": "0x0",
+   "hsv": "0x7f6e42427ee0",
+   "hsvoff": "-0x131d8120",
+   "hsvtype": "0x0",
+   "send_cookie": "0",
+   "status": "1"
+  },
+  "13": {
+   "heap": "0x7f6e55600040",
+   "main": "0x7f6e55600000",
+   "lib": "0x7f6e56737000",
+   "sid": "0x0",
+   "sidoff": "NULL",
+   "md": "0x0",
+   "hsv": "0x7f6e42427ee0",
+   "hsvoff": "-0x131d8120",
+   "hsvtype": "0x0",
+   "send_cookie": "0",
+   "status": "1"
+  },
+  "14": {
+   "heap": "0x7f6e55600040",
+   "main": "0x7f6e55600000",
+   "lib": "0x7f6e56737000",
+   "sid": "0x0",
+   "sidoff": "NULL",
+   "md": "0x0",
+   "hsv": "0x7f6e42427ee0",
+   "hsvoff": "-0x131d8120",
+   "hsvtype": "0x0",
+   "send_cookie": "0",
+   "status": "1"
+  }
+ },
+ "A2_state": {
+  "10": {
+   "heap": "0x7f6e55600040",
+   "main": "0x7f6e55600000",
+   "lib": "0x7f6e56737000",
+   "sid": "0x7f6e556660c0",
+   "sidoff": "0x660c0",
+   "md": "0x0",
+   "hsv": "0x7f6e5567d6e0",
+   "hsvoff": "0x7d6e0",
+   "hsvtype": "0x10a",
+   "send_cookie": "0",
+   "status": "1"
+  },
+  "11": {
+   "heap": "0x7f6e55600040",
+   "main": "0x7f6e55600000",
+   "lib": "0x7f6e56737000",
+   "sid": "0x0",
+   "sidoff": "NULL",
+   "md": "0x0",
+   "hsv": "0x7f6e42427ee0",
+   "hsvoff": "-0x131d8120",
+   "hsvtype": "0x0",
+   "send_cookie": "0",
+   "status": "1"
+  },
+  "12": {
+   "heap": "0x7f6e55600040",
+   "main": "0x7f6e55600000",
+   "lib": "0x7f6e56737000",
+   "sid": "0x0",
+   "sidoff": "NULL",
+   "md": "0x0",
+   "hsv": "0x7f6e42427ee0",
+   "hsvoff": "-0x131d8120",
+   "hsvtype": "0x0",
+   "send_cookie": "0",
+   "status": "1"
+  },
+  "13": {
+   "heap": "0x7f6e55600040",
+   "main": "0x7f6e55600000",
+   "lib": "0x7f6e56737000",
+   "sid": "0x0",
+   "sidoff": "NULL",
+   "md": "0x0",
+   "hsv": "0x7f6e42427ee0",
+   "hsvoff": "-0x131d8120",
+   "hsvtype": "0x0",
+   "send_cookie": "0",
+   "status": "1"
+  },
+  "14": {
+   "heap": "0x7f6e55600040",
+   "main": "0x7f6e55600000",
+   "lib": "0x7f6e56737000",
+   "sid": "0x0",
+   "sidoff": "NULL",
+   "md": "0x0",
+   "hsv": "0x7f6e42427ee0",
+   "hsvoff": "-0x131d8120",
+   "hsvtype": "0x0",
+   "send_cookie": "0",
+   "status": "1"
+  }
+ },
+ "leak": {
+  "lib": "0x7f6e56737000",
+  "cands": {
+   "0x7f6e55600000": 88,
+   "0x7f6e48600000": 79,
+   "0x7f6e48e00000": 6
+  }
+ }
+}

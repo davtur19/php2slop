@@ -1,0 +1,148 @@
+{
+  "tag": "a1a2ctl",
+  "type": "decode",
+  "port": 29510,
+  "control_ping": true,
+  "sid_a": "ma1a2ctl-a",
+  "sid_b": "ma1a2ctl-b",
+  "producer": {
+    "error": null,
+    "responses": {
+      "1": {
+        "stdout": "Status: 500 Internal Server Error\r\nX-Powered-By: PHP/8.4.26\r\nContent-type: text/plain;charset=UTF-8\r\n\r\n",
+        "stderr": "",
+        "end": true,
+        "app_status": 0
+      },
+      "2": {
+        "stdout": "",
+        "stderr": "",
+        "end": false,
+        "app_status": null
+      },
+      "3": {
+        "stdout": "",
+        "stderr": "",
+        "end": false,
+        "app_status": null
+      }
+    }
+  },
+  "consumer_cross": {
+    "error": null,
+    "responses": {
+      "1": {
+        "stdout": "X-Powered-By: PHP/8.4.26\r\nContent-type: text/plain;charset=UTF-8\r\n\r\nCONSUMER PID=342974 STATUS=1 SID= SESSION=[\"p\"]\n",
+        "stderr": "",
+        "end": true,
+        "app_status": 0
+      },
+      "2": {
+        "stdout": "",
+        "stderr": "",
+        "end": false,
+        "app_status": null
+      },
+      "3": {
+        "stdout": "",
+        "stderr": "",
+        "end": false,
+        "app_status": null
+      }
+    }
+  },
+  "control_ping_resp": {
+    "error": null,
+    "responses": {
+      "1": {
+        "stdout": "",
+        "stderr": "",
+        "end": false,
+        "app_status": null
+      },
+      "2": {
+        "stdout": "X-Powered-By: PHP/8.4.26\r\nContent-type: text/plain;charset=UTF-8\r\n\r\nPING PID=342851 STATUS=1\n",
+        "stderr": "",
+        "end": true,
+        "app_status": 0
+      },
+      "3": {
+        "stdout": "",
+        "stderr": "",
+        "end": false,
+        "app_status": null
+      }
+    }
+  },
+  "consumer_same": {
+    "error": null,
+    "requests_id": 3,
+    "responses": {
+      "1": {
+        "stdout": "",
+        "stderr": "",
+        "end": false,
+        "app_status": null
+      },
+      "2": {
+        "stdout": "",
+        "stderr": "",
+        "end": false,
+        "app_status": null
+      },
+      "3": {
+        "stdout": "X-Powered-By: PHP/8.4.26\r\nContent-type: text/plain;charset=UTF-8\r\n\r\nCONSUMER PID=342851 STATUS=1 SID= SESSION=[\"p\"]\n",
+        "stderr": "",
+        "end": true,
+        "app_status": 0
+      }
+    }
+  },
+  "access_rows": [
+    {
+      "pid": 342851,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=a1a2ctlprod",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "342851 127.0.0.1 GET 500 n=8000000&tag=a1a2ctlprod /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php"
+    },
+    {
+      "pid": 342974,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=a1a2ctlcB",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "342974 127.0.0.1 POST 200 tag=a1a2ctlcB /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php"
+    },
+    {
+      "pid": 342851,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "200",
+      "query": "tag=a1a2ctlping",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/ping.php",
+      "line": "342851 127.0.0.1 GET 200 tag=a1a2ctlping /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/ping.php"
+    },
+    {
+      "pid": 342851,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=a1a2ctlcA",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "342851 127.0.0.1 POST 200 tag=a1a2ctlcA /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php"
+    }
+  ],
+  "sig11_pids": [],
+  "producer_pid": 342851,
+  "cross_pid": 342974,
+  "same_pid": 342851,
+  "cross_differs_from_producer": true,
+  "same_matches_producer": true,
+  "same_crash_matches_producer": false,
+  "cross_body_pid": 342974,
+  "same_body_pid": 342851
+}

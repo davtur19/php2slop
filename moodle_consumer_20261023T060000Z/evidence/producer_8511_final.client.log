@@ -1,0 +1,4 @@
+client: app_status=0 proto_status=0 body_bytes=0
+  Status: 500 Internal Server Error
+  X-Powered-By: PHP/8.5.11
+  Content-type: text/html; charset=UTF-8

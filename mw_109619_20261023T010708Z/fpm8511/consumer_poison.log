@@ -1,0 +1,46 @@
+held file size: 6000336 after 1 s
+worker 2811749 VmHWM 11316 kB
+C0: {'tag': 'C0', 'status': '200', 'raw': 36725, 'body': 36370, 'stderr': ['client: app_status=0 proto_status=0 body_bytes=36370'], 'first': 'X-Powered-By: PHP/8.3.35'} file 6000336
+P: {'http': '500', 'peak': '125760', 'oom': ['/tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/includes/Session/Session.php on line 545', '/tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/includes/ObjectCache/SqlBagOStuff.php on line 1486'], 'alive': True, 'worker': '2811749'}
+VmHWM after P: 142940 kB
+C1: {'tag': 'C1', 'status': '200', 'raw': 36725, 'body': 36370, 'stderr': ['client: app_status=0 proto_status=0 body_bytes=36370'], 'first': 'X-Powered-By: PHP/8.3.35'} file 6000336
+{
+ "held_size": 6000336,
+ "worker": "2811749",
+ "hwm_before": "11316 kB",
+ "C0": {
+  "tag": "C0",
+  "status": "200",
+  "raw": 36725,
+  "body": 36370,
+  "stderr": [
+   "client: app_status=0 proto_status=0 body_bytes=36370"
+  ],
+  "first": "X-Powered-By: PHP/8.3.35"
+ },
+ "P": {
+  "http": "500",
+  "len": 176,
+  "peak": "125760",
+  "oom": [
+   "/tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/includes/Session/Session.php on line 545",
+   "/tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/includes/ObjectCache/SqlBagOStuff.php on line 1486"
+  ],
+  "alive": true,
+  "worker": "2811749",
+  "secs": 0.665
+ },
+ "hwm_after_P": "142940 kB",
+ "C1": {
+  "tag": "C1",
+  "status": "200",
+  "raw": 36725,
+  "body": 36370,
+  "stderr": [
+   "client: app_status=0 proto_status=0 body_bytes=36370"
+  ],
+  "first": "X-Powered-By: PHP/8.3.35"
+ },
+ "worker_alive_after": true,
+ "final_size": 0
+}

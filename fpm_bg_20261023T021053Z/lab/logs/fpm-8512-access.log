@@ -1,0 +1,14 @@
+2776461 127.0.0.1 GET 200 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/ping.php
+2776462 127.0.0.1 GET 200 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/sesset.php
+2776739 127.0.0.1 GET 500 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php
+2776739 127.0.0.1 POST 200 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php
+2776462 127.0.0.1 GET 200 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/slow.php
+2776461 127.0.0.1 GET 200 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/slow.php
+2776733 127.0.0.1 GET 200 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/slow.php
+2776734 127.0.0.1 GET 200 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/slow.php
+2776733 127.0.0.1 GET 200 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/ping.php
+2890984 127.0.0.1 POST 200 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php
+2776734 127.0.0.1 GET 200 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/slow.php
+2776733 127.0.0.1 GET 200 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/slow.php
+2776739 127.0.0.1 GET 200 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/slow.php
+2890960 127.0.0.1 GET 200 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/slow.php

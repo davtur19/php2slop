@@ -1,0 +1,441 @@
+{
+ "8.4.10": {
+  "success": true,
+  "zif": "0x43b7d0",
+  "zdtor": "0x62cf70",
+  "so_sha": "a6b5a2e606b3c066",
+  "img": "e7dfce7f85ce",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 4,
+   "decoded": 819208,
+   "lib": "0x7f24e51d9000",
+   "main": "0x7f24e7000000",
+   "cands": {
+    "0x7f24e7000000": 87,
+    "0x7f24e4a00000": 79
+   },
+   "delta": "-0x1e27000",
+   "S": "0x7f24e70f8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8410_a",
+  "crashes": 1
+ },
+ "8.4.11": {
+  "success": true,
+  "zif": "0x446cb0",
+  "zdtor": "0x63d2e0",
+  "so_sha": "fe10341d35be5fdd",
+  "img": "27a77f7fe238",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 0,
+   "decoded": 819208,
+   "lib": "0x7f329d07c000",
+   "main": "0x7f329b400000",
+   "cands": {
+    "0x7f329b400000": 87,
+    "0x7f329aa00000": 79
+   },
+   "delta": "0x1c7c000",
+   "S": "0x7f329b4f8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8411_a",
+  "crashes": 1
+ },
+ "8.4.12": {
+  "success": true,
+  "zif": "0x446cf0",
+  "zdtor": "0x63dc20",
+  "so_sha": "e6624242a76dc0a4",
+  "img": "d04f3fc12f4c",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 0,
+   "decoded": 819208,
+   "lib": "0x7f60e752a00b",
+   "main": "0x7f60e5800000",
+   "cands": {
+    "0x7f60e5800000": 87,
+    "0x7f60e5000000": 79
+   },
+   "delta": "0x1d2a00b",
+   "S": "0x7f60e58f8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8412_a",
+  "crashes": 0
+ },
+ "8.4.13": {
+  "success": true,
+  "zif": "0x445bf0",
+  "zdtor": "0x63cbe0",
+  "so_sha": "f736a943df7037ed",
+  "img": "730d38586b42",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 2,
+   "decoded": 819208,
+   "lib": "0x7f7c2c90a000",
+   "main": "0x7f7c2ac00000",
+   "cands": {
+    "0x7f7c2ac00000": 87,
+    "0x7f7c2a400000": 79
+   },
+   "delta": "0x1d0a000",
+   "S": "0x7f7c2acf8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8413_b",
+  "crashes": 1
+ },
+ "8.4.14": {
+  "success": true,
+  "zif": "0x445c30",
+  "zdtor": "0x63d020",
+  "so_sha": "8a0e20af698c9245",
+  "img": "ad4bedd2d138",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 4,
+   "decoded": 819208,
+   "lib": "0x7f2317d0c00b",
+   "main": "0x7f2316000000",
+   "cands": {
+    "0x7f2316000000": 87,
+    "0x7f2315800000": 79
+   },
+   "delta": "0x1d0c00b",
+   "S": "0x7f23160f8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8414_a",
+  "crashes": 0
+ },
+ "8.4.15": {
+  "success": true,
+  "zif": "0x445f70",
+  "zdtor": "0x63d420",
+  "so_sha": "6a36c3e76d6238fc",
+  "img": "904364767f74",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 4,
+   "decoded": 819208,
+   "lib": "0x7fd2b1cd200b",
+   "main": "0x7fd2b0000000",
+   "cands": {
+    "0x7fd2b0000000": 87,
+    "0x7fd2af800000": 79
+   },
+   "delta": "0x1cd200b",
+   "S": "0x7fd2b00f8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8415_a",
+  "crashes": 0
+ },
+ "8.4.16": {
+  "success": true,
+  "zif": "0x446930",
+  "zdtor": "0x63de20",
+  "so_sha": "d8b25ea74955424a",
+  "img": "904f644bb519",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 1,
+   "decoded": 819208,
+   "lib": "0x7fa70819c00b",
+   "main": "0x7fa706600000",
+   "cands": {
+    "0x7fa706600000": 87,
+    "0x7fa705c00000": 79
+   },
+   "delta": "0x1b9c00b",
+   "S": "0x7fa7066f8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8416_a",
+  "crashes": 0
+ },
+ "8.4.17": {
+  "success": true,
+  "zif": "0x446cb0",
+  "zdtor": "0x63e520",
+  "so_sha": "557ac34f8abef550",
+  "img": "25302172c9dc",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 0,
+   "decoded": 819208,
+   "lib": "0x7fc03d34400b",
+   "main": "0x7fc03b600000",
+   "cands": {
+    "0x7fc03b600000": 87,
+    "0x7fc03ae00000": 79
+   },
+   "delta": "0x1d4400b",
+   "S": "0x7fc03b6f8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8417_a",
+  "crashes": 0
+ },
+ "8.4.18": {
+  "success": true,
+  "zif": "0x446ff0",
+  "zdtor": "0x63eb20",
+  "so_sha": "b8b22ade47419643",
+  "img": "c9616ccf090d",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 0,
+   "decoded": 819208,
+   "lib": "0x7feca23b700b",
+   "main": "0x7feca0800000",
+   "cands": {
+    "0x7feca0800000": 87,
+    "0x7fec9fe00000": 79
+   },
+   "delta": "0x1bb700b",
+   "S": "0x7feca08f8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8418_a",
+  "crashes": 0
+ },
+ "8.4.19": {
+  "success": true,
+  "zif": "0x4472f0",
+  "zdtor": "0x63efe0",
+  "so_sha": "f56ef68faa09c408",
+  "img": "59cce7f8647d",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 1,
+   "decoded": 819208,
+   "lib": "0x7f1811bd5000",
+   "main": "0x7f1810000000",
+   "cands": {
+    "0x7f1810000000": 87,
+    "0x7f180f600000": 79
+   },
+   "delta": "0x1bd5000",
+   "S": "0x7f18100f8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8419_a",
+  "crashes": 1
+ },
+ "8.4.20": {
+  "success": true,
+  "zif": "0x447530",
+  "zdtor": "0x63f9e0",
+  "so_sha": "9324d527478896a0",
+  "img": "2150d79ea760",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 4,
+   "decoded": 819208,
+   "lib": "0x7f91a0ebd000",
+   "main": "0x7f919f200000",
+   "cands": {
+    "0x7f919f200000": 87,
+    "0x7f919ea00000": 79
+   },
+   "delta": "0x1cbd000",
+   "S": "0x7f919f2f8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8420_a",
+  "crashes": 1
+ },
+ "8.4.21": {
+  "success": true,
+  "zif": "0x4623b0",
+  "zdtor": "0x65afe0",
+  "so_sha": "04a8e8b27e34ae24",
+  "img": "7c62b6c16e91",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 1,
+   "decoded": 819208,
+   "lib": "0x7ff139446000",
+   "main": "0x7ff137800000",
+   "cands": {
+    "0x7ff137800000": 87,
+    "0x7ff136e00000": 79
+   },
+   "delta": "0x1c46000",
+   "S": "0x7ff1378f8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8421_a",
+  "crashes": 1
+ },
+ "8.4.22": {
+  "success": true,
+  "zif": "0x462d30",
+  "zdtor": "0x65b9e0",
+  "so_sha": "49d37503ba09910e",
+  "img": "019a4d9aec93",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 3,
+   "decoded": 819208,
+   "lib": "0x7f5e5a69e000",
+   "main": "0x7f5e58a00000",
+   "cands": {
+    "0x7f5e58a00000": 87,
+    "0x7f5e58000000": 79
+   },
+   "delta": "0x1c9e000",
+   "S": "0x7f5e58af8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8422_a",
+  "crashes": 1
+ },
+ "8.4.23": {
+  "success": true,
+  "zif": "0x462d70",
+  "zdtor": "0x65b9a0",
+  "so_sha": "b20e68d994f93c03",
+  "img": "c3f590afba58",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 0,
+   "decoded": 819208,
+   "lib": "0x7fe67573d000",
+   "main": "0x7fe673a00000",
+   "cands": {
+    "0x7fe673a00000": 87,
+    "0x7fe673200000": 79
+   },
+   "delta": "0x1d3d000",
+   "S": "0x7fe673af8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8423_a",
+  "crashes": 1
+ },
+ "8.4.24": {
+  "success": true,
+  "zif": "0x464530",
+  "zdtor": "0x65d1e0",
+  "so_sha": "322c2d16f4a3f460",
+  "img": "8d2818176962",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 0,
+   "decoded": 819208,
+   "lib": "0x7fe1d839d000",
+   "main": "0x7fe1d6800000",
+   "cands": {
+    "0x7fe1d6800000": 87,
+    "0x7fe1d5e00000": 79
+   },
+   "delta": "0x1b9d000",
+   "S": "0x7fe1d68f8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8424_a",
+  "crashes": 1
+ },
+ "8.4.25": {
+  "success": true,
+  "zif": "0x464c70",
+  "zdtor": "0x65dc60",
+  "so_sha": "a70977eb3ed3aea0",
+  "img": "c9df646f55dc",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 0,
+   "decoded": 819208,
+   "lib": "0x7f460a934000",
+   "main": "0x7f4608c00000",
+   "cands": {
+    "0x7f4608c00000": 87,
+    "0x7f4608400000": 79
+   },
+   "delta": "0x1d34000",
+   "S": "0x7f4608cf8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8425_a",
+  "crashes": 1
+ },
+ "8.4.26": {
+  "success": true,
+  "zif": "0x465370",
+  "zdtor": "0x65eb60",
+  "so_sha": "51663cf883b12234",
+  "img": "46b195b6378e",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.0 500 Internal Server Error",
+  "a1_bytes": 211,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": {
+   "i": 2,
+   "decoded": 819208,
+   "lib": "0x7f062cbb8000",
+   "main": "0x7f062b000000",
+   "cands": {
+    "0x7f062b000000": 87,
+    "0x7f062a600000": 79
+   },
+   "delta": "0x1bb8000",
+   "S": "0x7f062b0f8398"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8426_a",
+  "crashes": 1
+ },
+ "8.4.4": {
+  "success": false,
+  "zif": "0x43a650",
+  "zdtor": "0x62ac70",
+  "so_sha": "0a532a67e1a4fbdd",
+  "img": "3c60ec33ea17",
+  "ini": "fba97f0b3e0b19b0980f5102c0440480",
+  "a1": "HTTP/1.1 200 OK",
+  "a1_bytes": 258,
+  "a1_920": "HTTP/1.0 500 Internal Server Error",
+  "leak": null,
+  "proof": "",
+  "crashes": 0
+ }
+}

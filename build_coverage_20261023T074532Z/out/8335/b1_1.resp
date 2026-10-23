@@ -1,0 +1,10 @@
+HTTP/1.1 200 OK
+Date: Fri, 23 Oct 2026 08:28:54 GMT
+Server: Apache/2.4.69 (Debian)
+X-Powered-By: PHP/8.3.35
+Set-Cookie: PHPSESSID=lt7fkpd7uetur4l1qs8cf4116j; path=/
+Content-Length: 17
+Connection: close
+Content-Type: text/html; charset=UTF-8
+
+OK 8.3.35 pid=17

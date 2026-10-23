@@ -1,0 +1,59 @@
+{
+ "tag": "8.4.26",
+ "port": 18901,
+ "started": "2026-10-23T08:17:11Z",
+ "image": "php@sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a",
+ "tests": {
+  "as_is": {
+   "a1": {
+    "bytes": 211,
+    "status": "HTTP/1.0 500 Internal Server Error"
+   },
+   "b1": [
+    {
+     "bytes": 1676932,
+     "status": "HTTP/1.1 200 OK",
+     "cookie": "present",
+     "decoded": 819208,
+     "ptr_clusters": 4,
+     "ptrs": 8756,
+     "top": [
+      [
+       "0x7f581ee00000",
+       7495
+      ],
+      [
+       "0x7f5821800000",
+       1095
+      ],
+      [
+       "0x7f581f600000",
+       87
+      ]
+     ],
+     "head": "424242422f42424241414141414141414141414141414141"
+    }
+   ],
+   "b1_hits": 1
+  }
+ },
+ "php": "8.4.26",
+ "limits": {
+  "display_errors": "''",
+  "memory_limit": "'128M'",
+  "post_max_size": "'8M'",
+  "upload_max_filesize": "'2M'",
+  "max_execution_time": "'30'",
+  "output_buffering": "'4096'",
+  "max_input_vars": "'1000'",
+  "session.upload_progress.enabled": "'1'",
+  "session.save_path": "''",
+  "sapi": "apache2handler"
+ },
+ "workers": 1,
+ "crash_as_is": [
+  "Allowed memory size"
+ ],
+ "state_final": "true 0 0",
+ "complete": true
+}

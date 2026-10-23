@@ -1,0 +1,13 @@
+[Thu Oct 22 13:39:57.543240 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.15. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.15. Set the 'ServerName' directive globally to suppress this message
+[Thu Oct 22 13:39:59.237576 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.4.26 configured -- resuming normal operations
+[Thu Oct 22 13:39:59.237823 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Thu Oct 22 13:40:00.944237 2026] [php:error] [pid 21:tid 21] [client 172.17.0.1:42116] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+[Thu Oct 22 13:40:01.480254 2026] [php:warn] [pid 21:tid 21] [client 172.17.0.1:42142] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Thu Oct 22 13:40:01.484367 2026] [php:warn] [pid 21:tid 21] [client 172.17.0.1:42142] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: ) in Unknown on line 0
+[Thu Oct 22 13:40:01.484387 2026] [php:warn] [pid 21:tid 21] [client 172.17.0.1:42142] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct () in Unknown on line 0
+[Thu Oct 22 13:40:01.710672 2026] [php:error] [pid 22:tid 22] [client 172.17.0.1:42156] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+9BIE_MW_20261022T130520Z_A17_b5
+[Thu Oct 22 13:40:06.248443 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 22 exit signal Segmentation fault (11)

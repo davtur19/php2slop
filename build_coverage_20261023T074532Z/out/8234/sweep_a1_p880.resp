@@ -1,0 +1,8 @@
+HTTP/1.0 500 Internal Server Error
+Date: Fri, 23 Oct 2026 08:25:55 GMT
+Server: Apache/2.4.69 (Debian)
+X-Powered-By: PHP/8.2.34
+Content-Length: 0
+Connection: close
+Content-Type: text/html; charset=UTF-8
+

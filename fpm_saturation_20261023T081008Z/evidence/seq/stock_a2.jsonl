@@ -1,0 +1,10 @@
+{"t0": 1792743199.6426413, "sent": 327680, "code": 502, "resp_bytes": 309, "dt": 0.0193, "head": "HTTP/1.1 502 Bad Gateway\r\nServer: nginx/1.31.8\r\nDate: Fri, 23 Oc"}
+{"t0": 1792743199.7129555, "sent": 327680, "code": 502, "resp_bytes": 309, "dt": 0.0192, "head": "HTTP/1.1 502 Bad Gateway\r\nServer: nginx/1.31.8\r\nDate: Fri, 23 Oc"}
+{"t0": 1792743199.784089, "sent": 327680, "code": 502, "resp_bytes": 309, "dt": 0.0192, "head": "HTTP/1.1 502 Bad Gateway\r\nServer: nginx/1.31.8\r\nDate: Fri, 23 Oc"}
+{"t0": 1792743199.8537147, "sent": 327680, "code": 502, "resp_bytes": 309, "dt": 0.0194, "head": "HTTP/1.1 502 Bad Gateway\r\nServer: nginx/1.31.8\r\nDate: Fri, 23 Oc"}
+{"t0": 1792743199.9257967, "sent": 327680, "code": 502, "resp_bytes": 309, "dt": 0.0221, "head": "HTTP/1.1 502 Bad Gateway\r\nServer: nginx/1.31.8\r\nDate: Fri, 23 Oc"}
+{"t0": 1792743200.001642, "sent": 327680, "code": 502, "resp_bytes": 309, "dt": 0.0194, "head": "HTTP/1.1 502 Bad Gateway\r\nServer: nginx/1.31.8\r\nDate: Fri, 23 Oc"}
+{"t0": 1792743200.07601, "sent": 327680, "code": 502, "resp_bytes": 309, "dt": 0.0196, "head": "HTTP/1.1 502 Bad Gateway\r\nServer: nginx/1.31.8\r\nDate: Fri, 23 Oc"}
+{"t0": 1792743200.1479526, "sent": 327680, "code": 502, "resp_bytes": 309, "dt": 0.0195, "head": "HTTP/1.1 502 Bad Gateway\r\nServer: nginx/1.31.8\r\nDate: Fri, 23 Oc"}
+{"t0": 1792743200.2210422, "sent": 327680, "code": 502, "resp_bytes": 309, "dt": 0.0186, "head": "HTTP/1.1 502 Bad Gateway\r\nServer: nginx/1.31.8\r\nDate: Fri, 23 Oc"}
+{"t0": 1792743200.2911792, "sent": 327680, "code": 502, "resp_bytes": 309, "dt": 0.0195, "head": "HTTP/1.1 502 Bad Gateway\r\nServer: nginx/1.31.8\r\nDate: Fri, 23 Oc"}

@@ -1,0 +1,35 @@
+chown: changing ownership of '/tmp/opencode/realapps/mariadb-11.4.5-linux-systemd-x86_64/lib/plugin/auth_pam_tool_dir/auth_pam_tool': Operation not permitted
+Couldn't set an owner to '/tmp/opencode/realapps/mariadb-11.4.5-linux-systemd-x86_64/lib/plugin/auth_pam_tool_dir/auth_pam_tool'.
+It must be root, the PAM authentication plugin doesn't work otherwise..
+
+Installing MariaDB/MySQL system tables in '/tmp/opencode/research/moodle_consumer_20261023T060000Z/mariadb/data' ...
+OK
+
+To start mariadbd at boot time you have to copy
+support-files/mariadb.service to the right place for your system
+
+
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MariaDB root USER !
+To do so, start the server, then issue the following command:
+
+'/tmp/opencode/realapps/mariadb-11.4.5-linux-systemd-x86_64/bin/mariadb-secure-installation'
+
+which will also give you the option of removing the test
+databases and anonymous user created by default.  This is
+strongly recommended for production servers.
+
+See the MariaDB Knowledgebase at https://mariadb.com/kb
+
+You can start the MariaDB daemon with:
+cd '/tmp/opencode/realapps/mariadb-11.4.5-linux-systemd-x86_64' ; /tmp/opencode/realapps/mariadb-11.4.5-linux-systemd-x86_64/bin/mariadbd-safe --datadir='/tmp/opencode/research/moodle_consumer_20261023T060000Z/mariadb/data'
+
+You can test the MariaDB daemon with mariadb-test-run.pl
+cd '/tmp/opencode/realapps/mariadb-11.4.5-linux-systemd-x86_64/mariadb-test' ; perl mariadb-test-run.pl
+
+Please report any problems at https://mariadb.org/jira
+
+The latest information about MariaDB is available at https://mariadb.org/.
+
+Consider joining MariaDB's strong and vibrant community:
+https://mariadb.org/get-involved/
+

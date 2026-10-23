@@ -1,0 +1,330 @@
+[23-Oct-2026 10:38:23] NOTICE: fpm is running, pid 313135
+[23-Oct-2026 10:38:23] NOTICE: ready to handle connections
+[23-Oct-2026 10:42:20] WARNING: [pool www] child 313140 exited on signal 11 (SIGSEGV) after 236.781891 seconds from start
+[23-Oct-2026 10:42:20] NOTICE: [pool www] child 330048 started
+[23-Oct-2026 10:42:20] WARNING: [pool www] child 313137 exited on signal 11 (SIGSEGV) after 236.783098 seconds from start
+[23-Oct-2026 10:42:20] NOTICE: [pool www] child 330049 started
+[23-Oct-2026 10:42:20] WARNING: [pool www] child 313138 exited on signal 11 (SIGSEGV) after 236.783081 seconds from start
+[23-Oct-2026 10:42:20] NOTICE: [pool www] child 330050 started
+[23-Oct-2026 10:42:20] WARNING: [pool www] child 313139 exited on signal 11 (SIGSEGV) after 236.783168 seconds from start
+[23-Oct-2026 10:42:20] NOTICE: [pool www] child 330051 started
+[23-Oct-2026 10:42:20] WARNING: [pool www] child 313141 exited on signal 11 (SIGSEGV) after 236.782882 seconds from start
+[23-Oct-2026 10:42:20] NOTICE: [pool www] child 330052 started
+[23-Oct-2026 10:42:27] WARNING: [pool www] child 330049 exited on signal 11 (SIGSEGV) after 7.127446 seconds from start
+[23-Oct-2026 10:42:27] NOTICE: [pool www] child 330130 started
+[23-Oct-2026 10:42:27] WARNING: [pool www] child 330048 exited on signal 11 (SIGSEGV) after 7.128036 seconds from start
+[23-Oct-2026 10:42:27] NOTICE: [pool www] child 330131 started
+[23-Oct-2026 10:42:27] WARNING: [pool www] child 330050 exited on signal 11 (SIGSEGV) after 7.127884 seconds from start
+[23-Oct-2026 10:42:27] NOTICE: [pool www] child 330132 started
+[23-Oct-2026 10:42:27] WARNING: [pool www] child 330051 exited on signal 11 (SIGSEGV) after 7.127818 seconds from start
+[23-Oct-2026 10:42:27] NOTICE: [pool www] child 330133 started
+[23-Oct-2026 10:42:27] WARNING: [pool www] child 330052 exited on signal 11 (SIGSEGV) after 7.127783 seconds from start
+[23-Oct-2026 10:42:27] NOTICE: [pool www] child 330134 started
+[23-Oct-2026 10:42:47] NOTICE: Terminating ...
+[23-Oct-2026 10:42:47] NOTICE: exiting, bye-bye!
+[23-Oct-2026 10:42:47] NOTICE: fpm is running, pid 330751
+[23-Oct-2026 10:42:47] NOTICE: ready to handle connections
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330754 exited on signal 11 (SIGSEGV) after 6.687533 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331332 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330759 exited on signal 11 (SIGSEGV) after 6.686960 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331334 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330753 exited on signal 11 (SIGSEGV) after 6.688771 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331336 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330760 exited on signal 11 (SIGSEGV) after 6.687361 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331337 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330762 exited on signal 11 (SIGSEGV) after 6.687165 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331338 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330764 exited on signal 11 (SIGSEGV) after 6.686805 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331339 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330756 exited on signal 11 (SIGSEGV) after 6.689275 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331340 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330761 exited on signal 11 (SIGSEGV) after 6.688378 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331341 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330757 exited on signal 11 (SIGSEGV) after 6.689669 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331342 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330755 exited on signal 11 (SIGSEGV) after 6.691048 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331343 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330758 exited on signal 11 (SIGSEGV) after 6.690589 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331344 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330763 exited on signal 11 (SIGSEGV) after 6.689450 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331345 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330765 exited on signal 11 (SIGSEGV) after 6.689233 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331346 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330766 exited on signal 11 (SIGSEGV) after 6.689254 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331347 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330767 exited on signal 11 (SIGSEGV) after 6.689256 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331348 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330768 exited on signal 11 (SIGSEGV) after 6.689326 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331349 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330769 exited on signal 11 (SIGSEGV) after 6.689377 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331350 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330770 exited on signal 11 (SIGSEGV) after 6.689437 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331351 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330771 exited on signal 11 (SIGSEGV) after 6.689488 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331352 started
+[23-Oct-2026 10:42:54] WARNING: [pool www] child 330772 exited on signal 11 (SIGSEGV) after 6.689564 seconds from start
+[23-Oct-2026 10:42:54] NOTICE: [pool www] child 331353 started
+[23-Oct-2026 10:43:07] NOTICE: Terminating ...
+[23-Oct-2026 10:43:07] NOTICE: exiting, bye-bye!
+[23-Oct-2026 10:43:07] NOTICE: fpm is running, pid 332342
+[23-Oct-2026 10:43:07] NOTICE: ready to handle connections
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332370 exited on signal 11 (SIGSEGV) after 3.758885 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332925 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332356 exited on signal 11 (SIGSEGV) after 3.762101 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332927 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332354 exited on signal 11 (SIGSEGV) after 3.763302 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332930 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332392 exited on signal 11 (SIGSEGV) after 3.756982 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332933 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332351 exited on signal 11 (SIGSEGV) after 3.765426 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332935 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332352 exited on signal 11 (SIGSEGV) after 3.765479 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332937 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332395 exited on signal 11 (SIGSEGV) after 3.757436 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332939 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332401 exited on signal 11 (SIGSEGV) after 3.756259 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332941 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332361 exited on signal 11 (SIGSEGV) after 3.764755 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332944 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332375 exited on signal 11 (SIGSEGV) after 3.762782 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332945 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332373 exited on signal 11 (SIGSEGV) after 3.764617 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332948 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332376 exited on signal 11 (SIGSEGV) after 3.764359 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332949 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332382 exited on signal 11 (SIGSEGV) after 3.763797 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332950 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332357 exited on signal 11 (SIGSEGV) after 3.768271 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332952 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332358 exited on signal 11 (SIGSEGV) after 3.768280 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332954 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332378 exited on signal 11 (SIGSEGV) after 3.765183 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332955 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332383 exited on signal 11 (SIGSEGV) after 3.764685 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332956 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332384 exited on signal 11 (SIGSEGV) after 3.764706 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332958 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332385 exited on signal 11 (SIGSEGV) after 3.764749 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332959 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332386 exited on signal 11 (SIGSEGV) after 3.764784 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332960 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332387 exited on signal 11 (SIGSEGV) after 3.764838 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332962 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332390 exited on signal 11 (SIGSEGV) after 3.764495 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332963 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332391 exited on signal 11 (SIGSEGV) after 3.764736 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332964 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332397 exited on signal 11 (SIGSEGV) after 3.763511 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332965 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332353 exited on signal 11 (SIGSEGV) after 3.772415 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332966 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332371 exited on signal 11 (SIGSEGV) after 3.769539 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332967 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332399 exited on signal 11 (SIGSEGV) after 3.763883 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332968 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332393 exited on signal 11 (SIGSEGV) after 3.765640 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332969 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332402 exited on signal 11 (SIGSEGV) after 3.763687 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332970 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332394 exited on signal 11 (SIGSEGV) after 3.765942 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332971 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332409 exited on signal 11 (SIGSEGV) after 3.762946 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332972 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332368 exited on signal 11 (SIGSEGV) after 3.771910 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332973 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332414 exited on signal 11 (SIGSEGV) after 3.763064 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332974 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332418 exited on signal 11 (SIGSEGV) after 3.762911 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332975 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332400 exited on signal 11 (SIGSEGV) after 3.765937 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332976 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332404 exited on signal 11 (SIGSEGV) after 3.765430 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332977 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332403 exited on signal 11 (SIGSEGV) after 3.766520 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332978 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332379 exited on signal 11 (SIGSEGV) after 3.772195 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332979 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332359 exited on signal 11 (SIGSEGV) after 3.775878 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332980 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332372 exited on signal 11 (SIGSEGV) after 3.774227 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332981 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332398 exited on signal 11 (SIGSEGV) after 3.769098 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332982 started
+[23-Oct-2026 10:43:11] WARNING: [pool www] child 332369 exited on signal 11 (SIGSEGV) after 3.775708 seconds from start
+[23-Oct-2026 10:43:11] NOTICE: [pool www] child 332983 started
+[23-Oct-2026 10:44:35] WARNING: [pool www] child 332417 exited on signal 11 (SIGSEGV) after 87.557555 seconds from start
+[23-Oct-2026 10:44:35] NOTICE: [pool www] child 336205 started
+[23-Oct-2026 10:44:35] WARNING: [pool www] child 332407 exited on signal 11 (SIGSEGV) after 87.570202 seconds from start
+[23-Oct-2026 10:44:35] NOTICE: [pool www] child 336233 started
+[23-Oct-2026 10:44:35] WARNING: [pool www] child 332367 exited on signal 11 (SIGSEGV) after 87.580135 seconds from start
+[23-Oct-2026 10:44:35] NOTICE: [pool www] child 336234 started
+[23-Oct-2026 10:44:35] WARNING: [pool www] child 332366 exited on signal 11 (SIGSEGV) after 87.580853 seconds from start
+[23-Oct-2026 10:44:35] NOTICE: [pool www] child 336235 started
+[23-Oct-2026 10:44:59] NOTICE: Terminating ...
+[23-Oct-2026 10:44:59] NOTICE: exiting, bye-bye!
+[23-Oct-2026 10:44:59] NOTICE: fpm is running, pid 337638
+[23-Oct-2026 10:44:59] NOTICE: ready to handle connections
+[23-Oct-2026 10:45:01] WARNING: [pool www] child 337640 exited on signal 11 (SIGSEGV) after 1.990597 seconds from start
+[23-Oct-2026 10:45:01] NOTICE: [pool www] child 337704 started
+[23-Oct-2026 10:45:01] WARNING: [pool www] child 337641 exited on signal 11 (SIGSEGV) after 1.990658 seconds from start
+[23-Oct-2026 10:45:01] NOTICE: [pool www] child 337705 started
+[23-Oct-2026 10:45:01] WARNING: [pool www] child 337642 exited on signal 11 (SIGSEGV) after 1.990669 seconds from start
+[23-Oct-2026 10:45:01] NOTICE: [pool www] child 337706 started
+[23-Oct-2026 10:45:01] WARNING: [pool www] child 337643 exited on signal 11 (SIGSEGV) after 1.990715 seconds from start
+[23-Oct-2026 10:45:01] NOTICE: [pool www] child 337707 started
+[23-Oct-2026 10:45:01] WARNING: [pool www] child 337644 exited on signal 11 (SIGSEGV) after 1.990901 seconds from start
+[23-Oct-2026 10:45:01] NOTICE: [pool www] child 337708 started
+[23-Oct-2026 10:45:07] NOTICE: Terminating ...
+[23-Oct-2026 10:45:07] NOTICE: exiting, bye-bye!
+[23-Oct-2026 10:45:07] NOTICE: fpm is running, pid 338070
+[23-Oct-2026 10:45:07] NOTICE: ready to handle connections
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338080 exited on signal 11 (SIGSEGV) after 3.083574 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338322 started
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338082 exited on signal 11 (SIGSEGV) after 3.083333 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338324 started
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338083 exited on signal 11 (SIGSEGV) after 3.083319 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338325 started
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338084 exited on signal 11 (SIGSEGV) after 3.083317 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338326 started
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338085 exited on signal 11 (SIGSEGV) after 3.083307 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338327 started
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338086 exited on signal 11 (SIGSEGV) after 3.083329 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338328 started
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338079 exited on signal 11 (SIGSEGV) after 3.087784 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338329 started
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338081 exited on signal 11 (SIGSEGV) after 3.087526 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338330 started
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338087 exited on signal 11 (SIGSEGV) after 3.086073 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338331 started
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338088 exited on signal 11 (SIGSEGV) after 3.087663 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338332 started
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338089 exited on signal 11 (SIGSEGV) after 3.087668 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338333 started
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338090 exited on signal 11 (SIGSEGV) after 3.087690 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338334 started
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338092 exited on signal 11 (SIGSEGV) after 3.087420 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338335 started
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338093 exited on signal 11 (SIGSEGV) after 3.087421 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338336 started
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338094 exited on signal 11 (SIGSEGV) after 3.087484 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338337 started
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338096 exited on signal 11 (SIGSEGV) after 3.087290 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338338 started
+[23-Oct-2026 10:45:10] WARNING: [pool www] child 338098 exited on signal 11 (SIGSEGV) after 3.087089 seconds from start
+[23-Oct-2026 10:45:10] NOTICE: [pool www] child 338339 started
+[23-Oct-2026 10:45:19] WARNING: [pool www] child 338091 exited on signal 11 (SIGSEGV) after 12.226544 seconds from start
+[23-Oct-2026 10:45:19] NOTICE: [pool www] child 339166 started
+[23-Oct-2026 10:45:19] WARNING: [pool www] child 338097 exited on signal 11 (SIGSEGV) after 12.225473 seconds from start
+[23-Oct-2026 10:45:19] NOTICE: [pool www] child 339168 started
+[23-Oct-2026 10:45:19] WARNING: [pool www] child 338095 exited on signal 11 (SIGSEGV) after 12.227968 seconds from start
+[23-Oct-2026 10:45:19] NOTICE: [pool www] child 339174 started
+[23-Oct-2026 10:45:28] NOTICE: Terminating ...
+[23-Oct-2026 10:45:28] NOTICE: exiting, bye-bye!
+[23-Oct-2026 10:45:28] NOTICE: fpm is running, pid 339296
+[23-Oct-2026 10:45:28] NOTICE: ready to handle connections
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339299 exited on signal 11 (SIGSEGV) after 3.681504 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339464 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339302 exited on signal 11 (SIGSEGV) after 3.681195 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339466 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339305 exited on signal 11 (SIGSEGV) after 3.680849 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339468 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339307 exited on signal 11 (SIGSEGV) after 3.680737 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339470 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339318 exited on signal 11 (SIGSEGV) after 3.678230 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339472 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339300 exited on signal 11 (SIGSEGV) after 3.683839 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339475 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339308 exited on signal 11 (SIGSEGV) after 3.682539 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339476 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339319 exited on signal 11 (SIGSEGV) after 3.679991 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339478 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339335 exited on signal 11 (SIGSEGV) after 3.676261 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339480 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339321 exited on signal 11 (SIGSEGV) after 3.680251 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339482 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339327 exited on signal 11 (SIGSEGV) after 3.679006 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339484 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339306 exited on signal 11 (SIGSEGV) after 3.684903 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339485 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339331 exited on signal 11 (SIGSEGV) after 3.678733 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339487 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339337 exited on signal 11 (SIGSEGV) after 3.677574 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339489 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339338 exited on signal 11 (SIGSEGV) after 3.677710 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339490 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339298 exited on signal 11 (SIGSEGV) after 3.688430 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339493 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339304 exited on signal 11 (SIGSEGV) after 3.687225 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339495 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339311 exited on signal 11 (SIGSEGV) after 3.685748 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339496 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339312 exited on signal 11 (SIGSEGV) after 3.685861 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339498 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339320 exited on signal 11 (SIGSEGV) after 3.684104 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339499 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339301 exited on signal 11 (SIGSEGV) after 3.689433 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339501 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339309 exited on signal 11 (SIGSEGV) after 3.688357 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339502 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339322 exited on signal 11 (SIGSEGV) after 3.685338 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339503 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339315 exited on signal 11 (SIGSEGV) after 3.687429 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339504 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339303 exited on signal 11 (SIGSEGV) after 3.691861 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339505 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339313 exited on signal 11 (SIGSEGV) after 3.689650 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339506 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339316 exited on signal 11 (SIGSEGV) after 3.689022 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339507 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339323 exited on signal 11 (SIGSEGV) after 3.687546 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339508 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339324 exited on signal 11 (SIGSEGV) after 3.687568 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339509 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339325 exited on signal 11 (SIGSEGV) after 3.687604 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339510 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339328 exited on signal 11 (SIGSEGV) after 3.687027 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339511 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339329 exited on signal 11 (SIGSEGV) after 3.687050 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339512 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339333 exited on signal 11 (SIGSEGV) after 3.686307 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339513 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339339 exited on signal 11 (SIGSEGV) after 3.685005 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339514 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339340 exited on signal 11 (SIGSEGV) after 3.685029 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339515 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339341 exited on signal 11 (SIGSEGV) after 3.685050 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339516 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339342 exited on signal 11 (SIGSEGV) after 3.685099 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339517 started
+[23-Oct-2026 10:45:32] WARNING: [pool www] child 339346 exited on signal 11 (SIGSEGV) after 3.684389 seconds from start
+[23-Oct-2026 10:45:32] NOTICE: [pool www] child 339518 started
+[23-Oct-2026 10:45:48] WARNING: [pool www] child 339330 exited on signal 11 (SIGSEGV) after 19.888635 seconds from start
+[23-Oct-2026 10:45:48] NOTICE: [pool www] child 340152 started
+[23-Oct-2026 10:45:48] WARNING: [pool www] child 339314 exited on signal 11 (SIGSEGV) after 19.895622 seconds from start
+[23-Oct-2026 10:45:48] NOTICE: [pool www] child 340166 started
+[23-Oct-2026 10:45:48] WARNING: [pool www] child 339334 exited on signal 11 (SIGSEGV) after 19.891376 seconds from start
+[23-Oct-2026 10:45:48] NOTICE: [pool www] child 340170 started
+[23-Oct-2026 10:45:48] WARNING: [pool www] child 339310 exited on signal 11 (SIGSEGV) after 19.901541 seconds from start
+[23-Oct-2026 10:45:48] NOTICE: [pool www] child 340178 started
+[23-Oct-2026 10:45:48] WARNING: [pool www] child 339344 exited on signal 11 (SIGSEGV) after 19.893179 seconds from start
+[23-Oct-2026 10:45:48] NOTICE: [pool www] child 340181 started
+[23-Oct-2026 10:45:56] WARNING: [pool www] child 339345 exited on signal 11 (SIGSEGV) after 27.645896 seconds from start
+[23-Oct-2026 10:45:56] NOTICE: [pool www] child 340435 started
+[23-Oct-2026 10:45:56] WARNING: [pool www] child 339326 exited on signal 11 (SIGSEGV) after 27.652151 seconds from start
+[23-Oct-2026 10:45:56] NOTICE: [pool www] child 340438 started
+[23-Oct-2026 10:47:27] NOTICE: Terminating ...
+[23-Oct-2026 10:47:27] NOTICE: exiting, bye-bye!
+[23-Oct-2026 10:53:50] NOTICE: fpm is running, pid 360668
+[23-Oct-2026 10:53:50] NOTICE: ready to handle connections
+[23-Oct-2026 10:53:52] WARNING: [pool www] child 360678 exited on signal 11 (SIGSEGV) after 2.506904 seconds from start
+[23-Oct-2026 10:53:52] NOTICE: [pool www] child 361047 started
+[23-Oct-2026 10:53:52] WARNING: [pool www] child 360679 exited on signal 11 (SIGSEGV) after 2.506998 seconds from start
+[23-Oct-2026 10:53:52] NOTICE: [pool www] child 361048 started
+[23-Oct-2026 10:53:52] WARNING: [pool www] child 360680 exited on signal 11 (SIGSEGV) after 2.507090 seconds from start
+[23-Oct-2026 10:53:52] NOTICE: [pool www] child 361049 started
+[23-Oct-2026 10:53:52] WARNING: [pool www] child 360681 exited on signal 11 (SIGSEGV) after 2.507192 seconds from start
+[23-Oct-2026 10:53:52] NOTICE: [pool www] child 361050 started
+[23-Oct-2026 10:53:52] WARNING: [pool www] child 360682 exited on signal 11 (SIGSEGV) after 2.507328 seconds from start
+[23-Oct-2026 10:53:52] NOTICE: [pool www] child 361051 started
+[23-Oct-2026 10:54:05] NOTICE: Terminating ...
+[23-Oct-2026 10:54:05] NOTICE: exiting, bye-bye!

@@ -1,0 +1,133 @@
+{
+ "attempt": 13,
+ "started": "2026-10-22T13:37:06Z",
+ "stages": [
+  {
+   "stage": "A1",
+   "chain_try": 0,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "b6fd28caa658f11f77789af3682b55dfba7bf5a4e4aaf666510103c53d4db996",
+   "elapsed_s": 0.09
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 0,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.074,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 1,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.078,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 2,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.094,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 3,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.093,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 4,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.055,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 5,
+   "bytes": 0,
+   "status": "",
+   "elapsed_s": 0.089,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no Set-Cookie in leak response (0 bytes)')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 6,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.05,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 7,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.048,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 8,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.058,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 9,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.055,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  }
+ ],
+ "success": false,
+ "marker": "9BIE_MW_20261022T130520Z_A13",
+ "bodies": {
+  "a1": {
+   "bytes": 1060211,
+   "sha256": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6"
+  },
+  "b1": {
+   "bytes": 33128677,
+   "sha256": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2"
+  }
+ },
+ "failed_stage": "B1",
+ "post_health": {
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 195,
+  "body": "OK\n"
+ },
+ "finished": "2026-10-22T13:37:07Z"
+}

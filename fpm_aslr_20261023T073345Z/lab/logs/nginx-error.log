@@ -1,0 +1,186 @@
+2026/10/23 09:34:26 [notice] 3082639#0: using the "epoll" event method
+2026/10/23 09:34:26 [notice] 3082639#0: nginx/1.30.1
+2026/10/23 09:34:26 [notice] 3082639#0: built by gcc 14.2.0 (Debian 14.2.0-19) 
+2026/10/23 09:34:26 [notice] 3082639#0: OS: Linux 6.12.113+deb13-amd64
+2026/10/23 09:34:26 [notice] 3082639#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/10/23 09:34:26 [notice] 3082640#0: start worker processes
+2026/10/23 09:34:26 [notice] 3082640#0: start worker process 3082641
+2026/10/23 09:36:23 [info] 3082641#0: *61 client 127.0.0.1 closed keepalive connection
+2026/10/23 09:36:33 [info] 3082641#0: *63 client 127.0.0.1 closed keepalive connection
+2026/10/23 09:36:42 [info] 3082641#0: *65 client 127.0.0.1 closed keepalive connection
+2026/10/23 09:39:19 [notice] 3082640#0: signal 1 (SIGHUP) received from 3086266, reconfiguring
+2026/10/23 09:39:19 [notice] 3082640#0: reconfiguring
+2026/10/23 09:39:19 [emerg] 3082640#0: bind() to 127.0.0.1:29322 failed (98: Address already in use)
+2026/10/23 09:39:19 [emerg] 3082640#0: bind() to 127.0.0.1:29323 failed (98: Address already in use)
+2026/10/23 09:39:19 [emerg] 3082640#0: bind() to 127.0.0.1:29324 failed (98: Address already in use)
+2026/10/23 09:39:19 [notice] 3082640#0: try again to bind() after 500ms
+2026/10/23 09:39:19 [emerg] 3082640#0: bind() to 127.0.0.1:29322 failed (98: Address already in use)
+2026/10/23 09:39:19 [emerg] 3082640#0: bind() to 127.0.0.1:29323 failed (98: Address already in use)
+2026/10/23 09:39:19 [emerg] 3082640#0: bind() to 127.0.0.1:29324 failed (98: Address already in use)
+2026/10/23 09:39:19 [notice] 3082640#0: try again to bind() after 500ms
+2026/10/23 09:39:19 [emerg] 3082640#0: bind() to 127.0.0.1:29322 failed (98: Address already in use)
+2026/10/23 09:39:19 [emerg] 3082640#0: bind() to 127.0.0.1:29323 failed (98: Address already in use)
+2026/10/23 09:39:19 [emerg] 3082640#0: bind() to 127.0.0.1:29324 failed (98: Address already in use)
+2026/10/23 09:39:19 [notice] 3082640#0: try again to bind() after 500ms
+2026/10/23 09:39:19 [emerg] 3082640#0: bind() to 127.0.0.1:29322 failed (98: Address already in use)
+2026/10/23 09:39:19 [emerg] 3082640#0: bind() to 127.0.0.1:29323 failed (98: Address already in use)
+2026/10/23 09:39:19 [emerg] 3082640#0: bind() to 127.0.0.1:29324 failed (98: Address already in use)
+2026/10/23 09:39:19 [notice] 3082640#0: try again to bind() after 500ms
+2026/10/23 09:39:19 [emerg] 3082640#0: bind() to 127.0.0.1:29322 failed (98: Address already in use)
+2026/10/23 09:39:19 [emerg] 3082640#0: bind() to 127.0.0.1:29323 failed (98: Address already in use)
+2026/10/23 09:39:19 [emerg] 3082640#0: bind() to 127.0.0.1:29324 failed (98: Address already in use)
+2026/10/23 09:39:19 [notice] 3082640#0: try again to bind() after 500ms
+2026/10/23 09:39:19 [emerg] 3082640#0: still could not bind()
+2026/10/23 09:39:33 [notice] 3082640#0: signal 1 (SIGHUP) received from 3086381, reconfiguring
+2026/10/23 09:39:33 [notice] 3082640#0: reconfiguring
+2026/10/23 09:39:33 [notice] 3082640#0: using the "epoll" event method
+2026/10/23 09:39:33 [notice] 3082640#0: start worker processes
+2026/10/23 09:39:33 [notice] 3082640#0: start worker process 3086383
+2026/10/23 09:39:33 [notice] 3082641#0: gracefully shutting down
+2026/10/23 09:39:33 [notice] 3082641#0: exiting
+2026/10/23 09:39:33 [notice] 3082641#0: exit
+2026/10/23 09:39:33 [notice] 3082640#0: signal 17 (SIGCHLD) received from 3082641
+2026/10/23 09:39:33 [notice] 3082640#0: worker process 3082641 exited with code 0
+2026/10/23 09:39:33 [notice] 3082640#0: signal 29 (SIGIO) received
+2026/10/23 09:39:34 [info] 3086383#0: *67 client 127.0.0.1 closed keepalive connection
+2026/10/23 09:39:34 [info] 3086383#0: *69 client 127.0.0.1 closed keepalive connection
+2026/10/23 09:39:34 [info] 3086383#0: *71 client 127.0.0.1 closed keepalive connection
+2026/10/23 09:42:41 [error] 3086383#0: *323 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29321", host: "127.0.0.1:29320"
+2026/10/23 09:43:27 [info] 3086383#0: *327 client 127.0.0.1 closed keepalive connection
+2026/10/23 09:43:42 [info] 3086383#0: *329 client 127.0.0.1 closed keepalive connection
+2026/10/23 09:43:49 [info] 3086383#0: *331 client 127.0.0.1 closed keepalive connection
+2026/10/23 09:43:50 [warn] 3086383#0: *333 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000001, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29352"
+2026/10/23 09:53:03 [notice] 3082640#0: signal 15 (SIGTERM) received from 1, exiting
+2026/10/23 09:53:03 [notice] 3086383#0: signal 15 (SIGTERM) received from 1, exiting
+2026/10/23 09:53:03 [info] 3086383#0: epoll_wait() failed (4: Interrupted system call)
+2026/10/23 09:53:03 [notice] 3086383#0: exiting
+2026/10/23 09:53:03 [notice] 3086383#0: exit
+2026/10/23 09:53:03 [notice] 3082640#0: signal 17 (SIGCHLD) received from 3086383
+2026/10/23 09:53:03 [notice] 3082640#0: worker process 3086383 exited with code 0
+2026/10/23 09:53:03 [notice] 3082640#0: exit
+2026/10/23 10:15:01 [notice] 15287#0: using the "epoll" event method
+2026/10/23 10:15:01 [notice] 15287#0: nginx/1.30.1
+2026/10/23 10:15:01 [notice] 15287#0: built by gcc 14.2.0 (Debian 14.2.0-19) 
+2026/10/23 10:15:01 [notice] 15287#0: OS: Linux 6.12.113+deb13-amd64
+2026/10/23 10:15:01 [notice] 15287#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/10/23 10:15:01 [notice] 15288#0: start worker processes
+2026/10/23 10:15:01 [notice] 15288#0: start worker process 15289
+2026/10/23 10:15:02 [info] 15289#0: *1 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:15:02 [info] 15289#0: *3 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:15:02 [info] 15289#0: *5 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:15:02 [info] 15289#0: *7 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:15:29 [info] 15289#0: *9 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:15:29 [error] 15289#0: *11 client intended to send too large body: 1573311 bytes, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29352"
+2026/10/23 10:16:09 [info] 15289#0: *12 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:16:09 [warn] 15289#0: *14 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000001, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29352"
+2026/10/23 10:16:09 [error] 15289#0: *14 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29351", host: "127.0.0.1:29352"
+2026/10/23 10:16:38 [info] 15289#0: *18 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:16:38 [warn] 15289#0: *20 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000002, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29352"
+2026/10/23 10:16:38 [error] 15289#0: *20 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29351", host: "127.0.0.1:29352"
+2026/10/23 10:22:09 [info] 15289#0: *22 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:22:10 [warn] 15289#0: *24 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000003, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29352"
+2026/10/23 10:22:10 [error] 15289#0: *24 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29351", host: "127.0.0.1:29352"
+2026/10/23 10:22:23 [info] 15289#0: *26 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:22:23 [warn] 15289#0: *28 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000004, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29352"
+2026/10/23 10:22:23 [error] 15289#0: *28 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29351", host: "127.0.0.1:29352"
+2026/10/23 10:23:41 [info] 15289#0: *30 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:23:41 [warn] 15289#0: *32 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000005, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29352"
+2026/10/23 10:23:41 [error] 15289#0: *32 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29351", host: "127.0.0.1:29352"
+2026/10/23 10:24:04 [info] 15289#0: *34 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:24:04 [warn] 15289#0: *36 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000006, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29352"
+2026/10/23 10:26:17 [warn] 15289#0: *40 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000007, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29352"
+2026/10/23 10:26:17 [error] 15289#0: *40 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29351", host: "127.0.0.1:29352"
+2026/10/23 10:26:17 [warn] 15289#0: *46 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000008, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29352"
+2026/10/23 10:26:17 [error] 15289#0: *46 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29351", host: "127.0.0.1:29352"
+2026/10/23 10:26:17 [warn] 15289#0: *52 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000009, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29352"
+2026/10/23 10:26:17 [error] 15289#0: *52 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29351", host: "127.0.0.1:29352"
+2026/10/23 10:26:22 [warn] 15289#0: *58 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000010, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:26:27 [warn] 15289#0: *64 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000011, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:26:32 [warn] 15289#0: *70 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000012, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:26:37 [warn] 15289#0: *76 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000013, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29354"
+2026/10/23 10:26:42 [warn] 15289#0: *82 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000014, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29354"
+2026/10/23 10:27:45 [notice] 15288#0: signal 1 (SIGHUP) received from 249629, reconfiguring
+2026/10/23 10:27:45 [notice] 15288#0: reconfiguring
+2026/10/23 10:27:45 [notice] 15288#0: using the "epoll" event method
+2026/10/23 10:27:45 [notice] 15288#0: start worker processes
+2026/10/23 10:27:45 [notice] 15288#0: start worker process 249633
+2026/10/23 10:27:45 [notice] 15289#0: gracefully shutting down
+2026/10/23 10:27:45 [notice] 15289#0: exiting
+2026/10/23 10:27:45 [notice] 15289#0: exit
+2026/10/23 10:27:45 [notice] 15288#0: signal 17 (SIGCHLD) received from 15289
+2026/10/23 10:27:45 [notice] 15288#0: worker process 15289 exited with code 0
+2026/10/23 10:27:45 [notice] 15288#0: signal 29 (SIGIO) received
+2026/10/23 10:27:46 [info] 249633#0: *116 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:27:46 [info] 249633#0: *118 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:27:50 [warn] 249633#0: *122 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000015, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29355"
+2026/10/23 10:27:50 [error] 249633#0: *122 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29356", host: "127.0.0.1:29355"
+2026/10/23 10:27:50 [warn] 249633#0: *128 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000016, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29355"
+2026/10/23 10:27:50 [error] 249633#0: *128 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29356", host: "127.0.0.1:29355"
+2026/10/23 10:27:50 [warn] 249633#0: *134 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000017, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29355"
+2026/10/23 10:27:50 [error] 249633#0: *134 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29356", host: "127.0.0.1:29355"
+2026/10/23 10:27:50 [warn] 249633#0: *140 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000018, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29357"
+2026/10/23 10:27:55 [warn] 249633#0: *146 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000019, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29357"
+2026/10/23 10:28:11 [info] 249633#0: *150 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:28:11 [warn] 249633#0: *152 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000020, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29355"
+2026/10/23 10:28:11 [error] 249633#0: *152 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29356", host: "127.0.0.1:29355"
+2026/10/23 10:28:11 [info] 249633#0: *154 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:28:11 [warn] 249633#0: *156 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000021, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29357"
+2026/10/23 10:28:52 [info] 249633#0: *158 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:28:52 [warn] 249633#0: *160 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000022, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29355"
+2026/10/23 10:28:52 [error] 249633#0: *160 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29356", host: "127.0.0.1:29355"
+2026/10/23 10:29:46 [info] 249633#0: *162 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:29:47 [warn] 249633#0: *164 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000023, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29352"
+2026/10/23 10:31:11 [info] 249633#0: *166 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:31:12 [warn] 249633#0: *168 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000024, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29352"
+2026/10/23 10:31:19 [info] 249633#0: *170 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:31:19 [warn] 249633#0: *172 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000025, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29352"
+2026/10/23 10:31:51 [info] 249633#0: *174 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:31:51 [warn] 249633#0: *176 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000026, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29352"
+2026/10/23 10:31:51 [error] 249633#0: *176 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29351", host: "127.0.0.1:29352"
+2026/10/23 10:31:52 [info] 249633#0: *178 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:31:52 [warn] 249633#0: *180 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000027, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29352"
+2026/10/23 10:33:10 [warn] 249633#0: *192 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000028, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:33:10 [warn] 249633#0: *193 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000029, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:33:10 [warn] 249633#0: *195 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000030, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:33:10 [warn] 249633#0: *197 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000031, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:33:10 [warn] 249633#0: *198 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000032, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:33:10 [error] 249633#0: *192 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29321", host: "127.0.0.1:29320"
+2026/10/23 10:33:10 [error] 249633#0: *193 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29321", host: "127.0.0.1:29320"
+2026/10/23 10:33:10 [warn] 249633#0: *212 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000033, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:33:10 [warn] 249633#0: *213 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000034, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:33:10 [warn] 249633#0: *214 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000035, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:33:10 [warn] 249633#0: *216 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000036, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:33:10 [warn] 249633#0: *217 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000037, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:33:10 [error] 249633#0: *213 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29321", host: "127.0.0.1:29320"
+2026/10/23 10:33:10 [error] 249633#0: *212 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29321", host: "127.0.0.1:29320"
+2026/10/23 10:33:11 [warn] 249633#0: *232 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000038, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:33:11 [warn] 249633#0: *233 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000039, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:33:11 [warn] 249633#0: *234 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000040, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:33:11 [warn] 249633#0: *235 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000041, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:33:11 [warn] 249633#0: *236 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000042, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29320"
+2026/10/23 10:33:11 [error] 249633#0: *232 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29321", host: "127.0.0.1:29320"
+2026/10/23 10:33:11 [error] 249633#0: *235 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29321", host: "127.0.0.1:29320"
+2026/10/23 10:33:11 [warn] 249633#0: *252 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000043, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29354"
+2026/10/23 10:33:11 [warn] 249633#0: *253 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000044, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29354"
+2026/10/23 10:33:11 [warn] 249633#0: *255 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000045, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29354"
+2026/10/23 10:33:11 [warn] 249633#0: *256 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000046, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29354"
+2026/10/23 10:33:11 [warn] 249633#0: *257 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000047, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29354"
+2026/10/23 10:33:11 [error] 249633#0: *252 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29353", host: "127.0.0.1:29354"
+2026/10/23 10:33:11 [error] 249633#0: *253 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29353", host: "127.0.0.1:29354"
+2026/10/23 10:33:11 [warn] 249633#0: *273 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000048, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29354"
+2026/10/23 10:33:11 [warn] 249633#0: *272 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000049, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29354"
+2026/10/23 10:33:11 [warn] 249633#0: *274 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000050, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29354"
+2026/10/23 10:33:11 [warn] 249633#0: *276 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000051, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29354"
+2026/10/23 10:33:11 [warn] 249633#0: *277 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000052, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29354"
+2026/10/23 10:33:11 [error] 249633#0: *273 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29353", host: "127.0.0.1:29354"
+2026/10/23 10:33:11 [error] 249633#0: *272 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29353", host: "127.0.0.1:29354"
+2026/10/23 10:33:44 [info] 249633#0: *282 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:33:44 [warn] 249633#0: *284 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000053, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29357"
+2026/10/23 10:33:51 [warn] 249633#0: *286 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000054, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29357"
+2026/10/23 10:35:18 [info] 249633#0: *288 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:40:06 [warn] 249633#0: *294 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000055, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29330"
+2026/10/23 10:40:11 [warn] 249633#0: *300 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000056, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29330"
+2026/10/23 10:40:32 [warn] 249633#0: *306 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000057, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29330"
+2026/10/23 10:40:37 [warn] 249633#0: *312 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/run/nginx-body/0000000058, client: 127.0.0.1, server: , request: "POST /consumer.php HTTP/1.1", host: "127.0.0.1:29330"
+2026/10/23 10:53:13 [error] 249633#0: *316 directory index of "/tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/www/" is forbidden, client: 127.0.0.1, server: , request: "GET / HTTP/1.1", host: "127.0.0.1:29310"
+2026/10/23 10:53:13 [info] 249633#0: *316 client 127.0.0.1 closed keepalive connection

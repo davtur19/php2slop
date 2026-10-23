@@ -1,0 +1,1863 @@
+{
+  "tag": "d50dec",
+  "type": "decode",
+  "port": 29511,
+  "producers": 50,
+  "consumers": 50,
+  "n": 6000000,
+  "producer_script": "producer_oom.php",
+  "sids": [
+    "md50dec-0",
+    "md50dec-1",
+    "md50dec-2",
+    "md50dec-3",
+    "md50dec-4",
+    "md50dec-5",
+    "md50dec-6",
+    "md50dec-7",
+    "md50dec-8",
+    "md50dec-9",
+    "md50dec-10",
+    "md50dec-11",
+    "md50dec-12",
+    "md50dec-13",
+    "md50dec-14",
+    "md50dec-15",
+    "md50dec-16",
+    "md50dec-17",
+    "md50dec-18",
+    "md50dec-19",
+    "md50dec-20",
+    "md50dec-21",
+    "md50dec-22",
+    "md50dec-23",
+    "md50dec-24",
+    "md50dec-25",
+    "md50dec-26",
+    "md50dec-27",
+    "md50dec-28",
+    "md50dec-29",
+    "md50dec-30",
+    "md50dec-31",
+    "md50dec-32",
+    "md50dec-33",
+    "md50dec-34",
+    "md50dec-35",
+    "md50dec-36",
+    "md50dec-37",
+    "md50dec-38",
+    "md50dec-39",
+    "md50dec-40",
+    "md50dec-41",
+    "md50dec-42",
+    "md50dec-43",
+    "md50dec-44",
+    "md50dec-45",
+    "md50dec-46",
+    "md50dec-47",
+    "md50dec-48",
+    "md50dec-49"
+  ],
+  "producer_responses": [
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.038,
+      "i": 0
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.113,
+      "i": 1
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.27,
+      "i": 2
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.229,
+      "i": 3
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.059,
+      "i": 4
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.04,
+      "i": 5
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.199,
+      "i": 6
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.297,
+      "i": 7
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.119,
+      "i": 8
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.212,
+      "i": 9
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.038,
+      "i": 10
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.297,
+      "i": 11
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.297,
+      "i": 12
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.223,
+      "i": 13
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.182,
+      "i": 14
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.273,
+      "i": 15
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.29,
+      "i": 16
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.222,
+      "i": 17
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.266,
+      "i": 18
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.29,
+      "i": 19
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.18,
+      "i": 20
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.241,
+      "i": 21
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.229,
+      "i": 22
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.23,
+      "i": 23
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.283,
+      "i": 24
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.164,
+      "i": 25
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.204,
+      "i": 26
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.116,
+      "i": 27
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.227,
+      "i": 28
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.238,
+      "i": 29
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.068,
+      "i": 30
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.236,
+      "i": 31
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.227,
+      "i": 32
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.12,
+      "i": 33
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.123,
+      "i": 34
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.136,
+      "i": 35
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.189,
+      "i": 36
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.231,
+      "i": 37
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.111,
+      "i": 38
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.23,
+      "i": 39
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.244,
+      "i": 40
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.206,
+      "i": 41
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.123,
+      "i": 42
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.222,
+      "i": 43
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.16,
+      "i": 44
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.179,
+      "i": 45
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.199,
+      "i": 46
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.106,
+      "i": 47
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.066,
+      "i": 48
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.087,
+      "i": 49
+    }
+  ],
+  "producer_wall": 0.306,
+  "producer_rows": [
+    {
+      "pid": 332352,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp0",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332352 127.0.0.1 GET 500 n=6000000&tag=d50decp0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 0
+    },
+    {
+      "pid": 332370,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp5",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332370 127.0.0.1 GET 500 n=6000000&tag=d50decp5 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 5
+    },
+    {
+      "pid": 332376,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp10",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332376 127.0.0.1 GET 500 n=6000000&tag=d50decp10 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 10
+    },
+    {
+      "pid": 332358,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp4",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332358 127.0.0.1 GET 500 n=6000000&tag=d50decp4 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 4
+    },
+    {
+      "pid": 332376,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp30",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332376 127.0.0.1 GET 500 n=6000000&tag=d50decp30 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 30
+    },
+    {
+      "pid": 332354,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp1",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332354 127.0.0.1 GET 500 n=6000000&tag=d50decp1 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 1
+    },
+    {
+      "pid": 332356,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp8",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332356 127.0.0.1 GET 500 n=6000000&tag=d50decp8 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 8
+    },
+    {
+      "pid": 332392,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp27",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332392 127.0.0.1 GET 500 n=6000000&tag=d50decp27 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 27
+    },
+    {
+      "pid": 332351,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp48",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332351 127.0.0.1 GET 500 n=6000000&tag=d50decp48 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 48
+    },
+    {
+      "pid": 332395,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp33",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332395 127.0.0.1 GET 500 n=6000000&tag=d50decp33 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 33
+    },
+    {
+      "pid": 332352,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp34",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332352 127.0.0.1 GET 500 n=6000000&tag=d50decp34 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 34
+    },
+    {
+      "pid": 332401,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp38",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332401 127.0.0.1 GET 500 n=6000000&tag=d50decp38 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 38
+    },
+    {
+      "pid": 332361,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp6",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332361 127.0.0.1 GET 500 n=6000000&tag=d50decp6 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 6
+    },
+    {
+      "pid": 332375,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp14",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332375 127.0.0.1 GET 500 n=6000000&tag=d50decp14 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 14
+    },
+    {
+      "pid": 332391,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp25",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332391 127.0.0.1 GET 500 n=6000000&tag=d50decp25 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 25
+    },
+    {
+      "pid": 332397,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp35",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332397 127.0.0.1 GET 500 n=6000000&tag=d50decp35 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 35
+    },
+    {
+      "pid": 332417,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp49",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332417 127.0.0.1 GET 500 n=6000000&tag=d50decp49 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 49
+    },
+    {
+      "pid": 332384,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp20",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332384 127.0.0.1 GET 500 n=6000000&tag=d50decp20 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 20
+    },
+    {
+      "pid": 332376,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp42",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332376 127.0.0.1 GET 500 n=6000000&tag=d50decp42 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 42
+    },
+    {
+      "pid": 332418,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp47",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332418 127.0.0.1 GET 500 n=6000000&tag=d50decp47 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 47
+    },
+    {
+      "pid": 332357,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp3",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332357 127.0.0.1 GET 500 n=6000000&tag=d50decp3 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 3
+    },
+    {
+      "pid": 332382,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp26",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332382 127.0.0.1 GET 500 n=6000000&tag=d50decp26 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 26
+    },
+    {
+      "pid": 332373,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp9",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332373 127.0.0.1 GET 500 n=6000000&tag=d50decp9 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 9
+    },
+    {
+      "pid": 332378,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp13",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332378 127.0.0.1 GET 500 n=6000000&tag=d50decp13 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 13
+    },
+    {
+      "pid": 332383,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp17",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332383 127.0.0.1 GET 500 n=6000000&tag=d50decp17 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 17
+    },
+    {
+      "pid": 332409,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp44",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332409 127.0.0.1 GET 500 n=6000000&tag=d50decp44 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 44
+    },
+    {
+      "pid": 332358,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp36",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332358 127.0.0.1 GET 500 n=6000000&tag=d50decp36 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 36
+    },
+    {
+      "pid": 332386,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp22",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332386 127.0.0.1 GET 500 n=6000000&tag=d50decp22 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 22
+    },
+    {
+      "pid": 332390,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp23",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332390 127.0.0.1 GET 500 n=6000000&tag=d50decp23 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 23
+    },
+    {
+      "pid": 332387,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp28",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332387 127.0.0.1 GET 500 n=6000000&tag=d50decp28 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 28
+    },
+    {
+      "pid": 332385,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp21",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332385 127.0.0.1 GET 500 n=6000000&tag=d50decp21 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 21
+    },
+    {
+      "pid": 332414,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp45",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332414 127.0.0.1 GET 500 n=6000000&tag=d50decp45 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 45
+    },
+    {
+      "pid": 332353,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp2",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332353 127.0.0.1 GET 500 n=6000000&tag=d50decp2 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 2
+    },
+    {
+      "pid": 332393,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp29",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332393 127.0.0.1 GET 500 n=6000000&tag=d50decp29 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 29
+    },
+    {
+      "pid": 332371,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp18",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332371 127.0.0.1 GET 500 n=6000000&tag=d50decp18 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 18
+    },
+    {
+      "pid": 332402,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp41",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332402 127.0.0.1 GET 500 n=6000000&tag=d50decp41 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 41
+    },
+    {
+      "pid": 332394,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp31",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332394 127.0.0.1 GET 500 n=6000000&tag=d50decp31 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 31
+    },
+    {
+      "pid": 332368,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp15",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332368 127.0.0.1 GET 500 n=6000000&tag=d50decp15 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 15
+    },
+    {
+      "pid": 332399,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp32",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332399 127.0.0.1 GET 500 n=6000000&tag=d50decp32 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 32
+    },
+    {
+      "pid": 332400,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp37",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332400 127.0.0.1 GET 500 n=6000000&tag=d50decp37 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 37
+    },
+    {
+      "pid": 332407,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp46",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332407 127.0.0.1 GET 500 n=6000000&tag=d50decp46 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 46
+    },
+    {
+      "pid": 332404,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp39",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332404 127.0.0.1 GET 500 n=6000000&tag=d50decp39 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 39
+    },
+    {
+      "pid": 332369,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp16",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332369 127.0.0.1 GET 500 n=6000000&tag=d50decp16 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 16
+    },
+    {
+      "pid": 332367,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp12",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332367 127.0.0.1 GET 500 n=6000000&tag=d50decp12 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 12
+    },
+    {
+      "pid": 332372,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp19",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332372 127.0.0.1 GET 500 n=6000000&tag=d50decp19 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 19
+    },
+    {
+      "pid": 332403,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp43",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332403 127.0.0.1 GET 500 n=6000000&tag=d50decp43 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 43
+    },
+    {
+      "pid": 332366,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp7",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332366 127.0.0.1 GET 500 n=6000000&tag=d50decp7 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 7
+    },
+    {
+      "pid": 332359,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp11",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332359 127.0.0.1 GET 500 n=6000000&tag=d50decp11 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 11
+    },
+    {
+      "pid": 332379,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp24",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332379 127.0.0.1 GET 500 n=6000000&tag=d50decp24 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 24
+    },
+    {
+      "pid": 332398,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=6000000&tag=d50decp40",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "332398 127.0.0.1 GET 500 n=6000000&tag=d50decp40 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 40
+    }
+  ],
+  "primed_pids": [
+    332351,
+    332352,
+    332353,
+    332354,
+    332356,
+    332357,
+    332358,
+    332359,
+    332361,
+    332366,
+    332367,
+    332368,
+    332369,
+    332370,
+    332371,
+    332372,
+    332373,
+    332375,
+    332376,
+    332378,
+    332379,
+    332382,
+    332383,
+    332384,
+    332385,
+    332386,
+    332387,
+    332390,
+    332391,
+    332392,
+    332393,
+    332394,
+    332395,
+    332397,
+    332398,
+    332399,
+    332400,
+    332401,
+    332402,
+    332403,
+    332404,
+    332407,
+    332409,
+    332414,
+    332417,
+    332418
+  ],
+  "primed_distinct": 46,
+  "consumer_responses": [
+    {
+      "status": 200,
+      "len": 48,
+      "body": "CONSUMER PID=332388 STATUS=1 SID= SESSION=[\"p\"]\n",
+      "dt": 0.015,
+      "i": 0,
+      "sid": "md50dec-0"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.002,
+      "i": 1,
+      "sid": "md50dec-1"
+    },
+    {
+      "status": 200,
+      "len": 48,
+      "body": "CONSUMER PID=332396 STATUS=1 SID= SESSION=[\"p\"]\n",
+      "dt": 0.002,
+      "i": 2,
+      "sid": "md50dec-2"
+    },
+    {
+      "status": 200,
+      "len": 48,
+      "body": "CONSUMER PID=332408 STATUS=1 SID= SESSION=[\"p\"]\n",
+      "dt": 0.002,
+      "i": 3,
+      "sid": "md50dec-3"
+    },
+    {
+      "status": 200,
+      "len": 48,
+      "body": "CONSUMER PID=332410 STATUS=1 SID= SESSION=[\"p\"]\n",
+      "dt": 0.003,
+      "i": 4,
+      "sid": "md50dec-4"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.002,
+      "i": 5,
+      "sid": "md50dec-5"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.002,
+      "i": 6,
+      "sid": "md50dec-6"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.002,
+      "i": 7,
+      "sid": "md50dec-7"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.003,
+      "i": 8,
+      "sid": "md50dec-8"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.004,
+      "i": 9,
+      "sid": "md50dec-9"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.003,
+      "i": 10,
+      "sid": "md50dec-10"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.003,
+      "i": 11,
+      "sid": "md50dec-11"
+    },
+    {
+      "status": 200,
+      "len": 48,
+      "body": "CONSUMER PID=332935 STATUS=1 SID= SESSION=[\"p\"]\n",
+      "dt": 0.012,
+      "i": 12,
+      "sid": "md50dec-12"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.004,
+      "i": 13,
+      "sid": "md50dec-13"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.004,
+      "i": 14,
+      "sid": "md50dec-14"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.003,
+      "i": 15,
+      "sid": "md50dec-15"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.005,
+      "i": 16,
+      "sid": "md50dec-16"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.004,
+      "i": 17,
+      "sid": "md50dec-17"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.004,
+      "i": 18,
+      "sid": "md50dec-18"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.004,
+      "i": 19,
+      "sid": "md50dec-19"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.004,
+      "i": 20,
+      "sid": "md50dec-20"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.003,
+      "i": 21,
+      "sid": "md50dec-21"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.004,
+      "i": 22,
+      "sid": "md50dec-22"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.005,
+      "i": 23,
+      "sid": "md50dec-23"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.005,
+      "i": 24,
+      "sid": "md50dec-24"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.008,
+      "i": 25,
+      "sid": "md50dec-25"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.004,
+      "i": 26,
+      "sid": "md50dec-26"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.005,
+      "i": 27,
+      "sid": "md50dec-27"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.003,
+      "i": 28,
+      "sid": "md50dec-28"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.003,
+      "i": 29,
+      "sid": "md50dec-29"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.008,
+      "i": 30,
+      "sid": "md50dec-30"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.006,
+      "i": 31,
+      "sid": "md50dec-31"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.006,
+      "i": 32,
+      "sid": "md50dec-32"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.006,
+      "i": 33,
+      "sid": "md50dec-33"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.005,
+      "i": 34,
+      "sid": "md50dec-34"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.007,
+      "i": 35,
+      "sid": "md50dec-35"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.007,
+      "i": 36,
+      "sid": "md50dec-36"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.003,
+      "i": 37,
+      "sid": "md50dec-37"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.007,
+      "i": 38,
+      "sid": "md50dec-38"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.009,
+      "i": 39,
+      "sid": "md50dec-39"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.006,
+      "i": 40,
+      "sid": "md50dec-40"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.006,
+      "i": 41,
+      "sid": "md50dec-41"
+    },
+    {
+      "status": 200,
+      "len": 48,
+      "body": "CONSUMER PID=332976 STATUS=1 SID= SESSION=[\"p\"]\n",
+      "dt": 0.007,
+      "i": 42,
+      "sid": "md50dec-42"
+    },
+    {
+      "status": 200,
+      "len": 48,
+      "body": "CONSUMER PID=332935 STATUS=1 SID= SESSION=[\"p\"]\n",
+      "dt": 0.005,
+      "i": 43,
+      "sid": "md50dec-43"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.006,
+      "i": 44,
+      "sid": "md50dec-44"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.006,
+      "i": 45,
+      "sid": "md50dec-45"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.006,
+      "i": 46,
+      "sid": "md50dec-46"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.005,
+      "i": 47,
+      "sid": "md50dec-47"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.002,
+      "i": 48,
+      "sid": "md50dec-48"
+    },
+    {
+      "status": 200,
+      "len": 48,
+      "body": "CONSUMER PID=332977 STATUS=1 SID= SESSION=[\"p\"]\n",
+      "dt": 0.006,
+      "i": 49,
+      "sid": "md50dec-49"
+    }
+  ],
+  "consumer_wall": 0.019,
+  "consumer_rows": [
+    {
+      "pid": 332408,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=d50decc3",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "332408 127.0.0.1 POST 200 tag=d50decc3 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "i": 3
+    },
+    {
+      "pid": 332396,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=d50decc2",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "332396 127.0.0.1 POST 200 tag=d50decc2 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "i": 2
+    },
+    {
+      "pid": 332410,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=d50decc4",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "332410 127.0.0.1 POST 200 tag=d50decc4 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "i": 4
+    },
+    {
+      "pid": 332935,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=d50decc12",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "332935 127.0.0.1 POST 200 tag=d50decc12 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "i": 12
+    },
+    {
+      "pid": 332388,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=d50decc0",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "332388 127.0.0.1 POST 200 tag=d50decc0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "i": 0
+    },
+    {
+      "pid": 332935,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=d50decc43",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "332935 127.0.0.1 POST 200 tag=d50decc43 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "i": 43
+    },
+    {
+      "pid": 332977,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=d50decc49",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "332977 127.0.0.1 POST 200 tag=d50decc49 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "i": 49
+    },
+    {
+      "pid": 332976,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=d50decc42",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "332976 127.0.0.1 POST 200 tag=d50decc42 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "i": 42
+    }
+  ],
+  "crashed_pids": [
+    332351,
+    332352,
+    332353,
+    332354,
+    332356,
+    332357,
+    332358,
+    332359,
+    332361,
+    332368,
+    332369,
+    332370,
+    332371,
+    332372,
+    332373,
+    332375,
+    332376,
+    332378,
+    332379,
+    332382,
+    332383,
+    332384,
+    332385,
+    332386,
+    332387,
+    332390,
+    332391,
+    332392,
+    332393,
+    332394,
+    332395,
+    332397,
+    332398,
+    332399,
+    332400,
+    332401,
+    332402,
+    332403,
+    332404,
+    332409,
+    332414,
+    332418
+  ],
+  "crashed_on_primed": [
+    332351,
+    332352,
+    332353,
+    332354,
+    332356,
+    332357,
+    332358,
+    332359,
+    332361,
+    332368,
+    332369,
+    332370,
+    332371,
+    332372,
+    332373,
+    332375,
+    332376,
+    332378,
+    332379,
+    332382,
+    332383,
+    332384,
+    332385,
+    332386,
+    332387,
+    332390,
+    332391,
+    332392,
+    332393,
+    332394,
+    332395,
+    332397,
+    332398,
+    332399,
+    332400,
+    332401,
+    332402,
+    332403,
+    332404,
+    332409,
+    332414,
+    332418
+  ],
+  "crashed_not_primed": [],
+  "nginx_consumer_rows": [
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc2",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc2 HTTP/1.1\" 200 59 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc1",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc1 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc3",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc3 HTTP/1.1\" 200 59 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc5",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc5 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc4",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc4 HTTP/1.1\" 200 59 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc6",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc6 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc7",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc7 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc8",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc8 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc11",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc11 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc10",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc10 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc9",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc9 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc14",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc14 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc15",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc15 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc17",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc17 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc16",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc16 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc13",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc13 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc19",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc19 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc21",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc21 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc18",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc18 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc20",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc20 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc29",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc29 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc22",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc22 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc24",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc24 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc26",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc26 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc28",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc28 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc23",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc23 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc27",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc27 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc25",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc25 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc37",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc37 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc30",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc30 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc34",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc34 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc0",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc0 HTTP/1.1\" 200 59 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc35",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc35 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc31",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc31 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc12",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc12 HTTP/1.1\" 200 59 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc40",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc40 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc32",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc32 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc41",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc41 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc43",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc43 HTTP/1.1\" 200 59 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc33",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc33 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc38",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc38 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc36",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc36 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc48",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc48 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc47",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc47 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc44",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc44 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc46",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc46 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc49",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc49 HTTP/1.1\" 200 59 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc45",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc45 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc42",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc42 HTTP/1.1\" 200 59 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d50decc39",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:43:11 +0200] \"POST /consumer.php?tag=d50decc39 HTTP/1.1\" 502 157 \"-\" \"-\""
+    }
+  ],
+  "nginx_502": 42,
+  "nginx_200": 8,
+  "consumer_survivor_pids": [
+    332388,
+    332396,
+    332408,
+    332410,
+    332935,
+    332976,
+    332977
+  ],
+  "survivors_on_primed": [],
+  "verdict": {
+    "all_primed_crashed": false,
+    "any_cross_worker_crash": false,
+    "missing_primed_crashes": [
+      332366,
+      332367,
+      332407,
+      332417
+    ]
+  }
+}

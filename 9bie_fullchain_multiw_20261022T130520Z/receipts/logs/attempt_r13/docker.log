@@ -1,0 +1,3 @@
+[Thu Oct 22 13:37:06.365568 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:40404] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+zend_mm_heap corrupted
+[Thu Oct 22 13:37:06.880371 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 19 exit signal Abort (6)

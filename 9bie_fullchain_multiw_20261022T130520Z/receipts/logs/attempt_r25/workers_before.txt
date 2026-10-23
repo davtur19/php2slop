@@ -1,0 +1,5 @@
+=== attempt 25 mode=restart start=2026-10-22T13:31:16Z ===
+--- workers before ---
+PID                 PPID                USER                RSS                 COMMAND
+4007461             4007438             root                28896               apache2 -DFOREGROUND
+4007562             4007461             www-data            13920               apache2 -DFOREGROUND

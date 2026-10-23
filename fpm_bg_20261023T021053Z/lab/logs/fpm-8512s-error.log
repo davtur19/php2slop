@@ -1,0 +1,7 @@
+[23-Oct-2026 04:19:20] NOTICE: fpm is running, pid 2778792
+[23-Oct-2026 04:19:20] NOTICE: ready to handle connections
+[23-Oct-2026 04:43:54] WARNING: [pool www] child 2778794 said into stderr: "Hard memory limit of 268435456 bytes exhausted (tried to allocate 132124672 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php on line 8"
+[23-Oct-2026 04:43:54] WARNING: [pool www] child 2778794 exited with code 137 after 1473.718162 seconds from start
+[23-Oct-2026 04:43:54] NOTICE: [pool www] child 2881791 started
+[23-Oct-2026 05:26:12] NOTICE: Terminating ...
+[23-Oct-2026 05:26:12] NOTICE: exiting, bye-bye!

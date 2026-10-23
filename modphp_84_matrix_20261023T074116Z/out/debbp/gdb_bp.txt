@@ -1,0 +1,19 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f45e2e813a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: BFD: /usr/lib/debug/.build-id/a5/3126ca5ef3f1c12e9bd48cf7cccd63698fc818.debug: unable to get decompressed section .debug_gdb_scripts
+warning: Couldn't read .debug_gdb_scripts section of /usr/lib/debug/.build-id/a5/3126ca5ef3f1c12e9bd48cf7cccd63698fc818.debug
+Breakpoint 1 at 0x7f45e2adbff0: file ./Zend/zend_variables.c, line 83.
+HIT zval=0x7f45e2c6d708 type=0x10a value=0x7f45e167d6e0
+REF rc=2 type=0x1a ptr=0x7f45e1659268 valtype=0x307
+MEM at value[:64]: 020000001a000000689265e1457f000007030000000000000e48279754c17f9e0100000016000000000000000000000080010000000000005353535353535353
+#0  zval_ptr_dtor (zval_ptr=0x7f45e2c6d708 <ps_globals+360>) at ./Zend/zend_variables.c:83
+#1  0x00007f45e28a799f in php_session_track_init () at ./ext/session/session.c:244
+#2  0x00007f45e28ad528 in php_session_initialize () at ./ext/session/session.c:479
+#3  0x00007f45e28af525 in php_session_rfc1867_cleanup (progress=0x7f45e1662000) at ./ext/session/session.c:3202
+#4  php_session_rfc1867_callback (event=<optimized out>, event_data=0x7ffe3bae73b0, extra=<optimized out>) at ./ext/session/session.c:3366
+#5  0x00007f45e297f3aa in rfc1867_post_handler (content_type_dup=<optimized out>, arg=<optimized out>) at ./main/rfc1867.c:1273
+
+Breakpoint 1, zval_ptr_dtor (zval_ptr=0x7f45e2c6d708 <ps_globals+360>) at ./Zend/zend_variables.c:83
+warning: 83	./Zend/zend_variables.c: No such file or directory
+[Inferior 1 (process 10) detached]

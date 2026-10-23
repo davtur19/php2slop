@@ -1,0 +1,103 @@
+2026/10/23 11:01:04 [notice] 596595#0: using the "epoll" event method
+2026/10/23 11:01:04 [notice] 596595#0: nginx/1.30.1
+2026/10/23 11:01:04 [notice] 596595#0: built by gcc 14.2.0 (Debian 14.2.0-19) 
+2026/10/23 11:01:04 [notice] 596595#0: OS: Linux 6.12.113+deb13-amd64
+2026/10/23 11:01:04 [notice] 596595#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/10/23 11:01:04 [notice] 596604#0: start worker processes
+2026/10/23 11:01:04 [notice] 596604#0: start worker process 596605
+2026/10/23 11:01:04 [info] 596605#0: *1 client closed connection while waiting for request, client: 127.0.0.1, server: 127.0.0.1:19811
+2026/10/23 11:01:05 [error] 596605#0: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: _, request: "GET /probe.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19810", host: "127.0.0.1:19811"
+2026/10/23 11:01:05 [info] 596605#0: *2 client 127.0.0.1 closed keepalive connection
+2026/10/23 11:01:55 [notice] 596604#0: signal 15 (SIGTERM) received from 623910, exiting
+2026/10/23 11:01:55 [notice] 596605#0: exiting
+2026/10/23 11:01:55 [notice] 596605#0: exit
+2026/10/23 11:01:55 [notice] 596604#0: signal 17 (SIGCHLD) received from 596605
+2026/10/23 11:01:55 [notice] 596604#0: worker process 596605 exited with code 0
+2026/10/23 11:01:55 [notice] 596604#0: exit
+2026/10/23 11:01:55 [notice] 624145#0: using the "epoll" event method
+2026/10/23 11:01:55 [notice] 624145#0: nginx/1.30.1
+2026/10/23 11:01:55 [notice] 624145#0: built by gcc 14.2.0 (Debian 14.2.0-19) 
+2026/10/23 11:01:55 [notice] 624145#0: OS: Linux 6.12.113+deb13-amd64
+2026/10/23 11:01:55 [notice] 624145#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/10/23 11:01:55 [notice] 624147#0: start worker processes
+2026/10/23 11:01:55 [info] 624148#0: *1 client closed connection while waiting for request, client: 127.0.0.1, server: 127.0.0.1:19811
+2026/10/23 11:01:55 [notice] 624147#0: start worker process 624148
+2026/10/23 11:01:56 [info] 624148#0: *2 client 127.0.0.1 closed keepalive connection
+2026/10/23 11:02:02 [notice] 624147#0: signal 15 (SIGTERM) received from 627793, exiting
+2026/10/23 11:02:02 [notice] 624148#0: exiting
+2026/10/23 11:02:02 [notice] 624148#0: exit
+2026/10/23 11:02:02 [notice] 624147#0: signal 17 (SIGCHLD) received from 624148
+2026/10/23 11:02:02 [notice] 624147#0: worker process 624148 exited with code 0
+2026/10/23 11:02:02 [notice] 624147#0: exit
+2026/10/23 11:02:02 [notice] 628011#0: using the "epoll" event method
+2026/10/23 11:02:02 [notice] 628011#0: nginx/1.30.1
+2026/10/23 11:02:02 [notice] 628011#0: built by gcc 14.2.0 (Debian 14.2.0-19) 
+2026/10/23 11:02:02 [notice] 628011#0: OS: Linux 6.12.113+deb13-amd64
+2026/10/23 11:02:02 [notice] 628011#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/10/23 11:02:02 [notice] 628013#0: start worker processes
+2026/10/23 11:02:02 [notice] 628013#0: start worker process 628015
+2026/10/23 11:02:02 [info] 628015#0: *1 client closed connection while waiting for request, client: 127.0.0.1, server: 127.0.0.1:19811
+2026/10/23 11:02:03 [info] 628015#0: *2 client 127.0.0.1 closed keepalive connection
+2026/10/23 11:02:03 [info] 628015#0: *4 client 127.0.0.1 closed keepalive connection
+2026/10/23 11:02:15 [notice] 628013#0: signal 15 (SIGTERM) received from 634953, exiting
+2026/10/23 11:02:15 [notice] 628015#0: exiting
+2026/10/23 11:02:15 [notice] 628015#0: exit
+2026/10/23 11:02:15 [notice] 628013#0: signal 17 (SIGCHLD) received from 628015
+2026/10/23 11:02:15 [notice] 628013#0: worker process 628015 exited with code 0
+2026/10/23 11:02:15 [notice] 628013#0: exit
+2026/10/23 11:02:15 [notice] 635182#0: using the "epoll" event method
+2026/10/23 11:02:15 [notice] 635182#0: nginx/1.30.1
+2026/10/23 11:02:15 [notice] 635182#0: built by gcc 14.2.0 (Debian 14.2.0-19) 
+2026/10/23 11:02:15 [notice] 635182#0: OS: Linux 6.12.113+deb13-amd64
+2026/10/23 11:02:15 [notice] 635182#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/10/23 11:02:15 [notice] 635184#0: start worker processes
+2026/10/23 11:02:15 [notice] 635184#0: start worker process 635185
+2026/10/23 11:02:15 [info] 635185#0: *1 client closed connection while waiting for request, client: 127.0.0.1, server: 127.0.0.1:19811
+2026/10/23 11:02:16 [info] 635185#0: *2 client 127.0.0.1 closed keepalive connection
+2026/10/23 11:02:28 [notice] 635184#0: signal 15 (SIGTERM) received from 643126, exiting
+2026/10/23 11:02:28 [notice] 635185#0: exiting
+2026/10/23 11:02:28 [notice] 635185#0: exit
+2026/10/23 11:02:28 [notice] 635184#0: signal 17 (SIGCHLD) received from 635185
+2026/10/23 11:02:28 [notice] 635184#0: worker process 635185 exited with code 0
+2026/10/23 11:02:28 [notice] 635184#0: exit
+2026/10/23 11:02:28 [notice] 643357#0: using the "epoll" event method
+2026/10/23 11:02:28 [notice] 643357#0: nginx/1.30.1
+2026/10/23 11:02:28 [notice] 643357#0: built by gcc 14.2.0 (Debian 14.2.0-19) 
+2026/10/23 11:02:28 [notice] 643357#0: OS: Linux 6.12.113+deb13-amd64
+2026/10/23 11:02:28 [notice] 643357#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/10/23 11:02:28 [notice] 643360#0: start worker processes
+2026/10/23 11:02:28 [notice] 643360#0: start worker process 643361
+2026/10/23 11:02:28 [info] 643361#0: *1 client closed connection while waiting for request, client: 127.0.0.1, server: 127.0.0.1:19811
+2026/10/23 11:02:30 [info] 643361#0: *2 client 127.0.0.1 closed keepalive connection
+2026/10/23 11:02:30 [info] 643361#0: *4 client 127.0.0.1 closed keepalive connection
+2026/10/23 11:02:30 [info] 643361#0: *6 client 127.0.0.1 closed keepalive connection
+2026/10/23 11:03:05 [info] 643361#0: *11 epoll_wait() reported that client prematurely closed connection, so upstream connection is closed too while sending request to upstream, client: 127.0.0.1, server: _, request: "GET /slow.php?s=6 HTTP/1.1", upstream: "fastcgi://127.0.0.1:19810", host: "127.0.0.1:19811"
+2026/10/23 11:05:15 [info] 643361#0: *22 client 127.0.0.1 closed keepalive connection
+2026/10/23 11:05:15 [info] 643361#0: *24 client 127.0.0.1 closed keepalive connection
+2026/10/23 11:05:44 [warn] 643361#0: *28 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19810/client_temp/0000000001, client: 127.0.0.1, server: _, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:19811"
+2026/10/23 11:06:37 [warn] 643361#0: *36 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19810/client_temp/0000000002, client: 127.0.0.1, server: _, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:19812"
+2026/10/23 11:09:26 [warn] 643361#0: *40 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19810/client_temp/0000000003, client: 127.0.0.1, server: _, request: "POST /peak.php HTTP/1.1", host: "127.0.0.1:19811"
+2026/10/23 11:09:26 [warn] 643361#0: *42 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19810/client_temp/0000000004, client: 127.0.0.1, server: _, request: "POST /peak.php HTTP/1.1", host: "127.0.0.1:19811"
+2026/10/23 11:09:27 [warn] 643361#0: *44 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19810/client_temp/0000000005, client: 127.0.0.1, server: _, request: "POST /peak.php HTTP/1.1", host: "127.0.0.1:19811"
+2026/10/23 11:09:44 [warn] 643361#0: *46 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19810/client_temp/0000000006, client: 127.0.0.1, server: _, request: "POST /peak.php HTTP/1.1", host: "127.0.0.1:19811"
+2026/10/23 11:09:44 [warn] 643361#0: *48 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19810/client_temp/0000000007, client: 127.0.0.1, server: _, request: "POST /peak.php HTTP/1.1", host: "127.0.0.1:19811"
+2026/10/23 11:09:45 [warn] 643361#0: *50 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19810/client_temp/0000000008, client: 127.0.0.1, server: _, request: "POST /peak.php HTTP/1.1", host: "127.0.0.1:19811"
+2026/10/23 11:09:55 [warn] 643361#0: *52 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19810/client_temp/0000000009, client: 127.0.0.1, server: _, request: "POST /peak.php HTTP/1.1", host: "127.0.0.1:19811"
+2026/10/23 11:15:17 [error] 643361#0: *56 client intended to send too large body: 4401618 bytes, client: 127.0.0.1, server: _, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:19811"
+2026/10/23 11:15:17 [warn] 643361#0: *57 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19810/client_temp/0000000010, client: 127.0.0.1, server: _, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:19812"
+2026/10/23 11:15:17 [error] 643361#0: *57 upstream sent unexpected FastCGI record: 3 while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /index.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19810", host: "127.0.0.1:19812"
+2026/10/23 11:18:44 [error] 643361#0: *95 upstream prematurely closed connection while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19810", host: "127.0.0.1:19811"
+2026/10/23 11:19:24 [error] 643361#0: *111 upstream prematurely closed connection while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19810", host: "127.0.0.1:19811"
+2026/10/23 11:19:25 [error] 643361#0: *115 upstream prematurely closed connection while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19810", host: "127.0.0.1:19811"
+2026/10/23 11:19:25 [error] 643361#0: *119 upstream prematurely closed connection while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19810", host: "127.0.0.1:19811"
+2026/10/23 11:20:02 [error] 643361#0: *135 upstream prematurely closed connection while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19810", host: "127.0.0.1:19811"
+2026/10/23 11:20:02 [error] 643361#0: *143 upstream prematurely closed connection while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19810", host: "127.0.0.1:19811"
+2026/10/23 11:20:03 [error] 643361#0: *151 upstream prematurely closed connection while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19810", host: "127.0.0.1:19811"
+2026/10/23 11:29:38 [error] 643361#0: *169 upstream prematurely closed connection while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19810", host: "127.0.0.1:19811"
+2026/10/23 11:29:38 [error] 643361#0: *177 upstream prematurely closed connection while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19810", host: "127.0.0.1:19811"
+2026/10/23 11:37:34 [notice] 643360#0: signal 15 (SIGTERM) received from 1690480, exiting
+2026/10/23 11:37:34 [notice] 643361#0: exiting
+2026/10/23 11:37:34 [notice] 643361#0: exit
+2026/10/23 11:37:34 [notice] 643360#0: signal 17 (SIGCHLD) received from 643361
+2026/10/23 11:37:34 [notice] 643360#0: worker process 643361 exited with code 0
+2026/10/23 11:37:34 [notice] 643360#0: exit

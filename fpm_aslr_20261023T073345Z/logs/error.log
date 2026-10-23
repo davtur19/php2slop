@@ -1,0 +1,5 @@
+2026/10/23 09:34:19 [emerg] 3082598#0: open() "/tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/conf/fastcgi_params" failed (2: No such file or directory) in /tmp/opencode/research/fpm_aslr_20261023T073345Z/conf/nginx.conf:22
+2026/10/23 09:34:22 [emerg] 3082631#0: open() "/tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/conf/fastcgi_params" failed (2: No such file or directory) in /tmp/opencode/research/fpm_aslr_20261023T073345Z/conf/nginx.conf:22
+2026/10/23 09:39:19 [notice] 3086266#0: signal process started
+2026/10/23 09:39:33 [notice] 3086381#0: signal process started
+2026/10/23 10:27:44 [notice] 249629#0: signal process started

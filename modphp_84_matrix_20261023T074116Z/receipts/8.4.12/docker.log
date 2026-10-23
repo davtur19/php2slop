@@ -1,0 +1,25 @@
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.11. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.11. Set the 'ServerName' directive globally to suppress this message
+[Fri Oct 23 08:37:03.690902 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.65 (Debian) PHP/8.4.12 configured -- resuming normal operations
+[Fri Oct 23 08:37:03.690921 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Oct 23 08:37:04.442307 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.11. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.11. Set the 'ServerName' directive globally to suppress this message
+[Fri Oct 23 08:37:05.806900 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.65 (Debian) PHP/8.4.12 configured -- resuming normal operations
+[Fri Oct 23 08:37:05.806920 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Oct 23 08:37:07.047273 2026] [php:error] [pid 17:tid 17] [client 172.17.0.1:48268] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+[Fri Oct 23 08:37:07.108730 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.11. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.11. Set the 'ServerName' directive globally to suppress this message
+[Fri Oct 23 08:37:08.493261 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.65 (Debian) PHP/8.4.12 configured -- resuming normal operations
+[Fri Oct 23 08:37:08.493284 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Oct 23 08:37:10.059822 2026] [php:error] [pid 18:tid 18] [client 172.17.0.1:38476] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+[Fri Oct 23 08:37:10.190577 2026] [php:warn] [pid 18:tid 18] [client 172.17.0.1:38510] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Fri Oct 23 08:37:10.190593 2026] [php:warn] [pid 18:tid 18] [client 172.17.0.1:38510] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: ) in Unknown on line 0
+[Fri Oct 23 08:37:10.190597 2026] [php:warn] [pid 18:tid 18] [client 172.17.0.1:38510] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct () in Unknown on line 0
+[Fri Oct 23 08:37:10.321734 2026] [php:error] [pid 18:tid 18] [client 172.17.0.1:38516] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+M84_8412_a
+[Fri Oct 23 08:37:13.282944 2026] [php:warn] [pid 18:tid 18] [client 172.17.0.1:38554] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Fri Oct 23 08:37:13.282954 2026] [php:warn] [pid 18:tid 18] [client 172.17.0.1:38554] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: ) in Unknown on line 0
+[Fri Oct 23 08:37:13.282958 2026] [php:warn] [pid 18:tid 18] [client 172.17.0.1:38554] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct () in Unknown on line 0

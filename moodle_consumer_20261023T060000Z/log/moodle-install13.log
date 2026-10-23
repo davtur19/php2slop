@@ -1,0 +1,68 @@
+
+Deprecated: The backtick (`) operator is deprecated, use shell_exec() instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/moodlelib.php on line 9130
+                                 .-..-.       
+   _____                         | || |       
+  /____/-.---_  .---.  .---.  .-.| || | .---. 
+  | |  _   _  |/  _  \/  _  \/  _  || |/  __ \
+  * | | | | | || |_| || |_| || |_| || || |___/
+    |_| |_| |_|\_____/\_____/\_____||_|\_____)
+
+Moodle 5.0.10+ (Build: 20261002) command line installation program
+-->System
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ install.xml: Success (1.22 seconds) ++
+
+Deprecated: Using null as an array offset is deprecated, use an empty string instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/dml/mysqli_native_moodle_database.php on line 1371
+
+Deprecated: Using null as an array offset is deprecated, use an empty string instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/dml/mysqli_native_moodle_database.php on line 1375
+
+Deprecated: Case statements followed by a semicolon (;) are deprecated, use a colon (:) instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/db/upgradelib.php on line 1092
+++ xmldb_main_install: Success (1.17 seconds) ++
+
+Warning: file_get_contents(/tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/yui/config/yui2.js): Failed to open stream: No such file or directory in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/classes/minify.php on line 73
+
+Warning: file_get_contents(/tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/yui/config/moodle.js): Failed to open stream: No such file or directory in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/classes/minify.php on line 73
+Default exception handler: Coding error detected, it must be fixed by a programmer: Attempt to require a JavaScript file that does not exist. Debug: /repository/filepicker.js
+Error code: codingerror
+* line 767 of /lib/classes/output/requirements/page_requirements_manager.php: core\exception\coding_exception thrown
+* line 931 of /lib/classes/output/requirements/page_requirements_manager.php: call to core\output\requirements\page_requirements_manager->js_fix_url()
+* line 288 of /lib/classes/output/requirements/page_requirements_manager.php: call to core\output\requirements\page_requirements_manager->js_module()
+* line 726 of /lib/pagelib.php: call to core\output\requirements\page_requirements_manager->__construct()
+* line 965 of /lib/pagelib.php: call to moodle_page->magic_get_requires()
+* line 106 of /lib/classes/output/renderer_base.php: call to moodle_page->__get()
+* line 166 of /lib/classes/output/renderer_base.php: call to core\output\renderer_base->get_mustache()
+* line 615 of /lib/classes/output/icon_system_fontawesome.php: call to core\output\renderer_base->render_from_template()
+* line 2016 of /lib/classes/output/core_renderer.php: call to core\output\icon_system_fontawesome->render_pix_icon()
+* line 242 of /lib/classes/output/renderer_base.php: call to core\output\core_renderer->render_pix_icon()
+* line 2005 of /lib/classes/output/core_renderer.php: call to core\output\renderer_base->render()
+* line 395 of /files/classes/redactor/services/exifremover_service.php: call to core\output\core_renderer->pix_icon()
+* line 40 of /admin/settings/fileredact.php: call to core_files\redactor\services\exifremover_service::add_settings()
+* line 8848 of /lib/adminlib.php: call to require()
+* line 8879 of /lib/adminlib.php: call to admin_get_root()
+* line 1826 of /lib/upgradelib.php: call to admin_apply_default_settings()
+* line 427 of /lib/installlib.php: call to install_core()
+* line 842 of /admin/cli/install.php: call to install_cli_database()
+
+!!! Coding error detected, it must be fixed by a programmer: Attempt to require a JavaScript file that does not exist. !!!
+!! /repository/filepicker.js
+Error code: codingerror !!
+!! Stack trace: * line 767 of /lib/classes/output/requirements/page_requirements_manager.php: core\exception\coding_exception thrown
+* line 931 of /lib/classes/output/requirements/page_requirements_manager.php: call to core\output\requirements\page_requirements_manager-&gt;js_fix_url()
+* line 288 of /lib/classes/output/requirements/page_requirements_manager.php: call to core\output\requirements\page_requirements_manager-&gt;js_module()
+* line 726 of /lib/pagelib.php: call to core\output\requirements\page_requirements_manager-&gt;__construct()
+* line 965 of /lib/pagelib.php: call to moodle_page-&gt;magic_get_requires()
+* line 106 of /lib/classes/output/renderer_base.php: call to moodle_page-&gt;__get()
+* line 166 of /lib/classes/output/renderer_base.php: call to core\output\renderer_base-&gt;get_mustache()
+* line 615 of /lib/classes/output/icon_system_fontawesome.php: call to core\output\renderer_base-&gt;render_from_template()
+* line 2016 of /lib/classes/output/core_renderer.php: call to core\output\icon_system_fontawesome-&gt;render_pix_icon()
+* line 242 of /lib/classes/output/renderer_base.php: call to core\output\core_renderer-&gt;render_pix_icon()
+* line 2005 of /lib/classes/output/core_renderer.php: call to core\output\renderer_base-&gt;render()
+* line 395 of /files/classes/redactor/services/exifremover_service.php: call to core\output\core_renderer-&gt;pix_icon()
+* line 40 of /admin/settings/fileredact.php: call to core_files\redactor\services\exifremover_service::add_settings()
+* line 8848 of /lib/adminlib.php: call to require()
+* line 8879 of /lib/adminlib.php: call to admin_get_root()
+* line 1826 of /lib/upgradelib.php: call to admin_apply_default_settings()
+* line 427 of /lib/installlib.php: call to install_core()
+* line 842 of /admin/cli/install.php: call to install_cli_database()
+ !!

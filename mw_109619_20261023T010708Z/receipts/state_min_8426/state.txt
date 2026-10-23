@@ -1,0 +1,11 @@
+== children ==
+    PID    PPID USER       RSS COMMAND
+      1       0 root     28536 apache2 -DFOREGROUND
+     17       1 www-data 14656 apache2 -DFOREGROUND
+     18       1 www-data 13848 apache2 -DFOREGROUND
+     19       1 www-data 78360 apache2 -DFOREGROUND
+     20       1 www-data  9396 apache2 -DFOREGROUND
+     21       1 www-data  9396 apache2 -DFOREGROUND
+== dump child 19 ==
+ptrace: Operation not permitted.
+== error log tail ==

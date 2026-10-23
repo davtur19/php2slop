@@ -1,0 +1,567 @@
+[23-Oct-2026 08:40:57 UTC] PRODUCER_OOM_START pid=313139
+[23-Oct-2026 08:40:57 UTC] PRODUCER_OOM_START pid=313137
+[23-Oct-2026 08:40:57 UTC] PRODUCER_OOM_START pid=313138
+[23-Oct-2026 08:40:57 UTC] PRODUCER_OOM_START pid=313140
+[23-Oct-2026 08:40:57 UTC] PRODUCER_OOM_START pid=313141
+[23-Oct-2026 08:40:57 UTC] PRODUCER_OOM_PAYLOAD pid=313137 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:40:57 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:40:57 UTC] PRODUCER_OOM_PAYLOAD pid=313140 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:40:57 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:40:57 UTC] PRODUCER_OOM_PAYLOAD pid=313139 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:40:57 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:40:57 UTC] PRODUCER_OOM_PAYLOAD pid=313141 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:40:57 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:40:57 UTC] PRODUCER_OOM_PAYLOAD pid=313138 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:40:57 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, "-", and "," characters are allowed in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:40:58 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_matrix) in Unknown on line 0
+[23-Oct-2026 08:42:20 UTC] PRODUCER_OOM_START pid=313137
+[23-Oct-2026 08:42:20 UTC] PRODUCER_OOM_START pid=313140
+[23-Oct-2026 08:42:20 UTC] PRODUCER_OOM_START pid=313141
+[23-Oct-2026 08:42:20 UTC] PRODUCER_OOM_START pid=313139
+[23-Oct-2026 08:42:20 UTC] PRODUCER_OOM_START pid=313138
+[23-Oct-2026 08:42:20 UTC] PRODUCER_OOM_PAYLOAD pid=313140 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:20 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:20 UTC] PRODUCER_OOM_PAYLOAD pid=313141 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:20 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:20 UTC] PRODUCER_OOM_PAYLOAD pid=313137 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:20 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:20 UTC] PRODUCER_OOM_PAYLOAD pid=313138 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:20 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:20 UTC] PRODUCER_OOM_PAYLOAD pid=313139 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:20 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:27 UTC] PRODUCER_SER_START pid=330048
+[23-Oct-2026 08:42:27 UTC] PRODUCER_SER_START pid=330049
+[23-Oct-2026 08:42:27 UTC] PRODUCER_SER_START pid=330050
+[23-Oct-2026 08:42:27 UTC] PRODUCER_SER_START pid=330051
+[23-Oct-2026 08:42:27 UTC] PRODUCER_SER_START pid=330052
+[23-Oct-2026 08:42:27 UTC] PRODUCER_SER_PRE pid=330049 n=300000 mem=10489856
+[23-Oct-2026 08:42:27 UTC] PRODUCER_SER_PRE pid=330051 n=300000 mem=10489856
+[23-Oct-2026 08:42:27 UTC] PRODUCER_SER_PRE pid=330050 n=300000 mem=10489856
+[23-Oct-2026 08:42:27 UTC] PRODUCER_SER_PRE pid=330052 n=300000 mem=10489856
+[23-Oct-2026 08:42:27 UTC] PRODUCER_SER_PRE pid=330048 n=300000 mem=10489856
+[23-Oct-2026 08:42:27 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php on line 8
+[23-Oct-2026 08:42:27 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php on line 8
+[23-Oct-2026 08:42:27 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php on line 8
+[23-Oct-2026 08:42:27 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php on line 8
+[23-Oct-2026 08:42:27 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php on line 8
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330754
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330757
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330755
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330756
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330760
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330762
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330759
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330765
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330758
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330761
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330763
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330753
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330766
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330772
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330764
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330768
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330767
+[23-Oct-2026 08:42:53 UTC] PRODUCER_OOM_START pid=330769
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_START pid=330770
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_START pid=330771
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330760 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330762 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330759 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330754 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330766 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330764 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330767 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330753 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330768 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330756 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330769 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330763 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330757 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330758 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330761 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330772 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330771 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330765 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330755 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:42:54 UTC] PRODUCER_OOM_PAYLOAD pid=330770 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:42:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:10 UTC] PRODUCER_OOM_START pid=332354
+[23-Oct-2026 08:43:10 UTC] PRODUCER_OOM_START pid=332353
+[23-Oct-2026 08:43:10 UTC] PRODUCER_OOM_START pid=332352
+[23-Oct-2026 08:43:10 UTC] PRODUCER_OOM_START pid=332357
+[23-Oct-2026 08:43:10 UTC] PRODUCER_OOM_START pid=332358
+[23-Oct-2026 08:43:10 UTC] PRODUCER_OOM_START pid=332361
+[23-Oct-2026 08:43:10 UTC] PRODUCER_OOM_START pid=332370
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332366
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332356
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332373
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332376
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332367
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332378
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332368
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332375
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332359
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332369
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332371
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332383
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332384
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332372
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332385
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332379
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332386
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332390
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332382
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332352 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332392
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332370 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332376 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332387
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332393
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332391
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332376
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332394
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332395
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332352
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332397
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332358 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332358
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332399
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332401
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332400
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332398
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332404
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332376 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332402
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332376
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332403
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332409
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332414
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332407
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332418
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332351
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332356 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_START pid=332417
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332354 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332392 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332352 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332395 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332351 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332361 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332375 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332401 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332391 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332397 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332417 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332384 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332376 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332418 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332378 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332357 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332382 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332373 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332383 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332409 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332358 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332386 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332390 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332387 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332385 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332394 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332414 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332353 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332393 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332371 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332402 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332368 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332399 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332367 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332400 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332407 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332372 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332366 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332404 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332369 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332359 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332403 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332379 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:43:11 UTC] PRODUCER_OOM_PAYLOAD pid=332398 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:43:11 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:01 UTC] PRODUCER_OOM_START pid=337641
+[23-Oct-2026 08:45:01 UTC] PRODUCER_OOM_START pid=337642
+[23-Oct-2026 08:45:01 UTC] PRODUCER_OOM_START pid=337643
+[23-Oct-2026 08:45:01 UTC] PRODUCER_OOM_START pid=337644
+[23-Oct-2026 08:45:01 UTC] PRODUCER_OOM_START pid=337640
+[23-Oct-2026 08:45:01 UTC] PRODUCER_OOM_PAYLOAD pid=337644 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:01 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:01 UTC] PRODUCER_OOM_PAYLOAD pid=337642 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:01 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:01 UTC] PRODUCER_OOM_PAYLOAD pid=337643 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:01 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:01 UTC] PRODUCER_OOM_PAYLOAD pid=337640 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:01 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:01 UTC] PRODUCER_OOM_PAYLOAD pid=337641 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:01 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338080
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338081
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338082
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338083
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338084
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338085
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338086
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338087
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338088
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338090
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338089
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338091
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338092
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338093
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338096
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338094
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338095
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338097
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338079
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_START pid=338098
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338080 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338083 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338084 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338086 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338085 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338082 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338096 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338098 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338087 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338089 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338092 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338097 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338091 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338081 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338079 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338094 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338088 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338093 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338095 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:10 UTC] PRODUCER_OOM_PAYLOAD pid=338090 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:45:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339301
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339299
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339300
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339302
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339303
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339307
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339304
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339305
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339306
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339308
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339309
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339310
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339312
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339311
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339313
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339314
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_PAYLOAD pid=339300 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:31 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_PAYLOAD pid=339299 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:31 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_PAYLOAD pid=339307 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:31 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339300
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339318
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339307
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339319
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339315
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_PAYLOAD pid=339302 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:31 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339320
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339322
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339321
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339324
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339316
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339323
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_PAYLOAD pid=339305 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:31 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339325
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_PAYLOAD pid=339301 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:31 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339301
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339326
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339327
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339329
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_PAYLOAD pid=339318 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:31 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339333
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339330
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339328
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_PAYLOAD pid=339303 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:31 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_PAYLOAD pid=339307 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:31 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339331
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339335
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339338
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_PAYLOAD pid=339308 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:31 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339337
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339334
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_PAYLOAD pid=339300 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:31 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339339
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339340
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339303
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339341
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339344
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339342
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_PAYLOAD pid=339310 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:31 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339345
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339346
+[23-Oct-2026 08:45:31 UTC] PRODUCER_OOM_START pid=339298
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_START pid=339310
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339321 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339319 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339335 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339340 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339338 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339306 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339346 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339327 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339330 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339304 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339337 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339331 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339339 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339312 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339311 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339298 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339328 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339320 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339322 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339314 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339324 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339323 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339309 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339301 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339345 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339326 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339316 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339329 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339333 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339313 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339315 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339334 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339303 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339325 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339342 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339341 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339344 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:45:32 UTC] PRODUCER_OOM_PAYLOAD pid=339310 n=6000000 len=24000012 mem=26099712
+[23-Oct-2026 08:45:32 UTC] PHP Fatal error:  Allowed memory size of 67108864 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:47:28 UTC] PRODUCER_OOM_START pid=342842
+[23-Oct-2026 08:47:28 UTC] PRODUCER_OOM_PAYLOAD pid=342842 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:47:28 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:47:38 UTC] PRODUCER_SER_START pid=342843
+[23-Oct-2026 08:47:38 UTC] PRODUCER_SER_PRE pid=342843 n=300000 mem=10489856
+[23-Oct-2026 08:47:38 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php on line 8
+[23-Oct-2026 08:47:40 UTC] PRODUCER_OOM_START pid=342851
+[23-Oct-2026 08:47:40 UTC] PRODUCER_OOM_PAYLOAD pid=342851 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:47:40 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:53:40 UTC] T1_PRE pid=342974 mem=23072768 limit=32M
+[23-Oct-2026 08:53:40 UTC] T1_DTOR_START pid=342974 mem=23072768 limit=24M
+[23-Oct-2026 08:53:40 UTC] PHP Fatal error:  Allowed memory size of 25165824 bytes exhausted (tried to allocate 20975616 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/t1_producer.php on line 14
+[23-Oct-2026 08:53:52 UTC] PRODUCER_OOM_START pid=360679
+[23-Oct-2026 08:53:52 UTC] PRODUCER_OOM_START pid=360681
+[23-Oct-2026 08:53:52 UTC] PRODUCER_OOM_START pid=360680
+[23-Oct-2026 08:53:52 UTC] PRODUCER_OOM_START pid=360682
+[23-Oct-2026 08:53:52 UTC] PRODUCER_OOM_START pid=360678
+[23-Oct-2026 08:53:52 UTC] PRODUCER_OOM_PAYLOAD pid=360682 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:53:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:53:52 UTC] PRODUCER_OOM_PAYLOAD pid=360680 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:53:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:53:52 UTC] PRODUCER_OOM_PAYLOAD pid=360679 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:53:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:53:52 UTC] PRODUCER_OOM_PAYLOAD pid=360678 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:53:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+[23-Oct-2026 08:53:52 UTC] PRODUCER_OOM_PAYLOAD pid=360681 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:53:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7

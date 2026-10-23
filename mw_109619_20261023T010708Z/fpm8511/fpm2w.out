@@ -1,0 +1,2 @@
+[23-Oct-2026 04:24:20] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:24:20] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root

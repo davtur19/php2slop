@@ -1,0 +1,113 @@
+=== EVIDENCE: versions ===
+Fri Oct 23 09:24:00 AM UTC 2026
+host kernel: Linux opencode-vm 6.12.113+deb13-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.12.113-1 (2026-10-15) x86_64 GNU/Linux
+randomize_va_space: 2
+
+--- nginx container ---
+nginx version: nginx/1.14.2
+nginx 1.14.2-2+deb10u4
+nginx-common 1.14.2-2+deb10u4
+nginx-full 1.14.2-2+deb10u4
+
+--- php 7.3.9 container ---
+php7.3-calendar 
+php7.3-cli 7.3.9-1~deb10u1
+php7.3-common 7.3.9-1~deb10u1
+php7.3-ctype 
+php7.3-dom 
+php7.3-exif 
+php7.3-fileinfo 
+php7.3-fpm 7.3.9-1~deb10u1
+php7.3-ftp 
+php7.3-gettext 
+php7.3-iconv 
+php7.3-json 7.3.9-1~deb10u1
+php7.3-mbstring 7.3.9-1~deb10u1
+php7.3-mysql 7.3.9-1~deb10u1
+php7.3-mysqli 
+php7.3-mysqlnd 
+php7.3-opcache 7.3.9-1~deb10u1
+php7.3-pdo 
+php7.3-pdo-mysql 
+php7.3-pdo-sqlite 
+php7.3-phar 
+php7.3-posix 
+php7.3-readline 7.3.9-1~deb10u1
+php7.3-shmop 
+php7.3-simplexml 
+php7.3-sockets 
+php7.3-sqlite3 7.3.9-1~deb10u1
+php7.3-sysvmsg 
+php7.3-sysvsem 
+php7.3-sysvshm 
+php7.3-tokenizer 
+php7.3-wddx 
+php7.3-xml 7.3.9-1~deb10u1
+php7.3-xmlreader 
+php7.3-xmlwriter 
+php7.3-xsl 
+PHP 7.3.9-1~deb10u1 (cli) (built: Sep 18 2019 10:33:23) ( NTS )
+Copyright (c) 1997-2018 The PHP Group
+Zend Engine v3.3.9, Copyright (c) 1998-2018 Zend Technologies
+    with Zend OPcache v7.3.9-1~deb10u1, Copyright (c) 1999-2018, by Zend Technologies
+
+--- php 7.3.11 container ---
+php7.3-calendar 
+php7.3-cli 7.3.11-1~deb10u1
+php7.3-common 7.3.11-1~deb10u1
+php7.3-ctype 
+php7.3-dom 
+php7.3-exif 
+php7.3-fileinfo 
+php7.3-fpm 7.3.11-1~deb10u1
+php7.3-ftp 
+php7.3-gettext 
+php7.3-iconv 
+php7.3-json 7.3.11-1~deb10u1
+php7.3-mbstring 7.3.11-1~deb10u1
+php7.3-mysql 7.3.11-1~deb10u1
+php7.3-mysqli 
+php7.3-mysqlnd 
+php7.3-opcache 7.3.11-1~deb10u1
+php7.3-pdo 
+php7.3-pdo-mysql 
+php7.3-pdo-sqlite 
+php7.3-phar 
+php7.3-posix 
+php7.3-readline 7.3.11-1~deb10u1
+php7.3-shmop 
+php7.3-simplexml 
+php7.3-sockets 
+php7.3-sqlite3 7.3.11-1~deb10u1
+php7.3-sysvmsg 
+php7.3-sysvsem 
+php7.3-sysvshm 
+php7.3-tokenizer 
+php7.3-wddx 
+php7.3-xml 7.3.11-1~deb10u1
+php7.3-xmlreader 
+php7.3-xmlwriter 
+php7.3-xsl 
+PHP 7.3.11-1~deb10u1 (cli) (built: Oct 26 2019 14:14:18) ( NTS )
+Copyright (c) 1997-2018 The PHP Group
+Zend Engine v3.3.11, Copyright (c) 1998-2018 Zend Technologies
+    with Zend OPcache v7.3.11-1~deb10u1, Copyright (c) 1999-2018, by Zend Technologies
+
+--- upstream containers ---
+[t11043-fpm7310] PHP 7.3.10 (cli) (built: Oct 24 2019 01:39:20) ( NTS )
+[t11043-fpm7223] PHP 7.2.23 (cli) (built: Oct 24 2019 03:27:01) ( NTS )
+[t11043-fpm7224] PHP 7.2.24 (cli) (built: Oct 25 2019 04:29:43) ( NTS )
+[t11043-fpm8426] PHP 8.4.26 (cli) (built: Oct 21 2026 00:31:28) (NTS)
+
+--- image digests ---
+/t11043-nginx sha256:db016b3b986c01debe1be86e567d382976ebd8d7ac8eda655f509bb03e376d35
+/t11043-fpm739 sha256:bfa5c3cca696af50bae44cda65ceeba52643a5500b31f108829f782d3e324b59
+/t11043-fpm7311 sha256:93f09fda9e505ec6afb77d3e8b4f4b40c0db5ad9259952eca9ec02d5ec151689
+/t11043-fpm7310 sha256:447244af134898237592a1a6de3559be17179c1b0e54bb0c5223c546d720668d
+/t11043-fpm7223 sha256:1514e482b16ab6f9189b8659a0fa59807580c9ab91e92bfab4b104d992d6a51a
+/t11043-fpm7224 sha256:48432d192e1ad18daabf3c7ad31852801f9c24606b18bda6574c29db92ec3358
+/t11043-fpm8426 sha256:9f0837de65e3c405aca0d0c00a1a54d0fce759d2d08f2742387c1ed4a711283b
+/t11043-db sha256:823a099a93df6416c6c7ed33c79a2d43e92ffbd2ccc0e83973ef045f2dae1ac0
+
+--- db ---
+mariadb from 11.4.13-MariaDB, client 15.2 for debian-linux-gnu (x86_64) using  EditLine wrapper

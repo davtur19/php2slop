@@ -1,0 +1,2 @@
+791:; cgi.fix_pathinfo provides *real* PATH_INFO/PATH_TRANSLATED support for CGI.  PHP's
+798:;cgi.fix_pathinfo=1

@@ -1,0 +1,9 @@
+ext/pcre/pcre2lib/pcre2_substring.lo: \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/pcre2_substring.c \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/config.h \
+ /tmp/opencode/php-8.4.26/main/php_compat.h \
+ /tmp/opencode/research/fpm_bg_20261023T021053Z/build/sym8426/main/php_config.h \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/pcre2_internal.h \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/pcre2.h \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/pcre2_ucp.h \
+ /tmp/opencode/php-8.4.26/ext/pcre/pcre2lib/pcre2_intmodedep.h

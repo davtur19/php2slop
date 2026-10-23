@@ -1,0 +1,10 @@
+[23-Oct-2026 04:21:57] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:21:57] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:21:57] NOTICE: fpm is running, pid 2780761
+[23-Oct-2026 04:21:57] NOTICE: ready to handle connections
+[23-Oct-2026 04:22:04] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:22:04] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:22:04] ERROR: unable to bind listening socket for address '127.0.0.1:18851': Address already in use (98)
+[23-Oct-2026 04:22:04] ERROR: FPM initialization failed
+[23-Oct-2026 04:38:40] NOTICE: Terminating ...
+[23-Oct-2026 04:38:40] NOTICE: exiting, bye-bye!

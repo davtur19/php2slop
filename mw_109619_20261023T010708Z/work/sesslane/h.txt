@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Date: Fri, 23 Oct 2026 01:48:54 GMT
+Server: Apache/2.4.69 (Debian)
+X-Powered-By: PHP/8.4.26
+X-Content-Type-Options: nosniff
+Set-Cookie: my_wiki_session=gbv39ajp9piml2hb5bnfjg7lm09iqssn; path=/; HttpOnly
+Content-language: en
+X-Frame-Options: DENY
+Vary: Accept-Encoding,Cookie
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+X-Request-Id: bd4ba84acd1b36020e53256c
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+

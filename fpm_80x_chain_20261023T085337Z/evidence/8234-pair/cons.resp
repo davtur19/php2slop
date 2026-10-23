@@ -1,0 +1,17 @@
+HTTP/1.1 200 OK
+Server: nginx/1.30.1
+Date: Fri, 23 Oct 2026 09:13:11 GMT
+Content-Type: text/plain;charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+X-Powered-By: PHP/8.2.34
+Set-Cookie: PHPSESSID=d51f0afa7e86dceea5ace541fc309874; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+
+49
+CONSUMER PID=49 STATUS=2 SID=d51f0afa7e86dceea5ace541fc309874 SESSION=[]
+
+0
+

@@ -1,0 +1,47 @@
+2026/10/23 11:14:44 [notice] 1036953#0: using the "epoll" event method
+2026/10/23 11:14:44 [notice] 1036953#0: nginx/1.30.1
+2026/10/23 11:14:44 [notice] 1036953#0: built by gcc 14.2.0 (Debian 14.2.0-19) 
+2026/10/23 11:14:44 [notice] 1036953#0: OS: Linux 6.12.113+deb13-amd64
+2026/10/23 11:14:44 [notice] 1036953#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/10/23 11:14:44 [notice] 1036955#0: start worker processes
+2026/10/23 11:14:44 [notice] 1036955#0: start worker process 1036956
+2026/10/23 11:14:44 [info] 1036956#0: *1 client closed connection while waiting for request, client: 127.0.0.1, server: 127.0.0.1:19841
+2026/10/23 11:14:45 [info] 1036956#0: *2 client 127.0.0.1 closed keepalive connection
+2026/10/23 11:14:45 [warn] 1036956#0: *6 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19840/client_temp/0000000001, client: 127.0.0.1, server: _, request: "POST /peak.php HTTP/1.1", host: "127.0.0.1:19841"
+2026/10/23 11:14:45 [error] 1036956#0: *6 upstream sent unexpected FastCGI record: 3 while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /peak.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19840", host: "127.0.0.1:19841"
+2026/10/23 11:14:46 [warn] 1036956#0: *12 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19840/client_temp/0000000002, client: 127.0.0.1, server: _, request: "POST /peak.php HTTP/1.1", host: "127.0.0.1:19841"
+2026/10/23 11:14:46 [error] 1036956#0: *12 upstream sent unexpected FastCGI record: 3 while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /peak.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19840", host: "127.0.0.1:19841"
+2026/10/23 11:14:47 [warn] 1036956#0: *18 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19840/client_temp/0000000003, client: 127.0.0.1, server: _, request: "POST /peak.php HTTP/1.1", host: "127.0.0.1:19841"
+2026/10/23 11:14:47 [error] 1036956#0: *18 upstream sent unexpected FastCGI record: 3 while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /peak.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19840", host: "127.0.0.1:19841"
+2026/10/23 11:14:55 [error] 1036956#0: *22 client intended to send too large body: 1060211 bytes, client: 127.0.0.1, server: _, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:19841"
+2026/10/23 11:14:55 [warn] 1036956#0: *23 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19840/client_temp/0000000004, client: 127.0.0.1, server: _, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:19842"
+2026/10/23 11:14:55 [error] 1036956#0: *23 upstream sent unexpected FastCGI record: 3 while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /index.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19840", host: "127.0.0.1:19842"
+2026/10/23 11:14:55 [error] 1036956#0: *25 client intended to send too large body: 33128677 bytes, client: 127.0.0.1, server: _, request: "POST /probe.php HTTP/1.1", host: "127.0.0.1:19841"
+2026/10/23 11:14:55 [warn] 1036956#0: *26 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19840/client_temp/0000000005, client: 127.0.0.1, server: _, request: "POST /probe.php HTTP/1.1", host: "127.0.0.1:19842"
+2026/10/23 11:14:56 [warn] 1036956#0: *30 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19840/client_temp/0000000006, client: 127.0.0.1, server: _, request: "POST /probe.php HTTP/1.1", host: "127.0.0.1:19842"
+2026/10/23 11:15:04 [warn] 1036956#0: *42 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19840/client_temp/0000000007, client: 127.0.0.1, server: _, request: "POST /index.php HTTP/1.1", host: "127.0.0.1:19841"
+2026/10/23 11:15:05 [error] 1036956#0: *42 upstream sent unexpected FastCGI record: 3 while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /index.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19840", host: "127.0.0.1:19841"
+2026/10/23 11:15:30 [notice] 1036955#0: signal 15 (SIGTERM) received from 1057723, exiting
+2026/10/23 11:15:30 [notice] 1036956#0: exiting
+2026/10/23 11:15:30 [notice] 1036956#0: exit
+2026/10/23 11:15:30 [notice] 1036955#0: signal 17 (SIGCHLD) received from 1036956
+2026/10/23 11:15:30 [notice] 1036955#0: worker process 1036956 exited with code 0
+2026/10/23 11:15:30 [notice] 1036955#0: exit
+2026/10/23 11:22:04 [notice] 1275748#0: using the "epoll" event method
+2026/10/23 11:22:04 [notice] 1275748#0: nginx/1.30.1
+2026/10/23 11:22:04 [notice] 1275748#0: built by gcc 14.2.0 (Debian 14.2.0-19) 
+2026/10/23 11:22:04 [notice] 1275748#0: OS: Linux 6.12.113+deb13-amd64
+2026/10/23 11:22:04 [notice] 1275748#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/10/23 11:22:04 [notice] 1275751#0: start worker processes
+2026/10/23 11:22:04 [notice] 1275751#0: start worker process 1275752
+2026/10/23 11:22:04 [info] 1275752#0: *1 client closed connection while waiting for request, client: 127.0.0.1, server: 127.0.0.1:19841
+2026/10/23 11:26:07 [error] 1275752#0: *58 upstream prematurely closed connection while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19840", host: "127.0.0.1:19841"
+2026/10/23 11:26:07 [error] 1275752#0: *66 upstream prematurely closed connection while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19840", host: "127.0.0.1:19841"
+2026/10/23 11:26:07 [error] 1275752#0: *74 upstream prematurely closed connection while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19840", host: "127.0.0.1:19841"
+2026/10/23 11:26:08 [error] 1275752#0: *82 upstream prematurely closed connection while reading response header from upstream, client: 127.0.0.1, server: _, request: "POST /consumer.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:19840", host: "127.0.0.1:19841"
+2026/10/23 11:27:20 [notice] 1275751#0: signal 15 (SIGTERM) received from 1414617, exiting
+2026/10/23 11:27:20 [notice] 1275752#0: exiting
+2026/10/23 11:27:20 [notice] 1275752#0: exit
+2026/10/23 11:27:20 [notice] 1275751#0: signal 17 (SIGCHLD) received from 1275752
+2026/10/23 11:27:20 [notice] 1275751#0: worker process 1275752 exited with code 0
+2026/10/23 11:27:20 [notice] 1275751#0: exit

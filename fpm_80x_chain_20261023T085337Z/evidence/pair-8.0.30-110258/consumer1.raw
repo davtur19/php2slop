@@ -1,0 +1,14 @@
+------bgBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="PHPSESSID"
+
+s1
+------bgBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="PHP_SESSION_UPLOAD_PROGRESS"
+
+bgupload
+------bgBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="f"; filename="a.txt"
+Content-Type: text/plain
+
+A
+------bgBoundary7MA4YWxkTrZu0gW--

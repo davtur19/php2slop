@@ -1,0 +1,44 @@
+[23-Oct-2026 09:28:32] NOTICE: fpm is running, pid 1
+[23-Oct-2026 09:28:32] NOTICE: ready to handle connections
+NOTICE: PHP message: PRODUCER_OOM_START pid=23
+NOTICE: PHP message: PRODUCER_OOM_PAYLOAD pid=23 n=8000000 len=32000012 mem=34099200
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/www/producer_oom.php on line 7
+NOTICE: PHP message: PRODUCER_OOM_START pid=23
+NOTICE: PHP message: PRODUCER_OOM_PAYLOAD pid=23 n=8000000 len=32000012 mem=34099200
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/www/producer_oom.php on line 7
+[23-Oct-2026 09:28:41] WARNING: [pool www] child 23 exited on signal 11 (SIGSEGV) after 0.236296 seconds from start
+[23-Oct-2026 09:28:41] NOTICE: [pool www] child 31 started
+NOTICE: PHP message: PRODUCER_OOM_START pid=31
+NOTICE: PHP message: PRODUCER_OOM_PAYLOAD pid=31 n=8000000 len=32000012 mem=34099200
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/www/producer_oom.php on line 7
+NOTICE: PHP message: PRODUCER_OOM_START pid=31
+NOTICE: PHP message: PRODUCER_OOM_PAYLOAD pid=31 n=8000000 len=32000012 mem=34099200
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/www/producer_oom.php on line 7
+[23-Oct-2026 09:28:41] WARNING: [pool www] child 31 exited on signal 11 (SIGSEGV) after 0.297524 seconds from start
+[23-Oct-2026 09:28:41] NOTICE: [pool www] child 44 started
+NOTICE: PHP message: PRODUCER_OOM_START pid=44
+NOTICE: PHP message: PRODUCER_OOM_PAYLOAD pid=44 n=8000000 len=32000012 mem=34099200
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/www/producer_oom.php on line 7
+NOTICE: PHP message: PRODUCER_OOM_START pid=44
+NOTICE: PHP message: PRODUCER_OOM_PAYLOAD pid=44 n=8000000 len=32000012 mem=34099200
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/www/producer_oom.php on line 7
+[23-Oct-2026 09:28:41] WARNING: [pool www] child 44 exited on signal 11 (SIGSEGV) after 0.313444 seconds from start
+[23-Oct-2026 09:28:41] NOTICE: [pool www] child 57 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/www/producer_ser_oom.php on line 5
+[23-Oct-2026 09:28:42] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it
+[23-Oct-2026 09:28:42] WARNING: [pool www] child 57 exited on signal 11 (SIGSEGV) after 0.174596 seconds from start
+[23-Oct-2026 09:28:42] NOTICE: [pool www] child 64 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/www/producer_ser_oom.php on line 5
+[23-Oct-2026 09:28:42] WARNING: [pool www] child 64 exited on signal 11 (SIGSEGV) after 0.173706 seconds from start
+[23-Oct-2026 09:28:42] NOTICE: [pool www] child 71 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/www/producer_ser_oom.php on line 5
+[23-Oct-2026 09:28:42] WARNING: [pool www] child 71 exited on signal 11 (SIGSEGV) after 0.183653 seconds from start
+[23-Oct-2026 09:28:42] NOTICE: [pool www] child 78 started
+[23-Oct-2026 09:28:48] ERROR: failed to ptrace(ATTACH) child 8: Operation not permitted (1)
+[23-Oct-2026 09:28:48] WARNING: [pool www] child 8, script '/tmp/opencode/research/fpm_80x_chain_20261023T085337Z/www/slow.php' (request: "GET /slow.php?s=40") executing too slow (10.344872 sec), logging
+[23-Oct-2026 09:28:48] ERROR: failed to ptrace(ATTACH) child 7: Operation not permitted (1)
+[23-Oct-2026 09:28:48] WARNING: [pool www] child 7, script '/tmp/opencode/research/fpm_80x_chain_20261023T085337Z/www/slow.php' (request: "GET /slow.php?s=40") executing too slow (10.394261 sec), logging
+[23-Oct-2026 09:28:52] ERROR: failed to ptrace(ATTACH) child 16: Operation not permitted (1)
+[23-Oct-2026 09:28:52] WARNING: [pool www] child 16, script '/tmp/opencode/research/fpm_80x_chain_20261023T085337Z/www/slow.php' (request: "GET /slow.php?s=40") executing too slow (11.995140 sec), logging
+[23-Oct-2026 09:28:52] ERROR: failed to ptrace(ATTACH) child 15: Operation not permitted (1)
+[23-Oct-2026 09:28:52] WARNING: [pool www] child 15, script '/tmp/opencode/research/fpm_80x_chain_20261023T085337Z/www/slow.php' (request: "GET /slow.php?s=40") executing too slow (12.995885 sec), logging

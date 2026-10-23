@@ -1,0 +1,6 @@
+[23-Oct-2026 10:45:19] WARNING: [pool www] child 338091 exited on signal 11 (SIGSEGV) after 12.226544 seconds from start
+[23-Oct-2026 10:45:19] NOTICE: [pool www] child 339166 started
+[23-Oct-2026 10:45:19] WARNING: [pool www] child 338097 exited on signal 11 (SIGSEGV) after 12.225473 seconds from start
+[23-Oct-2026 10:45:19] NOTICE: [pool www] child 339168 started
+[23-Oct-2026 10:45:19] WARNING: [pool www] child 338095 exited on signal 11 (SIGSEGV) after 12.227968 seconds from start
+[23-Oct-2026 10:45:19] NOTICE: [pool www] child 339174 started

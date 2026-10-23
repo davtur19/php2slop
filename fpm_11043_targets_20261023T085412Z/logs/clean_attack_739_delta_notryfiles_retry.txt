@@ -1,0 +1,5 @@
+2026/10/23 11:39:49 Base status code is 301
+2026/10/23 11:39:50 Status code 502 for qsl=1765, adding as a candidate
+2026/10/23 11:39:50 The target is probably vulnerable. Possible QSLs: [1755 1760 1765]
+2026/10/23 11:39:50 Detect() returned error: sanity check failed: invalid status code: 404 (must be 301). Maybe ".php" suffix is required?
+rc=1

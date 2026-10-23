@@ -1,0 +1,181 @@
+{
+ "namelen": 6000000,
+ "body": 6000211,
+ "status": "0",
+ "http": "200",
+ "len": 6031252,
+ "secs": 0.655,
+ "before": [
+  "2802669"
+ ],
+ "after": [
+  "2802669"
+ ],
+ "worker_alive": true,
+ "oom": [],
+ "post_line": [
+  "127.0.0.1 -  23/Oct/2026:04:30:39 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 590.257 105656 96.57%"
+ ],
+ "session_keys": [
+  "data",
+  "wsTokenSecrets",
+  "default",
+  "7cb4e3615d1a5a8e04b832047b9adfa7",
+  "login",
+  "67011d2ab4862ee3ea5608ecf9d1611f",
+  "wsSessionSecret",
+  "4d4b2d83125dcefa12f9f4d21886b553"
+ ]
+}
+{
+ "namelen": 6500000,
+ "body": 6500211,
+ "status": "0",
+ "http": "200",
+ "len": 6531252,
+ "secs": 0.687,
+ "before": [
+  "2802669"
+ ],
+ "after": [
+  "2802669"
+ ],
+ "worker_alive": true,
+ "oom": [],
+ "post_line": [
+  "127.0.0.1 -  23/Oct/2026:04:30:40 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 620.000 111520 98.39%"
+ ],
+ "session_keys": [
+  "data",
+  "wsTokenSecrets",
+  "default",
+  "548024a0d009c4b3bc69c37cdd19f886",
+  "login",
+  "b804550e70f753bb817382e37318f5ad",
+  "wsSessionSecret",
+  "7cfdde8b105e8fbfe16164f5df88df95"
+ ]
+}
+{
+ "namelen": 7000000,
+ "body": 7000211,
+ "status": "0",
+ "http": "200",
+ "len": 7031252,
+ "secs": 0.724,
+ "before": [
+  "2802669"
+ ],
+ "after": [
+  "2802669"
+ ],
+ "worker_alive": true,
+ "oom": [],
+ "post_line": [
+  "127.0.0.1 -  23/Oct/2026:04:30:42 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 645.977 117372 97.53%"
+ ],
+ "session_keys": [
+  "data",
+  "wsTokenSecrets",
+  "default",
+  "d10a2a57f24cdbe34560942caa4f0fca",
+  "login",
+  "9eaca9774046973f306eca93a182df25",
+  "wsSessionSecret",
+  "1fdf5d232e9693985946e55752c283da"
+ ]
+}
+{
+ "namelen": 7300000,
+ "body": 7300211,
+ "status": "0",
+ "http": "200",
+ "len": 7331252,
+ "secs": 0.754,
+ "before": [
+  "2802669"
+ ],
+ "after": [
+  "2802669"
+ ],
+ "worker_alive": true,
+ "oom": [],
+ "post_line": [
+  "127.0.0.1 -  23/Oct/2026:04:30:44 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 675.732 120900 97.67%"
+ ],
+ "session_keys": [
+  "data",
+  "wsTokenSecrets",
+  "default",
+  "76039f85072024d1c45148b998987bb9",
+  "login",
+  "0fe5bb46eda62a04452d4037d79ec113",
+  "wsSessionSecret",
+  "24152311261df6765c3e7ce9b2296db1"
+ ]
+}
+{
+ "namelen": 7600000,
+ "body": 7600211,
+ "status": "0",
+ "http": "200",
+ "len": 7631252,
+ "secs": 0.787,
+ "before": [
+  "2802669"
+ ],
+ "after": [
+  "2802669"
+ ],
+ "worker_alive": true,
+ "oom": [],
+ "post_line": [
+  "127.0.0.1 -  23/Oct/2026:04:30:46 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 708.254 124412 97.42%"
+ ],
+ "session_keys": [
+  "data",
+  "wsTokenSecrets",
+  "default",
+  "6f80fc89514324ab8f77a2592eb506b1",
+  "login",
+  "5959d288836ba1a4a891ae17b7f6836f",
+  "wsSessionSecret",
+  "c7fec1ccd6730b8cb297c24a60fa44f3"
+ ]
+}
+{
+ "namelen": 7900000,
+ "body": 7900211,
+ "status": "0",
+ "http": "200",
+ "len": 7931252,
+ "secs": 0.775,
+ "before": [
+  "2802669"
+ ],
+ "after": [
+  "2802669"
+ ],
+ "worker_alive": true,
+ "oom": [],
+ "post_line": [
+  "127.0.0.1 -  23/Oct/2026:04:30:48 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 693.370 127920 99.51%"
+ ],
+ "session_keys": [
+  "data",
+  "wsTokenSecrets",
+  "default",
+  "e37636ef16ffbd2038ed2f66c45f3d45",
+  "login",
+  "b7c7601c7ca0a8a2ae4ef016b817a328",
+  "wsSessionSecret",
+  "8bbd615ab5fe1305254f305fb66f6340"
+ ]
+}
+=== summary ===
+  6000000 http=200 len=6031252 alive=True worker=['2802669'] no-oom
+  6500000 http=200 len=6531252 alive=True worker=['2802669'] no-oom
+  7000000 http=200 len=7031252 alive=True worker=['2802669'] no-oom
+  7300000 http=200 len=7331252 alive=True worker=['2802669'] no-oom
+  7600000 http=200 len=7631252 alive=True worker=['2802669'] no-oom
+  7900000 http=200 len=7931252 alive=True worker=['2802669'] no-oom

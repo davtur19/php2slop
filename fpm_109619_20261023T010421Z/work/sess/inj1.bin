@@ -1,0 +1,14 @@
+------X
+Content-Disposition: form-data; name="PHPSESSID"
+
+injtest1
+------X
+Content-Disposition: form-data; name="PHP_SESSION_UPLOAD_PROGRESS"
+
+inj1|O:8:"stdClass":2:{s:1:"a";i:1;s:1:"b";i:2;}
+------X
+Content-Disposition: form-data; name="f"; filename="a.txt"
+Content-Type: text/plain
+
+AAAA
+------X--

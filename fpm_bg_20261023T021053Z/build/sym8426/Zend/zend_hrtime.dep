@@ -1,0 +1,34 @@
+Zend/zend_hrtime.lo: /tmp/opencode/php-8.4.26/Zend/zend_hrtime.c \
+ /tmp/opencode/php-8.4.26/Zend/zend.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_types.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_portability.h Zend/zend_config.h \
+ Zend/../main/php_config.h /tmp/opencode/php-8.4.26/Zend/../TSRM/TSRM.h \
+ /tmp/opencode/research/fpm_bg_20261023T021053Z/build/sym8426/main/php_config.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_range_check.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_long.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_map_ptr.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_errors.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_alloc.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_alloc_sizes.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_llist.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_string.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_gc.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_hrtime.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_hash.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_sort.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_ast.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_variables.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_iterators.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_stream.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_smart_str_public.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_smart_string_public.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_signal.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_max_execution_timer.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_object_handlers.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_property_hooks.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_lazy_objects.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_types.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_operators.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_strtod.h \
+ /tmp/opencode/php-8.4.26/Zend/zend.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_multiply.h

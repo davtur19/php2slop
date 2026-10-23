@@ -1,0 +1,38 @@
+{
+ "ver": "8.0.30",
+ "producer_status": 500,
+ "producer_body": "0\r\n\r\n",
+ "consumer": [
+  {
+   "i": 0,
+   "status": 200,
+   "body": "29\r\nCONSUMER PID=17 STATUS=1 SID= SESSION=[]\n\r\n0\r\n\r\n"
+  },
+  {
+   "i": 1,
+   "status": 200,
+   "body": "29\r\nCONSUMER PID=17 STATUS=1 SID= SESSION=[]\n\r\n0\r\n\r\n"
+  }
+ ],
+ "access_delta": [
+  "17 172.17.0.1 GET 500 /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/www/producer_oom.php dur=0.031",
+  "17 172.17.0.1 POST 200 /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/www/consumer.php dur=0.000",
+  "17 172.17.0.1 POST 200 /tmp/opencode/research/fpm_80x_chain_20261023T085337Z/www/consumer.php dur=0.000"
+ ],
+ "slowlog_delta": [],
+ "elapsed": 0.944,
+ "docker_logs": [
+  "NOTICE: PHP message: PHP Warning:  Unknown: open(/tmp/sess_s1, O_RDWR) failed: Permission denied (13) in Unknown on line 0",
+  "NOTICE: PHP message: PHP Warning:  Unknown: Failed to read session data: files (path: /tmp) in Unknown on line 0",
+  "NOTICE: PHP message: PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp) in Unknown on line 0",
+  "NOTICE: PHP message: PHP Warning:  Unknown: open(/tmp/sess_s1, O_RDWR) failed: Permission denied (13) in Unknown on line 0",
+  "NOTICE: PHP message: PHP Warning:  Unknown: Failed to read session data: files (path: /tmp) in Unknown on line 0",
+  "NOTICE: PHP message: PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp) in Unknown on line 0",
+  "NOTICE: PHP message: PHP Warning:  Unknown: open(/tmp/sess_s1, O_RDWR) failed: Permission denied (13) in Unknown on line 0",
+  "NOTICE: PHP message: PHP Warning:  Unknown: Failed to read session data: files (path: /tmp) in Unknown on line 0",
+  "NOTICE: PHP message: PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp) in Unknown on line 0",
+  "NOTICE: PHP message: PHP Warning:  Unknown: open(/tmp/sess_s1, O_RDWR) failed: Permission denied (13) in Unknown on line 0",
+  "NOTICE: PHP message: PHP Warning:  Unknown: Failed to read session data: files (path: /tmp) in Unknown on line 0",
+  "NOTICE: PHP message: PHP Warning:  Unknown: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp) in Unknown on line 0"
+ ]
+}

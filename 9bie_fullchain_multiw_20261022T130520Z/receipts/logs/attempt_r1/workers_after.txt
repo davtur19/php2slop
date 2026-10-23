@@ -1,0 +1,10 @@
+--- workers after ---
+PID                 PPID                USER                RSS                 COMMAND
+3993194             3993171             root                28756               apache2 -DFOREGROUND
+3993228             3993194             www-data            97956               apache2 -DFOREGROUND
+3993229             3993194             www-data            115712              apache2 -DFOREGROUND
+3993231             3993194             www-data            56692               apache2 -DFOREGROUND
+3993232             3993194             www-data            97344               apache2 -DFOREGROUND
+3993356             3993194             www-data            15176               apache2 -DFOREGROUND
+--- container ---
+p2s-mw-18610 Up 5 seconds

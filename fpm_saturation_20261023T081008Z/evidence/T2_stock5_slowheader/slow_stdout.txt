@@ -1,0 +1,1 @@
+{"n": 200, "mode": "header", "cl": 1000, "hold": 20.0, "codes": {"0": 200}, "dt_max": 20.129, "errors": 0}

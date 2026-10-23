@@ -1,0 +1,12 @@
+-rw-r--r-- 1 www-data www-data 63 Oct 23 12:25 /out/p1_conc_DEB116R1
+-rw-r--r-- 1 www-data www-data 63 Oct 23 12:25 /out/p1_conc_DEB116R2
+-rw-r--r-- 1 www-data www-data 63 Oct 23 12:26 /out/p1_conc_DEB116R3
+--- /out/p1_conc_DEB116R1
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+DEB116R1
+--- /out/p1_conc_DEB116R2
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+DEB116R2
+--- /out/p1_conc_DEB116R3
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+DEB116R3

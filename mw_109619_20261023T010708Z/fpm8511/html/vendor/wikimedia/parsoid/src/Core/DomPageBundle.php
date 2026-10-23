@@ -1,0 +1,389 @@
+<?php
+declare( strict_types = 1 );
+
+namespace Wikimedia\Parsoid\Core;
+
+use Wikimedia\Assert\Assert;
+use Wikimedia\JsonCodec\Hint;
+use Wikimedia\JsonCodec\JsonCodec;
+use Wikimedia\Parsoid\Config\SiteConfig;
+use Wikimedia\Parsoid\DOM\Document;
+use Wikimedia\Parsoid\DOM\DocumentFragment;
+use Wikimedia\Parsoid\Mocks\MockSiteConfig;
+use Wikimedia\Parsoid\Utils\DOMDataUtils;
+use Wikimedia\Parsoid\Utils\DOMUtils;
+use Wikimedia\Parsoid\Utils\PHPUtils;
+use Wikimedia\Parsoid\Wt2Html\XHtmlSerializer;
+
+/**
+ * A page bundle stores an HTML DOM with separated data-parsoid and
+ * data-mw content.  The data-parsoid and data-mw content is indexed
+ * by the id attributes on individual nodes.  This content needs to
+ * be loaded before the data-parsoid and/or data-mw information can be
+ * used.
+ *
+ * Note that the parsoid/mw properties of the page bundle are in "serialized
+ * array" form; that is, they are flat arrays appropriate for json-encoding
+ * and do not contain DataParsoid or DataMw objects.
+ *
+ * See HtmlPageBundle for a similar structure used where the HTML DOM has been
+ * serialized into a string.
+ */
+class DomPageBundle extends BasePageBundle {
+	private bool $invalid = false;
+
+	public function __construct(
+		/** The document, as a DOM. */
+		public Document $doc,
+		?array $parsoid = null, ?array $mw = null,
+		?array $counters = null,
+		?string $version = null, ?array $headers = null,
+		?string $contentmodel = null,
+		/** @var array<string,DocumentFragment> Additional named DocumentFragments. */
+		public array $fragments = [],
+	) {
+		parent::__construct(
+			parsoid: $parsoid,
+			mw: $mw,
+			counters: $counters,
+			version: $version,
+			headers: $headers,
+			contentmodel: $contentmodel,
+		);
+		Assert::invariant(
+			!self::isSingleDocument( $doc ),
+			'single document should be unpacked before DomPageBundle created'
+		);
+	}
+
+	public static function newEmpty(
+		Document $doc,
+		?string $version = null,
+		?array $headers = null,
+		?string $contentmodel = null,
+	): self {
+		return new DomPageBundle(
+			$doc,
+			[
+				'ids' => [],
+			],
+			[
+				'ids' => [],
+			],
+			[
+				'nodedata' => -1,
+				'annotation' => -1,
+				'transclusion' => -1,
+			],
+			$version,
+			$headers,
+			$contentmodel
+		);
+	}
+
+	/**
+	 * Create a DomPageBundle from a HtmlPageBundle.
+	 *
+	 * This simply parses the HTML string from the HtmlPageBundle, preserving
+	 * the metadata.
+	 */
+	public static function fromHtmlPageBundle( HtmlPageBundle $pb ): DomPageBundle {
+		$doc = DOMUtils::parseHTML( $pb->html );
+		$fragments = array_map(
+			static fn ( $html )=>DOMUtils::parseHTMLToFragment( $doc, $html ),
+			$pb->fragments
+		);
+		return new DomPageBundle(
+			$doc,
+			$pb->parsoid,
+			$pb->mw,
+			$pb->counters,
+			$pb->version,
+			$pb->headers,
+			$pb->contentmodel,
+			$fragments,
+		);
+	}
+
+	/**
+	 * Return a DOM from the contents of this page bundle.
+	 *
+	 * @note Although technically the Document and DocumentFragments
+	 * held by the DomPageBundle are the same as the Document and
+	 * DocumentFragments returned from this method, the former are not
+	 * directly usable (parsoid/mw attributes are not loaded or present
+	 * in inline attributes) while the latter are.  It is recommended
+	 * that you treat the Document/DocumentFragment held by the DomPageBundle
+	 * and the Document/DocumentFragment returned by this method as separate
+	 * objects and consider the DomPageBundle "used up" and invalid once
+	 * ::toDom() is called.
+	 *
+	 * @param bool $load
+	 * If `$load` is true (the default), the returned DOM will be prepared
+	 * and loaded using `$options`.
+	 *
+	 * If `$load` is false, any data-parsoid or data-mw information from this
+	 * page bundle will be converted to inline attributes in the DOM.  This
+	 * process is less efficient than preparing and loading the document
+	 * directly from the DOM and should be avoided if possible.
+	 * @param ?array $options Additional options to
+	 *  DOMDataUtils::visitAndLoadDataAttribs, used when $load is true.
+	 * @param ?array<string,DocumentFragment> &$fragments Additional fragments
+	 *  present in the page bundle, which will also be loaded as necessary.
+	 *  This is an output parameter.
+	 */
+	public function toDom( bool $load = true, ?array $options = null, ?array &$fragments = null ): Document {
+		Assert::invariant( !$this->invalid, "invalidated" );
+		$doc = $this->doc;
+		$options ??= [];
+		if ( $load ) {
+			$fragments = [];
+			foreach ( $this->fragments as $name => $f ) {
+				$fragments[$name] = $f;
+			}
+			$options['loadFromPageBundle'] = $this;
+			$options['fragments'] = $this->fragments;
+			DOMDataUtils::prepareAndLoadDoc( $doc, $options );
+		} else {
+			PHPUtils::deprecated( __METHOD__ . ' with $load=false', '0.23' );
+			$doc = $this->toInlineAttributeDocument(
+				siteConfig: new MockSiteConfig( [] ), options: $options, fragments: $fragments
+			);
+		}
+		$this->invalid = true;
+		return $doc;
+	}
+
+	/**
+	 * Create a "PageBundle as single Document" by embedding page bundle
+	 * information into a <script> element in the <head> of the DOM.
+	 *
+	 * @see ::fromSingleDocument()
+	 */
+	public function toSingleDocument(): Document {
+		Assert::invariant( !$this->invalid, "invalidated" );
+		$script = DOMUtils::appendToHead( $this->doc, 'script', [
+			'id' => 'mw-pagebundle',
+			'type' => 'application/x-mw-pagebundle',
+		] );
+		$script->appendChild( $this->doc->createTextNode( $this->encodeForHeadElement() ) );
+		$doc = $this->doc;
+		// Invalidate this DomPageBundle to prevent us from using it again.
+		$this->invalid = true;
+		return $doc;
+	}
+
+	/**
+	 * Return a DomPageBundle from a "PageBundle as single Document"
+	 * representation, where some page bundle information has been embedded
+	 * as a <script> element into the <head> of the DOM.
+	 *
+	 * @see ::toSingleDocument()
+	 *
+	 * @param Document $doc doc
+	 * @param array $options Optional content version/headers/contentmodel
+	 * @return DomPageBundle
+	 */
+	public static function fromSingleDocument( Document $doc, array $options = [] ): DomPageBundle {
+		$dpScriptElt = DOMCompat::getElementById( $doc, 'mw-pagebundle' );
+		Assert::invariant( $dpScriptElt !== null, "no page bundle found" );
+		$dpScriptElt->parentNode->removeChild( $dpScriptElt );
+		return self::decodeFromHeadElement( $doc, $dpScriptElt->textContent, $options );
+	}
+
+	/**
+	 * Create a new DomPageBundle from a "prepared and loaded" document.
+	 *
+	 * If a `pageBundle` key is present in the options, the
+	 * version/headers/contentmodel will be initialized from that
+	 * page bundle.
+	 *
+	 * @param Document $doc Should be "prepared and loaded"
+	 * @param SiteConfig $siteConfig
+	 * @param array $options store options
+	 * @param array<string,DocumentFragment> $fragments
+	 * @return DomPageBundle
+	 */
+	public static function fromLoadedDocument(
+		Document $doc, SiteConfig $siteConfig,
+		array $options = [], array $fragments = [],
+	): DomPageBundle {
+		$metadata = $options['pageBundle'] ?? null;
+		$dpb = self::newEmpty(
+			$doc,
+			$metadata->version ?? $options['contentversion'] ?? null,
+			$metadata->headers ?? $options['headers'] ?? null,
+			$metadata->contentmodel ?? $options['contentmodel'] ?? null,
+		);
+		// FIXME: Should we init $dpb->counters here using databag?
+		$options = [
+			'storeInPageBundle' => $dpb,
+			'outputContentVersion' => $dpb->version,
+			'idIndex' => DOMDataUtils::usedIdIndex( $siteConfig, $doc, $fragments ),
+		] + $options;
+		DOMDataUtils::visitAndStoreDataAttribs(
+			DOMCompat::getBody( $doc ), $options
+		);
+		foreach ( $fragments as $name => $f ) {
+			DOMDataUtils::visitAndStoreDataAttribs(
+				$f, $options
+			);
+			$dpb->fragments[$name] = $f;
+		}
+		return $dpb;
+	}
+
+	/**
+	 * Return true iff the given Document has page bundle information embedded
+	 * as a <script id="mw-pagebundle"> element in its <head>.
+	 */
+	public static function isSingleDocument( Document $doc ): bool {
+		return DOMCompat::getElementById( $doc, 'mw-pagebundle' ) !== null;
+	}
+
+	/**
+	 * Convert this DomPageBundle to "single document" form, where page bundle
+	 * information is embedded in the <head> of the document.
+	 * @param array $options XHtmlSerializer options
+	 * @return string an HTML string
+	 */
+	public function toSingleDocumentHtml( array $options = [] ): string {
+		Assert::invariant( !$this->invalid, "invalidated" );
+		$doc = $this->toSingleDocument();
+		return XHtmlSerializer::serialize( $doc, $options )['html'];
+	}
+
+	/**
+	 * Convert this DomPageBundle to "inline attribute" form, where page bundle
+	 * information is represented as inline JSON-valued attributes.
+	 * @param SiteConfig $siteConfig
+	 * @param array $options XHtmlSerializer options
+	 * @param array<string,DocumentFragment>|null &$fragments Additional fragments from the
+	 *  page bundle which will also be converted to "inline attribute" form.
+	 *  This is an output parameter.
+	 * @return Document a standalone document with page bundle information
+	 *  represented as inline JSON-valued attributes.
+	 */
+	public function toInlineAttributeDocument(
+		SiteConfig $siteConfig,
+		array $options = [],
+		?array &$fragments = null,
+	): Document {
+		Assert::invariant( !$this->invalid, "invalidated" );
+		$doc = $this->toDom( true, null, $fragments );
+		$options = [
+			'idIndex' => DOMDataUtils::usedIdIndex( $siteConfig, $doc, $fragments ),
+			'fragments' => array_values( $fragments )
+		] + $options;
+		DOMDataUtils::storeAndUnprepareDoc( $doc, $options );
+		return $doc;
+	}
+
+	/**
+	 * Convert this DomPageBundle to "inline attribute" form, where page bundle
+	 * information is represented as inline JSON-valued attributes.
+	 * @param SiteConfig $siteConfig
+	 * @param array $options XHtmlSerializer options
+	 * @param array<string,string>|null &$fragments Additional fragments from the
+	 *  page bundle which will also be serialized to HTML strings.
+	 *  This is an output parameter.
+	 * @return string an HTML string
+	 */
+	public function toInlineAttributeHtml(
+		SiteConfig $siteConfig,
+		array $options = [],
+		?array &$fragments = null,
+	): string {
+		$doc = $this->toInlineAttributeDocument(
+			siteConfig: $siteConfig, options: $options, fragments: $fragments
+		);
+		foreach ( $fragments as $name => $f ) {
+			// @phan-suppress-next-line PhanTypeMismatchArgument phan confused
+			$fragments[$name] = XHtmlSerializer::serialize( $f, $options )['html'];
+		}
+		if ( $options['body_only'] ?? false ) {
+			$node = DOMCompat::getBody( $doc );
+			$options['innerXML'] = true;
+		} else {
+			$node = $doc;
+		}
+		return XHtmlSerializer::serialize( $node, $options )['html'];
+	}
+
+	/**
+	 * Encode some page bundle properties for emitting as a <script> element
+	 * in the <head> of a document.
+	 */
+	private function encodeForHeadElement(): string {
+		// Note that $this->parsoid and $this->mw are already serialized arrays
+		// so a naive jsonEncode is sufficient.  We use a JsonCodec to ensure
+		// that objects stay objects and arrays stay arrays, though.
+		$json = [ 'parsoid' => $this->parsoid ?? [], 'mw' => $this->mw ?? [], 'counters' => $this->counters ?? [] ];
+		if ( $this->fragments ) {
+			// Preserve fragments in the <head>
+			$json['fragments'] = array_map(
+				static fn ( $f ) => XHtmlSerializer::serialize( $f, [] )['html'],
+				$this->fragments
+			);
+		}
+		$codec = new JsonCodec();
+		return $codec->toJsonString( $json, self::headElementHint() );
+	}
+
+	/**
+	 * Decode some page bundle properties from the contents of the <script>
+	 * element embedded in a document.
+	 */
+	private static function decodeFromHeadElement( Document $doc, string $s, array $options = [] ): DomPageBundle {
+		// Note that only 'parsoid' and 'mw' are encoded, so these will be
+		// the only fields set in the decoded DomPageBundle
+		// Even though 'parsoid' and 'mw' are encoded, use a JsonCodec so
+		// that objects stay objects and arrays stay arrays.
+		$codec = new JsonCodec();
+		$decoded = $codec->newFromJsonString( $s, self::headElementHint() );
+		$fragments = array_map(
+			static fn ( $html ) => DOMUtils::parseHTMLToFragment( $doc, $html ),
+			$decoded['fragments'] ?? []
+		);
+		// Backward compatibility with Parsoid < 0.23
+		if ( !isset( $decoded['counters'] ) ) {
+			$decoded['counters'] = [
+				'nodedata' => $decoded['parsoid']['counter'] ?? -1,
+				'annotation' => -1,
+				'transclusion' => -1,
+			];
+		}
+		if ( isset( $decoded['parsoid']['counter'] ) ) {
+			unset( $decoded['parsoid']['counter'] );
+		}
+		return new DomPageBundle(
+			$doc,
+			$decoded['parsoid'] ?? null,
+			$decoded['mw'] ?? null,
+			$decoded['counters'] ?? null,
+			$options['contentversion'] ?? null,
+			$options['headers'] ?? null,
+			$options['contentmodel'] ?? null,
+			$fragments,
+		);
+	}
+
+	private static function headElementHint(): Hint {
+		// @phan-suppress-next-line PhanUndeclaredClassReference array
+		return Hint::build( 'array', Hint::LIST, Hint::LIST, Hint::LIST );
+	}
+
+	// JsonCodecable -------------
+
+	/** @inheritDoc */
+	public function toJsonArray(): array {
+		Assert::invariant( !$this->invalid, "invalidated" );
+		return HtmlPageBundle::fromDomPageBundle( $this )->toJsonArray();
+	}
+
+	/** @inheritDoc */
+	public static function newFromJsonArray( array $json ): DomPageBundle {
+		$pb = HtmlPageBundle::newFromJsonArray( $json );
+		return self::fromHtmlPageBundle( $pb );
+	}
+}

@@ -1,0 +1,31 @@
+=== single-worker control config 2026-10-22T13:29:16Z ===
+--- php.ini md5 ---
+fba97f0b3e0b19b0980f5102c0440480  /usr/local/etc/php/php.ini
+fba97f0b3e0b19b0980f5102c0440480  /usr/local/etc/php/php.ini-production
+--- zz-single.conf (repo docker/apache.conf) ---
+# php2shell: single-worker prefork, no keep-alive.
+# Loaded from /etc/apache2/conf-enabled/ after mods-enabled, so these values
+# override the distro defaults in mods-enabled/mpm_prefork.conf.
+KeepAlive Off
+
+<IfModule mpm_prefork_module>
+    StartServers           1
+    MinSpareServers        1
+    MaxSpareServers        1
+    MaxRequestWorkers      1
+    ServerLimit            1
+    MaxConnectionsPerChild 0
+</IfModule>
+--- MPM effective ---
+
+StartServers            5
+MinSpareServers         5
+MaxSpareServers         10
+MaxRequestWorkers       150
+MaxConnectionsPerChild  0
+
+ mpm_prefork_module (shared)
+--- workers ---
+PID                 PPID                USER                COMMAND
+4001478             4001453             root                apache2 -DFOREGROUND
+4001526             4001478             www-data            apache2 -DFOREGROUND

@@ -1,0 +1,163 @@
+[23-Oct-2026 02:28:38 UTC] PRODUCER_OOM_START pid=2791133
+[23-Oct-2026 02:28:38 UTC] PRODUCER_OOM_PAYLOAD pid=2791133 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:28:38 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:29:41 UTC] PRODUCER_OOM_START pid=2791133
+[23-Oct-2026 02:29:41 UTC] PRODUCER_OOM_PAYLOAD pid=2791133 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:29:41 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:30:19 UTC] PRODUCER_OOM_START pid=2791133
+[23-Oct-2026 02:30:19 UTC] PRODUCER_OOM_PAYLOAD pid=2791133 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:30:19 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:31:07 UTC] PRODUCER_OOM_START pid=2791133
+[23-Oct-2026 02:31:07 UTC] PRODUCER_OOM_PAYLOAD pid=2791133 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:31:07 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:31:43 UTC] PRODUCER_OOM_START pid=2791133
+[23-Oct-2026 02:31:43 UTC] PRODUCER_OOM_PAYLOAD pid=2791133 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:31:43 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:32:16 UTC] PRODUCER_OOM_START pid=2791133
+[23-Oct-2026 02:32:16 UTC] PRODUCER_OOM_PAYLOAD pid=2791133 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:32:16 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:32:16 UTC] PRODUCER_OOM_START pid=2791133
+[23-Oct-2026 02:32:16 UTC] PRODUCER_OOM_PAYLOAD pid=2791133 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:32:16 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:33:10 UTC] PRODUCER_OOM_START pid=2791133
+[23-Oct-2026 02:33:10 UTC] PRODUCER_OOM_PAYLOAD pid=2791133 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:33:10 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:33:11 UTC] PRODUCER_OOM_START pid=2791133
+[23-Oct-2026 02:33:11 UTC] PRODUCER_OOM_PAYLOAD pid=2791133 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:33:11 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:33:11 UTC] PRODUCER_OOM_START pid=2791133
+[23-Oct-2026 02:33:11 UTC] PRODUCER_OOM_PAYLOAD pid=2791133 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:33:11 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:33:11 UTC] PRODUCER_OOM_START pid=2791133
+[23-Oct-2026 02:33:11 UTC] PRODUCER_OOM_PAYLOAD pid=2791133 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:33:11 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:33:11 UTC] PRODUCER_OOM_START pid=2807550
+[23-Oct-2026 02:33:11 UTC] PRODUCER_OOM_PAYLOAD pid=2807550 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:33:11 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:33:11 UTC] PRODUCER_OOM_START pid=2807550
+[23-Oct-2026 02:33:11 UTC] PRODUCER_OOM_PAYLOAD pid=2807550 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:33:11 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:33:11 UTC] PRODUCER_OOM_START pid=2807550
+[23-Oct-2026 02:33:11 UTC] PRODUCER_OOM_PAYLOAD pid=2807550 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:33:11 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:33:12 UTC] PRODUCER_OOM_START pid=2807550
+[23-Oct-2026 02:33:12 UTC] PRODUCER_OOM_PAYLOAD pid=2807550 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:33:12 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:33:12 UTC] PRODUCER_OOM_START pid=2807575
+[23-Oct-2026 02:33:12 UTC] PRODUCER_OOM_PAYLOAD pid=2807575 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:33:12 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:33:12 UTC] PRODUCER_OOM_START pid=2807575
+[23-Oct-2026 02:33:12 UTC] PRODUCER_OOM_PAYLOAD pid=2807575 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:33:12 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:33:45 UTC] PRODUCER_OOM_START pid=2807588
+[23-Oct-2026 02:33:45 UTC] PRODUCER_OOM_PAYLOAD pid=2807588 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:33:45 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:43:54 UTC] PRODUCER_SER_START pid=2807906
+[23-Oct-2026 02:43:54 UTC] PRODUCER_SER_PRE pid=2807906 n=300000 mem=10489856
+[23-Oct-2026 02:43:54 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php(8): serialize(Array)
+#1 {main}
+[23-Oct-2026 02:45:13 UTC] PHP Warning:  PHP Request Startup: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[23-Oct-2026 02:45:13 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_8511) in Unknown on line 0
+[23-Oct-2026 02:45:49 UTC] PRODUCER_SER_START pid=2807906
+[23-Oct-2026 02:45:49 UTC] PRODUCER_SER_PRE pid=2807906 n=300000 mem=10489856
+[23-Oct-2026 02:45:49 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php(8): serialize(Array)
+#1 {main}
+[23-Oct-2026 02:45:49 UTC] PHP Warning:  PHP Request Startup: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[23-Oct-2026 02:45:49 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_8511) in Unknown on line 0
+[23-Oct-2026 02:46:04 UTC] PRODUCER_SER_START pid=2807906
+[23-Oct-2026 02:46:04 UTC] PRODUCER_SER_PRE pid=2807906 n=300000 mem=10489856
+[23-Oct-2026 02:46:04 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php(8): serialize(Array)
+#1 {main}
+[23-Oct-2026 02:46:04 UTC] PHP Warning:  PHP Request Startup: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[23-Oct-2026 02:46:04 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_8511) in Unknown on line 0
+[23-Oct-2026 02:46:05 UTC] PRODUCER_SER_START pid=2807906
+[23-Oct-2026 02:46:05 UTC] PRODUCER_SER_PRE pid=2807906 n=300000 mem=10489856
+[23-Oct-2026 02:46:05 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php(8): serialize(Array)
+#1 {main}
+[23-Oct-2026 02:46:05 UTC] PHP Warning:  PHP Request Startup: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[23-Oct-2026 02:46:05 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_8511) in Unknown on line 0
+[23-Oct-2026 02:46:05 UTC] PRODUCER_SER_START pid=2807906
+[23-Oct-2026 02:46:05 UTC] PRODUCER_SER_PRE pid=2807906 n=300000 mem=10489856
+[23-Oct-2026 02:46:05 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php(8): serialize(Array)
+#1 {main}
+[23-Oct-2026 02:46:05 UTC] PHP Warning:  PHP Request Startup: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[23-Oct-2026 02:46:05 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_8511) in Unknown on line 0
+[23-Oct-2026 02:48:37 UTC] PRODUCER_SER_START pid=2807906
+[23-Oct-2026 02:48:37 UTC] PRODUCER_SER_PRE pid=2807906 n=300000 mem=10489856
+[23-Oct-2026 02:48:38 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php(8): serialize(Array)
+#1 {main}
+[23-Oct-2026 02:48:38 UTC] PHP Warning:  PHP Request Startup: Failed to decode session object. Session has been destroyed in Unknown on line 0
+[23-Oct-2026 02:48:38 UTC] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct (/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/sessions_8511) in Unknown on line 0
+[23-Oct-2026 03:10:13 UTC] T1_PRE pid=2807906 mem=23072768 limit=32M
+[23-Oct-2026 03:10:13 UTC] T1_DTOR_START pid=2807906 mem=23072768 limit=24M
+[23-Oct-2026 03:10:13 UTC] PHP Fatal error:  Allowed memory size of 25165824 bytes exhausted (tried to allocate 20975616 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/t1_producer.php on line 14
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/t1_producer.php(14): serialize('AAAAAAAAAAAAAAA...')
+#1 [internal function]: T1Bomb->__destruct()
+#2 {main}

@@ -1,0 +1,43 @@
+[23-Oct-2026 09:33:59] NOTICE: fpm is running, pid 3082400
+[23-Oct-2026 09:33:59] NOTICE: ready to handle connections
+[23-Oct-2026 09:35:19] WARNING: [pool www] child 3083067 exited on signal 9 (SIGKILL) after 9.105088 seconds from start
+[23-Oct-2026 09:35:19] NOTICE: [pool www] child 3083150 started
+[23-Oct-2026 09:35:19] WARNING: [pool www] child 3083090 exited on signal 9 (SIGKILL) after 8.104102 seconds from start
+[23-Oct-2026 09:35:19] NOTICE: [pool www] child 3083151 started
+[23-Oct-2026 09:35:19] WARNING: [pool www] child 3083091 exited on signal 9 (SIGKILL) after 7.102951 seconds from start
+[23-Oct-2026 09:35:19] NOTICE: [pool www] child 3083152 started
+[23-Oct-2026 09:35:23] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it
+[23-Oct-2026 09:35:31] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it
+[23-Oct-2026 09:35:37] WARNING: [pool www] child 3083255 exited on signal 9 (SIGKILL) after 8.104523 seconds from start
+[23-Oct-2026 09:35:37] NOTICE: [pool www] child 3083333 started
+[23-Oct-2026 09:35:37] WARNING: [pool www] child 3083201 exited on signal 9 (SIGKILL) after 15.111474 seconds from start
+[23-Oct-2026 09:35:37] NOTICE: [pool www] child 3083334 started
+[23-Oct-2026 09:35:37] WARNING: [pool www] child 3083257 exited on signal 9 (SIGKILL) after 7.103681 seconds from start
+[23-Oct-2026 09:35:37] NOTICE: [pool www] child 3083335 started
+[23-Oct-2026 09:35:41] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it
+[23-Oct-2026 09:35:49] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it
+[23-Oct-2026 09:35:55] WARNING: [pool www] child 3083373 exited on signal 9 (SIGKILL) after 15.112671 seconds from start
+[23-Oct-2026 09:35:55] NOTICE: [pool www] child 3083530 started
+[23-Oct-2026 09:35:55] WARNING: [pool www] child 3083437 exited on signal 9 (SIGKILL) after 8.106266 seconds from start
+[23-Oct-2026 09:35:55] NOTICE: [pool www] child 3083531 started
+[23-Oct-2026 09:35:55] WARNING: [pool www] child 3083439 exited on signal 9 (SIGKILL) after 7.105010 seconds from start
+[23-Oct-2026 09:35:55] NOTICE: [pool www] child 3083532 started
+[23-Oct-2026 09:35:59] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it
+[23-Oct-2026 09:42:41] WARNING: [pool www] child 3089135 exited on signal 11 (SIGSEGV) after 1.492843 seconds from start
+[23-Oct-2026 09:42:41] NOTICE: [pool www] child 3089137 started
+[23-Oct-2026 09:53:03] NOTICE: Terminating ...
+[23-Oct-2026 09:53:03] NOTICE: exiting, bye-bye!
+[23-Oct-2026 10:14:55] NOTICE: fpm is running, pid 15214
+[23-Oct-2026 10:14:55] NOTICE: ready to handle connections
+[23-Oct-2026 10:33:10] WARNING: [pool www] child 15220 exited on signal 11 (SIGSEGV) after 1094.901585 seconds from start
+[23-Oct-2026 10:33:10] NOTICE: [pool www] child 289797 started
+[23-Oct-2026 10:33:10] WARNING: [pool www] child 15221 exited on signal 11 (SIGSEGV) after 1094.944061 seconds from start
+[23-Oct-2026 10:33:10] NOTICE: [pool www] child 289798 started
+[23-Oct-2026 10:33:10] WARNING: [pool www] child 289798 exited on signal 11 (SIGSEGV) after 0.237331 seconds from start
+[23-Oct-2026 10:33:10] NOTICE: [pool www] child 289809 started
+[23-Oct-2026 10:33:10] WARNING: [pool www] child 289797 exited on signal 11 (SIGSEGV) after 0.280125 seconds from start
+[23-Oct-2026 10:33:10] NOTICE: [pool www] child 289810 started
+[23-Oct-2026 10:33:11] WARNING: [pool www] child 289809 exited on signal 11 (SIGSEGV) after 0.249148 seconds from start
+[23-Oct-2026 10:33:11] NOTICE: [pool www] child 289843 started
+[23-Oct-2026 10:33:11] WARNING: [pool www] child 289810 exited on signal 11 (SIGSEGV) after 0.250258 seconds from start
+[23-Oct-2026 10:33:11] NOTICE: [pool www] child 289844 started

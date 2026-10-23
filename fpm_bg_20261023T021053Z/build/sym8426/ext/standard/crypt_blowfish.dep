@@ -1,0 +1,3 @@
+ext/standard/crypt_blowfish.lo: \
+ /tmp/opencode/php-8.4.26/ext/standard/crypt_blowfish.c \
+ /tmp/opencode/php-8.4.26/ext/standard/crypt_blowfish.h

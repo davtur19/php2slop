@@ -1,0 +1,12 @@
+== children ==
+    PID    PPID USER       RSS COMMAND
+      1       0 root     34048 apache2 -DFOREGROUND
+     17       1 www-data 83920 apache2 -DFOREGROUND
+== dump child 17 ==
+STATE ps=0x7fc24c771a40 heap=0x7fc249400040 main=0x7fc249400000 id=0x7fc246536000 idoff=0x-2eca000 md=0x7fc2494560a0 mod=0x56420a2e6d40 rfc=0x0 hsv=0x0 hsvoff=NULL status=2 send_cookie=0
+IDLEN 0x20
+IDMEM 010000001600000000000000000000002000000000000000376434356461333434616134666366353133366431643037
+== error log tail ==
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.36. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.36. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.36. Set the 'ServerName' directive globally to suppress this message

@@ -1,0 +1,3 @@
+ext/standard/libavifinfo/avifinfo.lo: \
+ /tmp/opencode/php-8.4.26/ext/standard/libavifinfo/avifinfo.c \
+ /tmp/opencode/php-8.4.26/ext/standard/libavifinfo/avifinfo.h

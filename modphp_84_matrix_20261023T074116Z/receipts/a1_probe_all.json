@@ -1,0 +1,269 @@
+{
+ "1": {
+  "error": "pull_failed"
+ },
+ "2": {
+  "error": "pull_failed"
+ },
+ "3": {
+  "error": "pull_failed"
+ },
+ "4": {
+  "error": "pull_failed"
+ },
+ "5": {
+  "image_id": "sha256:24c791995c1e498255393db857040793a7a040fa0f8ddd4bbe8fb230648e37d7",
+  "php": [
+   "PHP 5.6.40 (cli) (built: Jan 23 2019 00:10:05) "
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 259,
+  "body_tail": " 08:17:29 GMT\r\nServer: Apache/2.4.25 (Debian)\r\nX-Powered-By: PHP/5.6.40\r\nSet-Cookie: PHPSESSID=c2493fde1ad3865a4799bcf4ec8d9f0e; path=/\r\nContent-Length: 3\r\nConnection: close\r\nContent-Type: text/html; charset=UTF-8\r\n\r\nOK\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 259
+ },
+ "6": {
+  "error": "pull_failed"
+ },
+ "7": {
+  "image_id": "sha256:20a3732f422b7b28dcf99e8597f093a8c135efca62ff0dc02a2d92d916369413",
+  "php": [
+   "PHP 7.4.33 (cli) (built: Nov 15 2022 06:03:30) ( NTS )"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 259,
+  "body_tail": " 08:17:33 GMT\r\nServer: Apache/2.4.54 (Debian)\r\nX-Powered-By: PHP/7.4.33\r\nSet-Cookie: PHPSESSID=680bccb2aff9f634f36ed158e5b56d4f; path=/\r\nContent-Length: 3\r\nConnection: close\r\nContent-Type: text/html; charset=UTF-8\r\n\r\nOK\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 259
+ },
+ "8": {
+  "image_id": "sha256:3aaf6c3363d21d928e512092ef5af8a3528cbde3bd001401e389242d94796cae",
+  "php": [
+   "PHP 8.5.12 (cli) (built: Oct 21 2026 15:49:40) (NTS)"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 259,
+  "body_tail": " 08:17:36 GMT\r\nServer: Apache/2.4.69 (Debian)\r\nX-Powered-By: PHP/8.5.12\r\nSet-Cookie: PHPSESSID=2311923f2e45390d1f5d26196083b478; path=/\r\nContent-Length: 3\r\nConnection: close\r\nContent-Type: text/html; charset=UTF-8\r\n\r\nOK\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 414
+ },
+ "10": {
+  "error": "pull_failed"
+ },
+ "11": {
+  "error": "pull_failed"
+ },
+ "12": {
+  "error": "pull_failed"
+ },
+ "13": {
+  "error": "pull_failed"
+ },
+ "14": {
+  "error": "pull_failed"
+ },
+ "15": {
+  "error": "pull_failed"
+ },
+ "16": {
+  "error": "pull_failed"
+ },
+ "17": {
+  "error": "pull_failed"
+ },
+ "18": {
+  "error": "pull_failed"
+ },
+ "19": {
+  "error": "pull_failed"
+ },
+ "20": {
+  "error": "pull_failed"
+ },
+ "21": {
+  "error": "pull_failed"
+ },
+ "22": {
+  "error": "pull_failed"
+ },
+ "23": {
+  "error": "pull_failed"
+ },
+ "24": {
+  "error": "pull_failed"
+ },
+ "25": {
+  "error": "pull_failed"
+ },
+ "26": {
+  "error": "pull_failed"
+ },
+ "27": {
+  "error": "pull_failed"
+ },
+ "8.4.1": {
+  "image_id": "sha256:f71a1520fc745a27bf88d5c4814cdeea12b5c54f1e8301f575c9e5b876ee435a",
+  "php": [
+   "PHP 8.4.1 (cli) (built: Dec  3 2024 02:21:17) (NTS)"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 258,
+  "body_tail": "6 08:19:59 GMT\r\nServer: Apache/2.4.62 (Debian)\r\nX-Powered-By: PHP/8.4.1\r\nSet-Cookie: PHPSESSID=f9b4ca700708a407610749f14edac443; path=/\r\nContent-Length: 3\r\nConnection: close\r\nContent-Type: text/html; charset=UTF-8\r\n\r\nOK\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 366
+ },
+ "8.4.2": {
+  "image_id": "sha256:67d2b8464ceeb4ad21f6f68ca83f097108a96b4e93245b115ea4d3dacd4d248f",
+  "php": [
+   "PHP 8.4.2 (cli) (built: Jan 14 2025 02:26:19) (NTS)"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 258,
+  "body_tail": "6 08:20:08 GMT\r\nServer: Apache/2.4.62 (Debian)\r\nX-Powered-By: PHP/8.4.2\r\nSet-Cookie: PHPSESSID=5ede783b3078c0e215eaa0fc166ff795; path=/\r\nContent-Length: 3\r\nConnection: close\r\nContent-Type: text/html; charset=UTF-8\r\n\r\nOK\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 366
+ },
+ "8.4.3": {
+  "image_id": "sha256:07110557f6edfc5ff5b48767786dcf802c9120a035f2749fceb57580225969a9",
+  "php": [
+   "PHP 8.4.3 (cli) (built: Feb  4 2025 04:29:46) (NTS)"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 258,
+  "body_tail": "6 08:20:17 GMT\r\nServer: Apache/2.4.62 (Debian)\r\nX-Powered-By: PHP/8.4.3\r\nSet-Cookie: PHPSESSID=09ac60ed5fcb6b1b561bd6b8fbd8a1b3; path=/\r\nContent-Length: 3\r\nConnection: close\r\nContent-Type: text/html; charset=UTF-8\r\n\r\nOK\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 366
+ },
+ "8.4.4": {
+  "image_id": "sha256:3c60ec33ea1741d8adaa23acce0a6a053e7a26ec5efe4c1a113542fef93f9147",
+  "php": [
+   "PHP 8.4.4 (cli) (built: Feb 25 2025 02:20:09) (NTS)"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 258,
+  "body_tail": "6 08:20:18 GMT\r\nServer: Apache/2.4.62 (Debian)\r\nX-Powered-By: PHP/8.4.4\r\nSet-Cookie: PHPSESSID=6b7d19715d586b3c338e35d742b3e23c; path=/\r\nContent-Length: 3\r\nConnection: close\r\nContent-Type: text/html; charset=UTF-8\r\n\r\nOK\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 366
+ },
+ "8.4.5": {
+  "image_id": "sha256:738c18e2cde813bdcb4f8fe17a57b6084f40d9d4513d7c9daaa259834c15780c",
+  "php": [
+   "PHP 8.4.5 (cli) (built: Apr  8 2025 01:16:36) (NTS)"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 258,
+  "body_tail": "6 08:20:27 GMT\r\nServer: Apache/2.4.62 (Debian)\r\nX-Powered-By: PHP/8.4.5\r\nSet-Cookie: PHPSESSID=adbc7e4600c5f33c5ab3f9268667473d; path=/\r\nContent-Length: 3\r\nConnection: close\r\nContent-Type: text/html; charset=UTF-8\r\n\r\nOK\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 366
+ },
+ "8.4.6": {
+  "image_id": "sha256:b8ec87e83c27d26c52af05641728e0f48b8674a0519d8d0ef9514d5ec7650b5e",
+  "php": [
+   "PHP 8.4.6 (cli) (built: Apr 28 2025 21:47:14) (NTS)"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 258,
+  "body_tail": "6 08:20:35 GMT\r\nServer: Apache/2.4.62 (Debian)\r\nX-Powered-By: PHP/8.4.6\r\nSet-Cookie: PHPSESSID=16540f35673887191bec5d45956ec427; path=/\r\nContent-Length: 3\r\nConnection: close\r\nContent-Type: text/html; charset=UTF-8\r\n\r\nOK\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 366
+ },
+ "8.4.7": {
+  "image_id": "sha256:49fd69223655b7edfcea4befeea04202e0873cda0535bb99409ec793ee706c63",
+  "php": [
+   "PHP 8.4.7 (cli) (built: May 21 2025 23:16:04) (NTS)"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 258,
+  "body_tail": "6 08:20:44 GMT\r\nServer: Apache/2.4.62 (Debian)\r\nX-Powered-By: PHP/8.4.7\r\nSet-Cookie: PHPSESSID=e7bb4418335d04cce3dde7b4faed761a; path=/\r\nContent-Length: 3\r\nConnection: close\r\nContent-Type: text/html; charset=UTF-8\r\n\r\nOK\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 366
+ },
+ "8.4.8": {
+  "image_id": "sha256:21fbaa18e74c70f34fbc71b581377b6c36d3fbb9e7a21787dde2d4d2207898c1",
+  "php": [
+   "PHP 8.4.8 (cli) (built: Jul  1 2025 02:17:01) (NTS)"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 576,
+  "body_tail": " (tried to allocate 12288 bytes) in <b>Unknown</b> on line <b>0</b><br />\n<br />\n<b>Warning</b>:  PHP Request Startup: Failed to decode session object. Session has been destroyed in <b>Unknown</b> on line <b>0</b><br />\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 366
+ },
+ "8.4.10": {
+  "image_id": "sha256:e7dfce7f85cede10c7a9c334ecb0bee9cff6fe83bbf64f5e1c5a3cf5879f7a8b",
+  "php": [
+   "PHP 8.4.10 (cli) (built: Jul 22 2025 01:17:53) (NTS)"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 577,
+  "body_tail": " (tried to allocate 12288 bytes) in <b>Unknown</b> on line <b>0</b><br />\n<br />\n<b>Warning</b>:  PHP Request Startup: Failed to decode session object. Session has been destroyed in <b>Unknown</b> on line <b>0</b><br />\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 367
+ },
+ "8.4.11": {
+  "image_id": "sha256:27a77f7fe2385bd08dc45c88c29e04c283561d73a870cd6d01bf4d0622a8e547",
+  "php": [
+   "PHP 8.4.11 (cli) (built: Aug 12 2025 22:28:48) (NTS)"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 577,
+  "body_tail": " (tried to allocate 12288 bytes) in <b>Unknown</b> on line <b>0</b><br />\n<br />\n<b>Warning</b>:  PHP Request Startup: Failed to decode session object. Session has been destroyed in <b>Unknown</b> on line <b>0</b><br />\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 367
+ },
+ "8.4.12": {
+  "image_id": "sha256:d04f3fc12f4cd353424f2444c923e2c0b096e878d6b7d6afdd3b5a2a41b4f277",
+  "php": [
+   "PHP 8.4.12 (cli) (built: Sep  8 2025 21:18:08) (NTS)"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 577,
+  "body_tail": " (tried to allocate 12288 bytes) in <b>Unknown</b> on line <b>0</b><br />\n<br />\n<b>Warning</b>:  PHP Request Startup: Failed to decode session object. Session has been destroyed in <b>Unknown</b> on line <b>0</b><br />\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 367
+ },
+ "8.4.13": {
+  "image_id": "sha256:730d38586b429211d25d2b6b95c062421f66ef9bdf9e8d759507c345f58138ba",
+  "php": [
+   "PHP 8.4.13 (cli) (built: Oct 21 2025 01:27:11) (NTS)"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 577,
+  "body_tail": " (tried to allocate 12288 bytes) in <b>Unknown</b> on line <b>0</b><br />\n<br />\n<b>Warning</b>:  PHP Request Startup: Failed to decode session object. Session has been destroyed in <b>Unknown</b> on line <b>0</b><br />\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 367
+ },
+ "8.4.14": {
+  "image_id": "sha256:ad4bedd2d138c4d878f0ae66142b06f2fbbac8e3b839ffcbdd17962040af0ece",
+  "php": [
+   "PHP 8.4.14 (cli) (built: Nov 18 2025 04:40:14) (NTS)"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 577,
+  "body_tail": " (tried to allocate 12288 bytes) in <b>Unknown</b> on line <b>0</b><br />\n<br />\n<b>Warning</b>:  PHP Request Startup: Failed to decode session object. Session has been destroyed in <b>Unknown</b> on line <b>0</b><br />\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 367
+ },
+ "8.4.15": {
+  "image_id": "sha256:904364767f74a52921f1c909187e864696ee93b50a33cfea41ac19847ef4cc32",
+  "php": [
+   "PHP 8.4.15 (cli) (built: Dec  8 2025 22:49:51) (NTS)"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 577,
+  "body_tail": " (tried to allocate 12288 bytes) in <b>Unknown</b> on line <b>0</b><br />\n<br />\n<b>Warning</b>:  PHP Request Startup: Failed to decode session object. Session has been destroyed in <b>Unknown</b> on line <b>0</b><br />\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 367
+ },
+ "8.4.16": {
+  "image_id": "sha256:904f644bb5195bfd1e04411799e5008b72a3ff50e933a32aec4e46931e5f70fb",
+  "php": [
+   "PHP 8.4.16 (cli) (built: Jan 13 2026 01:34:07) (NTS)"
+  ],
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 577,
+  "body_tail": " (tried to allocate 12288 bytes) in <b>Unknown</b> on line <b>0</b><br />\n<br />\n<b>Warning</b>:  PHP Request Startup: Failed to decode session object. Session has been destroyed in <b>Unknown</b> on line <b>0</b><br />\n",
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 367
+ }
+}

@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Date: Fri, 23 Oct 2026 08:17:36 GMT
+Server: Apache/2.4.69 (Debian)
+X-Powered-By: PHP/8.5.12
+Vary: Accept-Encoding
+Content-Length: 197
+Connection: close
+Content-Type: text/html; charset=UTF-8
+
+<br />
+<b>Warning</b>:  PHP Request Startup: Multipart body parts limit exceeded 1020. To increase the limit change max_multipart_body_parts in php.ini. in <b>Unknown</b> on line <b>0</b><br />
+OK

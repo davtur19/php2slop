@@ -1,0 +1,13 @@
+archive sha256:
+e186687e82a154da187dce888c016284e2afe9eb3088e3f365db811e06910167  wp-5.3.2.tar.gz
+7d97a4cd85bfeb85b69870ffaab35fc5288e69e45cb7edea65d089f7f406a1a7  mw-1.33.1.tar.gz
+
+archive member hashes:
+sed: -e expression #1, char 17: unknown option to `s'
+sed: couldn't open file p-includes/version.php/: No such file or directory
+0a9dabc0fa9f4de8e38cb7c86a8a9df74fac281045718c44be2f5319c8202caa  mediawiki-1.33.1/index.php
+archive sha256:
+e186687e82a154da187dce888c016284e2afe9eb3088e3f365db811e06910167  wp-5.3.2.tar.gz
+member hashes:
+index.php             af65ca77a36ba70575b74e351dd7b3bef9f261229b9f79bfb0f0f671cbbd9656
+wp-includes/version.php 8cf09719b388bff6125729de5f89a11138bd1d499ce5f5ba2e93e84095507aab

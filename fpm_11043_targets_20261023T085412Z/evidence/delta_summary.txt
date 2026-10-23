@@ -1,0 +1,11 @@
+delta test                                           result         params
+7.3.11_mw_rec_plus_PATHINFO                          Blocked        
+7.3.11_stock_no_tryfiles_reordered                   Blocked        
+7.3.11_stock_reordered_with_tryfiles                 Blocked        
+7.3.11_stock_snippet_minus_tryfiles                  Blocked        
+7.3.9_docs_fixpathinfo0                              Blocked        
+7.3.9_mw_rec_plus_PATHINFO                           Blocked        
+7.3.9_stock_no_tryfiles_reordered_attack             Invalid-cmd    
+7.3.9_stock_no_tryfiles_reordered                    Detected       
+7.3.9_stock_reordered_with_tryfiles                  Blocked        
+7.3.9_stock_snippet_minus_tryfiles                   Blocked        

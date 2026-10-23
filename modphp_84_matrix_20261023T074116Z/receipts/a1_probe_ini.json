@@ -1,0 +1,416 @@
+{
+ "8.4.1": {
+  "image_id": "sha256:f71a1520fc745a27bf88d5c4814cdeea12b5c54f1e8301f575c9e5b876ee435a",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.1 (cli) (built: Dec  3 2024 02:21:17) (NTS)"
+  ],
+  "status_p860": "HTTP/1.1 200 OK",
+  "bytes_p860": 258,
+  "elapsed_p860": 0.08,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 210,
+  "elapsed_p920": 0.1,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 258,
+  "elapsed_p840": 0.09
+ },
+ "8.4.2": {
+  "image_id": "sha256:67d2b8464ceeb4ad21f6f68ca83f097108a96b4e93245b115ea4d3dacd4d248f",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.2 (cli) (built: Jan 14 2025 02:26:19) (NTS)"
+  ],
+  "status_p860": "HTTP/1.1 200 OK",
+  "bytes_p860": 258,
+  "elapsed_p860": 0.08,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 210,
+  "elapsed_p920": 0.09,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 258,
+  "elapsed_p840": 0.08
+ },
+ "8.4.3": {
+  "image_id": "sha256:07110557f6edfc5ff5b48767786dcf802c9120a035f2749fceb57580225969a9",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.3 (cli) (built: Feb  4 2025 04:29:46) (NTS)"
+  ],
+  "status_p860": "HTTP/1.1 200 OK",
+  "bytes_p860": 258,
+  "elapsed_p860": 0.09,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 210,
+  "elapsed_p920": 0.1,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 258,
+  "elapsed_p840": 0.09
+ },
+ "8.4.4": {
+  "image_id": "sha256:3c60ec33ea1741d8adaa23acce0a6a053e7a26ec5efe4c1a113542fef93f9147",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.4 (cli) (built: Feb 25 2025 02:20:09) (NTS)"
+  ],
+  "status_p860": "HTTP/1.1 200 OK",
+  "bytes_p860": 258,
+  "elapsed_p860": 0.09,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 210,
+  "elapsed_p920": 0.1,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 258,
+  "elapsed_p840": 0.08
+ },
+ "8.4.5": {
+  "image_id": "sha256:738c18e2cde813bdcb4f8fe17a57b6084f40d9d4513d7c9daaa259834c15780c",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.5 (cli) (built: Apr  8 2025 01:16:36) (NTS)"
+  ],
+  "status_p860": "HTTP/1.1 200 OK",
+  "bytes_p860": 258,
+  "elapsed_p860": 0.08,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 210,
+  "elapsed_p920": 0.1,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 258,
+  "elapsed_p840": 0.08
+ },
+ "8.4.6": {
+  "image_id": "sha256:b8ec87e83c27d26c52af05641728e0f48b8674a0519d8d0ef9514d5ec7650b5e",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.6 (cli) (built: Apr 28 2025 21:47:14) (NTS)"
+  ],
+  "status_p860": "HTTP/1.1 200 OK",
+  "bytes_p860": 258,
+  "elapsed_p860": 0.08,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 210,
+  "elapsed_p920": 0.1,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 258,
+  "elapsed_p840": 0.08
+ },
+ "8.4.7": {
+  "image_id": "sha256:49fd69223655b7edfcea4befeea04202e0873cda0535bb99409ec793ee706c63",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.7 (cli) (built: May 21 2025 23:16:04) (NTS)"
+  ],
+  "status_p860": "HTTP/1.1 200 OK",
+  "bytes_p860": 258,
+  "elapsed_p860": 0.09,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 210,
+  "elapsed_p920": 0.1,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 258,
+  "elapsed_p840": 0.08
+ },
+ "8.4.8": {
+  "image_id": "sha256:21fbaa18e74c70f34fbc71b581377b6c36d3fbb9e7a21787dde2d4d2207898c1",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [],
+  "status_p860": "HTTP/1.1 200 OK",
+  "bytes_p860": 268,
+  "elapsed_p860": 0.08,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.09,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 268,
+  "elapsed_p840": 0.08
+ },
+ "8.4.10": {
+  "image_id": "sha256:e7dfce7f85cede10c7a9c334ecb0bee9cff6fe83bbf64f5e1c5a3cf5879f7a8b",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.10 (cli) (built: Jul 22 2025 01:17:53) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.1,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.09,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.08
+ },
+ "8.4.11": {
+  "image_id": "sha256:27a77f7fe2385bd08dc45c88c29e04c283561d73a870cd6d01bf4d0622a8e547",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.11 (cli) (built: Aug 12 2025 22:28:48) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.09,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.09,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.08
+ },
+ "8.4.12": {
+  "image_id": "sha256:d04f3fc12f4cd353424f2444c923e2c0b096e878d6b7d6afdd3b5a2a41b4f277",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.12 (cli) (built: Sep  8 2025 21:18:08) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.09,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.1,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.08
+ },
+ "8.4.13": {
+  "image_id": "sha256:730d38586b429211d25d2b6b95c062421f66ef9bdf9e8d759507c345f58138ba",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.13 (cli) (built: Oct 21 2025 01:27:11) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.09,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.1,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.09
+ },
+ "8.4.14": {
+  "image_id": "sha256:ad4bedd2d138c4d878f0ae66142b06f2fbbac8e3b839ffcbdd17962040af0ece",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.14 (cli) (built: Nov 18 2025 04:40:14) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.1,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.1,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.08
+ },
+ "8.4.15": {
+  "image_id": "sha256:904364767f74a52921f1c909187e864696ee93b50a33cfea41ac19847ef4cc32",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.15 (cli) (built: Dec  8 2025 22:49:51) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.09,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.09,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.08
+ },
+ "8.4.16": {
+  "image_id": "sha256:904f644bb5195bfd1e04411799e5008b72a3ff50e933a32aec4e46931e5f70fb",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.16 (cli) (built: Jan 13 2026 01:34:07) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.1,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.1,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.08
+ },
+ "8.4.17": {
+  "image_id": "sha256:25302172c9dc2c2a7c933d1e7975a2dbea016b5939188cbe1dc5e044c8732007",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.17 (cli) (built: Feb  3 2026 02:32:10) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.09,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.09,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.08
+ },
+ "8.4.18": {
+  "image_id": "sha256:c9616ccf090dc051b933a602946e72b2c7fb041df5eced764702836e68c2aff9",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.18 (cli) (built: Feb 24 2026 19:09:41) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.11,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.1,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.08
+ },
+ "8.4.19": {
+  "image_id": "sha256:59cce7f8647d32fae782d2ba5e31c339c2cc7747fc9ebeab872033dba3f6fd69",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.19 (cli) (built: Apr  7 2026 01:33:04) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.1,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.12,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.09
+ },
+ "8.4.20": {
+  "image_id": "sha256:2150d79ea760c38d3b030ba8d4b797af5360747a6225d894e5ffa048819a336e",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.20 (cli) (built: Apr 22 2026 01:26:43) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.1,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.09,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.08
+ },
+ "8.4.21": {
+  "image_id": "sha256:7c62b6c16e916dc3e6034898063aeba9814c94433af0e109686ce67e728b6329",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.21 (cli) (built: May 19 2026 23:10:04) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.1,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.11,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.09
+ },
+ "8.4.22": {
+  "image_id": "sha256:019a4d9aec9350e231cf9bb01264310d67b115f89bd8c6cf44ea1d76fc4a579a",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.22 (cli) (built: Jun 24 2026 01:26:52) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.09,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.1,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.08
+ },
+ "8.4.23": {
+  "image_id": "sha256:c3f590afba58fbab37b9c556300aa8f2ef280e685993d78a1994a259cd143fd4",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.23 (cli) (built: Jul 14 2026 01:28:36) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.1,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.1,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.08
+ },
+ "8.4.24": {
+  "image_id": "sha256:8d2818176962263f2ea41c9b20e848eebe0d80417d21aaae89f33bfbceed725a",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.24 (cli) (built: Aug 25 2026 00:35:26) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.1,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.1,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.08
+ },
+ "8.4.25": {
+  "image_id": "sha256:c9df646f55dc70fe170515b16aa5d6629e94eb40ca31fdae4294178b6051670f",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.25 (cli) (built: Sep 19 2026 00:29:51) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.1,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.1,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.08
+ },
+ "8.4.26": {
+  "image_id": "sha256:46b195b6378e712d1a65cd3f853242bebd7f3cb4cafe137fd592b365909d2c17",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.26 (cli) (built: Oct 21 2026 00:31:19) (NTS)"
+  ],
+  "status_p860": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p860": 211,
+  "elapsed_p860": 0.09,
+  "status_p920": "HTTP/1.0 500 Internal Server Error",
+  "bytes_p920": 211,
+  "elapsed_p920": 0.1,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.08
+ },
+ "8.4.27": {
+  "image_id": "sha256:675af91f3349cf6dba7bd50ce967eb38732c5aa23b9e5b021dc15e2b1a2d1e5e",
+  "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "php": [
+   "PHP 8.4.27 (cli) (built: Oct 21 2026 15:53:29) (NTS)"
+  ],
+  "status_p860": "HTTP/1.1 200 OK",
+  "bytes_p860": 259,
+  "elapsed_p860": 0.07,
+  "status_p920": "HTTP/1.1 200 OK",
+  "bytes_p920": 195,
+  "elapsed_p920": 0.06,
+  "status_p840": "HTTP/1.1 200 OK",
+  "bytes_p840": 259,
+  "elapsed_p840": 0.07
+ }
+}

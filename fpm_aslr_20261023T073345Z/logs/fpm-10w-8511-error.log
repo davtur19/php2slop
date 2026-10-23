@@ -1,0 +1,44 @@
+[23-Oct-2026 09:36:54] NOTICE: fpm is running, pid 3084068
+[23-Oct-2026 09:36:54] NOTICE: ready to handle connections
+[23-Oct-2026 09:37:37] WARNING: [pool www] child 3084081 exited on signal 9 (SIGKILL) after 43.211268 seconds from start
+[23-Oct-2026 09:37:37] NOTICE: [pool www] child 3084806 started
+[23-Oct-2026 09:37:37] WARNING: [pool www] child 3084085 exited on signal 9 (SIGKILL) after 43.211272 seconds from start
+[23-Oct-2026 09:37:37] NOTICE: [pool www] child 3084807 started
+[23-Oct-2026 09:37:37] WARNING: [pool www] child 3084089 exited on signal 9 (SIGKILL) after 43.211059 seconds from start
+[23-Oct-2026 09:37:37] NOTICE: [pool www] child 3084808 started
+[23-Oct-2026 09:37:37] WARNING: [pool www] child 3084092 exited on signal 9 (SIGKILL) after 43.210841 seconds from start
+[23-Oct-2026 09:37:37] NOTICE: [pool www] child 3084809 started
+[23-Oct-2026 09:37:37] WARNING: [pool www] child 3084096 exited on signal 9 (SIGKILL) after 43.210647 seconds from start
+[23-Oct-2026 09:37:37] NOTICE: [pool www] child 3084810 started
+[23-Oct-2026 09:37:51] WARNING: [pool www] child 3084083 exited on signal 9 (SIGKILL) after 56.686826 seconds from start
+[23-Oct-2026 09:37:51] NOTICE: [pool www] child 3085087 started
+[23-Oct-2026 09:37:51] WARNING: [pool www] child 3084091 exited on signal 9 (SIGKILL) after 56.686221 seconds from start
+[23-Oct-2026 09:37:51] NOTICE: [pool www] child 3085088 started
+[23-Oct-2026 09:37:51] WARNING: [pool www] child 3084098 exited on signal 9 (SIGKILL) after 56.685575 seconds from start
+[23-Oct-2026 09:37:51] NOTICE: [pool www] child 3085089 started
+[23-Oct-2026 09:37:51] WARNING: [pool www] child 3084807 exited on signal 9 (SIGKILL) after 13.476160 seconds from start
+[23-Oct-2026 09:37:51] NOTICE: [pool www] child 3085090 started
+[23-Oct-2026 09:37:51] WARNING: [pool www] child 3084809 exited on signal 9 (SIGKILL) after 13.475946 seconds from start
+[23-Oct-2026 09:37:51] NOTICE: [pool www] child 3085091 started
+[23-Oct-2026 09:40:41] WARNING: [pool www] child 3084087 exited on signal 9 (SIGKILL) after 226.851447 seconds from start
+[23-Oct-2026 09:40:41] NOTICE: [pool www] child 3087345 started
+[23-Oct-2026 09:40:41] WARNING: [pool www] child 3084806 exited on signal 9 (SIGKILL) after 183.641095 seconds from start
+[23-Oct-2026 09:40:41] NOTICE: [pool www] child 3087346 started
+[23-Oct-2026 09:40:41] WARNING: [pool www] child 3084810 exited on signal 9 (SIGKILL) after 183.640186 seconds from start
+[23-Oct-2026 09:40:41] NOTICE: [pool www] child 3087347 started
+[23-Oct-2026 09:40:41] WARNING: [pool www] child 3085088 exited on signal 9 (SIGKILL) after 170.165643 seconds from start
+[23-Oct-2026 09:40:41] NOTICE: [pool www] child 3087348 started
+[23-Oct-2026 09:40:41] WARNING: [pool www] child 3085090 exited on signal 9 (SIGKILL) after 170.165209 seconds from start
+[23-Oct-2026 09:40:41] NOTICE: [pool www] child 3087349 started
+[23-Oct-2026 09:41:02] WARNING: [pool www] child 3084094 exited on signal 9 (SIGKILL) after 247.943158 seconds from start
+[23-Oct-2026 09:41:02] NOTICE: [pool www] child 3087698 started
+[23-Oct-2026 09:41:02] WARNING: [pool www] child 3085087 exited on signal 9 (SIGKILL) after 191.257977 seconds from start
+[23-Oct-2026 09:41:02] NOTICE: [pool www] child 3087699 started
+[23-Oct-2026 09:41:02] WARNING: [pool www] child 3085091 exited on signal 9 (SIGKILL) after 191.256858 seconds from start
+[23-Oct-2026 09:41:02] NOTICE: [pool www] child 3087700 started
+[23-Oct-2026 09:41:02] WARNING: [pool www] child 3087346 exited on signal 9 (SIGKILL) after 21.092981 seconds from start
+[23-Oct-2026 09:41:02] NOTICE: [pool www] child 3087701 started
+[23-Oct-2026 09:41:02] WARNING: [pool www] child 3087348 exited on signal 9 (SIGKILL) after 21.092754 seconds from start
+[23-Oct-2026 09:41:02] NOTICE: [pool www] child 3087702 started
+[23-Oct-2026 09:53:03] NOTICE: Terminating ...
+[23-Oct-2026 09:53:03] NOTICE: exiting, bye-bye!

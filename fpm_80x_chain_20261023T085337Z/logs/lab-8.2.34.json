@@ -1,0 +1,12 @@
+{
+ "ver": "8.2.34",
+ "port_base": 19820,
+ "fpm_port": 19820,
+ "web_port": 19821,
+ "image": "mirror.gcr.io/library/php:8.2.34-fpm",
+ "mode": "stock",
+ "fpm_bin": "",
+ "nginx_prefix": "/tmp/opencode/research/fpm_80x_chain_20261023T085337Z/nginx/19820",
+ "container": "f80x-8234",
+ "started": "2026-10-23T09:27:27Z"
+}

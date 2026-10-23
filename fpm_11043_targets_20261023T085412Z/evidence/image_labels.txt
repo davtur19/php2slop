@@ -1,0 +1,8 @@
+/t11043-fpm7310 image=php:7.3.10-fpm version=
+/t11043-fpm7223 image=php:7.2.23-fpm version=
+/t11043-fpm7224 image=php:7.2.24-fpm version=
+/t11043-fpm8426 image=php:8.4.26-fpm version=
+/t11043-nginx image=t11043/nginx-deb10:1 version=
+/t11043-fpm739 image=t11043/php739-deb10:1 version=
+/t11043-fpm7311 image=t11043/php7311-deb10:1 version=
+/t11043-db image=mariadb:11.4 version=11.4.13

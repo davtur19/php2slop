@@ -1,0 +1,576 @@
+--- /tmp/opencode/research/moodle_consumer_20261023T060000Z/evidence/environment.xml.orig	2026-10-23 05:12:53.223652029 +0200
++++ /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/admin/environment.xml	2026-10-23 05:13:47.911101428 +0200
+@@ -265,7 +265,7 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+@@ -382,7 +382,7 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+@@ -492,7 +492,7 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+@@ -607,7 +607,7 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+@@ -723,7 +723,7 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+@@ -839,12 +839,12 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -953,14 +953,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="optional">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -1075,14 +1075,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -1214,14 +1214,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -1348,14 +1348,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -1492,14 +1492,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -1636,14 +1636,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -1802,14 +1802,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -1968,14 +1968,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -2145,14 +2145,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -2322,14 +2322,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -2499,14 +2499,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -2681,14 +2681,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -2863,14 +2863,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -3045,14 +3045,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -3232,14 +3232,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -3419,14 +3419,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -3606,14 +3606,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -3794,14 +3794,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -3985,14 +3985,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -4024,7 +4024,7 @@
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="hash" level="required"/>
+       <PHP_EXTENSION name="fileinfo" level="required"/>
+-      <PHP_EXTENSION name="sodium" level="required"/>
++      <PHP_EXTENSION name="sodium" level="optional"/>
+       <PHP_EXTENSION name="exif" level="optional"/>
+     </PHP_EXTENSIONS>
+     <PHP_SETTINGS>
+@@ -4177,14 +4177,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -4216,7 +4216,7 @@
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="hash" level="required"/>
+       <PHP_EXTENSION name="fileinfo" level="required"/>
+-      <PHP_EXTENSION name="sodium" level="required"/>
++      <PHP_EXTENSION name="sodium" level="optional"/>
+       <PHP_EXTENSION name="exif" level="optional"/>
+     </PHP_EXTENSIONS>
+     <PHP_SETTINGS>
+@@ -4371,14 +4371,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -4410,7 +4410,7 @@
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="hash" level="required"/>
+       <PHP_EXTENSION name="fileinfo" level="required"/>
+-      <PHP_EXTENSION name="sodium" level="required"/>
++      <PHP_EXTENSION name="sodium" level="optional"/>
+       <PHP_EXTENSION name="exif" level="optional"/>
+       <PHP_EXTENSION name="filter" level="required"/>
+     </PHP_EXTENSIONS>
+@@ -4568,14 +4568,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -4607,7 +4607,7 @@
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="hash" level="required"/>
+       <PHP_EXTENSION name="fileinfo" level="required"/>
+-      <PHP_EXTENSION name="sodium" level="required"/>
++      <PHP_EXTENSION name="sodium" level="optional"/>
+       <PHP_EXTENSION name="exif" level="optional"/>
+       <PHP_EXTENSION name="filter" level="required"/>
+     </PHP_EXTENSIONS>
+@@ -4764,14 +4764,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -4803,7 +4803,7 @@
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="hash" level="required"/>
+       <PHP_EXTENSION name="fileinfo" level="required"/>
+-      <PHP_EXTENSION name="sodium" level="required"/>
++      <PHP_EXTENSION name="sodium" level="optional"/>
+       <PHP_EXTENSION name="exif" level="optional"/>
+       <PHP_EXTENSION name="filter" level="required"/>
+     </PHP_EXTENSIONS>
+@@ -4960,14 +4960,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -4999,7 +4999,7 @@
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="hash" level="required"/>
+       <PHP_EXTENSION name="fileinfo" level="required"/>
+-      <PHP_EXTENSION name="sodium" level="required"/>
++      <PHP_EXTENSION name="sodium" level="optional"/>
+       <PHP_EXTENSION name="exif" level="optional"/>
+       <PHP_EXTENSION name="filter" level="required"/>
+     </PHP_EXTENSIONS>
+@@ -5161,14 +5161,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -5200,7 +5200,7 @@
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="hash" level="required"/>
+       <PHP_EXTENSION name="fileinfo" level="required"/>
+-      <PHP_EXTENSION name="sodium" level="required"/>
++      <PHP_EXTENSION name="sodium" level="optional"/>
+       <PHP_EXTENSION name="exif" level="optional"/>
+       <PHP_EXTENSION name="filter" level="required"/>
+     </PHP_EXTENSIONS>
+@@ -5365,14 +5365,14 @@
+           <ON_ERROR message="ctyperequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="zip" level="required">
++      <PHP_EXTENSION name="zip" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="ziprequired" />
+         </FEEDBACK>
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="zlib" level="required">
+       </PHP_EXTENSION>
+-      <PHP_EXTENSION name="gd" level="required">
++      <PHP_EXTENSION name="gd" level="optional">
+         <FEEDBACK>
+           <ON_ERROR message="gdrequired" />
+         </FEEDBACK>
+@@ -5404,7 +5404,7 @@
+       </PHP_EXTENSION>
+       <PHP_EXTENSION name="hash" level="required"/>
+       <PHP_EXTENSION name="fileinfo" level="required"/>
+-      <PHP_EXTENSION name="sodium" level="required"/>
++      <PHP_EXTENSION name="sodium" level="optional"/>
+       <PHP_EXTENSION name="exif" level="optional"/>
+       <PHP_EXTENSION name="filter" level="required"/>
+     </PHP_EXTENSIONS>

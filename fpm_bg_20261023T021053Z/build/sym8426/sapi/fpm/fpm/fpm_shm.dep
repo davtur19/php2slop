@@ -1,0 +1,3 @@
+sapi/fpm/fpm/fpm_shm.lo: /tmp/opencode/php-8.4.26/sapi/fpm/fpm/fpm_shm.c \
+ /tmp/opencode/php-8.4.26/sapi/fpm/fpm/fpm_shm.h \
+ /tmp/opencode/php-8.4.26/sapi/fpm/fpm/zlog.h

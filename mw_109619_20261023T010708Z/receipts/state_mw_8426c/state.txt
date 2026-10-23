@@ -1,0 +1,23 @@
+== children ==
+    PID    PPID USER       RSS COMMAND
+      1       0 root     33268 apache2 -DFOREGROUND
+     17       1 www-data 60700 apache2 -DFOREGROUND
+     18       1 www-data 56660 apache2 -DFOREGROUND
+     19       1 www-data 79148 apache2 -DFOREGROUND
+     20       1 www-data 10180 apache2 -DFOREGROUND
+     21       1 www-data 10180 apache2 -DFOREGROUND
+== dump child 19 ==
+STATE ps=0x7f91da0de820 heap=0x7f91d7200040 main=0x7f91d7200000 id=0x7f91d4137000 idoff=0x-30c9000 md=0x7f91d72570a0 mod=0x560324b2c6e8 rfc=0x0 hsv=0x0 hsvoff=NULL status=2 send_cookie=1
+IDLEN 0x20
+IDMEM 010000001600000000000000000000002000000000000000653433383466376639393264626462636335646239393365
+== error log tail ==
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.34. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.34. Set the 'ServerName' directive globally to suppress this message
+[Fri Oct 23 01:19:10.883524 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.4.26 configured -- resuming normal operations
+[Fri Oct 23 01:19:10.883546 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Oct 23 01:20:26.510024 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.34. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.34. Set the 'ServerName' directive globally to suppress this message
+[Fri Oct 23 01:20:27.948858 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.4.26 configured -- resuming normal operations
+[Fri Oct 23 01:20:27.948883 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Fri Oct 23 01:20:30.068040 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:60698] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0

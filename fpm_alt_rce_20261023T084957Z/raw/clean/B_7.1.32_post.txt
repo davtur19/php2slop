@@ -1,0 +1,6 @@
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+1f0e631a6042
+FPMALT-PWN-B_7.1.32
+
+Warning: Cannot modify header information - headers already sent by (output started at /tmp/a:1) in /srv/www/7123/index.php on line 2
+FPMALT-OK 7.1.32

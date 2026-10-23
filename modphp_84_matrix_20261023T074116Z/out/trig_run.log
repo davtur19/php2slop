@@ -1,0 +1,32 @@
+restart
+A2 b'HTTP/1.0 500 Internal Server Error' pid 9 {'heap': '0x7f5021a00040', 'main': '0x7f5021a00000', 'lib': '0x7f5022a21000', 'sid': '0x7f5021a660c0', 'sidoff': '0x660c0', 'hsv': '0x7f5021a7d720', 'hsvoff': '0x7d720', 'hsvtype': '0x10a', 'send_cookie': '0', 'status': '1', 'refrc': '2', 'reftype': '0x1a', 'refptr': '0x7f5021a5a268', 'valtype': '0x307', 'valrc': '1', 'valgc': '0xc0000407'}
+gdb poll None
+B2 0 pid 10 b'HTTP/1.1 200 OK'
+B2 1 pid 11 b'HTTP/1.1 200 OK'
+B2 2 pid 12 b'HTTP/1.1 200 OK'
+B2 3 pid 13 b'HTTP/1.1 200 OK'
+B2 4 pid 9 b'HTTP/1.1 200 OK'
+=== GDB ===
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f50231eb3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: BFD: /usr/lib/debug/.build-id/a5/3126ca5ef3f1c12e9bd48cf7cccd63698fc818.debug: unable to get decompressed section .debug_gdb_scripts
+warning: Couldn't read .debug_gdb_scripts section of /usr/lib/debug/.build-id/a5/3126ca5ef3f1c12e9bd48cf7cccd63698fc818.debug
+Breakpoint 1 at 0x7f5022e45ff0: file ./Zend/zend_variables.c, line 83.
+HIT zval=0x7f5022fd7708 type=0x10a value=0x7f5021a7d720 main=0x7f5021a00000
+REF rc=2 type=0xa ptr=0x7f5021af8398 valtype=0x107
+DUMPED 0x7f5021a00000
+#0  zval_ptr_dtor (zval_ptr=0x7f5022fd7708 <ps_globals+360>) at ./Zend/zend_variables.c:83
+#1  0x00007f5022c1199f in php_session_track_init () at ./ext/session/session.c:244
+#2  0x00007f5022c17528 in php_session_initialize () at ./ext/session/session.c:479
+#3  0x00007f5022c19525 in php_session_rfc1867_cleanup (progress=0x7f5021a62000) at ./ext/session/session.c:3202
+#4  php_session_rfc1867_callback (event=<optimized out>, event_data=0x7ffca7a8c140, extra=<optimized out>) at ./ext/session/session.c:3366
+
+Breakpoint 1, zval_ptr_dtor (zval_ptr=0x7f5022fd7708 <ps_globals+360>) at ./Zend/zend_variables.c:83
+warning: 83	./Zend/zend_variables.c: No such file or directory
+[Inferior 1 (process 9) detached]
+
+OCC off=0xf7431 S=0x7f5021af7398 hdr=0100000007000000 pDestructor=0x7f5022c6ddd0 zif=0x7f5022c6ddd0 ok=True
+OCC off=0xf75f1 S=0x7f5021af7558 hdr=0100000007000000 pDestructor=0x7f5022c6ddd0 zif=0x7f5022c6ddd0 ok=True
+MARKER 'DEBTRIG_db52fd' found at chunk offsets ['0xf7430', '0xf75f0']
+CANDIDATES [{'chunk_off': 1012785, 'S': 139982139257752, 'hdr': '0100000007000000', 'pDestructor': 139982157569488, 'zif': 139982157569488, 'pd_match': True}, {'chunk_off': 1013233, 'S': 139982139258200, 'hdr': '0100000007000000', 'pDestructor': 139982157569488, 'zif': 139982157569488, 'pd_match': True}]

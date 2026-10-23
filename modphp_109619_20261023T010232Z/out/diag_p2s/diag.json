@@ -1,0 +1,97 @@
+{
+ "a1": {
+  "bytes": 211,
+  "status": "HTTP/1.0 500 Internal Server Error",
+  "pid": "20"
+ },
+ "b1": [
+  {
+   "i": 0,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "pid": "21",
+   "leak": false
+  },
+  {
+   "i": 1,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "pid": "22",
+   "leak": false
+  },
+  {
+   "i": 2,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "pid": "23",
+   "leak": false
+  },
+  {
+   "i": 3,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "pid": "19",
+   "leak": false
+  },
+  {
+   "i": 4,
+   "bytes": 1645671,
+   "status": "HTTP/1.1 200 OK",
+   "pid": "20",
+   "leak": true
+  }
+ ],
+ "a2": [
+  {
+   "i": 0,
+   "bytes": 211,
+   "pid": "43"
+  },
+  {
+   "i": 1,
+   "bytes": 211,
+   "pid": "21"
+  },
+  {
+   "i": 2,
+   "bytes": 211,
+   "pid": "22"
+  },
+  {
+   "i": 3,
+   "bytes": 211,
+   "pid": "23"
+  },
+  {
+   "i": 4,
+   "bytes": 211,
+   "pid": "19"
+  }
+ ],
+ "dumps": {
+  "19": {
+   "raw": "OCI runtime exec failed: exec failed: unable to start container process: exec: \"gdb\": executable file not found in $PATH: unknown\n",
+   "role": "+a2"
+  },
+  "20": {
+   "raw": "OCI runtime exec failed: exec failed: unable to start container process: exec: \"gdb\": executable file not found in $PATH: unknown\n",
+   "role": "leak"
+  },
+  "21": {
+   "raw": "OCI runtime exec failed: exec failed: unable to start container process: exec: \"gdb\": executable file not found in $PATH: unknown\n",
+   "role": "+a2"
+  },
+  "22": {
+   "raw": "OCI runtime exec failed: exec failed: unable to start container process: exec: \"gdb\": executable file not found in $PATH: unknown\n",
+   "role": "+a2"
+  },
+  "23": {
+   "raw": "OCI runtime exec failed: exec failed: unable to start container process: exec: \"gdb\": executable file not found in $PATH: unknown\n",
+   "role": "+a2"
+  },
+  "43": {
+   "raw": "OCI runtime exec failed: exec failed: unable to start container process: exec: \"gdb\": executable file not found in $PATH: unknown\n",
+   "role": "+a2"
+  }
+ }
+}

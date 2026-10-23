@@ -1,0 +1,7 @@
+Zend/zend_atomic.lo: /tmp/opencode/php-8.4.26/Zend/zend_atomic.c \
+ /tmp/opencode/php-8.4.26/Zend/zend_atomic.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_portability.h Zend/zend_config.h \
+ Zend/../main/php_config.h /tmp/opencode/php-8.4.26/Zend/../TSRM/TSRM.h \
+ /tmp/opencode/research/fpm_bg_20261023T021053Z/build/sym8426/main/php_config.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_range_check.h \
+ /tmp/opencode/php-8.4.26/Zend/zend_long.h

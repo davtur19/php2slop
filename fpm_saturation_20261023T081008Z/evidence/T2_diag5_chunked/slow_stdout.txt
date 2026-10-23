@@ -1,0 +1,1 @@
+{"n": 200, "mode": "chunked", "cl": 2000000, "hold": 15.0, "codes": {"0": 200}, "dt_max": 15.089, "errors": 0}

@@ -1,0 +1,2 @@
+Zend/asm/jump_x86_64_sysv_elf_gas.lo: \
+ /tmp/opencode/php-8.4.26/Zend/asm/jump_x86_64_sysv_elf_gas.S

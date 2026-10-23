@@ -1,0 +1,69 @@
+== 8.2.0  8.2.0  '128M'
+   A1 as-is: HTTP/1.1 200 OK (266 B)
+   A1 p=820: HTTP/1.1 200 OK
+   A1 p=880: HTTP/1.0 500 Internal Server Error
+     B1 after p=880 i=0 cookie=present decoded=34
+     B1 after p=880 i=1 cookie=present decoded=34
+     B1 after p=880 i=2 cookie=present decoded=34
+   A1 p=920: HTTP/1.0 500 Internal Server Error
+     B1 after p=920 i=0 cookie=present decoded=34
+     B1 after p=920 i=1 cookie=present decoded=34
+     B1 after p=920 i=2 cookie=present decoded=34
+   A1 p=1000: HTTP/1.0 500 Internal Server Error
+     B1 after p=1000 i=0 cookie=present decoded=34
+     B1 after p=1000 i=1 cookie=present decoded=34
+     B1 after p=1000 i=2 cookie=present decoded=34
+   A1 p=1060: HTTP/1.0 500 Internal Server Error
+     B1 after p=1060 i=0 cookie=present decoded=34
+     B1 after p=1060 i=1 cookie=present decoded=34
+     B1 after p=1060 i=2 cookie=present decoded=34
+   -> /tmp/opencode/research/build_coverage_20261023T074532Z/out/820/result.json
+== 8.2.15  8.2.15  '128M'
+   A1 as-is: HTTP/1.1 200 OK (268 B)
+   A1 p=820: HTTP/1.1 200 OK
+   A1 p=880: HTTP/1.0 500 Internal Server Error
+     B1 after p=880 i=0 cookie=present decoded=34
+     B1 after p=880 i=1 cookie=present decoded=34
+     B1 after p=880 i=2 cookie=present decoded=34
+   A1 p=920: HTTP/1.0 500 Internal Server Error
+     B1 after p=920 i=0 cookie=present decoded=34
+     B1 after p=920 i=1 cookie=present decoded=34
+     B1 after p=920 i=2 cookie=present decoded=34
+   A1 p=1000: HTTP/1.0 500 Internal Server Error
+     B1 after p=1000 i=0 cookie=present decoded=34
+     B1 after p=1000 i=1 cookie=present decoded=34
+     B1 after p=1000 i=2 cookie=present decoded=34
+   A1 p=1060: HTTP/1.0 500 Internal Server Error
+     B1 after p=1060 i=0 cookie=present decoded=34
+     B1 after p=1060 i=1 cookie=present decoded=34
+     B1 after p=1060 i=2 cookie=present decoded=34
+   -> /tmp/opencode/research/build_coverage_20261023T074532Z/out/8215/result.json
+== 8.2.34  8.2.34  '128M'
+   A1 as-is: HTTP/1.0 500 Internal Server Error (211 B)
+   B1 as-is i=0 HTTP/1.1 200 OK cookie=present decoded=34
+   B1 as-is i=1 HTTP/1.1 200 OK cookie=present decoded=34
+   B1 as-is i=2 HTTP/1.1 200 OK cookie=present decoded=34
+   B1 as-is i=3 HTTP/1.1 200 OK cookie=present decoded=34
+   B1 as-is i=4 HTTP/1.1 200 OK cookie=present decoded=34
+   B1 as-is i=5 HTTP/1.1 200 OK cookie=present decoded=34
+   A1 p=820: HTTP/1.1 200 OK
+   A1 p=880: HTTP/1.0 500 Internal Server Error
+     B1 after p=880 i=0 cookie=present decoded=34
+     B1 after p=880 i=1 cookie=present decoded=34
+     B1 after p=880 i=2 cookie=present decoded=34
+   A1 p=920: HTTP/1.0 500 Internal Server Error
+     B1 after p=920 i=0 cookie=present decoded=34
+     B1 after p=920 i=1 cookie=present decoded=34
+     B1 after p=920 i=2 cookie=present decoded=34
+   A1 p=1000: HTTP/1.0 500 Internal Server Error
+     B1 after p=1000 i=0 cookie=present decoded=34
+     B1 after p=1000 i=1 cookie=present decoded=34
+     B1 after p=1000 i=2 cookie=present decoded=34
+   A1 p=1060: HTTP/1.0 500 Internal Server Error
+     B1 after p=1060 i=0 cookie=present decoded=34
+     B1 after p=1060 i=1 cookie=present decoded=34
+     B1 after p=1060 i=2 cookie=present decoded=34
+   -> /tmp/opencode/research/build_coverage_20261023T074532Z/out/8234/result.json
+== 8.2.35  8.2.35  '128M'
+   A1 as-is: HTTP/1.1 200 OK (268 B)
+   -> /tmp/opencode/research/build_coverage_20261023T074532Z/out/8235/result.json

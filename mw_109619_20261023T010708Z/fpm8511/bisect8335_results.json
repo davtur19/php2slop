@@ -1,0 +1,527 @@
+{
+ "8150000": {
+  "namelen": 8150000,
+  "body": 8150211,
+  "http": "200",
+  "peak_kb": "130852",
+  "fcgi_status": "0",
+  "len": 8181252,
+  "secs": 0.962,
+  "before": [
+   "2809887"
+  ],
+  "after": [
+   "2809887"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:34:54 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 874.539 130852 94.91%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "6837200689b88dda48f638dfedd5a620",
+   "login",
+   "db48fe2b1c7db1bbf27b74856adae0fb",
+   "wsSessionSecret",
+   "93dedda64fa73c738035ae4bacaed05c"
+  ]
+ },
+ "8162500": {
+  "namelen": 8162500,
+  "body": 8162711,
+  "http": "200",
+  "peak_kb": "130996",
+  "fcgi_status": "0",
+  "len": 8193752,
+  "secs": 0.914,
+  "before": [
+   "2810123"
+  ],
+  "after": [
+   "2810123"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:34:58 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 824.246 130996 94.63%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "669678e81ff105fcd0b922fb3a85844c",
+   "login",
+   "6149ae7b2be5586bb6991c3523e877af",
+   "wsSessionSecret",
+   "06d8524c1f68f47962bc62477df734a8"
+  ]
+ },
+ "8165625": {
+  "namelen": 8165625,
+  "body": 8165836,
+  "http": "200",
+  "peak_kb": "131036",
+  "fcgi_status": "0",
+  "len": 8196877,
+  "secs": 0.857,
+  "before": [
+   "2810259"
+  ],
+  "after": [
+   "2810259"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:35:02 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 770.732 131036 97.31%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "4872c0ec22cb1a1deecbaaa2cbb368a2",
+   "login",
+   "10be40e201c7865a6bf11451f59ba280",
+   "wsSessionSecret",
+   "1fd8dd03bb8f7a18ee738b3ba708d5c8"
+  ]
+ },
+ "8167187": {
+  "namelen": 8167187,
+  "body": 8167398,
+  "http": "200",
+  "peak_kb": "131052",
+  "fcgi_status": "0",
+  "len": 8198439,
+  "secs": 0.867,
+  "before": [
+   "2810275"
+  ],
+  "after": [
+   "2810275"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:35:04 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 771.856 131052 97.17%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "db627868486c7a20ce52d073eed698fa",
+   "login",
+   "8e065317e202ca1b92ca8221cfae3a38",
+   "wsSessionSecret",
+   "c65f401e148e944f0189534561234837"
+  ]
+ },
+ "8167968": {
+  "namelen": 8167968,
+  "body": 8168179,
+  "http": "200",
+  "peak_kb": "131072",
+  "fcgi_status": "0",
+  "len": 8199220,
+  "secs": 0.87,
+  "before": [
+   "2810345"
+  ],
+  "after": [
+   "2810345"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:35:06 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 774.231 131072 94.29%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "a417bfcab7669397580385144a97fad7",
+   "login",
+   "0b08a56c14e2fa0a501ce07867511a37",
+   "wsSessionSecret",
+   "f5ff49f54a4985ec00ce637e00134bdd"
+  ]
+ },
+ "8168359": {
+  "namelen": 8168359,
+  "body": 8168570,
+  "http": "200",
+  "peak_kb": "131072",
+  "fcgi_status": "0",
+  "len": 8199611,
+  "secs": 0.811,
+  "before": [
+   "2810351"
+  ],
+  "after": [
+   "2810351"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:35:08 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 723.471 131072 96.76%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "14f8d25592b4b3083bf1e4412ff6775a",
+   "login",
+   "58b0e765c752395af44840b1888a306b",
+   "wsSessionSecret",
+   "7f0dc00dfc32309dbc497df2255d29ad"
+  ]
+ },
+ "8168554": {
+  "namelen": 8168554,
+  "body": 8168765,
+  "http": "200",
+  "peak_kb": "131072",
+  "fcgi_status": "0",
+  "len": 8199806,
+  "secs": 0.837,
+  "before": [
+   "2810361"
+  ],
+  "after": [
+   "2810361"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:35:10 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 750.106 131072 98.65%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "76846305d46e8021b9661727919c3f1f",
+   "login",
+   "c8381aa400df6235aa1ec8f737a42372",
+   "wsSessionSecret",
+   "1bcc9d24faff470569df3d8e253f2eb5"
+  ]
+ },
+ "8168652": {
+  "namelen": 8168652,
+  "body": 8168863,
+  "http": "200",
+  "peak_kb": "131072",
+  "fcgi_status": "0",
+  "len": 8199904,
+  "secs": 0.825,
+  "before": [
+   "2810390"
+  ],
+  "after": [
+   "2810390"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:35:12 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 737.396 131072 99.00%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "fd9c18d8edf68839c9c998d914952abc",
+   "login",
+   "715a03f43b11de8bf03eb54831647610",
+   "wsSessionSecret",
+   "0cfa84b98b46d74a24663b2ddd8ab3b5"
+  ]
+ },
+ "8168664": {
+  "namelen": 8168664,
+  "body": 8168875,
+  "http": "200",
+  "peak_kb": "131072",
+  "fcgi_status": "0",
+  "len": 8199916,
+  "secs": 0.808,
+  "before": [
+   "2810466"
+  ],
+  "after": [
+   "2810466"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:35:18 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 719.424 131072 98.69%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "8412a1fa15fa3c5894e038f51442afaa",
+   "login",
+   "2928db4599315a17676a011df1b44a2e",
+   "wsSessionSecret",
+   "ad266c0adedba5447f5217d5ae6aded7"
+  ]
+ },
+ "8168670": {
+  "namelen": 8168670,
+  "body": 8168881,
+  "http": "200",
+  "peak_kb": "131072",
+  "fcgi_status": "0",
+  "len": 8199922,
+  "secs": 0.797,
+  "before": [
+   "2810472"
+  ],
+  "after": [
+   "2810472"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:35:19 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 710.832 131072 98.48%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "0631f3bed31aa56cf50534a94e3d03b6",
+   "login",
+   "86745086aebef931db694417bf0bbb6a",
+   "wsSessionSecret",
+   "ddcd75723f8612b40e04678d8509f725"
+  ]
+ },
+ "8168671": {
+  "namelen": 8168671,
+  "body": 8168882,
+  "http": "200",
+  "peak_kb": "131072",
+  "fcgi_status": "0",
+  "len": 8199923,
+  "secs": 0.803,
+  "before": [
+   "2810506"
+  ],
+  "after": [
+   "2810506"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:35:23 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 716.871 131072 99.04%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "69adbd8fdeffd2775a97fb87628d04c6",
+   "login",
+   "85e6599d433617bfddeaa81263d7c73f",
+   "wsSessionSecret",
+   "afab59b60a7bed6d5f2fd61a5df708ac"
+  ]
+ },
+ "8168672": {
+  "namelen": 8168672,
+  "body": 8168883,
+  "http": "200",
+  "peak_kb": "131072",
+  "fcgi_status": "0",
+  "len": 8199924,
+  "secs": 0.936,
+  "before": [
+   "2810512"
+  ],
+  "after": [
+   "2810512"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:35:25 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 840.807 131072 95.15%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "31272d6637ecd569229e1e07d1d7fab0",
+   "login",
+   "150eaa4b8e8036545612233070f9989a",
+   "wsSessionSecret",
+   "cf4336823dc374aa51f232073e154cb4"
+  ]
+ },
+ "8168673": {
+  "namelen": 8168673,
+  "body": 8168884,
+  "http": "500",
+  "peak_kb": "125760",
+  "fcgi_status": "0",
+  "len": 176,
+  "secs": 0.491,
+  "before": [
+   "2810500"
+  ],
+  "after": [
+   "2810500"
+  ],
+  "worker_alive": true,
+  "oom": [
+   "[23-Oct-2026 02:35:22 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 16338952 bytes) in /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/includes/Session/Session.php on line 545",
+   "[23-Oct-2026 02:35:22 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 21786624 bytes) in /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/includes/ObjectCache/SqlBagOStuff.php on line 1486"
+  ],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:35:21 +0200 \"POST /index.php?title=Special:UserLogin\" 500 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 418.156 125760 100.44%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "2e00158e95f87283046d56bc577a8dd6",
+   "login",
+   "b05415854c12464337bf2aa6b76e046b",
+   "metadata",
+   "provider"
+  ]
+ },
+ "8168676": {
+  "namelen": 8168676,
+  "body": 8168887,
+  "http": "500",
+  "peak_kb": "125760",
+  "fcgi_status": "0",
+  "len": 176,
+  "secs": 0.583,
+  "before": [
+   "2810418"
+  ],
+  "after": [
+   "2810418"
+  ],
+  "worker_alive": true,
+  "oom": [
+   "[23-Oct-2026 02:35:16 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 16338952 bytes) in /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/includes/Session/Session.php on line 545",
+   "[23-Oct-2026 02:35:16 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 21786624 bytes) in /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/includes/ObjectCache/SqlBagOStuff.php on line 1486"
+  ],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:35:16 +0200 \"POST /index.php?title=Special:UserLogin\" 500 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 507.951 125760 90.56%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "2afba8911389977e9eb57c54d6c36276",
+   "login",
+   "653d81395737495646709f2109426564",
+   "metadata",
+   "provider"
+  ]
+ },
+ "8168701": {
+  "namelen": 8168701,
+  "body": 8168912,
+  "http": "500",
+  "peak_kb": "125760",
+  "fcgi_status": "0",
+  "len": 176,
+  "secs": 0.502,
+  "before": [
+   "2810396"
+  ],
+  "after": [
+   "2810396"
+  ],
+  "worker_alive": true,
+  "oom": [
+   "[23-Oct-2026 02:35:14 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 16339008 bytes) in /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/includes/Session/Session.php on line 545",
+   "[23-Oct-2026 02:35:14 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 21786624 bytes) in /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/includes/ObjectCache/SqlBagOStuff.php on line 1486"
+  ],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:35:14 +0200 \"POST /index.php?title=Special:UserLogin\" 500 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 428.048 125760 98.12%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "82c78cd60c4f8729cb5ae153f0f0d6fc",
+   "login",
+   "e782ad2bca0bca837f5d4153baeaa72b",
+   "metadata",
+   "provider"
+  ]
+ },
+ "8168750": {
+  "namelen": 8168750,
+  "body": 8168961,
+  "http": "500",
+  "peak_kb": "125760",
+  "fcgi_status": "0",
+  "len": 176,
+  "secs": 0.626,
+  "before": [
+   "2810216"
+  ],
+  "after": [
+   "2810216"
+  ],
+  "worker_alive": true,
+  "oom": [
+   "[23-Oct-2026 02:35:00 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 16339104 bytes) in /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/includes/Session/Session.php on line 545",
+   "[23-Oct-2026 02:35:00 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 21786624 bytes) in /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/includes/ObjectCache/SqlBagOStuff.php on line 1486"
+  ],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:35:00 +0200 \"POST /index.php?title=Special:UserLogin\" 500 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 536.182 125760 91.39%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "1d7083c53540b91c6b51f600ae606dc2",
+   "login",
+   "fd9d74fb4d45b8a3d0896101b1930676",
+   "metadata",
+   "provider"
+  ]
+ },
+ "8175000": {
+  "namelen": 8175000,
+  "body": 8175211,
+  "http": "500",
+  "peak_kb": "125824",
+  "fcgi_status": "0",
+  "len": 176,
+  "secs": 0.611,
+  "before": [
+   "2810007"
+  ],
+  "after": [
+   "2810007"
+  ],
+  "worker_alive": true,
+  "oom": [
+   "[23-Oct-2026 02:34:56 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 16351600 bytes) in /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/includes/Session/Session.php on line 545",
+   "[23-Oct-2026 02:34:56 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 21803008 bytes) in /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/includes/ObjectCache/SqlBagOStuff.php on line 1486"
+  ],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:34:56 +0200 \"POST /index.php?title=Special:UserLogin\" 500 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 531.405 125824 92.21%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "c035fc5f0b7221a6587ef1a7ef76d741",
+   "login",
+   "86bb3ba050372b8249adf5a27267d169",
+   "metadata",
+   "provider"
+  ]
+ }
+}

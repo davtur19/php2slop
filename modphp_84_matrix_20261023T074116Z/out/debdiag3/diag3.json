@@ -1,0 +1,59 @@
+{
+ "a2": {
+  "pid": 10,
+  "log": [
+   "10 1792746378.200913 POST /index.php 500 - 67977"
+  ],
+  "state": {
+   "heap": "0x7f3d8a000040",
+   "main": "0x7f3d8a000000",
+   "lib": "0x7f3d8b191000",
+   "sid": "0x7f3d8a0660c0",
+   "sidoff": "0x660c0",
+   "md": "0x0",
+   "hsv": "0x7f3d8a07d6e0",
+   "hsvoff": "0x7d6e0",
+   "hsvtype": "0x10a",
+   "send_cookie": "0",
+   "status": "1"
+  }
+ },
+ "S": "0x7f3d8a0f8398",
+ "zif": "0x7f3d8b3dddd0",
+ "hsvoff": "0x7d6e0",
+ "cmd": "DEBMARK_db238a",
+ "b2_bytes": 451384,
+ "b2_logs": [
+  [
+   "13 1792746379.031462 POST /index.php 200 3 2972"
+  ],
+  [
+   "9 1792746379.402292 POST /index.php 200 3 2957"
+  ],
+  [
+   "12 1792746379.782180 POST /index.php 200 3 2557"
+  ],
+  [
+   "11 1792746380.125168 POST /index.php 200 3 2372"
+  ],
+  [
+   "10 1792746380.491279 POST /index.php 200 3 3137"
+  ]
+ ],
+ "b2_hit_pid": 10,
+ "chunk": "/tmp/opencode/research/modphp_84_matrix_20261023T074116Z/out/debdiag3/chunk_10.bin",
+ "hsvbin": "/tmp/opencode/research/modphp_84_matrix_20261023T074116Z/out/debdiag3/hsv_10.bin",
+ "after": {
+  "heap": "0x7f3d8a000040",
+  "main": "0x7f3d8a000000",
+  "lib": "0x7f3d8b191000",
+  "sid": "0x0",
+  "sidoff": "NULL",
+  "md": "0x0",
+  "hsv": "0x7f3d8a0f80a0",
+  "hsvoff": "0xf80a0",
+  "hsvtype": "0x0",
+  "send_cookie": "0",
+  "status": "1"
+ }
+}

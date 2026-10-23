@@ -1,0 +1,50 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007ff98449b3a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/research/plain_full_8x_20261023T011800Z/bin/8.5.11/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/research/plain_full_8x_20261023T011800Z/bin/8.5.11/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x55607dbe44f0
+Breakpoint 2 at 0x55607dc363f0
+U_INIT lock=0 udata=(nil) ulevel=0
+SHUTDOWN lock=0 udata=0x7ff98187d000 ulevel=1
+U_INIT lock=0 udata=0x7ff98187d000 ulevel=1 W0=0x5050505050505050 W1=0x5050505050505050 W2=0x5050505050505050 W3=0x5050505050505050
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000055607dbe49c7 in var_tmp_var ()
+
+=====STOP=====
+#0  0x000055607dbe49c7 in var_tmp_var ()
+#1  0x000055607db35dff in ps_srlzr_decode_php ()
+#2  0x000055607db3af91 in php_session_decode ()
+#3  0x000055607db3763d in php_session_initialize ()
+#4  0x000055607db3e3c4 in php_session_rfc1867_update ()
+#5  0x000055607db3c9de in php_session_rfc1867_callback ()
+#6  0x000055607dc44748 in rfc1867_post_handler ()
+#7  0x000055607dc45e49 in sapi_handle_post ()
+#8  0x000055607dc42432 in php_default_treat_data ()
+#9  0x000055607dc42a96 in php_auto_globals_create_post ()
+#10 0x000055607dcc3c3e in zend_activate_auto_globals ()
+#11 0x000055607dc427a3 in php_hash_environment ()
+#12 0x000055607dc363b7 in php_request_startup ()
+#13 0x000055607ddfbe45 in main ()
+rip            0x55607dbe49c7      0x55607dbe49c7 <var_tmp_var+23>
+rax            0x5050505050505050  5787213827046133840
+rbx            0x7ff98185836e      140709596595054
+rdx            0xfffffffffffffffd  -3
+rdi            0x7ffcb2618cd0      140723301223632
+rsi            0x7ff981858360      140709596595040
+=> 0x55607dbe49c7 <var_tmp_var+23>:	mov    (%rax),%rdx
+   0x55607dbe49ca <var_tmp_var+26>:	cmp    $0xff,%rdx
+   0x55607dbe49d1 <var_tmp_var+33>:	jl     0x55607dbe4a07 <var_tmp_var+87>
+   0x55607dbe49d3 <var_tmp_var+35>:	mov    %rdi,%rbx
+   0x55607dbe49d6 <var_tmp_var+38>:	mov    $0x1000,%edi
+   0x55607dbe49db <var_tmp_var+43>:	call   0x55607dc9a1e0 <_emalloc_large>
+[Inferior 1 (process 2807588) detached]

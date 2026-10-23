@@ -1,0 +1,125 @@
+{
+ "stages": [
+  {
+   "stage": "A1",
+   "rc": 0,
+   "elapsed": 0.11
+  },
+  {
+   "stage": "B1",
+   "i": 0,
+   "bytes": 259,
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 1,
+   "bytes": 1662705,
+   "decoded": 819208,
+   "lib": "0x7f2b96e0c000",
+   "cands": [
+    [
+     "0x7f2b95200000",
+     87
+    ],
+    [
+     "0x7f2b94800000",
+     79
+    ]
+   ],
+   "main": "0x7f2b95200000",
+   "leak": "hit",
+   "chosen": true
+  },
+  {
+   "stage": "B1",
+   "i": 2,
+   "bytes": 259,
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 3,
+   "bytes": 259,
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 4,
+   "bytes": 259,
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "A2",
+   "i": 0,
+   "bytes": 211
+  },
+  {
+   "stage": "A2",
+   "i": 1,
+   "bytes": 211
+  },
+  {
+   "stage": "A2",
+   "i": 2,
+   "bytes": 211
+  },
+  {
+   "stage": "A2",
+   "i": 3,
+   "bytes": 211
+  },
+  {
+   "stage": "A2",
+   "i": 4,
+   "bytes": 211
+  },
+  {
+   "stage": "B2",
+   "i": 0,
+   "bytes": 0
+  },
+  {
+   "stage": "B2",
+   "i": 1,
+   "bytes": 0
+  },
+  {
+   "stage": "B2",
+   "i": 2,
+   "bytes": 0
+  },
+  {
+   "stage": "B2",
+   "i": 3,
+   "bytes": 0
+  },
+  {
+   "stage": "B2",
+   "i": 4,
+   "bytes": 0
+  }
+ ],
+ "success": false,
+ "marker": "MFIX1",
+ "a1": {
+  "bytes": 1060211,
+  "sha256": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6"
+ },
+ "b1": {
+  "bytes": 33128677,
+  "sha256": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2"
+ },
+ "S": "0x7f2b952f8398",
+ "zif_system": "0x7f2b97271370",
+ "main": "0x7f2b95200000",
+ "lib": "0x7f2b96e0c000",
+ "a2": {
+  "bytes": 279369
+ },
+ "b2": {
+  "bytes": 451384,
+  "cmd": "id>/out/p1_conc_MFIX1;echo MFIX1>>/out/p1_conc_MFIX1;id>&2;echo MFIX1>&2"
+ },
+ "proof": ""
+}

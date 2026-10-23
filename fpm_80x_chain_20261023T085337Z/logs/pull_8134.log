@@ -1,0 +1,55 @@
+8.1.34-fpm: Pulling from library/php
+02d7611c4eae: Already exists
+c366543af204: Already exists
+fceab7a457f4: Pulling fs layer
+630ea4d355f4: Pulling fs layer
+96070e75d1fb: Pulling fs layer
+7e332e7f03db: Pulling fs layer
+cc3b6ec13aa4: Pulling fs layer
+6fda229ed0ce: Pulling fs layer
+159f402aab63: Pulling fs layer
+845ed51ac8de: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+e87d163f557b: Pulling fs layer
+fceab7a457f4: Waiting
+159f402aab63: Waiting
+845ed51ac8de: Waiting
+630ea4d355f4: Waiting
+cc3b6ec13aa4: Waiting
+6fda229ed0ce: Waiting
+96070e75d1fb: Waiting
+7e332e7f03db: Waiting
+4f4fb700ef54: Waiting
+e87d163f557b: Waiting
+630ea4d355f4: Verifying Checksum
+630ea4d355f4: Download complete
+7e332e7f03db: Verifying Checksum
+7e332e7f03db: Download complete
+cc3b6ec13aa4: Verifying Checksum
+cc3b6ec13aa4: Download complete
+6fda229ed0ce: Verifying Checksum
+6fda229ed0ce: Download complete
+96070e75d1fb: Verifying Checksum
+96070e75d1fb: Download complete
+159f402aab63: Verifying Checksum
+159f402aab63: Download complete
+4f4fb700ef54: Verifying Checksum
+4f4fb700ef54: Download complete
+fceab7a457f4: Verifying Checksum
+fceab7a457f4: Download complete
+845ed51ac8de: Verifying Checksum
+845ed51ac8de: Download complete
+e87d163f557b: Download complete
+fceab7a457f4: Pull complete
+630ea4d355f4: Pull complete
+96070e75d1fb: Pull complete
+7e332e7f03db: Pull complete
+cc3b6ec13aa4: Pull complete
+6fda229ed0ce: Pull complete
+159f402aab63: Pull complete
+845ed51ac8de: Pull complete
+4f4fb700ef54: Pull complete
+e87d163f557b: Pull complete
+Digest: sha256:a3118db1911fdd3b3ac66605122ddc859286688ced86fc860fec6d19cc2d6c55
+Status: Downloaded newer image for mirror.gcr.io/library/php:8.1.34-fpm
+mirror.gcr.io/library/php:8.1.34-fpm

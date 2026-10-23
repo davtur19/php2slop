@@ -1,0 +1,8 @@
+== t11043-fpm7310 ==
+cgi.fix_pathinfo => 1 => 1
+== t11043-fpm7223 ==
+cgi.fix_pathinfo => 1 => 1
+== t11043-fpm7224 ==
+cgi.fix_pathinfo => 1 => 1
+== t11043-fpm8426 ==
+cgi.fix_pathinfo => On => On

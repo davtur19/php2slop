@@ -1,0 +1,23 @@
+Error: unknown shorthand flag: 'u' in -u
+Usage:
+  phuip-fpizdam [url] [flags]
+
+Flags:
+      --cookie string       send this cookie
+      --delay duration      delay between requests (applied right after each request). Attacks will take *much* longer!
+  -h, --help                help for phuip-fpizdam
+      --kill-count int      how many times to send the worker killing payload (default 50)
+      --kill-workers        just kill php-fpm workers (requires only QSL)
+      --logfile string      redirect error log from stderr to a file
+      --method string       detect method (see detect_methods.go) (default "session.auto_start")
+      --only-qsl            stop after QSL detection, use this if you just want to check if the server is vulnerable
+      --pisos int           pisos hint
+      --qsl int             qsl hint
+      --reset-retries int   how many retries to do for --reset-setting, -1 means a lot (default 50)
+      --reset-setting       try to reset setting (requires attack params)
+      --setting string      specify custom php.ini setting for --reset-setting
+      --skip-attack         skip attack phase
+      --skip-detect         skip detection phase
+
+2026/10/23 11:27:38 unknown shorthand flag: 'u' in -u
+rc=1

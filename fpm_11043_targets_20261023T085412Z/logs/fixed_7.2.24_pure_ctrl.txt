@@ -1,0 +1,3 @@
+2026/10/23 14:21:44 Base status code is 200
+2026/10/23 14:21:44 Detect() returned error: no qsl candidates found, invulnerable or something wrong
+rc=1

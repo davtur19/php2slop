@@ -1,0 +1,10 @@
+------mw109619boundary
+Content-Disposition: form-data; name="PHP_SESSION_UPLOAD_PROGRESS"
+
+cons1w
+------mw109619boundary
+Content-Disposition: form-data; name="file"; filename="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+Content-Type: application/octet-stream
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+------mw109619boundary--

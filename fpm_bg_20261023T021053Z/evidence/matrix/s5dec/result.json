@@ -1,0 +1,214 @@
+{
+  "tag": "s5dec",
+  "type": "decode",
+  "port": 29511,
+  "producers": 5,
+  "consumers": 5,
+  "n": 8000000,
+  "producer_script": "producer_oom.php",
+  "sids": [
+    "ms5dec-0",
+    "ms5dec-1",
+    "ms5dec-2",
+    "ms5dec-3",
+    "ms5dec-4"
+  ],
+  "producer_responses": [
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.044,
+      "i": 0
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.042,
+      "i": 1
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.044,
+      "i": 2
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.044,
+      "i": 3
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.043,
+      "i": 4
+    }
+  ],
+  "producer_wall": 0.046,
+  "producer_rows": [
+    {
+      "pid": 337644,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s5decp1",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "337644 127.0.0.1 GET 500 n=8000000&tag=s5decp1 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 1
+    },
+    {
+      "pid": 337642,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s5decp0",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "337642 127.0.0.1 GET 500 n=8000000&tag=s5decp0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 0
+    },
+    {
+      "pid": 337643,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s5decp4",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "337643 127.0.0.1 GET 500 n=8000000&tag=s5decp4 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 4
+    },
+    {
+      "pid": 337640,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s5decp2",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "337640 127.0.0.1 GET 500 n=8000000&tag=s5decp2 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 2
+    },
+    {
+      "pid": 337641,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s5decp3",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "337641 127.0.0.1 GET 500 n=8000000&tag=s5decp3 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 3
+    }
+  ],
+  "primed_pids": [
+    337640,
+    337641,
+    337642,
+    337643,
+    337644
+  ],
+  "primed_distinct": 5,
+  "consumer_responses": [
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.002,
+      "i": 0,
+      "sid": "ms5dec-0"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.002,
+      "i": 1,
+      "sid": "ms5dec-1"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.002,
+      "i": 2,
+      "sid": "ms5dec-2"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.002,
+      "i": 3,
+      "sid": "ms5dec-3"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.002,
+      "i": 4,
+      "sid": "ms5dec-4"
+    }
+  ],
+  "consumer_wall": 0.003,
+  "consumer_rows": [],
+  "crashed_pids": [
+    337640,
+    337641,
+    337642,
+    337643,
+    337644
+  ],
+  "crashed_on_primed": [
+    337640,
+    337641,
+    337642,
+    337643,
+    337644
+  ],
+  "crashed_not_primed": [],
+  "nginx_consumer_rows": [
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s5decc1",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:01 +0200] \"POST /consumer.php?tag=s5decc1 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s5decc3",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:01 +0200] \"POST /consumer.php?tag=s5decc3 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s5decc2",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:01 +0200] \"POST /consumer.php?tag=s5decc2 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s5decc0",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:01 +0200] \"POST /consumer.php?tag=s5decc0 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s5decc4",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:01 +0200] \"POST /consumer.php?tag=s5decc4 HTTP/1.1\" 502 157 \"-\" \"-\""
+    }
+  ],
+  "nginx_502": 5,
+  "nginx_200": 0,
+  "consumer_survivor_pids": [],
+  "survivors_on_primed": [],
+  "verdict": {
+    "all_primed_crashed": true,
+    "any_cross_worker_crash": false,
+    "missing_primed_crashes": []
+  }
+}

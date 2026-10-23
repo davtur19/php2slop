@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Malikxan",
+			"Sociologist",
+			"Zafar Shamsiddinov",
+			"Mainculprit"
+		]
+	},
+	"fancycaptcha-captcha": "Xavfsizlik tekshiruvi",
+	"fancycaptcha-accountcreate": "Vikini avtomatlashtirilgan akkaunt tuzishdan himoya qilish uchun Sizdan quyidagi maydonga soʻzlarni kiritishingizni soʻraymiz. ([[Special:Captcha/help|Batafsil maʼlumot]]):",
+	"fancycaptcha-imgcaptcha-ph": "Yuqoridagi matnni bu yerga kiriting",
+	"fancycaptcha-reload-text": "Yangilash"
+}

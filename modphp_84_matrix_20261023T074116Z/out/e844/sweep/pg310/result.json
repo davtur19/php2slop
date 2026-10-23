@@ -1,0 +1,60 @@
+{
+ "stages": [
+  {
+   "stage": "A1",
+   "rc": 0,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 210,
+   "elapsed": 0.11
+  },
+  {
+   "stage": "B1",
+   "i": 0,
+   "bytes": 258,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 1,
+   "bytes": 258,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 2,
+   "bytes": 258,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 3,
+   "bytes": 258,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 4,
+   "bytes": 258,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  }
+ ],
+ "success": false,
+ "marker": "PG310",
+ "zif_off": "0x43a650",
+ "zdtor_off": "0x62ac70",
+ "s_off": "0xf8398",
+ "a1": {
+  "bytes": 1073471,
+  "sha256": "ba920e4961791e05197797848afc30ff2b8aecc0e43d5ff5b2248fadfd2cbdf8"
+ },
+ "b1": {
+  "bytes": 33128677,
+  "sha256": "a756eafb0e19aed54bf3e1c4305b0680198b3472324d560a62ba094115acd57c"
+ },
+ "failed": "B1"
+}

@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Date: Fri, 23 Oct 2026 08:21:29 GMT
+Server: Apache/2.4.65 (Debian)
+X-Powered-By: PHP/8.4.13
+Set-Cookie: PHPSESSID=faac7e01082f3d4f8c0406ad1b50baae; path=/
+Vary: Accept-Encoding
+Content-Length: 296
+Connection: close
+Content-Type: text/html; charset=UTF-8
+
+<br />
+<b>Fatal error</b>:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 12288 bytes) in <b>Unknown</b> on line <b>0</b><br />
+<br />
+<b>Warning</b>:  PHP Request Startup: Failed to decode session object. Session has been destroyed in <b>Unknown</b> on line <b>0</b><br />

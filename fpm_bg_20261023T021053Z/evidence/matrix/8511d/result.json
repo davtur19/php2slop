@@ -1,0 +1,145 @@
+{
+  "tag": "8511d",
+  "type": "decode",
+  "port": 29518,
+  "producers": 5,
+  "consumers": 5,
+  "n": 8000000,
+  "producer_script": "producer_oom.php",
+  "sids": [
+    "m8511d-0",
+    "m8511d-1",
+    "m8511d-2",
+    "m8511d-3",
+    "m8511d-4"
+  ],
+  "producer_responses": [
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.064,
+      "i": 0
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.063,
+      "i": 1
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.066,
+      "i": 2
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.063,
+      "i": 3
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.061,
+      "i": 4
+    }
+  ],
+  "producer_wall": 0.066,
+  "producer_rows": [],
+  "primed_pids": [],
+  "primed_distinct": 0,
+  "consumer_responses": [
+    {
+      "status": 200,
+      "len": 45,
+      "body": "CONSUMER PID=361680 STATUS=1 SID= SESSION=[]\n",
+      "dt": 0.002,
+      "i": 0,
+      "sid": "m8511d-0"
+    },
+    {
+      "status": 200,
+      "len": 45,
+      "body": "CONSUMER PID=361678 STATUS=1 SID= SESSION=[]\n",
+      "dt": 0.001,
+      "i": 1,
+      "sid": "m8511d-1"
+    },
+    {
+      "status": 200,
+      "len": 45,
+      "body": "CONSUMER PID=361677 STATUS=1 SID= SESSION=[]\n",
+      "dt": 0.001,
+      "i": 2,
+      "sid": "m8511d-2"
+    },
+    {
+      "status": 200,
+      "len": 45,
+      "body": "CONSUMER PID=361679 STATUS=1 SID= SESSION=[]\n",
+      "dt": 0.002,
+      "i": 3,
+      "sid": "m8511d-3"
+    },
+    {
+      "status": 200,
+      "len": 45,
+      "body": "CONSUMER PID=361681 STATUS=1 SID= SESSION=[]\n",
+      "dt": 0.001,
+      "i": 4,
+      "sid": "m8511d-4"
+    }
+  ],
+  "consumer_wall": 0.002,
+  "consumer_rows": [],
+  "crashed_pids": [],
+  "crashed_on_primed": [],
+  "crashed_not_primed": [],
+  "nginx_consumer_rows": [
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=8511dc1",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:54:44 +0200] \"POST /consumer.php?tag=8511dc1 HTTP/1.1\" 200 56 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=8511dc0",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:54:44 +0200] \"POST /consumer.php?tag=8511dc0 HTTP/1.1\" 200 56 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=8511dc2",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:54:44 +0200] \"POST /consumer.php?tag=8511dc2 HTTP/1.1\" 200 56 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=8511dc4",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:54:44 +0200] \"POST /consumer.php?tag=8511dc4 HTTP/1.1\" 200 56 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=8511dc3",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:54:44 +0200] \"POST /consumer.php?tag=8511dc3 HTTP/1.1\" 200 56 \"-\" \"-\""
+    }
+  ],
+  "nginx_502": 0,
+  "nginx_200": 5,
+  "consumer_survivor_pids": [],
+  "survivors_on_primed": [],
+  "verdict": {
+    "all_primed_crashed": false,
+    "any_cross_worker_crash": false,
+    "missing_primed_crashes": []
+  }
+}

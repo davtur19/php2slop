@@ -1,0 +1,45 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f4e88a013a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/research/plain_full_8x_20261023T011800Z/bin/8.5.11/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/research/plain_full_8x_20261023T011800Z/bin/8.5.11/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x55eaff9e44f0
+Breakpoint 2 at 0x55eaff9eb950
+Breakpoint 3 at 0x55eaffbee890
+Breakpoint 4 at 0x55eaffa363f0
+U_INIT lock=0 udata=(nil) ulevel=0 off_in_page=0
+BAILOUT udata=0x7f4e85c7d000 ulevel=1 sdata=(nil) slevel=0
+BAILOUT udata=0x7f4e85c7d000 ulevel=1 sdata=(nil) slevel=0
+REQSHUTDOWN udata=0x7f4e85c7d000 ulevel=1 sdata=(nil) slevel=0
+U_INIT lock=0 udata=0x7f4e85c7d000 ulevel=1 off_in_page=512000
+WORDS 0x4141414141414141 0x4141414141414141 0x4141414141414141 0x4141414141414141 0x4141414141414141 0x4141414141414141 0x4141414141414141 0x4141414141414141
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000055eaff9e49c7 in var_tmp_var ()
+SIGSEGV_STOP
+#0  0x000055eaff9e49c7 in var_tmp_var ()
+#1  0x000055eaff935dff in ps_srlzr_decode_php ()
+#2  0x000055eaff93af91 in php_session_decode ()
+#3  0x000055eaff93763d in php_session_initialize ()
+#4  0x000055eaff93e3c4 in php_session_rfc1867_update ()
+#5  0x000055eaff93c9de in php_session_rfc1867_callback ()
+#6  0x000055eaffa44748 in rfc1867_post_handler ()
+#7  0x000055eaffa45e49 in sapi_handle_post ()
+rip            0x55eaff9e49c7      0x55eaff9e49c7 <var_tmp_var+23>
+rax            0x4141414141414141  4702111234474983745
+rdi            0x7ffd592aa420      140726099420192
+rsi            0x7f4e85c582e8      139975228490472
+STOPSTATE udata=0x7f4e85c7d000 ulevel=2
+0x7f4e85c7d000:	0x4141414141414141	0x4141414141414141
+0x7f4e85c7d010:	0x4141414141414141	0x4141414141414141
+0x7f4e85c7d020:	0x4141414141414141	0x4141414141414141
+0x7f4e85c7d030:	0x4141414141414141	0x4141414141414141
+[Inferior 1 (process 15232) detached]

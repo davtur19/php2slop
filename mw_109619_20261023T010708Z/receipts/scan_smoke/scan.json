@@ -1,0 +1,76 @@
+[
+ {
+  "name": "index_title",
+  "path": "/index.php?title=Main_Page",
+  "stages": [
+   {
+    "i": 0,
+    "status": "HTTP/1.1 200 OK",
+    "bytes": 36815,
+    "elapsed": 0.43
+   },
+   {
+    "i": 1,
+    "status": "HTTP/1.1 200 OK",
+    "bytes": 36814,
+    "elapsed": 0.11
+   },
+   {
+    "i": 2,
+    "status": "HTTP/1.1 200 OK",
+    "bytes": 36814,
+    "elapsed": 0.11
+   },
+   {
+    "i": 3,
+    "status": "HTTP/1.1 200 OK",
+    "bytes": 36814,
+    "elapsed": 0.1
+   },
+   {
+    "i": 4,
+    "status": "",
+    "bytes": 0,
+    "elapsed": 0.04
+   },
+   {
+    "i": 5,
+    "status": "HTTP/1.1 200 OK",
+    "bytes": 36814,
+    "elapsed": 0.08
+   },
+   {
+    "i": 6,
+    "status": "HTTP/1.1 200 OK",
+    "bytes": 36814,
+    "elapsed": 0.08
+   },
+   {
+    "i": 7,
+    "status": "HTTP/1.1 200 OK",
+    "bytes": 36814,
+    "elapsed": 0.11
+   }
+  ],
+  "a1": {
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211
+  },
+  "a1_child": "17",
+  "hit": null,
+  "access_tail": [
+   "17 1792718934.862993 POST /index.php 500 - 76445",
+   "18 1792718935.213476 POST /index.php 200 36274 413237",
+   "19 1792718935.643162 POST /index.php 200 36273 98107",
+   "20 1792718935.746429 POST /index.php 200 36273 101929",
+   "21 1792718935.853182 POST /index.php 200 36273 98239",
+   "18 1792718935.996487 POST /index.php 200 36273 73907",
+   "19 1792718936.075170 POST /index.php 200 36273 71916",
+   "34 1792718936.152312 POST /index.php 200 36273 105361"
+  ],
+  "aborts": [
+   "[Fri Oct 23 01:28:55.985563 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:41984] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted"
+  ]
+ }
+]

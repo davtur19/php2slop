@@ -1,0 +1,21 @@
+X-Powered-By: PHP/8.5.11
+X-Content-Type-Options: nosniff
+Content-Type: text/plain; charset=utf-8
+X-Request-Id: 73975f81ce6adc095ddb3d1e
+
+PHP_VERSION=8.5.11
+session_module_name=user
+session_save_handler=user
+session_save_path=/tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/sessions
+session_serialize_handler=php_serialize
+session_auto_start=0
+session_use_cookies=0
+session_status=1 (1=none,2=active,3=disabled)
+session_id=
+session_name=my_wiki_session
+PHPSessionHandler_installed=true
+PHPSessionHandler_enabled=true
+mw_session_id=qmnriakp05e458a4nk3dv388mqiqh8p7
+mw_session_persistent=false
+mw_session_remember=false
+session_data=NULL

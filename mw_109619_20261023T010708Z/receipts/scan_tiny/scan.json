@@ -1,0 +1,782 @@
+[
+ {
+  "name": "lang_xsy",
+  "path": "/languages/messages/MessagesXsy.php",
+  "stages": [
+   {
+    "i": 0,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.04
+   },
+   {
+    "i": 1,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.04
+   },
+   {
+    "i": 2,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 3,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 4,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 5,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 6,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.04
+   },
+   {
+    "i": 7,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.04
+   }
+  ],
+  "a1": {
+   "status": "HTTP/1.1 403 Forbidden",
+   "bytes": 497
+  },
+  "a1_child": "17",
+  "hit": null,
+  "access_tail": [
+   "17 1792719102.862198 POST /languages/messages/MessagesXsy.php 403 317 10942",
+   "18 1792719103.152838 POST /languages/messages/MessagesXsy.php 403 317 21681",
+   "19 1792719103.191265 POST /languages/messages/MessagesXsy.php 403 317 20967",
+   "20 1792719103.217755 POST /languages/messages/MessagesXsy.php 403 317 22554",
+   "21 1792719103.245361 POST /languages/messages/MessagesXsy.php 403 317 23096",
+   "17 1792719103.273570 POST /languages/messages/MessagesXsy.php 403 317 23309",
+   "18 1792719103.301920 POST /languages/messages/MessagesXsy.php 403 317 21636",
+   "19 1792719103.328485 POST /languages/messages/MessagesXsy.php 403 317 34970",
+   "20 1792719103.368542 POST /languages/messages/MessagesXsy.php 403 317 35659"
+  ],
+  "aborts": [
+   "[Fri Oct 23 01:29:57.833993 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)",
+   "[Fri Oct 23 01:30:02.426694 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:44918] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:02.685625 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)",
+   "[Fri Oct 23 01:30:07.064184 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:45014] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:07.132187 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)",
+   "[Fri Oct 23 01:30:11.908095 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:40080] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:12.273574 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)"
+  ]
+ },
+ {
+  "name": "lang_jut",
+  "path": "/languages/messages/MessagesJut.php",
+  "stages": [
+   {
+    "i": 0,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 1,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 2,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 3,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 4,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 5,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 6,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 7,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.02
+   }
+  ],
+  "a1": {
+   "status": "HTTP/1.1 403 Forbidden",
+   "bytes": 497
+  },
+  "a1_child": "17",
+  "hit": null,
+  "access_tail": [
+   "17 1792719106.979540 POST /languages/messages/MessagesJut.php 403 317 669",
+   "18 1792719107.251523 POST /languages/messages/MessagesJut.php 403 317 22535",
+   "19 1792719107.279674 POST /languages/messages/MessagesJut.php 403 317 22130",
+   "20 1792719107.306641 POST /languages/messages/MessagesJut.php 403 317 22235",
+   "21 1792719107.335238 POST /languages/messages/MessagesJut.php 403 317 23176",
+   "17 1792719107.363604 POST /languages/messages/MessagesJut.php 403 317 20745",
+   "18 1792719107.389023 POST /languages/messages/MessagesJut.php 403 317 22357",
+   "19 1792719107.416295 POST /languages/messages/MessagesJut.php 403 317 22955",
+   "20 1792719107.444148 POST /languages/messages/MessagesJut.php 403 317 20090"
+  ],
+  "aborts": [
+   "[Fri Oct 23 01:29:57.833993 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)",
+   "[Fri Oct 23 01:30:02.426694 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:44918] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:02.685625 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)",
+   "[Fri Oct 23 01:30:07.064184 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:45014] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:07.132187 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)",
+   "[Fri Oct 23 01:30:11.908095 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:40080] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:12.273574 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)"
+  ]
+ },
+ {
+  "name": "lang_en_rtl",
+  "path": "/languages/messages/MessagesEn_rtl.php",
+  "stages": [
+   {
+    "i": 0,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 1,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 2,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 3,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 4,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.04
+   },
+   {
+    "i": 5,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 6,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.04
+   },
+   {
+    "i": 7,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   }
+  ],
+  "a1": {
+   "status": "HTTP/1.1 403 Forbidden",
+   "bytes": 497
+  },
+  "a1_child": "17",
+  "hit": null,
+  "access_tail": [
+   "17 1792719111.059457 POST /languages/messages/MessagesEn_rtl.php 403 317 842",
+   "18 1792719111.323003 POST /languages/messages/MessagesEn_rtl.php 403 317 20868",
+   "19 1792719111.349251 POST /languages/messages/MessagesEn_rtl.php 403 317 19973",
+   "20 1792719111.374367 POST /languages/messages/MessagesEn_rtl.php 403 317 21008",
+   "21 1792719111.401225 POST /languages/messages/MessagesEn_rtl.php 403 317 23348",
+   "17 1792719111.429670 POST /languages/messages/MessagesEn_rtl.php 403 317 34876",
+   "18 1792719111.469429 POST /languages/messages/MessagesEn_rtl.php 403 317 20549",
+   "19 1792719111.495179 POST /languages/messages/MessagesEn_rtl.php 403 317 32919",
+   "20 1792719111.533230 POST /languages/messages/MessagesEn_rtl.php 403 317 20961"
+  ],
+  "aborts": [
+   "[Fri Oct 23 01:29:57.833993 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)",
+   "[Fri Oct 23 01:30:02.426694 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:44918] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:02.685625 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)",
+   "[Fri Oct 23 01:30:07.064184 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:45014] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:07.132187 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)",
+   "[Fri Oct 23 01:30:11.908095 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:40080] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:12.273574 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)"
+  ]
+ },
+ {
+  "name": "vendor_apex",
+  "path": "/vendor/oojs/oojs-ui/php/themes/ApexTheme.php",
+  "stages": [
+   {
+    "i": 0,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.04
+   },
+   {
+    "i": 1,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 2,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 3,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 4,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 5,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 6,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 7,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   }
+  ],
+  "a1": {
+   "status": "HTTP/1.1 403 Forbidden",
+   "bytes": 497
+  },
+  "a1_child": "17",
+  "hit": null,
+  "access_tail": [
+   "17 1792719115.154971 POST /vendor/oojs/oojs-ui/php/themes/ApexTheme.php 403 317 955",
+   "18 1792719115.430452 POST /vendor/oojs/oojs-ui/php/themes/ApexTheme.php 403 317 21457",
+   "19 1792719115.457634 POST /vendor/oojs/oojs-ui/php/themes/ApexTheme.php 403 317 19853",
+   "20 1792719115.482628 POST /vendor/oojs/oojs-ui/php/themes/ApexTheme.php 403 317 20897",
+   "21 1792719115.508817 POST /vendor/oojs/oojs-ui/php/themes/ApexTheme.php 403 317 23514",
+   "17 1792719115.537048 POST /vendor/oojs/oojs-ui/php/themes/ApexTheme.php 403 317 22669",
+   "18 1792719115.564787 POST /vendor/oojs/oojs-ui/php/themes/ApexTheme.php 403 317 21533",
+   "19 1792719115.591197 POST /vendor/oojs/oojs-ui/php/themes/ApexTheme.php 403 317 20427",
+   "20 1792719115.616761 POST /vendor/oojs/oojs-ui/php/themes/ApexTheme.php 403 317 23403"
+  ],
+  "aborts": [
+   "[Fri Oct 23 01:29:57.833993 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)",
+   "[Fri Oct 23 01:30:02.426694 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:44918] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:02.685625 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)",
+   "[Fri Oct 23 01:30:07.064184 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:45014] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:07.132187 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)",
+   "[Fri Oct 23 01:30:11.908095 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:40080] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:12.273574 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)"
+  ]
+ },
+ {
+  "name": "vendor_signal",
+  "path": "/vendor/web-auth/webauthn-lib/src/Signal/Signal.php",
+  "stages": [
+   {
+    "i": 0,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.02
+   },
+   {
+    "i": 1,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.02
+   },
+   {
+    "i": 2,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.02
+   },
+   {
+    "i": 3,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.02
+   },
+   {
+    "i": 4,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.02
+   },
+   {
+    "i": 5,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.01
+   },
+   {
+    "i": 6,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 7,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.02
+   }
+  ],
+  "a1": {
+   "status": "HTTP/1.1 403 Forbidden",
+   "bytes": 497
+  },
+  "a1_child": "17",
+  "hit": null,
+  "access_tail": [
+   "17 1792719119.206402 POST /vendor/web-auth/webauthn-lib/src/Signal/Signal.php 403 317 582",
+   "18 1792719119.470993 POST /vendor/web-auth/webauthn-lib/src/Signal/Signal.php 403 317 13127",
+   "19 1792719119.489620 POST /vendor/web-auth/webauthn-lib/src/Signal/Signal.php 403 317 11782",
+   "20 1792719119.506425 POST /vendor/web-auth/webauthn-lib/src/Signal/Signal.php 403 317 11101",
+   "21 1792719119.522419 POST /vendor/web-auth/webauthn-lib/src/Signal/Signal.php 403 317 12072",
+   "17 1792719119.539804 POST /vendor/web-auth/webauthn-lib/src/Signal/Signal.php 403 317 9718",
+   "18 1792719119.555332 POST /vendor/web-auth/webauthn-lib/src/Signal/Signal.php 403 317 8725",
+   "19 1792719119.579225 POST /vendor/web-auth/webauthn-lib/src/Signal/Signal.php 403 317 11765",
+   "20 1792719119.596017 POST /vendor/web-auth/webauthn-lib/src/Signal/Signal.php 403 317 12240"
+  ],
+  "aborts": [
+   "[Fri Oct 23 01:30:02.426694 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:44918] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:02.685625 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)",
+   "[Fri Oct 23 01:30:07.064184 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:45014] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:07.132187 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)",
+   "[Fri Oct 23 01:30:11.908095 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:40080] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:12.273574 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)"
+  ]
+ },
+ {
+  "name": "rdbms_pgblob",
+  "path": "/includes/libs/Rdbms/Encasing/PostgresBlob.php",
+  "stages": [
+   {
+    "i": 0,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.04
+   },
+   {
+    "i": 1,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.04
+   },
+   {
+    "i": 2,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.04
+   },
+   {
+    "i": 3,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.04
+   },
+   {
+    "i": 4,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.04
+   },
+   {
+    "i": 5,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.04
+   },
+   {
+    "i": 6,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.04
+   },
+   {
+    "i": 7,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.04
+   }
+  ],
+  "a1": {
+   "status": "HTTP/1.1 403 Forbidden",
+   "bytes": 497
+  },
+  "a1_child": "17",
+  "hit": null,
+  "access_tail": [
+   "17 1792719123.180641 POST /includes/libs/Rdbms/Encasing/PostgresBlob.php 403 317 2101",
+   "18 1792719123.448673 POST /includes/libs/Rdbms/Encasing/PostgresBlob.php 403 317 30862",
+   "19 1792719123.484568 POST /includes/libs/Rdbms/Encasing/PostgresBlob.php 403 317 32640",
+   "20 1792719123.522576 POST /includes/libs/Rdbms/Encasing/PostgresBlob.php 403 317 38659",
+   "21 1792719123.566823 POST /includes/libs/Rdbms/Encasing/PostgresBlob.php 403 317 32131",
+   "17 1792719123.604515 POST /includes/libs/Rdbms/Encasing/PostgresBlob.php 403 317 33551",
+   "18 1792719123.643163 POST /includes/libs/Rdbms/Encasing/PostgresBlob.php 403 317 31465",
+   "19 1792719123.679582 POST /includes/libs/Rdbms/Encasing/PostgresBlob.php 403 317 37747",
+   "20 1792719123.722202 POST /includes/libs/Rdbms/Encasing/PostgresBlob.php 403 317 38762"
+  ],
+  "aborts": [
+   "[Fri Oct 23 01:30:07.064184 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:45014] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:07.132187 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)",
+   "[Fri Oct 23 01:30:11.908095 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:40080] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:12.273574 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)"
+  ]
+ },
+ {
+  "name": "tests_success",
+  "path": "/tests/phpunit/includes/Shell/bin/success_status.php",
+  "stages": [
+   {
+    "i": 0,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.02
+   },
+   {
+    "i": 1,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.01
+   },
+   {
+    "i": 2,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.02
+   },
+   {
+    "i": 3,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.01
+   },
+   {
+    "i": 4,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.02
+   },
+   {
+    "i": 5,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.01
+   },
+   {
+    "i": 6,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.02
+   },
+   {
+    "i": 7,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   }
+  ],
+  "a1": {
+   "status": "HTTP/1.1 403 Forbidden",
+   "bytes": 497
+  },
+  "a1_child": "17",
+  "hit": null,
+  "access_tail": [
+   "17 1792719127.384699 POST /tests/phpunit/includes/Shell/bin/success_status.php 403 317 10867",
+   "18 1792719127.656773 POST /tests/phpunit/includes/Shell/bin/success_status.php 403 317 11427",
+   "19 1792719127.673130 POST /tests/phpunit/includes/Shell/bin/success_status.php 403 317 9981",
+   "20 1792719127.688379 POST /tests/phpunit/includes/Shell/bin/success_status.php 403 317 9852",
+   "21 1792719127.703518 POST /tests/phpunit/includes/Shell/bin/success_status.php 403 317 7389",
+   "17 1792719127.716206 POST /tests/phpunit/includes/Shell/bin/success_status.php 403 317 14132",
+   "18 1792719127.735814 POST /tests/phpunit/includes/Shell/bin/success_status.php 403 317 8262",
+   "19 1792719127.749032 POST /tests/phpunit/includes/Shell/bin/success_status.php 403 317 12966",
+   "20 1792719127.767096 POST /tests/phpunit/includes/Shell/bin/success_status.php 403 317 21738"
+  ],
+  "aborts": [
+   "[Fri Oct 23 01:30:07.064184 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:45014] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:07.132187 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)",
+   "[Fri Oct 23 01:30:11.908095 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:40080] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:12.273574 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)"
+  ]
+ },
+ {
+  "name": "vendor_autoload_real",
+  "path": "/vendor/composer/autoload_real.php",
+  "stages": [
+   {
+    "i": 0,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.01
+   },
+   {
+    "i": 1,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.02
+   },
+   {
+    "i": 2,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.02
+   },
+   {
+    "i": 3,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.02
+   },
+   {
+    "i": 4,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.02
+   },
+   {
+    "i": 5,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 6,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 7,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   }
+  ],
+  "a1": {
+   "status": "HTTP/1.1 403 Forbidden",
+   "bytes": 497
+  },
+  "a1_child": "17",
+  "hit": null,
+  "access_tail": [
+   "17 1792719131.348728 POST /vendor/composer/autoload_real.php 403 317 1044",
+   "18 1792719131.620744 POST /vendor/composer/autoload_real.php 403 317 8907",
+   "19 1792719131.634677 POST /vendor/composer/autoload_real.php 403 317 10453",
+   "20 1792719131.650537 POST /vendor/composer/autoload_real.php 403 317 10418",
+   "21 1792719131.666255 POST /vendor/composer/autoload_real.php 403 317 12912",
+   "17 1792719131.684595 POST /vendor/composer/autoload_real.php 403 317 14269",
+   "18 1792719131.704024 POST /vendor/composer/autoload_real.php 403 317 22045",
+   "19 1792719131.731332 POST /vendor/composer/autoload_real.php 403 317 22019",
+   "20 1792719131.759026 POST /vendor/composer/autoload_real.php 403 317 20737"
+  ],
+  "aborts": [
+   "[Fri Oct 23 01:30:11.908095 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:40080] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0",
+   "zend_mm_heap corrupted",
+   "[Fri Oct 23 01:30:12.273574 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)"
+  ]
+ },
+ {
+  "name": "incl_defines",
+  "path": "/includes/Defines.php",
+  "stages": [
+   {
+    "i": 0,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 1,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 2,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 3,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 4,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 5,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 6,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.03
+   },
+   {
+    "i": 7,
+    "status": "HTTP/1.1 403 Forbidden",
+    "bytes": 497,
+    "elapsed": 0.04
+   }
+  ],
+  "a1": {
+   "status": "HTTP/1.1 403 Forbidden",
+   "bytes": 497
+  },
+  "a1_child": "17",
+  "hit": null,
+  "access_tail": [
+   "17 1792719135.376136 POST /includes/Defines.php 403 317 810",
+   "18 1792719135.658555 POST /includes/Defines.php 403 317 20745",
+   "19 1792719135.684733 POST /includes/Defines.php 403 317 21493",
+   "20 1792719135.711430 POST /includes/Defines.php 403 317 21108",
+   "21 1792719135.737704 POST /includes/Defines.php 403 317 24804",
+   "17 1792719135.768125 POST /includes/Defines.php 403 317 20749",
+   "18 1792719135.793876 POST /includes/Defines.php 403 317 20892",
+   "19 1792719135.819712 POST /includes/Defines.php 403 317 20876",
+   "20 1792719135.845598 POST /includes/Defines.php 403 317 32067"
+  ],
+  "aborts": []
+ },
+ {
+  "name": "mw_autoload",
+  "path": "/autoload.php",
+  "stages": [
+   {
+    "i": 0,
+    "status": "HTTP/1.1 200 OK",
+    "bytes": 256,
+    "elapsed": 0.07
+   },
+   {
+    "i": 1,
+    "status": "HTTP/1.1 200 OK",
+    "bytes": 256,
+    "elapsed": 0.07
+   },
+   {
+    "i": 2,
+    "status": "HTTP/1.1 200 OK",
+    "bytes": 256,
+    "elapsed": 0.08
+   },
+   {
+    "i": 3,
+    "status": "HTTP/1.1 200 OK",
+    "bytes": 256,
+    "elapsed": 0.07
+   },
+   {
+    "i": 4,
+    "status": "HTTP/1.1 200 OK",
+    "bytes": 1666084,
+    "elapsed": 0.04,
+    "leak": "size"
+   }
+  ],
+  "a1": {
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211
+  },
+  "a1_child": "17",
+  "hit": {
+   "i": 4,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 1666084,
+   "elapsed": 0.04,
+   "leak": "size"
+  },
+  "access_tail": [
+   "17 1792719139.467951 POST /autoload.php 500 - 81849",
+   "18 1792719139.827379 POST /autoload.php 200 - 65757",
+   "19 1792719139.898316 POST /autoload.php 200 - 68337",
+   "20 1792719139.972659 POST /autoload.php 200 - 71844",
+   "21 1792719140.050054 POST /autoload.php 200 - 66688",
+   "17 1792719140.122775 POST /autoload.php 200 - 33444"
+  ],
+  "aborts": [
+   "[Fri Oct 23 01:32:20.153023 2026] [php:warn] [pid 17:tid 17] [client 172.17.0.1:36102] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0"
+  ]
+ }
+]

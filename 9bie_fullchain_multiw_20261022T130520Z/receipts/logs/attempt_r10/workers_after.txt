@@ -1,0 +1,10 @@
+--- workers after ---
+PID                 PPID                USER                RSS                 COMMAND
+4017105             4017080             root                28932               apache2 -DFOREGROUND
+4017138             4017105             www-data            33076               apache2 -DFOREGROUND
+4017139             4017105             www-data            52084               apache2 -DFOREGROUND
+4017140             4017105             www-data            22280               apache2 -DFOREGROUND
+4017141             4017105             www-data            32456               apache2 -DFOREGROUND
+4017142             4017105             www-data            32520               apache2 -DFOREGROUND
+--- container ---
+p2s-mw-18610 Up 9 seconds

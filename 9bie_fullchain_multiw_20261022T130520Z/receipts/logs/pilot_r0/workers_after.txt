@@ -1,0 +1,10 @@
+--- workers after ---
+PID                 PPID                USER                RSS                 COMMAND
+3952077             3952054             root                28908               apache2 -DFOREGROUND
+3952110             3952077             www-data            97956               apache2 -DFOREGROUND
+3952111             3952077             www-data            115644              apache2 -DFOREGROUND
+3952113             3952077             www-data            56564               apache2 -DFOREGROUND
+3952114             3952077             www-data            97280               apache2 -DFOREGROUND
+3952298             3952077             www-data            15236               apache2 -DFOREGROUND
+--- container ---
+p2s-mw-18610 Up 5 seconds

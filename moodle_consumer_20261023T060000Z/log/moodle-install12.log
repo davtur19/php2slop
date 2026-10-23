@@ -1,0 +1,11 @@
+
+Deprecated: The backtick (`) operator is deprecated, use shell_exec() instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/moodlelib.php on line 9130
+                                 .-..-.       
+   _____                         | || |       
+  /____/-.---_  .---.  .---.  .-.| || | .---. 
+  | |  _   _  |/  _  \/  _  \/  _  || |/  __ \
+  * | | | | | || |_| || |_| || |_| || || |___/
+    |_| |_| |_|\_____/\_____/\_____||_|\_____)
+
+Moodle 5.0.10+ (Build: 20261002) command line installation program
+!!! Exception - Failed opening required '[dirroot]/repository/lib.php' (include_path='[dirroot]/lib/pear:[dirroot]/lib/pear:.:') !!!

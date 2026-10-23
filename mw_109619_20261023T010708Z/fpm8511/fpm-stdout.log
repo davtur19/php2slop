@@ -1,0 +1,5 @@
+[23-Oct-2026 03:58:09] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 03:58:09] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:00:11] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:00:11] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:00:11] NOTICE: using inherited socket fd=10, "127.0.0.1:18750"

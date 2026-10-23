@@ -1,0 +1,49 @@
+{
+ "pid": 9,
+ "state": {
+  "heap": "0x7f014fc00040",
+  "main": "0x7f014fc00000",
+  "lib": "0x7f0150cf6000",
+  "sid": "0x7f014fc660c0",
+  "sidoff": "0x660c0",
+  "hsv": "0x7f014fc7d720",
+  "hsvoff": "0x7d720",
+  "hsvtype": "0x10a",
+  "send_cookie": "0",
+  "status": "1",
+  "refrc": "2",
+  "reftype": "0x1a",
+  "refptr": "0x7f014fc5a268",
+  "valtype": "0x307",
+  "valrc": "1",
+  "valgc": "0xc0000407"
+ },
+ "sent": [
+  {
+   "k": 0,
+   "pid": 10,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "k": 1,
+   "pid": 11,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "k": 2,
+   "pid": 12,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "k": 3,
+   "pid": 13,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "k": 4,
+   "pid": 9,
+   "status": "HTTP/1.1 200 OK"
+  }
+ ],
+ "out": "[Thread debugging using libthread_db enabled]\nUsing host libthread_db library \"/lib/x86_64-linux-gnu/libthread_db.so.1\".\n0x00007f01514c03a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6\nwarning: BFD: /usr/lib/debug/.build-id/a5/3126ca5ef3f1c12e9bd48cf7cccd63698fc818.debug: unable to get decompressed section .debug_gdb_scripts\nwarning: Couldn't read .debug_gdb_scripts section of /usr/lib/debug/.build-id/a5/3126ca5ef3f1c12e9bd48cf7cccd63698fc818.debug\nHardware watchpoint 1: *(unsigned long long*)0x7f014fc7d720\nHardware watchpoint 2: *(unsigned long long*)0x7f014fc7d728\nW8 val=0x7f014fcf8398\n#0  0x00007f01515ac94a in ?? () from /lib/x86_64-linux-gnu/libc.so.6\n#1  0x00007f0150e95022 in memcpy (__dest=0x7f014fc7d718, __src=<optimized out>, __len=384) at /usr/include/x86_64-linux-gnu/bits/string_fortified.h:29\n#2  zend_string_init (str=<optimized out>, len=<optimized out>, persistent=<optimized out>) at ./Zend/zend_string.h:200\n#3  php_sapi_filter (arg=<optimized out>, var=0x7f014fc65000 \"s000000037\", val=0x7ffe86dbbc90, val_len=384, new_val_len=0x7ffe86dbbc98) at ./ext/filter/filter.c:341\n#4  0x00007f0150fbec02 in rfc1867_post_handler (content_type_dup=<optimized out>, arg=<optimized out>) at ./main/rfc1867.c:870\nWA0 val=0xa00000001\n#0  0x00007f015111b000 in i_zval_ptr_dtor (zval_ptr=<optimized out>) at ./Zend/zend_variables.h:44\n#1  zval_ptr_dtor (zval_ptr=<optimized out>) at ./Zend/zend_variables.c:84\n#2  0x00007f0150ee699f in php_session_track_init () at ./ext/session/session.c:244\n#3  0x00007f0150eec528 in php_session_initialize () at ./ext/session/session.c:479\n#4  0x00007f0150eee525 in php_session_rfc1867_cleanup (progress=0x7f014fc62000) at ./ext/session/session.c:3202\nWA0 val=0xc000040a00000001\n#0  gc_possible_root (ref=0x7f014fc7d720) at ./Zend/zend_gc.c:728\n#1  0x00007f0150ee699f in php_session_track_init () at ./ext/session/session.c:244\n#2  0x00007f0150eec528 in php_session_initialize () at ./ext/session/session.c:479\n#3  0x00007f0150eee525 in php_session_rfc1867_cleanup (progress=0x7f014fc62000) at ./ext/session/session.c:3202\n#4  php_session_rfc1867_callback (event=<optimized out>, event_data=0x7ffe86dbbcf0, extra=<optimized out>) at ./ext/session/session.c:3366\n"
+}

@@ -1,0 +1,388 @@
+2026/10/23 10:38:06 [notice] 312121#0: using the "epoll" event method
+2026/10/23 10:38:06 [notice] 312121#0: nginx/1.30.1
+2026/10/23 10:38:06 [notice] 312121#0: built by gcc 14.2.0 (Debian 14.2.0-19) 
+2026/10/23 10:38:06 [notice] 312121#0: OS: Linux 6.12.113+deb13-amd64
+2026/10/23 10:38:06 [notice] 312121#0: getrlimit(RLIMIT_NOFILE): 524288:524288
+2026/10/23 10:38:06 [notice] 312123#0: start worker processes
+2026/10/23 10:38:06 [notice] 312123#0: start worker process 312124
+2026/10/23 10:38:06 [error] 312124#0: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /ping.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:38:06 [info] 312124#0: *1 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:38:25 [info] 312124#0: *3 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:40:52 [info] 312124#0: *5 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:40:57 [info] 312124#0: *11 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:40:57 [info] 312124#0: *8 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:40:57 [info] 312124#0: *7 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:40:57 [info] 312124#0: *9 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:40:57 [info] 312124#0: *15 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:20 [info] 312124#0: *28 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:20 [info] 312124#0: *30 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:20 [info] 312124#0: *27 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:20 [info] 312124#0: *29 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:20 [info] 312124#0: *32 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:20 [error] 312124#0: *37 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d5dec2c0 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:20 [error] 312124#0: *38 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d5dec2c1 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:20 [error] 312124#0: *42 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d5dec2c4 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:20 [error] 312124#0: *41 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d5dec2c3 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:20 [error] 312124#0: *39 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d5dec2c2 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:27 [info] 312124#0: *50 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:27 [info] 312124#0: *48 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:27 [info] 312124#0: *55 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:27 [info] 312124#0: *47 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:27 [info] 312124#0: *49 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:27 [error] 312124#0: *58 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d5encc2 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:27 [error] 312124#0: *57 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d5encc0 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:27 [error] 312124#0: *59 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d5encc3 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:27 [error] 312124#0: *64 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d5encc4 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:27 [error] 312124#0: *60 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d5encc1 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:49 [info] 312124#0: *67 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *81 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *83 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *79 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *69 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *97 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *95 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *101 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *99 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *93 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *72 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *103 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *89 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *70 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *87 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *78 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *91 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *77 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *85 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *73 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [info] 312124#0: *105 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:42:54 [error] 312124#0: *109 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc0 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *111 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc2 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *116 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc5 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *110 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc1 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *112 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc3 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *113 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc4 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *122 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc8 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *120 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc6 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *125 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc9 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *127 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc7 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *128 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc10 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *130 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc12 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *132 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc16 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *136 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc14 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *129 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc11 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *133 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc15 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *137 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc13 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *145 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc18 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *143 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc19 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:42:54 [error] 312124#0: *139 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d20decc17 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:10 [info] 312124#0: *149 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *153 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *170 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *162 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *159 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *211 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *151 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *166 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *204 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *247 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *215 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *217 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *227 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *178 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *203 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *219 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *249 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *191 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *235 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *245 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *160 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *168 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *200 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *176 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *184 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *154 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *239 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *221 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *196 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *198 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *193 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *206 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *241 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *152 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *187 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *233 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *209 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *180 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *213 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *223 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *225 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *243 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *229 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *183 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *237 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *164 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *189 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *175 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *172 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *195 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [info] 312124#0: *230 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:43:11 [error] 312124#0: *252 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc1 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *258 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc5 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *263 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc6 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *265 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc7 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *269 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc8 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *266 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc11 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *267 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc9 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *270 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc10 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *271 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc14 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *275 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc15 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *281 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc17 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *278 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc16 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *286 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc19 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *292 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc21 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *288 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc13 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *283 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc18 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *290 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc20 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *294 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc23 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *297 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc22 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *302 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc27 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *304 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc25 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *306 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc30 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *308 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc29 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *310 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc28 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *296 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc26 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *299 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc24 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *320 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc37 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *314 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc32 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *322 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc35 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *315 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc36 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *318 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc31 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *317 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc38 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *324 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc34 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *316 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc41 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *321 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc40 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *319 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc33 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *339 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc48 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *338 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc47 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *337 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc44 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *336 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc46 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *341 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc45 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:43:11 [error] 312124#0: *313 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50decc39 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:44:35 [error] 312124#0: *365 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50w2c9 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:44:35 [error] 312124#0: *400 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50w2c30 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:44:35 [error] 312124#0: *436 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50w2c41 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:44:35 [error] 312124#0: *438 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d50w2c44 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:01 [info] 312124#0: *451 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:01 [info] 312124#0: *455 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:01 [info] 312124#0: *454 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:01 [info] 312124#0: *457 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:01 [info] 312124#0: *461 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:01 [info] 312124#0: *453 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:01 [error] 312124#0: *465 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s5decc3 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:01 [error] 312124#0: *463 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s5decc0 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:01 [error] 312124#0: *466 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s5decc1 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:01 [error] 312124#0: *464 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s5decc2 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:01 [error] 312124#0: *470 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s5decc4 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [info] 312124#0: *473 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *475 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *481 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *477 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *488 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *503 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *478 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *512 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *487 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *484 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *494 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *498 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *509 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *496 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *511 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *476 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *504 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *491 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *500 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *507 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [info] 312124#0: *493 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:10 [error] 312124#0: *518 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc3 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [error] 312124#0: *517 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc1 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [error] 312124#0: *521 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc2 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [error] 312124#0: *523 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc5 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [error] 312124#0: *515 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc0 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [error] 312124#0: *525 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc4 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [error] 312124#0: *526 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc8 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [error] 312124#0: *529 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc11 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [error] 312124#0: *532 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc6 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [error] 312124#0: *530 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc7 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [error] 312124#0: *534 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc12 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [error] 312124#0: *537 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc14 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [error] 312124#0: *540 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc16 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [error] 312124#0: *544 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc10 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [error] 312124#0: *550 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc18 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [error] 312124#0: *546 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc15 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:10 [error] 312124#0: *553 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20decc19 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:19 [error] 312124#0: *560 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20w2c4 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:19 [error] 312124#0: *561 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20w2c3 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:19 [error] 312124#0: *571 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s20w2c13 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:31 [info] 312124#0: *595 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:31 [info] 312124#0: *597 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:31 [info] 312124#0: *599 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:31 [info] 312124#0: *605 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:31 [info] 312124#0: *598 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:31 [info] 312124#0: *600 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:31 [info] 312124#0: *608 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:31 [info] 312124#0: *631 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:31 [info] 312124#0: *633 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:31 [info] 312124#0: *628 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:31 [info] 312124#0: *615 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:31 [info] 312124#0: *606 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:31 [info] 312124#0: *618 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *634 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *671 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *670 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *678 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *643 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *689 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *653 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *675 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *607 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *622 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *677 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *667 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *665 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *621 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *613 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *693 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *663 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *639 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *641 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *649 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *617 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *691 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *645 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *654 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *656 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *647 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *659 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *661 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *625 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *668 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *626 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *637 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *680 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *651 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *685 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *683 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *687 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [info] 312124#0: *695 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:45:32 [error] 312124#0: *697 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc0 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *701 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc2 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *703 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc5 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *705 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc4 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *702 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc3 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *715 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc11 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *712 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc7 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *718 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc16 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *725 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc14 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *714 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc9 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *722 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc12 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *719 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc13 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *728 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc20 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *727 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc19 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *739 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc21 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *740 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc25 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *738 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc24 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *743 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc22 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *752 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc30 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *750 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc28 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *749 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc33 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *745 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc27 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *759 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc38 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *748 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc26 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *761 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc32 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *744 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc23 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *753 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc36 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *764 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc37 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *757 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc35 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *769 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc40 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *771 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc42 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *785 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc49 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *721 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc17 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *782 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc39 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *784 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc46 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *790 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc45 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *787 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc48 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:32 [error] 312124#0: *779 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50decc43 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:48 [error] 312124#0: *809 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50w2c5 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:48 [error] 312124#0: *835 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50w2c20 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:48 [error] 312124#0: *839 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50w2c21 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:48 [error] 312124#0: *853 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50w2c30 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:48 [error] 312124#0: *866 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50w2c36 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:56 [error] 312124#0: *904 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50w3c6 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:45:56 [error] 312124#0: *917 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=s50w3c17 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29511"
+2026/10/23 10:53:52 [info] 312124#0: *997 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:53:52 [info] 312124#0: *1004 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:53:52 [info] 312124#0: *1000 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:53:52 [info] 312124#0: *999 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:53:52 [info] 312124#0: *1007 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:53:52 [info] 312124#0: *1001 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:53:52 [error] 312124#0: *1009 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d5offc1 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29512"
+2026/10/23 10:53:52 [error] 312124#0: *1012 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d5offc3 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29512"
+2026/10/23 10:53:52 [error] 312124#0: *1013 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d5offc4 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29512"
+2026/10/23 10:53:52 [error] 312124#0: *1011 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d5offc0 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29512"
+2026/10/23 10:53:52 [error] 312124#0: *1010 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=d5offc2 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29501", host: "127.0.0.1:29512"
+2026/10/23 10:54:08 [error] 312124#0: *1019 connect() failed (111: Connection refused) while connecting to upstream, client: 127.0.0.1, server: , request: "GET /ping.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:29508", host: "127.0.0.1:29518"
+2026/10/23 10:54:08 [info] 312124#0: *1019 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:54:28 [info] 312124#0: *1021 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:54:43 [info] 312124#0: *1026 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:54:43 [info] 312124#0: *1029 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:54:43 [info] 312124#0: *1023 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:54:43 [info] 312124#0: *1025 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:54:43 [info] 312124#0: *1024 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:55:04 [info] 312124#0: *1043 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:55:04 [info] 312124#0: *1045 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:55:04 [info] 312124#0: *1052 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:55:04 [info] 312124#0: *1046 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:55:04 [info] 312124#0: *1051 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:55:04 [info] 312124#0: *1047 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:27 [info] 312124#0: *1065 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:27 [info] 312124#0: *1071 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:27 [info] 312124#0: *1070 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:27 [info] 312124#0: *1069 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:27 [info] 312124#0: *1067 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:28 [info] 312124#0: *1068 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:28 [warn] 312124#0: *1079 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/run/nginx-matrix-body/0000000001, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dpadc2 HTTP/1.1", host: "127.0.0.1:29518"
+2026/10/23 10:56:28 [warn] 312124#0: *1077 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/run/nginx-matrix-body/0000000002, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dpadc0 HTTP/1.1", host: "127.0.0.1:29518"
+2026/10/23 10:56:28 [warn] 312124#0: *1080 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/run/nginx-matrix-body/0000000003, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dpadc3 HTTP/1.1", host: "127.0.0.1:29518"
+2026/10/23 10:56:28 [warn] 312124#0: *1078 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/run/nginx-matrix-body/0000000004, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dpadc1 HTTP/1.1", host: "127.0.0.1:29518"
+2026/10/23 10:56:28 [warn] 312124#0: *1085 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/run/nginx-matrix-body/0000000005, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dpadc4 HTTP/1.1", host: "127.0.0.1:29518"
+2026/10/23 10:56:51 [info] 312124#0: *1089 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:51 [info] 312124#0: *1094 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:51 [info] 312124#0: *1090 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:51 [info] 312124#0: *1088 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:51 [info] 312124#0: *1087 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:52 [info] 312124#0: *1108 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:52 [info] 312124#0: *1115 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:52 [info] 312124#0: *1107 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:52 [info] 312124#0: *1111 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:52 [info] 312124#0: *1110 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:56:52 [warn] 312124#0: *1117 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/run/nginx-matrix-body/0000000006, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dp8c0 HTTP/1.1", host: "127.0.0.1:29518"
+2026/10/23 10:56:52 [warn] 312124#0: *1121 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/run/nginx-matrix-body/0000000007, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dp8c4 HTTP/1.1", host: "127.0.0.1:29518"
+2026/10/23 10:56:52 [warn] 312124#0: *1118 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/run/nginx-matrix-body/0000000008, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dp8c2 HTTP/1.1", host: "127.0.0.1:29518"
+2026/10/23 10:56:52 [warn] 312124#0: *1120 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/run/nginx-matrix-body/0000000009, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dp8c1 HTTP/1.1", host: "127.0.0.1:29518"
+2026/10/23 10:56:52 [warn] 312124#0: *1119 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/run/nginx-matrix-body/0000000010, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dp8c3 HTTP/1.1", host: "127.0.0.1:29518"
+2026/10/23 10:57:24 [info] 312124#0: *1129 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:57:24 [info] 312124#0: *1127 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:57:24 [info] 312124#0: *1135 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:57:24 [info] 312124#0: *1128 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:57:24 [info] 312124#0: *1131 client 127.0.0.1 closed keepalive connection
+2026/10/23 10:57:25 [warn] 312124#0: *1139 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/run/nginx-matrix-body/0000000011, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dp24c2 HTTP/1.1", host: "127.0.0.1:29518"
+2026/10/23 10:57:25 [warn] 312124#0: *1138 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/run/nginx-matrix-body/0000000012, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dp24c1 HTTP/1.1", host: "127.0.0.1:29518"
+2026/10/23 10:57:25 [warn] 312124#0: *1140 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/run/nginx-matrix-body/0000000013, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dp24c4 HTTP/1.1", host: "127.0.0.1:29518"
+2026/10/23 10:57:25 [warn] 312124#0: *1137 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/run/nginx-matrix-body/0000000014, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dp24c0 HTTP/1.1", host: "127.0.0.1:29518"
+2026/10/23 10:57:25 [warn] 312124#0: *1144 a client request body is buffered to a temporary file /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/run/nginx-matrix-body/0000000015, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dp24c3 HTTP/1.1", host: "127.0.0.1:29518"
+2026/10/23 10:57:25 [error] 312124#0: *1139 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dp24c2 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29508", host: "127.0.0.1:29518"
+2026/10/23 10:57:25 [error] 312124#0: *1138 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dp24c1 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29508", host: "127.0.0.1:29518"
+2026/10/23 10:57:25 [error] 312124#0: *1140 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dp24c4 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29508", host: "127.0.0.1:29518"
+2026/10/23 10:57:25 [error] 312124#0: *1137 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dp24c0 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29508", host: "127.0.0.1:29518"
+2026/10/23 10:57:25 [error] 312124#0: *1144 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: , request: "POST /consumer.php?tag=8511dp24c3 HTTP/1.1", upstream: "fastcgi://127.0.0.1:29508", host: "127.0.0.1:29518"

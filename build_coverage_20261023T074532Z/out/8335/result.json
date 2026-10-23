@@ -1,0 +1,256 @@
+{
+ "tag": "8.3.35",
+ "port": 18922,
+ "started": "2026-10-23T08:28:52Z",
+ "image": "php@sha256:c59c808172ee3672cd334f8f2a5d7b1480a9d7273a368f412b8ee9b4ef418184",
+ "tests": {
+  "as_is": {
+   "a1": {
+    "bytes": 211,
+    "status": "HTTP/1.0 500 Internal Server Error"
+   },
+   "b1": [
+    {
+     "bytes": 268,
+     "status": "HTTP/1.1 200 OK",
+     "cookie": "present",
+     "decoded": 34,
+     "ptr_clusters": 0,
+     "ptrs": 0,
+     "top": [],
+     "head": "62676c7538763270713572366e6c34617566346e32343872"
+    },
+    {
+     "bytes": 268,
+     "status": "HTTP/1.1 200 OK",
+     "cookie": "present",
+     "decoded": 34,
+     "ptr_clusters": 0,
+     "ptrs": 0,
+     "top": [],
+     "head": "6c7437666b7064377565747572346c317173386366343131"
+    },
+    {
+     "bytes": 268,
+     "status": "HTTP/1.1 200 OK",
+     "cookie": "present",
+     "decoded": 34,
+     "ptr_clusters": 0,
+     "ptrs": 0,
+     "top": [],
+     "head": "66376d306469733771683463376c396a3132706c6a6d6462"
+    },
+    {
+     "bytes": 268,
+     "status": "HTTP/1.1 200 OK",
+     "cookie": "present",
+     "decoded": 34,
+     "ptr_clusters": 0,
+     "ptrs": 0,
+     "top": [],
+     "head": "716439646a6e637133716d6e6c696f307031647174686173"
+    },
+    {
+     "bytes": 268,
+     "status": "HTTP/1.1 200 OK",
+     "cookie": "present",
+     "decoded": 34,
+     "ptr_clusters": 0,
+     "ptrs": 0,
+     "top": [],
+     "head": "356470336430757664746b68746a64616b346e3073356c6e"
+    },
+    {
+     "bytes": 268,
+     "status": "HTTP/1.1 200 OK",
+     "cookie": "present",
+     "decoded": 34,
+     "ptr_clusters": 0,
+     "ptrs": 0,
+     "top": [],
+     "head": "663461756f6a676a7469336a6c6b39746472367265756539"
+    }
+   ],
+   "b1_hits": 0
+  },
+  "sweep": {
+   "parts": [
+    {
+     "bytes": 268,
+     "status": "HTTP/1.1 200 OK",
+     "parts": 820
+    },
+    {
+     "bytes": 211,
+     "status": "HTTP/1.0 500 Internal Server Error",
+     "parts": 880,
+     "b1_probes": [
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "3874696431336a616734386e3963366d67323362346e6761"
+      },
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "66346a6161736c6c39683030326735366434307570766e62"
+      },
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "3735766875377230697238356f35396e75693033376e7161"
+      }
+     ]
+    },
+    {
+     "bytes": 211,
+     "status": "HTTP/1.0 500 Internal Server Error",
+     "parts": 920,
+     "b1_probes": [
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "6432366c6838617573647630336632736d71737035716966"
+      },
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "706239396269346572707435386561686f396b6b68643272"
+      },
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "6d6c7062676174696e353576726970666235373039667362"
+      }
+     ]
+    },
+    {
+     "bytes": 211,
+     "status": "HTTP/1.0 500 Internal Server Error",
+     "parts": 1000,
+     "b1_probes": [
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "727063306a7162377539746838336535693437376f6d6738"
+      },
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "3567356e356e326631736136307036756667717068346a69"
+      },
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "6b706b6d66736f626963726f613436686136366b7230366c"
+      }
+     ]
+    },
+    {
+     "bytes": 211,
+     "status": "HTTP/1.0 500 Internal Server Error",
+     "parts": 1060,
+     "b1_probes": [
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "646164386b366c62616a64736762766d6f383668336e7566"
+      },
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "3134646f61666a72356f316f39636d6f717538316e756868"
+      },
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "75396c6f336c706c74356638697669646371346373386a63"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "php": "8.3.35",
+ "limits": {
+  "display_errors": "''",
+  "memory_limit": "'128M'",
+  "post_max_size": "'8M'",
+  "upload_max_filesize": "'2M'",
+  "max_execution_time": "'30'",
+  "output_buffering": "'4096'",
+  "max_input_vars": "'1000'",
+  "session.upload_progress.enabled": "'1'",
+  "session.save_path": "''",
+  "sapi": "apache2handler"
+ },
+ "workers": "stock",
+ "crash_as_is": [
+  "Allowed memory size"
+ ],
+ "crash_sweep": [
+  "Allowed memory size"
+ ],
+ "state_final": "true 0 0",
+ "complete": true
+}

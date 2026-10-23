@@ -1,0 +1,15 @@
+[23-Oct-2026 03:58:00] NOTICE: configuration file fpm.conf test is successful
+[23-Oct-2026 03:58:09] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 03:58:09] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 03:58:09] NOTICE: fpm is running, pid 2668371
+[23-Oct-2026 03:58:09] NOTICE: ready to handle connections
+[23-Oct-2026 04:00:11] NOTICE: configuration file fpm.conf test is successful
+[23-Oct-2026 04:00:11] NOTICE: Reloading in progress ...
+[23-Oct-2026 04:00:11] NOTICE: reloading: execvp("/tmp/opencode/research/plain_full_8x_20261023T011800Z/bin/8.5.11/php-fpm", {"/tmp/opencode/research/plain_full_8x_20261023T011800Z/bin/8.5.11/php-fpm", "-F", "-c", "/tmp/opencode/research/plain_full_8x_20261023T011800Z/lab/ini/8.5.11/php.ini", "-y", "fpm.conf"})
+[23-Oct-2026 04:00:11] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:00:11] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:00:11] NOTICE: using inherited socket fd=10, "127.0.0.1:18750"
+[23-Oct-2026 04:00:11] NOTICE: fpm is running, pid 2668371
+[23-Oct-2026 04:00:11] NOTICE: ready to handle connections
+[23-Oct-2026 05:26:12] NOTICE: Terminating ...
+[23-Oct-2026 05:26:12] NOTICE: exiting, bye-bye!

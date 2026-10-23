@@ -1,0 +1,271 @@
+{
+  "tag": "d5dec",
+  "type": "decode",
+  "port": 29511,
+  "producers": 5,
+  "consumers": 5,
+  "n": 8000000,
+  "producer_script": "producer_oom.php",
+  "sids": [
+    "md5dec_c0",
+    "md5dec_c1",
+    "md5dec_c2",
+    "md5dec_c3",
+    "md5dec_c4"
+  ],
+  "producer_responses": [
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.044,
+      "i": 0
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.042,
+      "i": 1
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.042,
+      "i": 2
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.043,
+      "i": 3
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.043,
+      "i": 4
+    }
+  ],
+  "producer_wall": 0.046,
+  "producer_rows": [
+    {
+      "pid": 313137,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=d5decp2",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "313137 127.0.0.1 GET 500 n=8000000&tag=d5decp2 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 2
+    },
+    {
+      "pid": 313140,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=d5decp1",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "313140 127.0.0.1 GET 500 n=8000000&tag=d5decp1 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 1
+    },
+    {
+      "pid": 313139,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=d5decp0",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "313139 127.0.0.1 GET 500 n=8000000&tag=d5decp0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 0
+    },
+    {
+      "pid": 313141,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=d5decp3",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "313141 127.0.0.1 GET 500 n=8000000&tag=d5decp3 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 3
+    },
+    {
+      "pid": 313138,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=d5decp4",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "313138 127.0.0.1 GET 500 n=8000000&tag=d5decp4 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 4
+    }
+  ],
+  "primed_pids": [
+    313137,
+    313138,
+    313139,
+    313140,
+    313141
+  ],
+  "primed_distinct": 5,
+  "consumer_responses": [
+    {
+      "status": 200,
+      "len": 45,
+      "body": "CONSUMER PID=313137 STATUS=1 SID= SESSION=[]\n",
+      "dt": 0.001,
+      "i": 0,
+      "sid": "md5dec_c0"
+    },
+    {
+      "status": 200,
+      "len": 45,
+      "body": "CONSUMER PID=313140 STATUS=1 SID= SESSION=[]\n",
+      "dt": 0.001,
+      "i": 1,
+      "sid": "md5dec_c1"
+    },
+    {
+      "status": 200,
+      "len": 45,
+      "body": "CONSUMER PID=313139 STATUS=1 SID= SESSION=[]\n",
+      "dt": 0.001,
+      "i": 2,
+      "sid": "md5dec_c2"
+    },
+    {
+      "status": 200,
+      "len": 45,
+      "body": "CONSUMER PID=313141 STATUS=1 SID= SESSION=[]\n",
+      "dt": 0.001,
+      "i": 3,
+      "sid": "md5dec_c3"
+    },
+    {
+      "status": 200,
+      "len": 45,
+      "body": "CONSUMER PID=313138 STATUS=1 SID= SESSION=[]\n",
+      "dt": 0.001,
+      "i": 4,
+      "sid": "md5dec_c4"
+    }
+  ],
+  "consumer_wall": 0.004,
+  "consumer_rows": [
+    {
+      "pid": 313137,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=d5decc0",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "313137 127.0.0.1 POST 200 tag=d5decc0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "i": 0
+    },
+    {
+      "pid": 313140,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=d5decc1",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "313140 127.0.0.1 POST 200 tag=d5decc1 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "i": 1
+    },
+    {
+      "pid": 313139,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=d5decc2",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "313139 127.0.0.1 POST 200 tag=d5decc2 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "i": 2
+    },
+    {
+      "pid": 313141,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=d5decc3",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "313141 127.0.0.1 POST 200 tag=d5decc3 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "i": 3
+    },
+    {
+      "pid": 313138,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=d5decc4",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "313138 127.0.0.1 POST 200 tag=d5decc4 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "i": 4
+    }
+  ],
+  "crashed_pids": [],
+  "crashed_on_primed": [],
+  "crashed_not_primed": [],
+  "nginx_consumer_rows": [
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d5decc0",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:40:58 +0200] \"POST /consumer.php?tag=d5decc0 HTTP/1.1\" 200 56 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d5decc1",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:40:58 +0200] \"POST /consumer.php?tag=d5decc1 HTTP/1.1\" 200 56 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d5decc2",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:40:58 +0200] \"POST /consumer.php?tag=d5decc2 HTTP/1.1\" 200 56 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d5decc3",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:40:58 +0200] \"POST /consumer.php?tag=d5decc3 HTTP/1.1\" 200 56 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=d5decc4",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:40:58 +0200] \"POST /consumer.php?tag=d5decc4 HTTP/1.1\" 200 56 \"-\" \"-\""
+    }
+  ],
+  "nginx_502": 0,
+  "nginx_200": 5,
+  "consumer_survivor_pids": [
+    313137,
+    313138,
+    313139,
+    313140,
+    313141
+  ],
+  "survivors_on_primed": [
+    313137,
+    313138,
+    313139,
+    313140,
+    313141
+  ],
+  "verdict": {
+    "all_primed_crashed": false,
+    "any_cross_worker_crash": false,
+    "missing_primed_crashes": [
+      313137,
+      313138,
+      313139,
+      313140,
+      313141
+    ]
+  }
+}

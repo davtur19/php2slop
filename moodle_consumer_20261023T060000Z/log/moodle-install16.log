@@ -1,0 +1,1090 @@
+
+Deprecated: The backtick (`) operator is deprecated, use shell_exec() instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/moodlelib.php on line 9130
+                                 .-..-.       
+   _____                         | || |       
+  /____/-.---_  .---.  .---.  .-.| || | .---. 
+  | |  _   _  |/  _  \/  _  \/  _  || |/  __ \
+  * | | | | | || |_| || |_| || |_| || || |___/
+    |_| |_| |_|\_____/\_____/\_____||_|\_____)
+
+Moodle 5.0.10+ (Build: 20261002) command line installation program
+-->System
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ install.xml: Success (2.20 seconds) ++
+
+Deprecated: Using null as an array offset is deprecated, use an empty string instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/dml/mysqli_native_moodle_database.php on line 1371
+
+Deprecated: Using null as an array offset is deprecated, use an empty string instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/dml/mysqli_native_moodle_database.php on line 1375
+
+Deprecated: Case statements followed by a semicolon (;) are deprecated, use a colon (:) instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/db/upgradelib.php on line 1092
+++ xmldb_main_install: Success (2.03 seconds) ++
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/lib.php on line 579
+
+Deprecated: Case statements followed by a semicolon (;) are deprecated, use a colon (:) instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/workshop/lib.php on line 2305
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/user/profile/lib.php on line 554
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/user/profile/lib.php on line 563
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/user/profile/lib.php on line 572
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/user/profile/lib.php on line 581
+
+Deprecated: Using null as the key parameter for array_key_exists() is deprecated, use an empty string instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/adminlib.php on line 6183
+++ admin_apply_default_settings: Success (7.65 seconds) ++
+++ Success (12.80 seconds) ++
+-->aiplacement_courseassist
+++ Success (0.04 seconds) ++
+-->aiplacement_editor
+++ Success (0.04 seconds) ++
+-->aiprovider_azureai
+++ Success (0.02 seconds) ++
+-->aiprovider_ollama
+++ Success (0.03 seconds) ++
+-->aiprovider_openai
+++ Success (0.02 seconds) ++
+-->antivirus_clamav
+++ Success (0.02 seconds) ++
+-->availability_completion
+++ Success (0.02 seconds) ++
+-->availability_date
+++ Success (0.03 seconds) ++
+-->availability_grade
+++ Success (0.03 seconds) ++
+-->availability_group
+++ Success (0.02 seconds) ++
+-->availability_grouping
+++ Success (0.02 seconds) ++
+-->availability_profile
+++ Success (0.02 seconds) ++
+-->qtype_calculated
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.08 seconds) ++
+-->qtype_calculatedmulti
+++ Success (0.02 seconds) ++
+-->qtype_calculatedsimple
+++ Success (0.02 seconds) ++
+-->qtype_ddimageortext
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.06 seconds) ++
+-->qtype_ddmarker
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.05 seconds) ++
+-->qtype_ddwtos
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.03 seconds) ++
+-->qtype_description
+++ Success (0.02 seconds) ++
+-->qtype_essay
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->qtype_gapselect
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->qtype_match
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->qtype_missingtype
+++ Success (0.02 seconds) ++
+-->qtype_multianswer
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.03 seconds) ++
+-->qtype_multichoice
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.03 seconds) ++
+-->qtype_numerical
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.05 seconds) ++
+-->qtype_ordering
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->qtype_random
+++ Success (0.02 seconds) ++
+-->qtype_randomsamatch
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->qtype_shortanswer
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.03 seconds) ++
+-->qtype_truefalse
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.03 seconds) ++
+-->mod_assign
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.20 seconds) ++
+-->mod_bigbluebuttonbn
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.13 seconds) ++
+-->mod_book
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.08 seconds) ++
+-->mod_choice
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.10 seconds) ++
+-->mod_data
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.20 seconds) ++
+-->mod_feedback
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.15 seconds) ++
+-->mod_folder
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.05 seconds) ++
+-->mod_forum
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.32 seconds) ++
+-->mod_glossary
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.17 seconds) ++
+-->mod_h5pactivity
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.10 seconds) ++
+-->mod_imscp
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.14 seconds) ++
+-->mod_label
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.05 seconds) ++
+-->mod_lesson
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.12 seconds) ++
+-->mod_lti
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.21 seconds) ++
+-->mod_page
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->mod_qbank
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.11 seconds) ++
+-->mod_quiz
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.21 seconds) ++
+-->mod_resource
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.05 seconds) ++
+-->mod_scorm
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.18 seconds) ++
+-->mod_subsection
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.05 seconds) ++
+-->mod_url
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.06 seconds) ++
+-->mod_wiki
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.22 seconds) ++
+-->mod_workshop
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.25 seconds) ++
+-->auth_db
+++ Success (0.02 seconds) ++
+-->auth_email
+++ Success (0.02 seconds) ++
+-->auth_ldap
+++ Success (0.02 seconds) ++
+-->auth_lti
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->auth_manual
+++ Success (0.02 seconds) ++
+-->auth_nologin
+++ Success (0.02 seconds) ++
+-->auth_none
+++ Success (0.02 seconds) ++
+-->auth_oauth2
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->auth_shibboleth
+++ Success (0.02 seconds) ++
+-->auth_webservice
+++ Success (0.03 seconds) ++
+-->calendartype_gregorian
+++ Success (0.04 seconds) ++
+-->communication_customlink
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->communication_matrix
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.05 seconds) ++
+-->customfield_checkbox
+++ Success (0.02 seconds) ++
+-->customfield_date
+++ Success (0.02 seconds) ++
+-->customfield_number
+++ Success (0.02 seconds) ++
+-->customfield_select
+++ Success (0.02 seconds) ++
+-->customfield_text
+++ Success (0.02 seconds) ++
+-->customfield_textarea
+++ Success (0.02 seconds) ++
+-->enrol_category
+++ Success (0.03 seconds) ++
+-->enrol_cohort
+++ Success (0.03 seconds) ++
+-->enrol_database
+++ Success (0.03 seconds) ++
+-->enrol_fee
+++ Success (0.02 seconds) ++
+-->enrol_flatfile
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.05 seconds) ++
+-->enrol_guest
+++ Success (0.03 seconds) ++
+-->enrol_imsenterprise
+++ Success (0.03 seconds) ++
+-->enrol_ldap
+++ Success (0.03 seconds) ++
+-->enrol_lti
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.21 seconds) ++
+-->enrol_manual
+++ Success (0.04 seconds) ++
+-->enrol_meta
+++ Success (0.03 seconds) ++
+-->enrol_paypal
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.05 seconds) ++
+-->enrol_self
+++ Success (0.05 seconds) ++
+-->message_airnotifier
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.10 seconds) ++
+-->message_email
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.12 seconds) ++
+-->message_popup
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.13 seconds) ++
+-->message_sms
+++ Success (0.09 seconds) ++
+-->block_accessreview
+++ Success (0.03 seconds) ++
+-->block_activity_modules
+++ Success (0.02 seconds) ++
+-->block_activity_results
+++ Success (0.03 seconds) ++
+-->block_admin_bookmarks
+++ Success (0.03 seconds) ++
+-->block_badges
+++ Success (0.03 seconds) ++
+-->block_blog_menu
+++ Success (0.02 seconds) ++
+-->block_blog_recent
+++ Success (0.02 seconds) ++
+-->block_blog_tags
+++ Success (0.03 seconds) ++
+-->block_calendar_month
+++ Success (0.03 seconds) ++
+-->block_calendar_upcoming
+++ Success (0.03 seconds) ++
+-->block_comments
+++ Success (0.03 seconds) ++
+-->block_completionstatus
+++ Success (0.02 seconds) ++
+-->block_course_list
+++ Success (0.02 seconds) ++
+-->block_course_summary
+++ Success (0.03 seconds) ++
+-->block_feedback
+++ Success (0.03 seconds) ++
+-->block_globalsearch
+++ Success (0.03 seconds) ++
+-->block_glossary_random
+++ Success (0.03 seconds) ++
+-->block_html
+++ Success (0.03 seconds) ++
+-->block_login
+++ Success (0.02 seconds) ++
+-->block_lp
+++ Success (0.03 seconds) ++
+-->block_mentees
+++ Success (0.03 seconds) ++
+-->block_myoverview
+++ Success (0.02 seconds) ++
+-->block_myprofile
+++ Success (0.03 seconds) ++
+-->block_navigation
+++ Success (0.03 seconds) ++
+-->block_news_items
+++ Success (0.03 seconds) ++
+-->block_online_users
+++ Success (0.04 seconds) ++
+-->block_private_files
+++ Success (0.03 seconds) ++
+-->block_recent_activity
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->block_recentlyaccessedcourses
+++ Success (0.03 seconds) ++
+-->block_recentlyaccesseditems
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->block_rss_client
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.05 seconds) ++
+-->block_search_forums
+++ Success (0.02 seconds) ++
+-->block_section_links
+++ Success (0.02 seconds) ++
+-->block_selfcompletion
+++ Success (0.03 seconds) ++
+-->block_settings
+++ Success (0.03 seconds) ++
+-->block_site_main_menu
+++ Success (0.02 seconds) ++
+-->block_social_activities
+++ Success (0.02 seconds) ++
+-->block_starredcourses
+++ Success (0.03 seconds) ++
+-->block_tag_flickr
+++ Success (0.02 seconds) ++
+-->block_tag_youtube
+++ Success (0.03 seconds) ++
+-->block_tags
+++ Success (0.03 seconds) ++
+-->block_timeline
+++ Success (0.03 seconds) ++
+-->media_html5audio
+++ Success (0.02 seconds) ++
+-->media_html5video
+++ Success (0.03 seconds) ++
+-->media_videojs
+++ Success (0.02 seconds) ++
+-->media_vimeo
+++ Success (0.02 seconds) ++
+-->media_youtube
+++ Success (0.02 seconds) ++
+-->filter_activitynames
+++ Success (0.04 seconds) ++
+-->filter_algebra
+++ Success (0.02 seconds) ++
+-->filter_codehighlighter
+++ Success (0.02 seconds) ++
+-->filter_data
+++ Success (0.02 seconds) ++
+-->filter_displayh5p
+++ Success (0.03 seconds) ++
+-->filter_emailprotect
+++ Success (0.02 seconds) ++
+-->filter_emoticon
+++ Success (0.03 seconds) ++
+-->filter_glossary
+++ Success (0.02 seconds) ++
+-->filter_mathjaxloader
+++ Success (0.03 seconds) ++
+-->filter_mediaplugin
+++ Success (0.03 seconds) ++
+-->filter_multilang
+++ Success (0.02 seconds) ++
+-->filter_tex
+++ Success (0.03 seconds) ++
+-->filter_urltolink
+++ Success (0.03 seconds) ++
+-->editor_textarea
+++ Success (0.02 seconds) ++
+-->editor_tiny
+++ Success (0.02 seconds) ++
+-->format_singleactivity
+++ Success (0.02 seconds) ++
+-->format_social
+++ Success (0.02 seconds) ++
+-->format_topics
+++ Success (0.02 seconds) ++
+-->format_weeks
+++ Success (0.02 seconds) ++
+-->dataformat_csv
+++ Success (0.02 seconds) ++
+-->dataformat_excel
+++ Success (0.02 seconds) ++
+-->dataformat_html
+++ Success (0.02 seconds) ++
+-->dataformat_json
+++ Success (0.02 seconds) ++
+-->dataformat_ods
+++ Success (0.02 seconds) ++
+-->dataformat_pdf
+++ Success (0.02 seconds) ++
+-->profilefield_checkbox
+++ Success (0.02 seconds) ++
+-->profilefield_datetime
+++ Success (0.02 seconds) ++
+-->profilefield_menu
+++ Success (0.02 seconds) ++
+-->profilefield_social
+++ Success (0.02 seconds) ++
+-->profilefield_text
+++ Success (0.02 seconds) ++
+-->profilefield_textarea
+++ Success (0.02 seconds) ++
+-->report_backups
+++ Success (0.02 seconds) ++
+-->report_competency
+++ Success (0.02 seconds) ++
+-->report_completion
+++ Success (0.03 seconds) ++
+-->report_configlog
+++ Success (0.02 seconds) ++
+-->report_courseoverview
+++ Success (0.03 seconds) ++
+-->report_eventlist
+++ Success (0.03 seconds) ++
+-->report_infectedfiles
+++ Success (0.03 seconds) ++
+-->report_insights
+++ Success (0.02 seconds) ++
+-->report_log
+++ Success (0.08 seconds) ++
+-->report_loglive
+++ Success (0.03 seconds) ++
+-->report_outline
+++ Success (0.04 seconds) ++
+-->report_participation
+++ Success (0.03 seconds) ++
+-->report_performance
+++ Success (0.03 seconds) ++
+-->report_progress
+++ Success (0.03 seconds) ++
+-->report_questioninstances
+++ Success (0.03 seconds) ++
+-->report_security
+++ Success (0.03 seconds) ++
+-->report_stats
+++ Success (0.03 seconds) ++
+-->report_status
+++ Success (0.02 seconds) ++
+-->report_themeusage
+++ Success (0.02 seconds) ++
+-->report_usersessions
+++ Success (0.02 seconds) ++
+-->gradeexport_ods
+++ Success (0.03 seconds) ++
+-->gradeexport_txt
+++ Success (0.03 seconds) ++
+-->gradeexport_xls
+++ Success (0.04 seconds) ++
+-->gradeexport_xml
+++ Success (0.03 seconds) ++
+-->gradeimport_csv
+++ Success (0.03 seconds) ++
+-->gradeimport_direct
+++ Success (0.02 seconds) ++
+-->gradeimport_xml
+++ Success (0.03 seconds) ++
+-->gradepenalty_duedate
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.05 seconds) ++
+-->gradereport_grader
+++ Success (0.03 seconds) ++
+-->gradereport_history
+++ Success (0.04 seconds) ++
+-->gradereport_outcomes
+++ Success (0.03 seconds) ++
+-->gradereport_overview
+++ Success (0.02 seconds) ++
+-->gradereport_singleview
+++ Success (0.03 seconds) ++
+-->gradereport_summary
+++ Success (0.03 seconds) ++
+-->gradereport_user
+++ Success (0.03 seconds) ++
+-->gradingform_guide
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.05 seconds) ++
+-->gradingform_rubric
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.07 seconds) ++
+-->mlbackend_python
+++ Success (0.03 seconds) ++
+-->webservice_rest
+++ Success (0.02 seconds) ++
+-->webservice_soap
+++ Success (0.02 seconds) ++
+-->repository_areafiles
+
+Deprecated: Using null as an array offset is deprecated, use an empty string instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/dml/mysqli_native_moodle_database.php on line 1371
+
+Deprecated: Using null as an array offset is deprecated, use an empty string instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/dml/mysqli_native_moodle_database.php on line 1375
+++ Success (0.05 seconds) ++
+-->repository_contentbank
+++ Success (0.07 seconds) ++
+-->repository_coursefiles
+++ Success (0.03 seconds) ++
+-->repository_dropbox
+++ Success (0.02 seconds) ++
+-->repository_equella
+++ Success (0.03 seconds) ++
+-->repository_filesystem
+++ Success (0.04 seconds) ++
+-->repository_flickr
+++ Success (0.03 seconds) ++
+-->repository_flickr_public
+++ Success (0.03 seconds) ++
+-->repository_googledocs
+++ Success (0.03 seconds) ++
+-->repository_local
+++ Success (0.05 seconds) ++
+-->repository_merlot
+++ Success (0.03 seconds) ++
+-->repository_nextcloud
+++ Success (0.02 seconds) ++
+-->repository_onedrive
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.08 seconds) ++
+-->repository_recent
+++ Success (0.07 seconds) ++
+-->repository_s3
+++ Success (0.03 seconds) ++
+-->repository_upload
+++ Success (0.05 seconds) ++
+-->repository_url
+++ Success (0.08 seconds) ++
+-->repository_user
+++ Success (0.06 seconds) ++
+-->repository_webdav
+++ Success (0.04 seconds) ++
+-->repository_wikimedia
+++ Success (0.06 seconds) ++
+-->repository_youtube
+++ Success (0.03 seconds) ++
+-->portfolio_download
+++ Success (0.02 seconds) ++
+-->portfolio_flickr
+++ Success (0.02 seconds) ++
+-->portfolio_googledocs
+++ Success (0.02 seconds) ++
+-->search_simpledb
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.07 seconds) ++
+-->search_solr
+++ Success (0.02 seconds) ++
+-->qbank_bulkmove
+++ Success (0.02 seconds) ++
+-->qbank_columnsortorder
+++ Success (0.02 seconds) ++
+-->qbank_comment
+++ Success (0.03 seconds) ++
+-->qbank_customfields
+++ Success (0.03 seconds) ++
+-->qbank_deletequestion
+++ Success (0.02 seconds) ++
+-->qbank_editquestion
+++ Success (0.02 seconds) ++
+-->qbank_exportquestions
+++ Success (0.02 seconds) ++
+-->qbank_exporttoxml
+++ Success (0.02 seconds) ++
+-->qbank_history
+++ Success (0.03 seconds) ++
+-->qbank_importquestions
+++ Success (0.03 seconds) ++
+-->qbank_managecategories
+++ Success (0.04 seconds) ++
+-->qbank_previewquestion
+++ Success (0.03 seconds) ++
+-->qbank_statistics
+++ Success (0.02 seconds) ++
+-->qbank_tagquestion
+++ Success (0.02 seconds) ++
+-->qbank_usage
+++ Success (0.02 seconds) ++
+-->qbank_viewcreator
+++ Success (0.02 seconds) ++
+-->qbank_viewquestionname
+++ Success (0.02 seconds) ++
+-->qbank_viewquestiontext
+++ Success (0.03 seconds) ++
+-->qbank_viewquestiontype
+++ Success (0.02 seconds) ++
+-->qbehaviour_adaptive
+++ Success (0.02 seconds) ++
+-->qbehaviour_adaptivenopenalty
+++ Success (0.02 seconds) ++
+-->qbehaviour_deferredcbm
+++ Success (0.02 seconds) ++
+-->qbehaviour_deferredfeedback
+++ Success (0.02 seconds) ++
+-->qbehaviour_immediatecbm
+++ Success (0.03 seconds) ++
+-->qbehaviour_immediatefeedback
+++ Success (0.03 seconds) ++
+-->qbehaviour_informationitem
+++ Success (0.02 seconds) ++
+-->qbehaviour_interactive
+++ Success (0.02 seconds) ++
+-->qbehaviour_interactivecountback
+++ Success (0.02 seconds) ++
+-->qbehaviour_manualgraded
+++ Success (0.02 seconds) ++
+-->qbehaviour_missing
+++ Success (0.03 seconds) ++
+-->qformat_aiken
+++ Success (0.03 seconds) ++
+-->qformat_blackboard_six
+++ Success (0.02 seconds) ++
+-->qformat_gift
+++ Success (0.03 seconds) ++
+-->qformat_missingword
+++ Success (0.02 seconds) ++
+-->qformat_multianswer
+++ Success (0.02 seconds) ++
+-->qformat_xhtml
+++ Success (0.02 seconds) ++
+-->qformat_xml
+++ Success (0.02 seconds) ++
+-->tool_admin_presets
+++ Success (0.02 seconds) ++
+-->tool_analytics
+++ Success (0.02 seconds) ++
+-->tool_availabilityconditions
+++ Success (0.02 seconds) ++
+-->tool_behat
+++ Success (0.02 seconds) ++
+-->tool_brickfield
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.14 seconds) ++
+-->tool_capability
+++ Success (0.02 seconds) ++
+-->tool_cohortroles
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.03 seconds) ++
+-->tool_componentlibrary
+++ Success (0.02 seconds) ++
+-->tool_customlang
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.06 seconds) ++
+-->tool_dataprivacy
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.14 seconds) ++
+-->tool_dbtransfer
+++ Success (0.02 seconds) ++
+-->tool_filetypes
+++ Success (0.02 seconds) ++
+-->tool_generator
+++ Success (0.02 seconds) ++
+-->tool_httpsreplace
+++ Success (0.02 seconds) ++
+-->tool_installaddon
+++ Success (0.03 seconds) ++
+-->tool_langimport
+++ Success (0.02 seconds) ++
+-->tool_licensemanager
+++ Success (0.02 seconds) ++
+-->tool_log
+++ Success (0.02 seconds) ++
+-->tool_lp
+++ Success (0.05 seconds) ++
+-->tool_lpimportcsv
+++ Success (0.02 seconds) ++
+-->tool_lpmigrate
+++ Success (0.02 seconds) ++
+-->tool_messageinbound
+++ Success (0.04 seconds) ++
+-->tool_mfa
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.05 seconds) ++
+-->tool_mobile
+++ Success (0.02 seconds) ++
+-->tool_monitor
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.08 seconds) ++
+-->tool_moodlenet
+++ Success (0.02 seconds) ++
+-->tool_multilangupgrade
+++ Success (0.02 seconds) ++
+-->tool_oauth2
+++ Success (0.02 seconds) ++
+-->tool_phpunit
+++ Success (0.02 seconds) ++
+-->tool_policy
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.05 seconds) ++
+-->tool_profiling
+++ Success (0.02 seconds) ++
+-->tool_recyclebin
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.05 seconds) ++
+-->tool_replace
+++ Success (0.02 seconds) ++
+-->tool_spamcleaner
+++ Success (0.02 seconds) ++
+-->tool_task
+++ Success (0.02 seconds) ++
+-->tool_templatelibrary
+++ Success (0.02 seconds) ++
+-->tool_unsuproles
+++ Success (0.02 seconds) ++
+-->tool_uploadcourse
+++ Success (0.02 seconds) ++
+-->tool_uploaduser
+++ Success (0.02 seconds) ++
+-->tool_usertours
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.19 seconds) ++
+-->tool_xmldb
+++ Success (0.02 seconds) ++
+-->cachestore_apcu
+++ Success (0.02 seconds) ++
+-->cachestore_file
+++ Success (0.02 seconds) ++
+-->cachestore_redis
+++ Success (0.02 seconds) ++
+-->cachestore_session
+++ Success (0.02 seconds) ++
+-->cachestore_static
+++ Success (0.03 seconds) ++
+-->cachelock_file
+++ Success (0.02 seconds) ++
+-->fileconverter_googledrive
+++ Success (0.02 seconds) ++
+-->fileconverter_unoconv
+++ Success (0.02 seconds) ++
+-->contenttype_h5p
+++ Success (0.04 seconds) ++
+-->theme_boost
+++ Success (0.02 seconds) ++
+-->theme_classic
+++ Success (0.02 seconds) ++
+-->h5plib_v128
+++ Success (0.02 seconds) ++
+-->paygw_paypal
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->smsgateway_aws
+++ Success (0.02 seconds) ++
+-->smsgateway_modica
+++ Success (0.02 seconds) ++
+-->assignsubmission_comments
+++ Success (0.03 seconds) ++
+-->assignsubmission_file
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->assignsubmission_onlinetext
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->assignfeedback_comments
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->assignfeedback_editpdf
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.07 seconds) ++
+-->assignfeedback_file
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->assignfeedback_offline
+++ Success (0.02 seconds) ++
+-->booktool_exportimscp
+++ Success (0.02 seconds) ++
+-->booktool_importhtml
+++ Success (0.02 seconds) ++
+-->booktool_print
+++ Success (0.03 seconds) ++
+-->datafield_checkbox
+++ Success (0.02 seconds) ++
+-->datafield_date
+++ Success (0.02 seconds) ++
+-->datafield_file
+++ Success (0.02 seconds) ++
+-->datafield_latlong
+++ Success (0.02 seconds) ++
+-->datafield_menu
+++ Success (0.02 seconds) ++
+-->datafield_multimenu
+++ Success (0.02 seconds) ++
+-->datafield_number
+++ Success (0.02 seconds) ++
+-->datafield_picture
+++ Success (0.02 seconds) ++
+-->datafield_radiobutton
+++ Success (0.02 seconds) ++
+-->datafield_text
+++ Success (0.02 seconds) ++
+-->datafield_textarea
+++ Success (0.02 seconds) ++
+-->datafield_url
+++ Success (0.02 seconds) ++
+-->datapreset_imagegallery
+++ Success (0.02 seconds) ++
+-->datapreset_journal
+++ Success (0.02 seconds) ++
+-->datapreset_proposals
+++ Success (0.02 seconds) ++
+-->datapreset_resources
+++ Success (0.02 seconds) ++
+-->forumreport_summary
+++ Success (0.04 seconds) ++
+-->ltiservice_basicoutcomes
+++ Success (0.02 seconds) ++
+-->ltiservice_gradebookservices
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->ltiservice_memberships
+++ Success (0.02 seconds) ++
+-->ltiservice_profile
+++ Success (0.02 seconds) ++
+-->ltiservice_toolproxy
+++ Success (0.02 seconds) ++
+-->ltiservice_toolsettings
+++ Success (0.02 seconds) ++
+-->quiz_grading
+++ Success (0.05 seconds) ++
+-->quiz_overview
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->quiz_responses
+++ Success (0.03 seconds) ++
+-->quiz_statistics
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.06 seconds) ++
+-->quizaccess_delaybetweenattempts
+++ Success (0.02 seconds) ++
+-->quizaccess_ipaddress
+++ Success (0.02 seconds) ++
+-->quizaccess_numattempts
+++ Success (0.02 seconds) ++
+-->quizaccess_offlineattempts
+++ Success (0.02 seconds) ++
+-->quizaccess_openclosedate
+++ Success (0.02 seconds) ++
+-->quizaccess_password
+++ Success (0.03 seconds) ++
+-->quizaccess_seb
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.22 seconds) ++
+-->quizaccess_securewindow
+++ Success (0.03 seconds) ++
+-->quizaccess_timelimit
+++ Success (0.03 seconds) ++
+-->scormreport_basic
+++ Success (0.05 seconds) ++
+-->scormreport_graphs
+++ Success (0.03 seconds) ++
+-->scormreport_interactions
+++ Success (0.03 seconds) ++
+-->scormreport_objectives
+++ Success (0.03 seconds) ++
+-->workshopform_accumulative
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->workshopform_comments
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->workshopform_numerrors
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->workshopform_rubric
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.06 seconds) ++
+-->workshopallocation_manual
+++ Success (0.02 seconds) ++
+-->workshopallocation_random
+++ Success (0.02 seconds) ++
+-->workshopallocation_scheduled
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.05 seconds) ++
+-->workshopeval_best
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->tiny_accessibilitychecker
+++ Success (0.03 seconds) ++
+-->tiny_aiplacement
+++ Success (0.02 seconds) ++
+-->tiny_autosave
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->tiny_equation
+++ Success (0.02 seconds) ++
+-->tiny_h5p
+++ Success (0.02 seconds) ++
+-->tiny_html
+++ Success (0.02 seconds) ++
+-->tiny_link
+++ Success (0.03 seconds) ++
+-->tiny_media
+++ Success (0.02 seconds) ++
+-->tiny_noautolink
+++ Success (0.04 seconds) ++
+-->tiny_premium
+++ Success (0.06 seconds) ++
+-->tiny_recordrtc
+++ Success (0.03 seconds) ++
+-->logstore_database
+++ Success (0.02 seconds) ++
+-->logstore_standard
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ Success (0.04 seconds) ++
+-->factor_admin
+++ Success (0.02 seconds) ++
+-->factor_auth
+++ Success (0.02 seconds) ++
+-->factor_capability
+++ Success (0.02 seconds) ++
+-->factor_cohort
+++ Success (0.02 seconds) ++
+-->factor_email
+++ Success (0.03 seconds) ++
+-->factor_grace
+++ Success (0.03 seconds) ++
+-->factor_iprange
+++ Success (0.02 seconds) ++
+-->factor_nosetup
+++ Success (0.03 seconds) ++
+-->factor_role
+++ Success (0.02 seconds) ++
+-->factor_sms
+++ Success (0.02 seconds) ++
+-->factor_token
+++ Success (0.02 seconds) ++
+-->factor_totp
+++ Success (0.02 seconds) ++
+-->factor_webauthn
+++ Success (0.02 seconds) ++
+-->upgrade_noncore()
+++ Success (0.64 seconds) ++
+
+Deprecated: Non-canonical cast (integer) is deprecated, use the (int) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/group/lib.php on line 968
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/settings.php on line 160
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/settings.php on line 248
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/settings.php on line 295
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/settings.php on line 418
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/settings.php on line 463
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/settings.php on line 574
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/settings.php on line 643
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/settings.php on line 677
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/settings.php on line 752
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/settings.php on line 799
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/settings.php on line 840
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/settings.php on line 884
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/settings.php on line 906
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/settings.php on line 942
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/settings.php on line 989
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/local/config.php on line 168
+
+Deprecated: Non-canonical cast (boolean) is deprecated, use the (bool) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/local/config.php on line 177
+
+Deprecated: Non-canonical cast (double) is deprecated, use the (float) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/mod/bigbluebuttonbn/classes/local/proxy/bigbluebutton_proxy.php on line 168
+
+Deprecated: Non-canonical cast (integer) is deprecated, use the (int) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/adodb/adodb.inc.php on line 2179
+
+Deprecated: Non-canonical cast (integer) is deprecated, use the (int) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/adodb/adodb.inc.php on line 5704
+
+Deprecated: Non-canonical cast (integer) is deprecated, use the (int) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/adodb/adodb.inc.php on line 5707
+
+Deprecated: Non-canonical cast (integer) is deprecated, use the (int) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/adodb/adodb-time.inc.php on line 690
+
+Deprecated: Non-canonical cast (integer) is deprecated, use the (int) cast instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/adodb/adodb-time.inc.php on line 691
+
+Deprecated: Case statements followed by a semicolon (;) are deprecated, use a colon (:) instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/antivirus/clamav/classes/scanner.php on line 254
+
+Deprecated: Case statements followed by a semicolon (;) are deprecated, use a colon (:) instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/antivirus/clamav/classes/scanner.php on line 367
+
+Deprecated: Using null as the key parameter for array_key_exists() is deprecated, use an empty string instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/adminlib.php on line 6183
+
+Deprecated: Case statements followed by a semicolon (;) are deprecated, use a colon (:) instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/webservice/lib.php on line 1683
+
+Deprecated: Case statements followed by a semicolon (;) are deprecated, use a colon (:) instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/webservice/lib.php on line 1764
+
+Deprecated: Using null as an array offset is deprecated, use an empty string instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/classes/plugin_manager.php on line 682
+Installation completed successfully.

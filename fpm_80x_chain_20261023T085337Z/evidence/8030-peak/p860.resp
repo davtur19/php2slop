@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Server: nginx/1.30.1
+Date: Fri, 23 Oct 2026 09:09:26 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+X-Powered-By: PHP/8.0.30
+Set-Cookie: PHPSESSID=2c27651d099dd862ab9450dccac3a1b3; path=/
+
+38
+PEAK=113246208 POST=32 FILES=1 MEM=111149056 LIMIT=128M
+
+0
+

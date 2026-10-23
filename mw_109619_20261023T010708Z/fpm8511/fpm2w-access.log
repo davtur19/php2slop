@@ -1,0 +1,14 @@
+127.0.0.1 -  23/Oct/2026:04:24:21 +0200 "GET /fpm-status?full" 200 - 5.050 2048 0.00%
+127.0.0.1 -  23/Oct/2026:04:24:44 +0200 "GET /fpm-status?full" 200 - 0.336 2048 0.00%
+127.0.0.1 -  23/Oct/2026:04:24:44 +0200 "GET /fpm-status?full" 200 - 0.103 2048 0.00%
+127.0.0.1 -  23/Oct/2026:04:24:45 +0200 "GET /fpm-status?full" 200 - 0.085 2048 0.00%
+127.0.0.1 -  23/Oct/2026:04:24:45 +0200 "GET /fpm-status?full" 200 - 0.059 2048 0.00%
+127.0.0.1 -  23/Oct/2026:04:24:45 +0200 "POST /index.php" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 468.355 20196 72.59%
+127.0.0.1 -  23/Oct/2026:04:24:45 +0200 "GET /fpm-status?full" 200 - 0.081 8192 0.00%
+127.0.0.1 -  23/Oct/2026:04:24:45 +0200 "GET /index.php?title=Special:UserLogin" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 48.231 6144 82.93%
+127.0.0.1 -  23/Oct/2026:04:24:45 +0200 "POST /index.php?title=Special:UserLogin" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 558.065 102396 93.18%
+127.0.0.1 -  23/Oct/2026:04:24:46 +0200 "GET /fpm-status?full" 200 - 0.120 4096 0.00%
+127.0.0.1 -  23/Oct/2026:04:24:46 +0200 "POST /index.php" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 74.418 21680 67.19%
+127.0.0.1 -  23/Oct/2026:04:24:44 +0200 "POST /index.php" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 90103.678 39256 0.09%
+127.0.0.1 -  23/Oct/2026:04:36:36 +0200 "GET /fpm-status?full" 200 - 1.104 4096 0.00%
+127.0.0.1 -  23/Oct/2026:04:36:36 +0200 "POST /index.php" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 3466.264 39256 2.02%

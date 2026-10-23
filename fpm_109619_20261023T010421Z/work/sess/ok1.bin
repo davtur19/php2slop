@@ -1,0 +1,14 @@
+------Z
+Content-Disposition: form-data; name="PHPSESSID"
+
+oktest1
+------Z
+Content-Disposition: form-data; name="PHP_SESSION_UPLOAD_PROGRESS"
+
+ok1
+------Z
+Content-Disposition: form-data; name="f"; filename="a.txt"
+Content-Type: text/plain
+
+AAAA
+------Z--

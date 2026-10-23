@@ -1,0 +1,103 @@
+{
+ "port": 18722,
+ "container": "mw109619-min-8426",
+ "tag": "control_min",
+ "a1_sha": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6",
+ "b1_sha": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2",
+ "b1_bytes": 33128677,
+ "a1_path": "/",
+ "b1_path": "/",
+ "stages": [
+  {
+   "stage": "A1",
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha": "483376dc31933e91d726ddb21373f9e48d68d69ee9f3e9304e30b49d2d4806b5",
+   "elapsed": 0.07
+  },
+  {
+   "stage": "B1",
+   "i": 0,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 259,
+   "elapsed": 0.08,
+   "has_setcookie": true,
+   "leak": "parse_error: RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 1,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 259,
+   "elapsed": 0.08,
+   "has_setcookie": true,
+   "leak": "parse_error: RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 2,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 259,
+   "elapsed": 0.06,
+   "has_setcookie": true,
+   "leak": "parse_error: RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 3,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 259,
+   "elapsed": 0.06,
+   "has_setcookie": true,
+   "leak": "parse_error: RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 4,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 1672225,
+   "elapsed": 0.04,
+   "has_setcookie": true,
+   "leak": {
+    "decoded": 819208,
+    "zdtor": "0x7f4780032b60",
+    "lib": "0x7f477f9d4000",
+    "main": [
+     "0x7f477de00000",
+     "0x7f477d400000"
+    ],
+    "buckets": [
+     [
+      "0x7f477d600000",
+      7496
+     ],
+     [
+      "0x7f4780000000",
+      1095
+     ],
+     [
+      "0x7f477de00000",
+      87
+     ],
+     [
+      "0x7f477d400000",
+      78
+     ]
+    ]
+   }
+  }
+ ],
+ "health": {
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 195
+ },
+ "hit": {
+  "i": 4,
+  "decoded": 819208,
+  "lib": "0x7f477f9d4000",
+  "main": [
+   "0x7f477de00000",
+   "0x7f477d400000"
+  ]
+ }
+}

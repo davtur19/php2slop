@@ -1,0 +1,4 @@
+86216 read(4, "\1\1\0\1\0\10\0\0", 8)   = 8
+86216 read(4, "\0\1\1\0\0\0\0\0", 8)    = 8
+86216 read(4, "\1\4\0\1\1\243\0\0", 8)  = 8
+86216 read(4, "\21GATEWAY_INTERFACE\7CGI/1.1\17SERVER_SOFTWARE\6t3-raw\17SERVER_PROTOCOL\10HTTP/1.1\16REQUEST_METHOD\3GET\17SCRIPT_FILENAME?/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/ping.php\vSCRIPT_NAME\t/ping.php\vREQUEST_URI\t/ping.php\rDOCUMENT_ROOT6/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www\fQUERY_STRING\0"..., 419) = 419

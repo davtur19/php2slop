@@ -1,0 +1,12 @@
+[Thu Oct 22 13:28:48.851741 2026] [php:error] [pid 20:tid 20] [client 172.17.0.1:34272] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8192 bytes) in Unknown on line 0
+[Thu Oct 22 13:28:48.898528 2026] [php:warn] [pid 64:tid 64] [client 172.17.0.1:34284] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Thu Oct 22 13:28:48.898546 2026] [php:warn] [pid 64:tid 64] [client 172.17.0.1:34284] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: ) in Unknown on line 0
+[Thu Oct 22 13:28:48.898550 2026] [php:warn] [pid 64:tid 64] [client 172.17.0.1:34284] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct () in Unknown on line 0
+[Thu Oct 22 13:28:48.937846 2026] [php:warn] [pid 30:tid 30] [client 172.17.0.1:34286] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Thu Oct 22 13:28:48.937864 2026] [php:warn] [pid 30:tid 30] [client 172.17.0.1:34286] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: ) in Unknown on line 0
+[Thu Oct 22 13:28:48.937868 2026] [php:warn] [pid 30:tid 30] [client 172.17.0.1:34286] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct () in Unknown on line 0
+[Thu Oct 22 13:28:48.965072 2026] [php:warn] [pid 22:tid 22] [client 172.17.0.1:34302] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Thu Oct 22 13:28:48.965090 2026] [php:warn] [pid 22:tid 22] [client 172.17.0.1:34302] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: ) in Unknown on line 0
+[Thu Oct 22 13:28:48.965094 2026] [php:warn] [pid 22:tid 22] [client 172.17.0.1:34302] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct () in Unknown on line 0
+zend_mm_heap corrupted
+[Thu Oct 22 13:28:49.515042 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 20 exit signal Abort (6)

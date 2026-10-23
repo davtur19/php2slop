@@ -1,0 +1,57 @@
+=== utc ===
+2026-10-22T13:05:37Z
+
+=== container/image ===
+image=php:8.4.26-apache image_id=sha256:46b195b6378e712d1a65cd3f853242bebd7f3cb4cafe137fd592b365909d2c17
+id=sha256:46b195b6378e712d1a65cd3f853242bebd7f3cb4cafe137fd592b365909d2c17 digest=php@sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a
+
+=== php.ini identity ===
+fba97f0b3e0b19b0980f5102c0440480  /usr/local/etc/php/php.ini
+fba97f0b3e0b19b0980f5102c0440480  /usr/local/etc/php/php.ini-production
+
+=== conf-enabled (no zz-single) ===
+total 12
+drwxr-xr-x 1 root root 4096 Oct 22 13:05 .
+drwxr-xr-x 1 root root 4096 Oct 21 00:29 ..
+lrwxrwxrwx 1 root root   30 Oct 21 00:29 charset.conf -> ../conf-available/charset.conf
+lrwxrwxrwx 1 root root   33 Oct 21 00:29 docker-php.conf -> ../conf-available/docker-php.conf
+lrwxrwxrwx 1 root root   44 Oct 21 00:29 localized-error-pages.conf -> ../conf-available/localized-error-pages.conf
+lrwxrwxrwx 1 root root   46 Oct 21 00:29 other-vhosts-access-log.conf -> ../conf-available/other-vhosts-access-log.conf
+lrwxrwxrwx 1 root root   31 Oct 21 00:29 security.conf -> ../conf-available/security.conf
+lrwxrwxrwx 1 root root   36 Oct 21 00:29 serve-cgi-bin.conf -> ../conf-available/serve-cgi-bin.conf
+-rw-r--r-- 1 root root  220 Oct 22 13:05 zz-instrument.conf
+
+=== MPM config ===
+
+StartServers            5
+MinSpareServers         5
+MaxSpareServers         10
+MaxRequestWorkers       150
+MaxConnectionsPerChild  0
+
+ mpm_prefork_module (shared)
+
+=== DUMP_RUN_CFG ===
+ServerRoot: "/etc/apache2"
+Main DocumentRoot: "/var/www/html"
+Main ErrorLog: "/var/log/apache2/error.log"
+Mutex watchdog-callback: using_defaults
+Mutex default: dir="/var/run/apache2/" mechanism=default 
+Mutex mpm-accept: using_defaults
+PidFile: "/var/run/apache2/apache2.pid"
+Define: DUMP_RUN_CFG
+User: name="www-data" id=33
+Group: name="www-data" id=33
+
+=== workers (pid ppid) ===
+PID                 PPID                USER                COMMAND
+3946868             3946843             root                apache2 -DFOREGROUND
+3946905             3946868             www-data            apache2 -DFOREGROUND
+3946906             3946868             www-data            apache2 -DFOREGROUND
+3946907             3946868             www-data            apache2 -DFOREGROUND
+3946908             3946868             www-data            apache2 -DFOREGROUND
+3946909             3946868             www-data            apache2 -DFOREGROUND
+
+=== php ini via apache SAPI (CGI? use phpinfo) ===
+OK
+

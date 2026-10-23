@@ -1,0 +1,95 @@
+{
+ "port": 18730,
+ "container": "mw109619-ap-8426",
+ "tag": "mw_ap_8426_try1",
+ "a1_sha": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6",
+ "b1_sha": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2",
+ "b1_bytes": 33128677,
+ "a1_path": "/index.php",
+ "b1_path": "/index.php",
+ "stages": [
+  {
+   "stage": "A1",
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha": "aaaf9c4a918bad4f88919f3b298528827c3297790919394a2dd9d23e933a88a2",
+   "elapsed": 0.08
+  },
+  {
+   "stage": "B1",
+   "i": 0,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 36815,
+   "elapsed": 0.13,
+   "has_setcookie": true,
+   "leak": "parse_error: RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 1,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 36814,
+   "elapsed": 0.12,
+   "has_setcookie": true,
+   "leak": "parse_error: RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 2,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 36814,
+   "elapsed": 0.1,
+   "has_setcookie": true,
+   "leak": "parse_error: RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 3,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 36814,
+   "elapsed": 0.1,
+   "has_setcookie": true,
+   "leak": "parse_error: RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 4,
+   "status": "",
+   "bytes": 0,
+   "elapsed": 0.05,
+   "has_setcookie": false
+  },
+  {
+   "stage": "B1",
+   "i": 5,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 36814,
+   "elapsed": 0.1,
+   "has_setcookie": true,
+   "leak": "parse_error: RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 6,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 36814,
+   "elapsed": 0.09,
+   "has_setcookie": true,
+   "leak": "parse_error: RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 7,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 36814,
+   "elapsed": 0.08,
+   "has_setcookie": true,
+   "leak": "parse_error: RuntimeError('no heap pointers in leak window')"
+  }
+ ],
+ "health": {
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 4096
+ },
+ "hit": null
+}

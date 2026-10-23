@@ -1,0 +1,10 @@
+{"t": 1792743812.939149, "body": {"pool": "www", "process manager": "dynamic", "start time": 1792743107, "start since": 706, "accepted conn": 2324, "listen queue": 199, "max listen queue": 199, "listen queue len": 4096, "idle processes": 0, "active processes": 3, "total processes": 3, "max active processes": 5, "max children reached": 1, "slow requests": 0, "memory peak": 2097152}}
+{"t": 1792743814.3814952, "err": "TimeoutError"}
+{"t": 1792743816.3844552, "err": "TimeoutError"}
+{"t": 1792743818.386322, "err": "TimeoutError"}
+{"t": 1792743820.3887799, "err": "TimeoutError"}
+{"t": 1792743822.3906572, "err": "TimeoutError"}
+{"t": 1792743824.3922224, "err": "TimeoutError"}
+{"t": 1792743826.3941548, "err": "TimeoutError"}
+{"t": 1792743828.396048, "err": "TimeoutError"}
+{"t": 1792743830.3979404, "err": "TimeoutError"}

@@ -1,0 +1,36 @@
+== 7.4.0  7.4.0  '128M'
+   A1 as-is: HTTP/1.1 200 OK (266 B)
+   pair i=0 A:HTTP/1.0 500 Internal Server Error B:HTTP/1.1 200 OK
+   pair i=1 A:HTTP/1.0 500 Internal Server Error B:HTTP/1.1 200 OK
+   pair i=2 A:HTTP/1.0 500 Internal Server Error B:HTTP/1.1 200 OK
+   -> /tmp/opencode/research/build_coverage_20261023T074532Z/out/740/result.json
+== 7.4.33  7.4.33  '128M'
+   A1 as-is: HTTP/1.1 200 OK (268 B)
+   pair i=0 A:HTTP/1.0 500 Internal Server Error B:HTTP/1.1 200 OK
+   pair i=1 A:HTTP/1.0 500 Internal Server Error B:HTTP/1.1 200 OK
+   pair i=2 A:HTTP/1.0 500 Internal Server Error B:HTTP/1.1 200 OK
+   -> /tmp/opencode/research/build_coverage_20261023T074532Z/out/7433/result.json
+== 7.2.0  7.2.0  '128M'
+   A1 as-is: HTTP/1.1 200 OK (272 B)
+   pair i=0 A:HTTP/1.1 200 OK B:HTTP/1.1 200 OK
+   pair i=1 A:HTTP/1.1 200 OK B:HTTP/1.1 200 OK
+   pair i=2 A:HTTP/1.1 200 OK B:HTTP/1.1 200 OK
+   -> /tmp/opencode/research/build_coverage_20261023T074532Z/out/720/result.json
+== 7.2.34  7.2.34  '128M'
+   A1 as-is: HTTP/1.1 200 OK (268 B)
+   pair i=0 A:HTTP/1.1 200 OK B:HTTP/1.1 200 OK
+   pair i=1 A:HTTP/1.1 200 OK B:HTTP/1.1 200 OK
+   pair i=2 A:HTTP/1.1 200 OK B:HTTP/1.1 200 OK
+   -> /tmp/opencode/research/build_coverage_20261023T074532Z/out/7234/result.json
+== 7.0.33  7.0.33  '128M'
+   A1 as-is: HTTP/1.1 200 OK (268 B)
+   pair i=0 A:HTTP/1.1 200 OK B:HTTP/1.1 200 OK
+   pair i=1 A:HTTP/1.1 200 OK B:HTTP/1.1 200 OK
+   pair i=2 A:HTTP/1.1 200 OK B:HTTP/1.1 200 OK
+   -> /tmp/opencode/research/build_coverage_20261023T074532Z/out/7033/result.json
+== 5.6.40  5.6.40  '128M'
+   A1 as-is: HTTP/1.1 200 OK (268 B)
+   pair i=0 A:HTTP/1.1 200 OK B:HTTP/1.1 200 OK
+   pair i=1 A:HTTP/1.1 200 OK B:HTTP/1.1 200 OK
+   pair i=2 A:HTTP/1.1 200 OK B:HTTP/1.1 200 OK
+   -> /tmp/opencode/research/build_coverage_20261023T074532Z/out/5640/result.json

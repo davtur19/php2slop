@@ -1,0 +1,42 @@
+=== pristine image vhost ===
+39fe841a64538ee980ae4ef011bdf6ae7124f63bf44afd65553cf3e0618e952c  /tmp/opencode/stock-000-default.conf
+=== lab vhost ===
+e5554688a06548f8f210dab7caa6fcc90af6b702fbd2742879ade5308640b059  lab/000-default.conf
+=== diff (pristine -> lab) ===
+--- /tmp/opencode/stock-000-default.conf	2026-10-22 15:44:13.915104029 +0200
++++ lab/000-default.conf	2026-10-22 15:24:27.754669130 +0200
+@@ -1,29 +1,12 @@
++# Instrumentation only: identical vhost to the stock image's
++# sites-enabled/000-default.conf, with a per-child PID access log format.
++# No MPM, KeepAlive, worker-count or PHP setting is changed here.
+ <VirtualHost *:80>
+-	# The ServerName directive sets the request scheme, hostname and port that
+-	# the server uses to identify itself. This is used when creating
+-	# redirection URLs. In the context of virtual hosts, the ServerName
+-	# specifies what hostname must appear in the request's Host: header to
+-	# match this virtual host. For the default virtual host (this file) this
+-	# value is not decisive as it is used as a last resort host regardless.
+-	# However, you must set it for any further virtual host explicitly.
+-	#ServerName www.example.com
+-
+ 	ServerAdmin webmaster@localhost
+ 	DocumentRoot /var/www/html
+ 
+-	# Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+-	# error, crit, alert, emerg.
+-	# It is also possible to configure the loglevel for particular
+-	# modules, e.g.
+-	#LogLevel info ssl:warn
+-
+ 	ErrorLog ${APACHE_LOG_DIR}/error.log
+-	CustomLog ${APACHE_LOG_DIR}/access.log combined
+ 
+-	# For most configuration files from conf-available/, which are
+-	# enabled or disabled at a global level, it is possible to
+-	# include a line for only one particular virtual host. For example the
+-	# following line enables the CGI configuration for this host only
+-	# after it has been globally disabled with "a2disconf".
+-	#Include conf-available/serve-cgi-bin.conf
++	LogFormat "%P %{%s}t.%{usec_frac}t %m %U %>s %b %D" p2s
++	CustomLog /var/log/apache2/p2s-access.log p2s
+ </VirtualHost>

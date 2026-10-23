@@ -1,0 +1,10 @@
+=== attempt 9 mode=restart start=2026-10-22T13:34:36Z ===
+--- workers before ---
+PID                 PPID                USER                RSS                 COMMAND
+4012630             4012605             root                28972               apache2 -DFOREGROUND
+4012681             4012630             www-data            21048               apache2 -DFOREGROUND
+4012682             4012630             www-data            20248               apache2 -DFOREGROUND
+4012683             4012630             www-data            16172               apache2 -DFOREGROUND
+4012684             4012630             www-data            16172               apache2 -DFOREGROUND
+4012685             4012630             www-data            16176               apache2 -DFOREGROUND
+4012774             4012630             www-data            15648               apache2 -DFOREGROUND

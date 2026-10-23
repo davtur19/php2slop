@@ -1,0 +1,7 @@
+[23-Oct-2026 04:26:38] NOTICE: configuration file fpm8512.conf test is successful
+[23-Oct-2026 04:26:44] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:26:44] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:26:44] NOTICE: fpm is running, pid 2786602
+[23-Oct-2026 04:26:44] NOTICE: ready to handle connections
+[23-Oct-2026 04:38:40] NOTICE: Terminating ...
+[23-Oct-2026 04:38:40] NOTICE: exiting, bye-bye!

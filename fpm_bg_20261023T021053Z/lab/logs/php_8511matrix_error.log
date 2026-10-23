@@ -1,0 +1,180 @@
+[23-Oct-2026 08:54:43 UTC] PRODUCER_OOM_START pid=361677
+[23-Oct-2026 08:54:43 UTC] PRODUCER_OOM_START pid=361678
+[23-Oct-2026 08:54:43 UTC] PRODUCER_OOM_START pid=361679
+[23-Oct-2026 08:54:43 UTC] PRODUCER_OOM_START pid=361681
+[23-Oct-2026 08:54:43 UTC] PRODUCER_OOM_START pid=361680
+[23-Oct-2026 08:54:43 UTC] PRODUCER_OOM_PAYLOAD pid=361680 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:54:43 UTC] PRODUCER_OOM_PAYLOAD pid=361678 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:54:43 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:54:43 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:54:43 UTC] PRODUCER_OOM_PAYLOAD pid=361677 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:54:43 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:54:43 UTC] PRODUCER_OOM_PAYLOAD pid=361681 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:54:43 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:54:43 UTC] PRODUCER_OOM_PAYLOAD pid=361679 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:54:43 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:55:04 UTC] PRODUCER_OOM_START pid=362937
+[23-Oct-2026 08:55:04 UTC] PRODUCER_OOM_START pid=362938
+[23-Oct-2026 08:55:04 UTC] PRODUCER_OOM_START pid=362939
+[23-Oct-2026 08:55:04 UTC] PRODUCER_OOM_START pid=362940
+[23-Oct-2026 08:55:04 UTC] PRODUCER_OOM_START pid=362941
+[23-Oct-2026 08:55:04 UTC] PRODUCER_OOM_PAYLOAD pid=362941 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:55:04 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:55:04 UTC] PRODUCER_OOM_PAYLOAD pid=362939 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:55:04 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:55:04 UTC] PRODUCER_OOM_PAYLOAD pid=362938 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:55:04 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:55:04 UTC] PRODUCER_OOM_PAYLOAD pid=362937 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:55:04 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:55:04 UTC] PRODUCER_OOM_PAYLOAD pid=362940 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:55:04 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:56:27 UTC] PRODUCER_OOM_START pid=406143
+[23-Oct-2026 08:56:27 UTC] PRODUCER_OOM_START pid=406146
+[23-Oct-2026 08:56:27 UTC] PRODUCER_OOM_START pid=406145
+[23-Oct-2026 08:56:27 UTC] PRODUCER_OOM_START pid=406147
+[23-Oct-2026 08:56:27 UTC] PRODUCER_OOM_START pid=406144
+[23-Oct-2026 08:56:27 UTC] PRODUCER_OOM_PAYLOAD pid=406143 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:56:27 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:56:27 UTC] PRODUCER_OOM_PAYLOAD pid=406144 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:56:27 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:56:27 UTC] PRODUCER_OOM_PAYLOAD pid=406147 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:56:27 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:56:27 UTC] PRODUCER_OOM_PAYLOAD pid=406146 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:56:27 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:56:28 UTC] PRODUCER_OOM_PAYLOAD pid=406145 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:56:28 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:56:50 UTC] PRODUCER_OOM_START pid=406146
+[23-Oct-2026 08:56:50 UTC] PRODUCER_OOM_START pid=406143
+[23-Oct-2026 08:56:50 UTC] PRODUCER_OOM_START pid=406147
+[23-Oct-2026 08:56:50 UTC] PRODUCER_OOM_START pid=406144
+[23-Oct-2026 08:56:50 UTC] PRODUCER_OOM_START pid=406145
+[23-Oct-2026 08:56:51 UTC] PRODUCER_OOM_PAYLOAD pid=406143 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:56:51 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:56:51 UTC] PRODUCER_OOM_PAYLOAD pid=406145 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:56:51 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:56:51 UTC] PRODUCER_OOM_PAYLOAD pid=406147 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:56:51 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:56:51 UTC] PRODUCER_OOM_PAYLOAD pid=406144 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:56:51 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:56:51 UTC] PRODUCER_OOM_PAYLOAD pid=406146 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:56:51 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:56:52 UTC] PRODUCER_OOM_START pid=406145
+[23-Oct-2026 08:56:52 UTC] PRODUCER_OOM_START pid=406144
+[23-Oct-2026 08:56:52 UTC] PRODUCER_OOM_START pid=406143
+[23-Oct-2026 08:56:52 UTC] PRODUCER_OOM_START pid=406146
+[23-Oct-2026 08:56:52 UTC] PRODUCER_OOM_START pid=406147
+[23-Oct-2026 08:56:52 UTC] PRODUCER_OOM_PAYLOAD pid=406143 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:56:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:56:52 UTC] PRODUCER_OOM_PAYLOAD pid=406145 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:56:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:56:52 UTC] PRODUCER_OOM_PAYLOAD pid=406147 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:56:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:56:52 UTC] PRODUCER_OOM_PAYLOAD pid=406146 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:56:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:56:52 UTC] PRODUCER_OOM_PAYLOAD pid=406144 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:56:52 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:57:24 UTC] PRODUCER_OOM_START pid=406143
+[23-Oct-2026 08:57:24 UTC] PRODUCER_OOM_START pid=406146
+[23-Oct-2026 08:57:24 UTC] PRODUCER_OOM_START pid=406147
+[23-Oct-2026 08:57:24 UTC] PRODUCER_OOM_START pid=406145
+[23-Oct-2026 08:57:24 UTC] PRODUCER_OOM_START pid=406144
+[23-Oct-2026 08:57:24 UTC] PRODUCER_OOM_PAYLOAD pid=406145 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:57:24 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:57:24 UTC] PRODUCER_OOM_PAYLOAD pid=406143 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:57:24 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:57:24 UTC] PRODUCER_OOM_PAYLOAD pid=406144 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:57:24 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:57:24 UTC] PRODUCER_OOM_PAYLOAD pid=406146 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:57:24 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:57:24 UTC] PRODUCER_OOM_PAYLOAD pid=406147 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:57:24 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}

@@ -1,0 +1,95 @@
+{
+ "tag": "chain_8426_decode_decode",
+ "web": 29320,
+ "children_before": [
+  3083532,
+  3083540,
+  3083547
+ ],
+ "t0": 1792741358.33369,
+ "children_after_sleepers": [
+  3083532,
+  3083540,
+  3083547,
+  3089094,
+  3089135
+ ],
+ "producer": {
+  "code": "500",
+  "t_first": 0.0503,
+  "t_total": 0.0507,
+  "bytes": 215,
+  "body": "0\r\n\r\n"
+ },
+ "t_producer_done": 1792741360.965141,
+ "consumer": {
+  "code": "502",
+  "t_first": 0.0015,
+  "t_total": 0.0024,
+  "bytes": 309,
+  "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n"
+ },
+ "t_consumer_done": 1792741361.0177636,
+ "children_after_consumer": [
+  3083532,
+  3083540,
+  3083547,
+  3089094,
+  3089137
+ ],
+ "fpm_log_tail": [
+  "[23-Oct-2026 09:35:37] NOTICE: [pool www] child 3083335 started",
+  "[23-Oct-2026 09:35:41] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it",
+  "[23-Oct-2026 09:35:49] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it",
+  "[23-Oct-2026 09:35:55] WARNING: [pool www] child 3083373 exited on signal 9 (SIGKILL) after 15.112671 seconds from start",
+  "[23-Oct-2026 09:35:55] NOTICE: [pool www] child 3083530 started",
+  "[23-Oct-2026 09:35:55] WARNING: [pool www] child 3083437 exited on signal 9 (SIGKILL) after 8.106266 seconds from start",
+  "[23-Oct-2026 09:35:55] NOTICE: [pool www] child 3083531 started",
+  "[23-Oct-2026 09:35:55] WARNING: [pool www] child 3083439 exited on signal 9 (SIGKILL) after 7.105010 seconds from start",
+  "[23-Oct-2026 09:35:55] NOTICE: [pool www] child 3083532 started",
+  "[23-Oct-2026 09:35:59] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it",
+  "[23-Oct-2026 09:42:41] WARNING: [pool www] child 3089135 exited on signal 11 (SIGSEGV) after 1.492843 seconds from start",
+  "[23-Oct-2026 09:42:41] NOTICE: [pool www] child 3089137 started"
+ ],
+ "access_tail": [
+  "3083373 127.0.0.1 GET 200 /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/www/slow.php",
+  "3083437 127.0.0.1 GET 200 /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/www/slow.php",
+  "3083439 127.0.0.1 GET 200 /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/www/slow.php",
+  "3083530 127.0.0.1 GET 200 /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/www/slow.php",
+  "3083531 127.0.0.1 GET 200 /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/www/slow.php",
+  "3083532 127.0.0.1 GET 200 /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/www/slow.php",
+  "3083540 127.0.0.1 GET 200 /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/www/slow.php",
+  "3083547 127.0.0.1 GET 200 /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/www/slow.php",
+  "3083532 127.0.0.1 GET 200 /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/www/slow.php",
+  "3083540 127.0.0.1 GET 200 /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/www/slow.php",
+  "3083547 127.0.0.1 GET 200 /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/www/slow.php",
+  "3089135 127.0.0.1 GET 500 /tmp/opencode/research/fpm_aslr_20261023T073345Z/lab/www/producer_oom.php"
+ ],
+ "children_after_1s": [
+  3083532,
+  3083540,
+  3083547,
+  3089094,
+  3089137
+ ],
+ "ping": {
+  "code": "200",
+  "t_first": 0.0012,
+  "t_total": 0.0013,
+  "bytes": 228,
+  "body": "1a\r\nPING PID=3089137 STATUS=1\n\r\n0\r\n\r\n"
+ },
+ "children_after_ping": [
+  3083532,
+  3083540,
+  3083547,
+  3089094,
+  3089137
+ ],
+ "sleepers": [
+  "200",
+  "200",
+  "200",
+  "200"
+ ]
+}

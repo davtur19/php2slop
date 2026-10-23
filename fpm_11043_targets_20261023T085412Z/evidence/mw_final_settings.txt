@@ -1,0 +1,7 @@
+=== MediaWiki settings (final) ===
+29:$wgScriptPath = "/w";
+32:# $wgServer auto-detected per request (lab: same wiki served on several lab ports)
+35:$wgResourceBasePath = $wgScriptPath;
+163:$wgArticlePath = "/wiki/$1";
+164:$wgUsePathInfo = true;
+eda866ff4373ffd00418da89bbfefb48915581f3028eda7c76d7c7e0eb11ee12  apps/w/LocalSettings.php

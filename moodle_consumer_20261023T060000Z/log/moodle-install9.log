@@ -1,0 +1,50 @@
+
+Deprecated: The backtick (`) operator is deprecated, use shell_exec() instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/moodlelib.php on line 9130
+                                 .-..-.       
+   _____                         | || |       
+  /____/-.---_  .---.  .---.  .-.| || | .---. 
+  | |  _   _  |/  _  \/  _  \/  _  || |/  __ \
+  * | | | | | || |_| || |_| || |_| || || |___/
+    |_| |_| |_|\_____/\_____/\_____||_|\_____)
+
+Moodle 5.0.10+ (Build: 20261002) command line installation program
+-->System
+
+Deprecated: Function xml_parser_free() is deprecated since 8.5, as it has no effect since PHP 8.0 in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/xmlize.php on line 220
+++ install.xml: Success (1.51 seconds) ++
+
+Deprecated: Using null as an array offset is deprecated, use an empty string instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/dml/mysqli_native_moodle_database.php on line 1371
+
+Deprecated: Using null as an array offset is deprecated, use an empty string instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/dml/mysqli_native_moodle_database.php on line 1375
+
+Deprecated: Case statements followed by a semicolon (;) are deprecated, use a colon (:) instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/db/upgradelib.php on line 1092
+++ xmldb_main_install: Success (1.32 seconds) ++
+
+Warning: require_once(/tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/backup/util/includes/backup_includes.php): Failed to open stream: No such file or directory in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/classes/task/backup_cleanup_task.php on line 28
+Default exception handler: Exception - Failed opening required '[dirroot]/backup/util/includes/backup_includes.php' (include_path='[dirroot]/lib/pear:[dirroot]/lib/pear:.:') Debug: 
+Error code: generalexceptionmessage
+* line 28 of /lib/classes/task/backup_cleanup_task.php: Error thrown
+* line 235 of /lib/classes/component.php: call to include_once()
+* line ? of unknownfile: call to core\component::classloader()
+* line 413 of /lib/classes/task/manager.php: call to class_exists()
+* line 124 of /lib/classes/task/manager.php: call to core\task\manager::scheduled_task_from_record()
+* line 144 of /lib/classes/task/manager.php: call to core\task\manager::load_default_scheduled_tasks_for_component()
+* line 625 of /lib/upgradelib.php: call to core\task\manager::reset_scheduled_tasks_for_component()
+* line 1823 of /lib/upgradelib.php: call to upgrade_component_updated()
+* line 427 of /lib/installlib.php: call to install_core()
+* line 842 of /admin/cli/install.php: call to install_cli_database()
+
+!!! Exception - Failed opening required '[dirroot]/backup/util/includes/backup_includes.php' (include_path='[dirroot]/lib/pear:[dirroot]/lib/pear:.:') !!!
+!! 
+Error code: generalexceptionmessage !!
+!! Stack trace: * line 28 of /lib/classes/task/backup_cleanup_task.php: Error thrown
+* line 235 of /lib/classes/component.php: call to include_once()
+* line ? of unknownfile: call to core\component::classloader()
+* line 413 of /lib/classes/task/manager.php: call to class_exists()
+* line 124 of /lib/classes/task/manager.php: call to core\task\manager::scheduled_task_from_record()
+* line 144 of /lib/classes/task/manager.php: call to core\task\manager::load_default_scheduled_tasks_for_component()
+* line 625 of /lib/upgradelib.php: call to core\task\manager::reset_scheduled_tasks_for_component()
+* line 1823 of /lib/upgradelib.php: call to upgrade_component_updated()
+* line 427 of /lib/installlib.php: call to install_core()
+* line 842 of /admin/cli/install.php: call to install_cli_database()
+ !!

@@ -1,0 +1,112 @@
+{
+ "version": "8.4.4",
+ "image": "php:8.4.4-apache",
+ "port": 18804,
+ "image_id": "sha256:3c60ec33ea1741d8adaa23acce0a6a053e7a26ec5efe4c1a113542fef93f9147",
+ "so_sha256": "0a532a67e1a4fbdd9580ad2d6ca365d06ee3012e1a7b460db81a56e2d485eae2",
+ "so_bytes": 22303728,
+ "symbols": {
+  "zval_ptr_dtor": "0x62ac70",
+  "zif_system": "0x43a650"
+ },
+ "php": [
+  "PHP 8.4.4 (cli) (built: Feb 25 2025 02:20:09) (NTS)"
+ ],
+ "apache": "Server version: Apache/2.4.62 (Debian)\nServer built:   2024-10-04T15:21:08",
+ "ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+ "ini_md5": "fba97f0b3e0b19b0980f5102c0440480",
+ "effective_ini": "display_errors=\nmemory_limit=128M\npost_max_size=8M\nupload_max_filesize=2M\nmax_execution_time=30\nsession.upload_progress.enabled=1\noutput_buffering=4096\nzend.assertions=-1\nversion=8.4.4",
+ "a1_probe": {
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 258
+ },
+ "calibration": [
+  {
+   "parts": 880,
+   "probe": {
+    "status": "HTTP/1.0 500 Internal Server Error",
+    "bytes": 210
+   }
+  },
+  {
+   "parts": 900,
+   "probe": {
+    "status": "HTTP/1.0 500 Internal Server Error",
+    "bytes": 210
+   }
+  },
+  {
+   "parts": 920,
+   "probe": {
+    "status": "HTTP/1.0 500 Internal Server Error",
+    "bytes": 210
+   }
+  },
+  {
+   "parts": 940,
+   "probe": {
+    "status": "HTTP/1.0 500 Internal Server Error",
+    "bytes": 210
+   }
+  },
+  {
+   "parts": 960,
+   "probe": {
+    "status": "HTTP/1.0 500 Internal Server Error",
+    "bytes": 210
+   }
+  },
+  {
+   "parts": 980,
+   "probe": {
+    "status": "HTTP/1.0 500 Internal Server Error",
+    "bytes": 210
+   }
+  },
+  {
+   "parts": 1000,
+   "probe": {
+    "status": "HTTP/1.0 500 Internal Server Error",
+    "bytes": 210
+   }
+  },
+  {
+   "parts": 1020,
+   "probe": {
+    "status": "HTTP/1.0 500 Internal Server Error",
+    "bytes": 210
+   }
+  },
+  {
+   "parts": 1040,
+   "probe": {
+    "status": "HTTP/1.0 500 Internal Server Error",
+    "bytes": 210
+   }
+  },
+  {
+   "parts": 820,
+   "probe": {
+    "status": "HTTP/1.1 200 OK",
+    "bytes": 258
+   }
+  },
+  {
+   "parts": 800,
+   "probe": {
+    "status": "HTTP/1.1 200 OK",
+    "bytes": 258
+   }
+  },
+  {
+   "parts": 780,
+   "probe": {
+    "status": "HTTP/1.1 200 OK",
+    "bytes": 258
+   }
+  }
+ ],
+ "success": false,
+ "error": "A1_no_OOM_after_calibration",
+ "crash_lines": []
+}

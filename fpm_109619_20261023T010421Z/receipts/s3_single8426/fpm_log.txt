@@ -1,0 +1,12 @@
+[23-Oct-2026 01:10:43] NOTICE: exiting, bye-bye!
+[23-Oct-2026 01:10:44] NOTICE: fpm is running, pid 1
+[23-Oct-2026 01:10:44] NOTICE: ready to handle connections
+7 172.20.0.10 GET /pid.php 200
+7 172.20.0.10 GET /pid.php 200
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+[23-Oct-2026 01:10:47] WARNING: [pool www] child 7 exited with code 70 after 3.464094 seconds from start
+[23-Oct-2026 01:10:47] NOTICE: [pool www] child 17 started
+17 172.20.0.10 GET /pid.php 200
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[23-Oct-2026 01:10:48] WARNING: [pool www] child 17 exited with code 70 after 0.648232 seconds from start
+[23-Oct-2026 01:10:48] NOTICE: [pool www] child 27 started

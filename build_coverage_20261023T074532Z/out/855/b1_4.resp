@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Date: Fri, 23 Oct 2026 08:21:42 GMT
+Server: Apache/2.4.66 (Debian)
+X-Powered-By: PHP/8.5.5
+Content-Length: 16
+Connection: close
+Content-Type: text/html; charset=UTF-8
+
+OK 8.5.5 pid=21

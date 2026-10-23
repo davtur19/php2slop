@@ -1,0 +1,72 @@
+8.5  session.c    php_session_rfc1867_callback     identical 8.5.0=353b25177d 8.5.5=353b25177d 8.5.11=353b25177d
+8.5  session.c    php_session_initialize           varies    8.5.0=7a1a05c3e7 8.5.5=7a1a05c3e7 8.5.11=e476f4dceb
+8.5  session.c    php_session_flush                identical 8.5.0=d79f2bb507 8.5.5=d79f2bb507 8.5.11=d79f2bb507
+8.5  session.c    php_session_reset_id             identical 8.5.0=d16cf91933 8.5.5=d16cf91933 8.5.11=d16cf91933
+8.5  session.c    php_session_start                identical 8.5.0=7a96a8a598 8.5.5=7a96a8a598 8.5.11=7a96a8a598
+8.5  rfc1867.c    php_rfc1867_callback             all-absent 8.5.0=ABSENT 8.5.5=ABSENT 8.5.11=ABSENT
+8.5  rfc1867.c    rfc1867_post_handler             all-absent 8.5.0=ABSENT 8.5.5=ABSENT 8.5.11=ABSENT
+8.5  rfc1867.c    multipart_buffer_read            identical 8.5.0=34e7741daa 8.5.5=34e7741daa 8.5.11=34e7741daa
+8.5  rfc1867.c    multipart_buffer_headers         varies    8.5.0=446d3c377a 8.5.5=446d3c377a 8.5.11=4ef6bf7d6a
+8.3  session.c    php_session_rfc1867_callback     identical 8.3.0=4cd81b418a 8.3.10=4cd81b418a 8.3.20=4cd81b418a 8.3.35=4cd81b418a
+8.3  session.c    php_session_initialize           identical 8.3.0=080e2748e4 8.3.10=080e2748e4 8.3.20=080e2748e4 8.3.35=080e2748e4
+8.3  session.c    php_session_flush                identical 8.3.0=53fac2c78e 8.3.10=53fac2c78e 8.3.20=53fac2c78e 8.3.35=53fac2c78e
+8.3  session.c    php_session_reset_id             varies    8.3.0=78705c671c 8.3.10=78705c671c 8.3.20=ec1a7627df 8.3.35=ec1a7627df
+8.3  session.c    php_session_start                identical 8.3.0=375db4e737 8.3.10=375db4e737 8.3.20=375db4e737 8.3.35=375db4e737
+8.3  rfc1867.c    php_rfc1867_callback             all-absent 8.3.0=ABSENT 8.3.10=ABSENT 8.3.20=ABSENT 8.3.35=ABSENT
+8.3  rfc1867.c    rfc1867_post_handler             all-absent 8.3.0=ABSENT 8.3.10=ABSENT 8.3.20=ABSENT 8.3.35=ABSENT
+8.3  rfc1867.c    multipart_buffer_read            identical 8.3.0=34e7741daa 8.3.10=34e7741daa 8.3.20=34e7741daa 8.3.35=34e7741daa
+8.3  rfc1867.c    multipart_buffer_headers         varies    8.3.0=446d3c377a 8.3.10=446d3c377a 8.3.20=446d3c377a 8.3.35=4ef6bf7d6a
+8.2  session.c    php_session_rfc1867_callback     varies    8.2.0=cfac8d1a3b 8.2.15=cfac8d1a3b 8.2.34=4f665743cb
+8.2  session.c    php_session_initialize           identical 8.2.0=c78cc40b3c 8.2.15=c78cc40b3c 8.2.34=c78cc40b3c
+8.2  session.c    php_session_flush                identical 8.2.0=53fac2c78e 8.2.15=53fac2c78e 8.2.34=53fac2c78e
+8.2  session.c    php_session_reset_id             identical 8.2.0=78705c671c 8.2.15=78705c671c 8.2.34=78705c671c
+8.2  session.c    php_session_start                varies    8.2.0=e54afcab5b 8.2.15=0594ece6c9 8.2.34=0594ece6c9
+8.2  rfc1867.c    php_rfc1867_callback             all-absent 8.2.0=ABSENT 8.2.15=ABSENT 8.2.34=ABSENT
+8.2  rfc1867.c    rfc1867_post_handler             all-absent 8.2.0=ABSENT 8.2.15=ABSENT 8.2.34=ABSENT
+8.2  rfc1867.c    multipart_buffer_read            identical 8.2.0=34e7741daa 8.2.15=34e7741daa 8.2.34=34e7741daa
+8.2  rfc1867.c    multipart_buffer_headers         varies    8.2.0=446d3c377a 8.2.15=446d3c377a 8.2.34=4ef6bf7d6a
+8.1  session.c    php_session_rfc1867_callback     identical 8.1.0=cfac8d1a3b 8.1.33=cfac8d1a3b
+8.1  session.c    php_session_initialize           identical 8.1.0=e746d35901 8.1.33=e746d35901
+8.1  session.c    php_session_flush                identical 8.1.0=fae5cf8093 8.1.33=fae5cf8093
+8.1  session.c    php_session_reset_id             identical 8.1.0=027ef44404 8.1.33=027ef44404
+8.1  session.c    php_session_start                varies    8.1.0=81058e5e69 8.1.33=97052bd164
+8.1  rfc1867.c    php_rfc1867_callback             all-absent 8.1.0=ABSENT 8.1.33=ABSENT
+8.1  rfc1867.c    rfc1867_post_handler             all-absent 8.1.0=ABSENT 8.1.33=ABSENT
+8.1  rfc1867.c    multipart_buffer_read            identical 8.1.0=34e7741daa 8.1.33=34e7741daa
+8.1  rfc1867.c    multipart_buffer_headers         identical 8.1.0=446d3c377a 8.1.33=446d3c377a
+7.4  session.c    php_session_rfc1867_callback     identical 7.4.0=34e06406b8 7.4.33=34e06406b8
+7.4  session.c    php_session_initialize           identical 7.4.0=d27c910099 7.4.33=d27c910099
+7.4  session.c    php_session_flush                identical 7.4.0=fae5cf8093 7.4.33=fae5cf8093
+7.4  session.c    php_session_reset_id             identical 7.4.0=13e60762f3 7.4.33=13e60762f3
+7.4  session.c    php_session_start                identical 7.4.0=9a8e86298a 7.4.33=9a8e86298a
+7.4  rfc1867.c    php_rfc1867_callback             all-absent 7.4.0=ABSENT 7.4.33=ABSENT
+7.4  rfc1867.c    rfc1867_post_handler             all-absent 7.4.0=ABSENT 7.4.33=ABSENT
+7.4  rfc1867.c    multipart_buffer_read            varies    7.4.0=94345570a5 7.4.33=34e7741daa
+7.4  rfc1867.c    multipart_buffer_headers         identical 7.4.0=446d3c377a 7.4.33=446d3c377a
+7.2  session.c    php_session_rfc1867_callback     identical 7.2.0=34e06406b8 7.2.34=34e06406b8
+7.2  session.c    php_session_initialize           identical 7.2.0=f29c8b520f 7.2.34=f29c8b520f
+7.2  session.c    php_session_flush                identical 7.2.0=fae5cf8093 7.2.34=fae5cf8093
+7.2  session.c    php_session_reset_id             identical 7.2.0=7eaa061e50 7.2.34=7eaa061e50
+7.2  session.c    php_session_start                identical 7.2.0=eb0838258b 7.2.34=eb0838258b
+7.2  rfc1867.c    php_rfc1867_callback             all-absent 7.2.0=ABSENT 7.2.34=ABSENT
+7.2  rfc1867.c    rfc1867_post_handler             all-absent 7.2.0=ABSENT 7.2.34=ABSENT
+7.2  rfc1867.c    multipart_buffer_read            varies    7.2.0=94345570a5 7.2.34=34e7741daa
+7.2  rfc1867.c    multipart_buffer_headers         identical 7.2.0=446d3c377a 7.2.34=446d3c377a
+7.0  session.c    php_session_rfc1867_callback     identical 7.0.0=a34cb29e26 7.0.33=a34cb29e26
+7.0  session.c    php_session_initialize           varies    7.0.0=8dea785b8c 7.0.33=6aef173f94
+7.0  session.c    php_session_flush                identical 7.0.0=2bd4b95f88 7.0.33=2bd4b95f88
+7.0  session.c    php_session_reset_id             varies    7.0.0=32f5a1b2ec 7.0.33=693d721116
+7.0  session.c    php_session_start                varies    7.0.0=8141d627ad 7.0.33=d34a934a91
+7.0  rfc1867.c    php_rfc1867_callback             all-absent 7.0.0=ABSENT 7.0.33=ABSENT
+7.0  rfc1867.c    rfc1867_post_handler             all-absent 7.0.0=ABSENT 7.0.33=ABSENT
+7.0  rfc1867.c    multipart_buffer_read            identical 7.0.0=10e1973d65 7.0.33=10e1973d65
+7.0  rfc1867.c    multipart_buffer_headers         identical 7.0.0=446d3c377a 7.0.33=446d3c377a
+5.6  session.c    php_session_rfc1867_callback     identical 5.6.0=25f6e7ebd9 5.6.40=25f6e7ebd9
+5.6  session.c    php_session_initialize           varies    5.6.0=614a592978 5.6.40=68907b7e6e
+5.6  session.c    php_session_flush                identical 5.6.0=723d50af60 5.6.40=723d50af60
+5.6  session.c    php_session_reset_id             identical 5.6.0=079fc3fe0f 5.6.40=079fc3fe0f
+5.6  session.c    php_session_start                identical 5.6.0=6561a56b53 5.6.40=6561a56b53
+5.6  rfc1867.c    php_rfc1867_callback             all-absent 5.6.0=ABSENT 5.6.40=ABSENT
+5.6  rfc1867.c    rfc1867_post_handler             all-absent 5.6.0=ABSENT 5.6.40=ABSENT
+5.6  rfc1867.c    multipart_buffer_read            identical 5.6.0=d4d88e6257 5.6.40=d4d88e6257
+5.6  rfc1867.c    multipart_buffer_headers         varies    5.6.0=1ad55a5032 5.6.40=fc3347d9be

@@ -1,0 +1,17 @@
+=== HEAD ===
+aeb5dcc6acc79c1d9a31c023b4f8ceb43103e5a7
+aeb5dcc repo: make exploit.py the pure-chain entry; archive legacy 8M line
+
+=== mk_a1 ===
+body=1060211 parts=974
+
+=== mk_leak_b (800k) ===
+LEAK_SPEC=G:511:0x137,G:511:0x137,G:511:0x137,G:511:0x137,G:511:0x137,G:511:0x137,G:511:0x137,G:511:0x137,G:511:0x137,G:511:0x137,G:511:0x137,G:511:0x137,G:511:0x137,G:511:0x137,G:400:0x137,G:511:0x137,X:900
+body=33128677 fields=916 fake_len=0xc8000
+
+=== sha256 ===
+8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6  /tmp/opencode/research/9bie_fullchain_multiw_20261022T130520Z/bodies/a1.bin
+b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2  /tmp/opencode/research/9bie_fullchain_multiw_20261022T130520Z/bodies/b1_800k.bin
+ 1060211 /tmp/opencode/research/9bie_fullchain_multiw_20261022T130520Z/bodies/a1.bin
+33128677 /tmp/opencode/research/9bie_fullchain_multiw_20261022T130520Z/bodies/b1_800k.bin
+34188888 total

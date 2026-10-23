@@ -1,0 +1,31 @@
+[Thu Oct 22 13:08:12.773469 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.15. Set the 'ServerName' directive globally to suppress this message
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.15. Set the 'ServerName' directive globally to suppress this message
+[Thu Oct 22 13:08:14.159985 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.4.26 configured -- resuming normal operations
+[Thu Oct 22 13:08:14.160003 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+172.17.0.1 - - [22/Oct/2026:13:08:15 +0000] "GET /index.php HTTP/1.0" 200 195 "-" "-"
+[Thu Oct 22 13:08:15.742361 2026] [php:error] [pid 20:tid 20] [client 172.17.0.1:36150] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:13:08:15 +0000] "POST /index.php?q0000000=v&q0000001=v&q0000002=v&q0000003=v&q0000004=v HTTP/1.1" 500 211 "-" "-"
+172.17.0.1 - - [22/Oct/2026:13:08:15 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:13:08:15 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:13:08:15 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+172.17.0.1 - - [22/Oct/2026:13:08:15 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+[Thu Oct 22 13:08:16.084911 2026] [php:warn] [pid 20:tid 20] [client 172.17.0.1:36218] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Thu Oct 22 13:08:16.084926 2026] [php:warn] [pid 20:tid 20] [client 172.17.0.1:36218] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: ) in Unknown on line 0
+[Thu Oct 22 13:08:16.084930 2026] [php:warn] [pid 20:tid 20] [client 172.17.0.1:36218] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct () in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:13:08:16 +0000] "POST /index.php HTTP/1.1" 200 1669323 "-" "-"
+[Thu Oct 22 13:08:16.194048 2026] [php:error] [pid 21:tid 21] [client 172.17.0.1:36220] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:13:08:16 +0000] "POST /index.php HTTP/1.1" 500 211 "-" "-"
+[Thu Oct 22 13:08:16.254982 2026] [php:error] [pid 22:tid 22] [client 172.17.0.1:36224] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:13:08:16 +0000] "POST /index.php HTTP/1.1" 500 211 "-" "-"
+[Thu Oct 22 13:08:16.319494 2026] [php:error] [pid 23:tid 23] [client 172.17.0.1:36232] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:13:08:16 +0000] "POST /index.php HTTP/1.1" 500 211 "-" "-"
+[Thu Oct 22 13:08:16.384474 2026] [php:error] [pid 19:tid 19] [client 172.17.0.1:36246] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:13:08:16 +0000] "POST /index.php HTTP/1.1" 500 211 "-" "-"
+[Thu Oct 22 13:08:16.443130 2026] [php:error] [pid 20:tid 20] [client 172.17.0.1:36258] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+172.17.0.1 - - [22/Oct/2026:13:08:16 +0000] "POST /index.php HTTP/1.1" 500 211 "-" "-"
+172.17.0.1 - - [22/Oct/2026:13:08:16 +0000] "POST /index.php HTTP/1.1" 200 259 "-" "-"
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+9BIE_MW_20261022T130520Z_A1_b1
+172.17.0.1 - - [22/Oct/2026:13:08:17 +0000] "GET /index.php HTTP/1.0" 200 195 "-" "-"
+[Thu Oct 22 13:08:18.164195 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 21 exit signal Segmentation fault (11)

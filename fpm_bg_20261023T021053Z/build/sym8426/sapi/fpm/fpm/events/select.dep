@@ -1,0 +1,7 @@
+sapi/fpm/fpm/events/select.lo: \
+ /tmp/opencode/php-8.4.26/sapi/fpm/fpm/events/select.c \
+ /tmp/opencode/php-8.4.26/sapi/fpm/fpm/events/../fpm_config.h \
+ /tmp/opencode/research/fpm_bg_20261023T021053Z/build/sym8426/main/php_config.h \
+ /tmp/opencode/php-8.4.26/sapi/fpm/fpm/events/../fpm_events.h \
+ /tmp/opencode/php-8.4.26/sapi/fpm/fpm/events/../fpm.h \
+ /tmp/opencode/php-8.4.26/sapi/fpm/fpm/events/../zlog.h

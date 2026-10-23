@@ -1,0 +1,242 @@
+[
+ {
+  "namelen": 7950000,
+  "body": 7950211,
+  "http": "200",
+  "peak_kb": "128512",
+  "fcgi_status": "0",
+  "len": 7981252,
+  "secs": 0.901,
+  "before": [
+   "2805720"
+  ],
+  "after": [
+   "2805720"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:32:21 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 800.532 128512 92.44%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "98f70432a0ff2f74b0c896d44fd99d34",
+   "login",
+   "b1a917b4c05e904a9c768defeebdbf6b",
+   "wsSessionSecret",
+   "eb74836c85010e30884bbb11128d8816"
+  ]
+ },
+ {
+  "namelen": 7975000,
+  "body": 7975211,
+  "http": "200",
+  "peak_kb": "128808",
+  "fcgi_status": "0",
+  "len": 8006252,
+  "secs": 0.823,
+  "before": [
+   "2805926"
+  ],
+  "after": [
+   "2805926"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:32:23 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 738.152 128808 97.54%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "ba998e58522d1cea67a7d602e15f5fda",
+   "login",
+   "d2b1869621907fcd2e8f70da6ee05544",
+   "wsSessionSecret",
+   "b39556ef8e38f4314ef5e2fe27f204e9"
+  ]
+ },
+ {
+  "namelen": 8000000,
+  "body": 8000211,
+  "http": "200",
+  "peak_kb": "129096",
+  "fcgi_status": "0",
+  "len": 8031252,
+  "secs": 0.893,
+  "before": [
+   "2806136"
+  ],
+  "after": [
+   "2806136"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:32:25 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 795.476 129096 94.28%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "9ff91c66f1cb22137c20c0e30e8d6f99",
+   "login",
+   "e13a65bc3dd0b77e6efbf37ec97e0de3",
+   "wsSessionSecret",
+   "eae29be2eb2847abc2b0876bce9cdb81"
+  ]
+ },
+ {
+  "namelen": 8025000,
+  "body": 8025211,
+  "http": "200",
+  "peak_kb": "129396",
+  "fcgi_status": "0",
+  "len": 8056252,
+  "secs": 0.855,
+  "before": [
+   "2806322"
+  ],
+  "after": [
+   "2806322"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:32:27 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 767.152 129396 95.16%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "0687644544b4ccdad22bf5f5c138b3e4",
+   "login",
+   "03628102b1b2fa2cdd67b92c96544eab",
+   "wsSessionSecret",
+   "c311ad0c970632b64eae68c1d4f38c8f"
+  ]
+ },
+ {
+  "namelen": 8050000,
+  "body": 8050211,
+  "http": "200",
+  "peak_kb": "129688",
+  "fcgi_status": "0",
+  "len": 8081252,
+  "secs": 0.867,
+  "before": [
+   "2806495"
+  ],
+  "after": [
+   "2806495"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:32:29 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 779.557 129688 98.77%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "2de70c4c4dc9cf50babfaec5bf713fec",
+   "login",
+   "87540f11d0674a4c29fddd9b5710aada",
+   "wsSessionSecret",
+   "af5ca8443cf76d70bd0f250a5c3c0dd1"
+  ]
+ },
+ {
+  "namelen": 8075000,
+  "body": 8075211,
+  "http": "200",
+  "peak_kb": "129976",
+  "fcgi_status": "0",
+  "len": 8106252,
+  "secs": 0.86,
+  "before": [
+   "2806654"
+  ],
+  "after": [
+   "2806654"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:32:32 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 768.714 129976 97.57%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "ad2bb14fb1a641982ed1d90231b421ff",
+   "login",
+   "8f951a00be978af00279573ec587e429",
+   "wsSessionSecret",
+   "626d5f7900690d59eecaeb5428da4f22"
+  ]
+ },
+ {
+  "namelen": 8100000,
+  "body": 8100211,
+  "http": "200",
+  "peak_kb": "130264",
+  "fcgi_status": "0",
+  "len": 8131252,
+  "secs": 0.858,
+  "before": [
+   "2806814"
+  ],
+  "after": [
+   "2806814"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:32:34 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 771.747 130264 95.89%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "9e2f3eedb6b0e08d5c60bf7c20ef3e6b",
+   "login",
+   "51cacd61d65d18ae2c91b44336541fa0",
+   "wsSessionSecret",
+   "a1274dbf04764dd3dcc98b7423db7c13"
+  ]
+ },
+ {
+  "namelen": 8150000,
+  "body": 8150211,
+  "http": "200",
+  "peak_kb": "130852",
+  "fcgi_status": "0",
+  "len": 8181252,
+  "secs": 0.803,
+  "before": [
+   "2806942"
+  ],
+  "after": [
+   "2806942"
+  ],
+  "worker_alive": true,
+  "oom": [],
+  "post_line": [
+   "127.0.0.1 -  23/Oct/2026:04:32:36 +0200 \"POST /index.php?title=Special:UserLogin\" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 717.554 130852 100.34%"
+  ],
+  "session_keys": [
+   "data",
+   "wsTokenSecrets",
+   "default",
+   "616cd6d29c65ed24a1fd6298ff5a96a7",
+   "login",
+   "e13b8353d0f01772270c500719ebca96",
+   "wsSessionSecret",
+   "356604de60466803720c69cfdd04211d"
+  ]
+ }
+]

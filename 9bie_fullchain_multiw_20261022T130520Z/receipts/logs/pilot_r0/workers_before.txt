@@ -1,0 +1,11 @@
+=== attempt 1 mode=restart start=2026-10-22T13:08:12Z ===
+--- workers before ---
+PID                 PPID                USER                RSS                 COMMAND
+3949305             3949282             root                29020               apache2 -DFOREGROUND
+3949458             3949305             www-data            14268               apache2 -DFOREGROUND
+3949531             3949305             www-data            9368                apache2 -DFOREGROUND
+3949532             3949305             www-data            9368                apache2 -DFOREGROUND
+3949566             3949305             www-data            9368                apache2 -DFOREGROUND
+3949567             3949305             www-data            9368                apache2 -DFOREGROUND
+3949568             3949305             www-data            9368                apache2 -DFOREGROUND
+3949569             3949305             www-data            9368                apache2 -DFOREGROUND

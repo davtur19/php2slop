@@ -1,0 +1,4 @@
+
+Deprecated: The backtick (`) operator is deprecated, use shell_exec() instead in /tmp/opencode/research/moodle_consumer_20261023T060000Z/moodle/lib/moodlelib.php on line 9130
+The configuration file config.php already exists. Please use admin/cli/install_database.php to install Moodle for this site.
+

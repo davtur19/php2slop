@@ -1,0 +1,12 @@
+[23-Oct-2026 10:27:43] NOTICE: fpm is running, pid 249526
+[23-Oct-2026 10:27:43] NOTICE: ready to handle connections
+[23-Oct-2026 10:27:50] WARNING: [pool www] child 249537 exited on signal 11 (SIGSEGV) after 7.304518 seconds from start
+[23-Oct-2026 10:27:50] NOTICE: [pool www] child 249991 started
+[23-Oct-2026 10:27:50] WARNING: [pool www] child 249991 exited on signal 11 (SIGSEGV) after 0.086861 seconds from start
+[23-Oct-2026 10:27:50] NOTICE: [pool www] child 249992 started
+[23-Oct-2026 10:27:50] WARNING: [pool www] child 249992 exited on signal 11 (SIGSEGV) after 0.085422 seconds from start
+[23-Oct-2026 10:27:50] NOTICE: [pool www] child 249993 started
+[23-Oct-2026 10:28:11] WARNING: [pool www] child 249993 exited on signal 11 (SIGSEGV) after 21.069364 seconds from start
+[23-Oct-2026 10:28:11] NOTICE: [pool www] child 250856 started
+[23-Oct-2026 10:28:52] WARNING: [pool www] child 250856 exited on signal 11 (SIGSEGV) after 41.010227 seconds from start
+[23-Oct-2026 10:28:52] NOTICE: [pool www] child 253400 started

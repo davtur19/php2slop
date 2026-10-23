@@ -1,0 +1,27 @@
+== fpm 8.4.26 ==
+PHP 8.4.26 (fpm-fcgi) (built: Oct 21 2026 00:31:28) (NTS)
+Copyright (c) The PHP Group
+Built by https://github.com/docker-library/php
+== fpm 8.5.11 ==
+PHP 8.5.11 (fpm-fcgi) (built: Oct 21 2026 00:25:43) (NTS)
+Copyright (c) The PHP Group
+Built by https://github.com/docker-library/php
+== nginx ==
+nginx version: nginx/1.31.8
+nginx version: nginx/1.31.8
+== ini 8.4.26 (php CLI shares php.ini) ==
+memory_limit=128M
+post_max_size=8M
+upload_max_filesize=2M
+max_execution_time=0
+display_errors=
+log_errors=1
+variables_order=GPCS
+session.upload_progress.enabled=1
+session.upload_progress.cleanup=1
+session.serialize_handler=php
+== php --ini ==
+Configuration File (php.ini) Path: /usr/local/etc/php
+Loaded Configuration File:         /usr/local/etc/php/php.ini
+Scan for additional .ini files in: /usr/local/etc/php/conf.d
+Additional .ini files parsed:      /usr/local/etc/php/conf.d/docker-fpm.ini,

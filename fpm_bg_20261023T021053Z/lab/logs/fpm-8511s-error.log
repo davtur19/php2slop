@@ -1,0 +1,13 @@
+[23-Oct-2026 04:28:21] NOTICE: configuration file /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/conf/fpm-8511s.conf test is successful
+[23-Oct-2026 04:28:27] NOTICE: fpm is running, pid 2791132
+[23-Oct-2026 04:28:27] NOTICE: ready to handle connections
+[23-Oct-2026 04:33:11] WARNING: [pool www] child 2791133 exited on signal 11 (SIGSEGV) after 283.528683 seconds from start
+[23-Oct-2026 04:33:11] NOTICE: [pool www] child 2807550 started
+[23-Oct-2026 04:33:12] WARNING: [pool www] child 2807550 exited on signal 11 (SIGSEGV) after 0.687054 seconds from start
+[23-Oct-2026 04:33:12] NOTICE: [pool www] child 2807575 started
+[23-Oct-2026 04:33:12] WARNING: [pool www] child 2807575 exited on signal 11 (SIGSEGV) after 0.344912 seconds from start
+[23-Oct-2026 04:33:12] NOTICE: [pool www] child 2807588 started
+[23-Oct-2026 04:33:45] WARNING: [pool www] child 2807588 exited on signal 11 (SIGSEGV) after 32.943206 seconds from start
+[23-Oct-2026 04:33:45] NOTICE: [pool www] child 2807906 started
+[23-Oct-2026 05:26:12] NOTICE: Terminating ...
+[23-Oct-2026 05:26:12] NOTICE: exiting, bye-bye!

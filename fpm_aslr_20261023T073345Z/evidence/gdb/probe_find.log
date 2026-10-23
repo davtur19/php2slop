@@ -1,0 +1,46 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f4e88a013a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/research/plain_full_8x_20261023T011800Z/bin/8.5.11/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/research/plain_full_8x_20261023T011800Z/bin/8.5.11/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x55eaff9e44f0
+Breakpoint 2 at 0x55eaffbee890
+U_INIT lock=0 udata=(nil) ulevel=0
+BAILOUT udata=0x7f4e85c7d000 ulevel=1
+BAILOUT udata=0x7f4e85c7d000 ulevel=1
+U_INIT lock=0 udata=0x7f4e85c7d000 ulevel=1
+WORDS 0x4141414141414141 0x4141414141414141 0x4141414141414141 0x4141414141414141
+CHUNKBASE 0x7f4e85c00000
+0x7f4e85c6c058
+0x7f4e85c6c05c
+0x7f4e85c6c09c
+0x7f4e85c6c0b4
+0x7f4e85c6c0c8
+0x7f4e85c6c0cc
+0x7f4e85c6c0d0
+0x7f4e85c6c0d4
+0x7f4e85c6c0d8
+0x7f4e85c6c0dc
+0x7f4e85c6c0e0
+0x7f4e85c6c0e4
+0x7f4e85c6c0e8
+0x7f4e85c6c0ec
+0x7f4e85c6c0f0
+0x7f4e85c6c0f4
+0x7f4e85c6c0f8
+0x7f4e85c6c0fc
+18 patterns found.
+FIND_DONE
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000055eaff9e49c7 in var_tmp_var ()
+SIGSEGV rax=0x4141414141414141
+[Inferior 1 (process 19706) detached]

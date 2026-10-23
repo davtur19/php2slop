@@ -1,0 +1,2 @@
+main/debug_gdb_scripts.lo: \
+ /tmp/opencode/php-8.4.26/main/debug_gdb_scripts.c

@@ -1,0 +1,96 @@
+[23-Oct-2026 04:26:44] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:26:44] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:29:53] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:29:53] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:07] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:07] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:09] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:09] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:09] ERROR: unable to bind listening socket for address '127.0.0.1:18853': Address already in use (98)
+[23-Oct-2026 04:30:09] ERROR: FPM initialization failed
+[23-Oct-2026 04:30:10] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:10] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:10] ERROR: unable to bind listening socket for address '127.0.0.1:18853': Address already in use (98)
+[23-Oct-2026 04:30:10] ERROR: FPM initialization failed
+[23-Oct-2026 04:30:12] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:12] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:12] ERROR: unable to bind listening socket for address '127.0.0.1:18853': Address already in use (98)
+[23-Oct-2026 04:30:12] ERROR: FPM initialization failed
+[23-Oct-2026 04:30:14] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:14] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:14] ERROR: unable to bind listening socket for address '127.0.0.1:18853': Address already in use (98)
+[23-Oct-2026 04:30:14] ERROR: FPM initialization failed
+[23-Oct-2026 04:30:38] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:38] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:40] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:40] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:40] ERROR: unable to bind listening socket for address '127.0.0.1:18853': Address already in use (98)
+[23-Oct-2026 04:30:40] ERROR: FPM initialization failed
+[23-Oct-2026 04:30:42] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:42] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:42] ERROR: unable to bind listening socket for address '127.0.0.1:18853': Address already in use (98)
+[23-Oct-2026 04:30:42] ERROR: FPM initialization failed
+[23-Oct-2026 04:30:43] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:43] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:43] ERROR: unable to bind listening socket for address '127.0.0.1:18853': Address already in use (98)
+[23-Oct-2026 04:30:43] ERROR: FPM initialization failed
+[23-Oct-2026 04:30:45] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:45] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:45] ERROR: unable to bind listening socket for address '127.0.0.1:18853': Address already in use (98)
+[23-Oct-2026 04:30:45] ERROR: FPM initialization failed
+[23-Oct-2026 04:30:47] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:47] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:30:47] ERROR: unable to bind listening socket for address '127.0.0.1:18853': Address already in use (98)
+[23-Oct-2026 04:30:47] ERROR: FPM initialization failed
+[23-Oct-2026 04:32:20] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:32:20] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:32:23] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:32:23] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:32:25] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:32:25] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:32:27] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:32:27] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:32:29] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:32:29] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:32:31] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:32:31] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:32:33] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:32:33] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:32:35] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:32:35] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:34:53] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:34:53] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:34:55] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:34:55] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:34:57] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:34:57] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:34:59] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:34:59] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:01] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:01] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:03] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:03] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:05] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:05] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:07] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:07] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:09] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:09] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:11] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:11] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:13] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:13] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:15] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:15] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:17] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:17] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:19] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:19] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:21] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:21] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:22] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:22] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:24] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:35:24] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:36:37] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:36:37] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root

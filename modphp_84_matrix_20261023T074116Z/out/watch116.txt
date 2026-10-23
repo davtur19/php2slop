@@ -1,0 +1,25 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f01514c03a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: BFD: /usr/lib/debug/.build-id/a5/3126ca5ef3f1c12e9bd48cf7cccd63698fc818.debug: unable to get decompressed section .debug_gdb_scripts
+warning: Couldn't read .debug_gdb_scripts section of /usr/lib/debug/.build-id/a5/3126ca5ef3f1c12e9bd48cf7cccd63698fc818.debug
+Hardware watchpoint 1: *(unsigned long long*)0x7f014fc7d720
+Hardware watchpoint 2: *(unsigned long long*)0x7f014fc7d728
+W8 val=0x7f014fcf8398
+#0  0x00007f01515ac94a in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f0150e95022 in memcpy (__dest=0x7f014fc7d718, __src=<optimized out>, __len=384) at /usr/include/x86_64-linux-gnu/bits/string_fortified.h:29
+#2  zend_string_init (str=<optimized out>, len=<optimized out>, persistent=<optimized out>) at ./Zend/zend_string.h:200
+#3  php_sapi_filter (arg=<optimized out>, var=0x7f014fc65000 "s000000037", val=0x7ffe86dbbc90, val_len=384, new_val_len=0x7ffe86dbbc98) at ./ext/filter/filter.c:341
+#4  0x00007f0150fbec02 in rfc1867_post_handler (content_type_dup=<optimized out>, arg=<optimized out>) at ./main/rfc1867.c:870
+WA0 val=0xa00000001
+#0  0x00007f015111b000 in i_zval_ptr_dtor (zval_ptr=<optimized out>) at ./Zend/zend_variables.h:44
+#1  zval_ptr_dtor (zval_ptr=<optimized out>) at ./Zend/zend_variables.c:84
+#2  0x00007f0150ee699f in php_session_track_init () at ./ext/session/session.c:244
+#3  0x00007f0150eec528 in php_session_initialize () at ./ext/session/session.c:479
+#4  0x00007f0150eee525 in php_session_rfc1867_cleanup (progress=0x7f014fc62000) at ./ext/session/session.c:3202
+WA0 val=0xc000040a00000001
+#0  gc_possible_root (ref=0x7f014fc7d720) at ./Zend/zend_gc.c:728
+#1  0x00007f0150ee699f in php_session_track_init () at ./ext/session/session.c:244
+#2  0x00007f0150eec528 in php_session_initialize () at ./ext/session/session.c:479
+#3  0x00007f0150eee525 in php_session_rfc1867_cleanup (progress=0x7f014fc62000) at ./ext/session/session.c:3202
+#4  php_session_rfc1867_callback (event=<optimized out>, event_data=0x7ffe86dbbcf0, extra=<optimized out>) at ./ext/session/session.c:3366

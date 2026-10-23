@@ -1,0 +1,201 @@
+{
+ "attempt": 1,
+ "started": "2026-10-23T01:37:27Z",
+ "stages": [
+  {
+   "stage": "A1",
+   "chain_try": 0,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "d5cc28bb7b2ddabe6067058123b68fa3cc5899abfd90bd78b3a00c580a0f9c25",
+   "elapsed_s": 0.079
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 0,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.093,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 1,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.083,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 2,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.074,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 3,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.07,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 4,
+   "bytes": 1683165,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.253,
+   "decoded": 819208,
+   "zdtor": "0x7f22eaae0b60",
+   "libphp": "0x7f22ea482000",
+   "buckets": [
+    [
+     "0x7f22e8000000",
+     7495
+    ],
+    [
+     "0x7f22eaa00000",
+     1095
+    ],
+    [
+     "0x7f22e8800000",
+     87
+    ],
+    [
+     "0x7f22e7e00000",
+     79
+    ]
+   ],
+   "main": "0x7f22e8800000",
+   "cand_counts": {
+    "0x7f22e8800000": 87,
+    "0x7f22e7e00000": 79
+   },
+   "leak": "hit"
+  },
+  {
+   "stage": "A2",
+   "i": 0,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "d5cc28bb7b2ddabe6067058123b68fa3cc5899abfd90bd78b3a00c580a0f9c25",
+   "elapsed_s": 0.069
+  },
+  {
+   "stage": "A2",
+   "i": 1,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "d5cc28bb7b2ddabe6067058123b68fa3cc5899abfd90bd78b3a00c580a0f9c25",
+   "elapsed_s": 0.062
+  },
+  {
+   "stage": "A2",
+   "i": 2,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "d5cc28bb7b2ddabe6067058123b68fa3cc5899abfd90bd78b3a00c580a0f9c25",
+   "elapsed_s": 0.069
+  },
+  {
+   "stage": "A2",
+   "i": 3,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "d5cc28bb7b2ddabe6067058123b68fa3cc5899abfd90bd78b3a00c580a0f9c25",
+   "elapsed_s": 0.063
+  },
+  {
+   "stage": "A2",
+   "i": 4,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "2ac89c0f04eaf23bf79f723e09bd759747e3a7bc052a373306876fc2b202c80e",
+   "elapsed_s": 0.079
+  },
+  {
+   "stage": "B2",
+   "i": 0,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 259,
+   "sha256": "f150bcb83b9780efc23a1fd804e75e86222f1b0a3dd3ab910697f6cab3347358",
+   "elapsed_s": 0.004
+  },
+  {
+   "stage": "B2",
+   "i": 1,
+   "status": "",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "elapsed_s": 0.01
+  },
+  {
+   "stage": "B2",
+   "i": 2,
+   "status": "",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "elapsed_s": 0.009
+  },
+  {
+   "stage": "B2",
+   "i": 3,
+   "status": "",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "elapsed_s": 0.009
+  },
+  {
+   "stage": "B2",
+   "i": 4,
+   "status": "",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "elapsed_s": 0.009
+  }
+ ],
+ "success": false,
+ "marker": "M8426A1",
+ "bodies": {
+  "a1": {
+   "bytes": 1060211,
+   "sha256": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6"
+  },
+  "b1": {
+   "bytes": 33128677,
+   "sha256": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2"
+  },
+  "a2": {
+   "bytes": 279369,
+   "sha256": "7af66c8f35c5fa6b47a539da6dca361d19543d9f62d61e4af891c2802bd5e236"
+  },
+  "b2_first": {
+   "bytes": 451384,
+   "sha256": "df60bd4fcf3d06bbbf118e7a30590b8478599c68cd7e4d9576bbf614e23568fe"
+  }
+ },
+ "S": "0x7f22e88f8398",
+ "zif_system": "0x7f22ea8e7370",
+ "b1_chain_try": 0,
+ "b1_hit_attempt": 4,
+ "route": "broadcast",
+ "b2_cmd": "id>/out/p1_a1;echo M8426A1_b0>>/out/p1_a1;id>&2;echo M8426A1_b0>&2",
+ "post_health": {
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 195,
+  "body": "OK\n"
+ },
+ "finished": "2026-10-23T01:37:35Z"
+}

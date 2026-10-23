@@ -1,0 +1,99 @@
+{
+ "tag": "8.5.11",
+ "port": 18905,
+ "started": "2026-10-23T08:22:54Z",
+ "image": "php@sha256:47e6d8849049375e0d19e81f1b391ed88828d4653e0d1b00822185b66b564e8b",
+ "tests": {
+  "tuned85": {
+   "a1_85": {
+    "bytes": 211,
+    "status": "HTTP/1.0 500 Internal Server Error"
+   },
+   "b1_85": [
+    {
+     "bytes": 274,
+     "status": "HTTP/1.1 200 OK",
+     "cookie": "present",
+     "decoded": 40,
+     "ptr_clusters": 0,
+     "ptrs": 0,
+     "top": [],
+     "head": "376130383431386432396532393239383065323661373836"
+    },
+    {
+     "bytes": 274,
+     "status": "HTTP/1.1 200 OK",
+     "cookie": "present",
+     "decoded": 40,
+     "ptr_clusters": 0,
+     "ptrs": 0,
+     "top": [],
+     "head": "333534373135376232636238386365383665633636396331"
+    },
+    {
+     "bytes": 274,
+     "status": "HTTP/1.1 200 OK",
+     "cookie": "present",
+     "decoded": 40,
+     "ptr_clusters": 0,
+     "ptrs": 0,
+     "top": [],
+     "head": "303831373433323164333830306135613130333037643231"
+    },
+    {
+     "bytes": 274,
+     "status": "HTTP/1.1 200 OK",
+     "cookie": "present",
+     "decoded": 40,
+     "ptr_clusters": 0,
+     "ptrs": 0,
+     "top": [],
+     "head": "626437346337376236646533316337323964366462383131"
+    },
+    {
+     "bytes": 829408,
+     "status": "HTTP/1.1 200 OK",
+     "cookie": "present",
+     "decoded": 819208,
+     "ptr_clusters": 3,
+     "ptrs": 53,
+     "top": [
+      [
+       "0x7f31eb400000",
+       51
+      ],
+      [
+       "0x7f31ebc00000",
+       1
+      ],
+      [
+       "0x7f31eb200000",
+       1
+      ]
+     ],
+     "head": "424242422f42424200333336663166633036653461356234"
+    }
+   ],
+   "b1_85_hits": 1
+  }
+ },
+ "php": "8.5.11",
+ "limits": {
+  "display_errors": "''",
+  "memory_limit": "'128M'",
+  "post_max_size": "'8M'",
+  "upload_max_filesize": "'2M'",
+  "max_execution_time": "'30'",
+  "output_buffering": "'4096'",
+  "max_input_vars": "'1000'",
+  "session.upload_progress.enabled": "'1'",
+  "session.save_path": "''",
+  "sapi": "apache2handler"
+ },
+ "workers": "stock",
+ "crash_85": [
+  "Allowed memory size"
+ ],
+ "state_final": "true 0 0",
+ "complete": true
+}

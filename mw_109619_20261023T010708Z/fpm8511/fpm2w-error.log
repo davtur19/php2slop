@@ -1,0 +1,6 @@
+[23-Oct-2026 04:24:20] NOTICE: [pool www] 'user' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:24:20] NOTICE: [pool www] 'group' directive is ignored when FPM is not running as root
+[23-Oct-2026 04:24:20] NOTICE: fpm is running, pid 2782662
+[23-Oct-2026 04:24:20] NOTICE: ready to handle connections
+[23-Oct-2026 04:38:40] NOTICE: Terminating ...
+[23-Oct-2026 04:38:40] NOTICE: exiting, bye-bye!

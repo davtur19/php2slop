@@ -1,0 +1,6 @@
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+2aaf76711273
+FPMALT-PWN-D_nginx117_7.2.23
+
+Warning: Cannot modify header information - headers already sent by (output started at /tmp/a:1) in /srv/www/7223/index.php on line 2
+FPMALT-OK 7.2.23

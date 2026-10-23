@@ -1,0 +1,34 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f4e88a013a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/research/plain_full_8x_20261023T011800Z/bin/8.5.11/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/research/plain_full_8x_20261023T011800Z/bin/8.5.11/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x55eaff9e44f0
+Breakpoint 2 at 0x55eaffa363f0
+U_INIT udata=(nil) ulevel=0
+REQSHUTDOWN udata=0x7f4e85c7d000 ulevel=1 W=0x7f4e85c7d038 (nil) (nil)
+AT_X+40
+0x7f4e85c7d040:	0x0000000000000000	0x00007f4e85c130a0
+0x7f4e85c7d050:	0x0000000000000000	0x0000000000000000
+AT_64K
+0x7f4e85c70040:	0x000000000000002e	0x0000000000000000
+0x7f4e85c70050:	0x00007f4e85c6d010	0x00007f4e85c6d020
+U_INIT udata=0x7f4e85c7d000 ulevel=1
+W=0x7f4e85c70040 (nil) (nil)
+U_INIT udata=0x7f4e85c7d000 ulevel=1
+W=0x7f4e85c70040 0x7f4e85c6d000 0x7f4e85c6d000
+U_INIT udata=0x7f4e85c7d000 ulevel=1
+W=0x7f4e85c70040 0x7f4e85c6d000 0x7f4e85c6d000
+U_INIT udata=0x7f4e85c7d000 ulevel=1
+W=0x7f4e85c70040 0x7f4e85c6d000 0x7f4e85c6d000
+REQSHUTDOWN udata=(nil) ulevel=0 W=/tmp/opencode/research/fpm_aslr_20261023T073345Z/bin/partial.gdb:35: Error in sourced command file:
+Cannot access memory at address 0x0
+[Inferior 1 (process 240384) detached]

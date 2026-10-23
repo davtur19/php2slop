@@ -1,0 +1,2 @@
+[23-Oct-2026 10:47:39] WARNING: [pool www] child 342843 exited on signal 11 (SIGSEGV) after 12.707774 seconds from start
+[23-Oct-2026 10:47:39] NOTICE: [pool www] child 342974 started

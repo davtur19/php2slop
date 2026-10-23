@@ -1,0 +1,33 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f21b26013a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/research/plain_full_8x_20261023T011800Z/bin/8.5.12/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/research/plain_full_8x_20261023T011800Z/bin/8.5.12/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x56184a8a8350
+Breakpoint 2 at 0x56184a854cd0
+Breakpoint 3 at 0x56184a85c6e0
+Breakpoint 4 at 0x56184a85c780
+Breakpoint 5 at 0x56184a90f630
+REQSTART lock=0 sdata=(nil) slevel=0 udata=(nil) ulevel=0
+UNSER_INIT lock=0 sdata=(nil) slevel=0 udata=(nil) ulevel=0
+#0  0x000056184a854cd0 in php_var_unserialize_init ()
+#1  0x000056184a7a4909 in ps_srlzr_decode_php ()
+#2  0x000056184a7a9ba1 in php_session_decode ()
+SER_INIT lock=0 sdata=(nil) slevel=0 udata=(nil) ulevel=0
+#0  0x000056184a85c6e0 in php_var_serialize_init ()
+#1  0x000056184a7a469a in ps_srlzr_encode_php ()
+#2  0x000056184a7a6453 in php_session_flush ()
+#3  0x000056184a7aa876 in zm_deactivate_session ()
+#4  0x000056184a91b09f in zend_deactivate_modules ()
+SER_DESTROY lock=0 sdata=0x7f21af87b000 slevel=1 udata=(nil) ulevel=0
+PRE_MEMMGR lock=0 sdata=(nil) slevel=0 udata=(nil) ulevel=0
+FINAL_STATE_REACHED
+[Inferior 1 (process 2881791) detached]

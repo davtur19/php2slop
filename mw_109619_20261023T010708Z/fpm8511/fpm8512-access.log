@@ -1,0 +1,6 @@
+127.0.0.1 -  23/Oct/2026:04:26:45 +0200 "GET /fpm-status?full" 200 - 4.992 2048 0.00%
+127.0.0.1 -  23/Oct/2026:04:26:51 +0200 "GET /fpm-status?full" 200 - 0.094 2048 0.00%
+127.0.0.1 -  23/Oct/2026:04:26:51 +0200 "GET /index.php?title=Special:UserLogin" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 358.177 12288 83.76%
+127.0.0.1 -  23/Oct/2026:04:26:51 +0200 "POST /index.php?title=Special:UserLogin" 200 /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php 522.879 104444 97.54%
+127.0.0.1 -  23/Oct/2026:04:26:52 +0200 "GET /fpm-status?full" 200 - 0.095 6144 0.00%
+127.0.0.1 -  23/Oct/2026:04:27:01 +0200 "GET /fpm-status?full" 200 - 5.409 4096 0.00%

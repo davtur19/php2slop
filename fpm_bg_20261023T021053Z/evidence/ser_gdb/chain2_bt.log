@@ -1,0 +1,45 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f054f3073a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/research/fpm_bg_20261023T021053Z/build/sym8426/sapi/fpm/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/research/fpm_bg_20261023T021053Z/build/sym8426/sapi/fpm/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Catchpoint 1 (signal SIGSEGV)
+Breakpoint 2 at 0x559b9edbb6a9: file /tmp/opencode/php-8.4.26/main/main.c, line 1805.
+Breakpoint 3 at 0x559b9ed9e8f0: file /tmp/opencode/php-8.4.26/ext/standard/var.c, line 1349.
+Breakpoint 4 at 0x559b9ed9e982: file /tmp/opencode/php-8.4.26/ext/standard/var.c, line 1366.
+Breakpoint 5 at 0x559b9edbb9e4: file /tmp/opencode/php-8.4.26/main/main.c, line 1891.
+REQSTART sdata=(nil) slevel=0
+SER_INIT sdata=(nil) slevel=0
+REQSHUTDOWN sdata=0x7f054f002040 slevel=1
+REQSTART sdata=0x7f054f002040 slevel=1
+SER_INIT sdata=0x7f054f002040 slevel=1
+SIGSEGV pc=0x559b9eeaae5f
+#0  0x0000559b9eeaae5f in zend_mm_free_heap (heap=0x7f054f000040, ptr=0x7f04399d0c50) at /tmp/opencode/php-8.4.26/Zend/zend_alloc.c:1528
+#1  _efree (ptr=0x7f04399d0c50) at /tmp/opencode/php-8.4.26/Zend/zend_alloc.c:2754
+#2  0x0000559b9f09714b in zend_hash_packed_to_hash (ht=0x7f054f002040) at /tmp/opencode/php-8.4.26/Zend/zend_hash.c:370
+#3  0x0000559b9f09c8e2 in _zend_hash_index_add_or_update_i (ht=0x7f054f002040, h=139660777320960, pData=0x7fffd60977a0, flag=10) at /tmp/opencode/php-8.4.26/Zend/zend_hash.c:1155
+#4  zend_hash_index_add_new (ht=0x7f054f002040, h=139660777320960, pData=0x7fffd60977a0) at /tmp/opencode/php-8.4.26/Zend/zend_hash.c:1223
+#5  0x0000559b9ed97335 in php_add_var_hash (data=0x7f054f002040, var=0x7f054f068540, in_rcn_array=false) at /tmp/opencode/php-8.4.26/ext/standard/var.c:791
+#6  0x0000559b9ed99fb8 in php_var_serialize_intern (buf=0x7fffd609a350, struc=0x7f054f068540, var_hash=0x7f054f002040, in_rcn_array=false, is_root=false) at /tmp/opencode/php-8.4.26/ext/standard/var.c:1080
+#7  0x0000559b9ed99d15 in php_var_serialize_nested_data (buf=0x7fffd609a350, struc=0x7f054f068680, ht=0x7f054f05d230, count=2, incomplete_class=false, var_hash=0x7f054f002040, in_rcn_array=false) at /tmp/opencode/php-8.4.26/ext/standard/var.c:1035
+#8  0x0000559b9ed9e6e1 in php_var_serialize_intern (buf=0x7fffd609a350, struc=0x7f054f068680, var_hash=0x7f054f002040, in_rcn_array=false, is_root=true) at /tmp/opencode/php-8.4.26/ext/standard/var.c:1325
+#9  0x0000559b9ed9e8b9 in php_var_serialize (buf=0x7fffd609a350, struc=0x7f054f068680, data=0x7fffd609a348) at /tmp/opencode/php-8.4.26/ext/standard/var.c:1341
+#10 0x0000559b9ebd33ba in ps_srlzr_encode_php () at /tmp/opencode/php-8.4.26/ext/session/session.c:1084
+#11 0x0000559b9ebcfbee in php_session_encode () at /tmp/opencode/php-8.4.26/ext/session/session.c:259
+#12 0x0000559b9ebd08f0 in php_session_save_current_state (write=1) at /tmp/opencode/php-8.4.26/ext/session/session.c:528
+#13 0x0000559b9ebd777c in php_session_flush (write=1) at /tmp/opencode/php-8.4.26/ext/session/session.c:1744
+rip            0x559b9eeaae5f      0x559b9eeaae5f <_efree+199>
+rax            0x7f0439800000      139656121286656
+rbx            0x0                 0
+rdi            0x7f04399d0c50      139656123190352
+rsi            0x28                40
+rdx            0x268               616
+[Inferior 1 (process 2880499) detached]

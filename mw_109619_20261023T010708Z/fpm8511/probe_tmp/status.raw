@@ -1,0 +1,65 @@
+X-Powered-By: PHP/8.5.11
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Cache-Control: no-cache, no-store, must-revalidate, max-age=0
+Content-type: text/plain;charset=UTF-8
+
+pool:                 www
+process manager:      dynamic
+start time:           23/Oct/2026:04:00:11 +0200
+start since:          2312
+accepted conn:        73
+listen queue:         0
+max listen queue:     0
+listen queue len:     4096
+idle processes:       2
+active processes:     1
+total processes:      3
+max active processes: 2
+max children reached: 0
+slow requests:        0
+memory peak:          104853504
+
+************************
+pid:                  2679718
+state:                Idle
+start time:           23/Oct/2026:04:00:11 +0200
+start since:          2312
+requests:             40
+request duration:     2650
+request method:       GET
+request URI:          /fpm-status?full
+content length:       0
+user:                 -
+script:               -
+last request cpu:     0.00
+last request memory:  2097152
+
+************************
+pid:                  2679719
+state:                Running
+start time:           23/Oct/2026:04:00:11 +0200
+start since:          2312
+requests:             30
+request duration:     955
+request method:       GET
+request URI:          /fpm-status?full
+content length:       0
+user:                 -
+script:               -
+last request cpu:     0.00
+last request memory:  0
+
+************************
+pid:                  2781456
+state:                Idle
+start time:           23/Oct/2026:04:23:01 +0200
+start since:          942
+requests:             3
+request duration:     30104319
+request method:       POST
+request URI:          /index.php
+content length:       6001281
+user:                 -
+script:               /tmp/opencode/research/mw_109619_20261023T010708Z/fpm8511/html/index.php
+last request cpu:     0.27
+last request memory:  40198144

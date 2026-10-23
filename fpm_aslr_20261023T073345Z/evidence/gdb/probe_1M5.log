@@ -1,0 +1,22 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f4e88a013a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/research/plain_full_8x_20261023T011800Z/bin/8.5.11/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/research/plain_full_8x_20261023T011800Z/bin/8.5.11/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x55eaff9e44f0
+Breakpoint 2 at 0x55eaff9eb950
+Breakpoint 3 at 0x55eaffbee890
+Breakpoint 4 at 0x55eaffa363f0
+U_INIT lock=0 udata=(nil) ulevel=0 off_in_page=0
+BAILOUT udata=0x7f4e85c8a000 ulevel=1 sdata=(nil) slevel=0
+BAILOUT udata=0x7f4e85c8a000 ulevel=1 sdata=(nil) slevel=0
+REQSHUTDOWN udata=0x7f4e85c8a000 ulevel=1 sdata=(nil) slevel=0
+[Inferior 1 (process 15232) detached]

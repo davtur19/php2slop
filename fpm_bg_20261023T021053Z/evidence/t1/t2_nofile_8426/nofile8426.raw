@@ -1,0 +1,15 @@
+POST /ping.php HTTP/1.1
+Host: 127.0.0.1:29320
+Content-Type: multipart/form-data; boundary=----t2Boundary7MA4YWxkTrZu0gW
+Content-Length: 241
+Connection: close
+
+------t2Boundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="PHPSESSID"
+
+t2victim
+------t2Boundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="PHP_SESSION_UPLOAD_PROGRESS"
+
+t2prog
+------t2Boundary7MA4YWxkTrZu0gW--

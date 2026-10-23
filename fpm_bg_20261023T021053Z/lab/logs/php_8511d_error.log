@@ -1,0 +1,42 @@
+[23-Oct-2026 02:35:41 UTC] SLOW_START pid=2810594
+[23-Oct-2026 02:35:41 UTC] SLOW_START pid=2810593
+[23-Oct-2026 02:35:42 UTC] SLOW_START pid=2810771
+[23-Oct-2026 02:35:43 UTC] SLOW_START pid=2810772
+[23-Oct-2026 02:35:44 UTC] PRODUCER_OOM_START pid=2810779
+[23-Oct-2026 02:35:44 UTC] PRODUCER_OOM_PAYLOAD pid=2810779 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:35:44 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:35:55 UTC] SLOW_START pid=2810779
+[23-Oct-2026 02:35:56 UTC] SLOW_END pid=2810593
+[23-Oct-2026 02:35:56 UTC] SLOW_END pid=2810594
+[23-Oct-2026 02:35:56 UTC] SLOW_START pid=2810593
+[23-Oct-2026 02:35:56 UTC] SLOW_START pid=2810594
+[23-Oct-2026 02:35:57 UTC] SLOW_END pid=2810771
+[23-Oct-2026 02:35:57 UTC] SLOW_START pid=2810771
+[23-Oct-2026 02:35:58 UTC] SLOW_END pid=2810772
+[23-Oct-2026 02:35:59 UTC] PRODUCER_OOM_START pid=2810772
+[23-Oct-2026 02:35:59 UTC] PRODUCER_OOM_PAYLOAD pid=2810772 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 02:35:59 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 02:36:20 UTC] SLOW_END pid=2810779
+[23-Oct-2026 02:36:21 UTC] SLOW_END pid=2810593
+[23-Oct-2026 02:36:21 UTC] SLOW_END pid=2810594
+[23-Oct-2026 02:36:22 UTC] SLOW_END pid=2810771
+[23-Oct-2026 02:46:28 UTC] SLOW_START pid=2810779
+[23-Oct-2026 02:46:28 UTC] SLOW_START pid=2811002
+[23-Oct-2026 02:46:28 UTC] SLOW_START pid=2810771
+[23-Oct-2026 02:46:28 UTC] SLOW_START pid=2889193
+[23-Oct-2026 02:46:30 UTC] PRODUCER_SER_START pid=2889204
+[23-Oct-2026 02:46:30 UTC] PRODUCER_SER_PRE pid=2889204 n=300000 mem=10489856
+[23-Oct-2026 02:46:30 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65015808 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php on line 8
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_ser_oom.php(8): serialize(Array)
+#1 {main}
+[23-Oct-2026 02:46:43 UTC] SLOW_END pid=2810779
+[23-Oct-2026 02:46:43 UTC] SLOW_END pid=2810771
+[23-Oct-2026 02:46:43 UTC] SLOW_END pid=2811002
+[23-Oct-2026 02:46:43 UTC] SLOW_END pid=2889193

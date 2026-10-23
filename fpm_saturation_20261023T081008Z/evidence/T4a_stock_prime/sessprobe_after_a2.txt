@@ -1,0 +1,4 @@
+SID=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa STATUS=2
+SESSION={"upload_progress_k0":{"start_time":1792743996,"content_length":279369,"bytes_processed":12551,"done":false,"files":[{"field_name":"files[R00000][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a][a]","name":"","tmp_name":null,"error":0,"done":false,"start_time":1792743996,"bytes_processed":12551}]}}
+GLOBALS_SESSION=yes
+KEYS=_GET,_POST,_COOKIE,_FILES,_SESSION

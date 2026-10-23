@@ -1,0 +1,20 @@
+== php-8.2.34 main-loop startup failure ==
+1873-			if (UNEXPECTED(php_request_startup() == FAILURE)) {
+1874:				fcgi_finish_request(request, 1);
+== php-8.2.34 session key delimiter ==
+974:		if (memchr(ZSTR_VAL(key), PS_DELIMITER, ZSTR_LEN(key))) {
+== php-8.3.35 main-loop startup failure ==
+1875-			if (UNEXPECTED(php_request_startup() == FAILURE)) {
+1876:				fcgi_finish_request(request, 1);
+== php-8.3.35 session key delimiter ==
+994:		if (memchr(ZSTR_VAL(key), PS_DELIMITER, ZSTR_LEN(key))) {
+== php-8.4.26 main-loop startup failure ==
+1871-			if (UNEXPECTED(php_request_startup() == FAILURE)) {
+1872:				fcgi_finish_request(request, 1);
+== php-8.4.26 session key delimiter ==
+1086:		if (memchr(ZSTR_VAL(key), PS_DELIMITER, ZSTR_LEN(key))) {
+== php-8.5.11 main-loop startup failure ==
+1838-			if (UNEXPECTED(php_request_startup() == FAILURE)) {
+1839:				fcgi_finish_request(request, 1);
+== php-8.5.11 session key delimiter ==
+1075:		if (memchr(ZSTR_VAL(key), PS_DELIMITER, ZSTR_LEN(key))) {

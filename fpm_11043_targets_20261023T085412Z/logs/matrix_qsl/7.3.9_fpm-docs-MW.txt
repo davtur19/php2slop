@@ -1,0 +1,6 @@
+### 7.3.9 http://127.0.0.1:19108/index.php
+2026/10/23 11:09:49 Base status code is 200
+2026/10/23 11:09:50 Status code 502 for qsl=1770, adding as a candidate
+2026/10/23 11:09:51 The target is probably vulnerable. Possible QSLs: [1760 1765 1770]
+2026/10/23 11:09:51 Detect() found QSLs and that's it
+rc=0

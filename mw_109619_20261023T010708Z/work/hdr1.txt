@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Date: Fri, 23 Oct 2026 01:45:32 GMT
+Server: Apache/2.4.69 (Debian)
+X-Powered-By: PHP/8.4.26
+X-Content-Type-Options: nosniff
+Content-language: en
+Vary: Accept-Encoding,Cookie
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Cache-Control: private, must-revalidate, max-age=0
+Last-Modified: Fri, 23 Oct 2026 01:08:39 GMT
+X-Request-Id: 89e366f4816756a943839ce2
+Transfer-Encoding: chunked
+Content-Type: text/html; charset=UTF-8
+

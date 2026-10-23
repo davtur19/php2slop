@@ -1,0 +1,4 @@
+# partial-STDIN hidden-request negative, 2026-10-23T08:59:02Z
+# port 29361 static-1 8.4.26; target body=5120 prefix + 377 hidden FCGI records
+REQ1 end=True app_status=0 stdout=b'X-Powered-By: PHP/8.4.26\r\nContent-type: text/plain;charset=UTF-8\r\n\r\nT3_TARGET pid=86216 method=POST uri=/t3_target.php ct=multipart/form-data; boundary=T3BOUND clen=5497 post=["a"]\n' stderr=b''
+REQ2 end=False app_status=None stdout=b'' stderr=b''

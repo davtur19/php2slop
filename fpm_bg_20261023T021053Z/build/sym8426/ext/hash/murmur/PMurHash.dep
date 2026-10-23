@@ -1,0 +1,4 @@
+ext/hash/murmur/PMurHash.lo: \
+ /tmp/opencode/php-8.4.26/ext/hash/murmur/PMurHash.c \
+ /tmp/opencode/php-8.4.26/ext/hash/murmur/PMurHash.h \
+ /tmp/opencode/php-8.4.26/ext/hash/murmur/endianness.h

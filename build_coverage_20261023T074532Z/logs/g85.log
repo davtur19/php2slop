@@ -1,0 +1,37 @@
++ python3 harness.py --tag 8.5.0 --port 18902 --plans as-is,85
+== 8.5.0  8.5.0  '128M'
+   A1 as-is: HTTP/1.0 500 Internal Server Error (274 B)
+   B1 as-is i=0 HTTP/1.1 200 OK cookie=present decoded=40
+   B1 as-is i=1 HTTP/1.1 200 OK cookie=present decoded=40
+   B1 as-is i=2 HTTP/1.1 200 OK cookie=present decoded=40
+   B1 as-is i=3 HTTP/1.1 200 OK cookie=present decoded=40
+   B1 as-is i=4 HTTP/1.1 200 OK cookie=absent decoded=None
+   B1 as-is i=5 HTTP/1.1 200 OK cookie=present decoded=40
+   A1 8.5-tuned: HTTP/1.0 500 Internal Server Error (210 B)
+   B1 8.5 i=0 HTTP/1.1 200 OK cookie=present decoded=40 ptrs=0
+   B1 8.5 i=1 HTTP/1.1 200 OK cookie=present decoded=40 ptrs=0
+   B1 8.5 i=2 HTTP/1.1 200 OK cookie=present decoded=40 ptrs=0
+   B1 8.5 i=3 HTTP/1.1 200 OK cookie=present decoded=40 ptrs=0
+   B1 8.5 i=4  cookie=absent decoded=None ptrs=None
+   B1 8.5 i=5 HTTP/1.1 200 OK cookie=present decoded=40 ptrs=0
+   -> /tmp/opencode/research/build_coverage_20261023T074532Z/out/850/result.json
++ python3 harness.py --tag 8.5.5 --port 18903 --plans as-is,85
+== 8.5.5  8.5.5  '128M'
+   A1 as-is: HTTP/1.0 500 Internal Server Error (274 B)
+   B1 as-is i=0 HTTP/1.1 200 OK cookie=present decoded=40
+   B1 as-is i=1 HTTP/1.1 200 OK cookie=present decoded=40
+   B1 as-is i=2 HTTP/1.1 200 OK cookie=present decoded=40
+   B1 as-is i=3 HTTP/1.1 200 OK cookie=present decoded=40
+   B1 as-is i=4 HTTP/1.1 200 OK cookie=absent decoded=None
+   B1 as-is i=5 HTTP/1.1 200 OK cookie=present decoded=40
+   A1 8.5-tuned: HTTP/1.0 500 Internal Server Error (210 B)
+   B1 8.5 i=0 HTTP/1.1 200 OK cookie=present decoded=40 ptrs=0
+   B1 8.5 i=1 HTTP/1.1 200 OK cookie=present decoded=40 ptrs=0
+   B1 8.5 i=2 HTTP/1.1 200 OK cookie=present decoded=40 ptrs=0
+   B1 8.5 i=3 HTTP/1.1 200 OK cookie=present decoded=40 ptrs=0
+   B1 8.5 i=4 HTTP/1.1 200 OK cookie=present decoded=819208 ptrs=53
+   -> /tmp/opencode/research/build_coverage_20261023T074532Z/out/855/result.json
++ python3 harness.py --tag 8.5.12 --port 18904 --plans as-is
+== 8.5.12  8.5.12  '128M'
+   A1 as-is: HTTP/1.1 200 OK (274 B)
+   -> /tmp/opencode/research/build_coverage_20261023T074532Z/out/8512/result.json

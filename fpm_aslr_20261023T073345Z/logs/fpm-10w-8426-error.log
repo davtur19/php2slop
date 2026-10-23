@@ -1,0 +1,46 @@
+[23-Oct-2026 09:36:54] NOTICE: fpm is running, pid 3084067
+[23-Oct-2026 09:36:54] NOTICE: ready to handle connections
+[23-Oct-2026 09:37:10] WARNING: [pool www] child 3084071 exited on signal 9 (SIGKILL) after 15.996692 seconds from start
+[23-Oct-2026 09:37:10] NOTICE: [pool www] child 3084445 started
+[23-Oct-2026 09:37:10] WARNING: [pool www] child 3084073 exited on signal 9 (SIGKILL) after 15.996848 seconds from start
+[23-Oct-2026 09:37:10] NOTICE: [pool www] child 3084446 started
+[23-Oct-2026 09:37:10] WARNING: [pool www] child 3084075 exited on signal 9 (SIGKILL) after 15.996668 seconds from start
+[23-Oct-2026 09:37:10] NOTICE: [pool www] child 3084447 started
+[23-Oct-2026 09:37:10] WARNING: [pool www] child 3084077 exited on signal 9 (SIGKILL) after 15.996378 seconds from start
+[23-Oct-2026 09:37:10] NOTICE: [pool www] child 3084448 started
+[23-Oct-2026 09:37:10] WARNING: [pool www] child 3084079 exited on signal 9 (SIGKILL) after 15.996152 seconds from start
+[23-Oct-2026 09:37:10] NOTICE: [pool www] child 3084449 started
+[23-Oct-2026 09:37:24] WARNING: [pool www] child 3084076 exited on signal 9 (SIGKILL) after 29.476768 seconds from start
+[23-Oct-2026 09:37:24] NOTICE: [pool www] child 3084589 started
+[23-Oct-2026 09:37:24] WARNING: [pool www] child 3084072 exited on signal 9 (SIGKILL) after 29.478448 seconds from start
+[23-Oct-2026 09:37:24] NOTICE: [pool www] child 3084590 started
+[23-Oct-2026 09:37:24] WARNING: [pool www] child 3084080 exited on signal 9 (SIGKILL) after 29.476593 seconds from start
+[23-Oct-2026 09:37:24] NOTICE: [pool www] child 3084591 started
+[23-Oct-2026 09:37:24] WARNING: [pool www] child 3084446 exited on signal 9 (SIGKILL) after 13.481704 seconds from start
+[23-Oct-2026 09:37:24] NOTICE: [pool www] child 3084592 started
+[23-Oct-2026 09:37:24] WARNING: [pool www] child 3084448 exited on signal 9 (SIGKILL) after 13.481435 seconds from start
+[23-Oct-2026 09:37:24] NOTICE: [pool www] child 3084593 started
+[23-Oct-2026 09:39:51] WARNING: [pool www] child 3084074 exited on signal 9 (SIGKILL) after 177.113047 seconds from start
+[23-Oct-2026 09:39:51] NOTICE: [pool www] child 3086609 started
+[23-Oct-2026 09:39:51] WARNING: [pool www] child 3084445 exited on signal 9 (SIGKILL) after 161.117052 seconds from start
+[23-Oct-2026 09:39:51] NOTICE: [pool www] child 3086610 started
+[23-Oct-2026 09:39:51] WARNING: [pool www] child 3084449 exited on signal 9 (SIGKILL) after 161.116126 seconds from start
+[23-Oct-2026 09:39:51] NOTICE: [pool www] child 3086611 started
+[23-Oct-2026 09:39:51] WARNING: [pool www] child 3084590 exited on signal 9 (SIGKILL) after 147.636006 seconds from start
+[23-Oct-2026 09:39:51] NOTICE: [pool www] child 3086612 started
+[23-Oct-2026 09:39:51] WARNING: [pool www] child 3084592 exited on signal 9 (SIGKILL) after 147.635614 seconds from start
+[23-Oct-2026 09:39:51] NOTICE: [pool www] child 3086613 started
+[23-Oct-2026 09:40:12] WARNING: [pool www] child 3084078 exited on signal 9 (SIGKILL) after 198.192388 seconds from start
+[23-Oct-2026 09:40:12] NOTICE: [pool www] child 3087012 started
+[23-Oct-2026 09:40:12] WARNING: [pool www] child 3084589 exited on signal 9 (SIGKILL) after 168.716230 seconds from start
+[23-Oct-2026 09:40:12] NOTICE: [pool www] child 3087013 started
+[23-Oct-2026 09:40:12] WARNING: [pool www] child 3084593 exited on signal 9 (SIGKILL) after 168.715125 seconds from start
+[23-Oct-2026 09:40:12] NOTICE: [pool www] child 3087014 started
+[23-Oct-2026 09:40:12] WARNING: [pool www] child 3086610 exited on signal 9 (SIGKILL) after 21.080789 seconds from start
+[23-Oct-2026 09:40:12] NOTICE: [pool www] child 3087015 started
+[23-Oct-2026 09:40:12] WARNING: [pool www] child 3086612 exited on signal 9 (SIGKILL) after 21.080462 seconds from start
+[23-Oct-2026 09:40:12] NOTICE: [pool www] child 3087016 started
+[23-Oct-2026 09:53:03] NOTICE: Terminating ...
+[23-Oct-2026 09:53:03] NOTICE: exiting, bye-bye!
+[23-Oct-2026 10:14:55] NOTICE: fpm is running, pid 15215
+[23-Oct-2026 10:14:55] NOTICE: ready to handle connections

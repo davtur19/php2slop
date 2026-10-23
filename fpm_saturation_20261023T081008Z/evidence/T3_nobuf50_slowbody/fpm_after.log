@@ -1,0 +1,10 @@
+[23-Oct-2026 08:11:48] NOTICE: fpm is running, pid 1
+[23-Oct-2026 08:11:48] NOTICE: ready to handle connections
+[23-Oct-2026 08:25:49] WARNING: [pool www] seems busy (you may need to increase pm.start_servers, or pm.min/max_spare_servers), spawning 8 children, there are 0 idle, and 17 total children
+[23-Oct-2026 08:25:50] WARNING: [pool www] seems busy (you may need to increase pm.start_servers, or pm.min/max_spare_servers), spawning 16 children, there are 0 idle, and 22 total children
+[23-Oct-2026 08:25:51] WARNING: [pool www] seems busy (you may need to increase pm.start_servers, or pm.min/max_spare_servers), spawning 32 children, there are 0 idle, and 27 total children
+[23-Oct-2026 08:25:52] WARNING: [pool www] seems busy (you may need to increase pm.start_servers, or pm.min/max_spare_servers), spawning 32 children, there are 0 idle, and 32 total children
+[23-Oct-2026 08:25:53] WARNING: [pool www] seems busy (you may need to increase pm.start_servers, or pm.min/max_spare_servers), spawning 32 children, there are 0 idle, and 37 total children
+[23-Oct-2026 08:25:54] WARNING: [pool www] seems busy (you may need to increase pm.start_servers, or pm.min/max_spare_servers), spawning 32 children, there are 0 idle, and 42 total children
+[23-Oct-2026 08:25:55] WARNING: [pool www] seems busy (you may need to increase pm.start_servers, or pm.min/max_spare_servers), spawning 32 children, there are 0 idle, and 47 total children
+[23-Oct-2026 08:25:56] WARNING: [pool www] server reached pm.max_children setting (50), consider raising it

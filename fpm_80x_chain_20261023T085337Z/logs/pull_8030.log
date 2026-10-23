@@ -1,0 +1,34 @@
+8.0.30-fpm: Pulling from library/php
+b7f91549542c: Already exists
+0754b57b9b7d: Already exists
+71e5060f3937: Already exists
+f25a6e74b7f5: Already exists
+3f7a772f0363: Pulling fs layer
+ee48c9e915e2: Pulling fs layer
+db2d9f727193: Pulling fs layer
+a852cd97958a: Pulling fs layer
+ebd89704cb2a: Pulling fs layer
+a4550c4cc3fd: Pulling fs layer
+ebd89704cb2a: Waiting
+a4550c4cc3fd: Waiting
+a852cd97958a: Waiting
+ee48c9e915e2: Verifying Checksum
+ee48c9e915e2: Download complete
+a852cd97958a: Verifying Checksum
+a852cd97958a: Download complete
+3f7a772f0363: Download complete
+ebd89704cb2a: Verifying Checksum
+ebd89704cb2a: Download complete
+3f7a772f0363: Pull complete
+a4550c4cc3fd: Verifying Checksum
+a4550c4cc3fd: Download complete
+db2d9f727193: Verifying Checksum
+db2d9f727193: Download complete
+ee48c9e915e2: Pull complete
+db2d9f727193: Pull complete
+a852cd97958a: Pull complete
+ebd89704cb2a: Pull complete
+a4550c4cc3fd: Pull complete
+Digest: sha256:b07b8df17506cdb370945d942c5f12356af2d078005ded8b195f7e17129de9d1
+Status: Downloaded newer image for mirror.gcr.io/library/php:8.0.30-fpm
+mirror.gcr.io/library/php:8.0.30-fpm

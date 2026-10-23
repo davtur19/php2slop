@@ -1,0 +1,12 @@
+15 172.20.0.11 GET /pid.php 200
+61 172.20.0.11 GET /pid.php 200
+61 172.20.0.11 GET /pid.php 200
+62 172.20.0.6 POST /index.php 200
+40 172.20.0.6 POST /sessprobe.php 200
+61 172.20.0.6 POST /index.php 200
+62 172.20.0.6 POST /sessprobe.php 200
+40 172.20.0.6 GET /sesswrite.php 200
+61 172.20.0.6 GET /inicheck.php 200
+62 172.20.0.6 POST /inicheck.php 200
+40 172.20.0.6 GET /inicheck.php 200
+61 172.20.0.6 POST /index.php 200

@@ -1,0 +1,33 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f054f3073a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: File "/tmp/opencode/research/fpm_bg_20261023T021053Z/build/sym8426/sapi/fpm/php-fpm" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+	add-auto-load-safe-path /tmp/opencode/research/fpm_bg_20261023T021053Z/build/sym8426/sapi/fpm/php-fpm
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+To completely disable this security protection add
+	set auto-load safe-path /
+line to your configuration file "/home/davide/.config/gdb/gdbinit".
+For more information about this security protection see the
+"Auto-loading safe path" section in the GDB manual.  E.g., run from the shell:
+	info "(gdb)Auto-loading safe path"
+Breakpoint 1 at 0x559b9edbb6a9: file /tmp/opencode/php-8.4.26/main/main.c, line 1805.
+Breakpoint 2 at 0x559b9ed86791: file /tmp/opencode/php-8.4.26/ext/standard/var_unserializer.c, line 64.
+Breakpoint 3 at 0x559b9ed9e8f0: file /tmp/opencode/php-8.4.26/ext/standard/var.c, line 1349.
+Breakpoint 4 at 0x559b9ed9e982: file /tmp/opencode/php-8.4.26/ext/standard/var.c, line 1366.
+Breakpoint 5 at 0x559b9eeae23a: file /tmp/opencode/php-8.4.26/Zend/zend_alloc.c, line 2927.
+REQSTART lock=0 sdata=0x7f054f072040 slevel=1 udata=(nil) ulevel=0
+UNSER_INIT lock=0 sdata=(nil) slevel=0 udata=(nil) ulevel=0
+#0  php_var_unserialize_init () at /tmp/opencode/php-8.4.26/ext/standard/var_unserializer.c:64
+#1  0x0000559b9ebd3471 in ps_srlzr_decode_php (val=0x7f054f0021a8 "USER|O:8:\"stdClass\":0:{}SESSION|O:8:\"stdClass\":0:{}", vallen=51) at /tmp/opencode/php-8.4.26/ext/session/session.c:1117
+#2  0x0000559b9ebcfcca in php_session_decode (data=0x7f054f002190) at /tmp/opencode/php-8.4.26/ext/session/session.c:279
+SER_INIT lock=0 sdata=(nil) slevel=0 udata=(nil) ulevel=0
+#0  php_var_serialize_init () at /tmp/opencode/php-8.4.26/ext/standard/var.c:1349
+#1  0x0000559b9ebd2d7f in ps_srlzr_encode_php () at /tmp/opencode/php-8.4.26/ext/session/session.c:1082
+#2  0x0000559b9ebcfbee in php_session_encode () at /tmp/opencode/php-8.4.26/ext/session/session.c:259
+#3  0x0000559b9ebd08f0 in php_session_save_current_state (write=1) at /tmp/opencode/php-8.4.26/ext/session/session.c:528
+#4  0x0000559b9ebd777c in php_session_flush (write=1) at /tmp/opencode/php-8.4.26/ext/session/session.c:1744
+SER_DESTROY lock=0 sdata=0x7f054f076000 slevel=1 udata=(nil) ulevel=0
+PRE_MEMMGR lock=0 sdata=(nil) slevel=0 udata=(nil) ulevel=0
+FINAL_STATE_REACHED
+[Inferior 1 (process 2881192) detached]

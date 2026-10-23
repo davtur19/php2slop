@@ -1,0 +1,3 @@
+children_after_sleepers: 5
+producer_code: 500 dt=0.071
+consumer_status_line: HTTP/1.1 502 Bad Gateway

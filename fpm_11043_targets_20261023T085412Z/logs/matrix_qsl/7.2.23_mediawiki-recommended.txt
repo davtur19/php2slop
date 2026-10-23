@@ -1,0 +1,4 @@
+### 7.2.23 http://127.0.0.1:19133/index.php
+2026/10/23 11:10:05 Base status code is 404
+2026/10/23 11:10:05 Detect() returned error: no qsl candidates found, invulnerable or something wrong
+rc=1

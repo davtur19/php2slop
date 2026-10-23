@@ -1,0 +1,191 @@
+{
+ "tag": "8.3.20",
+ "port": 18908,
+ "started": "2026-10-23T08:24:02Z",
+ "image": "php@sha256:44e44b615af547ad25ff3ca5e36c6c8e4644cb6db3da2720e064cf89bd231661",
+ "tests": {
+  "as_is": {
+   "a1": {
+    "bytes": 268,
+    "status": "HTTP/1.1 200 OK"
+   }
+  },
+  "sweep": {
+   "parts": [
+    {
+     "bytes": 268,
+     "status": "HTTP/1.1 200 OK",
+     "parts": 820
+    },
+    {
+     "bytes": 211,
+     "status": "HTTP/1.0 500 Internal Server Error",
+     "parts": 880,
+     "b1_probes": [
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "67746235313068716736646d343539356d72386d72706d6a"
+      },
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "6a6232696b70616f32666e31363930323671697074316834"
+      },
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "326d726a756466626a356e6a716c68613833727671616876"
+      }
+     ]
+    },
+    {
+     "bytes": 211,
+     "status": "HTTP/1.0 500 Internal Server Error",
+     "parts": 920,
+     "b1_probes": [
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "33737375637134696e696e346b6f7364367135756a623373"
+      },
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "6876376761756274353238393533663566626739616a6a32"
+      },
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "39756c6e3963743037373533683033656d32726334673061"
+      }
+     ]
+    },
+    {
+     "bytes": 211,
+     "status": "HTTP/1.0 500 Internal Server Error",
+     "parts": 1000,
+     "b1_probes": [
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "63396a6e7276746e626438696f3931766538676c6b6d7264"
+      },
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "35613961726468306765676275636b687375703171306366"
+      },
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "6d666f6b3767343770756c6e316d336872346d6536357238"
+      }
+     ]
+    },
+    {
+     "bytes": 211,
+     "status": "HTTP/1.0 500 Internal Server Error",
+     "parts": 1060,
+     "b1_probes": [
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "6c75757176666d6f6163683769716b667561613776747034"
+      },
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "6c696d31707472756b733339686261356c71696534617439"
+      },
+      {
+       "bytes": 268,
+       "status": "HTTP/1.1 200 OK",
+       "cookie": "present",
+       "decoded": 34,
+       "ptr_clusters": 0,
+       "ptrs": 0,
+       "top": [],
+       "head": "383076756c3863336566346a61343237396631733765356c"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "php": "8.3.20",
+ "limits": {
+  "display_errors": "''",
+  "memory_limit": "'128M'",
+  "post_max_size": "'8M'",
+  "upload_max_filesize": "'2M'",
+  "max_execution_time": "'30'",
+  "output_buffering": "'4096'",
+  "max_input_vars": "'1000'",
+  "session.upload_progress.enabled": "'1'",
+  "session.save_path": "''",
+  "sapi": "apache2handler"
+ },
+ "workers": "stock",
+ "crash_as_is": [],
+ "crash_sweep": [
+  "Allowed memory size"
+ ],
+ "state_final": "true 0 0",
+ "complete": true
+}

@@ -1,0 +1,49 @@
+[23-Oct-2026 08:11:47] NOTICE: fpm is running, pid 1
+[23-Oct-2026 08:11:47] NOTICE: ready to handle connections
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[23-Oct-2026 08:13:07] WARNING: [pool www] child 8 exited with code 70 after 79.408999 seconds from start
+[23-Oct-2026 08:13:07] NOTICE: [pool www] child 12 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[23-Oct-2026 08:13:19] WARNING: [pool www] child 12 exited with code 70 after 12.283027 seconds from start
+[23-Oct-2026 08:13:19] NOTICE: [pool www] child 13 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[23-Oct-2026 08:13:19] WARNING: [pool www] child 9 exited with code 70 after 91.762556 seconds from start
+[23-Oct-2026 08:13:19] NOTICE: [pool www] child 14 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[23-Oct-2026 08:13:19] WARNING: [pool www] child 13 exited with code 70 after 0.141458 seconds from start
+[23-Oct-2026 08:13:19] NOTICE: [pool www] child 15 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[23-Oct-2026 08:13:19] WARNING: [pool www] child 14 exited with code 70 after 0.140492 seconds from start
+[23-Oct-2026 08:13:19] NOTICE: [pool www] child 16 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[23-Oct-2026 08:13:19] WARNING: [pool www] child 15 exited with code 70 after 0.143871 seconds from start
+[23-Oct-2026 08:13:19] NOTICE: [pool www] child 17 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[23-Oct-2026 08:13:20] WARNING: [pool www] child 16 exited with code 70 after 0.147635 seconds from start
+[23-Oct-2026 08:13:20] NOTICE: [pool www] child 18 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[23-Oct-2026 08:13:20] WARNING: [pool www] child 17 exited with code 70 after 0.147257 seconds from start
+[23-Oct-2026 08:13:20] NOTICE: [pool www] child 19 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[23-Oct-2026 08:13:20] WARNING: [pool www] child 18 exited with code 70 after 0.145822 seconds from start
+[23-Oct-2026 08:13:20] NOTICE: [pool www] child 20 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[23-Oct-2026 08:13:20] WARNING: [pool www] child 19 exited with code 70 after 0.144133 seconds from start
+[23-Oct-2026 08:13:20] NOTICE: [pool www] child 21 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[23-Oct-2026 08:13:20] WARNING: [pool www] child 20 exited with code 70 after 0.142973 seconds from start
+[23-Oct-2026 08:13:20] NOTICE: [pool www] child 22 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+[23-Oct-2026 08:13:29] WARNING: [pool www] child 22 exited with code 70 after 8.781319 seconds from start
+[23-Oct-2026 08:13:29] NOTICE: [pool www] child 23 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+[23-Oct-2026 08:13:29] WARNING: [pool www] child 21 exited with code 70 after 8.925670 seconds from start
+[23-Oct-2026 08:13:29] NOTICE: [pool www] child 24 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[23-Oct-2026 08:13:29] WARNING: [pool www] child 23 exited with code 70 after 0.145819 seconds from start
+[23-Oct-2026 08:13:29] NOTICE: [pool www] child 25 started
+NOTICE: PHP message: PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[23-Oct-2026 08:13:29] WARNING: [pool www] child 24 exited with code 70 after 0.141044 seconds from start
+[23-Oct-2026 08:13:29] NOTICE: [pool www] child 26 started
+NOTICE: PHP message: PHP Warning:  PHP Request Startup: POST Content-Length of 33128677 bytes exceeds the limit of 8388608 bytes in Unknown on line 0
+NOTICE: PHP message: PHP Warning:  PHP Request Startup: POST Content-Length of 33128677 bytes exceeds the limit of 8388608 bytes in Unknown on line 0

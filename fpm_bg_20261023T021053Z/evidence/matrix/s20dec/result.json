@@ -1,0 +1,772 @@
+{
+  "tag": "s20dec",
+  "type": "decode",
+  "port": 29511,
+  "producers": 20,
+  "consumers": 20,
+  "n": 8000000,
+  "producer_script": "producer_oom.php",
+  "sids": [
+    "ms20dec-0",
+    "ms20dec-1",
+    "ms20dec-2",
+    "ms20dec-3",
+    "ms20dec-4",
+    "ms20dec-5",
+    "ms20dec-6",
+    "ms20dec-7",
+    "ms20dec-8",
+    "ms20dec-9",
+    "ms20dec-10",
+    "ms20dec-11",
+    "ms20dec-12",
+    "ms20dec-13",
+    "ms20dec-14",
+    "ms20dec-15",
+    "ms20dec-16",
+    "ms20dec-17",
+    "ms20dec-18",
+    "ms20dec-19"
+  ],
+  "producer_responses": [
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.089,
+      "i": 0
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.055,
+      "i": 1
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.059,
+      "i": 2
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.114,
+      "i": 3
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.055,
+      "i": 4
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.094,
+      "i": 5
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.09,
+      "i": 6
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.063,
+      "i": 7
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.112,
+      "i": 8
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.118,
+      "i": 9
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.108,
+      "i": 10
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.085,
+      "i": 11
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.101,
+      "i": 12
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.085,
+      "i": 13
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.097,
+      "i": 14
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.069,
+      "i": 15
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.094,
+      "i": 16
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.078,
+      "i": 17
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.084,
+      "i": 18
+    },
+    {
+      "status": 500,
+      "len": 0,
+      "body": "",
+      "dt": 0.054,
+      "i": 19
+    }
+  ],
+  "producer_wall": 0.126,
+  "producer_rows": [
+    {
+      "pid": 338080,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp2",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338080 127.0.0.1 GET 500 n=8000000&tag=s20decp2 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 2
+    },
+    {
+      "pid": 338083,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp1",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338083 127.0.0.1 GET 500 n=8000000&tag=s20decp1 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 1
+    },
+    {
+      "pid": 338084,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp4",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338084 127.0.0.1 GET 500 n=8000000&tag=s20decp4 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 4
+    },
+    {
+      "pid": 338086,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp7",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338086 127.0.0.1 GET 500 n=8000000&tag=s20decp7 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 7
+    },
+    {
+      "pid": 338085,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp5",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338085 127.0.0.1 GET 500 n=8000000&tag=s20decp5 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 5
+    },
+    {
+      "pid": 338082,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp0",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338082 127.0.0.1 GET 500 n=8000000&tag=s20decp0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 0
+    },
+    {
+      "pid": 338096,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp15",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338096 127.0.0.1 GET 500 n=8000000&tag=s20decp15 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 15
+    },
+    {
+      "pid": 338098,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp19",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338098 127.0.0.1 GET 500 n=8000000&tag=s20decp19 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 19
+    },
+    {
+      "pid": 338087,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp6",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338087 127.0.0.1 GET 500 n=8000000&tag=s20decp6 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 6
+    },
+    {
+      "pid": 338089,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp11",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338089 127.0.0.1 GET 500 n=8000000&tag=s20decp11 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 11
+    },
+    {
+      "pid": 338092,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp13",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338092 127.0.0.1 GET 500 n=8000000&tag=s20decp13 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 13
+    },
+    {
+      "pid": 338097,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp17",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338097 127.0.0.1 GET 500 n=8000000&tag=s20decp17 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 17
+    },
+    {
+      "pid": 338091,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp12",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338091 127.0.0.1 GET 500 n=8000000&tag=s20decp12 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 12
+    },
+    {
+      "pid": 338081,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp3",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338081 127.0.0.1 GET 500 n=8000000&tag=s20decp3 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 3
+    },
+    {
+      "pid": 338079,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp18",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338079 127.0.0.1 GET 500 n=8000000&tag=s20decp18 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 18
+    },
+    {
+      "pid": 338094,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp14",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338094 127.0.0.1 GET 500 n=8000000&tag=s20decp14 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 14
+    },
+    {
+      "pid": 338088,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp8",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338088 127.0.0.1 GET 500 n=8000000&tag=s20decp8 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 8
+    },
+    {
+      "pid": 338093,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp10",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338093 127.0.0.1 GET 500 n=8000000&tag=s20decp10 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 10
+    },
+    {
+      "pid": 338095,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp16",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338095 127.0.0.1 GET 500 n=8000000&tag=s20decp16 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 16
+    },
+    {
+      "pid": 338090,
+      "remote": "127.0.0.1",
+      "method": "GET",
+      "status": "500",
+      "query": "n=8000000&tag=s20decp9",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "line": "338090 127.0.0.1 GET 500 n=8000000&tag=s20decp9 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php",
+      "i": 9
+    }
+  ],
+  "primed_pids": [
+    338079,
+    338080,
+    338081,
+    338082,
+    338083,
+    338084,
+    338085,
+    338086,
+    338087,
+    338088,
+    338089,
+    338090,
+    338091,
+    338092,
+    338093,
+    338094,
+    338095,
+    338096,
+    338097,
+    338098
+  ],
+  "primed_distinct": 20,
+  "consumer_responses": [
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.006,
+      "i": 0,
+      "sid": "ms20dec-0"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.004,
+      "i": 1,
+      "sid": "ms20dec-1"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.004,
+      "i": 2,
+      "sid": "ms20dec-2"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.005,
+      "i": 3,
+      "sid": "ms20dec-3"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.006,
+      "i": 4,
+      "sid": "ms20dec-4"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.003,
+      "i": 5,
+      "sid": "ms20dec-5"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.003,
+      "i": 6,
+      "sid": "ms20dec-6"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.003,
+      "i": 7,
+      "sid": "ms20dec-7"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.003,
+      "i": 8,
+      "sid": "ms20dec-8"
+    },
+    {
+      "status": 200,
+      "len": 48,
+      "body": "CONSUMER PID=338325 STATUS=1 SID= SESSION=[\"p\"]\n",
+      "dt": 0.003,
+      "i": 9,
+      "sid": "ms20dec-9"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.004,
+      "i": 10,
+      "sid": "ms20dec-10"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.004,
+      "i": 11,
+      "sid": "ms20dec-11"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.003,
+      "i": 12,
+      "sid": "ms20dec-12"
+    },
+    {
+      "status": 200,
+      "len": 48,
+      "body": "CONSUMER PID=338326 STATUS=1 SID= SESSION=[\"p\"]\n",
+      "dt": 0.003,
+      "i": 13,
+      "sid": "ms20dec-13"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.003,
+      "i": 14,
+      "sid": "ms20dec-14"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.004,
+      "i": 15,
+      "sid": "ms20dec-15"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.004,
+      "i": 16,
+      "sid": "ms20dec-16"
+    },
+    {
+      "status": 200,
+      "len": 48,
+      "body": "CONSUMER PID=338328 STATUS=1 SID= SESSION=[\"p\"]\n",
+      "dt": 0.004,
+      "i": 17,
+      "sid": "ms20dec-17"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.002,
+      "i": 18,
+      "sid": "ms20dec-18"
+    },
+    {
+      "status": 502,
+      "len": 157,
+      "body": "<html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx/1.30.1</center>\r\n</body>\r\n</html>\r\n",
+      "dt": 0.002,
+      "i": 19,
+      "sid": "ms20dec-19"
+    }
+  ],
+  "consumer_wall": 0.018,
+  "consumer_rows": [
+    {
+      "pid": 338325,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=s20decc9",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "338325 127.0.0.1 POST 200 tag=s20decc9 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "i": 9
+    },
+    {
+      "pid": 338326,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=s20decc13",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "338326 127.0.0.1 POST 200 tag=s20decc13 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "i": 13
+    },
+    {
+      "pid": 338328,
+      "remote": "127.0.0.1",
+      "method": "POST",
+      "status": "200",
+      "query": "tag=s20decc17",
+      "script": "/tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "line": "338328 127.0.0.1 POST 200 tag=s20decc17 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/consumer.php",
+      "i": 17
+    }
+  ],
+  "crashed_pids": [
+    338079,
+    338080,
+    338081,
+    338082,
+    338083,
+    338084,
+    338085,
+    338086,
+    338087,
+    338088,
+    338089,
+    338090,
+    338092,
+    338093,
+    338094,
+    338096,
+    338098
+  ],
+  "crashed_on_primed": [
+    338079,
+    338080,
+    338081,
+    338082,
+    338083,
+    338084,
+    338085,
+    338086,
+    338087,
+    338088,
+    338089,
+    338090,
+    338092,
+    338093,
+    338094,
+    338096,
+    338098
+  ],
+  "crashed_not_primed": [],
+  "nginx_consumer_rows": [
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc2",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc2 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc1",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc1 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc5",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc5 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc3",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc3 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc0",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc0 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc4",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc4 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc8",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc8 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc6",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc6 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc7",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc7 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc13",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc13 HTTP/1.1\" 200 59 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc9",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc9 HTTP/1.1\" 200 59 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc14",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc14 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc12",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc12 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc11",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc11 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc16",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc16 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc18",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc18 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc15",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc15 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc10",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc10 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc19",
+      "status": 502,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc19 HTTP/1.1\" 502 157 \"-\" \"-\""
+    },
+    {
+      "method": "POST",
+      "path": "/consumer.php?tag=s20decc17",
+      "status": 200,
+      "line": "127.0.0.1 - - [23/Oct/2026:10:45:10 +0200] \"POST /consumer.php?tag=s20decc17 HTTP/1.1\" 200 59 \"-\" \"-\""
+    }
+  ],
+  "nginx_502": 17,
+  "nginx_200": 3,
+  "consumer_survivor_pids": [
+    338325,
+    338326,
+    338328
+  ],
+  "survivors_on_primed": [],
+  "verdict": {
+    "all_primed_crashed": false,
+    "any_cross_worker_crash": false,
+    "missing_primed_crashes": [
+      338091,
+      338095,
+      338097
+    ]
+  }
+}

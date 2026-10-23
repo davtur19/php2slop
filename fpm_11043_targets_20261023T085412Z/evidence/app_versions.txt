@@ -1,0 +1,20 @@
+=== WordPress version ===
+$wp_version = '5.3.2';
+$wp_db_version = 45805;
+af65ca77a36ba70575b74e351dd7b3bef9f261229b9f79bfb0f0f671cbbd9656  apps/wordpress/index.php
+8cf09719b388bff6125729de5f89a11138bd1d499ce5f5ba2e93e84095507aab  apps/wordpress/wp-includes/version.php
+docroot copies:
+af65ca77a36ba70575b74e351dd7b3bef9f261229b9f79bfb0f0f671cbbd9656  apps/wordpress/index.php
+8cf09719b388bff6125729de5f89a11138bd1d499ce5f5ba2e93e84095507aab  apps/wordpress/wp-includes/version.php
+
+=== MediaWiki version ===
+75:$wgVersion = '1.33.1';
+29:$wgScriptPath = "/w";
+32:# $wgServer auto-detected per request (lab: same wiki served on several lab ports)
+35:$wgResourceBasePath = $wgScriptPath;
+163:$wgArticlePath = "/wiki/$1";
+164:$wgUsePathInfo = false;
+0a9dabc0fa9f4de8e38cb7c86a8a9df74fac281045718c44be2f5319c8202caa  apps/w/index.php
+9011b01dbca95905ace6f0ce44979c471d968c9e6a4aecccb28641bd81a0504a  apps/w/LocalSettings.php
+
+=== app tarball hashes ===

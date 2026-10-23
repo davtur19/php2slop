@@ -1,0 +1,3 @@
+TSRM/TSRM.lo: /tmp/opencode/php-8.4.26/TSRM/TSRM.c \
+ /tmp/opencode/php-8.4.26/TSRM/TSRM.h \
+ /tmp/opencode/research/fpm_bg_20261023T021053Z/build/sym8426/main/php_config.h

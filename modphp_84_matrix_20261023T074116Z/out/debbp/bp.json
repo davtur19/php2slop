@@ -1,0 +1,71 @@
+{
+ "a2": {
+  "pid": 10,
+  "state": {
+   "heap": "0x7f45e1600040",
+   "main": "0x7f45e1600000",
+   "lib": "0x7f45e26b7000",
+   "sid": "0x7f45e16660c0",
+   "sidoff": "0x660c0",
+   "md": "0x0",
+   "hsv": "0x7f45e167d6e0",
+   "hsvoff": "0x7d6e0",
+   "hsvtype": "0x10a",
+   "send_cookie": "0",
+   "status": "1"
+  },
+  "log": [
+   "10 1792746640.715852 POST /index.php 500 - 73967"
+  ]
+ },
+ "main": "0x7f45e1600000",
+ "lib": "0x7f45e26b7000",
+ "hsv": "0x7f45e167d6e0",
+ "S": "0x7f45e16f8398",
+ "zif": "0x7f45e2903dd0",
+ "sent": [
+  {
+   "k": 0,
+   "pid": 13,
+   "status": "HTTP/1.1 200 OK",
+   "log": [
+    "13 1792746643.095932 POST /index.php 200 3 2646"
+   ]
+  },
+  {
+   "k": 1,
+   "pid": 11,
+   "status": "HTTP/1.1 200 OK",
+   "log": [
+    "11 1792746643.479219 POST /index.php 200 3 2343"
+   ]
+  },
+  {
+   "k": 2,
+   "pid": 12,
+   "status": "HTTP/1.1 200 OK",
+   "log": [
+    "12 1792746643.873584 POST /index.php 200 3 2552"
+   ]
+  },
+  {
+   "k": 3,
+   "pid": 9,
+   "status": "HTTP/1.1 200 OK",
+   "log": [
+    "9 1792746644.250490 POST /index.php 200 3 3939"
+   ]
+  },
+  {
+   "k": 4,
+   "pid": 10,
+   "status": "HTTP/1.1 200 OK",
+   "log": [
+    "10 1792746644.653158 POST /index.php 200 3 30659"
+   ]
+  }
+ ],
+ "hit": true,
+ "gdb_exited": true,
+ "gdb_out": "[Thread debugging using libthread_db enabled]\nUsing host libthread_db library \"/lib/x86_64-linux-gnu/libthread_db.so.1\".\n0x00007f45e2e813a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6\nwarning: BFD: /usr/lib/debug/.build-id/a5/3126ca5ef3f1c12e9bd48cf7cccd63698fc818.debug: unable to get decompressed section .debug_gdb_scripts\nwarning: Couldn't read .debug_gdb_scripts section of /usr/lib/debug/.build-id/a5/3126ca5ef3f1c12e9bd48cf7cccd63698fc818.debug\nBreakpoint 1 at 0x7f45e2adbff0: file ./Zend/zend_variables.c, line 83.\nHIT zval=0x7f45e2c6d708 type=0x10a value=0x7f45e167d6e0\nREF rc=2 type=0x1a ptr=0x7f45e1659268 valtype=0x307\nMEM at value[:64]: 020000001a000000689265e1457f000007030000000000000e48279754c17f9e0100000016000000000000000000000080010000000000005353535353535353\n#0  zval_ptr_dtor (zval_ptr=0x7f45e2c6d708 <ps_globals+360>) at ./Zend/zend_variables.c:83\n#1  0x00007f45e28a799f in php_session_track_init () at ./ext/session/session.c:244\n#2  0x00007f45e28ad528 in php_session_initialize () at ./ext/session/session.c:479\n#3  0x00007f45e28af525 in php_session_rfc1867_cleanup (progress=0x7f45e1662000) at ./ext/session/session.c:3202\n#4  php_session_rfc1867_callback (event=<optimized out>, event_data=0x7ffe3bae73b0, extra=<optimized out>) at ./ext/session/session.c:3366\n#5  0x00007f45e297f3aa in rfc1867_post_handler (content_type_dup=<optimized out>, arg=<optimized out>) at ./main/rfc1867.c:1273\n\nBreakpoint 1, zval_ptr_dtor (zval_ptr=0x7f45e2c6d708 <ps_globals+360>) at ./Zend/zend_variables.c:83\nwarning: 83\t./Zend/zend_variables.c: No such file or directory\n[Inferior 1 (process 10) detached]\n"
+}

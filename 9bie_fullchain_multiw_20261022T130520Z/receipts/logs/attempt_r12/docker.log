@@ -1,0 +1,1 @@
+[Thu Oct 22 13:36:19.348926 2026] [php:error] [pid 23:tid 23] [client 172.17.0.1:41360] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0

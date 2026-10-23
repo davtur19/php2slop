@@ -1,0 +1,8 @@
+ext/hash/sha3/generic64lc/KeccakHash.lo: \
+ /tmp/opencode/php-8.4.26/ext/hash/sha3/generic64lc/KeccakHash.c \
+ /tmp/opencode/php-8.4.26/ext/hash/sha3/generic64lc/KeccakHash.h \
+ /tmp/opencode/php-8.4.26/ext/hash/sha3/generic64lc/KeccakSponge.h \
+ /tmp/opencode/php-8.4.26/ext/hash/sha3/generic64lc/align.h \
+ /tmp/opencode/php-8.4.26/ext/hash/sha3/generic64lc/KeccakP-1600-SnP.h \
+ /tmp/opencode/php-8.4.26/ext/hash/sha3/generic64lc/brg_endian.h \
+ /tmp/opencode/php-8.4.26/ext/hash/sha3/generic64lc/KeccakP-1600-opt64-config.h

@@ -1,0 +1,15 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007f2369a123a7 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+warning: BFD: /usr/lib/debug/.build-id/a5/3126ca5ef3f1c12e9bd48cf7cccd63698fc818.debug: unable to get decompressed section .debug_gdb_scripts
+warning: Couldn't read .debug_gdb_scripts section of /usr/lib/debug/.build-id/a5/3126ca5ef3f1c12e9bd48cf7cccd63698fc818.debug
+Hardware watchpoint 1: *(unsigned long long*)0x7f236827d6e0
+Hardware watchpoint 2: *(unsigned long long*)0x7f236827d6e8
+WA0 val=0x1a00000001
+#0  0x00007f236966d000 in i_zval_ptr_dtor (zval_ptr=<optimized out>) at ./Zend/zend_variables.h:44
+#1  zval_ptr_dtor (zval_ptr=<optimized out>) at ./Zend/zend_variables.c:84
+#2  0x00007f236943899f in php_session_track_init () at ./ext/session/session.c:244
+#3  0x00007f236943e528 in php_session_initialize () at ./ext/session/session.c:479
+#4  0x00007f2369440525 in php_session_rfc1867_cleanup (progress=0x7f2368262000) at ./ext/session/session.c:3202
+#5  php_session_rfc1867_callback (event=<optimized out>, event_data=0x7ffe8988de60, extra=<optimized out>) at ./ext/session/session.c:3366
+#6  0x00007f23695103aa in rfc1867_post_handler (content_type_dup=<optimized out>, arg=<optimized out>) at ./main/rfc1867.c:1273

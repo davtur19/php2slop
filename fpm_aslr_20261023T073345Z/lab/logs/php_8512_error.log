@@ -1,0 +1,128 @@
+[23-Oct-2026 07:41:13 UTC] SLOW_START pid=3085451
+[23-Oct-2026 07:41:13 UTC] SLOW_START pid=3085247
+[23-Oct-2026 07:41:13 UTC] SLOW_START pid=3085449
+[23-Oct-2026 07:41:13 UTC] SLOW_START pid=3085245
+[23-Oct-2026 07:41:13 UTC] SLOW_START pid=3085448
+[23-Oct-2026 07:41:13 UTC] SLOW_START pid=3085450
+[23-Oct-2026 07:41:13 UTC] SLOW_START pid=3085249
+[23-Oct-2026 07:41:13 UTC] SLOW_START pid=3085447
+[23-Oct-2026 07:41:13 UTC] SLOW_START pid=3084088
+[23-Oct-2026 07:41:13 UTC] SLOW_START pid=3084097
+[23-Oct-2026 07:41:17 UTC] SLOW_END pid=3085249
+[23-Oct-2026 07:41:17 UTC] SLOW_END pid=3085245
+[23-Oct-2026 07:41:17 UTC] SLOW_END pid=3085450
+[23-Oct-2026 07:41:17 UTC] SLOW_END pid=3085448
+[23-Oct-2026 07:41:17 UTC] SLOW_END pid=3085449
+[23-Oct-2026 07:41:17 UTC] SLOW_END pid=3085451
+[23-Oct-2026 07:41:17 UTC] SLOW_END pid=3085247
+[23-Oct-2026 07:41:17 UTC] SLOW_END pid=3084088
+[23-Oct-2026 07:41:17 UTC] SLOW_END pid=3085447
+[23-Oct-2026 07:41:17 UTC] SLOW_END pid=3084097
+[23-Oct-2026 07:41:24 UTC] SLOW_START pid=3085449
+[23-Oct-2026 07:41:24 UTC] SLOW_START pid=3085447
+[23-Oct-2026 07:41:24 UTC] SLOW_START pid=3088090
+[23-Oct-2026 07:41:24 UTC] SLOW_START pid=3084097
+[23-Oct-2026 07:41:24 UTC] SLOW_START pid=3085247
+[23-Oct-2026 07:41:24 UTC] SLOW_START pid=3088089
+[23-Oct-2026 07:41:24 UTC] SLOW_START pid=3088092
+[23-Oct-2026 07:41:24 UTC] SLOW_START pid=3088091
+[23-Oct-2026 07:41:24 UTC] SLOW_START pid=3085451
+[23-Oct-2026 07:41:24 UTC] SLOW_START pid=3088093
+[23-Oct-2026 07:41:28 UTC] SLOW_END pid=3085447
+[23-Oct-2026 07:41:28 UTC] SLOW_END pid=3088091
+[23-Oct-2026 07:41:28 UTC] SLOW_END pid=3085451
+[23-Oct-2026 07:41:28 UTC] SLOW_END pid=3088090
+[23-Oct-2026 07:41:28 UTC] SLOW_END pid=3085449
+[23-Oct-2026 07:41:28 UTC] SLOW_END pid=3084097
+[23-Oct-2026 07:41:28 UTC] SLOW_END pid=3088093
+[23-Oct-2026 07:41:28 UTC] SLOW_END pid=3085247
+[23-Oct-2026 07:41:28 UTC] SLOW_END pid=3088089
+[23-Oct-2026 07:41:28 UTC] SLOW_END pid=3088092
+[23-Oct-2026 07:41:35 UTC] SLOW_START pid=3088093
+[23-Oct-2026 07:41:35 UTC] SLOW_START pid=3085451
+[23-Oct-2026 07:41:35 UTC] SLOW_START pid=3084097
+[23-Oct-2026 07:41:35 UTC] SLOW_START pid=3088092
+[23-Oct-2026 07:41:35 UTC] SLOW_START pid=3088091
+[23-Oct-2026 07:41:35 UTC] SLOW_START pid=3085447
+[23-Oct-2026 07:41:35 UTC] SLOW_START pid=3088089
+[23-Oct-2026 07:41:35 UTC] SLOW_START pid=3088090
+[23-Oct-2026 07:41:35 UTC] SLOW_START pid=3085247
+[23-Oct-2026 07:41:35 UTC] SLOW_START pid=3085449
+[23-Oct-2026 07:41:39 UTC] SLOW_END pid=3085451
+[23-Oct-2026 07:41:39 UTC] SLOW_END pid=3088091
+[23-Oct-2026 07:41:39 UTC] SLOW_END pid=3088092
+[23-Oct-2026 07:41:39 UTC] SLOW_END pid=3084097
+[23-Oct-2026 07:41:39 UTC] SLOW_END pid=3088089
+[23-Oct-2026 07:41:39 UTC] SLOW_END pid=3088090
+[23-Oct-2026 07:41:39 UTC] SLOW_END pid=3085447
+[23-Oct-2026 07:41:39 UTC] SLOW_END pid=3085449
+[23-Oct-2026 07:41:39 UTC] SLOW_END pid=3088093
+[23-Oct-2026 07:41:39 UTC] SLOW_END pid=3085247
+[23-Oct-2026 07:41:46 UTC] SLOW_START pid=3088534
+[23-Oct-2026 07:41:46 UTC] SLOW_START pid=3088531
+[23-Oct-2026 07:41:46 UTC] SLOW_START pid=3088091
+[23-Oct-2026 07:41:46 UTC] SLOW_START pid=3088089
+[23-Oct-2026 07:41:46 UTC] SLOW_START pid=3088533
+[23-Oct-2026 07:41:46 UTC] SLOW_START pid=3085449
+[23-Oct-2026 07:41:46 UTC] SLOW_START pid=3088093
+[23-Oct-2026 07:41:46 UTC] SLOW_START pid=3088532
+[23-Oct-2026 07:41:46 UTC] SLOW_START pid=3085247
+[23-Oct-2026 07:41:46 UTC] SLOW_START pid=3088535
+[23-Oct-2026 07:41:50 UTC] SLOW_END pid=3088535
+[23-Oct-2026 07:41:50 UTC] SLOW_END pid=3088534
+[23-Oct-2026 07:41:50 UTC] SLOW_END pid=3088532
+[23-Oct-2026 07:41:50 UTC] SLOW_END pid=3088089
+[23-Oct-2026 07:41:50 UTC] SLOW_END pid=3085449
+[23-Oct-2026 07:41:50 UTC] SLOW_END pid=3088533
+[23-Oct-2026 07:41:50 UTC] SLOW_END pid=3085247
+[23-Oct-2026 07:41:50 UTC] SLOW_END pid=3088531
+[23-Oct-2026 07:41:50 UTC] SLOW_END pid=3088091
+[23-Oct-2026 07:41:50 UTC] SLOW_END pid=3088093
+[23-Oct-2026 08:27:50 UTC] PRODUCER_OOM_START pid=249529
+[23-Oct-2026 08:27:50 UTC] PRODUCER_OOM_PAYLOAD pid=249529 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:27:50 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:27:55 UTC] PRODUCER_OOM_START pid=249529
+[23-Oct-2026 08:27:55 UTC] PRODUCER_OOM_PAYLOAD pid=249529 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:27:55 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:28:11 UTC] PRODUCER_OOM_START pid=249529
+[23-Oct-2026 08:28:11 UTC] PRODUCER_OOM_PAYLOAD pid=249529 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:28:11 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:33:44 UTC] PRODUCER_OOM_START pid=249529
+[23-Oct-2026 08:33:44 UTC] PRODUCER_OOM_PAYLOAD pid=249529 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:33:44 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:40:06 UTC] PRODUCER_OOM_START pid=15235
+[23-Oct-2026 08:40:06 UTC] PRODUCER_OOM_PAYLOAD pid=15235 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:40:06 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:40:11 UTC] PRODUCER_OOM_START pid=15235
+[23-Oct-2026 08:40:11 UTC] PRODUCER_OOM_PAYLOAD pid=15235 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:40:11 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:40:32 UTC] PRODUCER_OOM_START pid=15236
+[23-Oct-2026 08:40:32 UTC] PRODUCER_OOM_PAYLOAD pid=15236 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:40:32 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}
+[23-Oct-2026 08:40:37 UTC] PRODUCER_OOM_START pid=15235
+[23-Oct-2026 08:40:37 UTC] PRODUCER_OOM_PAYLOAD pid=15235 n=8000000 len=32000012 mem=34099200
+[23-Oct-2026 08:40:37 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 335544320 bytes) in /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php on line 7
+Stack trace:
+#0 /tmp/opencode/research/fpm_bg_20261023T021053Z/lab/www/producer_oom.php(7): unserialize('a:8000000:{i:1;...')
+#1 {main}

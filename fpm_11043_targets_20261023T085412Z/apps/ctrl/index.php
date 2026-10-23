@@ -1,0 +1,1 @@
+<?php echo "CTRL ".PHP_VERSION."\n";

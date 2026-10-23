@@ -1,0 +1,17 @@
+== t11043-fpm7310 ==
+Server API => FPM/FastCGI
+display_errors => Off => Off
+expose_php => Off => Off
+== t11043-fpm7223 ==
+Server API => FPM/FastCGI
+display_errors => Off => Off
+expose_php => Off => Off
+== t11043-fpm7224 ==
+Server API => FPM/FastCGI
+display_errors => Off => Off
+expose_php => Off => Off
+== t11043-fpm8426 ==
+Server API => FPM/FastCGI
+display_errors => Off => Off
+expose_php => Off => Off
+Server API (SAPI) Abstraction Layer => Andi Gutmans, Shane Caraveo, Zeev Suraski

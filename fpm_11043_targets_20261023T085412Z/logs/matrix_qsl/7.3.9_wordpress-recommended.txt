@@ -1,0 +1,4 @@
+### 7.3.9 http://127.0.0.1:19102/index.php
+2026/10/23 11:09:47 Base status code is 301
+2026/10/23 11:09:48 Detect() returned error: no qsl candidates found, invulnerable or something wrong
+rc=1
