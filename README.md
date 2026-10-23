@@ -19,9 +19,9 @@ CVE-2026-115560 gadget chain on 8.4.26/8.5.11. The 8.5.11 FPM result is
 lab-only and conditional on the row's configuration. No stock/all-version
 claim.
 
-The distro-package and real-app rows below are negative: no full-chain RCE or
-OOB, only crash/DoS, because the B1 leak/address-recovery step did not
-reproduce. They do not extend the lab RCE claims above.
+The newly added distro-package and real-app rows below are negative: no
+full-chain RCE or OOB, only crash/DoS, because the B1 leak/address-recovery
+step did not reproduce. They do not extend the lab RCE claims above.
 
 Legend: ✅ RCE in that exact cell · ❌ tested negative in that exact cell ·
 🚫 patched build (basis stated) · — no qualifying RCE / untested (coverage gaps only).
