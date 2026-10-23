@@ -307,7 +307,7 @@ nginx/FPM.
 | Docroot | official WordPress 7.1.3 ZIP (`eb58a90ed55147f90f7bd55d0d3334960a69b7e8a4cc142c8ddfea8965218227`) minus 48 inactive bundled files (47 `wp-content/plugins/akismet/*` + `wp-content/plugins/hello.php`), plus default `wp-config.php` byte-identical to `wp-config-sample.php`; 3,735 files / 109,646,539 B; no plugins (only the official 28-byte `wp-content/plugins/index.php`), no uploads, no mu-plugins, no `.htaccess`, no `.user.ini` and no lab endpoints; mounted read-only |
 | Integrity | pre/post manifest identical; `docker diff` clean under `/var/www/html`; read-only `touch` fails; target hash unchanged |
 
-The endpoint is a standalone silence file. It does not include `wp-config.php`,
+The endpoint is a standalone silence file. It does not load `wp-config.php`,
 plugins or themes, so this is a SAPI/heap primitive on an official core file,
 not an application LFI, upload or docroot-write chain.
 
