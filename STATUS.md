@@ -27,16 +27,18 @@ Next:
 - hand off parallel batches to target
 
 ## Target agent
-Updated: 2026-10-23 20:27 UTC
-Host: netsec (96 CPU, 251 GiB RAM, 466 GB free, rootless Docker)
-Phase: waiting for first assignment
+Updated: 2026-10-23 21:55 UTC
+Host: netsec (96 CPU, 251 GiB RAM, rootless Docker)
+Phase: FASE 1 metadata matrix (started); preflight passed
 Done:
 - rootless Docker verified: name=rootless, no /var/run/docker.sock
 - images pulled for PHP 8.1-8.5 Apache/FPM and base distros
+- preflight: SecurityOptions contains name=rootless; sockets OK; repo clean at 6bf1d18 (then 2d33b9d with STATUS.md)
+- branch scan: research/wp8424-setup exists (e210e07); research/8426-kit and research/gap-plan missing
 Next:
-- preflight and metadata matrix
-- fetch research/wp8424-setup; run setup-only positive control
-- fetch research/8426-kit; run 20 fresh pools
-- fetch research/gap-plan; execute batches
+- run 12-way metadata matrix over pulled php images -> /home/netsec/php/research/meta_<UTC>/
+- fetch research/wp8424-setup; run setup-only positive control (no exploit traffic)
+- poll research/8426-kit and research/gap-plan; report blocker if still missing
 Blockers:
-- none yet; branches may still be publishing
+- research/8426-kit missing (FASE 3 blocked)
+- research/gap-plan missing (FASE 4 blocked)
