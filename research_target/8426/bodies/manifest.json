@@ -1,0 +1,26 @@
+{
+  "note": "Bodies are stored gzip-compressed to keep the kit small.  setup.sh decompresses them into work/bodies/ and verifies the uncompressed size and SHA-256 before any request is sent.  The bytes are the exact bodies used in the 2026-10-23 blind multi-worker run on php:8.4.26-apache (PHP 8.4.26 NTS, Apache 2.4.69).",
+  "generator": "research tool/debian8424.py (vendored in lib/chain8426.py); A1 uses build_a1(big_len=7150), A2 uses build_a2(fillers=115)",
+  "bodies": {
+    "a1_shrink_7150_only": {
+      "file": "bodies/a1_shrink_7150_only.bin.gz",
+      "uncompressed_bytes": 993911,
+      "sha256": "9f5b041b03778ccc17384dc489834099a9810b01915a174d4ce78010d05a139d"
+    },
+    "a1_stock_8000": {
+      "file": "bodies/a1_stock_8000.bin.gz",
+      "uncompressed_bytes": 1060211,
+      "sha256": "8e8fc166e6b326d20bb7611d8ef3cee3bd5da46447985312c1492ab0a44d1eb6"
+    },
+    "b1_stock": {
+      "file": "bodies/b1_stock.bin.gz",
+      "uncompressed_bytes": 33128677,
+      "sha256": "b6c547e0e9a2bb26607df1521de96f4d5c9adf4621c28b7ab491587b21ae40f2"
+    },
+    "a2_upstream_115": {
+      "file": "bodies/a2_upstream_115.bin.gz",
+      "uncompressed_bytes": 279369,
+      "sha256": "7af66c8f35c5fa6b47a539da6dca361d19543d9f62d61e4af891c2802bd5e236"
+    }
+  }
+}

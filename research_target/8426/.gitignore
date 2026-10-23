@@ -1,0 +1,12 @@
+# Runtime artifacts produced by setup.sh / run_pool.sh / run_parallel.sh
+work/
+pools/
+out/
+docroot/
+artifacts/
+logs/
+__pycache__/
+*.pyc
+
+# Downloaded, hash-verified WordPress ZIP (setup.sh fetches it on demand)
+vendor/
