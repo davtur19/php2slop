@@ -16,30 +16,35 @@ profiles, and this documentation.
 Only the 8.4.10–8.4.26 mod_php chain and Debian 8.4.24 have lab RCE; no
 stock/all-version claim.
 
-Legend: ✅ works (RCE) · ❌ does not work (no RCE) · 🚫 patched/fixed.
+Legend: ✅ RCE works · ❌ no RCE · 🚫 patched build.
 
 | Target / SAPI | PHP | RCE? | Conditions / blocker |
 |---|---|---|---|
-| mod_php | 8.4.10–8.4.26 | ✅ | lab chain; `output_buffering=4096`; 22-byte endpoint; exact offsets; not stock-universal |
+| mod_php | 8.4.10–8.4.26 | ✅ | lab chain; `output_buffering=4096`; 22-byte endpoint; exact offsets; session handlers `php`/`php_binary`/`php_serialize` 3/3; not stock-universal |
 | mod_php | 8.4.24 Debian 13 | ✅ | 4/4 blind; Debian package default; warm 25/25 |
-| mod_php | 8.4.26 session handlers | ✅ | `php`/`php_binary`/`php_serialize` 3/3 |
-| nginx + mod_php | 8.4.24/26, non-stock | ✅ | 64 MB body + `post_max_size=64M` + 4 MB buffers + keepalive; WordPress 6/6 |
+| nginx + mod_php | 8.4.24/26, non-stock | ✅ | 64 MB body + `post_max_size=64M` + 4 MB buffers + keepalive |
+| WordPress behind nginx + mod_php | 8.4.24/26, non-stock | ✅ | real-app target: `/wp-content/index.php` and `/index.php` 6/6; same non-stock limits |
 | Arch mod_php | 8.4.26 | ✅ | shipped Arch ini; opcache baseline |
-| mod_php | 8.4.27 | 🚫 | patched/fixed |
-| mod_php | 8.0–8.3 | ❌ | 109619 negative; 109618 no controlled destructor |
-| mod_php | 8.5.0/5/11 | ❌ | leak only; no code pointer |
-| FPM | 8.0–8.3 | ❌ | 109619 negative; 109618 primitive only |
+| mod_php | 8.0.30 / 8.1.33 / 8.2.34 / 8.3.35 | ❌ | 109619 negative; 109618 no controlled destructor |
+| mod_php | 8.5.0 / 8.5.5 / 8.5.11 | ❌ | leak only; no libphp code pointer |
+| FPM | 8.0.30 / 8.1.34 / 8.2.34 / 8.3.35 | ❌ | 109619 negative; 109618 primitive only |
 | FPM | 8.4.26 | ❌ | 109618 primitive; no controlled destructor |
 | FPM | 8.5.11 | ❌ | PIE leak/reclaim only |
-| FPM | 7.1/7.2/7.3 | ❌ | CVE-2019-11043 only non-stock PATH_INFO/no script check; stock Debian/WordPress/MediaWiki blocked |
+| FPM | 7.1.32 / 7.2.23 / 7.3.10 | ❌ | CVE-2019-11043 only non-stock `PATH_INFO`/no script check; stock Debian/WordPress/MediaWiki blocked |
 | FPM | 5.6–7.4 | ❌ | B1 leak; stock A1 blocked by nginx 1 MiB; no B2 |
-| nginx + mod_php | 8.4.24/26 stock | ❌ | nginx 1 MiB → 413; PHP `post_max_size=8M` blocks B1 |
+| nginx + mod_php | 8.4.24/26, stock | ❌ | nginx 1 MiB → 413; PHP `post_max_size=8M` blocks B1 |
 | nginx + FastCGI | stock FPM | ❌ | params pinned to `HTTP_*`; framing 400/501 |
-| SOAP | 8.4.20/8.5.5 | ❌ | UAF/crash only |
-| Ubuntu 24.04 | 8.3 | 🚫 | patched |
+| SOAP | 8.4.20 / 8.5.5 | ❌ | UAF/crash only |
 | Alpine 3.20 | 8.3.15 | ❌ | 8.3 branch behavior; B1 0/3 |
-| Alpine 3.21 | 8.4.27 | 🚫 | patched/fixed |
 | Rocky 9 | 8.0.30 | ❌ | no mod_php; FPM only |
+| mod_php | 8.4.27 | 🚫 | patched |
+| mod_php | 8.5.12 | 🚫 | patched |
+| FPM | 8.2.35 / 8.3.36 | 🚫 | patched |
+| FPM | 8.4.27 | 🚫 | patched |
+| FPM | 8.5.12 | 🚫 | patched |
+| SOAP | 8.4.21 / 8.5.6 | 🚫 | patched |
+| Ubuntu 24.04 | 8.3 | 🚫 | patched |
+| Alpine 3.21 | 8.4.27 | 🚫 | patched |
 
 No evidence artifacts (receipts, bodies, binaries, dumps or per-run reports)
 are shipped in this repository; only the tool, its offset profiles and this
