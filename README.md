@@ -17,7 +17,7 @@ below.
 
 ## All PHP versions — current status (2026-10-23)
 
-**Legend:** ✅ engine-level RCE (lab-conditioned) · ✅ package default RCE (lab-conditioned) · ⚠️ leak/primitive only · ❌ blocked/negative · 🧪 active · 🛠 config-induced/not stock · — not tested.
+**Legend:** ✅ engine-level RCE (lab-conditioned) · ✅ package default RCE (lab-conditioned) · ⚠️ leak/primitive only · ❌ blocked/negative · 🚫 fixed/patched · 🛠 config-induced/not stock · — not tested.
 
 Where a fit column is `—`, no chain reached a default-fit test; the evidence/blocker column records why.
 
@@ -27,39 +27,41 @@ This is a measured snapshot, not a claim that every version is solved. Reports a
 
 | PHP branch/build | Deployment | Chain status | Default fit | Evidence / blocker |
 |---|---|---|---|---|
-| 5.6 | mod_php | 🧪 active | — | Matrix active; 109619 probes negative/no heap corruption; no RCE yet. [report](modphp_109619_20261023T010232Z/report.md) |
-| 7.0–7.4 | mod_php | 🧪 active | — | Same pre-8.4 matrix; no RCE yet. [report](modphp_109619_20261023T010232Z/report.md), [7.x report](php75_exploit_20261023T022509Z/report.md) |
+| 5.6 | mod_php | ❌ blocked/negative | — | 5.6.40 tested; 109619 probes negative/no heap corruption; no RCE. [report](modphp_109619_20261023T010232Z/report.md) |
+| 7.0–7.4 | mod_php | ❌ blocked/negative | — | Tested tips (7.0.33/7.1.33/7.2.34/7.3.33/7.4.0/7.4.33); no RCE. [report](modphp_109619_20261023T010232Z/report.md), [7.x report](php75_exploit_20261023T022509Z/report.md) |
 | 8.0.30 | mod_php | ❌ blocked/negative | — | 109619 no A1 producer; 109618 active. [report](modphp_109619_20261023T010232Z/report.md) |
 | 8.1.33 | mod_php | ❌ blocked/negative | — | 109619 parse-OOM; 109618 active. [report](modphp_109619_20261023T010232Z/report.md) |
 | 8.2.34 | mod_php | ❌ blocked/negative | — | 109619 parse-OOM; 109618 active; 8.2.35 fixed. [report](modphp_109619_20261023T010232Z/report.md) |
 | 8.3.35 | mod_php | ❌ blocked/negative | — | 109619 parse-OOM; 109618 active; 8.3.36 fixed control. [report](modphp_109619_20261023T010232Z/report.md) |
-| 8.4.0–8.4.9 | mod_php | 🧪 active / ❌ blocked | — | 8.4.1–8.4.8 0/8 (early cleanup/no stale `PS(id)`); 8.4.0/8.4.9 under test. [report](modphp_84_matrix_20261023T074116Z/report.md) |
+| 8.4.0 | mod_php | — | — | Not tested. |
+| 8.4.1–8.4.8 | mod_php | ❌ blocked/negative | — | 0/8 (early cleanup/no stale `PS(id)`). [report](modphp_84_matrix_20261023T074116Z/report.md) |
+| 8.4.9 | mod_php | — | — | Not tested. |
 | 8.4.10–8.4.26 (upstream) | mod_php | ✅ engine-level RCE (lab-conditioned) | **FAIL** [^1] | 17/17; stock `libphp`, ASLR on, no pinning/helper files, controls fail, no file-write prerequisite; WordPress-tree proof is the silence file [^3]. [report](modphp_84_matrix_20261023T074116Z/report.md) |
 | 8.4.24 Debian 13 (`8.4.24-1~deb13u1`) | mod_php package | ✅ package default RCE (lab-conditioned), 4/4 blind | **PASS** (package defaults) [^2] | `S=main+0xF7398`; `fillers=116`; `zif=lib+0x24cdd0`; controls fail. [report](modphp_84_matrix_20261023T074116Z/report.md), [proofs](modphp_84_matrix_20261023T074116Z/out/proofs/) |
-| 8.4.27 | mod_php | ❌ blocked/negative (fixed) | — | Fixed control. [report](modphp_84_matrix_20261023T074116Z/report.md) |
+| 8.4.27 | mod_php | 🚫 fixed/patched | — | Fixed control. [report](modphp_84_matrix_20261023T074116Z/report.md) |
 | 8.5.0 / 8.5.5 / 8.5.11 | mod_php | ⚠️ leak/primitive only | — | 109619 leak-only (819,208 B, sparse, no libphp code pointers); 109618 active. [report](build_coverage_20261023T074532Z/report.md) |
-| 8.5.12 | mod_php | ❌ blocked/negative (fixed) | — | Fixed control. [report](build_coverage_20261023T074532Z/report.md) |
+| 8.5.12 | mod_php | 🚫 fixed/patched | — | Fixed control. [report](build_coverage_20261023T074532Z/report.md) |
 
 ### Table 2 — FPM
 
 | PHP version | Deployment | Chain status | Stock fit | Evidence / blocker |
 |---|---|---|---|---|
-| 5.6–7.4 (pre-8 matrix) | FPM/nginx | 🧪 active | — | No RCE yet; 11043 config-induced only in 7.1.32/7.2.23/7.3.10 [^4]; 7.4 unaffected. [report](fpm_80x_chain_20261023T085337Z/report.md), [11043](fpm_11043_targets_20261023T085412Z/report.md) |
+| 5.6–7.4 (pre-8 matrix) | FPM/nginx | ❌ blocked/negative | — | Tested tips only; no RCE. 11043 config-induced only in 7.1.32/7.2.23/7.3.10 [^4]; 7.4 unaffected. [report](fpm_80x_chain_20261023T085337Z/report.md), [11043](fpm_11043_targets_20261023T085412Z/report.md) |
 | 7.1.32 / 7.2.23 | FPM/nginx, non-stock pattern | 🛠 config-induced/not stock | **FAIL** on stock nginx/WP/MW [^4] | CVE-2019-11043; fixed 7.2.24/7.3.11. [report](fpm_11043_targets_20261023T085412Z/report.md) |
 | 7.3.9-1~deb10u1 (Debian 10) | FPM/nginx | 🛠 config-induced/not stock | **FAIL** on stock Debian/WP/MW [^4] | Package vulnerable under non-stock pattern; fixed 7.3.11/7.2.24/8.4.26. [report](fpm_11043_targets_20261023T085412Z/report.md) |
 | 7.3.10 | FPM/nginx, non-stock pattern | 🛠 config-induced/not stock | **FAIL** on stock nginx/WP/MW [^4] | CVE-2019-11043; fixed 7.3.11. [report](fpm_11043_targets_20261023T085412Z/report.md) |
 | 8.0.30 | FPM | ❌ blocked/negative; ⚠️ primitive | — | 109619 negative [^6]; 109618 same-worker primitive, no RCE. [report](fpm_109619_20261023T010421Z/report.md) |
 | 8.1.34 / 8.2.34 / 8.3.35 | FPM | ❌ blocked/negative; ⚠️ primitive | — | 109619 negative [^6]; 109618 same-worker primitive, no RCE; fixed 8.2.35/8.3.36. [report](fpm_109619_20261023T010421Z/report.md) |
 | 8.4.26 | FPM | ❌ blocked/negative; ⚠️ same-worker primitive | — | 109619 stock negative; 109618 source-positive but same-worker only, no RCE [^5]; ASLR/no known target. [report](fpm_saturation_20261023T081008Z/report.md), [BG](fpm_bg_20261023T021053Z/report.md) |
-| 8.4.27 | FPM | ❌ blocked/negative (fixed) | — | Fixed control. [report](fpm_109619_20261023T010421Z/report.md) |
+| 8.4.27 | FPM | 🚫 fixed/patched | — | Fixed control. [report](fpm_109619_20261023T010421Z/report.md) |
 | 8.5.11 | FPM | ⚠️ leak/primitive only | — | 109619 leak-only; 109618 source-positive; controlled reclaim/PIE leak 6/6 in static-1 lab, no RCE; static-1 is diagnostic, not stock pool. [report](fpm_aslr_20261023T073345Z/report.md), [alt RCE](fpm_alt_rce_20261023T084957Z/report.md) |
-| 8.5.12 | FPM | ❌ blocked/negative (fixed) | — | Fixed control. [report](fpm_109619_20261023T010421Z/report.md) |
+| 8.5.12 | FPM | 🚫 fixed/patched | — | Fixed control. [report](fpm_109619_20261023T010421Z/report.md) |
 
 **FPM overall:** ❌ no qualifying stock RCE yet. Public survey found no alternative FPM RCE on supported 8.2–8.5; 11043 is EOL/config-gated; CVE-2024-4577 is Windows CGI. [survey](fpm_alt_cves_20261023T084756Z/report.md)
 
 ### Table 3 — Defaults catalog
 
-**Web/FPM defaults are measured.** Full audit: [report](web_fpm_defaults_20261023T125235Z/report.md) · [matrix](web_fpm_defaults_20261023T125235Z/matrix.md) · [Apache CSV](web_fpm_defaults_20261023T125235Z/matrix_apache.csv) · [nginx CSV](web_fpm_defaults_20261023T125235Z/matrix_nginx.csv) · [FPM CSV](web_fpm_defaults_20261023T125235Z/matrix_fpm.csv) · [SHA256SUMS](web_fpm_defaults_20261023T125235Z/SHA256SUMS) (40/40 OK). The PHP ini catalog is separate and still 🧪 running (3d).
+**Web/FPM defaults are measured.** Full audit: [report](web_fpm_defaults_20261023T125235Z/report.md) · [matrix](web_fpm_defaults_20261023T125235Z/matrix.md) · [Apache CSV](web_fpm_defaults_20261023T125235Z/matrix_apache.csv) · [nginx CSV](web_fpm_defaults_20261023T125235Z/matrix_nginx.csv) · [FPM CSV](web_fpm_defaults_20261023T125235Z/matrix_fpm.csv) · [SHA256SUMS](web_fpm_defaults_20261023T125235Z/SHA256SUMS) (40/40 OK). The PHP ini catalog is separate and still pending (3d).
 
 #### 3a — Apache MPM defaults
 
@@ -95,17 +97,17 @@ This is a measured snapshot, not a claim that every version is solved. Reports a
 
 **`cgi.fix_pathinfo`:** effective `1` everywhere in this audit; every audited `php.ini` keeps `;cgi.fix_pathinfo=1` commented, and the official images load no `php.ini`, so the compiled default applies.
 
-#### 3d — PHP ini defaults — 🧪 running
+#### 3d — PHP ini defaults — pending
 
 | Target family | Fields to catalog | Status |
 |---|---|---|
-| Official image / compiled | `output_buffering`, `memory_limit`, `display_errors`, `post_max_size`, `upload_max_filesize`, session handler | 🧪 running |
-| Debian / Ubuntu | same fields | 🧪 running |
-| RHEL / Rocky | same fields | 🧪 running |
-| Alpine | same fields | 🧪 running |
-| Arch | same fields | 🧪 running |
+| Official image / compiled | `output_buffering`, `memory_limit`, `display_errors`, `post_max_size`, `upload_max_filesize`, session handler | — |
+| Debian / Ubuntu | same fields | — |
+| RHEL / Rocky | same fields | — |
+| Alpine | same fields | — |
+| Arch | same fields | — |
 
-No PHP ini values are asserted here beyond the official-image `output_buffering=0` failure already recorded in [^1]; the full PHP ini catalog remains running.
+No PHP ini values are asserted here beyond the official-image `output_buffering=0` failure already recorded in [^1]; the full PHP ini catalog remains pending.
 
 [^1]: **Upstream 8.4.10–8.4.26 default fit is FAIL:** official image default `output_buffering=0`; the chain requires `php.ini-production` / `output_buffering=4096`. Without it A1 is 275 B with a normal cookie and no leak. The “no target-config change” claim is false for the official-image lane.
 [^2]: **Debian 13 8.4.24 package (mod_php, not FPM):** package defaults include the required values. `S = main + 0xF7398`, `fillers=116` (not upstream `0xF8398`), `zif_system=lib+0x24cdd0`; 4/4 blind with `uid=33(www-data)` + `DEB116R1..R4`, B2 hit attempt 4. Controls: `fillers=115` + same `S` → all B2 200, no proof; wrong anchor `S=main+0xF8398` → no proof. `SHA256SUMS` 73/73; report hash `bfdca47ec217b4fc2c35430becd27371d03208ccccc78ca2435b346810b491f7`; `/out` 777 is a lab oracle; a remote target needs an out-of-band callback.
@@ -153,8 +155,45 @@ No PHP ini values are asserted here beyond the official-image `output_buffering=
 
 - Only reliable full-chain family: **mod_php 8.4.10–8.4.26** (engine-level) and the **Debian 13 mod_php 8.4.24** package at 4/4; both are lab-conditioned, neither is default-deployment/real-app RCE.
 - No stock FPM RCE; 109618 remains a same-worker primitive; 11043 is config-induced/EOL only.
-- “All 8.4.x” is per-build, not universal; active matrices are 5.6–7.4 mod_php/FPM and the early-8.4 gap.
+- “All 8.4.x” is per-build, not universal; tested-negative matrices are 5.6–7.4 mod_php/FPM; 8.4.0 and 8.4.9 remain untested (`—`).
+- App file sessions do not change the FPM result: Drupal 10.6.20 (native files) and Roundcube 1.7.5 (explicit files) are ❌ — A1/A2 `exit 70`, B1/B2 no leak, no auth bypass; the blocker is B1 leak/address recovery (Table 4).
 - Last updated: 2026-10-23.
+
+## Real applications — session storage (2026-10-23)
+
+Local-only lab: nginx 1.31.8 + PHP-FPM (`pm=dynamic`, `max_children=5`, `memory_limit=128M`, `post_max_size=64M`, `upload_max_filesize=64M`), unauthenticated. Corpus: A1 1,060,211 B; A2 279,369 B; B1 33,128,677 B; B2 451,384 B. **113 matrix cases executed, 112 valid**: the one invalid case is a `/info.php` control sent to the Roundcube-rooted port 19910 (404/153 B, wrong document root). It never reached PHP, is flagged `valid:false`, and is excluded from every count and from the evidence. Statuses: ❌ tested negative · 🚫 fixed control · — not tested.
+
+### Table 4 — Drupal and Roundcube
+
+| App / version | Session storage | PHP / SAPI | Status | Evidence / blocker |
+|---|---|---|---|---|
+| Drupal 10.6.20 | **native PHP files** (`/tmp/sess_<id>`, 175 B) | 8.4.26 nginx+FPM | ❌ | No `sessions` table (75-table SQLite); login 303 → 175-B `/tmp/sess_<id>` (mode 600). A1/A2 → 502 + FPM `exit 70` once nginx admits; A1 OOM 4,096 B, A2 OOM 20,480 B, both `Unknown on line 0`. B1/B2 200 normal; no leak; no auth bypass. **B1 leak/address recovery blocker.** |
+| Drupal 10.6.20 | native PHP files (48-char SID) | 8.3.26 nginx+FPM | ❌ | Same A1/A2 502/`exit 70`; login file 175 B; B1/B2 200 normal; no leak. **B1 leak/address recovery blocker.** |
+| Drupal 10.6.20 | native PHP files | 8.4.27 nginx+FPM | 🚫 | Fixed control: A1/A2/B1/B2 all 200; no OOM, no `exit 70`, no leak; session file 175 B and valid login survive the pass. |
+| Drupal 11.4.11 (**DB-session row**, prior run) | `sessions` table | 8.4.26 nginx+FPM | ❌ | Stock DB sessions, kept separate from the 10.6 file-session row: A1 502/`exit 70` at 64 MiB; B1 200/12,948 B with fresh `PHPSESSID`; no leak. The 8.5.10 file-session `.user.ini` 3/3 chain is lab-only, not stock. |
+| Roundcube 1.7.5 (**explicit file sessions**) | `session_storage=php`, `/tmp/sess_<id>` | 8.4.26 nginx+FPM | ❌ | App session **490 B**; A2 adds a **515-B** `upload_progress_k0` entry; deliberate `session_name=PHPSESSID` variant merges progress + app keys to **1,005 B**. B1/B2 are normal pages only (5,400 B; `static.php` 387,438 B JS); no leak; no auth bypass. **B1 leak/address recovery blocker.** |
+| Roundcube 1.7.5 (**stock DB-session row**, separate) | `session_storage=db`, `session` table | 8.4.26 nginx+FPM | ❌ | Prior stock-default run: 17 session rows, `vars` 112–644 B; A1 502/`exit 70` at 64 MiB; B1 200/5,400 B, fresh cookies; no leak. Kept separate from the explicit file-session row. |
+
+Roundcube on 8.4.27: `—` not tested (not rebuilt); the fixed-build control ran on the Drupal and diag vhosts.
+
+**Drupal 10.6 root cause.** `Drupal\Core\Session\SessionHandler extends AbstractProxy implements \SessionHandlerInterface`; Symfony only wraps/registers a non-`AbstractProxy` handler or a `SessionHandlerProxy`, so Drupal's handler is stored but `session_set_save_handler()` is never called. PHP's native `files` handler stays active: no `sessions` table, 175-B `/tmp/sess_<id>`. Drupal 11.4.11 extends `AbstractSessionHandler`, is wrapped in `SessionHandlerProxy`, and uses the `sessions` table — hence the separate row.
+
+### Table 5 — body-limit admission
+
+| Body (bytes) | stock 1 MiB | 25 MiB | 64 MiB |
+|---|---|---|---|
+| A1 (1,060,211) | 413/183 | 502/157 `E70` | 502/157 `E70` (8.4.27: 200) |
+| A2 (279,369) | 502/157 `E70` | 502/157 `E70` | 502/157 `E70` (8.4.27: 200) |
+| B1 (33,128,677) | 413/183 | 413/183 | 200 normal |
+| B2 (451,384) | 200 normal | 200 normal | 200 normal |
+
+The stock 1 MiB cap blocks **A1 and B1 only**; A2/B2 fit and still exercise the engine. 25 MiB admits A1/A2/B2 but **not B1**; only 64 MiB admits all four. A claim that “the stock 1 MiB cap blocks the chain” is therefore true only for A1/B1, not for the whole corpus.
+
+**Coverage delta.** The Drupal 10.6.20 and Roundcube 1.7.5 file-session gaps are now tested and closed ❌; they are not untested gaps. The only app cell added as untested is Roundcube on 8.4.27 (`—`).
+
+**Controls.** Drupal wrong password: 200/18,778, “Unrecognized username or password”, no 303, no `Set-Cookie`; anonymous `/user/1` and `/admin` are 403. A valid login (303 → `/user/1?check_logged_in=1`, 175-B file) survived A1→B1→A2→B2: `/user/1` still 200 with “Log out”, B1 302 rather than a login page. Roundcube wrong login: 401/5,515 with a valid CSRF token and 401/5,498 without; `?_task=mail` renders the login form; the DB has 0 users. **No authentication bypass on either app.** Upload-progress off changes A1 to an app-level 500 (Drupal `FileBag.php:113`, Roundcube `defaults.inc.php:1496`) with the worker surviving, but A2 still exits 70. On the Drupal/diag vhosts, 8.4.27 returns 200 with no OOM and no `exit 70`; Roundcube was not rebuilt on 8.4.27.
+
+**Conclusion.** Drupal 10.6.20's stock native file sessions and Roundcube 1.7.5's explicit file sessions both fail the chain: A1/A2 kill the FPM child, B1/B2 are normal, and no session payload or pointer data is returned. The blocking gap is B1 leak/address recovery, not application authentication. Receipts: `/tmp/opencode/research/apps_gap_20261023T163831Z/report.md` (this run) and `/tmp/opencode/research/apps_roundcube_nextcloud_20261023T153529Z/report.md` (prior DB-session baseline).
 
 ## Chain validity rules
 
@@ -178,7 +217,9 @@ No PHP ini values are asserted here beyond the official-image `output_buffering=
   against 2/2 on fresh containers.
 - CVE-2026-109618 on FPM: pre-RINIT OOM makes the child exit 70 with a 502;
   the parser OOM is contained. Availability only: no PHP-origin bytes and no
-  code execution.
+  code execution. Reconfirmed on Drupal 10.6.20 (native file sessions) and
+  Roundcube 1.7.5 (explicit file sessions) at 64 MiB: A1/A2 `exit 70`, B1/B2
+  normal, no leak (Table 4).
 - No RCE chain satisfied the full stock-application validity rules in the
   project's own 109618/109619 work at the time of writing. **Superseded
   2026-10-22 (lab-conditioned):** the external 9bie chain gives engine-level
@@ -197,8 +238,14 @@ No PHP ini values are asserted here beyond the official-image `output_buffering=
   offsets are 8.4.26-specific. *(2026-10-22: separate FPM work now exists —
   8.5.10 custom and 8.2.34 custom; see below.)*
 - Stock PHP 8.0/7.2/7.3 negative; PHP 7.4 PIE blocked; PHP 5.x stock blocked.
-- Stock Drupal/Joomla use database sessions, so there is no served session
-  file.
+- Session storage is app-specific: Drupal 11.4.11 and Joomla use database
+  sessions, but **Drupal 10.6.20 stays on PHP's native file handler** (Symfony
+  never registers its `AbstractProxy`), so login writes a 175-B
+  `/tmp/sess_<id>` and there is no `sessions` table. Roundcube 1.7.5 stock
+  defaults to DB sessions; an explicit `session_storage=php` lab variant writes
+  a 490-B file. Under nginx+FPM (8.4.26/8.3.26) both file-session lanes remain
+  ❌: A1/A2 502/`exit 70`, B1/B2 normal, no leak; the blocker is
+  **B1 leak/address recovery** (Table 4).
 - CVE-2026-109619: conditional and not stock-default; not claimed as a stock
   chain. *(Updated 2026-10-22: the mechanism is no longer "unverified" — it was
   demonstrated on 8.5.10 FPM only with a custom LFI/`php_binary`/host
@@ -229,7 +276,10 @@ No PHP ini values are asserted here beyond the official-image `output_buffering=
   not a stock chain. *(Historical: this describes the earlier mu-plugin route.
   The 2026-10-22 9bie chain uses stock core `/wp-content/index.php` with no
   mu-plugin and no `php_value`; see the reconciliation section. Drupal/Joomla
-  remain app/config specific.)*
+  remain app/config specific. 2026-10-23: Drupal 10.6.20's file handler is a
+  stock app property, not a lab files-handler delta, but the stock nginx+FPM
+  run is still ❌ — A1/A2 `exit 70`, B1/B2 no leak; Roundcube 1.7.5 stock DB
+  and explicit file sessions are likewise ❌. See Table 4.)*
 - **OpenMage 20.10.0:** PIE POP with a second `php_serialize` writer plus a
   slow-upload race; lab-only. The stock 20.17.0 test is pending.
 
