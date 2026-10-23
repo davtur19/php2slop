@@ -17,51 +17,64 @@ below.
 
 ## All PHP versions — current status (2026-10-23)
 
-Status legend: ✅ full-chain RCE proven · ⚠️ leak/primitive only · ❌ blocked/negative · 🧪 active · 🛠 config-induced, not stock · — not tested.
+**Legend:** ✅ engine-level RCE (lab-conditioned) · ✅ package default RCE (lab-conditioned) · ⚠️ leak/primitive only · ❌ blocked/negative · 🧪 active · 🛠 config-induced/not stock · — not tested.
 
-This table is a measured status snapshot, not a claim that every version is solved. Reports are linked inline and are included in this tree.
+Where a fit column is `—`, no chain reached a default-fit test; the evidence/blocker column records why.
 
-### mod_php
+This is a measured snapshot, not a claim that every version is solved. Reports are linked inline and included in this tree.
 
-| Version | Status | Evidence / caveat |
-|---|---|---|
-| 5.6 / 7.0 / 7.1 / 7.2 / 7.3 / 7.4 | 🧪 active | Full-chain matrix active; prior 109619 probes negative/no heap corruption; no RCE yet. [modphp_109619](modphp_109619_20261023T010232Z/report.md), [php75_exploit](php75_exploit_20261023T022509Z/report.md) |
-| 8.0.30 | ❌ | 109619 no A1 producer; 109618 active. [report](modphp_109619_20261023T010232Z/report.md) |
-| 8.1.33 / 8.2.34 / 8.3.35 | ❌ | 109619 parse-OOM; 109618 active; 8.3.36 fixed control. [report](modphp_109619_20261023T010232Z/report.md) |
-| 8.4.0–8.4.9 | 🧪 active | Early-8.4 gap; 8.4.1–8.4.8 blocked, **0/8** (early cleanup/no stale `PS(id)`); 8.4.0/8.4.9 under test. [report](modphp_84_matrix_20261023T074116Z/report.md) |
-| 8.4.10–8.4.26 (upstream) | ✅ engine-level RCE (lab-conditioned) | 17/17 on stock upstream `libphp`; ASLR on, no pinning, no helper files in docroot, negative controls fail; no attacker file-write prerequisite. Lab-conditioned: 22-byte probe docroot, official-image `output_buffering=4096`/`php.ini-production` requirement, cold restart only, exact per-build offsets, 8.4.1–8.4.8 0/8, 8.4.27 fixed; WordPress-tree proof is the `wp-content/index.php` silence file, not the app. [report](modphp_84_matrix_20261023T074116Z/report.md) |
-| 8.4.24 Debian 13 package (`8.4.24-1~deb13u1`, mod_php) | ✅ Debian package 4/4 (lab-conditioned) | Distro build, not FPM; package defaults include the required values. `S = main + 0xF7398`, `fillers=116` (not upstream `0xF8398`), `zif_system=lib+0x24cdd0`; 4/4 blind successes with `uid=33(www-data)` + `DEB116R1..R4`, B2 hit at attempt 4. Controls fail: `fillers=115` + same `S` → all B2 200, no proof; wrong anchor `S=main+0xF8398` → no proof. `SHA256SUMS` 73/73; report hash `bfdca47ec217b4fc2c35430becd27371d03208ccccc78ca2435b346810b491f7`; `/out` 777 is a lab oracle. [report](modphp_84_matrix_20261023T074116Z/report.md), [proofs](modphp_84_matrix_20261023T074116Z/out/proofs/) |
-| 8.4.27 | ❌ | Fixed control. [report](modphp_84_matrix_20261023T074116Z/report.md) |
-| 8.5.0 / 8.5.5 / 8.5.11 | ⚠️ | 109619 leak-only (819,208 B, sparse, no libphp code pointers); 109618 active. [report](build_coverage_20261023T074532Z/report.md) |
-| 8.5.12 | ❌ | Fixed control. [report](build_coverage_20261023T074532Z/report.md) |
+### Table 1 — mod_php
 
-### FPM
+| PHP branch/build | Deployment | Chain status | Default fit | Evidence / blocker |
+|---|---|---|---|---|
+| 5.6 | mod_php | 🧪 active | — | Matrix active; 109619 probes negative/no heap corruption; no RCE yet. [report](modphp_109619_20261023T010232Z/report.md) |
+| 7.0–7.4 | mod_php | 🧪 active | — | Same pre-8.4 matrix; no RCE yet. [report](modphp_109619_20261023T010232Z/report.md), [7.x report](php75_exploit_20261023T022509Z/report.md) |
+| 8.0.30 | mod_php | ❌ blocked/negative | — | 109619 no A1 producer; 109618 active. [report](modphp_109619_20261023T010232Z/report.md) |
+| 8.1.33 | mod_php | ❌ blocked/negative | — | 109619 parse-OOM; 109618 active. [report](modphp_109619_20261023T010232Z/report.md) |
+| 8.2.34 | mod_php | ❌ blocked/negative | — | 109619 parse-OOM; 109618 active; 8.2.35 fixed. [report](modphp_109619_20261023T010232Z/report.md) |
+| 8.3.35 | mod_php | ❌ blocked/negative | — | 109619 parse-OOM; 109618 active; 8.3.36 fixed control. [report](modphp_109619_20261023T010232Z/report.md) |
+| 8.4.0–8.4.9 | mod_php | 🧪 active / ❌ blocked | — | 8.4.1–8.4.8 0/8 (early cleanup/no stale `PS(id)`); 8.4.0/8.4.9 under test. [report](modphp_84_matrix_20261023T074116Z/report.md) |
+| 8.4.10–8.4.26 (upstream) | mod_php | ✅ engine-level RCE (lab-conditioned) | **FAIL** [^1] | 17/17; stock `libphp`, ASLR on, no pinning/helper files, controls fail, no file-write prerequisite; WordPress-tree proof is the silence file [^3]. [report](modphp_84_matrix_20261023T074116Z/report.md) |
+| 8.4.24 Debian 13 (`8.4.24-1~deb13u1`) | mod_php package | ✅ package default RCE (lab-conditioned), 4/4 blind | **PASS** (package defaults) [^2] | `S=main+0xF7398`; `fillers=116`; `zif=lib+0x24cdd0`; controls fail. [report](modphp_84_matrix_20261023T074116Z/report.md), [proofs](modphp_84_matrix_20261023T074116Z/out/proofs/) |
+| 8.4.27 | mod_php | ❌ blocked/negative (fixed) | — | Fixed control. [report](modphp_84_matrix_20261023T074116Z/report.md) |
+| 8.5.0 / 8.5.5 / 8.5.11 | mod_php | ⚠️ leak/primitive only | — | 109619 leak-only (819,208 B, sparse, no libphp code pointers); 109618 active. [report](build_coverage_20261023T074532Z/report.md) |
+| 8.5.12 | mod_php | ❌ blocked/negative (fixed) | — | Fixed control. [report](build_coverage_20261023T074532Z/report.md) |
 
-| Version | Status | Evidence / caveat |
-|---|---|---|
-| 5.6 / 7.0 / 7.1 / 7.2 / 7.3 / 7.4 | 🧪 active | Pre-8 full-chain matrix active. CVE-2019-11043 is config-induced only on 7.1.32/7.2.23/7.3.10; fixed 7.2.24/7.3.11; stock nginx/Debian `fastcgi-php.conf` fails; 7.4 unaffected. [report](fpm_80x_chain_20261023T085337Z/report.md), [11043 report](fpm_11043_targets_20261023T085412Z/report.md) |
-| 7.3.9-1~deb10u1 (Debian 10) / CVE-2019-11043 | 🛠 config-induced only | Package is vulnerable: canonical **non-stock** nginx PHP-FPM pattern gives unauthenticated RCE as `uid=33(www-data)`, verified with WordPress 5.3.2, MediaWiki 1.33.1 and a plain probe. **Blocked:** stock Debian nginx `snippets/fastcgi-php.conf` (`try_files $fastcgi_script_name =404;` → 404 before FPM); WordPress recommended config (no empty `PATH_INFO`; 301); MediaWiki recommended config (end-anchored PHP location never matches; 404). Fixed controls clean: Debian 7.3.11, upstream 7.2.24, 8.4.26. [report](fpm_11043_targets_20261023T085412Z/report.md) |
-| 8.0.30 / 8.1.34 / 8.2.34 / 8.3.35 | ❌ / ⚠️ | 109619 negative (A2 OOM/exit 70; 8.0 size-threshold; B1 413; no state inheritance); 109618 same-worker primitive, no RCE; fixed 8.2.35/8.3.36. [report](fpm_109619_20261023T010421Z/report.md) |
-| 8.4.26 | ❌ / ⚠️ | 109619 stock negative; 109618 source-positive, same-worker primitive, no RCE; BG/T1 strictly per-worker, zero cross-worker; ASLR/no known target. [report](fpm_saturation_20261023T081008Z/report.md), [BG report](fpm_bg_20261023T021053Z/report.md) |
-| 8.5.11 | ⚠️ | 109619 leak-only; 109618 source-positive; controlled reclaim/PIE leak 6/6 in static-1 lab, no RCE; static-1 is diagnostic, not a stock pool. [report](fpm_aslr_20261023T073345Z/report.md), [alt RCE report](fpm_alt_rce_20261023T084957Z/report.md) |
-| 8.4.27 / 8.5.12 | ❌ | Fixed controls. [report](fpm_109619_20261023T010421Z/report.md) |
-| FPM overall | ❌ | No qualifying stock RCE yet. Public survey found no alternative FPM RCE on supported 8.2–8.5; CVE-2019-11043 is EOL/config-gated; CVE-2024-4577 is Windows CGI. [survey](fpm_alt_cves_20261023T084756Z/report.md) |
+### Table 2 — FPM
 
-### Bottom line
+| PHP version | Deployment | Chain status | Stock fit | Evidence / blocker |
+|---|---|---|---|---|
+| 5.6–7.4 (pre-8 matrix) | FPM/nginx | 🧪 active | — | No RCE yet; 11043 config-induced only in 7.1.32/7.2.23/7.3.10 [^4]; 7.4 unaffected. [report](fpm_80x_chain_20261023T085337Z/report.md), [11043](fpm_11043_targets_20261023T085412Z/report.md) |
+| 7.1.32 / 7.2.23 | FPM/nginx, non-stock pattern | 🛠 config-induced/not stock | **FAIL** on stock nginx/WP/MW [^4] | CVE-2019-11043; fixed 7.2.24/7.3.11. [report](fpm_11043_targets_20261023T085412Z/report.md) |
+| 7.3.9-1~deb10u1 (Debian 10) | FPM/nginx | 🛠 config-induced/not stock | **FAIL** on stock Debian/WP/MW [^4] | Package vulnerable under non-stock pattern; fixed 7.3.11/7.2.24/8.4.26. [report](fpm_11043_targets_20261023T085412Z/report.md) |
+| 7.3.10 | FPM/nginx, non-stock pattern | 🛠 config-induced/not stock | **FAIL** on stock nginx/WP/MW [^4] | CVE-2019-11043; fixed 7.3.11. [report](fpm_11043_targets_20261023T085412Z/report.md) |
+| 8.0.30 | FPM | ❌ blocked/negative; ⚠️ primitive | — | 109619 negative [^6]; 109618 same-worker primitive, no RCE. [report](fpm_109619_20261023T010421Z/report.md) |
+| 8.1.34 / 8.2.34 / 8.3.35 | FPM | ❌ blocked/negative; ⚠️ primitive | — | 109619 negative [^6]; 109618 same-worker primitive, no RCE; fixed 8.2.35/8.3.36. [report](fpm_109619_20261023T010421Z/report.md) |
+| 8.4.26 | FPM | ❌ blocked/negative; ⚠️ same-worker primitive | — | 109619 stock negative; 109618 source-positive but same-worker only, no RCE [^5]; ASLR/no known target. [report](fpm_saturation_20261023T081008Z/report.md), [BG](fpm_bg_20261023T021053Z/report.md) |
+| 8.4.27 | FPM | ❌ blocked/negative (fixed) | — | Fixed control. [report](fpm_109619_20261023T010421Z/report.md) |
+| 8.5.11 | FPM | ⚠️ leak/primitive only | — | 109619 leak-only; 109618 source-positive; controlled reclaim/PIE leak 6/6 in static-1 lab, no RCE; static-1 is diagnostic, not stock pool. [report](fpm_aslr_20261023T073345Z/report.md), [alt RCE](fpm_alt_rce_20261023T084957Z/report.md) |
+| 8.5.12 | FPM | ❌ blocked/negative (fixed) | — | Fixed control. [report](fpm_109619_20261023T010421Z/report.md) |
 
-- Only reliable full-chain family: **mod_php 8.4.10–8.4.26** (upstream), plus the calibrated **Debian 13 mod_php 8.4.24** package at 4/4. Both are **engine-level, lab-conditioned**; neither is a default-deployment/real-application RCE.
-- No stock FPM RCE; 109618 remains a same-worker primitive, and 11043 is config-induced/EOL only.
-- “All 8.4.x” is per-build, not universal; “all versions” is not achieved. Active matrices are 5.6–7.4 mod_php/FPM and the early-8.4 gap.
-- Last updated 2026-10-23.
+**FPM overall:** ❌ no qualifying stock RCE yet. Public survey found no alternative FPM RCE on supported 8.2–8.5; 11043 is EOL/config-gated; CVE-2024-4577 is Windows CGI. [survey](fpm_alt_cves_20261023T084756Z/report.md)
 
-### Public PoC status (2026-10-23)
+### Table 3 — Defaults catalog
 
-- **Public full chain exists for PHP 8.4.26 mod_php only:** Exploit-DB 52704 (OffSec, 2026-10-22; credited 9bie/eness) is a full Python chain. 9bie is the reference implementation; ports exist from eness, godylockz, 78ResearchLab and devploit.
-- **Public ASLR solution:** two `Set-Cookie` leaks (Zend-MM chunk base, then libphp base), demonstrated only on the 8.4.26 default heap.
-- **No public stock WordPress/MediaWiki PoC:** 9bie issue #1 says “还不行” (“not yet”); Wiz uses CVE-2026-109619 and ships no code.
-- **No public FPM RCE code:** public FPM results are DoS/crash only; ikow Chain E is paid/unverified; GHSA-6wmf-4rv5-p3rp states the FPM startup-failure sequence does not survive.
-- **EDB 52704 caveats:** hardcodes the `0x7F0000000000–0x800000000000` pointer range; worker rotation only with `MaxRequestWorkers=1`; its “official image” profile needs `display_errors=1` and `memory_limit=8M`, not `php.ini-production`.
-- Details: [public_poc_search report](public_poc_search_20261023T122956Z/report.md).
+**🧪 catalog running.** Values are not asserted for distro families until measured; see [^1] for the official-image failure already established.
+
+| Target family | Defaults to catalog | Status | Notes |
+|---|---|---|---|
+| Official image / compiled | `output_buffering`, `memory_limit`, `display_errors`, session handler, worker model | 🧪 catalog running | Official image `output_buffering=0` is the known failure mode; other values pending. |
+| Debian / Ubuntu | same fields | 🧪 catalog running | Debian 8.4.24 package defaults include the required values [^2]; other versions pending. |
+| RHEL / Rocky | same fields | 🧪 catalog running | Pending; no values asserted. |
+| Alpine | same fields | 🧪 catalog running | Pending; no values asserted. |
+| Arch | same fields | 🧪 catalog running | Pending; no values asserted. |
+
+[^1]: **Upstream 8.4.10–8.4.26 default fit is FAIL:** official image default `output_buffering=0`; the chain requires `php.ini-production` / `output_buffering=4096`. Without it A1 is 275 B with a normal cookie and no leak. The “no target-config change” claim is false for the official-image lane.
+[^2]: **Debian 13 8.4.24 package (mod_php, not FPM):** package defaults include the required values. `S = main + 0xF7398`, `fillers=116` (not upstream `0xF8398`), `zif_system=lib+0x24cdd0`; 4/4 blind with `uid=33(www-data)` + `DEB116R1..R4`, B2 hit attempt 4. Controls: `fillers=115` + same `S` → all B2 200, no proof; wrong anchor `S=main+0xF8398` → no proof. `SHA256SUMS` 73/73; report hash `bfdca47ec217b4fc2c35430becd27371d03208ccccc78ca2435b346810b491f7`; `/out` 777 is a lab oracle; a remote target needs an out-of-band callback.
+[^3]: **WordPress:** the exploited file is the stock `wp-content/index.php` silence file (`<?php // Silence is golden.`), not the WordPress application. The actual WP front controller fails A1/B1; MediaWiki fails. This is not “WordPress RCE.”
+[^4]: **FPM 11043:** config-induced only in 7.1.32/7.2.23/7.3.10 (and Debian 10 7.3.9) with the canonical non-stock nginx PHP-FPM pattern. Debian 10 7.3.9 is vulnerable under that pattern: unauthenticated RCE as `uid=33(www-data)`, verified with WordPress 5.3.2, MediaWiki 1.33.1 and a plain probe. Stock Debian `snippets/fastcgi-php.conf` (`try_files $fastcgi_script_name =404;`) blocks; WordPress recommended config 301/no `PATH_INFO`; MediaWiki end-anchored location 404. Fixed 7.2.24/7.3.11/8.4.26; 7.4 unaffected.
+[^5]: **FPM 109618:** source-positive but same-worker primitive only, no RCE; BG/T1 are strictly per-worker, zero cross-worker; ASLR/no known target.
+[^6]: **FPM 8.0–8.3 109619:** negative (A2 OOM/exit 70; 8.0 size-threshold; B1 413; no state inheritance); 109618 is a same-worker primitive, no RCE. Fixed 8.2.35/8.3.36.
 
 ### No-cheat assessment (2026-10-23)
 
@@ -76,18 +89,32 @@ This table is a measured status snapshot, not a claim that every version is solv
 **What is lab-conditioned**
 
 - The target docroot is a 22-byte probe (`<?php echo "OK\n"; ?>` plus a trailing newline), not a real application. No `session_start()` is needed: the engine starts the session from multipart `FILE_START`.
-- The official image default is `output_buffering=0`; the chain requires `php.ini-production` / `output_buffering=4096`. Without it A1 is 275 B with a normal cookie and no leak. The “no target-config change” claim is false for the official-image lane. Debian package defaults do include the required values.
+- The official image default is `output_buffering=0`; the chain requires `php.ini-production` / `output_buffering=4096`. Without it A1 is 275 B with a normal cookie and no leak. The “no target-config change” claim is false for the official-image lane; Debian package defaults include the required values. [^1] [^2]
 - Every success uses a cold `docker restart`; warm reliability was 0/1 and 1/4.
-- Exact per-build offsets; 8.4.1–8.4.8 are 0/8; 8.4.27 is fixed. Debian needs `S = main + 0xF7398`, `fillers=116`, not upstream `0xF8398`.
-- `/out` mode 777 is a lab proof oracle; a remote target needs an out-of-band callback.
+- Exact per-build offsets; 8.4.1–8.4.8 are 0/8; 8.4.27 is fixed. Debian needs `S=main+0xF7398`, `fillers=116`, not upstream `0xF8398`.
+- `/out` 777 is a lab proof oracle; a remote target needs an out-of-band callback.
 
 **WordPress**
 
-The exploited file is the stock `wp-content/index.php` silence file (`<?php // Silence is golden.`), not the WordPress application. The actual WordPress front controller fails A1/B1; MediaWiki fails. This is not “WordPress RCE.”
+- The exploited file is the stock `wp-content/index.php` silence file (`<?php // Silence is golden.`), not the WordPress application. The actual WordPress front controller fails A1/B1; MediaWiki fails. This is not “WordPress RCE.” [^3]
 
-**Bottom line**
+**No-cheat bottom line:** Engine-level RCE on stock binaries: **yes**. Default deployment/real application without special conditions: **no**. “All 8.4.x” is per-build, not universal.
 
-Engine-level RCE on stock binaries: **yes**. Default deployment/real application without special conditions: **no**. “All 8.4.x” is per-build, not universal.
+### Public PoC status (2026-10-23)
+
+- **Public full chain exists for PHP 8.4.26 mod_php only:** Exploit-DB 52704 (OffSec, 2026-10-22; credited 9bie/eness) is a full Python chain. 9bie is the reference implementation; ports exist from eness, godylockz, 78ResearchLab and devploit.
+- **Public ASLR solution:** two `Set-Cookie` leaks (Zend-MM chunk base, then libphp base), demonstrated only on the 8.4.26 default heap.
+- **No public stock WordPress/MediaWiki PoC:** 9bie issue #1 says “还不行” (“not yet”); Wiz uses CVE-2026-109619 and ships no code.
+- **No public FPM RCE code:** public FPM results are DoS/crash only; ikow Chain E is paid/unverified; GHSA-6wmf-4rv5-p3rp states the FPM startup-failure sequence does not survive.
+- **EDB 52704 caveats:** hardcodes the `0x7F0000000000–0x800000000000` pointer range; worker rotation only with `MaxRequestWorkers=1`; its “official image” profile needs `display_errors=1` and `memory_limit=8M`, not `php.ini-production`.
+- Details: [public_poc_search report](public_poc_search_20261023T122956Z/report.md).
+
+### Bottom line
+
+- Only reliable full-chain family: **mod_php 8.4.10–8.4.26** (engine-level) and the **Debian 13 mod_php 8.4.24** package at 4/4; both are lab-conditioned, neither is default-deployment/real-app RCE.
+- No stock FPM RCE; 109618 remains a same-worker primitive; 11043 is config-induced/EOL only.
+- “All 8.4.x” is per-build, not universal; active matrices are 5.6–7.4 mod_php/FPM and the early-8.4 gap.
+- Last updated: 2026-10-23.
 
 ## Chain validity rules
 
