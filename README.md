@@ -85,6 +85,7 @@ document are.
 |---|---|
 | `tool/php2shell.py` | chain driver (`recon`, `producer`, `write_stage`, `leak`, `g2`, `chain`) |
 | `tool/debian8424.py` | standalone Debian 13 `libapache2-mod-php8.4` 8.4.24 four-stage runner (A1→B1→A2→B2); dry by default |
+| `tool/phpcheck.py` | passive PHP version/build CVE candidate checker; no exploit traffic |
 | `tool/run` | POSIX shell wrapper: `./tool/run --help` |
 | `tool/modules/` | request/producer builders, chain stages, per-build profiles (see `tool/modules/README.md`) |
 | `tool/stages/` | fingerprint and probe stage |
@@ -162,6 +163,24 @@ the marker is observed through one of those channels; an HTTP 200/500 response
 alone is not success. There is no `docker exec` and no container-filesystem
 read. B1 is probabilistic, and the B2 command must fit the 200-byte `ht`
 carrier.
+
+### Passive version/build checker
+
+`tool/phpcheck.py` maps a PHP version (optionally with a distro package
+revision) and SAPI to CVE-2026-109618/109619 candidate status. It sends no
+exploit traffic: without `--url` it is offline, and `--url` performs one
+unauthenticated GET and reads response headers only. Requires Python 3.10 or
+newer.
+
+```sh
+python3 tool/phpcheck.py --version 8.4.24 --sapi mod_php
+python3 tool/phpcheck.py --package 'libapache2-mod-php8.4=8.4.24-1~deb13u1' \
+    --distro debian13 --sapi mod_php --json
+python3 tool/phpcheck.py --list-cves
+```
+
+`VULNERABLE-CANDIDATE` is a lead, not proof: pass `--package`/`--distro` for
+build identity and verify the listed conditions separately.
 
 ## Scope and authorization
 
