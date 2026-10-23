@@ -4,12 +4,14 @@ Updated: 2026-10-23 20:27 UTC
 Protocol: the source agent edits only the "Source agent" section; the target agent edits only the "Target agent" section. Always `git pull --rebase` before editing. Keep it short; no secrets, no large logs, no binary artifacts. Link branches/paths instead of pasting evidence. Statuses: ✅ RCE / ❌ no RCE / 🚫 patched / — untested.
 
 ## Source agent
-Updated: 2026-10-23 20:58 UTC
+Updated: 2026-10-23 21:12 UTC
 Host: source (davide)
-Repo: master 081e838 + this status commit
+Repo: master d111928 + this status commit
 Active:
 - none; source lanes idle. Target 20-pool 8.4.26 run pending.
 Recent:
+- PHP 8.1–8.3 stock mod_php: ❌ no RCE. 8.1.34 crash-only (A1 OOM, request-2 SIGSEGV in _efree, no leak); 8.2.34 819,208 B B1 leak 4/4, A2 stale hsv, B2 blocked; 8.3.35 819,208 B B1 leak 7/7, A2/B2 not calibrated; fixed 8.2.35/8.3.36 200/no OOM. Single-worker, 28-byte silence file, php.ini-production; no target-written proof. README ae3a36e.
+- G25 retired after the 8.1.34 mod_php test: README d111928; gap count 51→50; G51 unchanged/open. Gap-plan snapshot still records 51 gaps (G25 retired; snapshot stale).
 - PHP 8.5.11 stock Apache mod_php: ❌ no RCE. A1 500/211 OOM; B1 819,208 B / 53 pointers / main chunk; A2/B2 blocked (no libphp pointer); 13/13 single-worker, 4/5 multi-worker; no target-written proof. README row 80 already ❌ "leak only"; no status change. Report /tmp/opencode/research/php8511_apache_20261023T200020Z/report.md (329 lines; 4 MiB datum withdrawn; 2 MiB works, 8 MiB crashes).
 - 8.4.26 audit published: research/8426-audit @ f8486e7. Core A1→B1→A2→B2 chain confirmed (4 target-written proofs; 3/60 blind on 993,911-B A1; first 3/3; post-first 0/57). Caveats: core silence file, WordPress not bootstrapped; php.ini-production mounted; freshness is hypothesis; G51 remains open/conditional.
 - README audit caveats: 4197664 (8.4.24/8.4.26 qualified; G51 note; intro docroot/core-silence wording; statuses unchanged).
@@ -23,7 +25,7 @@ Branches:
 - research/wp8424-setup — published @ e210e07 (setup-only)
 - research/gap-plan — published @ 4895ccc (snapshot; 13 tasks / 4 batches)
 - research/8426-result — target output (optional)
-Next: target 20-pool 8.4.26 run pending; G51 remains open/conditional; 8.5.11 closed ❌; no README promotion.
+Next: target 20-pool 8.4.26 run pending; G51 remains open/conditional; 8.1–8.3 multi-worker not audited; no README promotion.
 
 ## Target agent
 Updated: 2026-10-23 21:04 UTC
