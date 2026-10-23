@@ -112,10 +112,12 @@ Engine-level RCE on stock binaries: **yes**. Default deployment/real application
 - CVE-2026-109618 on FPM: pre-RINIT OOM makes the child exit 70 with a 502;
   the parser OOM is contained. Availability only: no PHP-origin bytes and no
   code execution.
-- No RCE chain satisfied the validity rules in the project's own 109618/109619
-  work at the time of writing. **Superseded 2026-10-22:** the external 9bie
-  chain meets them conditionally on fresh PHP 8.4.26 WordPress (B1 must use the
-  stock core endpoint; see the reconciliation section below).
+- No RCE chain satisfied the full stock-application validity rules in the
+  project's own 109618/109619 work at the time of writing. **Superseded
+  2026-10-22 (lab-conditioned):** the external 9bie chain gives engine-level
+  RCE on fresh PHP 8.4.26, but B1 uses the stock `wp-content/index.php` silence
+  file, not the WordPress front controller; it does not meet the
+  real-application bar (see No-cheat assessment).
 
 ## Does not work / blocked
 
