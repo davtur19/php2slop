@@ -357,6 +357,7 @@ is not part of the exploit path.
 |---|---|---|---|---|
 | WordPress 7.1.3 | Apache 2.4.69 prefork + mod_php 8.4.24 (Debian 13.7 `8.4.24-1~deb13u1`) | stock prefork 5/150; `/wp-content/index.php` 28-B core file; official docroot minus inactive bundled plugins, read-only | ✅ | **stock-compliant**, direct mod_php; target-written `MW001`/`MW006`/`PR001`/`PR002`; blind 2/20, pooled 4/40 lab-assisted; retries; see section above |
 | WordPress 7.1.3 | 8.4.26 mod_php | `/wp-content/index.php` (silence file) | ✅ | engine-level, lab-conditioned; 6/6; the audited stock-compliant cell is the Debian 8.4.24 row above |
+| WordPress 7.1.3 | Apache 2.4.69 prefork + mod_php 8.4.27 (stock upstream `php:8.4.27-apache`, Debian 13.7) | stock prefork 5/150 (observed 5→15); `/wp-content/index.php` 28-B core file, read-only | 🚫 | fixed upstream in 8.4.27; A1 200/256 B no OOM; B1 0/20 multi-worker + 0/10 single-worker; A2 200/192 B; B2 unreachable (no B1 leak); per-build only, no range extrapolation |
 | WordPress 7.1.3 | 8.4.26 nginx+mod_php non-stock | `/index.php` front controller | ✅ | engine-level; 6/6 OOB; pre-app — WP not installed (`mysqli` missing), HTTP 500 |
 | WordPress 7.1.3 | 8.4.26 nginx+mod_php non-stock | `/wp-content/index.php` | ✅ | engine-level; non-stock 64M; 6/6 |
 | WordPress 7.1.3 | 8.4.26 FPM | `/index.php` | ❌ | multipart OOM only (502/exit 70) |
