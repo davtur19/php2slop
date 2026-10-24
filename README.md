@@ -164,10 +164,43 @@ Stock nginx front, stock FPM pool.
 | 8.2.35 | 🚫 | fixed control; 64M diag A1/A2 200, 0 exit-70 |
 | 8.3.35 | ❌ | canonical A1/B1 413 at 1 MiB; A1 shrink 502 `upstream sent unexpected FastCGI record: 3` (FCGI_STDERR from dying worker); startup OOM exit 70; 4 KiB `fastcgi_buffer_size` 502 on a 5,000-byte header/~1.17 MB `Set-Cookie`; no chain |
 | 8.3.36 | 🚫 | fixed; A2 200 |
-| 8.4.26 | ❌ | stock 1m 413; 64M diag 502/OOM (worker exit 70); sub-1 MiB A1 alone kills the worker, so 1 MiB is not the sole blocker; 1 MiB amplification not measured; no chain |
+| 8.4.26 | ❌ | stock 1m 413; 64M diag 502/OOM (worker exit 70); sub-1 MiB A1 alone kills the worker, so 1 MiB is not the sole blocker; 1 MiB amplification tested and insufficient to replace B1 (real: 68,184 B → 34,216,008 B peak, 501.8×; best 507.2×; note below); no chain |
 | 8.4.27 | 🚫 | upstream fix; runtime control missing (G22) |
 | 8.5.11 | ❌ | B1 leak only under stock `pm=dynamic`; the single-worker 3/3 result is in the FPM table, not this pool |
 | 8.5.12 | 🚫 | plain full-extension build + stock nginx; A1 200 |
+
+**1 MiB amplification is real but cannot replace B1 (2026-10-24).** Stock PHP
+8.4.26 (mod_php and FPM) request parsing amplifies a 68,184 B multipart body
+(220 zero-length nested file parts, `filename=""`, depth 63) to a 34,216,008 B
+`memory_get_peak_usage(false)` peak (501.8×); the best ratio is 507.2×
+(31,104 B → 15,777,288 B), and the largest measured peak is 153,134,552 B from
+311,016 B (492×; 2G measurement INI), which OOMs at stock `memory_limit=128M`.
+`max_file_uploads=20` counts only parts with content; zero-length `filename=""`
+parts are exempt, so `max_input_vars` is the only cap. Through stock nginx
+1.31.8 (`client_max_body_size 1m`), `a2shape_1000` (309,204 B) reaches PHP and
+returns 500 `Allowed memory size ... exhausted` on mod_php and 502 with
+`child N exited with code 70` on FPM; A1-shrink (993,911 B) returns 500 on
+mod_php and 502/exit 70 on FPM; canonical B1 (33,128,677 B, chunked) is 413
+`client intended to send too large chunked body: 1048576+65536`; gzip
+`Content-Encoding` is not decompressed; TE+CL is 400; TE:gzip is 501.
+
+It cannot replace B1: B1 needs one POST field value whose `zend_string` is at
+`chunk+0x1000` (data at `chunk+0x1018`) in the freed 2 MiB `PS(id)` chunk, with
+the forged header at `chunk+0x137000`. The minimum value data is 1,269,768 B and
+the canonical fill is 2,092,831 B (`511*4096-25`); the nginx edge caps at
+1,048,576 B `Content-Length` / 1,114,112 B chunked: the chunked cap is 155,656 B
+below the minimum (the CL cap is 221,192 B below), before multipart framing, and
+both are ~1 MB below the canonical fill. Amplification allocates array metadata
+(~1.5 KB nodes), not body-value buffers; the inflated session serialization
+buffer can only reach the offset with framing/header-derived text (no
+NUL/`0x16`), while binary value bytes stay ≤1,114,112 B.
+`proxy_request_buffering on` also blocks the 149-holder pin, and
+`proxy_buffer_size 4k` would 502 any ~1.67 MB leak cookie. Empirically, A1 +
+canonical B1 direct is 3/3 leaks (819,200 B decoded, 1,095 `zval_ptr_dtor`
+hits); the amplified body as B1 is 200/195 with no cookie; the amplified OOM as
+A1 + canonical B1 is 200/259 with a clean 32-byte session; the wrong-page
+`0xF0` 33 MB control corrupts the heap and aborts with no leak. No
+target-written `uid` in this run.
 
 ### OpenLiteSpeed + lsphp (LSAPI)
 
