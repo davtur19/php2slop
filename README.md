@@ -146,11 +146,39 @@ nginx terminates HTTP and proxies to Apache prefork + mod_php.
 | 8.4.7 official | ❌ | stock nginx 1 MiB: A1 1,123,451 B / B1 31,035,467 B → 413; `proxy_request_buffering on` destroys the 149-holder pin (measured on the same 8.4.8 stack); direct Apache chain 2/2; direct over-limit B1 control not run |
 | 8.4.8 official | ❌ | stock nginx 1 MiB: A1 1,060,211 B / B1 33,128,677 B → 413; holders `up="-"` and Apache sees 6 POSTs; default 4k/8k `proxy_buffer_size` 502 on the 1,686,023 B response header; size-cap-only control 200/181 with no `Set-Cookie`; direct Apache chain 2/2 |
 | 8.4.24 Debian 13 (`8.4.24-1~deb13u1`) | — | stock nginx 1 MiB not a positive: the 33,128,677 B B1 would be 413 and buffering re-arms `post_max_size=8M`; the prior non-stock 64 MiB cell (64M body, `post_max_size=64M`, 4 MiB buffers, keepalive) is historical and not a stock result; the verified path is direct Apache (pure-HTTP pin) |
-| 8.4.26 official | ❌ | stock nginx 1 MiB: A1 1,060,211 B / B1 33,128,677 B → 413 |
-| 8.4.26 official | ✅ | non-stock: 64 MiB body + 4 MiB buffers + keepalive |
+| 8.4.26 official | ❌ | stock nginx 1 MiB negative: A1 1,060,211 B → 413 (`1048576+11635`); B1 33,128,677 B → 413; 298/298 holders `up="-"`; pin-free 8/8 distinct PIDs; B1 header 1,662,850 B vs 8 KiB `proxy_buffer_size` → 502; no stock bypass (note below) |
+| 8.4.26 official | — | historical non-stock only: 64 MiB body + 4 MiB buffers + keepalive; not a stock nginx result and not a bypass of the measured stock blockers |
 | 8.4.27 | 🚫 | fixed; A1/B1 6×200, 0 leak, 0 OOB (stock and non-stock) |
 
 8.4.7/8.4.8 direct Apache cells remain positive (RCE); the ❌ rows are the nginx-terminated cells only. The measured stock-nginx blockers are the 1 MiB body cap, `proxy_request_buffering on`/buffering (which re-frames chunked bodies and re-arms `post_max_size=8M`) and the default response-header buffer; the 8.4.8 size-cap-only control still returns 200/181 with no `Set-Cookie`, and the 8.4.7 over-limit B1 control was not run. The endpoint is not the blocker: the direct chain uses the official WordPress silence file. The Debian 8.4.24 row is `—` for stock nginx: only the direct Apache pure-HTTP pin is verified, and the prior non-stock 64 MiB nginx cell is historical, not a stock result.
+
+**Stock nginx 8.4.26 single-request/pin bypass — negative (2026-10-24).**
+With stock `proxy_request_buffering on`, 298/298 half-open holders were logged
+`400` with `up="-"`; zero holder requests reached Apache, and the six probes ran
+on six distinct PIDs. Direct control: 6/6 probes on one child (pid 457).
+Pin-free is not an alternative: 8 sequential requests gave 8 distinct PIDs in
+all four shapes (stock new connections, client keep-alive, pipelining, direct),
+and the pin-free chain leaked 0 B (A1 pid 139 → B1 pid 184; 2/2). A1 is
+1,060,211 B → 413 (`1048576+11635`); a 14-variant under-cap sweep found no
+functional A1 (the largest under-cap variants that still OOM at 12288 leak
+nothing through B1). B1's response header is 1,662,850 B (`Set-Cookie` alone
+1,662,634 B) vs the default `proxy_buffer_size` 8 KiB → 502 `upstream sent too
+big header`, even with same-child proven under non-stock C2 (A1/B1 both pid
+327). With only the cap lifted, `proxy_http_version 1.0` plus buffering
+re-frames B1 as `Content-Length` (`reqlen=33133400` → `200/182`, no cookie),
+re-arming `post_max_size`.
+
+The only measured same-child route without holders is C4: non-stock
+request-side relaxation with `proxy_http_version 1.1`,
+`proxy_set_header Connection ""`, and an upstream keepalive pool (8/8 requests
+on one client connection → all pid 244); a residual paginated sub-8 KiB leak is
+not tested, would still need a non-stock same-child mechanism, and is not a
+stock claim. The chain itself is sound on the same container: direct + pin A1
+OOM 4096, B1 decoded 819,208 B, 1,095 `zval_ptr_dtor` hits, A2 OOM 20480, B2
+`0/0`, target-written `uid=33(www-data)` + `PC26` (59 B), child SIGSEGV. The
+direct Apache 8.4.26 ✅ is preserved; stock nginx remains ❌, and the historical
+non-stock 64 MiB/4 MiB buffer/keepalive cell is not a stock result or bypass
+claim.
 
 ### nginx + FPM
 
