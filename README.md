@@ -62,9 +62,11 @@ exact per-build offsets.
 | 7.2.34 | 7.2 | ❌ | no RCE; last 7.2 |
 | 7.3.33 | 7.3 | ❌ | no RCE; last 7.3 |
 | 7.4.0 | 7.4 | ❌ | no RCE; early 7.4 |
+| 7.4.32 | 7.4 | ❌ | no RCE; negative 2/2; stale `PS(id)` rejected (`The session id is too long or contains illegal characters`); no leak, no write; OOM 12,288 |
 | 7.4.33 | 7.4 | ❌ | no RCE; last 7.4; structural negative, DoS only |
+| 8.0.29 | 8.0 | ❌ | no RCE; mechanism-based negative: exact one-page boundary, cleanup completes before parse OOM, no A1/B1 pair creates a stale `PS(id)`; 5 `$_FILES` metadata chains vs 6 in 8.4 (`full_path` added in 8.1); OOM 20,480 |
 | 8.0.30 | 8.0 | ❌ | no RCE; last 8.0; structural negative, DoS only |
-| 8.1.33 | 8.1 | ❌ | no RCE; pre-8.1.34 |
+| 8.1.33 | 8.1 | ❌ | no RCE; pre-8.1.34; structurally blocked: request 2 SIGSEGV before the header, 5/8 A1 shapes crash; no cookie/leak |
 | 8.1.34 | 8.1 | ❌ | no RCE; last tested 8.1 mod_php; forged id accepted, B1 SIGSEGV in _efree before the response; no cookie/leak |
 | 8.2.0 | 8.2 | ❌ | no RCE; early 8.2 |
 | 8.2.15 | 8.2 | ❌ | no RCE; mid 8.2 |
@@ -83,6 +85,7 @@ exact per-build offsets.
 | 8.4.27 | 8.4 | 🚫 | fixed in source; runtime control (A1 200, B1 no leak) |
 | 8.5.0 | 8.5 | ❌ | leak only; no libphp code pointer |
 | 8.5.5 | 8.5 | ❌ | leak only |
+| 8.5.10 | 8.5 | ❌ | leak only; 53 canonical qwords, no `libphp`/`main` pointer; known offsets `zif_system 0x598d60`, `zval_ptr_dtor 0x7b3860`, `ps_globals 0x1770a40`; no code execution |
 | 8.5.11 | 8.5 | ❌ | leak only; 53 free-slot qwords, 0 `zval_ptr_dtor`, no `libphp`/`main` pointer, no 87-bucket |
 | 8.5.12 | 8.5 | 🚫 | fixed in source; runtime (A1 200, normal cookie) |
 
@@ -291,6 +294,18 @@ metadata-only candidates are listed in the coverage-gap table.
 | Amazon Linux 2023.12 | `php8.4-modphp 8.4.26-1.amzn2023.0.1` | mod_php + FPM | ❌ | pre-fix row; 8.4.26 installable only when `modphp`+`fpm`+`common` are pinned (current `fpm` pulls `common` 8.4.27 and upgrades modphp); stock SAPI is FPM (MPM `event`; `libphp.so` loads only under prefork), mod_php measured with declared prefork fixture; A1 OOM reproduced at shifted geometry, onset between 860 and 870 big-value parts (`a1_p880` 1,068,191 B: 500, OOM 20,480 B); B1 0/5 stock and 0/5 pinned single-child prefork (34-B normal cookies); 109618 S1 at H=427343 (500, OOM 12,288 B), S2 not observed over 38 H points (33 below S1 threshold); FPM A2 OOM 20,480 B; no B1 leak, no B2, no RCE |
 | Amazon Linux 2023.12 | `php8.4-modphp 8.4.27-1.amzn2023.0.1` | mod_php + FPM | 🚫 | fixed control on same package line/INI; A1 `a1_p880` 200; 109618 H=427343 and H=440000 200 (175 B), no OOM; FPM A2 200; behaviorally fixed, Amazon changelog is version-only and does not name the CVEs |
 | Fedora 44 | `php-fpm 8.5.12-1.fc44` | FPM only | 🚫 | no mod_php package or Apache DSO (`php-embedded` `libphp.so` has no `apache2handler`); A1 200 (40-B cookie), A2 200; B1 33 MB blocked by stock `post_max_size=8M`, so invalid negative; 8.5.12 fixed by version; 109618 not run |
+
+**Stock distro PHP is not supported (2026-10-24): ❌.** No stock repository
+ships the candidate 8.4.26 + prefork `mod_php` combination:
+
+- Oracle Linux 8: max 8.2.35; `mod_php` present but deprecated, MPM `event`; no 8.4.26.
+- Oracle Linux 9: max 8.3.36; no `mod_php` (FPM only), MPM `event`; no 8.4.26.
+- Oracle Linux 10: `php8.4` 8.4.16/21/23/24/27; no 8.4.26; no `mod_php` (FPM only), MPM `event`.
+- Rocky Linux 8: max 8.2.35; `mod_php` under MPM `event`; no 8.4.26.
+- Rocky Linux 9: max 8.3.36; no `mod_php` (FPM only); no 8.4.26.
+- Rocky Linux 10: `php8.4` 8.4.16/21/23/24/27; no 8.4.26; no `mod_php` (FPM only).
+- FreeBSD 14/15: default `php85` 8.5.12, `php84` 8.4.27, 8.4.26 absent; `mod_php84` 8.4.27; prefork default.
+- Only a custom source 8.4.26 build with prefork + `mod_php` is a candidate; — unverified, no proof.
 
 **Amazon Linux 2023.12 (2026-10-23).** `php8.4-modphp 8.4.26-1.amzn2023.0.1`
 is still installable, but only as a matched set: installing the current
