@@ -107,7 +107,7 @@ Stock `php:<v>-fpm` images fronted by nginx; stock production INI,
 | 8.1.34 | 8.1 | ❌ | A2 502/exit 70; no state carry-over | runtime |
 | 8.2.34 | 8.2 | ❌ | A2 502/exit 70; no chain; the mod_php result does not extend to FPM | runtime |
 | 8.2.35 | 8.2 | 🚫 | fixed control; Debian package runtime (A1/A2 200, 0 exit-70) | runtime (distro) |
-| 8.3.35 | 8.3 | ❌ | A2 502/exit 70; the mod_php result does not extend to FPM | runtime |
+| 8.3.35 | 8.3 | ❌ | structurally blocked, direct FPM and stock nginx: 8/8 startup-OOM A1/A1-shrink/A2 requests kill the worker (exit 70) before B1; no stale `PS(id)` survivor; B1-min on the replacement child gives a normal 44-byte `PHPSESSID` and no leak; the 4-holder FPM pin cannot survive its own fatal; nginx canonical A1/B1 413, A1-shrink 502 `upstream sent unexpected FastCGI record: 3` (FCGI_STDERR, not buffering), 4 KiB `fastcgi_buffer_size` rejects a 5,000-byte header/~1.17 MB `Set-Cookie`, `post_max_size=8M` discards B1 with `CONTENT_LENGTH`; no chunked escape on FastCGI; `S_off` not calibrated; 8.3.36 control 200/0 fatals; no `/tmp/p1`, no `id`, no RCE | runtime |
 | 8.3.36 | 8.3 | 🚫 | fixed control; A2 200, `PEAK=46137344` | runtime |
 | 8.4.26 | 8.4 | ❌ | chain negative: sub-1 MiB A1 (993,911 B) still OOM 4,096 B, worker exit 70/502; B1 413 at stock 1 MiB; no surviving child/leak; 109618 primitive; no controlled destructor | runtime |
 | 8.4.27 | 8.4 | 🚫 | upstream fix; FPM runtime control not run (G22) | upstream fix |
@@ -118,6 +118,24 @@ Stock `php:<v>-fpm` images fronted by nginx; stock production INI,
 FPM `5.6.40` produced no B1 leak; the B1-only range is `7.0.33–7.4.33`.
 Any 7.4/8.0 FPM B1 negative obtained with the 33 MB B1 body is invalid: stock
 `post_max_size=8M` rejects it before session code (see the distro caveat below).
+
+**8.3.35 FPM is structurally blocked (2026-10-24).** Direct FastCGI and stock
+nginx both fail. Canonical A1 1,060,869 B, A1 shrink 1,044,741 B and A2 279,369 B
+each produce a startup OOM (4,096 / 12,288 / 20,480 B) and the worker exits 70;
+8/8 such requests killed the worker, so no process survived to serve B1 with a
+stale `PS(id)`. The 4 half-open FastCGI holders leave one of five slots; A1
+landed on a new fork (child 38) that died, and B1-min on replacement child 39
+returned a normal 44-byte `PHPSESSID` with no leak pointers. The Apache prefork
+149-holder FIFO pin is structurally inapplicable: the state holder would have to
+survive its own fatal. Stock nginx rejects canonical A1/B1 with 413; A1 shrink
+passes 1 MiB but returns 502 `upstream sent unexpected FastCGI record: 3`
+(FCGI_STDERR from the dying worker, not a buffering artifact); the default 4 KiB
+`fastcgi_buffer_size` rejects a 5,000-byte header and the ~1.17 MB `Set-Cookie`;
+`post_max_size=8M` discards B1 with `CONTENT_LENGTH` (warning, 200, no cookie),
+and FastCGI has no chunked escape. `php:8.3.36-fpm` control: same A1/A1-shrink/A2
+200, zero fatals/exit-70; nginx A1-shrink 200. `S_off` is not calibrated on FPM,
+so no B2 geometry was fabricated. No `/tmp/p1`, no `id` output, no RCE; only
+PHP-internal upload-progress/temp artifacts.
 
 ### nginx + mod_php
 
@@ -144,7 +162,7 @@ Stock nginx front, stock FPM pool.
 | 8.1.34 | ❌ | A2 502/exit 70; no state carry-over |
 | 8.2.34 | ❌ | same 502/exit-70 shape |
 | 8.2.35 | 🚫 | fixed control; 64M diag A1/A2 200, 0 exit-70 |
-| 8.3.35 | ❌ | same 502/exit-70 shape |
+| 8.3.35 | ❌ | canonical A1/B1 413 at 1 MiB; A1 shrink 502 `upstream sent unexpected FastCGI record: 3` (FCGI_STDERR from dying worker); startup OOM exit 70; 4 KiB `fastcgi_buffer_size` 502 on a 5,000-byte header/~1.17 MB `Set-Cookie`; no chain |
 | 8.3.36 | 🚫 | fixed; A2 200 |
 | 8.4.26 | ❌ | stock 1m 413; 64M diag 502/OOM (worker exit 70); sub-1 MiB A1 alone kills the worker, so 1 MiB is not the sole blocker; 1 MiB amplification not measured; no chain |
 | 8.4.27 | 🚫 | upstream fix; runtime control missing (G22) |
