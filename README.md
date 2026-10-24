@@ -515,14 +515,30 @@ A1 OOMs allocating 4,096 B and A2 20,480 B, both in `Unknown on line 0`;
 | CVE-2019-11043 | same | stock Debian/WordPress/MediaWiki config | ❌ | blocked |
 | CVE-2019-11043 | 7.1.33 / 7.2.24 / 7.3.11; FPM | fixed | 🚫 | fixed |
 
-**Third-party 8.3.35 claim (2026-10-24).** `Percivalll/php2shell-wordpress-rce`
-is an original third-party repository, static-review clean and not malicious.
-It claims an 8.3.35 Apache HTTP RCE via a 4 KiB leak and a fake
-`ps_serializer`; four globals match this matrix and its Apache 2.4.68 differs
-from our 2.4.69 only by minor version. The primitive and its self-reported run
-are **unverified**: no image, logs or proofs were available, and the audit did
-not execute it. The 8.3.35 ✅ above is our own verified blind chain, not this
-repository's primitive; the repository claim remains `—` (untested) here.
+**Third-party 8.3.35 claim — failed verification (2026-10-24).**
+`Percivalll/php2shell-wordpress-rce` is an original third-party repository,
+static-review clean and not malicious. Four static offsets match our
+`php:8.3.35-apache` build and its Apache 2.4.68 differs from our 2.4.69 only by
+minor version, but its exact HTTP RCE chain was independently reimplemented and
+tested on the stock image: **❌ no RCE, no target-written marker, no `uid`**;
+`/var/www/html/pwn.txt` and `/tmp/ran.txt` are absent. The underlying
+stale-session OOB read is real with our own A1/B1 pair: 1,169,024 B (`0x11d680`)
+returned in `Set-Cookie`; the libphp base is recoverable from 584 leaked
+`zval_ptr_dtor` pointers; 8.3.36 does not reproduce it; stock nginx 1 MiB
+returns 413 for A1/B1 before PHP. The exact chain fails at four points: (1) its
+`build_a()` places the session fields and file part after ~66 MB of fillers, so
+on stock 128M it OOMs after 852 FORMDATA callbacks before `FILE_START`, never
+runs `php_session_initialize()`, leaves no stale `PS(id)`, and B gets a fresh
+cookie; (2) its 63-byte forge does not produce the claimed 4 KiB window and,
+after our A1, corrupts the Zend heap (`zend_mm_heap corrupted`, SIGABRT); (3)
+`raw[0x6c8] - 0x50ddbf` is invalid in our capture (`raw[0x6c8]` is `A`×8; the
+parser's best vote is 1 < 4), and `H = chunk+0x6a000` is unvalidated; (4)
+without a controlled base/chunk/H, the `ps_serializer` write and `zif_system`
+call were not reached. The claimed 4 KiB leak / fake `ps_serializer` nginx
+bypass is **false/unverified**; the 1.17 MB OOB read is direct-Apache only and
+too large for the default nginx `proxy_buffer_size`. The 8.3.35 ✅ above is our
+own verified blind chain, not this repository's primitive. Repository claim:
+`❌` tested, not reproduced.
 
 ### Coverage gaps
 
