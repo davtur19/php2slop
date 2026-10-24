@@ -89,6 +89,18 @@ exact per-build offsets.
 | 8.5.11 | 8.5 | ❌ | leak only; 53 free-slot qwords, 0 `zval_ptr_dtor`, no `libphp`/`main` pointer, no 87-bucket |
 | 8.5.12 | 8.5 | 🚫 | fixed in source; runtime (A1 200, normal cookie) |
 
+**Fixed-control rows and CVE-2026-115560 (2026-10-24).** The
+8.4.27/8.5.12/8.3.36/8.2.35 🚫 rows are fixed for the CVE-2026-109618/109619
+memory-corruption chain only. CVE-2026-115560 is conditional: an app that sets
+`session.serialize_handler` to `php_binary`/`php_serialize` and then
+`ini_set(..., 'php')` before `session_start()` `unserialize()`s an
+attacker-controlled `upload_progress` key containing `|` under the `php`
+decoder (object injection needing an app gadget; `upload_progress` on; stock
+`cleanup=1` forces a race). It is serializer confusion, not memory corruption
+and not an 8.4.27 bypass; the CVE is reserved with no public record or CVSS and
+the fix is deferred to the next regular release. Public PoCs need a gadget and
+are not a stock or universal result; no row status changes.
+
 8.1.34 row: forced single-worker prefork (`MaxRequestWorkers 1`); POST `/wp-content/index.php` (28-byte official silence file, MD5 `67442c5615eba73d105c0715c6620850`); `php.ini-production`; multi-worker not audited. 8.2.34/8.3.35 rows: stock prefork 5/150 and `php.ini-production`; the 149 half-open 1 MiB trickle pin isolates a cold child without `%P`, a restart or a config change; endpoints are the 22-byte probe and the 28-byte core file; engine-level, WordPress not bootstrapped.
 
 Measured `S` anchors are build-specific: 8.4.1–8.4.7 `main+0xED398`; 8.4.8 `main+0xE8398`; 8.4.10–8.4.26 `main+0xF8398`. 8.4.26 `zif_system=lib+0x465370`, `zval_ptr_dtor=lib+0x65EB60`. Do not transplant: Debian 8.4.24 and Ubuntu 8.4.5 use `main+0xF7398`. The 149 half-open pin is HTTP-only but assumes the stock `MaxRequestWorkers=150` and exactly one free child; it is a pool-exhaustion primitive, not a blind unconstrained-pool exploit. 8.4.26 was also re-run unchanged on the official WordPress core file (2/2) and on a plain PHP file under the stock docroot (2/2), both target-written.
