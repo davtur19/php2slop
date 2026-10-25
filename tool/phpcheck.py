@@ -502,14 +502,14 @@ CVES: tuple[CveDef, ...] = (
                    "php.ini-production; 8.4.8 uses a separate big78 A1 + Q5 "
                    "shape. Early offsets differ (8.4.1-8.4.7 S=main+0xED398, "
                    "8.4.8 S=main+0xE8398); do not reuse 8.4.10+ offsets. The "
-                   "bare image ships no active INI and the no-INI control is "
-                   "unreachable. 8.4.27 fixed. 8.5.0/5 leak-only; 8.5.11 A1+B1 "
-                   "leak only (no uid, no libphp pointer, no 8.4-style main-chunk "
+                   "bare image ships no active INI; without the production INI "
+                   "the chain is unreachable. 8.4.27 fixed. 8.5.0/5 leak-only; "
+                   "8.5.11 A1+B1 leak only (no uid, no libphp pointer, no 8.4-style main-chunk "
                    "bucket); 8.5.12 fixed. mod_php 8.2.34/8.3.35 full lab chain "
                    "with target-written uid; receipt not shipped. FPM: the "
                    "stale-session-id chain is not claimed; 8.4.26 Path C belongs "
                    "to CVE-2026-109619 and needs documented non-default changes; "
-                   "8.5.11 single-worker cell is in progress, not an RCE claim."),
+                   "8.5.11 single-worker cell is not a completed RCE; not counted."),
     ),
     CveDef(
         id="CVE-2026-109619",
@@ -532,14 +532,14 @@ CVES: tuple[CveDef, ...] = (
                    "php.ini-production; 8.4.8 uses a separate big78 A1 + Q5 "
                    "shape. Early offsets differ (8.4.1-8.4.7 S=main+0xED398, "
                    "8.4.8 S=main+0xE8398); do not reuse 8.4.10+ offsets. The "
-                   "bare image ships no active INI and the no-INI control is "
-                   "unreachable. 8.4.27 fixed. 8.5.0/5 leak-only; 8.5.11 A1+B1 "
-                   "leak only (no uid, no libphp pointer, no 8.4-style main-chunk "
+                   "bare image ships no active INI; without the production INI "
+                   "the chain is unreachable. 8.4.27 fixed. 8.5.0/5 leak-only; "
+                   "8.5.11 A1+B1 leak only (no uid, no libphp pointer, no 8.4-style main-chunk "
                    "bucket); 8.5.12 fixed. mod_php 8.2.34/8.3.35 full lab chain "
                    "with target-written uid; receipt not shipped. FPM: 8.4.26 Path C "
                    "RCE only with the documented non-default changes; the "
                    "stale-session-id FPM chain is not claimed; 8.5.11 "
-                   "single-worker cell is in progress, not an RCE claim."),
+                   "single-worker cell is not a completed RCE; not counted."),
     ),
     CveDef(
         id="CVE-2019-11043",
@@ -811,9 +811,9 @@ def _session_conditions(cve: CveDef, target: Target) -> list[dict[str, str]]:
                 or _v_in(target.version, "8.4.10", "8.4.26")):
             out.append(_cond("php.ini-production mounted (lab)", "required",
                              "the 8.4.1-8.4.7 and 8.4.10-8.4.26 lab chains mount "
-                             "php.ini-production; the bare image ships no active INI "
-                             "and the no-INI control is unreachable, so this is not "
-                             "a bare-default proof"))
+                             "php.ini-production; the bare image ships no active "
+                             "INI; without the production INI the chain is "
+                             "unreachable, so this is not a bare-default proof"))
     elif sapi in FPM_SAPIS:
         out.append(_cond("sapi in {fpm,nginx_fpm,apache_fpm}", "required",
                          f"reported SAPI is {sapi}; FPM family only"))
@@ -834,9 +834,9 @@ def _session_conditions(cve: CveDef, target: Target) -> list[dict[str, str]]:
         if cve.id == "CVE-2026-109619":
             if _is(target.version, "8.5.11"):
                 out.append(_cond("known target address + app trigger", "required",
-                                 "the non-default 8.5.11 single-worker cell is in "
-                                 "progress and is not counted as an RCE claim; the "
-                                 "default pm=dynamic pool is leak only"))
+                                 "the non-default 8.5.11 single-worker cell is not a "
+                                 "completed RCE and is not counted as an RCE claim; "
+                                 "the default pm=dynamic pool is leak only"))
             elif _is(target.version, "8.4.26"):
                 out.append(_cond("Path C non-default changes", "required",
                                  "RCE demonstrated only with cleanup=Off, a lowered "
@@ -929,8 +929,9 @@ def _session_evidence(cve: CveDef, target: Target) -> tuple[str, str]:
             return ("measured-rce",
                     "lab chain measured on upstream mod_php 8.4.10-8.4.26 "
                     "(and Debian 13 8.4.24 package) with php.ini-production "
-                    "mounted; the bare image ships no active INI and the no-INI "
-                    "control is unreachable; per-build offsets required")
+                    "mounted; the bare image ships no active INI; without the "
+                    "production INI the chain is unreachable; per-build offsets "
+                    "required")
         if _is(v, "8.5.11"):
             return ("measured-leak-only",
                     "A1+B1 leak only; no uid; no libphp pointer; "
@@ -962,10 +963,10 @@ def _session_evidence(cve: CveDef, target: Target) -> tuple[str, str]:
                     "per-build measured")
     if target.sapi in FPM_SAPIS:
         if _is(v, "8.5.11"):
-            return ("leak-only-in-progress",
+            return ("leak-only",
                     "leak only under the default pm=dynamic pool; no uid, no "
                     "libphp pointer; the non-default single-worker known-target "
-                    "cell is in progress and is not counted as an RCE claim")
+                    "cell is not a completed RCE and is not counted as an RCE claim")
         if _is_any(v, "8.4.26", "8.5.10"):
             if cve.id == "CVE-2026-109618":
                 if _is(v, "8.4.26"):
