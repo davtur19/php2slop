@@ -1,4 +1,8 @@
-"""producer.py - 618/619 staged shape builders; not wired into driver steps; mod_php TODO."""
+"""producer.py - 618/619 staged shape builders; not wired into driver steps.
+
+The mod_php producer stage lives in producer_modphp.py; this module is only a
+facade over producer_618 and producer_619.
+"""
 
 
 from tool.modules import producer_618

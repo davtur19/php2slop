@@ -1,4 +1,8 @@
-"""profiles.py - BINARY_PROFILES (per-build offsets) + TARGETS registry; modphp TODO."""
+"""profiles.py - BINARY_PROFILES (per-build offsets) + TARGETS registry.
+
+TARGETS has live entries for wiki, wp and modphp; the modphp producer stage is
+producer_modphp.py.
+"""
 
 
 BINARY_PROFILES = {

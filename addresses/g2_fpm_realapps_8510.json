@@ -1,5 +1,6 @@
 {
   "name": "g2-fpm-realapps-8510-php",
+  "scope": "private realapps target, ASLR off, outside the public README matrix",
   "lane": "fpm",
   "stage": "G2",
   "route": "G6 zif serializer decode",

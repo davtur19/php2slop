@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
 """Module "STOCK": native-output-leak arm body, stock shape.
 
-RECONSTRUCTED from zer061 shape docs + LEAK module spec; NOT the author's original;
-per-build semantics marked VERIFIED (mined docs) / INFERRED.
+Reconstructed from published shape notes for CVE-2026-109618 attributed to
+Zer061 / PHP-UP-2026, plus the local LEAK module spec. The original repository
+has been removed; the snapshot consulted is
+https://web.archive.org/web/20261021082048/http://github.com/Zer061/CVE-2026-109618/.
+This file contains no verbatim upstream code and is not a copy of the author's
+original release; per-build semantics are marked VERIFIED (mined notes) /
+INFERRED. No license is asserted for the upstream notes. See
+THIRD_PARTY_NOTICES.md.
 
 Purpose
     STOCK.arm_body(sid, large_filename_length) builds the multipart body aimed at
@@ -15,7 +21,7 @@ Purpose
     sid travels as the PHPSESSID form field, not in a cookie.
 
 Per-semantics provenance
-VERIFIED (mined from the driver + LEAK module + zer061 bundle):
+VERIFIED (mined from the driver + LEAK module + Zer061 notes):
   - Body is multipart ONLY, no HTTP framing: the return value is fed straight
     into LEAK.request_bytes (php2shell.py:186-188).
   - Boundary b"NATIVEOUTPUTEXACT" == LEAK.BOUNDARY (native-output-leak.py:12).

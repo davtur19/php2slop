@@ -20,6 +20,13 @@ Four stages, one HTTP request shape each:
     B2  plain multipart fake zend_reference spray + fake zend_array; the
         fake pDestructor is ``zif_system`` at ``lib + 0x24cdd0``
 
+Stage layout follows ``9bie/php2shell-bypass-aslr-exp`` (A1 OOM -> B1 leak ->
+A2 OOM -> B2 fake zend_array/zif_system); this is a shape reference only
+("follows / inspired by").  The bodies, geometry and offsets in this runner
+are local measurements against the package above.  Whether any code-level
+reuse occurred is unresolved, so no "taken from" claim is made.  No license
+is asserted for 9bie's work.  See ``THIRD_PARTY_NOTICES.md``.
+
 Per-package constants (measured 2026-10-23, four blind runs + two controls):
     S (fake zend_array) = main + 0xF7398
     fillers             = 116

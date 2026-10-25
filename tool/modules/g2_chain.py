@@ -17,7 +17,8 @@ executes the command and is one-shot (its return_value write SIGSEGVs at
 php_exec+450); zif_passthru is the clean surviving control.
 
 The realapps 8.5.10 profile records the confirmed F12b route on the installed
-MediaWiki/Wikibase binary: the active `php` serializer decode slot
+MediaWiki/Wikibase binary. NOTE: that target is PRIVATE, ASLR is off, and the
+run is outside the public README matrix. The active `php` serializer decode slot
 (`ps_serializers[1].decode`, 0x22c54c8) is overwritten with `zif_system`
 (0xa3c061), and the session record is a `php`-format fake execute_data. That
 record shape differs from the php_binary G6 builder, so the `php`-slot record is

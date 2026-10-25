@@ -4,40 +4,46 @@ Research exploit tooling for the PHP `session.upload_progress` use-after-free
 **Status: WIP research code.** Not a universal exploit: every chain is build-,
 SAPI- and configuration-specific and needs exact per-build offsets, a compatible
 worker pool and, in several lanes, the non-default settings named in parentheses
-in the tables. Direct Apache prefork mod_php is the only SAPI with verified
-end-to-end code execution under all default config for the named builds. FPM
-Path C is real but needs the listed non-default changes, and a default nginx
-front blocks the large request bodies. Treat every result as build-specific.
+in the tables. `all default config` means the distribution's production INI;
+where an official image ships no active INI, the `php.ini-production` mount is
+the parenthesized requirement, as in `(php.ini-production; image ships none)` for
+8.4.26. Direct Apache prefork mod_php is the only SAPI with verified end-to-end
+code execution under all default config for the named builds. FPM Path C is real
+but needs the listed non-default changes, and a default nginx front blocks the
+large request bodies. Treat every result as build-specific.
 
 ## Status: what is verified
 
 RCE end to end with a target-written `uid`, all default config:
 
 - Sury PHP 8.0.28 + WordPress 7.1.3 on Ubuntu 22.04, Apache 2.4.52 prefork mod_php: full chain, worker survives; `zif_passthru` writes the proof because `zif_system` crashes the worker.
-- Official `php:8.4.26-apache` + pristine WordPress 7.1.3, Apache 2.4.69 prefork, default worker cap: full chain; 8.4.27 is fixed.
+- Official `php:8.4.26-apache` (php.ini-production; image ships none) + pristine WordPress 7.1.3, Apache 2.4.69 prefork, default worker cap: full chain; 8.4.27 is fixed.
 - Official `php:8.2.34-apache` and `php:8.3.35-apache`, default 150-worker prefork: full chain; 8.2.35, 8.3.36 and 8.5.12 are fixed.
 - Debian 13.7 `libapache2-mod-php8.4 8.4.24-1~deb13u1`, Apache 2.4.69 prefork mod_php, default package config: direct chain plus pure-HTTP pool-exhaustion pin.
 - Ubuntu 25.04 `8.4.5-1ubuntu1.2` mod_php, package-specific.
 
-Real but not all default config (required changes in parentheses): Path C on FPM
-8.4.26 and 8.2.34/8.3.35, and on mod_php 8.4.26. The 8.5.11 FPM single-worker
-cell and Path C on mod_php 7.4.32 are in progress, not RCE claims. Default nginx
-fronts and the FPM leak stage with a declared length (`post_max_size`) are
-blocked.
+Real but not all default config (all required changes are listed in the Path C
+table; the INI mount is shown where relevant): Path C on FPM 8.4.26 and
+8.2.34/8.3.35, and on mod_php 8.4.26 (php.ini-production; image ships none). The
+8.5.11 FPM single-worker (`pm=static`) cell and Path C on mod_php 7.4.32 are in
+progress, not RCE claims. Default nginx fronts and the FPM leak stage with a
+declared length (`post_max_size`) are blocked.
 
-Not claimed: 8.1.33, 7.4.32 and 8.5.11 remain negative or in progress on the
-stale-session-id chain, and no FPM cell carries that chain: FPM exits the worker
-70 when `php_request_startup()` fails. No LFI or third-party write; target-side
-writes are only the same-chain proof or session file. ASLR is on and
+Not claimed: 8.1.33 and 7.4.32 are ❌ on the stale-session-id chain (Path C on
+mod_php 7.4.32 remains in progress); 8.5.11 mod_php is a leak-only ❌ there
+(free-slot qwords, no libphp pointer). No FPM cell carries that chain: FPM exits
+the worker 70 when `php_request_startup()` fails. No LFI or third-party write;
+target-side writes are only the same-chain proof or session file. ASLR is on and
 `display_errors` is off in every positive mod_php cell.
 
 ## Conventions
 
 Legend: ✅ RCE in that exact cell · ❌ tested negative in that exact cell ·
-🚫 patched build (basis stated) · — no qualifying RCE / untested (coverage gap
-only). ✅ rows are direct Apache prefork mod_php unless the row names another
-SAPI. Non-default cells carry the changes they need in parentheses. Endpoints
-are a small PHP probe or the named core silence file.
+🚫 patched build (basis stated) · — no qualifying RCE in that cell (untested or
+engine-level primitive without execution). ✅ rows are direct Apache prefork
+mod_php unless the row names another SAPI. Non-default cells carry the changes
+they need in parentheses. Endpoints are a small PHP probe or the named core
+silence file.
 
 ### mod_php
 
@@ -75,12 +81,12 @@ default prefork sizing, except the 8.0.28 row, which is the exact Sury package.
 | 8.4.1–8.4.7 | 8.4 | ✅ | per-build tested, not a range extrapolation; direct mod_php chain on the WordPress core silence file, target-written `uid`; `S=main+0xED398`; 8.4.7 pure-HTTP 149 half-open pin (no `%P`, no local process control, no fresh-child swap) |
 | 8.4.8 | 8.4 | ✅ | pure-HTTP and direct Apache both reproduced; WordPress core silence file, target-written `uid`; `S=main+0xE8398`; engine-level |
 | 8.4.9 | 8.4 | — | never released upstream; 8.4.8 to 8.4.10 |
-| 8.4.10–8.4.26 | 8.4 | ✅ | per-build tested, not a single-build extrapolation; distinct target-written `uid` proofs; `S=main+0xF8398`; handler-independent; 8.4.26 re-run on pristine WordPress 7.1.3 with the default 150-worker pool: priming and leak on one pinned child, write stage on a fresh child, target-written `uid`, all default config |
+| 8.4.10–8.4.26 | 8.4 | ✅ | per-build tested, not a single-build extrapolation; distinct target-written `uid` proofs; `S=main+0xF8398`; 8.4.26 endpoint-independent; the 8.4.26 re-run on pristine WordPress 7.1.3 with the default 150-worker pool (php.ini-production; image ships none): priming and leak on one pinned child, write stage on a fresh child, target-written `uid`, all default config |
 | 8.4.27 | 8.4 | 🚫 | fixed in source; runtime control returns 200 with no leak |
 | 8.5.0 | 8.5 | ❌ | leak only; no libphp code pointer |
 | 8.5.5 | 8.5 | ❌ | leak only |
 | 8.5.10 | 8.5 | ❌ | leak only; no `libphp`/`main` pointer; known offsets `zif_system 0x598d60`, `zval_ptr_dtor 0x7b3860`, `ps_globals 0x1770a40`; no code execution |
-| 8.5.11 | 8.5 | ❌ | leak only; free-slot qwords, no destructor pointer, no main-chunk fingerprint |
+| 8.5.11 | 8.5 | ❌ | leak only; free-slot qwords, no libphp pointer, no 8.4-style main-chunk bucket; A2/B2 not reached |
 | 8.5.12 | 8.5 | 🚫 | fixed in source; runtime control returns 200 with a normal cookie |
 
 `php.ini-production` sets `output_buffering=4096`, `display_errors=Off`,
@@ -107,9 +113,10 @@ either cell. Offsets are build-specific; do not transplant between builds. The
 
 ### FPM
 
-Official `php:<v>-fpm` images behind nginx, production INI, `pm=dynamic` with the
-default child cap. This table covers the stale-session-id chain; Path C is a
-separate section.
+Official `php:<v>-fpm` images behind nginx, with `php.ini-production` mounted (the
+image ships none), `pm=dynamic` with the default child cap. This table covers the
+stale-session-id chain; Path C is a separate section. Rows naming a different
+build or pool override the generic `php.ini-production` / `pm=dynamic` wording.
 
 | PHP build | Branch | Status | Result / qualifier |
 |---|---|---|---|
@@ -128,8 +135,8 @@ separate section.
 | 8.3.36 | 8.3 | 🚫 | fixed control; priming request returns 200 |
 | 8.4.26 | 8.4 | ❌ | chain negative: a sub-cap priming body still OOMs and the worker exits; the leak body is rejected at the default body cap; no surviving child or leak; the 109619 primitive is present but no controlled destructor |
 | 8.4.27 | 8.4 | 🚫 | upstream fix; FPM runtime control not run |
-| 8.5.11 | 8.5 | — | in progress (non-default: plain full-extension build, `pm=static`, one worker, same-worker known target plus trigger script); the previously reported single-worker shape used blind leak-derived addresses and a fake destructor to `zif_system`, but it is not counted as an RCE claim here |
-| 8.5.11 | 8.5 | ❌ | default `pm=dynamic` pool: leak only |
+| 8.5.11 (non-default: `pm=static`, one worker) | 8.5 | — | in progress (plain full-extension build, `pm=static`, one worker, same-worker known target plus trigger script); the previously reported single-worker shape used blind leak-derived addresses and a fake destructor to `zif_system`, but it is not counted as an RCE claim here |
+| 8.5.11 (default `pm=dynamic` pool) | 8.5 | ❌ | leak only |
 | 8.5.12 | 8.5 | 🚫 | fixed; plain full-extension build with default nginx |
 
 FPM 5.6.40 produced no leak; the leak-only range is 7.0.33–7.4.33. Large-body
@@ -169,7 +176,7 @@ page does.
 | Build / SAPI | Status | Required non-default changes | Result |
 |---|---|---|---|
 | 8.4.26 mod_php | ✅ | reduced `memory_limit`, single worker (`MaxRequestWorkers 1`), writable docroot, pre-seeded prime session, an extra shaping part | target-written PHP file executed over HTTP; the child survives; the same payload is blocked on 8.4.27 (no file, probe 404) |
-| 8.4.26 FPM | ✅ | `session.upload_progress.cleanup=Off`, reduced `memory_limit`, raised `max_input_vars`, writable executable docroot, single worker or pool affinity, pre-seeded session | target-written shell executed through the default nginx PHP location; repeat runs on the same worker also succeed |
+| 8.4.26 FPM | ✅ | `session.upload_progress.cleanup=Off`, reduced `memory_limit`, raised `max_input_vars`, writable executable docroot, single worker or pool affinity, pre-seeded session, raised `client_max_body_size` (non-default body cap; the nginx location/routing stays default) | target-written shell executed through the default nginx PHP location and routing; the body cap is the non-default change, not a default-cap bypass; repeat runs on the same worker also succeed |
 | 8.2.34 FPM | ✅ | reduced `memory_limit`, pre-seeded two-record session, priming page that calls `session_start()` after RINIT, one worker with no intervening request, writable executable docroot | target-written shell executed; same worker serves prime, consumer and shell request |
 | 8.3.35 FPM | ✅ | same as 8.2.34 | target-written shell executed, including in a subdirectory of the docroot |
 | 8.2.35 FPM | 🚫 | none | early reset plus fallible unserialize; no shell, session file unchanged |
@@ -289,9 +296,12 @@ Tested or package-evidenced rows only, exact package strings.
 | Amazon Linux 2023.12 | `php8.4-modphp 8.4.27-1.amzn2023.0.1` | mod_php + FPM | 🚫 | fixed control on the same package line and INI; priming and 109618 header-flood requests return 200 with no OOM; FPM second stage 200; behaviorally fixed, the Amazon changelog is version-only |
 | Fedora 44 | `php-fpm 8.5.12-1.fc44` | FPM only | 🚫 | no mod_php package or Apache DSO (`php-embedded` `libphp.so` has no `apache2handler`); priming requests 200 with a normal cookie; the leak body is blocked by the default `post_max_size`; 8.5.12 is fixed by version; 109618 not run |
 
-**Default distro PHP is not supported.** No default repository ships 8.4.26 with
-prefork mod_php; Oracle and Rocky 8/9/10 ship other 8.2/8.3/8.4 builds, mostly
-FPM-only, and FreeBSD defaults to 8.4.27/8.5.12. Only a custom source build is a
+**Default distro PHP 8.4.26 is not supported.** No default repository ships
+8.4.26 with prefork mod_php; Oracle and Rocky 8/9/10 ship other 8.2/8.3/8.4
+builds, mostly FPM-only, and FreeBSD defaults to 8.4.27/8.5.12. No tested distro
+8.4.26 package gave a full-chain RCE on the upstream geometry. The only proven
+distro full-chain positives are Debian 13 `8.4.24-1~deb13u1` and Ubuntu 25.04
+`8.4.5-1ubuntu1.2` (rows above). Only a custom source build of 8.4.26 is a
 candidate, unverified.
 
 Debian-family geometry differs from upstream: `fillers=116` and
@@ -307,19 +317,22 @@ a no-primitive result for that geometry, not evidence that 7.4 is fixed.
 
 Amazon 8.4.26 is first-stage only, with no leak on the default or a pinned
 single-child pool, so no write stage. Fedora 44 8.5.12 is fixed by version, and
-the Alma/Rocky EL9 package carries the Red Hat backport. No tested distro package
-gave a full-chain RCE or an OOB write; the vulnerable rows show only crash/DoS or
-no primitive, and a build-specific leak offset cannot be excluded on the
-8.4-derived geometry. A same-run official 8.4.26 control reproduced the full
-chain.
+the Alma/Rocky EL9 package carries the Red Hat backport. No tested distro 8.4.26
+package reached a full-chain RCE on the upstream geometry. The only proven
+distro full-chain positives are Debian 13 `8.4.24-1~deb13u1` and Ubuntu 25.04
+`8.4.5-1ubuntu1.2` (rows above). The vulnerable 8.4-derived rows range from
+crash/DoS to first-stage-only or no primitive, and a build-specific leak offset
+cannot be excluded there. A same-run official 8.4.26 control (php.ini-production;
+image ships none) reproduced the full chain.
 
 ### WordPress 7.1.3 + Apache prefork mod_php
 
 Direct-Apache cells on a real WordPress 7.1.3 tree: Debian 13.7 Apache 2.4.69
 prefork mod_php 8.4.24 (earlier audit plus the pure-HTTP pin), Sury PHP 8.0.28 on
-Ubuntu 22.04 Apache 2.4.52 prefork, and official `php:8.4.26-apache`, all default
-config. All use the core silence file and write the proof as the Apache user;
-none extends to nginx or FPM.
+Ubuntu 22.04 Apache 2.4.52 prefork, and official `php:8.4.26-apache`
+(php.ini-production; image ships none), all default config. All use the core
+silence file and write the proof as the Apache user; none extends to nginx or
+FPM.
 
 Sury 8.0.28 runs on Ubuntu 22.04 with
 `libapache2-mod-php8.0 1:8.0.28-1+ubuntu22.04.1+deb.sury.org+1` and
@@ -333,8 +346,8 @@ added, core has no executable `session_start()`, and the pre-script
 upload-progress handler starts the session. The docroot is read-only; the
 harness adds only a holder script and a writable proof path.
 
-Official `php:8.4.26-apache` with pristine WordPress 7.1.3,
-`php.ini-production`, Apache 2.4.69 prefork and the default 150-worker pool:
+Official `php:8.4.26-apache` (php.ini-production; image ships none) with pristine
+WordPress 7.1.3, Apache 2.4.69 prefork and the default 150-worker pool:
 parked header-only connections leave one free child; priming and leak run on the
 same child, then second priming and write run on a fresh child that crashes after
 writing the proof. The write stage calls `zif_system`. The same sequence
@@ -385,10 +398,10 @@ logging-only `LogFormat`, not part of the exploit path.
 |---|---|---|---|---|
 | WordPress 7.1.3 | Ubuntu 22.04 Apache 2.4.52 prefork + Sury mod_php 8.0.28 | `/wp-content/index.php` core silence file; default 150-worker pool | ✅ | all default config; target-written `uid`; WordPress not bootstrapped; no plugin; direct mod_php |
 | WordPress 7.1.3 | Apache 2.4.69 prefork + mod_php 8.4.24 (Debian 13.7 `8.4.24-1~deb13u1`) | default prefork; `/wp-content/index.php` core file; official docroot, read-only | ✅ | all default config; core silence file; WordPress not bootstrapped; direct mod_php; target-written proofs; pure-HTTP pin; blind and pooled series (the pooled series used a worker-count observation) |
-| WordPress 7.1.3 | 8.4.26 official mod_php | `/wp-content/index.php` core file; default 150-worker pool | ✅ | all default config; engine-level; target-written `uid`; also reproduced on a plain PHP file under the same docroot |
+| WordPress 7.1.3 | 8.4.26 official mod_php (php.ini-production; image ships none) | `/wp-content/index.php` core file; default 150-worker pool | ✅ | all default config; engine-level; target-written `uid`; also reproduced on a plain PHP file under the same docroot |
 | WordPress 7.1.3 | Apache 2.4.69 prefork + mod_php 8.4.27 | `/wp-content/index.php` core file, read-only | 🚫 | fixed upstream; priming request 200 with no OOM; no leak; write stage unreachable |
-| WordPress 7.1.3 | 8.4.26 nginx+mod_php (non-default) | `/index.php` front controller | ✅ | engine-level; repeated OOB; pre-app (WordPress not installed, `mysqli` missing), HTTP 500 |
-| WordPress 7.1.3 | 8.4.26 nginx+mod_php (non-default) | `/wp-content/index.php` | ✅ | engine-level; larger body cap (non-default); repeated OOB |
+| WordPress 7.1.3 | 8.4.26 nginx+mod_php (non-default) | `/index.php` front controller | — | engine-level OOB; no execution claimed; pre-app (WordPress not installed, `mysqli` missing), HTTP 500 |
+| WordPress 7.1.3 | 8.4.26 nginx+mod_php (non-default) | `/wp-content/index.php` | — | engine-level OOB; no execution claimed; larger body cap (non-default); repeated OOB |
 | WordPress 7.1.3 | 8.4.26 FPM | `/index.php` | ❌ | multipart OOM only |
 | WordPress 7.1.3 | 8.5.11 FPM | `/index.php` | ❌ | OOM only |
 | WordPress 7.1.3 | 8.3.35 FPM | `/index.php` | ❌ | OOM only; the 8.3.35 mod_php result does not extend to FPM |
@@ -459,7 +472,7 @@ reproduced.
 
 ### Coverage gaps
 
-Every row is — (no qualifying RCE or untested), never ❌.
+Every row is — (no qualifying RCE in that cell), never ❌.
 
 | ID | Status | Lane | Untested cell | Existing evidence / note | Priority |
 |---|---|---|---|---|---|
@@ -515,7 +528,11 @@ Every row is — (no qualifying RCE or untested), never ❌.
 | G51 | — | App | WordPress 7.1.3 + `php:8.4.26-apache` default multi-worker | 8.4.26 only; the core-file question is resolved by the WordPress 8.4.26 run; WordPress is not bootstrapped, so a full WordPress-bootstrap cell remains untested; no claim for other builds | P1 |
 
 Tested WordPress-on-Apache cells are no longer gaps; remaining items are G35,
-G36 and the 8.4.26 bootstrap sub-question (G51).
+G36, G37 and G51 (the 8.4.26 bootstrap sub-question). G25 was retired after the
+8.1.34 mod_php test, so its absence from the table is not an omission.
+
+**Closed lanes.** For the official-image FPM rows, the default body-cap/exit-70
+lane and the fixed-lifecycle logic lane are closed negatives, not open coverage.
 
 **Windows and BSD — not supported / not proven.** Windows has no default-config
 RCE; `p2s-win-test` is a Linux mod_php bundle, not a Windows path, and
@@ -523,8 +540,9 @@ CVE-2024-4577 is patched. FreeBSD 13/14 + Apache: no default 8.4.26 with prefork
 mod_php, default 8.4.27/8.5.12 are fixed, and a custom old 8.4.26 ports candidate
 was not proven. OpenBSD and NetBSD were untested.
 
-No evidence artifacts (receipts, bodies, binaries, dumps or per-run reports) are
-shipped; only the tool, its offset profiles and this document.
+No receipts or binaries are shipped; target-written proofs are session-recorded.
+The repository ships only the tool, its offset profiles and the documentation
+files listed in Layout.
 
 ## Layout
 
@@ -537,6 +555,11 @@ shipped; only the tool, its offset profiles and this document.
 | `tool/modules/` | request/producer builders, chain stages, per-build profiles (see `tool/modules/README.md`) |
 | `tool/stages/` | fingerprint and probe stage |
 | `addresses/` | per-build offset profiles loaded by `g2_chain.py` and `leak_stage.py` |
+| `README.md` | this document |
+| `STATUS.md` | historical research-status snapshot (provenance; not the current matrix) |
+| [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) | third-party code, PoC and shape-note notices (full text) |
+| `requirements.txt` | dependency note: standard library only, Python 3.10+ |
+| `LICENSE` | AGPL-3.0 license text |
 
 `addresses/g2_fpm_*.json` are runtime inputs for `--step g2` and
 `addresses/apache_libphp.json` for `--step leak`; without them those steps cannot
@@ -544,7 +567,7 @@ resolve a build.
 
 ## Requirements
 
-- Python 3.8 or newer, standard library only.
+- Python 3.10 or newer, standard library only (PEP 604 unions in `php2shell.py`).
 - A POSIX shell for `tool/run`.
 
 Nothing to install.
@@ -608,3 +631,20 @@ sends malformed multipart bodies that can crash or exhaust PHP workers by design
 ## License
 
 AGPL-3.0; see `LICENSE`.
+
+## Third-party code and references
+
+This section is a summary; [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) is the
+full notice and records the upstream files, commits and available license terms.
+
+- `tool/modules/producer_flood.py` — the multipart framing and flood arms are taken from `WoYinDao/CVE-2026-109618-CVSS-9.2-Critical`, `tools/exploit_128m.py`, commit `a127f77009ca` (snapshot `99da6fb7dd7ecd4a95cd7188d77bb7e7785012eb`), MIT, Copyright (c) 2026 WoYinDao.
+- `tool/modules/producer_618.py` and `tool/modules/producer_619.py` — the CVE-2026-109618/109619 staged producers are taken from `poc0_109618.py` / `poc1_109619.py` in the PHP-UP-2026 bundle by J4ck3LSyN (PoCs by Andrew Dorman / @acd421), <https://jackalsyn.com/posts/php-up-2026.html>, mirror `cereZ23/php-up-2026` commit `c63f145596dbe9cdd437d24ed2418f0c1e59bcc2`. The bundle has no open-source license and is defensive-research/scoped-engagement only; AGPL-3.0 does not relicense those two builders; see `THIRD_PARTY_NOTICES.md`.
+- The two reconstructed shape modules in `tool/modules/` — built from Zer061 / PHP-UP-2026 shape notes (repository removed; Wayback snapshot recorded in `THIRD_PARTY_NOTICES.md`); no verbatim code.
+- `tool/debian8424.py` 8.4.24 stage layout — follows `9bie/php2shell-bypass-aslr-exp`; the bodies, geometry and offsets are local measurements; code-level reuse is unresolved and no license is asserted.
+- Reviewed but not incorporated — `ACD421/PHP` (the repository itself; the acd421 PoCs are credited above), `offline-ant/php2fix`, `Percivalll/php2shell-wordpress-rce`, `kengwang/php2shell-fpm-exp`; `php-src` and the security advisories are used as facts only.
+- References — GHSA-w8hw-w9fx-j79w, GHSA-6wmf-4rv5-p3rp, <https://calif.io/php2shell/>.
+
+Not all code here is AGPL-3.0: the original code is offered under AGPL-3.0
+(`LICENSE`), while the PHP-UP-2026-derived builders are not relicensed by it and
+carry their own upstream terms. The MIT notice for `producer_flood.py` is
+retained in `THIRD_PARTY_NOTICES.md`.

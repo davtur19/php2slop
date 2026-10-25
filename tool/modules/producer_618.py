@@ -1,6 +1,20 @@
 #!/usr/bin/env python3
 
-"""producer_618.py - CVE-2026-109618 staged multipart producer (public poc0 spec re-write, inert forge default; build(sid,cmd,call)->(phase1,tail))."""
+"""producer_618.py - CVE-2026-109618 staged multipart producer.
+
+Adapted from `poc0_109618.py` in the PHP-UP-2026 bundle by J4ck3LSyN, with
+PoCs by Andrew Dorman / @acd421; published at
+https://jackalsyn.com/posts/php-up-2026.html and mirrored at
+cereZ23/php-up-2026, commit c63f145596dbe9cdd437d24ed2418f0c1e59bcc2.
+
+That bundle states no open-source license and is marked "Authorized
+defensive-research / scoped-engagement use only." This file is an adaptation,
+not a relicensing: the repository's AGPL-3.0 does not apply to the upstream
+material and grants no rights the authors did not grant. See
+THIRD_PARTY_NOTICES.md.
+
+Inert forge default: build(sid, cmd, call) -> (phase1, tail).
+"""
 
 import argparse
 import os
