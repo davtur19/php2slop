@@ -25,10 +25,11 @@ cell and Path C on mod_php 7.4.32 are in progress, not RCE claims. Default nginx
 fronts and the FPM leak stage with a declared length (`post_max_size`) are
 blocked.
 
-Not claimed: 8.0.29/8.0.30, 8.1.33/8.1.34, 7.4.32/7.4.33 and 8.5.11 remain
-negative or in progress on the stale-session-id chain. No LFI or third-party
-write; target-side writes are only the same-chain proof or session file. ASLR is
-on and `display_errors` is off in every positive mod_php cell.
+Not claimed: 8.1.33, 7.4.32 and 8.5.11 remain negative or in progress on the
+stale-session-id chain, and no FPM cell carries that chain: FPM exits the worker
+70 when `php_request_startup()` fails. No LFI or third-party write; target-side
+writes are only the same-chain proof or session file. ASLR is on and
+`display_errors` is off in every positive mod_php cell.
 
 ## Conventions
 
@@ -40,9 +41,10 @@ are a small PHP probe or the named core silence file.
 
 ### mod_php
 
-Official `php:<v>-apache` images with `php.ini-production`, ASLR on,
-`display_errors` off, exact per-build offsets and default prefork sizing, except
-the 8.0.28 row, which is the exact Sury package.
+Official `php:<v>-apache` images with `php.ini-production` (required in the
+7.4.33, 8.1.34 and 8.4.26 cells, the only INI used for 8.0.29 and 8.0.30; see
+the note below), ASLR on, `display_errors` off, exact per-build offsets and
+default prefork sizing, except the 8.0.28 row, which is the exact Sury package.
 
 | PHP build | Branch | Status | Result / qualifier |
 |---|---|---|---|
@@ -54,12 +56,12 @@ the 8.0.28 row, which is the exact Sury package.
 | 7.3.33 | 7.3 | ❌ | no RCE; last 7.3 |
 | 7.4.0 | 7.4 | ❌ | no RCE; early 7.4 |
 | 7.4.32 | 7.4 | ❌ | no RCE on the stale-session-id route; the stale `PS(id)` is rejected (`The session id is too long or contains illegal characters`); no leak, no write; Path C on this build is in progress (see below) |
-| 7.4.33 | 7.4 | ❌ | no RCE; last 7.4; structural negative, DoS only |
+| 7.4.33 | 7.4 | ✅ | full chain on the default 150-worker prefork with the 149-held-request pin; the priming OOM in `php_session_reset_id` leaves a stale `PS(id)` in a cached chunk; target-written `uid`; last 7.4; `S=main+0xfd398`, `zif_system=libphp+0x335850`; (php.ini-production, 5/150 prefork) |
 | 8.0.28 | 8.0 | ✅ | exact Sury `1:8.0.28-1+ubuntu22.04.1+deb.sury.org+1` with WordPress 7.1.3, all default config: full chain, target-written `uid=33(www-data)`, worker survives; default 150-worker prefork pinned with 149 held slow requests; one child serves every stage; `S=main+0xF7398`, `zif_passthru=libphp+0x1F5640` |
-| 8.0.29 | 8.0 | ❌ | no RCE; mechanism-based negative on the 8.4-style stale-id geometry: no A1/B1 pair leaves a stale `PS(id)`; the pre-8.1 upload metadata set is smaller (`full_path` arrives in 8.1); DoS only |
-| 8.0.30 | 8.0 | ❌ | no RCE; last 8.0; structural negative, DoS only |
+| 8.0.29 | 8.0 | ✅ | full chain on the default 150-worker prefork; the priming OOM in `php_session_reset_id` leaves the stale `PS(id)` and the leak stage recovers `libphp` and `main` from the cookie; target-written `uid`; `zif_system=libphp+0x348eb0`, `zval_ptr_dtor=0x431080` |
+| 8.0.30 | 8.0 | ✅ | full chain on the default 150-worker prefork; the same body set as 8.0.29 with this build's offsets; target-written `uid`; last 8.0; `zif_system=libphp+0x3495d0`, `zval_ptr_dtor=0x4319a0` |
 | 8.1.33 | 8.1 | ❌ | no RCE; pre-8.1.34; structurally blocked: the second request faults before the header; no cookie, no leak |
-| 8.1.34 | 8.1 | ❌ | no RCE; last tested 8.1 mod_php; forged id accepted, the leak request faults in `_efree`; no cookie, no leak |
+| 8.1.34 | 8.1 | ✅ | full chain on the default 150-worker prefork with the 149-held-request pin; the leak stage recovers `libphp` from the `zval_ptr_dtor` qword and `main` from the second 2 MiB cluster; target-written `uid`; last tested 8.1 mod_php; `S=main+0xf9398`, `zif_system=libphp+0x36f470`; (php.ini-production, 5/150 prefork) |
 | 8.2.0 | 8.2 | ❌ | no RCE; early 8.2 |
 | 8.2.15 | 8.2 | ❌ | no RCE; mid 8.2 |
 | 8.2.34 | 8.2 | ✅ | full chain on the default 150-worker prefork; 149 held slow requests pin one child (partial-header holders are reaped by the default `mod_reqtimeout`); target-written `uid`; 149-holder pool exhaustion, no `%P`, no restart, no config change; last vulnerable 8.2; engine-level |
@@ -81,15 +83,26 @@ the 8.0.28 row, which is the exact Sury package.
 | 8.5.11 | 8.5 | ❌ | leak only; free-slot qwords, no destructor pointer, no main-chunk fingerprint |
 | 8.5.12 | 8.5 | 🚫 | fixed in source; runtime control returns 200 with a normal cookie |
 
+`php.ini-production` sets `output_buffering=4096`, `display_errors=Off`,
+`log_errors=On`, `memory_limit=128M`, `post_max_size=8M`,
+`session.upload_progress.enabled=On`, `session.sid_length=26` and
+`session.sid_bits_per_character=5`. The 7.4.33 and 8.1.34 rows fail at the
+priming stage with no active INI; on 8.1.34 a minimal-INI control isolates
+`output_buffering=4096`. The 8.4.26 control with no active INI
+(`output_buffering=0`, `display_errors=On`, `log_errors=Off`) returns 200 at the
+priming stage with the session destroyed, so no stale `PS(id)` exists and the
+chain is unreachable.
+
 The 🚫 8.4.27, 8.5.12, 8.3.36 and 8.2.35 rows fix only the 109618/109619
 memory-corruption chain. CVE-2026-115560 is conditional serializer confusion
 (`php_binary`/`php_serialize` to `php`, app gadget, `upload_progress` on, default
 `cleanup=1` race); it is not memory corruption, not an 8.4.27 bypass, and changes
 no row status.
 
-The 8.1.34 row used a forced single worker (`MaxRequestWorkers 1`); multi-worker
-was not audited. Offsets are build-specific; do not transplant between builds.
-The 149-holder pin is a pool-exhaustion primitive that assumes the default
+The 8.1.34 and 7.4.33 rows use the default 150-worker prefork; a single-worker
+container (`MaxRequestWorkers 1`) was an additional control only, not part of
+either cell. Offsets are build-specific; do not transplant between builds. The
+149-holder pin is a pool-exhaustion primitive that assumes the default
 `MaxRequestWorkers=150` and one free child.
 
 ### FPM
@@ -106,7 +119,8 @@ separate section.
 | 7.2.34 | 7.2 | ❌ | leak only |
 | 7.3.33 | 7.3 | ❌ | leak only |
 | 7.4.33 | 7.4 | ❌ | leak only |
-| 8.0.30 | 8.0 | ❌ | second stage 200 under the default limit; the first stage also returns 200 with a lowered limit, no OOM |
+| 8.0.29 | 8.0 | ❌ | default nginx cap rejects the priming body; direct FPM runs the priming OOM, the worker exits 70, and no state carries over |
+| 8.0.30 | 8.0 | ❌ | second stage 200 under the default limit; the first stage also returns 200 with a lowered limit, no OOM; the 8.0-geometry priming OOM instead exits the worker 70 (see below) |
 | 8.1.34 | 8.1 | ❌ | priming request ends in a worker exit; no state carry-over |
 | 8.2.34 | 8.2 | ❌ | priming request ends in a worker exit; the mod_php stale-id result does not extend to FPM (Path C does, with non-default settings) |
 | 8.2.35 | 8.2 | 🚫 | fixed control; priming requests return 200, no worker exits |
@@ -121,6 +135,15 @@ separate section.
 FPM 5.6.40 produced no leak; the leak-only range is 7.0.33–7.4.33. Large-body
 7.4/8.0 FPM leak negatives are invalid: `post_max_size` rejects the body before
 session code.
+
+**No FPM cell carries the stale-session-id chain.** FPM converts a failed
+`php_request_startup()` into process exit: `fcgi_finish_request()`,
+`php_module_shutdown()` and `return FPM_EXIT_SOFTWARE` (70)
+(`sapi/fpm/fpm/fpm_main.c:1852-1857`). The priming OOM is raised inside that
+startup path, so the worker and its `ps_globals` die before a second request
+exists. mod_php keeps the child: `sapi/apache2handler/sapi_apache2.c` catches the
+bailout and runs the request destructor, so the child and its `ps_globals` stay
+addressable for the next request.
 
 **8.3.35 FPM is structurally blocked.** Canonical and shrunk priming shapes each
 OOM at startup and the worker exits, so no process survives to serve the leak
@@ -197,6 +220,7 @@ Default nginx front, default FPM pool.
 
 | PHP build | Status | Conditions / result |
 |---|---|---|
+| 8.0.29 | ❌ | default cap returns 413 for the priming body; with a raised cap the startup OOM exits the worker 70 and the next request lands on a fresh worker |
 | 8.0.30 | ❌ | second stage 200; the first stage also 200 with a lowered limit, no OOM |
 | 8.1.34 | ❌ | priming request ends in a worker exit; no state carry-over |
 | 8.2.34 | ❌ | same worker-exit shape |
@@ -448,7 +472,7 @@ Every row is — (no qualifying RCE or untested), never ❌.
 | G07 | — | Distro | Ubuntu 22.04 `8.1.2` + FPM | base FPM: both priming shapes exit the worker, no leak; fixed in the later revision | P0 |
 | G08 | — | Distro | Rocky Linux 9.3 `8.0.30-8.el9_8.1` FPM only | tested ❌; no mod_php/`libphp`; priming and second stage 200; the leak body is rejected by the default `post_max_size`, so it is not a valid leak negative | P1 |
 | G09 | — | Distro | FPM leak stage on Debian 11.11/13.7, Rocky 9.3, Amazon 2023.12, Fedora 44 and Alma 9.8 | the large body is rejected by the default `post_max_size` before session code; priming-only, not a valid leak negative; needs a smaller leak body or a declared larger limit | P1 |
-| G10 | — | Distro | PHP 7.4/8.0 leak negatives (Debian 11, Rocky 9.3) | the multipart part cap truncates the 8.4 reference priming geometry, so prior leak negatives for those builds are invalid | P0 |
+| G10 | — | Distro | PHP 7.4/8.0 leak negatives (Debian 11, Rocky 9.3) | the multipart part cap truncates the 8.4 reference priming geometry, so prior leak negatives for those builds are invalid; the official-image 7.4.33/8.0.29/8.0.30 cells use the 8.0-geometry priming body and do not validate the distro packages | P0 |
 | G11 | — | Distro | Debian 11 `7.4.33` sub-cap priming tuning | a smaller body returned 200 with no OOM; no 7.4-specific priming geometry was searched; no claim of 7.4 safety | P1 |
 | G12 | — | Distro | Arch Linux rolling `8.5.12-1` / `php-legacy 8.3.36-1` | fixed metadata only; no local image or rootfs; repos ship 8.5.12/8.3.36 and no 8.4.26; the Arch-INI transplant is not an Arch package result; not package-tested | P2 |
 | G13 | — | Distro | Alpine edge | fixed metadata only (8.4.27/8.5.12/8.3.36); no native install or chain test | P3 |
@@ -473,7 +497,7 @@ Every row is — (no qualifying RCE or untested), never ❌.
 | G33 | — | SAPI/OS | Windows Server + IIS 10 + FastCGI | no Windows host; no supported default-config RCE; the reviewed `p2s-win-test` is a Linux mod_php bundle, not a Windows path; CVE-2024-4577 (Windows CGI BestFit) is patched; not claimed | P2 |
 | G34 | — | SAPI/OS | Windows + Apache + mod_php | no Windows host; no supported default-config RCE; not claimed | P3 |
 | G35 | — | App | WordPress 7.1.3 installed with `mysqli`/DB | the core-file cell is tested; the installed `/index.php` front controller is pre-app; the tree was not installed | P1 |
-| G36 | — | App | WordPress 7.1.3 nginx+FPM full chain | only FPM OOM and worker exits; the default nginx cap and `post_max_size` gate both stages; no default nginx+FPM chain | P1 |
+| G36 | — | App | WordPress 7.1.3 nginx+FPM full chain | only FPM OOM and worker exits; FPM exits the worker 70 on a failed `php_request_startup()`, and the default nginx cap and `post_max_size` gate both stages; no default nginx+FPM chain | P1 |
 | G37 | — | App | WordPress 7.1.3 mod_php 8.3.35 / 8.5.11 | 8.3.35 tested engine-level on the core file; 8.5.11 untested | P2 |
 | G38 | — | App | Drupal 11.4.11 default DB sessions | tested ❌ on 8.4.26 FPM; worker exit, no leak; Drupal 10.6 file-session rows are in Applications | P1 |
 | G39 | — | App | Joomla 5.4.10 default DB sessions | file-session variant only | P1 |
