@@ -5,6 +5,8 @@ keep their original ID, evidence note and priority. Each row is a cell with no
 qualifying RCE (—). Marks are those of `README.md`: ✅ RCE · ❌ tested negative ·
 🚫 patched · — no qualifying RCE.
 
+Build caveat: 8.2.34 and 8.3.35 are session-recorded only; the public rerun did not produce target-written proofs. They are not part of the 50-row ledger.
+
 G25 is covered by the 8.1.34 mod_php result; it is not an open item.
 
 ## Open items

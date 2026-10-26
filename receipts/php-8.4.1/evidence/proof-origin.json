@@ -1,0 +1,41 @@
+{
+ "note": "Metadata of the original target-written files at run time, before the byte-for-byte copy into proofs/. Copies do not preserve owner or mtime.",
+ "proofs": [
+  {
+   "run": "A",
+   "tag": "PR841A",
+   "bytes": 61,
+   "sha256": "5a0de9d3b6956b995b98c1a7e2b4730585c8197f1045210929383d1461f93aab",
+   "host_uid": 100032,
+   "mtime_epoch": 1792978296,
+   "container_stat": "www-data www-data 33 33 61 644 1792978296"
+  },
+  {
+   "run": "B",
+   "tag": "PR841B",
+   "bytes": 61,
+   "sha256": "6667677de6cc199bc67b0ce35b5e934903cc01a9f1c449e519c2454b2150d7b0",
+   "host_uid": 100032,
+   "mtime_epoch": 1792978335,
+   "container_stat": "www-data www-data 33 33 61 644 1792978335"
+  },
+  {
+   "run": "C",
+   "tag": "PR841C",
+   "bytes": 61,
+   "sha256": "39e56ba9f14c515596cc31c0c48445c153fe257cf5ede848aaa8435d8e6c1b8c",
+   "host_uid": 100032,
+   "mtime_epoch": 1792978875,
+   "container_stat": "www-data www-data 33 33 61 644 1792978875"
+  },
+  {
+   "run": "WP",
+   "tag": "PR841WP",
+   "bytes": 62,
+   "sha256": "54a861637ac20498023d35c843c8a270a240dfa6bfb9e171916a499eb0846460",
+   "host_uid": 100032,
+   "mtime_epoch": 1793005680,
+   "container_stat": "www-data www-data 33 33 62 644 1793005680"
+  }
+ ]
+}

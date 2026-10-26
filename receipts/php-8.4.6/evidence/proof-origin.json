@@ -1,0 +1,32 @@
+{
+ "note": "Metadata of the original target-written files at run time, before the byte-for-byte copy into proofs/. Copies do not preserve owner or mtime.",
+ "proofs": [
+  {
+   "run": "A",
+   "tag": "PR846A",
+   "bytes": 61,
+   "sha256": "89d8bfcfe70beb96de0e0adb0464c507a2fe9c9ff12e7fd4dd402911370fed10",
+   "host_uid": 100032,
+   "mtime_epoch": 1792978468,
+   "container_stat": "www-data www-data 33 33 61 644 1792978468"
+  },
+  {
+   "run": "B",
+   "tag": "PR846B",
+   "bytes": 61,
+   "sha256": "9d09ce9f690d0da5b77e8e6c86b5770b4b53a3cb1333b7ba08af21a6d5b2479c",
+   "host_uid": 100032,
+   "mtime_epoch": 1792978482,
+   "container_stat": "www-data www-data 33 33 61 644 1792978482"
+  },
+  {
+   "run": "C",
+   "tag": "PR846C",
+   "bytes": 61,
+   "sha256": "5689fd20ed79b5335369011400dfd3b64d8c5ca25058554bbd13602289352045",
+   "host_uid": 100032,
+   "mtime_epoch": 1792978950,
+   "container_stat": "www-data www-data 33 33 61 644 1792978950"
+  }
+ ]
+}

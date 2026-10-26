@@ -12,8 +12,8 @@ remaining cells are in `COVERAGE.md`.
 ## What is proven
 
 - Direct Apache prefork mod_php: full chain with a target-written `uid` on
-7.4.33, 8.0.28/8.0.29/8.0.30, 8.1.34, 8.2.34, 8.3.35 and 8.4.1–8.4.26, with
-`(ini)` where the official image ships none.
+7.4.33, 8.0.28/8.0.29/8.0.30, 8.1.34 and 8.4.1–8.4.26, with `(ini)` where the
+official image ships none. 8.2.34/8.3.35 remain session-recorded; the public rerun did not reproduce a target-written proof.
 - Path C on 8.4.26 mod_php: target-written PHP file executed over HTTP, only
 with the non-default changes listed in the Path C table.
 - Path C on FPM: 8.4.26, 8.2.34 and 8.3.35, only with every non-default change
@@ -163,18 +163,18 @@ The mount is the only INI used for 8.0.29 and 8.0.30.
 | 8.1.34 | 8.1 | ✅ | full chain on the default 150-worker prefork with the 149-held-request pin; the leak stage recovers `libphp` from the `zval_ptr_dtor` qword and `main` from the second 2 MiB cluster; target-written `uid`; last tested 8.1 mod_php; `S=main+0xf9398`, `zif_system=libphp+0x36f470`; (ini; 5/150 prefork) |
 | 8.2.0 | 8.2 | ❌ | no RCE; early 8.2 |
 | 8.2.15 | 8.2 | ❌ | no RCE; mid 8.2 |
-| 8.2.34 | 8.2 | ✅ | full chain on the default 150-worker prefork; 149 held slow requests pin one child (partial-header holders are reaped by the default `mod_reqtimeout`); target-written `uid`; 149-holder pool exhaustion, no `%P`, no restart, no config change; last vulnerable 8.2; engine-level |
+| 8.2.34 | 8.2 | — | session-recorded only; public rerun reached A1 OOM but B1 leaked no pointers; no target-written proof; no receipt |
 | 8.2.35 | 8.2 | 🚫 | fixed control; priming request returns 200 with no OOM |
 | 8.3.0 | 8.3 | ❌ | no RCE; early 8.3 |
 | 8.3.10 | 8.3 | ❌ | no RCE; mid 8.3 |
 | 8.3.20 | 8.3 | ❌ | no RCE; mid 8.3 |
-| 8.3.35 | 8.3 | ✅ | full chain on the default 150-worker prefork with the same held-request pin; target-written `uid`; last vulnerable 8.3; engine-level |
+| 8.3.35 | 8.3 | — | no build-specific calibration; public rerun did not reproduce; no target-written proof; no receipt |
 | 8.3.36 | 8.3 | 🚫 | fixed control; priming request returns 200 with no OOM |
 | 8.4.0 | 8.4 | — | never released upstream; no official image or release |
-| 8.4.1–8.4.7 | 8.4 | ✅ | per-build tested, not a range extrapolation; direct mod_php chain on the WordPress core silence file, target-written `uid`; `S=main+0xED398`; 8.4.7 pure-HTTP 149 half-open pin (no `%P`, no local process control, no fresh-child swap); (ini) |
-| 8.4.8 | 8.4 | ✅ | pure-HTTP and direct Apache both reproduced; WordPress core silence file, target-written `uid`; `S=main+0xE8398`; engine-level |
+| 8.4.1–8.4.7 | 8.4 | ✅ | per-build tested, not a range extrapolation; 21/21 target-written full-chain proofs (3 per build); direct mod_php chain on a 22-byte `/index.php` stub; 8.4.1 WordPress `/wp-content/index.php` endpoint control; Apache 2.4.62, not 2.4.69; target-written `uid`; `S=main+0xED398`; 8.4.7 pure-HTTP 149 half-open pin (no local process control, no fresh-child swap; `%P` added only for PID attribution in the rerun); (ini); `receipts/php-8.4.1/` … `receipts/php-8.4.7/` |
+| 8.4.8 | 8.4 | ✅ | pure-HTTP and direct Apache both reproduced; WordPress `/wp-content/index.php` core file, target-written `uid`; `S=main+0xE8398`; engine-level |
 | 8.4.9 | 8.4 | — | never released upstream; 8.4.8 to 8.4.10 |
-| 8.4.10–8.4.26 | 8.4 | ✅ | per-build tested, not a single-build extrapolation; distinct target-written `uid` proofs; `S=main+0xF8398`; 8.4.26 endpoint-independent; the 8.4.26 re-run on pristine WordPress 7.1.3 with the default 150-worker pool: priming and leak on one pinned child, write stage on a fresh child, target-written `uid`, all default config; (ini) |
+| 8.4.10–8.4.26 | 8.4 | ✅ | per-build tested, not a single-build extrapolation; 17 copied target-written `uid` proofs (one per build; not re-executed); `S=main+0xF8398`; 8.4.26 endpoint-independent; the copied 8.4.26 WordPress proof from the run on pristine WordPress 7.1.3 with the default 150-worker pool (not re-executed): priming and leak on one pinned child, write stage on a fresh child, target-written `uid`, all default config; (ini); `receipts/php-8.4.10/` … `receipts/php-8.4.26/` |
 | 8.4.27 | 8.4 | 🚫 | fixed in source; runtime control returns 200 with no leak |
 | 8.5.0 | 8.5 | ❌ | leak only; no libphp code pointer |
 | 8.5.5 | 8.5 | ❌ | leak only |
@@ -436,7 +436,7 @@ logging-only `LogFormat`, not part of the exploit path.
 |---|---|---|---|---|
 | WordPress 7.1.3 | Ubuntu 22.04 Apache 2.4.52 prefork + Sury mod_php 8.0.28 | `/wp-content/index.php` core silence file; default 150-worker pool | ✅ | all default config; target-written `uid`; WordPress not bootstrapped; no plugin; direct mod_php |
 | WordPress 7.1.3 | Apache 2.4.69 prefork + mod_php 8.4.24 (Debian 13.7 `8.4.24-1~deb13u1`) | default prefork; `/wp-content/index.php` core file; official docroot, read-only | ✅ | all default config; core silence file; WordPress not bootstrapped; direct mod_php; target-written proofs; pure-HTTP pin; blind and pooled series (the pooled series used a worker-count observation) |
-| WordPress 7.1.3 | 8.4.26 official mod_php (ini) | `/wp-content/index.php` core file; default 150-worker pool | ✅ | all default config; engine-level; target-written `uid`; WordPress not bootstrapped; also reproduced on a plain PHP file under the same docroot |
+| WordPress 7.1.3 | 8.4.26 official mod_php (ini) | `/wp-content/index.php` core file; default 150-worker pool | ✅ | all default config; engine-level; target-written `uid`; WordPress not bootstrapped; also reproduced on a plain PHP file under the same docroot; `receipts/wordpress-7.1.3-php-8.4.26/proofs/p1_conc_WP713` |
 | WordPress 7.1.3 | Apache 2.4.69 prefork + mod_php 8.4.27 | `/wp-content/index.php` core file, read-only | 🚫 | fixed upstream; priming request 200 with no OOM; no leak; write stage unreachable |
 | WordPress 7.1.3 | 8.4.26 nginx+mod_php (non-default) | `/index.php` front controller | — | engine-level OOB; no execution claimed; pre-app (WordPress not installed, `mysqli` missing), HTTP 500 |
 | WordPress 7.1.3 | 8.4.26 nginx+mod_php (non-default) | `/wp-content/index.php` | — | engine-level OOB; no execution claimed; larger body cap (non-default); repeated OOB |
@@ -509,11 +509,12 @@ chain.
 **Third-party 8.3.35 claim — failed verification.**
 `Percivalll/php2shell-wordpress-rce` is a third-party research
 repository. Its exact chain was reimplemented on the default
-`php:8.3.35-apache` image: no RCE, no marker, no `uid`. The stale-session OOB read
-is real with the local priming/leak pair and the libphp base is recoverable, but the
-claimed chain fails at its priming geometry, forged header, unvalidated chunk
-offset and missing controlled base; the small-leak nginx bypass remains
-unverified. The 8.3.35 ✅ row is the local chain. Repository claim: ❌ tested, not
+`php:8.3.35-apache` image: no RCE, no marker, no `uid`. Earlier session work
+reported a stale-session OOB read with a local priming/leak pair and a
+recoverable libphp base, but the claimed chain failed at its priming geometry,
+forged header, unvalidated chunk offset and missing controlled base; the
+small-leak nginx bypass remains unverified. The 8.3.35 row is session-recorded
+only and has no target-written receipt. Repository claim: ❌ tested, not
 reproduced.
 
 ## Reading the negative results
@@ -577,6 +578,8 @@ P0 and P1 only; P2 and P3 rows are in [`COVERAGE.md`](COVERAGE.md).
 | G50 | SAPI/OS | OpenLiteSpeed 1.9.3 + lsphp `8.5.11` | no exact local build; expected 500/exit, not measured | P1 |
 | G51 | App | WordPress 7.1.3 + `php:8.4.26-apache`, full WordPress bootstrap | core file tested; bootstrap untested | P1 |
 
+8.2.34/8.3.35 are not in the public receipt set; their earlier session claims are not used as proof.
+
 G25 is covered by the 8.1.34 mod_php result and is not an open item. The full
 ledger, including the P2/P3 open items, tested negatives, fixed and absent
 builds, and untested applications, is in [`COVERAGE.md`](COVERAGE.md).
@@ -596,6 +599,7 @@ builds, and untested applications, is in [`COVERAGE.md`](COVERAGE.md).
 | `addresses/` | per-build offset profiles loaded by `g2_chain.py` and `leak_stage.py` |
 | `README.md` | this document |
 | `COVERAGE.md` | full coverage ledger: open items, tested negatives, fixed and absent builds, untested applications |
+| `receipts/` | preserved target-written proof tree and verification tool; see [`receipts/README.md`](receipts/README.md) |
 | [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) | third-party code, PoC and shape-note notices (full text) |
 | `requirements.txt` | dependency note: standard library only, Python 3.10+ |
 | `LICENSE` | AGPL-3.0 license text |
@@ -604,9 +608,13 @@ builds, and untested applications, is in [`COVERAGE.md`](COVERAGE.md).
 `addresses/apache_libphp.json` for `--step leak`; without them those steps cannot
 resolve a build.
 
-No receipts or binaries are shipped; target-written proofs are session-recorded.
-The repository ships only the tool, its offset profiles and the documentation
-listed here.
+Per-build receipt directories are `receipts/php-8.4.1/` … `receipts/php-8.4.7/`
+and `receipts/php-8.4.10/` … `receipts/php-8.4.26/`; the WordPress 7.1.3 proof
+is stored at `receipts/wordpress-7.1.3-php-8.4.26/proofs/p1_conc_WP713`.
+
+Target-written receipts are shipped under `receipts/` where preserved; 8.2.34/8.3.35 remain session-recorded and have no target-written receipt.
+The repository ships the tool, its offset profiles, the documentation listed
+here and the preserved receipts.
 
 ### Requirements
 
@@ -716,8 +724,10 @@ no license is asserted.
 
 Reviewed but not incorporated: `ACD421/PHP` (the repository itself; the acd421
 PoCs are credited above), `offline-ant/php2fix`,
-`Percivalll/php2shell-wordpress-rce`, `kengwang/php2shell-fpm-exp`; `php-src` and
-the security advisories are used as facts only.
+`Percivalll/php2shell-wordpress-rce`, `kengwang/php2shell-fpm-exp`,
+`KillaBoi/StealMyBitcoin-PoC` (per-build PHP 8.4.26 cli-server CTF PoC; no
+license; no code copied); `php-src` and the security advisories are used as
+facts only.
 
 References: GHSA-w8hw-w9fx-j79w, GHSA-6wmf-4rv5-p3rp, <https://calif.io/php2shell/>.
 

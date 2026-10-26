@@ -1,0 +1,4 @@
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.10. Set the 'ServerName' directive globally to suppress this message
+[Mon Oct 26 01:37:11.639861 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.2.34 configured -- resuming normal operations
+[Mon Oct 26 01:37:11.639885 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Oct 26 01:37:28.363896 2026] [php:error] [pid 801:tid 801] [client 172.17.0.1:48970] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 8192 bytes) in Unknown on line 0

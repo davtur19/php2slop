@@ -1,0 +1,114 @@
+{
+ "tag": "PR8335A",
+ "build": "8.3.35",
+ "container": "<container>",
+ "port": "<redacted>",
+ "zdtor_off": "0x49ec50",
+ "zif_off": "0x3ac080",
+ "s_off": "0xed398",
+ "stages": [
+  {
+   "stage": "A1",
+   "rc": 0,
+   "status": "HTTP/1.0 500 Internal Server Error",
+   "bytes": 211,
+   "elapsed": 0.11,
+   "pid": 774,
+   "log": "774 1792978665 POST /index.php 500 - 86280",
+   "stdout": "body=1123451 resp=211 status='HTTP/1.0 500 Internal Server Error'",
+   "stderr": ""
+  },
+  {
+   "stage": "B1",
+   "i": 0,
+   "rc": 0,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 253,
+   "elapsed": 0.09,
+   "pid": 774,
+   "log": "774 1792978665 POST /index.php 200 3 37834",
+   "leak_error": "no pointers (decoded=34)"
+  },
+  {
+   "stage": "B1",
+   "i": 1,
+   "rc": 0,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 253,
+   "elapsed": 0.09,
+   "pid": 774,
+   "log": "774 1792978665 POST /index.php 200 3 36237",
+   "leak_error": "no pointers (decoded=34)"
+  },
+  {
+   "stage": "B1",
+   "i": 2,
+   "rc": 0,
+   "status": "HTTP/1.1 200 OK",
+   "bytes": 253,
+   "elapsed": 0.09,
+   "pid": 774,
+   "log": "774 1792978665 POST /index.php 200 3 37083",
+   "leak_error": "no pointers (decoded=34)"
+  }
+ ],
+ "success": false,
+ "a1": {
+  "path": "a1_early.bin",
+  "bytes": 1123451,
+  "sha256": "30cb2a107121967741e89bb5b84c34d13d0f7cf3c8af26721998bc213b8fe174"
+ },
+ "b1": {
+  "path": "b1_early.bin",
+  "bytes": 31035467,
+  "sha256": "9edef7cc1a9bff5140135bef0296b7ed7ef356f8362d0bc4f5e5769833d5a7fa"
+ },
+ "env": {
+  "image": "php:8.3.35-apache",
+  "container_id": "47b223f7ac4bbb8930f03bf05891dcd3866b8de4edfe368c7e67bad8ff2b7cc4",
+  "image_id": "sha256:90620e863c15e608cfebd058554d82d2c7fd816bdd690adc69027409cbb7a369",
+  "mounts": [
+   {
+    "src": "<RUNDIR>/work/run/8335/conf/php.ini",
+    "dst": "/usr/local/etc/php/php.ini",
+    "rw": false
+   },
+   {
+    "src": "<RUNDIR>/work/run/8335/conf/000-default-p2s.conf",
+    "dst": "/etc/apache2/sites-enabled/000-default.conf",
+    "rw": false
+   },
+   {
+    "src": "<RUNDIR>/work/run/8335/conf/zz-p2s.conf",
+    "dst": "/etc/apache2/conf-enabled/zz-p2s.conf",
+    "rw": false
+   },
+   {
+    "src": "<RUNDIR>/work/run/8335/www",
+    "dst": "/var/www/html",
+    "rw": false
+   },
+   {
+    "src": "<RUNDIR>/work/run/8335/logs",
+    "dst": "/var/log/apache2",
+    "rw": true
+   }
+  ],
+  "php": "PHP 8.3.35 (cli) (built: Oct 21 2026 00:33:53) (NTS)",
+  "apache": "Server version: Apache/2.4.69 (Debian)",
+  "mpm": "StartServers            5\nMinSpareServers         5\nMaxSpareServers         10\nMaxRequestWorkers       150\nMaxConnectionsPerChild  0",
+  "php_ini_sha256": "2533da00f66b1cf18430b08871262afa12f58cf2ee43b2077740c9c3972bb980",
+  "index_sha256": "1b97dc5177b5c4f4a53023a6c72629ce360e466f627d98cdf1d75113450faf23",
+  "index_size": "22",
+  "image_repo_digests": "[\"php@sha256:c59c808172ee3672cd334f8f2a5d7b1480a9d7273a368f412b8ee9b4ef418184\"]"
+ },
+ "pin": {
+  "parent": 1,
+  "children": 150,
+  "established": 149,
+  "occupiers": 149,
+  "elapsed": 8.86,
+  "accepted": true
+ },
+ "failed": "B1"
+}

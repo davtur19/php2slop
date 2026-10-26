@@ -493,20 +493,27 @@ CVES: tuple[CveDef, ...] = (
         sapi_scope=_SESSION_SCOPE,
         sources=(
             "php2slop:README.md",
-            "private receipt not shipped (parent-session lab evidence)",
+            "php2slop:receipts/ where preserved (parent-session lab evidence)",
             "external:phpshell/modphp_84_matrix_20261023T074116Z/report.md",
             "external:phpshell/build_coverage_20261023T074532Z/report.md",
             "external:phpshell/fpm_80x_chain_20261023T085337Z/report.md",
         ),
         data_note=("mod_php: 8.4.1-8.4.7 and 8.4.10-8.4.26 lab chains mount "
-                   "php.ini-production; 8.4.8 uses a separate big78 A1 + Q5 "
+                   "php.ini-production; 8.4.1-8.4.7 receipts/php-8.4.1/ ... "
+                   "receipts/php-8.4.7/ (Apache 2.4.62; 22-byte /index.php "
+                   "stub; 8.4.1 WordPress control); 8.4.10-8.4.26 "
+                   "receipts/php-8.4.10/ ... receipts/php-8.4.26/ (copied; "
+                   "WordPress proof at receipts/wordpress-7.1.3-php-8.4.26/"
+                   "proofs/p1_conc_WP713); "
+                   "8.4.8 uses a separate big78 A1 + Q5 "
                    "shape. Early offsets differ (8.4.1-8.4.7 S=main+0xED398, "
                    "8.4.8 S=main+0xE8398); do not reuse 8.4.10+ offsets. The "
                    "bare image ships no active INI; without the production INI "
                    "the chain is unreachable. 8.4.27 fixed. 8.5.0/5 leak-only; "
                    "8.5.11 A1+B1 leak only (no uid, no libphp pointer, no 8.4-style main-chunk "
-                   "bucket); 8.5.12 fixed. mod_php 8.2.34/8.3.35 full lab chain "
-                   "with target-written uid; receipt not shipped. FPM: the "
+                   "bucket); 8.5.12 fixed. mod_php 8.2.34/8.3.35: session-recorded; "
+                   "public rerun did not reproduce B1/A2/B2; no target-written "
+                   "receipt. FPM: the "
                    "stale-session-id chain is not claimed; 8.4.26 Path C belongs "
                    "to CVE-2026-109619 and needs documented non-default changes; "
                    "8.5.11 single-worker cell is not a completed RCE; not counted."),
@@ -523,20 +530,27 @@ CVES: tuple[CveDef, ...] = (
         sapi_scope=_SESSION_SCOPE,
         sources=(
             "php2slop:README.md",
-            "private receipt not shipped (parent-session lab evidence)",
+            "php2slop:receipts/ where preserved (parent-session lab evidence)",
             "external:phpshell/modphp_84_matrix_20261023T074116Z/report.md",
             "external:phpshell/build_coverage_20261023T074532Z/report.md",
             "external:phpshell/fpm_aslr_20261023T073345Z/report.md",
         ),
         data_note=("mod_php: 8.4.1-8.4.7 and 8.4.10-8.4.26 lab chains mount "
-                   "php.ini-production; 8.4.8 uses a separate big78 A1 + Q5 "
+                   "php.ini-production; 8.4.1-8.4.7 receipts/php-8.4.1/ ... "
+                   "receipts/php-8.4.7/ (Apache 2.4.62; 22-byte /index.php "
+                   "stub; 8.4.1 WordPress control); 8.4.10-8.4.26 "
+                   "receipts/php-8.4.10/ ... receipts/php-8.4.26/ (copied; "
+                   "WordPress proof at receipts/wordpress-7.1.3-php-8.4.26/"
+                   "proofs/p1_conc_WP713); "
+                   "8.4.8 uses a separate big78 A1 + Q5 "
                    "shape. Early offsets differ (8.4.1-8.4.7 S=main+0xED398, "
                    "8.4.8 S=main+0xE8398); do not reuse 8.4.10+ offsets. The "
                    "bare image ships no active INI; without the production INI "
                    "the chain is unreachable. 8.4.27 fixed. 8.5.0/5 leak-only; "
                    "8.5.11 A1+B1 leak only (no uid, no libphp pointer, no 8.4-style main-chunk "
-                   "bucket); 8.5.12 fixed. mod_php 8.2.34/8.3.35 full lab chain "
-                   "with target-written uid; receipt not shipped. FPM: 8.4.26 Path C "
+                   "bucket); 8.5.12 fixed. mod_php 8.2.34/8.3.35: session-recorded; "
+                   "public rerun did not reproduce B1/A2/B2; no target-written "
+                   "receipt. FPM: 8.4.26 Path C "
                    "RCE only with the documented non-default changes; the "
                    "stale-session-id FPM chain is not claimed; 8.5.11 "
                    "single-worker cell is not a completed RCE; not counted."),
@@ -941,10 +955,11 @@ def _session_evidence(cve: CveDef, target: Target) -> tuple[str, str]:
                     "leak only; no libphp code pointers; "
                     "no controlled destructor/portable chain")
         if _is_any(v, "8.2.34", "8.3.35"):
-            return ("measured-lab-chain",
-                    "full chain demonstrated in lab on mod_php 8.2.34/8.3.35 "
-                    "with target-written uid; 8.2.35/8.3.36 fixed controls are "
-                    "clean; public receipt not shipped")
+            return ("session-recorded-only",
+                    "earlier session-recorded chain on mod_php 8.2.34/8.3.35; "
+                    "the public rerun did not reproduce B1/A2/B2 and has no "
+                    "target-written receipt; 8.2.35/8.3.36 fixed controls are "
+                    "clean")
         if v.branch in ("8.0", "8.1", "8.2", "8.3"):
             return ("range-only",
                     "no per-build chain encoded for this exact 8.0-8.3 build; "

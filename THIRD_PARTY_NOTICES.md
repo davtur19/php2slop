@@ -61,6 +61,10 @@ Reviewed for cross-checking only; no code was copied from these.
 - `offline-ant/php2fix`
 - `Percivalll/php2shell-wordpress-rce`
 - `kengwang/php2shell-fpm-exp`
+- `KillaBoi/StealMyBitcoin-PoC` — commit
+  `3244dd00ffc35ae23cb0aba2ee8536061e7ea516`; no license; per-build PHP 8.4.26
+  cli-server CTF PoC, reviewed for comparison only; no code copied. Its private
+  key and payload are not reproduced here.
 
 ## MIT license text (WoYinDao)
 

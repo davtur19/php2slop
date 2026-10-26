@@ -1,0 +1,32 @@
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.6. Set the 'ServerName' directive globally to suppress this message
+[Mon Oct 26 01:33:48.219703 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.62 (Debian) PHP/8.4.5 configured -- resuming normal operations
+[Mon Oct 26 01:33:48.219733 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Oct 26 01:33:57.991354 2026] [php:error] [pid 764:tid 764] [client 172.17.0.1:34920] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+[Mon Oct 26 01:33:58.106457 2026] [php:warn] [pid 764:tid 764] [client 172.17.0.1:34926] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Mon Oct 26 01:33:58.106480 2026] [php:warn] [pid 764:tid 764] [client 172.17.0.1:34926] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: ) in Unknown on line 0
+[Mon Oct 26 01:33:58.106485 2026] [php:warn] [pid 764:tid 764] [client 172.17.0.1:34926] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct () in Unknown on line 0
+[Mon Oct 26 01:33:58.254216 2026] [php:error] [pid 764:tid 764] [client 172.17.0.1:34942] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Mon Oct 26 01:33:58.297946 2026] [mpm_prefork:error] [pid 1:tid 1] AH00161: server reached MaxRequestWorkers setting, consider raising the MaxRequestWorkers setting
+[Mon Oct 26 01:33:58.953941 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 764 exit signal Segmentation fault (11)
+[Mon Oct 26 01:33:58.954013 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.6. Set the 'ServerName' directive globally to suppress this message
+[Mon Oct 26 01:34:00.432696 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.62 (Debian) PHP/8.4.5 configured -- resuming normal operations
+[Mon Oct 26 01:34:00.432723 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Oct 26 01:34:11.868981 2026] [php:error] [pid 764:tid 764] [client 172.17.0.1:44654] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+[Mon Oct 26 01:34:11.980172 2026] [php:warn] [pid 764:tid 764] [client 172.17.0.1:44668] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Mon Oct 26 01:34:11.980196 2026] [php:warn] [pid 764:tid 764] [client 172.17.0.1:44668] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: ) in Unknown on line 0
+[Mon Oct 26 01:34:11.980201 2026] [php:warn] [pid 764:tid 764] [client 172.17.0.1:44668] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct () in Unknown on line 0
+[Mon Oct 26 01:34:12.124599 2026] [php:error] [pid 764:tid 764] [client 172.17.0.1:44676] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Mon Oct 26 01:34:12.509943 2026] [mpm_prefork:error] [pid 1:tid 1] AH00161: server reached MaxRequestWorkers setting, consider raising the MaxRequestWorkers setting
+[Mon Oct 26 01:34:12.510008 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 764 exit signal Segmentation fault (11)
+[Mon Oct 26 01:42:03.392306 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00170: caught SIGWINCH, shutting down gracefully
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.6. Set the 'ServerName' directive globally to suppress this message
+[Mon Oct 26 01:42:04.904068 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.62 (Debian) PHP/8.4.5 configured -- resuming normal operations
+[Mon Oct 26 01:42:04.904105 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Oct 26 01:42:16.509459 2026] [php:error] [pid 794:tid 794] [client 172.17.0.1:38544] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+[Mon Oct 26 01:42:16.608620 2026] [php:warn] [pid 794:tid 794] [client 172.17.0.1:38558] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Mon Oct 26 01:42:16.608639 2026] [php:warn] [pid 794:tid 794] [client 172.17.0.1:38558] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: ) in Unknown on line 0
+[Mon Oct 26 01:42:16.608644 2026] [php:warn] [pid 794:tid 794] [client 172.17.0.1:38558] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct () in Unknown on line 0
+[Mon Oct 26 01:42:16.751684 2026] [php:error] [pid 794:tid 794] [client 172.17.0.1:38560] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Mon Oct 26 01:42:16.985953 2026] [mpm_prefork:error] [pid 1:tid 1] AH00161: server reached MaxRequestWorkers setting, consider raising the MaxRequestWorkers setting
+[Mon Oct 26 01:42:16.986004 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 794 exit signal Segmentation fault (11)
