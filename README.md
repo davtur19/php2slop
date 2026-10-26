@@ -12,8 +12,9 @@ remaining cells are in `COVERAGE.md`.
 ## What is proven
 
 - Direct Apache prefork mod_php: full chain with a target-written `uid` on
-7.4.33, 8.0.28/8.0.29/8.0.30, 8.1.34 and 8.4.1–8.4.26, with `(ini)` where the
-official image ships none. 8.2.34/8.3.35 remain session-recorded; the public rerun did not reproduce a target-written proof.
+7.4.33, 8.0.28/8.0.29/8.0.30, 8.1.34, 8.2.34, 8.3.35 and 8.4.1–8.4.26, with
+`(ini)` where the official image ships none. The 8.2.34/8.3.35 proofs use the
+recovered Oct-24 bodies, the 149-holder pin and a fresh stock image (2/2 each).
 - Path C on 8.4.26 mod_php: target-written PHP file executed over HTTP, only
 with the non-default changes listed in the Path C table.
 - Path C on FPM: 8.4.26, 8.2.34 and 8.3.35, only with every non-default change
@@ -163,12 +164,12 @@ The mount is the only INI used for 8.0.29 and 8.0.30.
 | 8.1.34 | 8.1 | ✅ | full chain on the default 150-worker prefork with the 149-held-request pin; the leak stage recovers `libphp` from the `zval_ptr_dtor` qword and `main` from the second 2 MiB cluster; target-written `uid`; last tested 8.1 mod_php; `S=main+0xf9398`, `zif_system=libphp+0x36f470`; (ini; 5/150 prefork) |
 | 8.2.0 | 8.2 | ❌ | no RCE; early 8.2 |
 | 8.2.15 | 8.2 | ❌ | no RCE; mid 8.2 |
-| 8.2.34 | 8.2 | — | session-recorded only; public rerun reached A1 OOM but B1 leaked no pointers; no target-written proof; no receipt |
+| 8.2.34 | 8.2 | ✅ | recovered Oct-24 bodies; 2/2 target-written `uid=33(www-data)` on a fresh stock `php:8.2.34-apache`; 149-holder pin, same child, no restart or gdb; A1 500/211 B, B1 200/1,383,427 B (decoded 1,169,032, `n=584`, 44 main hits), A2 500/211 B, B2 0 B + SIGSEGV; `S=main+0xF9398`, `zif_system=libphp+0x39b8a0`, `zval_ptr_dtor=libphp+0x487650`; (ini); `receipts/php-8.2.34/` |
 | 8.2.35 | 8.2 | 🚫 | fixed control; priming request returns 200 with no OOM |
 | 8.3.0 | 8.3 | ❌ | no RCE; early 8.3 |
 | 8.3.10 | 8.3 | ❌ | no RCE; mid 8.3 |
 | 8.3.20 | 8.3 | ❌ | no RCE; mid 8.3 |
-| 8.3.35 | 8.3 | — | no build-specific calibration; public rerun did not reproduce; no target-written proof; no receipt |
+| 8.3.35 | 8.3 | ✅ | recovered Oct-24 bodies and the recorded 8.3.35 calibration; 2/2 target-written `uid=33(www-data)` on a fresh stock `php:8.3.35-apache`; 149-holder pin, same child, no restart or gdb; A1 500/211 B, B1 200/1,380,063 B (decoded 1,169,032, `n=584`, 44 main hits), A2 500/211 B, B2 0 B + SIGSEGV; `S=main+0xF9398`, `zif_system=libphp+0x3AC080`, `zval_ptr_dtor=libphp+0x49EC50`; (ini); `receipts/php-8.3.35/` |
 | 8.3.36 | 8.3 | 🚫 | fixed control; priming request returns 200 with no OOM |
 | 8.4.0 | 8.4 | — | never released upstream; no official image or release |
 | 8.4.1–8.4.7 | 8.4 | ✅ | per-build tested, not a range extrapolation; 21/21 target-written full-chain proofs (3 per build); direct mod_php chain on a 22-byte `/index.php` stub; 8.4.1 WordPress `/wp-content/index.php` endpoint control; Apache 2.4.62, not 2.4.69; target-written `uid`; `S=main+0xED398`; 8.4.7 pure-HTTP 149 half-open pin (no local process control, no fresh-child swap; `%P` added only for PID attribution in the rerun); (ini); `receipts/php-8.4.1/` … `receipts/php-8.4.7/` |
@@ -513,9 +514,10 @@ repository. Its exact chain was reimplemented on the default
 reported a stale-session OOB read with a local priming/leak pair and a
 recoverable libphp base, but the claimed chain failed at its priming geometry,
 forged header, unvalidated chunk offset and missing controlled base; the
-small-leak nginx bypass remains unverified. The 8.3.35 row is session-recorded
-only and has no target-written receipt. Repository claim: ❌ tested, not
-reproduced.
+small-leak nginx bypass remains unverified. Repository claim: ❌ tested, not
+reproduced. This is separate from the project's own 8.3.35 target-written
+proof, which uses the recovered Oct-24 `a1_8234`/`b1_8234` bodies and the
+149-holder pin (`receipts/php-8.3.35/`), not the third-party chain.
 
 ## Reading the negative results
 
@@ -578,7 +580,7 @@ P0 and P1 only; P2 and P3 rows are in [`COVERAGE.md`](COVERAGE.md).
 | G50 | SAPI/OS | OpenLiteSpeed 1.9.3 + lsphp `8.5.11` | no exact local build; expected 500/exit, not measured | P1 |
 | G51 | App | WordPress 7.1.3 + `php:8.4.26-apache`, full WordPress bootstrap | core file tested; bootstrap untested | P1 |
 
-8.2.34/8.3.35 are not in the public receipt set; their earlier session claims are not used as proof.
+8.2.34/8.3.35 are in the public receipt set; the earlier negative rerun evidence is preserved under each receipt and marked superseded.
 
 G25 is covered by the 8.1.34 mod_php result and is not an open item. The full
 ledger, including the P2/P3 open items, tested negatives, fixed and absent
@@ -608,13 +610,15 @@ builds, and untested applications, is in [`COVERAGE.md`](COVERAGE.md).
 `addresses/apache_libphp.json` for `--step leak`; without them those steps cannot
 resolve a build.
 
-Per-build receipt directories are `receipts/php-8.4.1/` … `receipts/php-8.4.7/`
-and `receipts/php-8.4.10/` … `receipts/php-8.4.26/`; the WordPress 7.1.3 proof
-is stored at `receipts/wordpress-7.1.3-php-8.4.26/proofs/p1_conc_WP713`.
+Per-build receipt directories are `receipts/php-8.2.34/`,
+`receipts/php-8.3.35/`, `receipts/php-8.4.1/` … `receipts/php-8.4.7/` and
+`receipts/php-8.4.10/` … `receipts/php-8.4.26/`; the WordPress 7.1.3 proof is
+stored at `receipts/wordpress-7.1.3-php-8.4.26/proofs/p1_conc_WP713`.
 
-Target-written receipts are shipped under `receipts/` where preserved; 8.2.34/8.3.35 remain session-recorded and have no target-written receipt.
-The repository ships the tool, its offset profiles, the documentation listed
-here and the preserved receipts.
+Target-written receipts are shipped under `receipts/` for every ✅ mod_php build
+listed above. The 8.2.34/8.3.35 directories also retain the earlier negative
+rerun evidence, marked superseded. The repository ships the tool, its offset
+profiles, the documentation listed here and the preserved receipts.
 
 ### Requirements
 

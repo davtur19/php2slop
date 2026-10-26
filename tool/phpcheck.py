@@ -493,7 +493,8 @@ CVES: tuple[CveDef, ...] = (
         sapi_scope=_SESSION_SCOPE,
         sources=(
             "php2slop:README.md",
-            "php2slop:receipts/ where preserved (parent-session lab evidence)",
+            "php2slop:receipts/php-8.2.34/ and receipts/php-8.3.35/ (recovered-body lab chains)",
+            "php2slop:receipts/ where preserved (8.4.x parent-session lab evidence)",
             "external:phpshell/modphp_84_matrix_20261023T074116Z/report.md",
             "external:phpshell/build_coverage_20261023T074532Z/report.md",
             "external:phpshell/fpm_80x_chain_20261023T085337Z/report.md",
@@ -511,9 +512,11 @@ CVES: tuple[CveDef, ...] = (
                    "bare image ships no active INI; without the production INI "
                    "the chain is unreachable. 8.4.27 fixed. 8.5.0/5 leak-only; "
                    "8.5.11 A1+B1 leak only (no uid, no libphp pointer, no 8.4-style main-chunk "
-                   "bucket); 8.5.12 fixed. mod_php 8.2.34/8.3.35: session-recorded; "
-                   "public rerun did not reproduce B1/A2/B2; no target-written "
-                   "receipt. FPM: the "
+                   "bucket); 8.5.12 fixed. mod_php 8.2.34/8.3.35: target-written "
+                   "lab chains from recovered 2026-10-24 A1/B1 bodies "
+                   "(receipts/php-8.2.34/, receipts/php-8.3.35/); 149-holder "
+                   "prefork pin with php.ini-production mounted; Apache 2.4.69; "
+                   "2/2 proof captures per build. FPM: the "
                    "stale-session-id chain is not claimed; 8.4.26 Path C belongs "
                    "to CVE-2026-109619 and needs documented non-default changes; "
                    "8.5.11 single-worker cell is not a completed RCE; not counted."),
@@ -530,7 +533,8 @@ CVES: tuple[CveDef, ...] = (
         sapi_scope=_SESSION_SCOPE,
         sources=(
             "php2slop:README.md",
-            "php2slop:receipts/ where preserved (parent-session lab evidence)",
+            "php2slop:receipts/php-8.2.34/ and receipts/php-8.3.35/ (recovered-body lab chains)",
+            "php2slop:receipts/ where preserved (8.4.x parent-session lab evidence)",
             "external:phpshell/modphp_84_matrix_20261023T074116Z/report.md",
             "external:phpshell/build_coverage_20261023T074532Z/report.md",
             "external:phpshell/fpm_aslr_20261023T073345Z/report.md",
@@ -548,9 +552,11 @@ CVES: tuple[CveDef, ...] = (
                    "bare image ships no active INI; without the production INI "
                    "the chain is unreachable. 8.4.27 fixed. 8.5.0/5 leak-only; "
                    "8.5.11 A1+B1 leak only (no uid, no libphp pointer, no 8.4-style main-chunk "
-                   "bucket); 8.5.12 fixed. mod_php 8.2.34/8.3.35: session-recorded; "
-                   "public rerun did not reproduce B1/A2/B2; no target-written "
-                   "receipt. FPM: 8.4.26 Path C "
+                   "bucket); 8.5.12 fixed. mod_php 8.2.34/8.3.35: target-written "
+                   "lab chains from recovered 2026-10-24 A1/B1 bodies "
+                   "(receipts/php-8.2.34/, receipts/php-8.3.35/); 149-holder "
+                   "prefork pin with php.ini-production mounted; Apache 2.4.69; "
+                   "2/2 proof captures per build. FPM: 8.4.26 Path C "
                    "RCE only with the documented non-default changes; the "
                    "stale-session-id FPM chain is not claimed; 8.5.11 "
                    "single-worker cell is not a completed RCE; not counted."),
@@ -955,11 +961,13 @@ def _session_evidence(cve: CveDef, target: Target) -> tuple[str, str]:
                     "leak only; no libphp code pointers; "
                     "no controlled destructor/portable chain")
         if _is_any(v, "8.2.34", "8.3.35"):
-            return ("session-recorded-only",
-                    "earlier session-recorded chain on mod_php 8.2.34/8.3.35; "
-                    "the public rerun did not reproduce B1/A2/B2 and has no "
-                    "target-written receipt; 8.2.35/8.3.36 fixed controls are "
-                    "clean")
+            return ("measured-lab-chain",
+                    "target-written lab chain from the recovered 2026-10-24 "
+                    "A1/B1 bodies; 2/2 proof captures per build on mod_php "
+                    "8.2.34/8.3.35 (receipts/php-8.2.34/, "
+                    "receipts/php-8.3.35/); 149-holder prefork pin; "
+                    "php.ini-production mounted; 8.2.35/8.3.36 fixed "
+                    "controls are clean")
         if v.branch in ("8.0", "8.1", "8.2", "8.3"):
             return ("range-only",
                     "no per-build chain encoded for this exact 8.0-8.3 build; "

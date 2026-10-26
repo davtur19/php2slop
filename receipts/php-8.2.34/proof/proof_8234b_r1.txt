@@ -1,0 +1,14 @@
+-rw-r--r-- 1 www-data www-data 69 Oct 26 10:08 /tmp/p1
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+PWNED_8234b_r1
+---
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.17.0.19. Set the 'ServerName' directive globally to suppress this message
+[Mon Oct 26 10:07:53.600273 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.2.34 configured -- resuming normal operations
+[Mon Oct 26 10:07:53.600296 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Mon Oct 26 10:08:14.681128 2026] [mpm_prefork:error] [pid 1:tid 1] AH00161: server reached MaxRequestWorkers setting, consider raising the MaxRequestWorkers setting
+[Mon Oct 26 10:08:21.834670 2026] [php:error] [pid 195:tid 195] [client 172.17.0.1:53164] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 4096 bytes) in Unknown on line 0
+[Mon Oct 26 10:08:21.932672 2026] [php:warn] [pid 195:tid 195] [client 172.17.0.1:53172] PHP Warning:  PHP Request Startup: Session ID is too long or contains illegal characters. Only the A-Z, a-z, 0-9, &quot;-&quot;, and &quot;,&quot; characters are allowed in Unknown on line 0
+[Mon Oct 26 10:08:21.932692 2026] [php:warn] [pid 195:tid 195] [client 172.17.0.1:53172] PHP Warning:  PHP Request Startup: Failed to read session data: files (path: ) in Unknown on line 0
+[Mon Oct 26 10:08:21.932697 2026] [php:warn] [pid 195:tid 195] [client 172.17.0.1:53172] PHP Warning:  PHP Request Startup: Failed to write session data (files). Please verify that the current setting of session.save_path is correct () in Unknown on line 0
+[Mon Oct 26 10:08:22.033615 2026] [php:error] [pid 195:tid 195] [client 172.17.0.1:53184] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 20480 bytes) in Unknown on line 0
+[Mon Oct 26 10:08:22.689229 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 195 exit signal Segmentation fault (11)

