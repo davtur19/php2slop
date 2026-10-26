@@ -558,34 +558,6 @@ CVE-2024-4577 (Windows CGI BestFit) is patched. FreeBSD 13/14 has no default
 8.4.26 with prefork mod_php; the default 8.4.27/8.5.12 builds are fixed. Not
 supported, not proven.
 
-## Open items
-
-P0 and P1 only; P2 and P3 rows are in [`COVERAGE.md`](COVERAGE.md).
-
-| ID | Area | Cell | Note | Priority |
-|---|---|---|---|---|
-| G03 | Distro | Debian 13 `8.4.24-1~deb13u1` + FPM | mod_php tested; FPM not run | P1 |
-| G09 | Distro | FPM leak stage on Debian 11.11/13.7, Rocky 9.3, Amazon 2023.12, Fedora 44, Alma 9.8 | `post_max_size` gate; needs a smaller leak body or a declared larger limit | P1 |
-| G10 | Distro | PHP 7.4/8.0 leak negatives (Debian 11, Rocky 9.3) | 1020-part cap invalidates the old negatives | P0 |
-| G11 | Distro | Debian 11 `7.4.33` sub-cap priming tuning | a smaller body returned 200 with no OOM; no 7.4 geometry searched | P1 |
-| G14–G17 | Distro | Amazon Linux 2023.12 `php8.4-modphp 8.4.26`: onset, leak read spec, second/write stage, 109618 second band | first stage reached; no leak; no write stage | P1 |
-| G20 | Distro | Write stage on any distro package | needs a leak plus per-build offsets | P1 |
-| G35 | App | WordPress 7.1.3 installed with `mysqli`/DB | core file tested; the tree was not installed | P1 |
-| G36 | App | WordPress 7.1.3 nginx+FPM full chain | FPM exit 70 and default nginx caps | P1 |
-| G39 | App | Joomla 5.4.10 default DB sessions | file-session variant only | P1 |
-| G42 | App | Laravel 13 | none | P1 |
-| G43 | App | Symfony 8.1 | none | P1 |
-| G44 | App | Roundcube 1.7.4 | 1.7.5 tested negative; 1.7.4 not run | P0 |
-| G45 | App | Nextcloud 35 | 35.0.2 tested ❌; other versions untested | P1 |
-| G50 | SAPI/OS | OpenLiteSpeed 1.9.3 + lsphp `8.5.11` | no exact local build; expected 500/exit, not measured | P1 |
-| G51 | App | WordPress 7.1.3 + `php:8.4.26-apache`, full WordPress bootstrap | core file tested; bootstrap untested | P1 |
-
-8.2.34/8.3.35 are in the public receipt set; the earlier negative rerun evidence is preserved under each receipt and marked superseded.
-
-G25 is covered by the 8.1.34 mod_php result and is not an open item. The full
-ledger, including the P2/P3 open items, tested negatives, fixed and absent
-builds, and untested applications, is in [`COVERAGE.md`](COVERAGE.md).
-
 ## Reproduction
 
 ### Layout

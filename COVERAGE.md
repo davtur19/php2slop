@@ -1,5 +1,5 @@
-Full coverage ledger. `README.md` carries the summary and the P0/P1 open items;
-this file carries every coverage row, including tested negatives, fixed builds,
+Full coverage ledger. `README.md` carries the summary; this file carries every
+coverage row, including tested negatives, fixed builds,
 absent releases, not-applicable platforms and untested applications. All 50 rows
 keep their original ID, evidence note and priority. Each row is a cell with no
 qualifying RCE (—). Marks are those of `README.md`: ✅ RCE · ❌ tested negative ·
