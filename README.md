@@ -241,7 +241,9 @@ proof file, no RCE.
 Path C uses CVE-2026-109619 only (see How the chain works): the priming page
 calls `session_start()` after `RINIT`, and the next request on the same worker
 consumes the stale decoder context. It needs one worker or pool affinity, and
-every non-default change listed in the row is required.
+every non-default change listed in the row is required. No Path C artifact is
+preserved under `receipts/`: the rows below record lab results and are not
+receipt-backed.
 
 | Build / SAPI | Status | Required non-default changes | Result |
 |---|---|---|---|
@@ -587,10 +589,13 @@ Per-build receipt directories are `receipts/php-8.2.34/`,
 `receipts/php-8.4.10/` … `receipts/php-8.4.26/`; the WordPress 7.1.3 proof is
 stored at `receipts/wordpress-7.1.3-php-8.4.26/proofs/p1_conc_WP713`.
 
-Target-written receipts are shipped under `receipts/` for every ✅ mod_php build
-listed above. The 8.2.34/8.3.35 directories also retain the earlier negative
-rerun evidence, marked superseded. The repository ships the tool, its offset
-profiles, the documentation listed here and the preserved receipts.
+Receipts are shipped for 8.2.34, 8.3.35, 8.4.1–8.4.7 and 8.4.10–8.4.26. The
+7.4.33, 8.0.28/8.0.29/8.0.30 and 8.1.34 mod_php cells, the WordPress 8.0.28 cell
+and the Path C cells have no target-written receipt in `receipts/`; those results
+rest on the lab records and are not receipt-backed. The 8.2.34/8.3.35
+directories also retain the earlier negative rerun evidence, marked superseded.
+The repository ships the tool, its offset profiles, the documentation listed
+here and the preserved receipts.
 
 ### Requirements
 
@@ -680,13 +685,17 @@ The multipart framing and flood arms in the flood producer are taken from
 Copyright (c) 2026 WoYinDao. They provide the chunked framing and the 128M flood
 shapes.
 
-The two staged CVE-2026-109618/109619 producers are taken from
-`poc0_109618.py` and `poc1_109619.py` in the PHP-UP-2026 bundle by J4ck3LSyN
-(PoCs by Andrew Dorman / @acd421), <https://jackalsyn.com/posts/php-up-2026.html>,
-mirror `cereZ23/php-up-2026` commit `c63f145596dbe9cdd437d24ed2418f0c1e59bcc2`.
-They provide the staged priming, leak and write bodies. The bundle has no
-open-source license and is defensive-research/scoped-engagement only; AGPL-3.0
-does not relicense those two builders.
+The two staged upload-progress shape builders follow `poc0_109618.py` and
+`poc1_109619.py` from the PHP-UP-2026 bundle published by J4ck3LSyN, with
+research credit to Andrew Dorman (@acd421) and Arch&Yuki (@ArchKnight23),
+<https://jackalsyn.com/posts/php-up-2026.html>, mirror `cereZ23/php-up-2026`
+commit `c63f145596dbe9cdd437d24ed2418f0c1e59bcc2`. They provide the staged
+priming, leak and write bodies. The bundle's own validation rates its
+reproduced chains as memory-safety only, so it is a shape source rather than the
+advisory proof of concept, and the CVE-2026-109618/109619 advisories credit their
+own reporters. The bundle has no open-source license and is
+defensive-research/scoped-engagement only; AGPL-3.0 does not relicense those two
+builders.
 
 The two reconstructed shape modules were built from Zer061 / PHP-UP-2026 shape
 notes (repository removed; Wayback snapshot in `THIRD_PARTY_NOTICES.md`). They

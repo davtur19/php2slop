@@ -20,14 +20,15 @@ authors did not grant. It is informational, not legal advice.
 
 ## 2. PHP-UP-2026 — `poc0_109618.py` / `poc1_109619.py`
 
-- Bundle author: J4ck3LSyN; the PoCs are credited to Andrew Dorman
-  (@acd421).
+- Bundle author: J4ck3LSyN; research credit to Andrew Dorman (@acd421) and
+  Arch&Yuki (@ArchKnight23).
 - Published: <https://jackalsyn.com/posts/php-up-2026.html>
 - Mirror: <https://github.com/cereZ23/php-up-2026>, commit
   `c63f145596dbe9cdd437d24ed2418f0c1e59bcc2`
-- Files: `poc0_109618.py` (CVE-2026-109618) and `poc1_109619.py`
-  (CVE-2026-109619)
-- Useful for: the staged CVE-2026-109618 / CVE-2026-109619 producers.
+- Files: `poc0_109618.py` and `poc1_109619.py`, the bundle's own labels for
+  the two upload-progress bugs; its validation rates both reproduced chains as
+  memory-safety only, not the advisory RCE.
+- Useful for: the staged upload-progress producer shapes.
 - Terms: no open-source license. The bundle marks its material "Authorized
   defensive-research / scoped-engagement use only." That is a restricted
   permission statement, not an open-source license: it grants no redistribution

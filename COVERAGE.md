@@ -1,7 +1,8 @@
 Full coverage ledger. `README.md` carries the summary; this file carries every
-coverage row, including tested negatives, fixed builds,
-absent releases, not-applicable platforms and untested applications. All 50 rows
-keep their original ID, evidence note and priority. Each row is a cell with no
+coverage row, including tested negatives, disclosure primitives without
+execution, fixed builds, absent releases, not-applicable platforms and untested
+applications. The 50 existing rows keep their original ID, evidence note and
+priority; G52 and G53 are new. Each row is a cell with no
 qualifying RCE (—). Marks are those of `README.md`: ✅ RCE · ❌ tested negative ·
 🚫 patched · — no qualifying RCE.
 
@@ -44,6 +45,17 @@ G25 is covered by the 8.1.34 mod_php result; it is not an open item.
 | G07 | Distro | Ubuntu 22.04 `8.1.2` + FPM | base FPM: both priming shapes exit the worker, no leak; fixed in the later revision | P0 |
 | G08 | Distro | Rocky Linux 9.3 `8.0.30-8.el9_8.1` FPM only | tested ❌; no mod_php/`libphp`; priming and second stage 200; the leak body is rejected by the default `post_max_size`, so it is not a valid leak negative | P1 |
 | G38 | App | Drupal 11.4.11 default DB sessions | tested ❌ on 8.4.26 FPM; worker exit, no leak; Drupal 10.6 file-session rows are in Applications | P1 |
+
+## Disclosure primitives without execution
+
+| ID | Lane | Cell | Evidence / note | Priority |
+|---|---|---|---|---|
+| G52 | SAPI/OS | FPM `8.4.26` libphp PIE base disclosure | the forged-length `Set-Cookie` read returns `std_object_handlers` at file offset `0x15FF100` in a 168-byte disclosure, so the base is the disclosed value minus `0x15FF100`; the derived base matches the ELF header at that address and the `zif_system` prologue read back from the worker; one disclosure covers every child of the master; no write primitive, so no RCE | P2 |
+| G53 | SAPI/OS | FPM `8.4.26` Zend MM main-chunk disclosure | the qword at disclosure offset 56 is a free-slot `next` pointer inside the main chunk, so the chunk base is that qword minus `0x5A140`; 64 bytes suffice, the delta is constant across fresh workers and a container restart, and a warm worker carries the same base at offset 8 with delta `0x590F0`; the staged `htdata` at `+0x690D8` reads zero and a request-time spray places the fake `HashTable` at `+0x6D018`; no write, no RCE | P2 |
+
+Both rows were measured on the default `php.ini-production` with a read-only
+docroot. Each disclosure removes one ASLR input for FPM; neither supplies the
+write primitive the chain still needs.
 
 ## Absent, fixed or not applicable
 
