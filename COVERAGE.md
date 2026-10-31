@@ -31,7 +31,7 @@ G25 is covered by the 8.1.34 mod_php result; it is not an open item.
 | G26 | Build | 5.6.0 / 7.0.0 / 7.1.0 runtime | tips only | P3 |
 | G27 | SAPI/OS | nginx+mod_php `8.4.10` | mod_php warm chain | P2 |
 | G28 | SAPI/OS | nginx+mod_php `8.4.20` | mod_php warm chain | P2 |
-| G29 | SAPI/OS | nginx+mod_php `8.5.11` | mod_php leak only | P2 |
+| G29 | SAPI/OS | nginx+mod_php `8.5.11` | mod_php leak only; the Set-Cookie channel is closed with a file part (`send_cookie=0`); per-build offsets in `addresses/apache_libphp_8511.json` | P2 |
 | G30 | SAPI/OS | direct FastCGI full chain `8.4.26` / `8.5.11` | framing tests only | P3 |
 | G50 | SAPI/OS | OpenLiteSpeed 1.9.3 + lsphp `8.5.11` (LSAPI) | no exact local `lsphp` build or LSAPI-specific trigger; upstream `sapi/litespeed/lsapi_main.c` has the same early return at `php_request_startup()` failure, so the expected shape is 500/exit, not a shutdown crash; not measured; —, not ❌ | P1 |
 

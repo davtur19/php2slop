@@ -180,7 +180,7 @@ The mount is the only INI used for 8.0.29 and 8.0.30.
 | 8.5.0 | 8.5 | ❌ | leak only; no libphp code pointer |
 | 8.5.5 | 8.5 | ❌ | leak only |
 | 8.5.10 | 8.5 | ❌ | leak only; no `libphp`/`main` pointer; known offsets `zif_system 0x598d60`, `zval_ptr_dtor 0x7b3860`, `ps_globals 0x1770a40`; no code execution |
-| 8.5.11 | 8.5 | ❌ | leak only; no `uid`, free-slot qwords, no libphp pointer, no 8.4-style main-chunk bucket; A2/B2 not reached |
+| 8.5.11 | 8.5 | ❌ | leak only; no `uid` and no target-written proof; the Set-Cookie channel is closed with a file part (`send_cookie=0`, no `libphp`/`main` pointer reaches the wire); known offsets `zif_system 0x5996e0`, `zval_ptr_dtor 0x7b47a0`, `std_object_handlers 0x169cf60`, `zend_standard_class_def 0x178e9b0`, `php_session_initialize 0x5469d0`; A2/B2 not reached |
 | 8.5.12 | 8.5 | 🚫 | fixed in source; runtime control returns 200 with a normal cookie |
 
 `(ini)` sets `output_buffering=4096`, `display_errors=Off`, `log_errors=On`,
@@ -582,7 +582,9 @@ supported, not proven.
 
 `addresses/g2_fpm_*.json` are runtime inputs for `--step g2` and
 `addresses/apache_libphp.json` for `--step leak`; without them those steps cannot
-resolve a build.
+resolve a build. `addresses/apache_libphp_8511.json` records the measured
+8.5.11 mod_php offsets and pad geometry as reference data; the leak step still
+resolves `addresses/apache_libphp.json`.
 
 Per-build receipt directories are `receipts/php-8.2.34/`,
 `receipts/php-8.3.35/`, `receipts/php-8.4.1/` … `receipts/php-8.4.7/` and
